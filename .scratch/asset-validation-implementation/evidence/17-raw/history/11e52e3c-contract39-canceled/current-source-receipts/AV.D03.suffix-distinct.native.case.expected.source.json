@@ -1,0 +1,50 @@
+{
+  "id": "AV.D03.suffix-distinct.native.case.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:09:57.466Z",
+  "completedAt": "2026-11-02T10:09:57.924Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=commonEvent({id:10,name:\"Diagnostics\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"Poster\",0,0,0,0,100,100,255,0]})]});",
+      "project": {}
+    },
+    {
+      "assetCheckExceptions": [
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "Poster.png",
+          "reason": "Exact saved value only"
+        }
+      ]
+    },
+    {
+      "exactNonmatchingKey": {
+        "category": "image",
+        "folder": "pictures",
+        "name": "Poster.png"
+      },
+      "actualApi": {
+        "failure": "Error: compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-exact-suffix-distinct-xHGgOH\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-exact-suffix-distinct-xHGgOH\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-exact-suffix-distinct-xHGgOH\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.",
+        "output": "compile --check asset check warning:\nwarning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[0] image/pictures \"Poster.png\" downgraded no error; reason: Exact saved value only\nError: compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-exact-suffix-distinct-xHGgOH\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-exact-suffix-distinct-xHGgOH\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-exact-suffix-distinct-xHGgOH\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete."
+      }
+    }
+  ],
+  "expected": {
+    "description": "exact exception keys preserve category folder case spaces suffix and encoding without broadening matching",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-exact-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root);\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures\"), { recursive: true });\n\t\tawait configuration(root, [{\n\t\t\t...changed,\n\t\t\treason: \"Exact saved value only\"\n\t\t}]);\n\t\tconst before = await state(root);\n\t\tconst result = await check(root);\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toContain(\"error MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toContain(\"base: error; effective: error\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"warning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[0]\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).not.toContain(\"exception reason:\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tif (branch === \"exact-namespace\") {\n\t\t\tawait configuration(root, [{\n\t\t\t\t...exception,\n\t\t\t\tfolder: \"faces\"\n\t\t\t}]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await check(root)).failure).toContain(\"error MV-ASSET-MISSING-FILE\");\n\t\t};\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\texactNonmatchingKey: changed,\n\t\t\tactualApi: result\n\t\t});\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

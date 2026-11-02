@@ -1,0 +1,178 @@
+{
+  "id": "AV.C06.none-indirect.formal.B12-return-title-title-bgm.expected",
+  "ownerTicket": "09",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:15:04.832Z",
+  "completedAt": "2026-11-02T10:15:07.106Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {mapEvent,commonEvent,troopEvent,gameOver,returnToTitleScreen,battleProcessing,troopRef,variableRef,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"System\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[returnToTitleScreen()]}]});",
+      "projectOverrides": {
+        "System.json": {
+          "gameTitle": "Synthetic evidence context",
+          "switches": [
+            "",
+            "Saved switch"
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          },
+          "gameoverMe": {
+            "name": "GameOver",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "title1Name": "TitleOne",
+          "title2Name": "TitleTwo",
+          "titleBgm": {
+            "name": "",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "battleBgm": {
+            "name": "BattleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "victoryMe": {
+            "name": "Victory",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "defeatMe": {
+            "name": "Defeat",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "sounds": [
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "BattleStart",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            }
+          ],
+          "optSideView": false,
+          "hasEncryptedImages": false,
+          "hasEncryptedAudio": false
+        },
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "System"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "specifyBattleback": true,
+          "battleback1Name": "BackOne",
+          "battleback2Name": "BackTwo",
+          "events": [],
+          "custom": {
+            "retain": [
+              null,
+              17
+            ]
+          }
+        },
+        "Troops.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Selected troop",
+            "members": [],
+            "pages": []
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-none-indirect-title-bgm-Q8iv1a\\最小 Workspace with spaces\\Game\\img\\titles1\\TitleOne.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-none-indirect-title-bgm-Q8iv1a\\最小 Workspace with spaces\\Game\\img\\titles2\\TitleTwo.png"
+    }
+  ],
+  "expected": {
+    "description": "legal None, necessary-field failures and missing files remain distinct with independent siblings and saved controls preserved",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-system-workspace.test.ts",
+    "sha256": "0a6e12bc45987f79a2f8cb6a7ade8fce917e434156c26bea01c94a640972d7d4",
+    "assertions": "async () => {\n\t\t\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-system-${branch}-${field.token}`, async (sandbox) => {\n\t\t\t\tconst root = sandbox.workspaceRoot, empty = branch === \"none-indirect\" || branch === \"field-empty\", invalid = branch === \"field-missing\" || branch === \"field-wrong-type\";\n\t\t\t\tconst input = changed(field, empty ? \"\" : branch === \"field-wrong-type\" ? 17 : field.name, branch === \"field-missing\");\n\t\t\t\tawait prepare(root, source(commandFor(field)), input.system, { \"Map001.json\": input.map });\n\t\t\t\tfor (const item of fieldsFor(field)) if (item !== field || !empty && branch !== \"file-missing\") await media(root, item);\n\t\t\t\t// Ensure a missing file is distinguished from an absent category directory.\n\t\t\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game\", field.category === \"image\" ? \"img\" : \"audio\", field.folder), { recursive: true });\n\t\t\t\tconst before = await state(root), blocking = invalid || branch === \"file-missing\" && field.candidate === undefined;\n\t\t\t\tfor (const check of [true, false]) {\n\t\t\t\t\tconst actual = await capture(root, check);\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure === \"\").toBe(!blocking);\n\t\t\t\t\tif (invalid) {\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure).toContain(\"error MV-ASSET-INVALID-DATA\");\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure).toContain(dataPath(field));\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure).not.toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t\t};\n\t\t\t\t\tif (branch === \"file-missing\") {\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure + actual.diagnostics).toContain(`${blocking ? \"error\" : \"warning\"} MV-ASSET-MISSING-FILE`);\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure + actual.diagnostics).toContain(dataPath(field));\n\t\t\t\t\t};\n\t\t\t\t\tif (check || blocking) (0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t};\n\t\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode === 0).toBe(!blocking);\n\t\t\t\tif (invalid) (0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"error MV-ASSET-INVALID-DATA\");\n\t\t\t\tconst uses = expected(fieldsFor(field)).filter((use) => !((empty || invalid) && use.name === field.name));\n\t\t\t\tconst relations = collected(field, input);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(relations.uses).toEqual(uses);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(relations.stops).toEqual([]);\n\t\t\t\tif (invalid) {\n\t\t\t\t\tconst failed = expected([field])[0];\n\t\t\t\t\tconst { category: _category, folder: _folder, name: _name, ...origin } = failed;\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(relations.problems).toEqual([{\n\t\t\t\t\t\t...origin,\n\t\t\t\t\t\tdataPath: dataPath(field),\n\t\t\t\t\t\treason: \"Necessary asset name must be a string; this relationship is unchecked.\"\n\t\t\t\t\t}]);\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t} else {\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(relations.problems).toEqual([]);\n\t\t\t\t\tif (!blocking) {\n\t\t\t\t\t\tconst actual = await observed(root);\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.relations).toEqual({\n\t\t\t\t\t\t\tuses,\n\t\t\t\t\t\t\tproblems: [],\n\t\t\t\t\t\t\tstops: []\n\t\t\t\t\t\t});\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(actual.external.get(\"System.json\"))).toMatchObject(input.system);\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(actual.external.get(\"Map001.json\"))).toEqual(input.map);\n\t\t\t\t\t}\n\t\t\t\t};\n\t\t\t\tconst after = await state(root);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(after.project).toEqual(before.project);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(after.snapshot).toEqual(before.snapshot);\n\t\t\t});\n\t\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

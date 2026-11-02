@@ -1,0 +1,91 @@
+{
+  "id": "AV.C08.tile-with-character.formal.case.expected",
+  "ownerTicket": "04,07",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:21:49.795Z",
+  "completedAt": "2026-11-02T10:21:51.698Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,showText,imageAsset,audioAsset,rawDslCommand,changeBattleBack,changeParallax,changeActorImages,changeVehicleImage,actorRef,setMovementRoute,scriptInput} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Images\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[],image:{character:imageAsset({folder:\"characters\",name:\"Saved\"}),characterIndex:7,tileId:1}}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Images"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles",
+            "tilesetNames": [
+              "",
+              "",
+              "",
+              "",
+              "",
+              "BaseB",
+              "",
+              "",
+              ""
+            ]
+          }
+        ],
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor"
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "Game/img/tilesets/BaseB.png"
+    },
+    {
+      "cliResult": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tile-character-KMI0nt\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T10:21:49.883Z",
+        "completedAt": "2026-11-02T10:21:51.152Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check warning:\nwarning MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tile-character-KMI0nt\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tile-character-KMI0nt\\最小 Workspace with spaces\\Game\\img\\characters\\Saved.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tile-character-KMI0nt\\最小 Workspace with spaces\\Game\\img\\characters\\Saved.png\n  image/characters \"Saved\"; 1 use(s)\n  - warning map:1/event:1 Map001.json.events[1].pages[0].image.characterName; inactive: Map Event Page uses a tile image; the saved characterName is inactive.; DSL: pages[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-tile-character-KMI0nt/最小 Workspace with spaces/src/assets.events.ts (line 2, column 72); base: warning; effective: warning\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.\n"
+      }
+    }
+  ],
+  "expected": {
+    "description": "tile page retains its inactive saved character name and independently selects its initial B-sheet candidate",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-image-workspace.test.ts",
+    "sha256": "da8b9e1d60d42f4bcf94a25b55e25aa210aa3e915f5dc22b81763b53b7a0fd21",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-tile-character\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, source(\"\", `,image:{character:${image(\"characters\", \"Saved\")},characterIndex:7,tileId:1}`), { \"Tilesets.json\": [null, {\n\t\t\tid: 1,\n\t\t\tname: \"Tiles\",\n\t\t\ttilesetNames: [\n\t\t\t\t\"\",\n\t\t\t\t\"\",\n\t\t\t\t\"\",\n\t\t\t\t\"\",\n\t\t\t\t\"\",\n\t\t\t\t\"BaseB\",\n\t\t\t\t\"\",\n\t\t\t\t\"\",\n\t\t\t\t\"\"\n\t\t\t]\n\t\t}] });\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/img/characters\"), { recursive: true });\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/img/tilesets\"), { recursive: true });\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/tilesets/BaseB.png\"), \"\");\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ ordinaryZeroByteFile: \"Game/img/tilesets/BaseB.png\" });\n\t\tconst before = await state(root);\n\t\tconst result = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ cliResult: result });\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"warning MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"saved characterName is inactive\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await uses(root)).toEqual([{\n\t\t\tcategory: \"image\",\n\t\t\tfolder: \"characters\",\n\t\t\tname: \"Saved\",\n\t\t\tidentity: \"map:1/event:1\",\n\t\t\tnativePath: \"Map001.json.events[1].pages[0].image.characterName\",\n\t\t\trelatedNativePaths: [],\n\t\t\tdependencyChain: [],\n\t\t\tconditions: [],\n\t\t\tinactive: \"Map Event Page uses a tile image; the saved characterName is inactive.\"\n\t\t}]);\n\t\tconst paths = (0,__vite_ssr_import_6__.getWorkspaceStatePaths)(root);\n\t\tconst current = new Map(), captured = new Map();\n\t\tfor (const file of await (0,__vite_ssr_import_0__.readdir)(paths.generatedProjectDataDirectory)) if (file.endsWith(\".json\")) current.set(file, await (0,__vite_ssr_import_0__.readFile)((0,__vite_ssr_import_1__.join)(paths.generatedProjectDataDirectory, file), \"utf8\"));\n\t\tfor (const file of await (0,__vite_ssr_import_0__.readdir)(paths.projectDataSnapshotDirectory)) if (file.endsWith(\".json\")) captured.set(file, await (0,__vite_ssr_import_0__.readFile)((0,__vite_ssr_import_1__.join)(paths.projectDataSnapshotDirectory, file), \"utf8\"));\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectMapAssetRelations)(current, captured)).toEqual({\n\t\t\tuses: [{\n\t\t\t\tcategory: \"image\",\n\t\t\t\tfolder: \"tilesets\",\n\t\t\t\tname: \"BaseB\",\n\t\t\t\tidentity: \"map:1/event:1\",\n\t\t\t\tnativePath: \"Map001.json.events[1].pages[0].image.tileId\",\n\t\t\t\trelatedNativePaths: [],\n\t\t\t\tdependencyChain: [{\n\t\t\t\t\tdata: \"Map001.json\",\n\t\t\t\t\tfield: \"tilesetId\",\n\t\t\t\t\trelationship: \"Map Event Page initial host Tileset\"\n\t\t\t\t}, {\n\t\t\t\t\tdata: \"Tilesets.json\",\n\t\t\t\t\tid: 1,\n\t\t\t\t\tfield: \"tilesetNames[5]\",\n\t\t\t\t\trelationship: \"Map Event Page tile image sheet\"\n\t\t\t\t}],\n\t\t\t\tconditions: [\"Page tile bitmap is selected from the host Map's initial Tileset; map rendering may separately request every sheet.\"],\n\t\t\t\tcandidate: \"Map Event Page uses the host Map's initial Tileset; runtime tileset changes may override it.\"\n\t\t\t}],\n\t\t\tproblems: [],\n\t\t\tstops: []\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)([...await uses(root), ...(0,__vite_ssr_import_8__.collectMapAssetRelations)(current, captured).uses]).toHaveLength(2);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}
