@@ -16,8 +16,9 @@ const {
   compileWorkspace,
 }: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 const it = createAssetTest({ ownerTicket: "04", testSource: import.meta.url });
+const routeIt = createAssetTest({ ownerTicket: "04,05", testSource: import.meta.url });
 const imports =
-  'import {mapEvent,showText,imageAsset,rawDslCommand,changeBattleBack,changeParallax,changeActorImages,changeVehicleImage,actorRef,setMovementRoute,scriptInput} from "rpgmaker-event-dsl";\n';
+  'import {mapEvent,showText,imageAsset,audioAsset,rawDslCommand,changeBattleBack,changeParallax,changeActorImages,changeVehicleImage,actorRef,setMovementRoute,scriptInput} from "rpgmaker-event-dsl";\n';
 const source = (command: string, pageFields = "") =>
   `${imports}export const event=mapEvent({mapId:1,id:1,name:"Images",x:0,y:0,pages:[{conditions:{},trigger:"action",commands:[${command}]${pageFields}}]});`;
 async function prepare(root: string, authored: string, overrides: Record<string, unknown> = {}) {
@@ -532,37 +533,78 @@ for (const branch of ["route-mirror", "independent-command", "repeated-command"]
   });
 
 for (const type of ["fixed", "random", "approach"] as const)
-  it(`AV.C08.route-${type}.formal.case.expected: inactive saved route reports a warning through the actual CLI`, async () => {
-    await withWindowsSandbox(`asset-warning-${type}`, async (sandbox) => {
-      const root = sandbox.workspaceRoot;
-      await prepare(
-        root,
-        source(
-          "",
-          `,movement:{type:"${type}",route:{commands:[{kind:"changeImage",character:${image("characters", "Route")},characterIndex:7}]}}`,
-        ),
-      );
-      await mkdir(join(root, "Game/img/characters"), { recursive: true });
-      const before = await state(root);
-      const result = await runCli(sandbox, ["compile", "--check"]);
-      recordAssetInput({ cliResult: result });
-      expect(result.exitCode).toBe(0);
-      expect(result.stderr).toContain("asset check warning");
-      expect(result.stderr).toContain("warning MV-ASSET-MISSING-FILE");
-      expect(result.stderr).toContain(
-        `Autonomous Movement is ${type}; the saved route is inactive.`,
-      );
-      expect(result.stderr).toContain(autonomousUse.nativePath);
-      expect(await state(root)).toEqual(before);
-      await compileWorkspace({ workspaceRoot: root, check: false });
-      expect(await uses(root)).toEqual([
-        {
-          ...autonomousUse,
-          inactive: `Autonomous Movement is ${type}; the saved route is inactive.`,
-        },
-      ]);
-    });
-  });
+  routeIt(
+    `AV.C08.route-${type}.formal.case.expected: inactive saved image and SE routes report warnings through the actual CLI`,
+    async () => {
+      await withWindowsSandbox(`asset-warning-${type}`, async (sandbox) => {
+        const root = sandbox.workspaceRoot;
+        await prepare(
+          root,
+          source(
+            "",
+            `,movement:{type:"${type}",route:{commands:[{kind:"changeImage",character:${image("characters", "Route")},characterIndex:7}]}}`,
+          ),
+        );
+        await mkdir(join(root, "Game/img/characters"), { recursive: true });
+        const before = await state(root);
+        const result = await runCli(sandbox, ["compile", "--check"]);
+        recordAssetInput({ cliResult: result });
+        expect(result.exitCode).toBe(0);
+        expect(result.stderr).toContain("asset check warning");
+        expect(result.stderr).toContain("warning MV-ASSET-MISSING-FILE");
+        expect(result.stderr).toContain(
+          `Autonomous Movement is ${type}; the saved route is inactive.`,
+        );
+        expect(result.stderr).toContain(autonomousUse.nativePath);
+        expect(await state(root)).toEqual(before);
+        await compileWorkspace({ workspaceRoot: root, check: false });
+        expect(await uses(root)).toEqual([
+          {
+            ...autonomousUse,
+            inactive: `Autonomous Movement is ${type}; the saved route is inactive.`,
+          },
+        ]);
+      });
+      await withWindowsSandbox(`asset-warning-se-${type}`, async (sandbox) => {
+        const root = sandbox.workspaceRoot;
+        await prepare(
+          root,
+          source(
+            "",
+            `,movement:{type:"${type}",route:{commands:[{kind:"playSe",audio:{asset:audioAsset({folder:"se",name:"RouteSE"}),volume:17,pitch:73,pan:-41}}]}}`,
+          ),
+        );
+        await mkdir(join(root, "Game/audio/se"), { recursive: true });
+        const before = await state(root);
+        const result = await runCli(sandbox, ["compile", "--check"]);
+        recordAssetInput({ cliResult: result });
+        expect(result.exitCode).toBe(0);
+        expect(result.stderr).toContain("asset check warning");
+        expect(result.stderr).toContain("warning MV-ASSET-MISSING-FILE");
+        expect(result.stderr).toContain(
+          `Autonomous Movement is ${type}; the saved route is inactive.`,
+        );
+        expect(result.stderr).toContain(
+          "Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0].name",
+        );
+        expect(await state(root)).toEqual(before);
+        await compileWorkspace({ workspaceRoot: root, check: false });
+        expect(await uses(root)).toEqual([
+          {
+            category: "audio",
+            folder: "se",
+            name: "RouteSE",
+            identity: "map:1/event:1",
+            nativePath: "Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0].name",
+            relatedNativePaths: [],
+            dependencyChain: [],
+            conditions: [],
+            inactive: `Autonomous Movement is ${type}; the saved route is inactive.`,
+          },
+        ]);
+      });
+    },
+  );
 
 it("AV.C08.shared-active-inactive.formal.image.expected: the strongest level blocks a shared target while each origin retains its own level", async () => {
   await withWindowsSandbox("asset-shared-level", async (sandbox) => {

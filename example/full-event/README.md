@@ -55,8 +55,12 @@ Set Movement Route script subcommand. Keep `scriptEnabled` disabled in workspace
 should reject JavaScript-bearing event commands during compilation.
 
 The example also uses Asset References such as `audioAsset(...)`, `imageAsset(...)`, and
-`movieAsset(...)`. These are opaque filename-stem references; they do not scan or validate
-asset files on disk.
+`movieAsset(...)`. Their helpers preserve the exact filename stem. Compile and Check
+validate the current event's supported native file relationships under your Project Root.
+For the direct media examples, supply ordinary `audio/bgm/Battle1.ogg`,
+`audio/bgm/Theme6.ogg`, `audio/se/Cursor2.ogg` and `movies/Intro.webm` files with exact
+names and case. M4A, MP4 and encrypted suffixes do not replace these editing files.
+None needs no file; its independently saved numeric controls remain unchanged.
 
 The example is a private pnpm package that installs `rpgmaker-event-dsl` from npm. Run
 `pnpm install` in this directory after copying the example or changing package metadata.

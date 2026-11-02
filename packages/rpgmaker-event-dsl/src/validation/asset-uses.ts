@@ -1,5 +1,5 @@
 import type { RawEventCommand } from "../compiler/types.js";
-import type { AssetReference, ImageAssetFolder } from "../domain/references.js";
+import type { AssetReference, AudioAssetFolder, ImageAssetFolder } from "../domain/references.js";
 import type { NativeMovementRoute } from "../commands/movement/types.js";
 
 export type AssetTarget = Omit<AssetReference, "kind">;
@@ -64,6 +64,17 @@ export function nativeAssetEvents(files: ReadonlyMap<string, string>): NativeAss
   return roots.sort((left, right) => left.identity.localeCompare(right.identity));
 }
 
+const directAudioFields: Partial<Record<number, readonly [number, AudioAssetFolder]>> = {
+  "132": [0, "bgm"],
+  "133": [0, "me"],
+  "139": [0, "me"],
+  "140": [1, "bgm"],
+  "241": [0, "bgm"],
+  "245": [0, "bgs"],
+  "249": [0, "me"],
+  "250": [0, "se"],
+};
+
 export function collectEventAssetUses(files: ReadonlyMap<string, string>): EventAssetUse[] {
   const uses: EventAssetUse[] = [];
   for (const event of nativeAssetEvents(files))
@@ -89,6 +100,26 @@ export function collectEventAssetUses(files: ReadonlyMap<string, string>): Event
           });
         const route = page.saved.moveRoute as NativeMovementRoute;
         for (const [index, record] of route.list.entries())
+          if (record.code === 44) {
+            const audio = record.parameters![0] as { name: string };
+            if (audio.name !== "")
+              uses.push({
+                category: "audio",
+                folder: "se",
+                name: audio.name,
+                identity: event.identity,
+                nativePath: `${page.nativePath}.moveRoute.list[${index}].parameters[0].name`,
+                relatedNativePaths: [],
+                dependencyChain: [],
+                conditions: [],
+                ...(page.saved.moveType === 3
+                  ? {}
+                  : {
+                      inactive: `Autonomous Movement is ${["fixed", "random", "approach"][page.saved.moveType as number]}; the saved route is inactive.`,
+                    }),
+              });
+          }
+        for (const [index, record] of route.list.entries())
           if (record.code === 41 && record.parameters![0] !== "")
             uses.push({
               category: "image",
@@ -107,8 +138,52 @@ export function collectEventAssetUses(files: ReadonlyMap<string, string>): Event
             });
       }
       for (const [index, command] of page.list.entries()) {
+        if (command.code === 261 && command.parameters[0] !== "")
+          uses.push({
+            category: "movie",
+            folder: "movies",
+            name: command.parameters[0] as string,
+            identity: event.identity,
+            nativePath: `${page.nativePath}.list[${index}].parameters[0]`,
+            relatedNativePaths: [],
+            dependencyChain: [],
+            conditions: [],
+          });
+        const audioField = directAudioFields[command.code];
+        if (audioField !== undefined) {
+          const [field, folder] = audioField;
+          const audio = command.parameters[field] as { name: string };
+          if (audio.name !== "")
+            uses.push({
+              category: "audio",
+              folder,
+              name: audio.name,
+              identity: event.identity,
+              nativePath: `${page.nativePath}.list[${index}].parameters[${field}].name`,
+              relatedNativePaths: [],
+              dependencyChain: [],
+              conditions: [],
+            });
+        }
         if (command.code === 205) {
           const route = command.parameters[1] as NativeMovementRoute;
+          for (const [routeIndex, record] of route.list.entries())
+            if (record.code === 44) {
+              const audio = record.parameters![0] as { name: string };
+              if (audio.name !== "")
+                uses.push({
+                  category: "audio",
+                  folder: "se",
+                  name: audio.name,
+                  identity: event.identity,
+                  nativePath: `${page.nativePath}.list[${index}].parameters[1].list[${routeIndex}].parameters[0].name`,
+                  relatedNativePaths: [
+                    `${page.nativePath}.list[${index + 1 + routeIndex}].parameters[0].parameters[0].name`,
+                  ],
+                  dependencyChain: [],
+                  conditions: [],
+                });
+            }
           for (const [routeIndex, record] of route.list.entries())
             if (record.code === 41 && record.parameters![0] !== "")
               uses.push({

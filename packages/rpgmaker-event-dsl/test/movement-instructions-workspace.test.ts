@@ -126,6 +126,9 @@ async function prepare(workspaceRoot: string, pages: unknown[]) {
   await mkdir(join(workspaceRoot, "Game/img/characters"), { recursive: true });
   for (const name of ["Actor1", "People1", "!$Huge"])
     await writeFile(join(workspaceRoot, "Game/img/characters", `${name}.png`), "");
+  await mkdir(join(workspaceRoot, "Game/audio/se"), { recursive: true });
+  for (const name of ["Bell1", "Cursor1"])
+    await writeFile(join(workspaceRoot, "Game/audio/se", `${name}.ogg`), "");
   const carrier = {
     width: 17,
     height: 13,

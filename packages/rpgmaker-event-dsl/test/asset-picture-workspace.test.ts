@@ -14,6 +14,7 @@ const {
   compileWorkspace,
 }: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 const it = createAssetTest({ ownerTicket: "02", testSource: import.meta.url });
+const rawIt = createAssetTest({ ownerTicket: "02,05", testSource: import.meta.url });
 
 const picture =
   'showPicture({pictureId:1,image:imageAsset({folder:"pictures",name:"Poster"}),origin:"upperLeft",position:{kind:"direct",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:"normal"})';
@@ -282,16 +283,66 @@ it("AV.F01.image.filesystem.case.expected: an exact empty PNG is enough for the 
   });
 });
 
-it("AV.C11.recognized-raw.raw.case.expected: raw picture records cannot bypass the file policy", async () => {
-  await withWindowsSandbox("asset-recognized-raw", async ({ workspaceRoot: root }) => {
-    await prepare(root, { source: commonSource(rawPicture) });
-    const before = await state(root);
-    await expect(compileWorkspace({ workspaceRoot: root, check: true })).rejects.toThrow(
-      "MV-ASSET-MISSING-DIRECTORY",
-    );
-    expect(await state(root)).toEqual(before);
-  });
-});
+rawIt(
+  "AV.C11.recognized-raw.raw.case.expected: raw picture and route SE records cannot bypass the file policy",
+  async () => {
+    await withWindowsSandbox("asset-recognized-raw", async ({ workspaceRoot: root }) => {
+      await prepare(root, { source: commonSource(rawPicture) });
+      const before = await state(root);
+      await expect(compileWorkspace({ workspaceRoot: root, check: true })).rejects.toThrow(
+        "MV-ASSET-MISSING-DIRECTORY",
+      );
+      expect(await state(root)).toEqual(before);
+    });
+    await withWindowsSandbox("asset-recognized-route-se", async ({ workspaceRoot: root }) => {
+      const record = {
+        code: 44,
+        parameters: [{ name: "RawRouteSE", volume: 17, pitch: 73, pan: -41 }],
+      };
+      const route = { list: [record, { code: 0 }], repeat: false, skippable: false, wait: false };
+      const command = [
+        { code: 205, parameters: [-1, route] },
+        { code: 505, parameters: [record] },
+      ]
+        .map((value) => `rawDslCommand(${JSON.stringify(value)})`)
+        .join(",");
+      await prepare(root, { source: commonSource(command) });
+      await mkdir(join(root, "Game/audio/se"), { recursive: true });
+      const before = await state(root);
+      for (const check of [true, false]) {
+        const failure = await compileWorkspace({ workspaceRoot: root, check }).then(
+          () => "",
+          String,
+        );
+        expect(failure).toContain("MV-ASSET-MISSING-FILE");
+        expect(failure).toContain(
+          "CommonEvents.json[10].list[0].parameters[1].list[0].parameters[0].name",
+        );
+        expect(failure).toContain("CommonEvents.json[10].list[1].parameters[0].parameters[0].name");
+        expect(failure).toContain("1 use(s)");
+        expect(await state(root)).toEqual(before);
+      }
+      await writeFile(join(root, "Game/audio/se/RawRouteSE.ogg"), "");
+      recordAssetInput({
+        ordinaryZeroByteFile: "Game/audio/se/RawRouteSE.ogg",
+        timing: "repair after Check and Compile rejection",
+      });
+      await compileWorkspace({ workspaceRoot: root, check: false });
+      expect(await publishedUses(root)).toEqual([
+        {
+          category: "audio",
+          folder: "se",
+          name: "RawRouteSE",
+          identity: "commonEvent:10",
+          nativePath: "CommonEvents.json[10].list[0].parameters[1].list[0].parameters[0].name",
+          relatedNativePaths: ["CommonEvents.json[10].list[1].parameters[0].parameters[0].name"],
+          dependencyChain: [],
+          conditions: [],
+        },
+      ]);
+    });
+  },
+);
 
 it("AV.A07.cli.native.p1.expected: actual CLI exposes error origins and accepts a repaired exact file", async () => {
   await withWindowsSandbox("asset-cli", async (sandbox) => {

@@ -71,7 +71,18 @@ round trip. Use `null` for None; a named Audio Asset Reference requires a nonemp
 exact filename stem and the matching folder. BGM playback, battle BGM and vehicle
 BGM use `bgm`; BGS uses `bgs`; ME playback, victory ME and defeat ME use `me`; SE
 uses `se`. Vehicle BGM requires boat, ship or airship. Values are explicit and do
-not inherit current project audio settings or require an asset file scan.
+not inherit current project audio settings.
+
+Compile and `compile --check` require each current named audio file at its exact
+`audio/<folder>/<saved name>.ogg` path under Project Root. M4A and encrypted editing
+suffixes cannot substitute for OGG. Literal `%` and `#` remain part of audio names.
+Formal and recognized raw commands use the same rules; a route 44 and its 505
+mirror are one logical use with both native positions. Saved SE in a fixed, random
+or approach Autonomous Movement route remains checked with its inactive warning
+policy. Only used audio makes `System.json.hasEncryptedAudio` relevant; true means
+ordinary editing files cannot be checked, and a present non-Boolean value is invalid.
+None omits the file lookup while retaining its independent controls. Checks observe
+file metadata without decoding audio or modifying the media tree.
 
 BGM/BGS None stops its stream in MV. ME None first stops ME and may restore BGM.
 SE None leaves existing SE playing; use `stopSe()` to stop them. None retains the
@@ -911,8 +922,12 @@ context remains unknown until it is called.
 
 Movie requires a movies Asset Reference or explicit `null`. None emits the
 empty native filename and continues without a video wait. `movieAsset` takes
-only a nonempty filename stem, such as `"Ending"`; asset files are not scanned,
-and a valid reference does not guarantee a playable file or codec.
+only a nonempty filename stem, such as `"Ending"`. Compile and `compile --check`
+require the exact `movies/<saved name>.webm` ordinary file under Project Root;
+MP4 cannot substitute. Movie names containing `%` or `#` are unsupported and
+remain unchecked with an error for ordinary uses. Image and audio encryption
+flags do not apply to movies. Existence checking does not guarantee a playable
+file or codec.
 
 ## Picture commands
 
