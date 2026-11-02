@@ -2,73 +2,73 @@
 
 Status: ready-for-agent
 Blocked by: 04
-Created: 2026-10-24
+Created: 2026-11-02
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
-Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments)
+Approval: [拆分及重新编号记录](../ticket-breakdown-draft.md#comments)
+History: [旧 05](../history/2026-10-24/issues/05-direct-audio-and-movie-uses.md)
 
-**What to build:** BGM、BGS、ME、SE、载具／战斗音频设置、路线 SE 及影片都能在 Compile／Check 中得到准确结果。
+**What to build:** 四类音频、保存音频设置、路线 SE 及影片在 Compile／Check 中使用正确目录和固定扩展名。
 
 ## Acceptance criteria
 
-- [ ] 补齐 A03–A06／A08–A12／A18，路线复用已完成的两个容器和镜像语义；保留音量等独立保存值和合法 None。
-- [ ] OGG／WebM 扩展固定，M4A／MP4 或加密后缀不能替代；音频允许字面量百分号／井号，影片两者属于不支持名称且不查询。
-- [ ] 只解释有使用类别对应的加密标志；缺失／false、true、错误类型和影片不受影响分别验证。补齐直接媒体命名空间的 API／CLI 场景。
+- [ ] 覆盖 A03–A06、A08–A12、A18，复用两种路线容器和镜像语义；保留音量等独立参数、None 和明确非活动条件。
+- [ ] OGG／WebM 不能由 M4A／MP4 或加密后缀替代；音频字面量百分号／井号可查，影片对应名称不支持且不查询。
+- [ ] 仅解释存在相应使用类别的加密标志，缺失／false、true、错误类型及影片不受影响分别验证。
+- [ ] 逐字段正常与缺失、准确类别匹配及正式／raw 一致性通过实际 Workspace 和 CLI 验证。
 
-### 共通要求（限本票适用范围）
+### 共通要求（限本票范围）
 
-- [ ] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
-- [ ] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
-- [ ] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
-- [ ] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
-- [ ] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
+- [ ] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
+- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
+- [ ] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
+- [ ] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
+- [ ] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
 
 ## Acceptance ownership
 
-下表仅分配验收责任；规范预期、有限分支、表示及完整 `AV.<族>.<分支>.<表示>.<字段>.<结果>` 标识仍以原索引为准。A／B 字段关联的 C06／C07 同票落实，共享族只承担本票列出的部分。
+下表只分配本票保留分支；准确预期、表示、字段及完整用例 ID 以[现行索引](../../asset-validation/implementation-acceptance-cases.md)为准。不得重新加入延后族。
 
 | 验收族 | 本票负责的分支／字段 |
 | --- | --- |
-| A03 | 战斗 BGM |
-| A04 | 胜利 ME |
-| A05 | 失败 ME |
-| A06 | 载具 BGM |
-| A08 | Play BGM |
-| A09 | Play BGS |
-| A10 | Play ME |
-| A11 | Play SE |
-| A12 | 影片 |
-| A18 | 两种路线的 SE |
-| C03 | SE 的 route-mirror／independent-command；两个路线容器遵循相同逻辑身份。 |
-| C06 | 本票 A03、A04、A05、A06、A08、A09、A10、A11、A12、A18 所有原生允许 None 的到达字段，按上游有限子用例展开。另含 saved-audio-controls。 |
+| A03 | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A04 | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A05 | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A06 | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A08 | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A09 | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A10 | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A11 | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A12 | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A18 | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| C03 | route-mirror／independent-command 的 se 字段；205／505 关联一次，其他真实来源保留。 |
+| C06 | 本票 A03、A04、A05、A06、A08、A09、A10、A11、A12、A18 的原生合法 None。另含 saved-audio-controls。 |
 | C08 | route-fixed／route-random／route-approach 的路线 SE。 |
-| C11 | 路线 SE 的已识别 raw 与正式表达共用规则。 |
-| F01 | bgm／bgs／me／se／movie：准确 OGG／WebM 普通文件。 |
+| C11 | 路线 SE 正式／raw 一致性的补充验证。 |
+| F01 | bgm／bgs／me／se／movie。 |
 | F02 | audio-m4a-only／movie-mp4-only／audio-encrypted-only。 |
-| F06 | audio-percent／audio-hash 可检查；movie-percent／movie-hash 不支持且不查询。 |
-| F13 | audio-absent／audio-false／audio-true／audio-null／audio-number／audio-string。 |
-| F14 | no-audio-use／movie-only：无音频使用不解释其标志，影片不受图片／音频加密标志影响。 |
+| F06 | audio-percent／audio-hash／movie-percent／movie-hash。 |
+| F13 | 全部 audio 标志分支。 |
+| F14 | no-audio-use／movie-only。 |
 
 ## Dependencies
 
 - [04：事件页、图像指令与移动图像的检查](04-direct-image-uses.md)。
 
-只在列出的直接阻塞票均为 resolved 后领取整票。票号表示依赖顺序，产品最终完成仍须通过 17；本票完成不代表整套素材检查已经交付。
+仅在直接依赖均 resolved 后领取；ready-for-agent 表示范围明确，不代表已解除依赖。各票完成只代表其保留范围，首版最终验收由 14 汇总。
 
 ## Verification
 
-按上游索引指定的实例与入口运行本票适用验证，并记录相关仓库检查、构建和 Windows CLI 结果；最终全量核对由 17 负责。本票发现的失败不得以延后到 17 代替修复。当前所有产品测试和原生检查均为待实施／未执行，完成时追加实际结果。
-
-完成后记录实际 outcome 和验证，再更新本票状态。原规格、决策地图及已完成决策票不因本票发布而改状态。
+按现行验收索引执行本票分支及指定 CLI 路径，记录适用检查、构建、Windows 验证和实际结果。当前均待实施／执行；不能将失败或缺口留给最终汇总票后关闭本票。
 
 ## Sources
 
-- [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
-- [验收矩阵](../../asset-validation/acceptance-matrix.md)：规范预期。
-- [实施验收用例索引](../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
-- [已确认任务拆分](../ticket-breakdown-draft.md)：本票范围、直接阻塞关系及共享验收族分配。
-- [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
+- [实施规格](../../asset-validation/asset-validation-spec.md)
+- [验收矩阵](../../asset-validation/acceptance-matrix.md)
+- [已确认拆分与验收责任](../ticket-breakdown-draft.md)
+- [实施任务索引](../tickets.md)
 
 ## Comments
 
-- 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
+### 2026-11-02 — 简化与重新编号
+
+用户在审阅 14 张票的修订建议后要求“重新编号吧”。按该要求连续编号并发布当前范围，原票及历史讨论保留在 History 链接中。此记录仅表示任务更新，未实施产品或执行验收；父规格及决策票不因本次编号修改。

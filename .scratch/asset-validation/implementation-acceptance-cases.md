@@ -3,25 +3,25 @@
 所属规格：[事件素材文件存在性检查实施规格](asset-validation-spec.md)
 规范预期：[已接受的验收矩阵](acceptance-matrix.md)
 建立日期：2026-10-24
-修订日期：2026-10-25（设计减重；以下现行预期取代旧版本）
+修订日期：2026-11-02（收缩首版；以下现行预期取代旧版本）
 
-本附件为已接受的 97 个用例族分配有穷的子用例标识、fixture 和执行入口，供实施时逐项落实。**所有子用例当前均为计划，未实施／执行。** 以下事实预期来自已决契约，不能由产品收集器、判定器或诊断策略生成。
+本附件为当前首版的 86 个有效用例族分配子用例标识、fixture 和执行入口；另列 11 个延后族。**有效子用例均为计划，未实施／执行；延后族不展开为首版验收。** 以下事实预期来自已决契约，不能由产品收集器、判定器或诊断策略生成。
 
 ## 标识、公共输入与回执
 
 完整标识为 `AV.<族>.<分支>.<表示>.<字段>.<结果>`。表中逗号分隔的值须逐个展开，斜线只在正文中描述关系；多列均有备选值时取表内明确要求的组合，不能任选代表值。没有适用维度时使用 `base`、`native`、`case`、`expected` 四个固定默认值。每格列出的 token 是确定值，不是让实施方日后再选择的占位符；表明只配对的场景不做无意义笛卡尔积。
 
-例如直接显示图片缺失的两个实例是 `AV.A07.base.formal.p1.missing` 和 `AV.A07.base.raw.p1.missing`；它们分别对照独立预期。页图像无 raw 命令实例；自主移动也不虚构 raw 页或未知移动指令接口。新增回归用例沿族追加唯一分支。此次尚未实施的设计修订保留族 ID，撤销的分支由下表的新分支替代；旧版本分支不再是实施要求。
+例如直接显示图片缺失的两个实例是 `AV.A07.base.formal.p1.missing` 和 `AV.A07.base.raw.p1.missing`；它们分别对照独立预期。页图像无 raw 命令实例；自主移动也不虚构 raw 页或未知移动指令接口。新增回归用例沿族追加唯一分支。此次尚未实施的设计修订保留族 ID，撤销的分支不再是实施要求；延后族不要求用其他新增分支凑齐原数目。
 
 公共输入与规则：
 
 - Windows / Node.js 22 的真实临时 Workspace 和普通 MV 编辑项目，根含中文与空格；沿用现有 Windows sandbox 的版本断言及进程记录。所有必要标准文件、固定引用和事件结构合法。
-- Map 1 为宿主、Map 2 为传送目标；各有自己的 Tileset。Map Event 1、Common Event 10 与 11、Troop Event 1 提供当前独立根。Actor 1、Enemy 1／2、Troop 1、Skill 1／2／3、Animation 1／2 为固定条目；只启用当前用例所需关系，其他字段使用合法最小值。
-- Animation 1 用于空手候选，Animation 2 用于显式选择；两者各有两张不同名图和两个不同名 timing SE。Tileset 至少区分各合法槽，全部非空槽使用不同名文件。Troop 的两个成员分别为普通和 hidden，重复成员变体另设；Skill 1 有正动画与两个 Common Event effects，Skill 2 为默认攻击，Skill 3 的动画为 0。
-- System 提供所需 optSideView、标题、BGM／ME 及 sounds 槽 7／9；未被选中的字段可以另用有意损坏值证明不解释它们。普通文件默认准确存在，加密标志为 false。每个到达字段的素材名由用例标识与字段标记组成，基本变体之间不共享文件。
+- Map 1 为宿主；Map 2 及其初始化字段仅用于传送关系未纳入的范围反例。Map Event 1、Common Event 10 与 11、Troop Event 1 提供当前独立根。Actor 1、Enemy 1／2、Troop 1、Skill 1／2／3、Animation 1／2 为固定条目；只启用当前用例所需关系，其他字段使用合法最小值。
+- Animation 2 用于显式选择，含两张不同名图和两个不同名 timing SE；不为正常检查补充空手 Animation 1 素材。Tileset 至少区分各合法槽，全部非空槽使用不同名文件。Troop 的两个成员分别为普通和 hidden，重复成员变体另设；Skill 1 有正动画与两个 Common Event effects，Skill 2 为默认攻击，Skill 3 的动画为 0。
+- System 只提供所需 optSideView、标题与 gameoverMe 等当前关系字段；sounds 槽 7／9 和战斗默认音频不构成素材必需输入；未被选中的字段可以另用有意损坏值证明不解释它们。普通文件默认准确存在，加密标志为 false。每个到达字段的素材名由用例标识与字段标记组成，基本变体之间不共享文件。
 - A／B 的 `present` 变体全部所需文件存在；`missing` 只删除当前字段的文件，其余字段仍正常。多次使用同名、同目标不同级别等只在专门的共享用例中构造。
-- A／B 的普通使用缺失为 error；明确标注的候选为 warning，明确非活动由 C／D 另测。原生执行条件本身不把普通使用改成候选。
-- 每个 A／B 实例核对完整使用集合、原名、类别、具体保存位置、事件内链、直接调用关系、条件及诊断，而非只检查一个 expected message。所有失败都核对各操作允许改变和必须保持的文件／同步状态。
+- A／B 的普通使用缺失为 error；明确非活动由 C／D 另测。原生执行条件本身不使普通使用降级。
+- 每个 A／B 实例核对完整使用集合、原名、类别、具体保存位置、事件内链、必要条件及诊断，而非只检查一个 expected message。所有失败都核对各操作允许改变和必须保持的文件／同步状态。
 - 自动化可从独立用例数据与执行结果生成回执，避免另建重复手工台账；每个回执记录完整 ID、上游族及决策出处、具体输入／字段、时机、独立预期、实际结果、环境、方式、责任和证据位置。自动化由实施方执行；N 组由实施方准备并尽可能执行，必要人工由维护者执行，最终验收由维护者确认。
 
 ## A. 直接使用：18 族
@@ -49,9 +49,9 @@
 | A17 | autonomous,set-route | page（仅 autonomous）；formal,raw（仅 set-route） | p0 | 路线 41；两个容器分别验证 |
 | A18 | autonomous,set-route | page（仅 autonomous）；formal,raw（仅 set-route） | p0-name | 路线 44；两个容器分别验证 |
 
-## B. 间接使用：16 族
+## B. 间接使用：7 个有效族
 
-结果列均展开 `present,missing`；除 B09 使用 page 外，表示展开 `formal,raw`，从对应事件入口分别生成合法表达。字段 token 标记到达的独立字段；Animation 的图与两个 SE、Tileset 的全部非空槽分别验证，不能只测其中之一。多个入口或条件按下表的有限分支展开。
+结果列均展开 `present,missing`；表示展开 `formal,raw`，从对应事件入口分别生成合法表达。字段 token 标记到达的独立字段；Animation 的图与两个 SE、Tileset 的全部非空槽分别验证，不能只测其中之一。多个入口或条件按下表的有限分支展开。
 
 | 族 | 分支 token | 字段 token／到达关系 | 预期补充 |
 | --- | --- | --- | --- |
@@ -59,20 +59,11 @@
 | B02 | change-tileset | slot0,slot1,slot2,slot3,slot4,slot5,slot6,slot7,slot8 | 整组全部非空槽；另由 C04／D09 类共享断言保证同名来源保留 |
 | B03 | front,side | member0-battler,member1-battler | member1 为 hidden；目录只取对应模式，成员不被过滤 |
 | B04 | front,side | transformed-battler | 指定新 Enemy；目标是否实际存在不改变保存关系 |
-| B05 | positive-animation | image1,image2,se0,se1 | 固定 Skill 正动画，链含 Skill 与 Animation |
-| B06 | actor-default | image1,image2,se0,se1 | Animation 1 候选，缺失 warning，当前武器分支停止记录同时保留 |
-| B07 | enemy-default | sound9 | 敌人默认攻击 SE；不是动画 |
-| B08 | transfer-fixed | slot0,slot1,slot2,slot3,slot4,slot5,slot6,slot7,slot8,parallax,bgm,bgs | 固定 Map 关系；普通保存值，保留 autoplay／覆盖条件，不引入 battleback |
-| B09 | tile-b,tile-c,tile-d,tile-e | selected-slot | 表示为 page；合法 tileId 分别选择 B–E 的一张图，均为候选，不展开整组 |
-| B10 | add-actor | character,battler | 两个初始候选；独立保留侧视／队员／覆盖条件，不加入 face |
+| B05 | positive-animation | image1,image2,se0,se1 | 固定 Skill 正动画，链含 Skill 与 Animation；0 和默认攻击边界另由 C05／C06／C12 验证 |
 | B11 | game-over | gameover-me | 只选系统 ME |
 | B12 | return-title | title1,title2,title-bgm | 各字段独立；不展开标题 UI |
-| B13 | battle-system | battle-bgm,victory-me,defeat-me,start-se | 前三者候选；start-se 为槽 7 且保留地图启动条件 |
-| B14 | map-battle-background | battleback1,battleback2 | 两个宿主地图背景候选，不使用 Battle Test 字段 |
-| B15 | call-common | called-picture | 目标 Common Event 的素材定义位置独立核对，直接调用位置另记，不复制使用 |
-| B16 | skill-common-effects | effect0-picture,effect1-picture | 两个不同目标各自独立检查并保留各 effect 关系；同目标重复 effect 由 C04 验证不重复使用；正动画路径共存 |
 
-B02／B08 使用上述九个非空槽的合法基础 Tileset；C06 另证明合法空槽不查询。关系若在当前测试表达中已由完整原生结构验证拒绝，不得靠坏 fixture 使本组“缺文件”变成提前引用错误。
+B02 使用上述九个非空槽的合法基础 Tileset；C06 另证明合法空槽不查询。关系若在当前测试表达中已由完整原生结构验证拒绝，不得靠坏 fixture 使本组“缺文件”变成提前引用错误。
 
 ## C. 起点与范围：13 族
 
@@ -82,16 +73,16 @@ B02／B08 使用上述九个非空槽的合法基础 Tileset；C06 另证明合�
 | --- | --- | --- |
 | C01 | map-pages,common-uncalled,troop-pages,nested-choice,nested-loop | 三类当前根、多个页及嵌套体均有可定位使用；普通缺失 error；不依赖运行可达性 |
 | C02 | removed-map,removed-common,reset-troop | 旧快照保留缺图但当前已移除；不补回素材根，不改变删除／重置规则 |
-| C03 | route-mirror,independent-command,repeated-command | 205／505 一次，另一真实命令独立；新命令检查不累计使用次数；图像和 SE 字段分别为 image,se |
-| C04 | two-callers,common-independent-root,repeated-enemy,repeated-tileset-name,repeated-common-effect | 公共事件定义使用只计一次，所有直接调用点独立保留；成员／槽是真实不同路径而各计一次；文件查询可共享 |
-| C05 | self-cycle,mutual-cycle,long-acyclic,shared-dag,dynamic-target,known-sibling | 循环不递归展开、不新增循环诊断；12 跳链及多层双调用共享图只核对全部定义位置和直接边，使用次数不按路径增长；动态不当通过，已知兄弟关系继续 |
-| C06 | none-direct,none-indirect,default-page-image,default-page-route,saved-audio-controls,saved-image-index | none-direct 字段展开 A 表全部素材字段和两种路线容器，使用各字段既有合法 None 编码；none-indirect 展开 B 表原生允许空值的到达字段（动画图／SE、Tileset 槽、Enemy／Actor 名称、Map 图像／音频、System 名称），不把缺字段当空值；默认仅在已有可选字段应用；音频／索引非默认独立值保留 |
+| C03 | route-mirror,independent-command,repeated-command | 205／505 关联一次，另一真实命令位置独立；新操作不累积历史来源；图像和 SE 字段分别为 image,se |
+| C04 | two-callers,common-independent-root,repeated-enemy,repeated-tileset-name,repeated-common-effect | 公共事件只报告定义使用，不提供 caller／effect 边；成员／槽的真实不同路径各自保留；查询可共享 |
+| C05 | self-cycle,mutual-cycle,shared-callers,dynamic-troop,default-attack | 循环／共享仅按当前定义检查，无递归展开或循环诊断；动态敌群及默认攻击保留未检查原因，不猜素材 |
+| C06 | none-direct,none-indirect,zero-skill-animation,default-page-image,default-page-route,saved-audio-controls,saved-image-index | none-direct 展开 A 表原生允许的 None 编码；none-indirect 仅展开当前 B 表允许空名的动画图／SE、Tileset、Enemy、System 字段；正技能动画为 0 时不查询动画；不把缺字段当空值；独立保存参数保留 |
 | C07 | target-missing,field-missing,field-wrong-type,field-empty,file-missing | 字段问题／合法空／缺文件对 B 表到达字段分别变体；target-missing 只用于有固定数据库目标的关系，System 直接保存字段使用 field-missing，不虚构固定引用；只损坏当前关系必要位置，非法空编码仍按原输入规则失败 |
-| C08 | route-fixed,route-random,route-approach,tile-with-character,autoplay-bgm-off,autoplay-bgs-off,battleback-off,false-page-condition,unreached-branch | 保存名称仍收集；前七种明确非活动按政策 warning；页条件／分支推演不降级，候选与非活动原因都保留 |
+| C08 | route-fixed,route-random,route-approach,tile-with-character,false-page-condition,unreached-branch | 前四种明确非活动保存字段按政策 warning；页条件／分支推演不降级。已延后 Map 初始化字段不纳入 |
 | C09 | actor-hp,vehicle-position | 只做所述操作，无额外角色图像、载具图像／BGM、倒下副作用素材检查 |
 | C10 | unrelated-actor,unrelated-animation,unrelated-field,troop-host-only | 不扫描未选条目／字段，不以 Troop Event 身份引出宿主所有 Enemy 图片 |
 | C11 | script-command,route-script,plugin-command,unknown-raw,recognized-raw | 未知字符串不猜素材；recognized raw 同规则；已存在 Script Gate／结构失败不被例外绕过 |
-| C12 | plugin-declaration,enemy-ai,initial-equipment,transfer-network,hardcoded-system,terrain-background,battle-test-background | 各自缺素材仍不引入已排除关系；独立记录排除依据 |
+| C12 | plugin-declaration,enemy-ai,initial-equipment,transfer-network,hardcoded-system,terrain-background,battle-test-background,actor-default-attack,enemy-default-attack,transfer-initial-assets,page-initial-tileset,actor-initial-images,battle-default-audio,battle-map-background | 未选关系缺素材不新增素材查询，且本检查不解释不再必要的字段；默认攻击保留未检查原因。既有引用／结构验证保持，直接素材覆盖另由 A 表保证 |
 | C13 | check-success,check-failure,push-success | 外部标准条目、自定义字段和名称保留；素材树不复制／写入／备份；Push 仅允许既有 owned data 改变 |
 
 C06／C07 的到达字段映射固定来自上方 A／B 表，并在完整标识的字段段中用连字符拼接族、分支及字段，例如 `AV.C07.field-wrong-type.formal.B01-show-animation-image1.expected`。对尚未到达文件的引用错误，不伪造目录查询预期。规则覆盖与表现组合分开：C06 用正式表达验证合法 None，A／B 已分别保证正式／raw 正常与缺失，C11 额外验证 raw 不绕过政策。
@@ -119,26 +110,25 @@ C06／C07 的到达字段映射固定来自上方 A／B 表，并在完整标识
 
 F07 的字符和设备名实例把具体 Unicode 编号／设备名追加到字段 token，名称大小写及带后缀的实例分支明确区分。设备名枚举为 CON、PRN、AUX、NUL、COM1–COM9、LPT1–LPT9、COM¹／COM²／COM³、LPT¹／LPT²／LPT³，独立转录自文件判定决定的首方列表。禁止字符枚举为小于号、大于号、冒号、双引号、斜线、反斜线、竖线、问号、星号；控制字符为 U+0000–U+001F。不能导入产品验证函数或常量作为预期；本族不以非法名称真的能在磁盘创建为前提。
 
-## D. 诊断与例外：10 族
+## D. 诊断与例外：9 个有效族
 
-结果固定 `expected`，字段为问题事实或配置项。普通／候选／非活动使用各自核对基础和有效级别。除 D06 的纯聚合分支外，以真实 Workspace 编译及结构化内部预期相互支持；D10 全部经实际 CLI。
+结果固定 `expected`，字段为问题事实或配置项。普通／非活动使用各自核对基础和有效级别。以真实 Workspace 编译及内部来源预期相互支持；D10 全部经实际 CLI。
 
 | 族 | 分支 token 与有穷组合 | 预期 |
 | --- | --- | --- |
-| D01 | ordinary,candidate,inactive × missing,name-mismatch,wrong-type | ordinary 为 error，其余 warning；采用下方明确配对的表示，不虚构直接候选或 raw 页 |
-| D02 | unsupported-name,unsupported-link,encrypted,required-field,unqueryable,inconsistent × ordinary,candidate,inactive,exception | 前三类在 candidate／inactive 为 warning + 未检查，ordinary／exception（普通使用加例外）为 error；其余全部 error；另设 reference-error、structure-error、script-gate 保留既有错误；inconsistent 限单次查询 |
+| D01 | ordinary,inactive-route,inactive-page-character × missing,name-mismatch,wrong-type | ordinary 为 error，其余为 warning；按下方真实表示配对，不虚构 raw 页或候选类型 |
+| D02 | unsupported-name,unsupported-link,encrypted,required-field,unqueryable,inconsistent × ordinary,inactive,exception | 前三类在 inactive 为 warning + 未检查，ordinary／exception（普通使用加例外）为 error；其余全部 error。另设 reference-error、structure-error、script-gate 保留既有错误；inconsistent 限单次查询 |
 | D03 | eligible × missing,name-mismatch,wrong-type；exact-namespace,case-distinct,space-distinct,suffix-distinct,encoding-distinct | 三类 error 可降级并保留原因；同目标 formal／raw／间接多来源均生效；不同准确键不误匹配 |
 | D04 | invalid-category,invalid-folder,category-folder-mismatch,empty-name,missing-name,missing-reason,blank-reason,duplicate,unknown-field | 配置 error，指出配置项，不最后覆盖；后续检查未运行不得写成通过 |
-| D05 | repaired,unused,warning-only,incomplete | 完整无降级时 warning 定位配置项；incomplete 不下无用例外结论；不改配置 |
-| D06 | mixed-levels,multiple-files,same-file-two-groups | 组取最高有效级别而保留成员；分别数组／文件／使用；最后一支为独立内部聚合输入，不伪造同时磁盘状态 |
+| D06 | mixed-levels,multiple-files,shared-file-locations | 分组取最高有效级别，各处级别／来源保留且排序稳定；不要求三套计数或人工构造同文件多组输入 |
 | D07 | shared-directory-failure,shared-field-failure,invalid-target | 共同失败关联所有来源，无合法目标不制造路径或已确认缺失文件 |
 | D08 | independent-results,early-config,early-structure,early-reference | 独立错误／warning 均保留；早期输入不可信明确未运行，不强求穷尽 |
-| D09 | map-page,nested-body,route,common-definition,shared-callers,reliable-source,unknown-source | 定义位置、事件内链和每个直接调用点可核对；使用计数不按调用路径增长；有可靠源码才给行列 |
-| D10 | cli-error,cli-warning,cli-exception,cli-dynamic,cli-cycle-relations,cli-unchecked-warning,cli-query-failure | 循环关系不产生循环诊断；支持范围 warning 标记未检查且可成功，查询失败 error；退出及来源信息符合政策 |
+| D09 | map-page,nested-body,route,common-definition,shared-file,reliable-source,unknown-source | 定义位置和事件内链可核对；公共事件无 caller 输出要求；可靠源码才给行列 |
+| D10 | cli-error,cli-warning,cli-exception,cli-dynamic,cli-unchecked-warning,cli-query-failure | 非活动支持范围 warning 明确未检查且可成功，查询失败 error；退出与全部定义来源符合政策 |
 
 ### D01 的表示约束
 
-ordinary 的表示展开 `direct-formal,direct-raw,indirect-formal,indirect-raw`；candidate 展开 `indirect-formal,indirect-raw`，使用已选初始化关系；inactive 展开 `page,indirect-formal,indirect-raw`，分别使用非 custom 自主路线和关闭 autoplay 的固定传送目标地图音频。raw 修饰事件入口的表达，不表示给地图字段添加 raw 接口。缺失／名称不符／类型不符分别作为字段 token；不虚构直接字段天然候选或 raw 页，也不通过篡改内部条件标记制造用例。
+ordinary 的表示展开 `direct-formal,direct-raw,indirect-formal,indirect-raw`；inactive-route 与 inactive-page-character 均使用 `page`，分别采用非 custom 自主路线和图块页保留的 characterName。缺失／名称不符／类型不符作为字段 token；不虚构 raw 页、直接候选或已延后的传送地图音频关系。raw 一致性由 ordinary 和 A 表覆盖。
 
 ## W. 工作流：20 族
 
@@ -157,7 +147,7 @@ ordinary 的表示展开 `direct-formal,direct-raw,indirect-formal,indirect-raw`
 | W09 | animation-rename-unpulled,tileset-rename-unpulled,after-pull-recompile | 旧快照用于 Compile，Push 漂移拒绝；Pull 失效旧输出，重编译用新名 |
 | W10 | content,size,mtime,file-identity,unrelated-directory-entry | 必要存在性事实不变，操作不因这些变化失败；不读媒体内容 |
 | W11 | presence,case-match,path-type,path-link,queryability,failure-location,improvement | 每支在素材查询开始前制造变化；字段 check-gate,compile-gate,push-gate，分别只判断当前事实；改善可成功，允许 warning 也可成功，无跨点比较；查询内失败归 F12 |
-| W12 | same-pass-reuse,next-command-fresh | 多定义使用及直接调用点保留；新命令取得当前事实，不读历史成功缓存、不按路径复制使用、不锁定 syscall 次数 |
+| W12 | same-pass-reuse,next-command-fresh | 多定义位置与局部链保留；新命令取得当前事实，不读历史成功缓存、不重复镜像或调用路径、不锁定 syscall 次数 |
 | W13 | source,validation-dependency,config,exception,snapshot,generated,binding | 各分支在 Push 写前及记账前分别变更（字段 prewrite,postwrite）；停止或 pending，不半途采用新输入，合法自身写入不误判 |
 | W14 | exception-change,pull,rebind,contract-change,check-does-not-refresh | 基线过期需重编译；Check／恢复／素材通过不能升级旧输出；根别名规则保留 |
 | W15 | all-generated-missing-asset,all-snapshot,mixed,missing,unknown | 全生成可完成记账后当前失败而不重新留 pending；全旧放弃后正常检查；其他拒绝自动恢复 |
@@ -165,11 +155,11 @@ ordinary 的表示展开 `direct-formal,direct-raw,indirect-formal,indirect-raw`
 | W17 | clone,pull,decompile,diff | 缺素材不新增文件门槛，原有数据／表达／新鲜度规则保持 |
 | W18 | concurrent-workspace,pending-non-push,pending-rebind | 互斥与原绑定恢复保持，不新增跨 Workspace 协调 |
 | W19 | compile-success,compile-failure,push-success,push-failure,recovery | 仅允许各操作的数据／元数据变更；素材不进快照、备份、复制、写入，必要字段只读 |
-| W20 | generated-roots-and-relations,no-dsl-reevaluation,no-historical-report | 从生成事件重建定义内使用、事件内链和直接调用关系；共享／循环不展开全部路径，排除旧快照移除根；哨兵证明不重求值 DSL；新命令实际查询 |
+| W20 | generated-roots-and-relations,no-dsl-reevaluation,no-historical-report | 从生成事件重建定义内使用及局部链；共享／循环仅按定义根检查，排除旧快照移除根；哨兵证明不重求值 DSL；新命令实际查询 |
 
 W11 的变化发生在唯一素材门槛的查询开始前，不构造并不存在的首轮素材检查；改善分支可从缺失恢复到准确文件，按当前事实通过。W04／W06 则在素材检查后只改素材，用于证明不做后续复查。W13 的改动不混淆当前绑定项目与其他项目。W15／W16 保留独立构造的 pending 证据及真实 data 中断先例；pending 不能由写后素材变化制造，仍需覆盖原有数据恢复条件，不能调用被测恢复决策生成预期状态。
 
-## N. 原生必验：6 族
+## N. 原生必验：5 个有效族
 
 表示固定 `native-run`，字段为 `case`，结果为 `observed`。所有项要求版本、输入、请求／文件定位和证据；当前全部未执行。真实有效自制媒体用于观察，不能把自动化空文件拿来判断原生解码行为。
 
@@ -178,12 +168,27 @@ W11 的变化发生在唯一素材门槛的查询开始前，不构造并不存�
 | N01 | image-png,audio-ogg,movie-webm | 代表性原生目录、追加扩展名与磁盘定位；不从播放结果推导全面保证 |
 | N02 | chinese,space,image-percent,image-hash,audio-percent,audio-hash | 支持范围内原始名称到请求及实际文件的映射，区分 URL 编码与文件名 |
 | N03 | animation-images,animation-timing-se | 双图与逐时机 SE 消费来源及条件，区分预加载与实际帧播放 |
-| N04 | change-tileset,page-tile | 整组和单张不同关系；页图块实例包含 B–E 对应合法值的定位记录，区分场景中地图绘制附带请求 |
+| N04 | change-tileset | 整组非空图片的消费来源与文件定位；区分地图绘制附带请求；旧 page-tile 分支延后 |
 | N05 | enemy-front,enemy-side | 同一 Enemy 在两种模式的原生目录选择 |
-| N06 | runtime-overrides-initial-candidate | 一个已选初始候选被运行时设置覆盖的场景；保存候选与当前运行值区分 |
 
 ## 覆盖与执行交接
 
-本表包含 A 18、B 16、C 13、F 14、D 10、W 20、N 6，共 97 个族；与已接受矩阵逐族对应。完整子用例标识由上述有限展开唯一确定。实施方将其写入测试名称和验收回执；可以参数化组织、共用 fixture，但不得减少本次修订后仍列出的字段、分支或指定边界。撤销的跨点素材比较与全传递路径预期不再执行。
+当前有效表包含 A 18、B 7、C 13、F 14、D 9、W 20、N 5，共 86 个族；与修订矩阵逐族对应。另有 11 个旧族延后，N04 页图块和跨族旧要求也已移除。完整子用例标识由上述有限展开唯一确定。实施方将其写入测试名称和验收回执；可以参数化组织、共用 fixture，但不得减少本次修订后仍列出的字段、分支或指定边界。已撤销的跨点比较、候选检查、直接／传递 caller 报告、三套统计和未生效例外告警不再执行。
 
-类别组合、控制字符、合法空字段等枚举须独立按上游契约转录；该转录是测试数据准备，不是新增政策。因能力不足未执行的真实案例保留缺口并安排补验。产品验收前交付每项实际状态、证据及任何反例处理结果；在此之前本索引的计划身份不变。
+类别组合、控制字符、合法空字段等枚举须独立按上游契约转录；该转录是测试数据准备，不是新增政策。因能力不足未执行的真实案例保留缺口并安排补验。首版验收前交付每个有效项实际状态、证据及任何反例处理结果；在此之前本索引的计划身份不变。
+
+## 延后范围与旧 ID
+
+下列 11 个族保留 ID 追溯，状态为“延后，不属于首版”，不展开执行、不作为首版验收缺口，也不计为通过或环境 skip。后续纳入时需重新确定契约及预期。
+
+| 旧族 ID | 延后内容 |
+| --- | --- |
+| B06–B07 | 角色／敌人默认攻击素材 |
+| B08 | 固定传送目标地图的初始化素材 |
+| B09–B10 | 页图块初始 Tileset、Actor 初始图像候选 |
+| B13–B14 | 战斗系统音频与宿主地图背景 |
+| B15–B16 | 公共事件直接调用报告、Skill effects 调用关系；目标公共事件仍按 C01 独立检查 |
+| D05 | 合法例外未实际产生降级的告警 |
+| N06 | 初始候选被运行时覆盖的原生核对 |
+
+N04 仅保留 Change Tileset，旧 page-tile 分支延后。C／D／W 中的候选、caller 输出、三套精确统计及未生效例外告警分支已从现行表移除；保留的循环／共享调用输入只证明各事件按独立根检查，不要求调用图。C12 验证延后关系不意外产生素材查询，既有引用／结构校验继续执行。

@@ -1,18 +1,21 @@
-# 15: Push 写后复核与完整输入保护
+# 13: Compile／Check 重查与输出有效性
+
+> 历史归档，不可领取。正文保留当时的范围与状态，仅重定位链接；现行任务见[当前索引](../../../tickets.md)。
 
 Status: ready-for-agent
-Blocked by: 14
+Blocked by: 12
 Created: 2026-10-24
-Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
+Parent: [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)
 Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments)
 
-**What to build:** 全部项目 data 替换后、同步记账前再查素材及完整依据；发现变化时明确报告已写入并保留 pending。
+**What to build:** Check 返回、Compile 发布及 Manifest 提交都根据新观察确认结果；作者不会得到使用了操作内过时素材条件的成功输出。
 
 ## Acceptance criteria
 
-- [ ] 写后缺失、各种相关变化和改善都失败，不回滚、不误报尚未写入；末端检查先于正常记账。
-- [ ] 完成写后 source、验证依赖、config／exceptions、snapshot、generated、binding 变化；保留全标准 data 漂移和逐文件旧内容保护，不把自身合法写入当外部漂移。
-- [ ] API 及指定 CLI 在真实边界暂停后核对 data、Snapshot、Manifest、pending 与素材树；稳定文件事实正常成功，素材不加入备份／写入。
+- [ ] Check 的 initial／fresh／stale × success／error／warning 全部只读；Compile 发布前失败不发布，发布已开始后的失败沿用无效输出语义，成功重编译才能恢复。
+- [ ] 在三个完成边界验证全部相关变化，包含改善和 warning 到 warning；忽略内容、大小、时间、文件身份及无关目录项变化。每检查点／每命令新观察且逻辑计数稳定。
+- [ ] 验证快照与实时素材的区别、未 Pull 标准数据改变及 Pull 后重编译、规则／绑定／政策新鲜度；Clone／Pull／Decompilation／Diff 不新增实时素材扫描。
+- [ ] 受控子进程验证 API 和指定 CLI 路径、编译输入保护及只读边界，不承诺持续监控或原子隔离。
 
 ### 共通要求（限本票适用范围）
 
@@ -29,14 +32,23 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 | 验收族 | 本票负责的分支／字段 |
 | --- | --- |
-| W06 | 全部 data 写后删除／变化 |
-| W11 | Push 记账前：完整执行七种相关变化，包括改善，保留写后状态与 pending。 |
-| W13 | source／validation-dependency／config／exception／snapshot／generated／binding 全部 postwrite；source 另有指定 CLI 边界。 |
-| W19 | push-failure 的写后失败：允许既有 data 写入及 pending，素材保持只读。 |
+| C03 | 图像和 SE 的 repeated-checkpoint；重查不增加逻辑使用数。 |
+| C13 | check-success／check-failure：外部字段与名称保留；素材树不复制、写入或备份。 |
+| W01 | 全部三态 × 结果 × API／CLI |
+| W02 | Check 完成前删除／改善／稳定 warning |
+| W03 | Compile 发布前错误／变化 |
+| W04 | Manifest 前变化／发布 I/O 失败 |
+| W09 | 动画／图块未 Pull 改名与 Pull 后重编译 |
+| W10 | 内容／大小／mtime／身份／无关目录项全部分支 |
+| W11 | Check 完成前、Compile 发布前、Compile Manifest 前：每个边界都执行 presence／case-match／path-type／path-link／queryability／failure-location／improvement。 |
+| W12 | same-point-reuse／next-point-fresh／next-command-fresh；Push 新命令由 14 再验证 |
+| W14 | pull／rebind／contract-change／check-does-not-refresh。 |
+| W17 | Clone／Pull／Decompilation／Diff 全部不增加文件查询 |
+| W19 | compile-success／compile-failure：联合检查全部状态载体和素材只读。 |
 
 ## Dependencies
 
-- [14：Push 从生成事件检查素材及无差异路径](14-push-generated-asset-preflight.md)。
+- [12：准确例外与完整的多来源诊断](12-exceptions-and-complete-diagnostics.md)。
 
 只在列出的直接阻塞票均为 resolved 后领取整票。票号表示依赖顺序，产品最终完成仍须通过 17；本票完成不代表整套素材检查已经交付。
 
@@ -48,9 +60,9 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Sources
 
-- [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
-- [验收矩阵](../../asset-validation/acceptance-matrix.md)：规范预期。
-- [实施验收用例索引](../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
+- [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
+- [验收矩阵](../../../../asset-validation/acceptance-matrix.md)：规范预期。
+- [实施验收用例索引](../../../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
 - [已确认任务拆分](../ticket-breakdown-draft.md)：本票范围、直接阻塞关系及共享验收族分配。
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 

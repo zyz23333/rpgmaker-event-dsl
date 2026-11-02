@@ -9,27 +9,17 @@ Parent: [事件素材引用检查的决策地图](../map.md)
 
 ## Question
 
-在用户已确认的“事件直接引用及通过标准项目数据可静态追踪的间接素材依赖”范围内，哪些保存位置、原生参数和标准数据关系构成待检查的素材使用？
-
-确定 Map Event、Common Event、Troop Event 内的页图像、正式指令、嵌套 Child Command Body、Autonomous Movement 与 Set Movement Route 的覆盖清单，说明保存但未启用或实际不执行的配置是否仍检查。确定可识别原生 Raw DSL Command 的对应位置，None、Compiler Default 与显式素材名称各自如何处理；未知代码、脚本和插件动态名称继续留在既有不解释边界。
-
-从事件实际引用的固定项目目标出发，逐条核实可追踪的标准数据字段及原生消费路径。以播放动画关联的图片与 SE、更换图块组关联的图块图片为用例，明确首版关系清单、追踪深度与停止条件、重复或循环关系、空素材字段，以及变量决定目标或运行状态才能确定的情况。已有文件定位研究不能替代这些关系与操作相关性的证据；需要补充事实时，先收集首方依据再作决定。
-
-区分所选操作确定需要的素材与仅与目标条目关联的素材。引用 Actor 不代表该命令会加载其脸图、行走图和战斗图，例如修改角色 HP 不得直接推导为三者均必需；确定候选关联如何保留、如何向诊断票传递确定性，不在此票预设全部报错或默认警告。不得把事件起点的追踪扩大为整个数据库或全部素材的扫描。
-
-确定每次素材使用必须保留哪些身份和来源信息，使直接引用可定位到事件、页、指令、路线及原生参数，间接依赖还可追溯定义事件内的标准数据类别、条目 ID、字段和关系链，公共事件另保留直接调用位置，而非只有去重后的素材数组。间接素材字段不因纳入检查而变成 DSL Asset Reference 或 DSL-owned 数据。此票确定领域覆盖契约，不设计通用扫描框架或实施模块。
+首版应检查哪些事件直接素材和关系明确的固定间接素材，怎样保留足够的修复位置，同时避免引入初始／默认候选及公共事件调用报告？所有当前事件独立检查，既有保存状态、引用校验、raw 与所有权规则仍需保持。
 
 ## Answer
 
-2026-10-25 修订：用户在过度设计评审后要求调整；以下 Answer 已同步收缩后的契约。Comments 中此前的确认记录保留为历史，不覆盖当前 Answer。
-
-本票原版于 2026-10-20 经用户确认完成；以下为 2026-10-25 修订后的现行契约。设计状态保持 resolved，产品实现和验收仍待执行。
+2026-11-02 修订：用户要求按过度复杂评估进行简化。以下 Answer 是现行首版契约；此前 Comments 仅记录历史。延后能力不属于首版完成门槛。
 
 ### 1. 起点、覆盖对象与保存状态
 
 首版只规划 Windows / RPG Maker MV 1.6.1 的素材文件存在性。以本次编译中全部当前 Event Definitions 为独立起点，包括未被调用的 Common Event，以及 Map Event、Troop Event。快照中残留但已从当前 DSL 移除的事件不自动成为起点。为依赖读取的标准数据库条目不成为全库扫描起点，也不获得 DSL 所有权。
 
-覆盖每个事件的所有页、完整命令列表、嵌套 Child Command Body，以及 Autonomous Movement 和 Set Movement Route。支持位置保存了实际素材名称就纳入，不按页条件、分支可达性、autoplay、非 custom 移动模式或其他未启用状态丢弃已选字段；能够确定的条件独立保留。已识别原生 Raw DSL Command 使用同样的字段与关系规则，未知命令、脚本、插件负载不猜测素材名称。
+覆盖每个事件的所有页、完整命令列表、嵌套 Child Command Body，以及 Autonomous Movement 和 Set Movement Route。支持位置保存了实际素材名称就纳入，不按页条件、分支可达性、非 custom 移动模式或其他未启用状态丢弃已选字段；能够确定的条件独立保留。已识别原生 Raw DSL Command 使用同样的字段与关系规则，未知命令、脚本、插件负载不猜测素材名称。
 
 “所有保存位置”限于下列已选清单，不是对任意字符串、任意数据库字段或运行时全部资源的泛化扫描。运行条件不会自动抹掉保存的使用；原生目录选择仍按对应关系处理，例如敌人前视／侧视选择一个目录。
 
@@ -56,67 +46,52 @@ Parent: [事件素材引用检查的决策地图](../map.md)
 
 共 15 个事件命令家族、一个页图像字段、两种移动指令。路线适用两个保存容器；205 内路线与其 505 镜像属于一次逻辑使用，保留主位置及关联保存位置，不重复制造缺失报告。不同真实指令或字段即便指向同一文件仍是不同使用。只设置未来使用状态的音频命令同样覆盖。
 
-### 3. 间接关系清单
+### 3. 间接关系、停止点与延后范围
 
-仅沿本表及下一节公共事件关系继续。名称位于标准项目数据的原生字段中，不改称或改写为 DSL Asset Reference。固定素材字段、初始化／默认候选和执行条件分开表达，不把本表任何一行解释成必然执行或加载。
-
-| 事件入口 | 标准关系／素材字段 | 覆盖与条件 |
+| 事件入口 | 首版继续的关系 | 条件与边界 |
 | --- | --- | --- |
-| Show Animation／Show Battle Animation | Animation → `animation1Name`、`animation2Name`、全部 `timings[].se.name` | `img/animations` 与 `audio/se`；图像预加载、SE 按帧播放条件分别保留 |
-| Change Tileset | Tileset → 全部 `tilesetNames[]` | `img/tilesets`；不按地图实际铺设图块筛选 |
-| 固定 Troop 的 Battle Processing | Troop `members[].enemyId` → Enemy `battlerName` | 隐藏成员仍纳入；根据 System.optSideView 选 `img/enemies` 或 `img/sv_enemies` |
-| Enemy Transform | 指定新 Enemy → `battlerName` | 同上选择目录；不因运行时目标可能不存在而跳过保存关系 |
-| Force Action：正动画 ID | 固定 Skill `animationId` → Animation 图片与 SE | 0 不产生动画关系；原生默认攻击分支见下两行 |
-| Force Action：角色默认攻击 | 空手回退 Animation 1 → 图片与 SE | 作为无当前武器时的 Conditional Asset Candidate；当前武器分支记录未知并停止，不追初始装备或枚举武器库 |
-| Force Action：敌人默认攻击 | `System.sounds[9].name` | `audio/se`；这是敌人默认攻击音效关系，不构造虚假的动画 ID |
-| 固定 Map 的 Transfer Player | Map `tilesetId` → 全部 Tileset 图片；Map `parallaxName`、`bgm.name`、`bgs.name` | `img/tilesets`、`img/parallaxes`、`audio/bgm`、`audio/bgs`；保留 autoplay 与当前配置可能被覆盖的条件；本行不引出 battleback |
-| Map Event Page 图块图像 | 宿主 Map 初始 `tilesetId` → `tilesetNames[5 + floor(tileId / 256)]` | 合法非零页图块对应 B–E 中一张图片，作为初始图块组候选；不把此关系扩大为整组图片；运行时换图块组条件保留 |
-| Change Party Member：加入指定 Actor | Actor 初始 `characterName`、`battlerName` | `img/characters`、`img/sv_actors` 两类名称均保留为候选；当前图像覆盖、侧视战斗及有效战斗队员条件独立记录；不加入 faceName，不推演移除后的队伍重排 |
-| Game Over | `System.gameoverMe.name` | `audio/me`；不延伸到引擎硬编码 GameOver 图片 |
-| Return to Title | `System.title1Name`、`title2Name`、`titleBgm.name` | `img/titles1`、`img/titles2`、`audio/bgm`；不继续展开标题 UI 所有内部资源 |
-| Battle Processing：系统音频 | `System.battleBgm.name`、`victoryMe.name`、`defeatMe.name`、`sounds[7].name` | BGM 与胜败 ME 是可能被运行时覆盖的默认候选，结果条件和地图启动战斗的 SE 条件保留；敌群目标动态只截断敌群关系，不丢弃本行已知系统关系 |
-| Map Event 内的 Battle Processing：背景 | 宿主 Map 保存的 `battleback1Name`、`battleback2Name` | `img/battlebacks1`、`img/battlebacks2` 条件候选；保留 specifyBattleback 与当前地图／背景可能变化的条件，关闭选项也不丢弃保存名称；Common Event／Troop Event 不经调用链推演地图来补此关系 |
+| Show Animation 212／Show Battle Animation 337 | Animation 两个图像名称和全部 timings 的 SE | 图像与逐项 SE 各自保留来源；不保证预加载或按帧播放实际发生 |
+| Change Tileset 282 | 所选 Tileset 的全部 tilesetNames | 不按地图实际使用过滤；重复名称的槽仍独立 |
+| 固定 Troop 的 Battle Processing | 各 members 的 Enemy → battlerName | hidden 成员也收集；System.optSideView 选择 enemies 或 sv_enemies |
+| Enemy Transform | 指定新 Enemy → battlerName | 同样选择前／侧视目录；运行目标可能不存在不抹掉保存关系 |
+| Force Action 的固定 Skill | 正 animationId → Animation 图片与 SE | 0 表示没有动画；负值的默认攻击路径超出首版覆盖，记录位置和未检查原因，不查询武器、Animation 1 或系统攻击 SE |
+| Game Over | System.gameoverMe.name | audio / me；不加入硬编码 GameOver 图像 |
+| Return to Title | System.title1Name、title2Name、titleBgm.name | titles1、titles2、bgm；不继续展开标题 UI |
 
-Troop Event 身份本身不自动引出宿主敌群的全部图片。System.battleback1Name／battleback2Name 只属于 Battle Test，不作为普通战斗的默认背景。未明确列入的关系不因“原版部署会收集”或“运行时可能相关”自动加入。
+沿上述事件内标准数据关系到素材字段，不设置任意深度上限。普通固定使用的执行条件不使其自动降为 warning；直接／间接来源也不决定严重性。必要字段只按所选关系解释；纯粹同属某个条目的其他字段不构成依赖。
 
-### 4. 公共事件、复用、循环与停止点
+所有当前 Common Events 已是独立根。Common Event 117 与 Skill 的 Common Event effects 不增加素材检查边；首版不收集调用关系、不复制被调用事件的素材、不生成循环诊断。既有固定引用和结构校验继续适用，不因不收集调用报告而放宽。
 
-- 所有当前 Common Events 已是独立起点，内部素材各检查一次。Common Event 命令和已选 Skill 的各个 Common Event effect 保留直接调用位置、固定目标，以及适用的 Skill/effect 路径；不因 reservation 覆盖而丢弃关系。
-- 不沿公共事件调用递归复制素材使用，不拼接所有传递调用链，也不按调用路径数增加使用次数。定义事件的真实字段和事件内标准数据依赖保留；不同成员、timing、槽和指令仍独立。
-- 自调用、互调、多跳和共享调用只形成有限的直接关系，不需要额外循环停止诊断。每个调用点都可追溯，目标定义位置可定位；不要求枚举无环图的所有路径。
-- 其他已选标准数据关系继续到素材字段，不设任意深度截断。动态目标或名称没有已选固定候选时，保留事件内位置、已有链和原因，不当 None、无依赖或通过；已知兄弟关系继续。
-- 不推演前序命令、变量、装备、队伍或调用者的运行上下文；不扩展敌人 AI、初始装备、地图事件或传送网络。
+所选关系遇到动态目标，或 Force Action 进入本版不支持的默认攻击路径时，记录位置、已有事件内链及未继续的原因，不生成 None、缺文件或通过结果。其他已选关系继续。未列入覆盖的其他操作不必逐一产生停止报告，使用说明应列明范围。
 
-### 5. 名称、空值、确定性与来源
+以下能力延后，均不属于首版实现或完成门槛：
+
+- 初始／默认候选：Actor 加入时的初始图像、页图块对应的宿主初始 Tileset、角色／敌人默认攻击、Battle Processing 的系统音频与宿主地图背景。
+- 固定 Transfer Player 的目标地图初始化素材关系，包括 Tileset、parallax、BGM／BGS；首版仍验证固定 Map 引用，不据此查询这些素材。
+- 公共事件直接／传递调用报告，包括 Skill effects 调用来源。
+- 问题组／不同问题文件／受影响使用次数三套精确统计，以及未实际降级的例外告警。
+
+延后关系中的缺素材或与本检查无关的字段损坏不产生素材诊断；既有引用／结构校验不变。直接 Change Actor Images、Change Battle Back、Change Battle BGM 等明确保存名称仍按第二节检查，不能因对应默认关系延后而漏掉直接字段。
+
+### 4. 名称、空值与来源
 
 合法原生 None 不产生文件查询，独立保存的音量、音调、声像、图像索引等继续保留。省略可选 DSL 字段应用既有 Compiler Default，再按最终保存字段决定是否存在素材使用；不会补修捕获数据中的必需字段。间接字段仅在原生允许空值时表示不指定素材，不能形成空名 Asset Reference。
 
 必需字段缺失、必要字段无法解释、条目或关系无法解析，与合法无素材以及确定名称但文件缺失分别记录；不通过补空值、修复数据或扩大外部条目校验来掩盖问题。文件匹配、失败分类的具体呈现与严重性由后续票决定。
 
-每次 Event Asset Use 保留事件类型／身份、页和命令位置、嵌套体或路线位置、类别、原始名称、原生字段或参数位置；可靠时附 DSL 来源。间接使用另保留经过的标准类别、条目 ID、字段及每一步关系依据。记录已保存的明确名称、Conditional Asset Candidate、未知停止点，以及未启用／运行条件；不把“关系已确定”写成“必然执行”，也不把直接／间接来源等同严重性。
+每次 Event Asset Use 保留事件类型／身份、页和命令位置、嵌套体或路线位置、类别、原始名称、原生字段或参数位置；可靠时附 DSL 来源。间接使用另保留经过的标准类别、条目 ID、字段及每一步关系依据。记录已保存的明确名称、所选关系的未知停止点，以及未启用／必要运行条件；不把“关系已确定”写成“必然执行”，也不把直接／间接来源等同严重性。
 
-文件查询可按同一文件复用，每次定义事件内的独立使用仍保留；直接调用关系单独记录，不乘入素材使用次数。间接读取不扩展 DSL-Owned Project Data，不写入或修复依赖条目，也不修改原生素材名称。
+文件查询可按同一文件复用，每次定义事件内的独立使用仍保留；不收集公共事件调用关系；共同文件的查询去重不丢失定义位置。间接读取不扩展 DSL-Owned Project Data，不写入或修复依赖条目，也不修改原生素材名称。
 
 既有 Project Data Reference 解析与验证契约继续适用；本票不通过素材检查重定义名称／ID 解析、放宽缺失目标或绕过 Staged Data Graph。标准依赖字段的数据来源与一致性由票 05 衔接。
 
-### 6. 明确排除与下游交接
+### 5. 其他排除与下游交接
 
-首版不做全库或全项目素材体检，不接入插件显式声明、file/animation 参数、struct／数组及备注素材规则，不解释脚本或未知负载。既有不解释边界不替代插件显式声明的独立排除决定。
+第三节延后范围之外，首版仍不做全库体检、插件素材声明或参数扫描、脚本和未知负载推断、Enemy AI／初始装备／队伍与传送网络分析、引擎硬编码或地形派生素材扫描。尺寸、解码、播放保证、素材管理、部署加密、其他平台与引擎版本继续排除。
 
-不扩展角色／敌人倒下等额外状态连带音效，不从一场战斗自动遍历所有后续场景，不将当前交通工具／历史步行 BGM 猜成三个交通工具默认值。单纯修改 HP 不引出角色全部图像；单纯固定交通工具位置不引出其全部素材。
+票 03 接收当前选定的类别与原始名称并规定文件事实；票 04 规定普通／明确非活动使用的级别、精确例外和可定位报告；票 05 保持一致快照及实时文件的单次检查门槛；票 06 仅对保留范围规定自动化和原生验收，同时验证延后关系不产生素材查询。
 
-不增加引擎硬编码或地形推导的素材名称，例如固定 GameOver 图片、世界地图战斗背景、原版部署固定保留 33 项。此边界不排除表中通过已选固定数据库条目／系统音效槽最终到达保存名称的关系，例如空手动画 1、System.sounds[7]／[9]。
-
-图片尺寸／索引布局、媒体解码／播放保证、未使用素材清理、自动修复／复制／重命名、部署与加密支持、其他平台或引擎版本均不在本票覆盖决定内。
-
-| 下游票 | 本票提供的输入与保留决定 |
-| --- | --- |
-| [03 文件存在性](03-asset-file-existence-contract.md) | 原生类别和未改写名称、完整来源、None／无法解释／未知停止点的区别；路径、扩展名、匹配、链接与部署支持仍由 03 决定 |
-| [04 诊断政策](04-asset-diagnostics-and-policy.md) | 直接及已选间接使用、Conditional Asset Candidates、未启用状态和未知路径；严重性、开关、例外与聚合呈现仍由 04 决定，纯粹同条目关联已排除 |
-| [05 工作流](05-workspace-asset-check-lifecycle.md) | 当前事件起点与必要标准字段关系；数据来源一致性、实时文件、检查时机、Compile Baseline／Generated Freshness、Push 仍由 05 决定 |
-| [06 验收](06-asset-validation-acceptance.md) | 按覆盖表、边界、条件、raw 一致性、镜像、共享与循环设计验收；本票的静态事实和函数重放不等于产品或原生运行验收 |
-
-本契约修订 [ADR 0011](../../../docs/adr/0011-native-command-state-and-validation.md) 的“文件不扫描”设计边界，尺寸排除继续保留；[ADR 0012](../../../docs/adr/0012-event-saved-state-roundtrip-boundary.md) 的保存状态／raw／外部数据边界继续适用，[ADR 0013](../../../docs/adr/0013-bind-generated-data-to-compilation-assumptions.md) 的工作流修订留给票 05。已接受的 [ADR 0016](../../../docs/adr/0016-event-rooted-asset-use-coverage.md) 记录为何选择有限事件关系和逐次来源，而不复用原版全库部署集合。
+[ADR 0016](../../../docs/adr/0016-event-rooted-asset-use-coverage.md)已按用户本次要求修订覆盖范围，ADR 0011 的有限文件扫描、ADR 0012 的原值／raw／所有权、ADR 0019 的工作流保护继续适用。此次是范围选择，不推翻历史研究中的原生消费事实。
 
 依据为本票逐轮确认、下方首方 runtime 静态位置，以及[原版部署范围研究](../research/native-unused-assets-scope.md)与[完整字段规则子报告](../research/deployment-help-scope.md)。未进行本功能实现或真实编辑器／游戏验收。
 
@@ -260,3 +235,7 @@ Q1–Q14 已合并为上方 Answer，并形成拟议 ADR 0016。此轮只整理�
 收缩 ADR 0016 的来源要求：保留定义位置、事件内依赖链和直接调用点，不再展开全部传递路径或新增循环诊断。实际直接／间接字段清单保持不变；相关来源、计数与循环验收已同步。
 
 本票继续 resolved，表示本次设计修订已完成；产品实现与验收仍待执行。
+
+### 2026-11-02 — 首版范围再次简化
+
+保留直接字段和七族明确间接关系；初始／默认候选、固定传送地图初始化素材和公共事件调用报告延后。各 Common Event 仍独立检查；直接素材与固定引用校验不受延后影响。现行 Answer、实施规格、ADR 及验收材料已同步；历史 Comments 保留。设计状态保持 resolved，产品实现和验收仍待执行。

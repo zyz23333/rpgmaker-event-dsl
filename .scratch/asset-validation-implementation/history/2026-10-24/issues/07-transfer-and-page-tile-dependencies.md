@@ -1,18 +1,20 @@
-# 16: 恢复记账与当前素材条件分开判定
+# 07: 传送地图与页图块的素材检查
+
+> 历史归档，不可领取。正文保留当时的范围与状态，仅重定位链接；现行任务见[当前索引](../../../tickets.md)。
 
 Status: ready-for-agent
-Blocked by: 15
+Blocked by: 06
 Created: 2026-10-24
-Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
+Parent: [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)
 Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments)
 
-**What to build:** 作者能恢复已完成的 data 写入，即使素材仍缺失；恢复完成后按当前依据继续判断本次 Push。
+**What to build:** 固定传送地图检查其图块组、远景和 BGM／BGS；页图块只检查宿主初始图块组对应的一张 B–E 图片。
 
 ## Acceptance criteria
 
-- [ ] 全生成内容可完成记账，再因当前素材失败时 pending 已清且不重建；全旧快照可放弃后进入正常检查；混合、缺失、未知拒绝自动恢复。
-- [ ] 独立历史 pending 证据覆盖旧编译政策／hash、当前配置改变及 stale 原依据：保留原结构和版本，恢复不能升级旧输出或获得新写权限。
-- [ ] 验证锁、非 Push 遇 pending、重绑先按原目标处理；报告区分恢复结果和当前失败，素材不进入恢复备份或写入。完成真实中断与指定 CLI 回执。
+- [ ] B08／B09 的每个字段、全部合法 B–E 选择分别验收；页图块是候选，关闭 autoplay 的保存音频仍检查并标注非活动。
+- [ ] 保留覆盖及播放条件；不扩展目标地图事件网络、目标地图战斗背景或整组页图块，不用运行状态猜测。
+- [ ] 完成 N04：原生更换图块组与页图块单图对照，区分地图绘制附带请求。补齐字段错误、None、范围反例和候选 warning 的操作验收。
 
 ### 共通要求（限本票适用范围）
 
@@ -22,6 +24,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [ ] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
 - [ ] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
 - [ ] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
+- [ ] 完成本票指定的原生必验并留下实际证据；原生执行条件、预加载、附带请求与候选分别说明。确需人工的操作由维护者执行留证，缺必验证据时不关闭本票。
 
 ## Acceptance ownership
 
@@ -29,14 +32,17 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 | 验收族 | 本票负责的分支／字段 |
 | --- | --- |
-| W15 | 五种恢复 data 状态及当前素材结果 |
-| W16 | 原依据过期与当前配置改变；12 提供格式兼容并先验证历史 hash |
-| W18 | 竞争／非 Push 遇 pending／pending 下重绑 |
-| W19 | recovery：只允许恢复数据记账语义，素材不参与恢复写入或备份。 |
+| B08 | 固定传送 Map 全部所选字段 |
+| B09 | 页图块 B–E 单槽 |
+| C06 | 本票 B08、B09 所有原生允许 None 的到达字段，按上游有限子用例展开。 |
+| C07 | 本票 B08、B09 到达字段的 target-missing／field-missing／field-wrong-type／field-empty／file-missing 适用变体；固定目标与 System 字段按原索引分别处理。 |
+| C08 | autoplay-bgm-off／autoplay-bgs-off：保存名称仍检查，明确非活动原因保留。 |
+| C12 | transfer-network：不沿目标地图事件网络展开。 |
+| N04 | 整组图块与 B–E 页单图 |
 
 ## Dependencies
 
-- [15：Push 写后复核与完整输入保护](15-push-postwrite-consistency.md)。
+- [06：动画与更换图块组的间接检查](06-animation-and-tileset-dependencies.md)。
 
 只在列出的直接阻塞票均为 resolved 后领取整票。票号表示依赖顺序，产品最终完成仍须通过 17；本票完成不代表整套素材检查已经交付。
 
@@ -48,9 +54,9 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Sources
 
-- [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
-- [验收矩阵](../../asset-validation/acceptance-matrix.md)：规范预期。
-- [实施验收用例索引](../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
+- [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
+- [验收矩阵](../../../../asset-validation/acceptance-matrix.md)：规范预期。
+- [实施验收用例索引](../../../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
 - [已确认任务拆分](../ticket-breakdown-draft.md)：本票范围、直接阻塞关系及共享验收族分配。
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 

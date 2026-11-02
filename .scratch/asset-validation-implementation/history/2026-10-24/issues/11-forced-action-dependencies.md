@@ -1,18 +1,20 @@
-# 09: 结束、标题与战斗默认素材的检查
+# 11: 强制行动的技能、默认攻击与公共事件 effects
+
+> 历史归档，不可领取。正文保留当时的范围与状态，仅重定位链接；现行任务见[当前索引](../../../tickets.md)。
 
 Status: ready-for-agent
-Blocked by: 06
+Blocked by: 06, 10
 Created: 2026-10-24
-Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
+Parent: [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)
 Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments)
 
-**What to build:** Game Over、Return to Title、Battle Processing 中已选的 System 和宿主地图素材关系在编译时可见。
+**What to build:** Force Action 的固定 Skill 能同时检查动画和公共事件 effects；默认攻击按角色／敌人规则产生准确候选或停止记录。
 
 ## Acceptance criteria
 
-- [ ] B11–B14 完整覆盖：Game Over ME；标题两图与 BGM；战斗 BGM／胜败 ME 默认候选和 sounds 槽 7；Map Event 宿主地图两层战斗背景候选。
-- [ ] 保留胜败、地图启动、specifyBattleback 及运行时覆盖条件；动态敌群只停止该分支，已知系统关系继续。
-- [ ] 不加入硬编码 GameOver／标题 UI、地形推导、Battle Test 背景；Common／Troop Event 不推断调用地图。字段错误和共享 System 失败保留全部来源。
+- [ ] B05／B16：正动画继续到 Animation，零动画只关闭动画路径，所有保存的 Common Event effects 仍逐项展开，不用 reservation 覆盖裁掉来源。
+- [ ] B06：角色默认攻击保留无武器时 Animation 1 候选及当前武器未知分支；不读初始装备冒充当前武器。
+- [ ] B07：敌人默认攻击选 System.sounds 槽 9，不伪造动画 ID。完整验证共用链、循环、已知兄弟路径继续以及正式／raw 的独立预期。
 
 ### 共通要求（限本票适用范围）
 
@@ -29,19 +31,19 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 | 验收族 | 本票负责的分支／字段 |
 | --- | --- |
-| B11 | Game Over ME |
-| B12 | 标题两图与 BGM |
-| B13 | 战斗系统默认与 start SE |
-| B14 | Map Event 宿主地图两层背景 |
-| C05 | dynamic-target／known-sibling：动态敌群停止该路径，已知系统关系继续。 |
-| C06 | 本票 B11、B12、B13、B14 所有原生允许 None 的到达字段，按上游有限子用例展开。 |
-| C07 | 本票 B11、B12、B13、B14 到达字段的 target-missing／field-missing／field-wrong-type／field-empty／file-missing 适用变体；固定目标与 System 字段按原索引分别处理。 |
-| C08 | battleback-off：specifyBattleback 关闭时保留候选和非活动原因。 |
-| C12 | hardcoded-system／terrain-background／battle-test-background：不扩张已排除系统／地形／测试背景。 |
+| B05 | 固定 Skill 正动画 |
+| B06 | 角色默认攻击候选与未知武器停止 |
+| B07 | 敌人默认攻击 sound9 |
+| B16 | Skill 的全部 Common Event effects |
+| C05 | Skill／Common 链的循环与角色默认攻击的动态武器路径；已知动画／effects 兄弟路径继续。 |
+| C06 | 本票 B05、B06、B07、B16 所有原生允许 None 的到达字段，按上游有限子用例展开。 |
+| C07 | 本票 B05、B06、B07、B16 到达字段的 target-missing／field-missing／field-wrong-type／field-empty／file-missing 适用变体；固定目标与 System 字段按原索引分别处理。 |
+| C12 | initial-equipment：不以初始装备替代当前武器。 |
 
 ## Dependencies
 
 - [06：动画与更换图块组的间接检查](06-animation-and-tileset-dependencies.md)。
+- [10：公共事件调用链与有界停止](10-common-event-dependency-chains.md)。
 
 只在列出的直接阻塞票均为 resolved 后领取整票。票号表示依赖顺序，产品最终完成仍须通过 17；本票完成不代表整套素材检查已经交付。
 
@@ -53,9 +55,9 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Sources
 
-- [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
-- [验收矩阵](../../asset-validation/acceptance-matrix.md)：规范预期。
-- [实施验收用例索引](../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
+- [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
+- [验收矩阵](../../../../asset-validation/acceptance-matrix.md)：规范预期。
+- [实施验收用例索引](../../../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
 - [已确认任务拆分](../ticket-breakdown-draft.md)：本票范围、直接阻塞关系及共享验收族分配。
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 

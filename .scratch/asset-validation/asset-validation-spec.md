@@ -5,7 +5,7 @@ Created: 2026-10-24
 Source: [事件素材引用检查的决策地图](map.md)
 Acceptance: [已接受的验收矩阵](acceptance-matrix.md) · [实施验收用例索引](implementation-acceptance-cases.md)
 
-2026-10-25 已按用户要求完成设计减重，现行规则以本规格及修订后的 Answer／ADR 为准；此前 Comments 是历史。
+2026-11-02 按用户“进行简化”的要求再次收缩首版。现行规则以本规格及同步修订的 Answer／ADR、验收矩阵为准；此前 Comments 是历史。首版只验收当前保留范围，延后能力不阻塞交付。
 
 本规格承接六张已 resolved 的决策票、ADR 0016–0019 及已确认的验收交接。它规定首版实现和完成标准；产品功能、自动化用例与原生必验项仍待实施／执行。`ready-for-agent` 表示规格可以交给实施方，不表示功能已完成。
 
@@ -13,7 +13,7 @@ Acceptance: [已接受的验收矩阵](acceptance-matrix.md) · [实施验收用
 
 Event DSL 作者能通过编译确认事件结构和固定项目引用是否合法，却仍可能在游戏运行时才发现图片、音频或影片文件不存在。直接素材名称可能保存在事件页、嵌套分支、移动路线或原生 raw 指令中；播放动画、更换图块组、战斗等操作还会通过标准项目数据间接使用素材。仅验证数据库条目存在，不能确认这些文件存在。
 
-同一素材可能被多个事件和公共事件调用链使用。只有一个去重后的文件名，无法解释具体要修改哪个事件或哪个数据库字段。初始化候选、明确未启用的保存配置、运行时动态目标也需要不同的说明，避免把保存关系误说成必然执行。
+同一素材可能被多个事件使用。只有一个去重后的文件名，无法解释具体要修改哪个事件或哪个数据库字段。首版保留定义位置和事件内依赖链，区分明确未启用的保存配置与所选关系中的动态停止，不建立公共事件调用报告或初始／默认候选模型。
 
 素材文件位于实时 Project Root，独立于 Standard Project Data Snapshot。编译后删除素材，当前 Generated Freshness 仍可能成立；无数据差异的 Push 也不能据此宣称素材条件满足。作者需要在日常 Compile、Compile Check 和 Push 中获得一致、可定位且有明确有效时刻的诊断。
 
@@ -21,52 +21,24 @@ Event DSL 作者能通过编译确认事件结构和固定项目引用是否合�
 
 在 Windows / Node.js 22 验证环境、RPG Maker MV 1.6.1 普通编辑项目中，默认检查所有当前 Event Definitions 的已选直接素材及有限标准数据依赖。检查只确认准确目标是否是可观察元数据的普通文件；图片采用 PNG，音频采用 OGG，影片采用 WebM。通过不保证内容可读、布局正确、解码、播放或运行时必然使用。
 
-普通明确使用的已确认缺失、名称不符或类型问题默认阻止 Compile／Check／Push；Conditional Asset Candidate 和明确非活动保存配置中的同类问题警告。作者可为准确的素材命名空间与原始名称配置带原因的 Asset Check Exception，将允许的 error 降为 warning。不支持名称／链接／加密模式在候选或明确非活动配置中为 warning，并标记该部分未检查；普通明确使用仍 error。必要输入、实际查询失败和单次查询矛盾仍阻止操作。
+普通明确使用的已确认缺失、名称不符或类型问题默认阻止 Compile／Check／Push；明确非活动保存配置中的同类问题警告。作者可为准确的素材命名空间与原始名称配置带原因的 Asset Check Exception，将允许的 error 降为 warning。不支持名称／链接／加密模式在明确非活动配置中为 warning，并标记该部分未检查；普通明确使用仍 error。必要输入、实际查询失败和单次查询矛盾仍阻止操作。
 
-报告保留每次 Event Asset Use 的定义事件、原生保存位置、事件内 Asset Dependency Chain、适用条件和例外原因；公共事件另记录直接调用位置，不展开或计数所有传递调用路径。Compile／Check 在完整候选校验后、发布或返回前检查一次素材；Push 从已校验 Generated Project Data 与对应快照重建相同使用，在写前或无写入返回前检查一次。素材不进入持久编译基线、快照、复制、备份或写入后恢复条件。
+报告保留每次 Event Asset Use 的定义事件、原生保存位置、事件内 Asset Dependency Chain、适用条件和例外原因；所有公共事件独立检查，首版不收集或展示直接／传递调用关系。Compile／Check 在完整候选校验后、发布或返回前检查一次素材；Push 从已校验 Generated Project Data 与对应快照重建相同使用，在写前或无写入返回前检查一次。素材不进入持久编译基线、快照、复制、备份或写入后恢复条件。
 
 ## User Stories
 
-1. As an Event DSL author, I want Compile and Compile Check to check asset files by default, so that missing resources are found during authoring.
-2. As an Event DSL author, I want every current Map Event, Common Event, and Troop Event checked, so that uncalled events are still covered.
-3. As an Event DSL author, I want removed definitions excluded from asset roots, so that obsolete snapshot events do not create unrelated findings.
-4. As an Event DSL author, I want page images, nested commands, and both movement-route containers covered, so that saved references are not overlooked.
-5. As an Event DSL author, I want formal commands and recognized raw commands checked consistently, so that representation does not change the policy.
-6. As an Event DSL author, I want native command mirrors counted once, so that diagnostic counts reflect logical uses.
-7. As an Event DSL author, I want valid None values and Compiler Defaults handled correctly, so that optional assets do not become false missing-file errors.
-8. As an Event DSL author, I want inactive saved names retained and identified, so that I can repair them without losing their saved configuration.
-9. As an Event DSL author, I want selected animation, tileset, enemy, map, actor, and System relationships followed, so that indirect file problems are found.
-10. As an Event DSL author, I want initial and fallback asset candidates identified with their conditions, so that they are not described as guaranteed runtime loads.
-11. As an Event DSL author, I want each Common Event definition and direct call site retained, so that shared dependencies remain explainable without enumerating every transitive path.
-12. As an Event DSL author, I want cyclic calls represented without recursive expansion and dynamic targets explained, so that checking terminates without hiding unknown dependencies.
-13. As an Event DSL author, I want unrelated database entries excluded, so that editing an event does not trigger a whole-project asset audit.
-14. As an Event DSL author, I want file matching to use the exact category, saved name, and required extension, so that case errors and incorrect formats are visible.
-15. As an Event DSL author, I want supported Chinese characters, spaces, prefixes, and literal special characters preserved, so that validation does not rename my assets.
-16. As an Event DSL author, I want unsupported names, links, and encrypted modes identified explicitly, so that they are not reported as ordinary missing files.
-17. As an Event DSL author, I want missing files distinguished from inaccessible metadata and damaged dependency fields, so that I know what to fix.
-18. As an Event DSL author, I want metadata-only existence checks, so that checking does not require decoding or reading every media file.
-19. As an Event DSL author, I want ordinary confirmed file problems to block compilation, so that broken references are not silently accepted.
-20. As an Event DSL author, I want eligible problems in candidates and explicitly inactive settings to warn, so that their uncertainty remains visible without unnecessary blocking.
-21. As an Event DSL author, I want a reasoned exception for one exact asset, so that temporary authoring gaps can remain visible and nonblocking.
-22. As an Event DSL author, I want malformed, duplicate, and currently ineffective exceptions reported, so that configuration remains understandable.
-23. As an Event DSL author, I want grouped findings with all origins and separate use counts, so that repeated references do not hide affected locations.
-24. As an Event DSL author, I want safe independent checks to continue after a failure, so that one damaged dependency does not hide unrelated problems.
-25. As an Event DSL author, I want the CLI to expose dependency chains, exception reasons, and incomplete checks, so that I can act on its result.
-26. As a Workspace user, I want Compile Check to leave generated and synchronization state unchanged, so that checking remains read-only.
-27. As a Workspace user, I want Compile to check current assets before publication while retaining compilation-input consistency checks, so that file diagnostics and generated-data integrity have clear responsibilities.
-28. As a Workspace user, I want Push to check current assets even when there are no data changes, so that success reflects the current policy.
-29. As a Workspace user, I want Push to reconstruct uses from generated events without reevaluating DSL, so that applying output does not produce a different event state.
-30. As a Workspace user, I want completed data writes recorded independently of later asset changes, so that missing media does not create artificial recovery work.
-31. As a Workspace user, I want restored files to allow another Push when other inputs are current, so that asset repair does not force unnecessary recompilation.
-32. As a Workspace user, I want standard-data changes to follow Pull and recompilation rules, so that old event output is not checked against newer dependency names.
-33. As a Workspace user, I want metadata-only checks of selected targets, so that media-content and unrelated directory changes do not invalidate an operation.
-34. As a Workspace user, I want asset results judged at the current check gate, so that repairing a file does not itself force failure or an extra rerun.
-35. As a Workspace user, I want recovery bookkeeping and current asset checks reported separately, so that missing media does not trap completed data writes in recovery.
-36. As a Workspace user, I want Clone, Pull, Decompilation, and Diff to retain their established responsibilities, so that missing assets do not prevent takeover or data review.
-37. As a Workspace user, I want asset checking to preserve source values, external data, and media files, so that diagnosis does not modify my project unexpectedly.
-38. As a maintainer, I want independent expected results and real Windows workflow tests, so that tests can detect errors in the checker itself.
-39. As a maintainer, I want required native observations and environment-limited cases tracked explicitly, so that planned or skipped work is not reported as passing.
-40. As a maintainer, I want counterexamples traced back to the affected contract and ADR, so that fixes preserve the agreed feature boundary.
+1. 作为事件作者，我希望 Compile、Compile Check 和 Push 默认检查当前事件使用的素材，提前发现缺失并定位到事件或数据库字段。
+2. 我希望所有当前 Map／Common／Troop Event、嵌套命令与两种移动路线都覆盖，已移除事件不从旧快照补回。
+3. 我希望正式命令与已识别 raw 使用同样规则，None、Compiler Default、镜像和明确非活动保存状态得到正确处理。
+4. 我希望动画、图块组、敌人、固定技能正动画及明确系统场景的有限间接素材也被检查，无关数据库字段不被扫描。
+5. 我希望准确名称和固定扩展名得到检查，缺失、类型问题、不支持形式、查询失败和必要输入错误能区分。
+6. 我希望报告保留每处定义位置、事件内依赖链、必要条件和例外原因，同一文件的重复使用不会丢失来源。
+7. 我希望能为一个准确素材配置带原因的例外，临时缺素材仍可继续创作；非法或重复配置应报错。
+8. 我希望 Check 保持只读，Compile 在发布前检查，Push 在写前或无写入返回前检查当前素材。
+9. 我希望补回素材后能直接重试 Push，素材变化不影响已完成 data 写入的恢复记账。
+10. 我希望快照、编译依据、绑定和 data 漂移继续按原工作流处理，素材不被复制、备份、改名或修复。
+11. 作为维护者，我希望用独立预期、真实 Windows 工作流和当前范围内必要的原生观察验证结果。
+12. 我希望首版可以在当前保留范围完成后交付，初始候选和额外报告能力作为独立后续增量。
 
 ## Implementation Decisions
 
@@ -80,15 +52,15 @@ Event DSL 作者能通过编译确认事件结构和固定项目引用是否合�
 
 | 归属 | 本次职责与输入输出 |
 | --- | --- |
-| Validation 的素材使用收集 | 输入明确的当前事件根、已验证原生保存结构及捕获标准数据视图；输出逐次 Event Asset Uses、事件内依赖链、必要输入问题、动态停止记录和直接调用关系。不能依赖实时标准 data 或执行事件脚本 |
+| Validation 的素材使用收集 | 输入明确的当前事件根、已验证原生保存结构及捕获标准数据视图；输出逐次 Event Asset Uses、事件内依赖链、必要输入问题和动态停止记录。不能依赖实时标准 data 或执行事件脚本 |
 | Workspace 的素材文件观察 | 输入绑定的 Project Root、去重后的目标和相应模式；输出各目标的文件事实及必要路径观察。每次操作的素材检查有独立生命周期，不读取媒体内容 |
-| Validation 的素材诊断政策 | 结合使用来源、文件事实、例外和完整性，产生基础／有效级别、问题分组及统计；单次查询无法完成仍报不可豁免的查询错误 |
+| Validation 的素材诊断政策 | 结合使用来源、文件事实、例外和完整性，产生基础／有效级别和保留全部来源的问题分组；单次查询无法完成仍报不可豁免的查询错误 |
 | Workspace 用例 | 捕获输入、调用同一素材检查流程、安排单次素材检查、保留编译输入保护及 data 恢复，向现有命令输出保留全部诊断 |
 | Project Data 读取与输出构造 | 为必要关系提供同一捕获视图中的原生条目；提供当前候选输出／已验证生成输出中的事件状态，保留外部字段及所有权 |
 | Workspace Config 与编译基线 | 解析准确例外、验证重复项、记录编译政策，更新 Manifest／pending 中相应的已理解结构和 Compile Contract Version |
 | CLI 与使用说明 | 展示分组、来源链、条件、例外、未完成范围和操作结果，说明存在性边界及修复后的工作流 |
 
-Compile 与 Push 共用一个原生保存状态的素材规则实现。Compile 在固定引用和完整输出校验后，以当前 Staged Data Graph 确定根与公共事件身份，并把候选输出的原生保存值交给收集器；这样正式、raw、Compiler Default 和镜像使用同一逻辑。Push 从经过完整性和新鲜度核对的生成事件构造同类输入，不重新加载或求值 Definition Source，不调用反编译器绕一轮，也不信任历史素材报告。生成数据中的空白 Troop Event Reset 不产生素材使用；不能从旧快照补回已移除事件。
+Compile 与 Push 共用一个原生保存状态的素材规则实现。Compile 在固定引用和完整输出校验后，以当前 Staged Data Graph 确定当前事件根，并把候选输出的原生保存值交给收集器；这样正式、raw、Compiler Default 和镜像使用同一逻辑。Push 从经过完整性和新鲜度核对的生成事件构造同类输入，不重新加载或求值 Definition Source，不调用反编译器绕一轮，也不信任历史素材报告。生成数据中的空白 Troop Event Reset 不产生素材使用；不能从旧快照补回已移除事件。
 
 必要字段保持按消费关系读取的窄接口。Project Data 可为操作捕获原始对象供只读访问，不能因实现方便把全库素材字段加入通用严格 schema。同步的纯事件结构校验继续可独立工作；文件查询在 Workspace 层异步执行，不把所有 authoring／decompilation 入口改成文件检查入口。
 
@@ -117,43 +89,46 @@ Autonomous Movement 即使不是 custom，也保留其已保存路线素材；�
 
 合法 None 不查询文件，相关音量、索引等保存值继续保留。可选 DSL 字段先使用现有 Compiler Default，再判断最终名称；捕获数据缺少必需字段不能补成 None。已识别 raw 共用上述规则；未知代码、脚本和插件负载维持既有不解释及 Script Command Gate 契约。
 
-### 3. 有限间接关系
+### 3. 有限间接关系与延后范围
 
-| 事件入口 | 必须继续的关系 | 确定性、条件与停止边界 |
+| 事件入口 | 首版继续的关系 | 条件与边界 |
 | --- | --- | --- |
-| Show Animation 212／Show Battle Animation 337 | Animation 两个图像名称和全部 timings 的 SE | 图像与逐项 SE 各自保留来源；预加载与按帧条件分开 |
+| Show Animation 212／Show Battle Animation 337 | Animation 两个图像名称和全部 timings 的 SE | 图像与逐项 SE 各自保留来源；不保证预加载或按帧播放实际发生 |
 | Change Tileset 282 | 所选 Tileset 的全部 tilesetNames | 不按地图实际使用过滤；重复名称的槽仍独立 |
 | 固定 Troop 的 Battle Processing | 各 members 的 Enemy → battlerName | hidden 成员也收集；System.optSideView 选择 enemies 或 sv_enemies |
 | Enemy Transform | 指定新 Enemy → battlerName | 同样选择前／侧视目录；运行目标可能不存在不抹掉保存关系 |
-| Force Action 的固定 Skill | 正 animationId → Animation；全部保存的 Common Event effects → 当前公共事件的直接调用关系 | animationId 为 0 仅取消动画路径；各 effect 调用位置仍保留，目标 Common Event 作为独立根检查 |
-| Force Action 的角色默认攻击 | 无当前武器时的 Animation 1 → 图片与 SE | Conditional Asset Candidate；当前武器分支未知停止，不读初始装备替代 |
-| Force Action 的敌人默认攻击 | System.sounds 的槽 9 名称 | audio / se；不能伪造动画 ID |
-| 固定 Map 的 Transfer Player | Map.tilesetId → 全组图片，加 parallaxName、bgm.name、bgs.name | 保留 autoplay 与运行时配置覆盖条件；不扩展到战斗背景或目标地图的事件网络 |
-| 非零合法 Map Event 页图块 | 宿主 Map 初始 Tileset 的槽 5 + floor(tileId / 256) | 只对应 B–E 中一张图，作为初始图块组候选；不扩大为整组 |
-| Change Party Member 加入 Actor | 初始 characterName、battlerName | 两者均为候选；保留运行时图像覆盖、侧视和有效战斗队员条件；不加入 faceName 或移除后的重排 |
+| Force Action 的固定 Skill | 正 animationId → Animation 图片与 SE | 0 表示没有动画；负值的默认攻击路径超出首版覆盖，记录位置和未检查原因，不查询武器、Animation 1 或系统攻击 SE |
 | Game Over | System.gameoverMe.name | audio / me；不加入硬编码 GameOver 图像 |
 | Return to Title | System.title1Name、title2Name、titleBgm.name | titles1、titles2、bgm；不继续展开标题 UI |
-| Battle Processing 的系统关系 | System.battleBgm、victoryMe、defeatMe 的 name，以及 sounds 槽 7 的 name | 前三者为默认候选；保留胜败与地图启动 SE 条件；动态敌群只停止敌群路径 |
-| Map Event 内 Battle Processing 的背景 | 宿主 Map 的 battleback1Name、battleback2Name | 条件候选，保留 specifyBattleback 和运行时覆盖条件；Common／Troop Event 不推断调用地图；不使用 System 的 Battle Test 背景替代 |
-| Common Event 117 | 固定当前 Common Event 的直接调用关系 | 保留定义事件与每个直接调用位置；目标独立检查，不把其素材沿传递调用链复制 |
 
-只有覆盖契约明确列入的初始／默认关系可以标记 Conditional Asset Candidate。普通固定使用的执行条件不自动变成候选；直接／间接来源也不决定严重性。纯粹同属某个 Actor 或其他条目的字段不构成依赖。
+沿上述事件内标准数据关系到素材字段，不设置任意深度上限。普通固定使用的执行条件不使其自动降为 warning；直接／间接来源也不决定严重性。必要字段只按所选关系解释；纯粹同属某个条目的其他字段不构成依赖。
 
-沿已选的事件内标准数据关系到素材字段，不设置任意深度上限。Common Event 命令及 Skill effects 记录调用位置和固定目标；所有当前 Common Events 已独立检查，不递归复制其素材使用，不拼接所有传递调用链。自调用、互调和多跳无环调用只保留有限的直接关系，不新增循环诊断。动态目标／名称没有已选固定候选时，记录位置、已有事件内链及停止原因；不生成 None、缺文件或通过结果，其他已知关系继续。
+所有当前 Common Events 已是独立根。Common Event 117 与 Skill 的 Common Event effects 不增加素材检查边；首版不收集调用关系、不复制被调用事件的素材、不生成循环诊断。既有固定引用和结构校验继续适用，不因不收集调用报告而放宽。
+
+所选关系遇到动态目标，或 Force Action 进入本版不支持的默认攻击路径时，记录位置、已有事件内链及未继续的原因，不生成 None、缺文件或通过结果。其他已选关系继续。未列入覆盖的其他操作不必逐一产生停止报告，使用说明应列明范围。
+
+以下能力延后，均不属于首版实现或完成门槛：
+
+- 初始／默认候选：Actor 加入时的初始图像、页图块对应的宿主初始 Tileset、角色／敌人默认攻击、Battle Processing 的系统音频与宿主地图背景。
+- 固定 Transfer Player 的目标地图初始化素材关系，包括 Tileset、parallax、BGM／BGS；首版仍验证固定 Map 引用，不据此查询这些素材。
+- 公共事件直接／传递调用报告，包括 Skill effects 调用来源。
+- 问题组／不同问题文件／受影响使用次数三套精确统计，以及未实际降级的例外告警。
+
+延后关系中的缺素材或与本检查无关的字段损坏不产生素材诊断；既有引用／结构校验不变。直接 Change Actor Images、Change Battle Back、Change Battle BGM 等明确保存名称仍按第二节检查，不能因对应默认关系延后而漏掉直接字段。
 
 ### 4. 来源模型和标准数据视图
 
-每次使用保留类别、folder、未改写名称、定义事件类型及 Entry Identity、页／命令／嵌套体／路线位置、主原生字段和关联镜像位置。间接使用保留从该事件操作到素材字段的标准数据类别、条目 ID、字段和关系依据。公共事件直接调用关系单独保留 caller、调用位置、target，以及适用的 Skill/effect 路径；不复制到被调用事件的每项使用。候选、非活动和执行条件分别记录。可靠时附 DSL 对象位置和源码行列，否则保留原生位置。
+每次使用保留类别、folder、未改写名称、定义事件类型及 Entry Identity、页／命令／嵌套体／路线位置、主原生字段和关联镜像位置。间接使用保留从该事件操作到素材字段的标准数据类别、条目 ID、字段和关系依据。非活动与必要执行条件保留；不建立公共事件调用模型或初始／默认候选类型。可靠时附 DSL 对象位置和源码行列，否则保留原生位置。
 
-文件查询键为准确的类别、folder、原始名称及绑定项目／模式。使用身份由定义事件、真实保存位置和事件内标准数据关系路径确定；不同指令、成员、槽、timing 均独立，调用者数量不增加被调用事件的使用次数。不能按文件名全局去重使用。损坏关系、合法空字段、动态停止及公共事件调用关系与文件事实分开。
+文件查询键为准确的类别、folder、原始名称及绑定项目／模式。使用身份由定义事件、真实保存位置和事件内标准数据关系路径确定；不同指令、成员、槽、timing 均独立，调用者数量不增加被调用事件的使用次数。不能按文件名全局去重使用。损坏关系、合法空字段及动态停止与文件事实分开。
 
-Compile／Check 的事件和公共事件来自本次 Staged Data Graph；外部 Animation、Tileset、Actor、Enemy、Troop、Skill、Map 及必要 System 设置来自同一捕获 Snapshot。Push 使用当前完整生成事件和对应捕获 Snapshot；须捕获必要的完整标准数据视图，不能只读取发生差异的几个文件。当前事件移除、公共事件替换和生成状态必须得到相同解释。
+Compile／Check 的事件和公共事件来自本次 Staged Data Graph；外部 Animation、Tileset、Enemy、Troop、Skill 及必要 System 设置来自同一捕获 Snapshot。Push 使用当前完整生成事件和对应捕获 Snapshot；须捕获必要的完整标准数据视图，不能只读取发生差异的几个文件。当前事件移除、公共事件替换和生成状态必须得到相同解释。
 
 实时标准 data 不参与补读依赖。未 Pull 的动画素材改名时 Compile 仍按快照旧名称检查，Push 由 Project Drift 拒绝；Pull 后旧输出失效，重新 Compile 使用新字段。所有必要外部字段只读，不改变 DSL-Owned Project Data，不扫描无关字段或条目。
 
 ### 5. 文件定位与事实分类
 
-使用已绑定的普通编辑 Project Root。图片类别位于原生 img 目录并追加 `.png`，audio 的 bgm／bgs／me／se 追加 `.ogg`，movies 追加 `.webm`。直接、raw、间接和候选使用同一映射。原名直接加扩展名：带 `.png` 的原名需要再次追加 `.png`；其他格式、加密后缀不能替代。准确目标存在时，旁边的其他格式或大小写变体不造成歧义。
+使用已绑定的普通编辑 Project Root。图片类别位于原生 img 目录并追加 `.png`，audio 的 bgm／bgs／me／se 追加 `.ogg`，movies 追加 `.webm`。直接、raw 和已选间接使用同一映射。原名直接加扩展名：带 `.png` 的原名需要再次追加 `.png`；其他格式、加密后缀不能替代。准确目标存在时，旁边的其他格式或大小写变体不造成歧义。
 
 Project Root 以下的每一级类别目录、文件名和扩展名都要求准确大小写。不 trim、折叠大小写、Unicode 规范化、URL 解码或去除后缀。仅大小写不同项只能解释名称不符，不被选为替代，也不触发跨目录搜索。根自身沿用既有 realpath／别名／绑定语义；大小写检查不得直接使用已小写化的绑定字符串代替真实目录项名称。
 
@@ -163,7 +138,7 @@ Project Root 以下的每一级类别目录、文件名和扩展名都要求准�
 
 仅有图片／音频待查使用时解释其对应 System 加密标志：缺失或 false 为普通模式，true 为该媒体类别不支持的加密模式，存在但不是 boolean 为必要字段错误。影片不受两个标志影响。普通模式只有加密文件时仍缺少所需普通文件；true 模式不能因为旁边有普通文件而通过。不能自动转到部署树或其他资源根。
 
-必须区分：存在；缺类别目录；缺文件；准确名称不符；必要路径／文件类型不符；不支持名称／链接／加密模式；无法枚举或查询元数据（含单次查询矛盾）；必要字段错误；固定引用或关系解析失败；合法 None；动态停止。循环公共事件仅保留直接调用关系，不生成停止诊断。访问错误不能推断为缺失，枚举到项后项消失不能静默改为稳定缺失。只有支持的名称才能形成待查询目标；非法路径不得先解析再报告。
+必须区分：存在；缺类别目录；缺文件；准确名称不符；必要路径／文件类型不符；不支持名称／链接／加密模式；无法枚举或查询元数据（含单次查询矛盾）；必要字段错误；固定引用或关系解析失败；合法 None；动态停止。公共事件调用不作素材关系展开，也不生成循环停止诊断。访问错误不能推断为缺失，枚举到项后项消失不能静默改为稳定缺失。只有支持的名称才能形成待查询目标；非法路径不得先解析再报告。
 
 ### 6. 例外配置和编译政策
 
@@ -171,22 +146,22 @@ Project Root 以下的每一级类别目录、文件名和扩展名都要求准�
 
 name 必须为非空字符串，按原始值准确匹配；不因其看起来有后缀、空白或编码而改写。reason 必须为字符串且含非空白内容，展示时保留用户原因。同 category／folder／name 重复、非法组合、缺字段或多余字段为配置错误，不能最后一项覆盖前项。名称仍需经过独立的文件支持规则；即使例外能准确匹配不支持名称，也不能豁免该问题。合法但当前未被选用的素材命名空间不会因此扩大扫描范围。
 
-例外适用于该目标的所有独立使用，只将已确认缺失、名称不符、类型不符三类问题的 error 降为 warning。查询事实、基础级别、有效级别、原因和每次来源都保留，既有 warning 不被抹掉。完整相关检查结束后，未使任何 error 降级的例外产生定位到配置项的 warning；检查未完成且作用无法确定时不作此结论。没有全局关闭、全部 warning、通配符、事件级或位置级例外。
+例外适用于该目标的所有独立使用，只将已确认缺失、名称不符、类型不符三类问题的 error 降为 warning。查询事实、基础级别、有效级别、原因和每次来源都保留，既有 warning 不被抹掉。首版不诊断合法例外是否实际产生降级，也不自动清理例外；合法但未匹配使用的例外不扩大扫描范围。没有全局关闭、全部 warning、通配符、事件级或位置级例外。
 
 配置解析、基线配置选择、摘要／哈希、Manifest 和已理解 pending 的编译依据结构都要包含例外，不能只加入配置读取。当前配置省略与空数组使用同一默认语义；操作内仍保留既有配置字节改变的检测。必要的旧字段缺省只用于读取已理解的历史格式，不可把旧输出升级为新契约。验证历史恢复证据和 hash 时保留其原结构与计算规则，不能先填入新默认再重算旧依据。实现集成时更新唯一的 Compile Contract Version，旧输出须重新 Compile；恢复继续保留原有版本和依据。素材观察不写入这些持久结构。
 
 ### 7. 严重性、报告与现有接口
 
-| 事实 | 普通明确使用 | 候选／明确非活动保存配置 | 例外 |
+| 事实 | 普通明确使用 | 明确非活动保存配置 | 例外 |
 | --- | --- | --- | --- |
 | 已确认缺目录／缺文件、名称不符、类型不符 | error | warning | 仅适用 error → warning |
-| 不支持名称、根以下链接或加密模式 | error | warning，并标明该部分未检查 | 不允许；候选／非活动降级是基础政策 |
+| 不支持名称、根以下链接或加密模式 | error | warning，并标明该部分未检查 | 不允许；非活动降级是基础政策 |
 | 必要字段／引用问题、无法查询或单次查询矛盾 | error | error | 不允许 |
 | 合法 None | 无查询／无缺失诊断 | 同左 | 无需 |
-| 动态停止／循环调用 | 动态目标信息记录；循环调用仅保留关系 | 同左 | 不适用 |
+| 所选关系的动态目标／未覆盖默认攻击 | 记录位置及未检查原因，不计为文件通过 | 同左 | 不适用 |
 | 准确普通文件 | 存在性通过 | 保留条件的存在性通过 | 无需 |
 
-明确非活动必须来自可判定的保存开关／模式，不能通过页条件或分支推演得出。既有结构、值域、Project Data Reference、Script Command Gate 诊断保持自身类型与严重性；素材例外不能绕过它们。支持范围警告明确指出未检查部分；必要输入与实际查询失败不因候选／非活动而降级。
+明确非活动必须来自可判定的保存开关／模式，不能通过页条件或分支推演得出。既有结构、值域、Project Data Reference、Script Command Gate 诊断保持自身类型与严重性；素材例外不能绕过它们。支持范围警告明确指出未检查部分；必要输入与实际查询失败不因非活动而降级。
 
 报告的稳定问题标识采用下列 `MV-ASSET-` 系列；标识不随展示文案变化。同一个问题还可用原因字段细分必要位置和原始 I/O 原因，不能用文案替代稳定语义。固定引用错误复用原问题类型，不重复伪装成素材缺失。阶段包含 compile／push 及对应素材检查时点；Check 属于 compile 阶段并标明检查模式。
 
@@ -202,14 +177,13 @@ name 必须为非空字符串，按原始值准确匹配；不因其看起来有
 | MV-ASSET-QUERY-FAILED | 必要枚举／元数据查询失败，或单次查询中事实矛盾无法确认结果 |
 | MV-ASSET-INVALID-DATA | 已选关系必需字段无法解释，且未由既有引用／结构错误覆盖 |
 | MV-ASSET-INVALID-EXCEPTION | 例外配置项非法或重复 |
-| MV-ASSET-INEFFECTIVE-EXCEPTION | 完整相关检查中该例外没有实际降级 |
-| MV-ASSET-DYNAMIC-STOP | 已选动态关系无法静态继续 |
+| MV-ASSET-DYNAMIC-STOP | 所选关系遇到动态目标，或进入本版未覆盖的默认攻击分支；保留未检查原因 |
 
-每项保留问题原因、基础／有效级别、原名、类别、Project Root、类别目录、追加扩展名、合法目标及实际失败位置，关联定义位置、事件内链和直接调用关系。公共目录／字段失败按共同依据关联全部已知使用；无合法目标时不伪造文件路径。已有近似项可展示但不选择替代。停止记录明确没有继续展开，不能计为通过文件。
+每项保留问题原因、基础／有效级别、原名、类别、Project Root、类别目录、追加扩展名、合法目标及实际失败位置，关联定义位置和事件内链。公共目录／字段失败按共同依据关联全部已知使用；无合法目标时不伪造文件路径。已有近似项可展示但不选择替代。停止记录明确没有继续展开，不能计为通过文件。
 
-默认按合法目标及问题类别分组，组级别取成员最高有效级别，各使用自己的结果仍可获取；调用关系单独展示，不乘入素材使用次数。分别统计问题组数、不同问题文件数和受影响使用次数；同文件多组只计一个文件，无合法文件目标的错误组不计入已确认缺失文件。稳定顺序采用目标／问题分类和定义事件身份／保存位置／事件内链和直接调用位置，不能依赖异步文件请求完成顺序。
+默认按合法目标及问题类别分组，组级别取成员最高有效级别，各使用自己的结果与来源仍可获取。首版不要求问题组数、不同问题文件数和受影响使用次数三套统计；不为汇总计数建立额外模型。稳定顺序采用目标／问题分类及定义事件身份／保存位置／事件内链，不依赖异步文件请求完成顺序。查询可去重，定义位置不可丢失；205／505 镜像只关联同一次使用。
 
-发现 error 后继续其他安全独立检查，保留已有 warning。必要路径损坏只截断其受影响路径；更早错误让检查输入不可信时明确未运行或未完成，不分析残缺输入来凑齐结果。检查完整性与“有无 error”分开；动态停止及候选／非活动中的支持范围 warning 可不阻断操作，但必须标明未检查覆盖；查询失败仍 error。
+发现 error 后继续其他安全独立检查，保留已有 warning。必要路径损坏只截断其受影响路径；更早错误让检查输入不可信时明确未运行或未完成，不分析残缺输入来凑齐结果。检查完整性与“有无 error”分开；动态停止及非活动中的支持范围 warning 可不阻断操作，但必须标明未检查覆盖；查询失败仍 error。
 
 保留现有 `compileWorkspace`、`pushWorkspace` 等 Workspace API 的参数与成功返回方式及现有 CLI 命令。内部素材报告承载上述结构，复用现有命令输出与失败通道；不要为测试新增公共报告 API、JSON CLI 或测试开关。CLI 必须让用户获取问题、位置、关键链、条件、例外原因和不完整说明，任何有效 error 使操作失败；仅 warning／信息不因素材政策失败。不要通过把全部内容压成第一条异常而丢失其余来源。
 
@@ -223,7 +197,7 @@ Diff 保留完整性、新鲜度和比较职责，不扫描素材。Clone、Pull
 
 ### 9. Push、完整输入保护与恢复
 
-Push 先按原绑定和内容证据处理已有 pending，再验证生成完整性、Generated Freshness 和完整标准 data 的 Project Drift。以已捕获的生成事件和对应快照重建使用与直接调用关系，不重新求值 DSL 或信任历史素材报告。
+Push 先按原绑定和内容证据处理已有 pending，再验证生成完整性、Generated Freshness 和完整标准 data 的 Project Drift。以已捕获的生成事件和对应快照重建事件内素材使用，不重新求值 DSL 或信任历史素材报告。
 
 有待写 data 时，在暂存完成后、创建本次 pending 和第一次 Project Root 替换前完成一次素材检查。素材 error 阻止开始替换，且不创建本次 pending；按既有规则清理暂存。无 Affected Project Data Files 时，在既有前置通过后、返回前同样检查。写入后不再查询素材，不因随后素材缺失或变化保留 pending。
 
@@ -251,7 +225,7 @@ Push 先按原绑定和内容证据处理已有 pending，再验证生成完整�
 4. 接入 Push 当前根重建、无差异分支、写前检查与既有 data 恢复，保留输入和绑定重查；验证写后素材变化不干扰 data 记账。
 5. 集成更新 Compile Contract Version、公共使用说明、样例与构建后 CLI 用例列表，执行完整检查和原生必验，形成验收回执供维护者确认。
 
-内部阶段可以分步提交，但首版交付必须满足修订后的整套契约。不能通过全局跳过、批量例外、删掉仍有效的旧断言或伪造外部字段来维持旧测试通过；本次已撤销要求的计划用例随修订矩阵更新。既有未使用素材检查前的成功 fixture 要增加真正需要的文件及字段，未知字段保留与保存值往返断言继续有效。此规格规定顺序，不另行创建实施票；本次决策修订记录在相关票及 ADR。
+首版按本规格当前保留范围独立交付；第三节延后能力及其旧验收分支不阻塞首版完成，也不以 skip 计为首版通过。后续扩展需另定范围和验收。不能通过全局跳过、批量例外、删掉仍有效的旧断言或伪造外部字段来维持旧测试通过；本次已撤销要求的计划用例随修订矩阵更新。既有未使用素材检查前的成功 fixture 要增加真正需要的文件及字段，未知字段保留与保存值往返断言继续有效。此规格规定顺序，不另行创建实施票；本次决策修订记录在相关票及 ADR。
 
 ## Testing Decisions
 
@@ -261,51 +235,53 @@ Push 先按原绑定和内容证据处理已有 pending，再验证生成完整�
 
 故障注入留在测试子进程的操作系统接口适配层，不给产品添加测试参数、定时 sleep 或公共 orchestration API。真实文件树验证匹配、类型和链接；可控注入稳定验证不可枚举、元数据错误与查询内矛盾。注入不冒充真实 ACL 证据。
 
-收集、事实分类和诊断是内部纯语义边界，可用独立手写数据补充精确来源、组合和分组断言；不得把只调用内部函数当成 Workspace／CLI 验收。少量无法同时在磁盘发生的分组组合可以直接构造内部诊断输入，不新增用户 API。
+收集、事实分类和诊断是内部纯语义边界，可用独立手写数据补充精确来源、组合和分组断言；不得把只调用内部函数当成 Workspace／CLI 验收。内部断言聚焦来源、级别和分组，不为计数组合新增产品 API。
 
 ### 2. fixture、预期和子用例身份
 
-以自写最小标准项目为基础，固定互不混淆的事件／数据库 ID，并为不同字段提供不同素材名；只在重复来源测试中故意共享名称。基础项目包含当前 Map／Common／Troop 定义、所需 System 字段及按用例添加的 Animation／Tileset／Actor／Enemy／Troop／Skill／Map。每个失败变体尽量只改变一个字段或文件，防止较早引用错误遮住文件政策。
+以自写最小标准项目为基础，固定互不混淆的事件／数据库 ID，并为不同字段提供不同素材名；只在重复来源测试中故意共享名称。基础项目包含当前 Map／Common／Troop 定义、所需 System 字段及按用例添加的 Animation／Tileset／Enemy／Troop／Skill；延后范围只在范围反例中提供最小相关数据。每个失败变体尽量只改变一个字段或文件，防止较早引用错误遮住文件政策。
 
-允许存在性用例用空文件，并专门断言其通过；原生核对使用有效自制媒体。正常预期包含事件内使用集合、局部依赖链、直接调用关系及条件，失败预期增加准确事实、级别、例外及操作后状态。预期不能调用被测收集器、匹配器或政策计算器；正式和 raw 各自对照预期，不能只比较两者相等。
+允许存在性用例用空文件，并专门断言其通过；原生核对使用有效自制媒体。正常预期包含事件内使用集合、局部依赖链及必要条件，失败预期增加准确事实、级别、例外及操作后状态。预期不能调用被测收集器、匹配器或政策计算器；正式和 raw 各自对照预期，不能只比较两者相等。
 
-[实施验收用例索引](implementation-acceptance-cases.md)为 A／B／C／F／D／W／N 全部 97 个用例族规定子用例维度与唯一标识展开。每个展开实例都必须有契约出处、最小输入、原生位置／字段、操作与变化时机、独立预期、验证方式、责任和状态；可从独立用例数据和执行结果生成回执，不要求重复的手工台账。共享 fixture 与参数化执行不减少现行分支责任。修订后的验收矩阵是规范性输入，索引不能放宽它。
+[实施验收用例索引](implementation-acceptance-cases.md)列出当前首版有效用例族及其子用例维度，另列延后族。仅有效族展开并进入首版验收；保留旧族 ID 便于追踪，不沿用已撤销的分支责任。每个展开实例都必须有契约出处、最小输入、原生位置／字段、操作与变化时机、独立预期、验证方式、责任和状态；可从独立用例数据和执行结果生成回执，不要求重复的手工台账。共享 fixture 与参数化执行不减少现行分支责任。修订后的验收矩阵是规范性输入，索引不能放宽它。
 
 ### 3. 必须覆盖的行为
 
 - A01–A18：每个直接字段、路线两个容器，正式／已识别 raw 的准确存在与逐字段缺失；None 和明确非活动变体通过 C／D 组补充。
-- B01–B16：每条有限间接关系、多个素材字段、timings／成员／槽／effect 来源、前侧视、候选、默认分支及公共事件关系；每个到达字段均有存在和单独缺失预期。
-- C01–C13：当前独立根、已移除事件、镜像与独立使用、复用／循环调用／动态停止、合法空值与坏字段、非活动状态、无关条目和未选操作的范围反例、外部数据及素材只读。
-- F01–F14：固定扩展名、准确各级名称、字面量和设备名边界、缺目录／缺文件／错误类型、根别名和根以下链接、硬链接／空文件、I/O 故障、观察矛盾、相关加密标志及无关类别不校验。
-- D01–D10：全部政策分支、允许／禁止降级、配置错误、无实际降级和不完整时抑制、组与使用统计、共同失败来源、独立检查继续、完整定位和真实 CLI。
-- W01–W20：Check 三态和只读；Compile 发布前后；Push 写前、写后正常记账、无差异、恢复；补图重试；未 Pull 标准字段变化；当前事实判定而不比较变化；无关变化不失效；输入／绑定保护和不查询素材的操作。
-- N01–N06：Windows / MV 1.6.1 的代表性媒体定位、支持的特殊字符、动画双图与 SE、整组图块与页图块单图、敌人前侧视目录、运行时覆盖初始候选。
+- B01–B05、B11–B12：保留的七族间接关系、字段来源、前侧视目录；每个到达字段均有存在和单独缺失预期。
+- C01–C13：当前独立根、已移除事件、镜像与独立使用、循环公共事件仍按定义独立检查、动态停止、None／坏字段、非活动状态和范围反例。延后关系不新增文件查询。
+- F01–F14：文件定位支持范围、类型、名称、链接、元数据、单次查询失败和相关加密标志，原有责任保留。
+- D01–D04、D06–D10：普通／非活动政策、精确例外与非法配置、来源不丢失、分组级别、失败后继续和真实 CLI；不要求三套统计或无实际降级告警。
+- W01–W20：Check 只读、Compile 发布、Push 写前／无差异门槛、data 恢复、补图重试、快照一致性、输入／绑定保护及素材不参与持久状态。
+- N01–N05：代表性原生媒体定位、特殊字符、动画双图与 SE、Change Tileset 整组图片及敌人前侧视目录。N04 的页图块分支与 N06 初始候选核对延后。
 
-不要求全部维度的笛卡尔积；准确覆盖每个已选字段和关系，并专门组合共享来源、不同级别、镜像、有限循环调用、失败后继续和写后素材变化不影响记账。使用同文件内容替换验证只判定当前存在性，不把媒体 hash 作为产品的成功条件。
+不要求全部维度的笛卡尔积；准确覆盖每个已选字段和关系，并专门组合共享来源、不同级别、镜像、公共事件独立检查、失败后继续和写后素材变化不影响记账。使用同文件内容替换验证只判定当前存在性，不把媒体 hash 作为产品的成功条件。
 
 ### 4. 工作流测试细节与先例
 
 Compile 发布测试已有 initial／fresh／stale 的 Check 只读、输入改变及发布失败先例；Push 漂移和恢复测试已有无差异、真实写入、进程中断、pending 内容判断及原编译依据保护先例。新用例增加素材观察与这些状态的联合断言，不把旧测试的存在视为已覆盖新功能。
 
-在已声明的检查点暂停真实子进程，完成受控文件／输入变化后才释放，断言整个操作结果和允许的状态变化。不靠时间延迟碰巧命中阶段，也不锁死内部 syscall 次数。每次新命令必须查询当前文件；取消的素材检查点应验证不会触发扫描，逻辑使用次数不被调用路径放大。
+在已声明的检查点暂停真实子进程，完成受控文件／输入变化后才释放，断言整个操作结果和允许的状态变化。不靠时间延迟碰巧命中阶段，也不锁死内部 syscall 次数。每次新命令必须查询当前文件；取消的素材检查点应验证不会触发扫描，公共事件素材不因调用关系而重复列出。
 
-W20 用测试 Definition Source 的模块求值哨兵观测：一次 Compile 记录求值，随后清除哨兵而不改任何编译输入，再运行 Push；Push 可以读取和核对源字节及类型依赖，但不得再次触发模块求值。另用包含共享／循环公共事件关系的生成数据独立断言根、定义位置、事件内依赖和直接调用关系，不只检测“没有执行”。哨兵只用于自写测试 source，不执行游戏事件脚本。
+W20 用测试 Definition Source 的模块求值哨兵观测：一次 Compile 记录求值，随后清除哨兵而不改任何编译输入，再运行 Push；Push 可以读取和核对源字节及类型依赖，但不得再次触发模块求值。另用包含共享／循环公共事件关系的生成数据独立断言根、定义位置和事件内依赖，不只检测“没有执行”。哨兵只用于自写测试 source，不执行游戏事件脚本。
 
 CLI 测试核对稳定标识、关键定位／链／原因、完整性和退出结果，不快照锁定颜色、空格或整个段落。构建后 Windows CLI 测试采用显式文件清单，新素材场景必须加入；同时验证源码入口与构建入口。能力不足的真实链接／大小写并存用例记录未执行与原因，交合适环境补验，不能以 skip 计为通过。
 
 ### 5. 原生运行与证据责任
 
-实施方准备并尽可能执行 N01–N06，确需人工的部分由维护者操作留证。记录 MV、宿主、输入、实际请求和磁盘定位，区分预加载、执行、地图绘制附带请求及条件候选。播放成功只是该样例证据，播放失败也不能未经分析就归为存在性规则错误。
+实施方准备并尽可能执行 N01–N05，确需人工的部分由维护者操作留证。记录 MV、宿主、输入、实际请求和磁盘定位，区分预加载、执行与地图绘制附带请求。播放成功只是该样例证据，播放失败也不能未经分析就归为存在性规则错误。
 
 原生静态源码为字段关系依据，部署筛选函数的 12 次重放只说明其筛选逻辑；已有 Node v24 微测不构成本功能性能要求或 Node.js 22 验收。每项均区分计划、未执行、环境受限、通过、失败及证据出处。原生必验可以作为待执行项进入实施阶段，产品验收时仍缺失或证据冲突未解决则不能完成。
 
 ### 6. 完成门槛与反例
 
-Windows / Node.js 22 下完成仓库检查、构建、含素材场景的构建后 CLI 验证，当前命令为 `pnpm check`、`pnpm build`、`pnpm --filter rpgmaker-event-dsl test:windows-baseline`。同时提供全部自动化覆盖和 N01–N06 的实际证据，没有未解决的契约反例、必验未执行项或证据矛盾，由维护者审阅确认。若脚本重组，仍保留相同验证责任。符合政策的 warning、有效例外与信息停止无需清零。
+Windows / Node.js 22 下完成仓库检查、构建、含素材场景的构建后 CLI 验证，当前命令为 `pnpm check`、`pnpm build`、`pnpm --filter rpgmaker-event-dsl test:windows-baseline`。同时提供当前首版范围的自动化覆盖和 N01–N05 的实际证据，没有未解决的契约反例、必验未执行项或证据矛盾，由维护者审阅确认。若脚本重组，仍保留相同验证责任。符合政策的 warning、有效例外与信息停止无需清零。
 
 实现违约时修实现并补独立回归。支持范围内新首方／运行证据推翻既有定位或消费关系时，保留最小复现并重开相应决定／ADR，追踪诊断、工作流与验收影响。原生支持更宽或已排除关系只进入范围扩展提议。不能靠修改预期、放宽断言或添加例外消除反例。
 
 ## Out of Scope
+
+第三节延后清单不属于首版承诺，后续扩展另行决定；以下长期边界继续适用。
 
 - 图片尺寸、脸图／行走图索引布局、媒体内容读取、解码、播放或运行时必然加载保证。
 - 全库／全项目素材体检、未使用素材查找或删除、素材复制、备份、管理、自动修复或重命名。
@@ -323,7 +299,7 @@ Windows / Node.js 22 下完成仓库检查、构建、含素材场景的构建�
 | 来源 | 本规格采用的内容 |
 | --- | --- |
 | [MV 原生素材名称如何定位到项目文件](issues/01-native-asset-file-resolution.md#answer) | 首方定位事实和研究边界 |
-| [事件直接与间接素材依赖的检查边界如何统一](issues/02-direct-asset-reference-coverage.md#answer) | 起点、字段／关系、条件、来源、停止点 |
+| [事件直接与间接素材依赖的检查边界如何统一](issues/02-direct-asset-reference-coverage.md#answer) | 当前起点、保留字段／关系、来源、停止点及延后范围 |
 | [素材文件存在性应如何判定](issues/03-asset-file-existence-contract.md#answer) | 普通编辑项目、准确文件、名称、链接、加密和事实分类 |
 | [素材检查结果如何诊断并影响编译](issues/04-asset-diagnostics-and-policy.md#answer) | 严重性、例外、分组及完整性 |
 | [素材检查如何接入 Compile 与 Push 并保持结果有效](issues/05-workspace-asset-check-lifecycle.md#answer) | 捕获视图、单次素材门槛、编译输入保护、Freshness 与 data 恢复 |

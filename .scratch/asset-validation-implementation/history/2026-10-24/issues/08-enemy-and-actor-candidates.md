@@ -1,9 +1,11 @@
 # 08: 敌人战斗图与加入角色候选的检查
 
+> 历史归档，不可领取。正文保留当时的范围与状态，仅重定位链接；现行任务见[当前索引](../../../tickets.md)。
+
 Status: ready-for-agent
 Blocked by: 06
 Created: 2026-10-24
-Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
+Parent: [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)
 Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments)
 
 **What to build:** 固定敌群成员、敌人变身和加入角色的已选素材关系得到检查，并正确显示前／侧视及初始候选条件。
@@ -56,9 +58,9 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Sources
 
-- [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
-- [验收矩阵](../../asset-validation/acceptance-matrix.md)：规范预期。
-- [实施验收用例索引](../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
+- [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
+- [验收矩阵](../../../../asset-validation/acceptance-matrix.md)：规范预期。
+- [实施验收用例索引](../../../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
 - [已确认任务拆分](../ticket-breakdown-draft.md)：本票范围、直接阻塞关系及共享验收族分配。
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 

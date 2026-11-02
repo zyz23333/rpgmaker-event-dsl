@@ -5,35 +5,35 @@ Status: resolved
 
 ## Destination
 
-明确 RPG Maker MV 事件直接素材引用及通过标准项目数据可静态追踪的间接素材依赖的文件存在性检查范围、判定规则、诊断与 Workspace 工作流契约，形成足以编写实施规格的已决路线。
-地图完成时，阻碍实施的设计问题均已解决；本轮建图不实现产品功能，也不把研究结论等同于产品验收。
+明确首版事件直接素材和一批关系明确的固定间接素材的存在性检查、诊断及 Workspace 工作流，形成可独立实施与交付的规格。产品实现和验收不属于本次设计修订。
 
 ## Notes
 
-- 现行设计已按用户于 2026-10-25 的“调整一下”修订，依据前一轮过度设计评审；此前 Comments 中的确认是历史，当前 Answer、ADR 和实施规格已同步。
-- 首版仍为 Windows / Node.js 22、RPG Maker MV 1.6.1 普通编辑项目的文件存在性检查。事件直接引用、已识别 raw 和有限标准数据间接关系保留；图片尺寸、解码和播放保证继续排除。
-- 所有当前 Map／Common／Troop Event 独立检查。素材保留定义位置和事件内 Asset Dependency Chain，公共事件保留直接调用位置；不再枚举所有传递调用路径，调用数量不放大素材使用次数，循环关系不另生成停止诊断。见 [ADR 0016](../../docs/adr/0016-event-rooted-asset-use-coverage.md)。
-- 普通使用的确认文件问题默认 error，候选／明确非活动配置为 warning。名称／链接／加密不受支持时，候选／非活动同样 warning 并标记未检查；坏字段、固定引用与实际查询失败仍 error。逐素材例外仍只降级已确认文件问题。见 [ADR 0017](../../docs/adr/0017-exact-asset-file-existence-in-editing-projects.md)／[0018](../../docs/adr/0018-asset-check-diagnostics-and-explicit-exceptions.md)。
-- Compile／Check 在完整候选校验后、发布或返回前检查一次；Push 暂存后、pending 和首次 data 替换前检查一次，无写入 Push 也检查。取消跨检查点素材比较、改善也失败、Manifest 前和 Push 写后素材复查。见 [ADR 0019](../../docs/adr/0019-asset-checks-at-workflow-boundaries.md)。
-- 素材可用性与 data 同步分开：写后素材变化不创建或保留 pending；真正 data／编译依据异常仍沿既有保护和恢复。实时素材不进 Compile Baseline，政策进入；Diff、Clone、Pull、Decompilation 不新增文件门槛。
-- 事件、外部必要字段和 System 设置使用同一捕获视图；素材查询使用绑定实时 Project Root。素材不进入快照、复制、备份或写入；不扩大 DSL-Owned Project Data 或外部数据校验范围。
-- 文件定位研究及原生部署范围研究仅是事实依据；采用事件起点，不改用原版全库扫描。原生研究不等于产品验收。
-- 设计和交接已完成，地图及六张票保持 resolved；[实施规格](asset-validation-spec.md)保持 ready-for-agent。[验收矩阵](acceptance-matrix.md)及[子用例索引](implementation-acceptance-cases.md)已按修订更新，产品实现、自动化和原生必验仍待执行。
+- 2026-11-02 用户要求按过度复杂评估再次简化。现行规格、各票 Answer、ADR 与验收材料已同步；此前 Comments 只记录历史。
+- 保留所有当前 Map／Common／Troop Event 的直接字段、raw、嵌套、路线、None、Compiler Default、镜像与明确非活动配置；不按运行可达性筛选。
+- 间接关系保留 Animation、Tileset、固定 Troop／Enemy、Enemy Transform、固定 Skill 正动画、Game Over、Return to Title。各使用保留定义位置及事件内 Asset Dependency Chain。
+- 初始／默认候选、固定传送地图初始化素材、默认攻击、战斗系统音频／宿主背景和公共事件调用报告延后。Common Event 仍独立检查，缺素材不会因不收集 caller 而漏检。
+- 普通使用严格、明确非活动配置 warning、必要输入／查询失败 error；精确例外带原因。非法／重复例外仍报错，合法例外未生效告警及三套精确统计延后。
+- 文件定位、准确名称、固定扩展名、元数据、链接与加密支持边界保持；Compile／Check／Push 各一次素材门槛，无差异 Push 同样检查。
+- 实时素材不进 Compile Baseline、快照、备份或写入；例外政策仍进基线。素材变化不影响已完成 data 的恢复记账，既有输入／绑定／漂移保护保留。
+- 首版只以当前保留范围验收；延后族单独登记，不阻塞交付，也不标为通过。地图及六票保持 resolved，规格保持 ready-for-agent，产品实现与实际验收仍待执行。
 
 ## Decisions so far
 
-- [01 原生文件定位](issues/01-native-asset-file-resolution.md#answer)：MV 1.6.1 目录、文件名、扩展名和部署差异的研究依据。
-- [02 覆盖与来源](issues/02-direct-asset-reference-coverage.md#answer)：有限直接／间接字段，定义事件内来源和直接公共事件调用关系；不枚举传递调用链。见 [ADR 0016](../../docs/adr/0016-event-rooted-asset-use-coverage.md)。
-- [03 文件事实](issues/03-asset-file-existence-contract.md#answer)：准确单层名称、固定桌面扩展名、普通文件元数据及链接／加密边界；单次查询失败与缺失分开。见 ADR 0017。
-- [04 诊断政策](issues/04-asset-diagnostics-and-policy.md#answer)：普通使用严格，候选／非活动的文件问题及支持范围问题 warning；支持范围警告标记未检查，输入／查询失败仍 error。见 [ADR 0018](../../docs/adr/0018-asset-check-diagnostics-and-explicit-exceptions.md)。
-- [05 工作流](issues/05-workspace-asset-check-lifecycle.md#answer)：一次当前素材门槛、每条新命令重新查询、与 data 写入恢复解耦；保留编译输入和标准 data 保护。见 [ADR 0019](../../docs/adr/0019-asset-checks-at-workflow-boundaries.md)。
-- [06 验收交接](issues/06-asset-validation-acceptance.md#answer)：逐字段、来源、文件事实、诊断、工作流及有限原生必验；按收缩后的契约更新预期，所有产品验收仍待执行。
+- [01 原生文件定位](issues/01-native-asset-file-resolution.md#answer)：MV 1.6.1 文件定位事实和研究边界，未因缩小首版覆盖而改写历史事实。
+- [02 覆盖与来源](issues/02-direct-asset-reference-coverage.md#answer)：直接字段与七族固定间接关系，独立事件根、局部来源和延后清单；见 ADR 0016。
+- [03 文件事实](issues/03-asset-file-existence-contract.md#answer)：准确名称、扩展名、元数据及支持边界，保持 ADR 0017。
+- [04 诊断政策](issues/04-asset-diagnostics-and-policy.md#answer)：普通／非活动政策、精确例外、来源与完整性；取消首版候选、调用报告、三套统计及未生效例外告警，见 ADR 0018。
+- [05 工作流](issues/05-workspace-asset-check-lifecycle.md#answer)：ADR 0019 单次门槛、当前文件事实和 data 恢复分离不变。
+- [06 验收交接](issues/06-asset-validation-acceptance.md#answer)：保留范围独立验收，延后族不阻塞首版；[规格](asset-validation-spec.md)、[矩阵](acceptance-matrix.md)和[子用例索引](implementation-acceptance-cases.md)一致。
 
 ## Not yet specified
 
-- 无。本地图范围内的文件定位事实、领域覆盖、文件存在性、诊断、工作流、验收与实施规格交接决定均已完成。后续具体实现设计由实施规格承担；新事实反例或范围扩展按验收票的重开规则处理。
+- 当前首版范围无阻碍实施的未决产品政策。延后能力不预先承诺交付时间，重新纳入时另定契约与验收。
 
 ## Out of scope
+
+- 本次延后：初始／默认候选、固定传送目标初始化素材、公共事件调用报告、三套精确统计、未生效例外告警。
 
 - 产品实现、实施任务拆分与实际发布；本地图止于足以编写实施规格的设计路线。
 - 图片尺寸、图像解码、脸图或行走图索引/布局检查，以及音频、影片的可解码性或实际播放保证。
@@ -99,3 +99,9 @@ Status: resolved
 用户要求按评审调整。已修订 ADR 0016／0018／0019，并同步 ADR 0006、0011–0013、0017、GLOSSARY、票 02–06、实施规格及两份验收材料。主要撤销多检查点素材事实相等、改善也失败、写后素材 pending 和全传递调用链展开；候选／非活动中的不支持形式改为 warning + 未检查。实际字段覆盖、文件定位规则、data 一致性／恢复及原生必验保留。
 
 当前正文与各票 Answer 为现行设计，历史确认不再作为被替代规则的实现要求。本次只修订文档；地图继续 resolved，实施规格继续 ready-for-agent，不宣称产品实现或验收完成。
+
+### 2026-11-02 — 收缩首版覆盖和验收
+
+用户在评估后明确要求“进行简化”。本次保留直接素材与七族明确固定间接关系，将候选、传送初始化、调用报告、三套统计及未生效例外告警延后；同步票 02–06、ADR 0011／0012／0016–0019、术语、规格和两份验收材料。文件定位及单次检查／data 恢复原则保持。
+
+旧族 ID 保留追溯，延后族不展开为首版通过要求；其余用例也移除相应旧分支。保留范围可独立交付，当前仍未实现产品或执行产品验收。历史研究与 Comments 保留原事实，不作为已撤销要求的实施依据。

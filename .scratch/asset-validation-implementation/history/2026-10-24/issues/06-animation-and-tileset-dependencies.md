@@ -1,19 +1,20 @@
-# 12: 准确例外与完整的多来源诊断
+# 06: 动画与更换图块组的间接检查
+
+> 历史归档，不可领取。正文保留当时的范围与状态，仅重定位链接；现行任务见[当前索引](../../../tickets.md)。
 
 Status: ready-for-agent
-Blocked by: 03, 07, 10
+Blocked by: 05
 Created: 2026-10-24
-Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
+Parent: [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)
 Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments)
 
-**What to build:** 作者可为准确素材填写原因，将允许的问题降为 warning，并在 CLI 获取分组结果、全部来源及检查未完成原因。
+**What to build:** 播放动画／战斗动画及更换图块组会沿捕获的标准数据检查每个关联文件，并显示完整 Asset Dependency Chain。
 
 ## Acceptance criteria
 
-- [ ] 增加严格 assetCheckExceptions 配置，省略等同空数组，新初始化写入空数组；category／folder／name／reason、重复、额外字段和准确匹配分别验证。
-- [ ] 三类允许问题只降 error → warning；候选／非活动和普通使用保留独立级别。支持范围、必要字段、查询失败及观察不一致不可豁免；无实际降级警告及不完整时抑制正确。
-- [ ] 完成 D01–D10 的全部组合：稳定代码、组／文件／使用统计、共同失败、独立结果继续、位置／链／条件／原因及实际 CLI 退出。必要信息不压成第一条异常。
-- [ ] 配置政策进入基线、Manifest 及已理解 pending 格式；测试旧格式按原结构验证，不先填新默认重算历史 hash。完整运行恢复的责任仍在 16。
+- [ ] 建立窄的必要字段读取和带关系来源的问题表达，读取同一 Snapshot；不补读实时 data，不把全库素材字段加入严格 schema。
+- [ ] 动画两图及所有 timing SE、图块组全部非空槽分别检查；同名槽不丢来源，合法空、坏字段、缺目标与缺文件分别验收，未选动画／字段不扩张扫描。
+- [ ] 完成 N03：记录动画双图及 timing SE 的原生来源与条件，区分预加载和执行。每种关系均经正式／raw 的 Compile／Check 验证。
 
 ### 共通要求（限本票适用范围）
 
@@ -23,6 +24,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [ ] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
 - [ ] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
 - [ ] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
+- [ ] 完成本票指定的原生必验并留下实际证据；原生执行条件、预加载、附带请求与候选分别说明。确需人工的操作由维护者执行留证，缺必验证据时不关闭本票。
 
 ## Acceptance ownership
 
@@ -30,24 +32,17 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 | 验收族 | 本票负责的分支／字段 |
 | --- | --- |
-| C11 | 既有 Script Gate／结构失败不被 Asset Check Exception 绕过。 |
-| D01 | 全事实 × 合法普通／候选／非活动表示组合 |
-| D02 | 全部不可豁免组合及 reference／structure／script Gate |
-| D03 | 三类可降级、多来源与准确键区别 |
-| D04 | 全部配置错误 |
-| D05 | repaired／unused／warning-only／incomplete |
-| D06 | 混合级别及组／文件／使用独立计数 |
-| D07 | 公共目录／字段失败及无合法目标 |
-| D08 | 独立结果继续及各早期失败完整性 |
-| D09 | 全部列出定位／链／源码可靠性；各来源票先验收自身位置 |
-| D10 | 全部实际 CLI 结果分支 |
-| W14 | exception-change：例外政策改变使编译依据过期，不能以当前检查升级旧输出。 |
+| B01 | 两个动画入口的双图与逐 timing SE |
+| B02 | 更换图块组的全部非空槽 |
+| C04 | repeated-tileset-name：同名图块槽保留每个来源。 |
+| C06 | 本票 B01、B02 所有原生允许 None 的到达字段，按上游有限子用例展开。 |
+| C07 | 本票 B01、B02 到达字段的 target-missing／field-missing／field-wrong-type／field-empty／file-missing 适用变体；固定目标与 System 字段按原索引分别处理。 |
+| C10 | unrelated-animation／unrelated-field：不解释未选条目或非必要字段。 |
+| N03 | 动画双图与 timing SE |
 
 ## Dependencies
 
-- [03：准确名称、链接与文件查询失败的检查](03-exact-file-observation.md)。
-- [07：传送地图与页图块的素材检查](07-transfer-and-page-tile-dependencies.md)。
-- [10：公共事件调用链与有界停止](10-common-event-dependency-chains.md)。
+- [05：音频与影片的直接检查](05-direct-audio-and-movie-uses.md)。
 
 只在列出的直接阻塞票均为 resolved 后领取整票。票号表示依赖顺序，产品最终完成仍须通过 17；本票完成不代表整套素材检查已经交付。
 
@@ -59,9 +54,9 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Sources
 
-- [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
-- [验收矩阵](../../asset-validation/acceptance-matrix.md)：规范预期。
-- [实施验收用例索引](../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
+- [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
+- [验收矩阵](../../../../asset-validation/acceptance-matrix.md)：规范预期。
+- [实施验收用例索引](../../../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
 - [已确认任务拆分](../ticket-breakdown-draft.md)：本票范围、直接阻塞关系及共享验收族分配。
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 

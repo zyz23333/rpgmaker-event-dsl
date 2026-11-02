@@ -2,318 +2,272 @@
 
 Review state: approved-and-published
 Created: 2026-10-24
-Source: [事件素材文件存在性检查实施规格](../asset-validation/asset-validation-spec.md)
+Updated: 2026-11-02
+Source: [现行实施规格](../asset-validation/asset-validation-spec.md)
 Acceptance: [验收矩阵](../asset-validation/acceptance-matrix.md) · [实施验收用例索引](../asset-validation/implementation-acceptance-cases.md)
 
-用户已于 2026-10-24 回复“确认”，批准本文件中的 17 票范围、粒度、直接依赖和验收责任分配。正式实施票已逐票发布为 ready-for-agent，见[实施任务索引](tickets.md)；当前执行状态以独立票文件为准。原有决策地图、规格和六张已完成决策票保持不变，本目录引用原规格，不复制另一份规格。
+用户审阅 14 张票的修订建议后要求重新编号，以下为连续编号后的现行拆分。正式票均为 ready-for-agent；当前执行状态以[任务索引](tickets.md)及各票为准。[旧发布记录](history/2026-10-24/ticket-breakdown-draft.md)和[编号调整前的提案](history/2026-11-02-proposal.md)仅供历史追溯。
 
-## 拆分与验收约定
+## 拆分约定
 
-- 每张产品票交付一条经现有 Workspace API／CLI 可验证的用户路径。02 以显示图片建立最小贯通路径；后续逐类扩展覆盖和工作流保障。各票完成只代表其限定行为完成，全部规格仍以 17 的最终验收为准。
-- 现有模块职责和文件操作检查点足以承接改动，不另立宽泛预重构票。必要的局部整理在对应行为票开始时完成；领域层不访问文件系统，验证与 Workspace 保持既有职责。
-- 01 是独立原生证据票，尽早执行；它不因尚未执行而阻塞已有明确契约下的开发。若实际证据推翻契约，立即按规格重开受影响决定，不能一边保留反例一边签收相关行为。
-- Blocked by 只列直接、真正需要的前置；编号不是强制串行顺序。相同模块有改动不自动成为依赖。17 列出所有尚未被其他依赖链包含的末端票。
-- 每票在自己新增范围内补齐既有成功 fixture 所需的真实素材与必要字段，并同步适用文档、样例和 CLI 测试清单。不能将 fixture 修复、行为测试或文档全部后移到 17。
-- 文件规则、来源、严重性和诊断随最小路径一起建立；03 是特殊文件树和异常情况下的用户行为扩展，12 是带原因的例外及多来源报告路径，均须通过真实操作验收，不能只交内部函数。
-- A／B 每个字段都包含正式／已识别 raw（适用时）、准确存在、逐字段缺失和独立预期；None、坏字段、候选及非活动分支按下面的 C／D 分配落实。每个检查点重新查询但不重复计算逻辑使用。
-- 产品行为变更更新 Compile Contract Version；在集成基线上顺序协调版本，不提前写死下一个值。早期输出不能被后续实现误当成已满足完整契约。例外进入编译政策，实时素材观察不进入持久基线。
-- 自动化使用 Windows / Node.js 22、真实临时 Workspace、现有 API 与实际 CLI。故障暂停在测试子进程的操作系统接口边界完成，不增加产品测试入口，不使用 sleep 碰运气；没有 JSON CLI 或公共报告 API 扩展。
-- 每张票运行适用验证并记录完整子用例 ID、预期、实际和证据。原生项用有效自制媒体；环境受限、未执行和失败均不能写成通过。17 汇总并复核实际结果，不替其他票补写本该交付的测试。
-- 原生 N03 由 06、N04 由 07、N05／N06 由 08 交付；01 负责 N01／N02。相关票关闭前须有其分配的实际原生证据。最终验收仍核对当前集成实现与这些证据是否一致。
+- 每张产品票交付可由现有 Workspace API／CLI 验证的完整行为，并在本票完成适用测试、fixture 和说明。01 为原生证据票，14 汇总真实集成结果。
+- 不新增通用预重构票。必要局部整理归对应行为票，沿用命令家族、Validation、Workspace 及 Project Data 的现有职责。
+- 编号表示依赖顺序，Blocked by 仅列直接前置；共享模块不自动形成阻塞。
+- 素材不进持久编译基线或 data 恢复条件，例外政策仍进基线。行为变更协调 Compile Contract Version，旧输出不得被升级为新契约。
+- 86 个有效族按现行分支验收，延后族不展开、不阻塞首版、不计为通过；各票不得沿用旧 97 族和已撤销分支。
+- Windows / Node.js 22 真实操作、独立预期、受控故障边界及原生证据责任保持。已有文档和原生研究不等同产品验收。
 
-## 已确认的 17 张票
+## 已确认的 14 张票
 
 1. **01：核实原生媒体定位与特殊名称**
 
-   **Blocked by:** None（可立即开始）。
+   **Blocked by:** None。
 
-   **交付行为：** 用 MV 1.6.1 的真实请求和磁盘定位确认图片、音频、影片及受支持特殊名称的规则，为实施提供可复核的原生事实。
-
-   - 完成 N01／N02 全部分支：PNG、OGG、WebM；中文、空格及图片／音频中的字面量百分号、井号。
-   - 记录版本、有效自制输入、保存名称、原生请求、实际文件、执行方式与证据；区分 URL 编码与磁盘名称。
-   - 如有反例，给出最小复现和受影响决定，按规格处理；静态研究、旧重放或空文件自动化不能代替这次原生观察。
+   **交付：** 以 MV 1.6.1 的真实请求和磁盘定位，核实普通媒体及支持的特殊名称，为文件规则提供可复核的原生证据。
 
 2. **02：显示图片在 Compile／Check 中完成最小检查路径**
 
-   **Blocked by:** None（可立即开始）。
+   **Blocked by:** None。
 
-   **交付行为：** 当前 Map／Common／Troop 事件中的 Show Picture，无论正式还是已识别 raw，都能在 Compile／Check 中得到可定位的存在性结果。
-
-   - 从当前事件根和已验证的原生保存状态识别使用，覆盖页、嵌套体及未调用公共事件，排除快照中已移除的事件和空白 Troop Reset。为后续关系提供逐次来源及统一目标／问题表达。
-   - 建立准确 PNG 目标的元数据查询、基本缺目录／缺文件／错误类型诊断、图片加密标志规则；查询前拒绝非法路径及根以下链接，不因实现尚在第一片而跟随或修复名称。03 继续完善特殊形态和失败细分。
-   - API 与 CLI 均验证正常通过和错误阻断、本地发布前失败无本次输出、Check 基本只读；展示稳定标识与全部已知来源。建立独立 fixture 和编译规则版本，后续检查点完整矩阵由 13 负责。
+   **交付：** 当前 Map／Common／Troop Event 中正式和已识别 raw 的 Show Picture 能在 Compile／Check 中获得可定位的文件结果。
 
 3. **03：准确名称、链接与文件查询失败的检查**
 
    **Blocked by:** 02。
 
-   **交付行为：** 作者能通过 Compile／Check 区分准确文件、大小写错误、不支持名称／链接及无法检查，不把异常或替代文件报告成存在。
-
-   - 覆盖目录各级及扩展名大小写、追加双后缀、中文／空格／纯空白／点号／前缀／Unicode、图片字面量百分号和井号；按完整追加文件名校验禁止字符和全部保留设备名。
-   - 根别名沿既有绑定；根以下 symlink／junction 不跟随，包括根内、根外和 dangling。硬链接、空文件、元数据可查而媒体内容读取受阻的场景可通过。
-   - 以真实文件树及明确标注的故障注入验证查询失败、枚举后消失、类型变化、独立路径继续、准确问题位置和无资源根回退。通过实际 Compile／Check 验证，不止内部匹配测试。
+   **交付：** 作者通过 Compile／Check 区分准确文件、名称不符、不支持形式及查询失败，不将异常或替代文件当成存在。
 
 4. **04：事件页、图像指令与移动图像的检查**
 
    **Blocked by:** 02。
 
-   **交付行为：** 页图像、脸图、两层战斗背景、远景、角色／载具图像及两种路线中的图像均在现有编译流程被检查。
-
-   - 补齐 A01／A02／A13–A17 的每个原生字段，正式／raw 按适用表达分别验收；Compiler Defaults 只用于已有可选字段，合法 None 不查询且保存索引等其他值。
-   - 自主路线即使不是 custom 仍收集保存名称；图块页保存的角色图像标注非活动。页条件或未执行分支不能成为降级依据。
-   - 205 路线与 505 镜像作为一次逻辑使用并保留两处位置，独立命令仍是独立使用；路线图片的正常、缺失、镜像、非活动和定位经 Workspace 验证。
+   **交付：** 页图像、脸图、战斗背景、远景、角色／载具图像及两种移动路线的直接图像均能在编译中检查。
 
 5. **05：音频与影片的直接检查**
 
    **Blocked by:** 04。
 
-   **交付行为：** BGM、BGS、ME、SE、载具／战斗音频设置、路线 SE 及影片都能在 Compile／Check 中得到准确结果。
+   **交付：** 四类音频、保存音频设置、路线 SE 及影片在 Compile／Check 中使用正确目录和固定扩展名。
 
-   - 补齐 A03–A06／A08–A12／A18，路线复用已完成的两个容器和镜像语义；保留音量等独立保存值和合法 None。
-   - OGG／WebM 扩展固定，M4A／MP4 或加密后缀不能替代；音频允许字面量百分号／井号，影片两者属于不支持名称且不查询。
-   - 只解释有使用类别对应的加密标志；缺失／false、true、错误类型和影片不受影响分别验证。补齐直接媒体命名空间的 API／CLI 场景。
-
-6. **06：动画与更换图块组的间接检查**
+6. **06：动画、图块组与固定技能正动画的检查**
 
    **Blocked by:** 05。
 
-   **交付行为：** 播放动画／战斗动画及更换图块组会沿捕获的标准数据检查每个关联文件，并显示完整 Asset Dependency Chain。
+   **交付：** 播放动画、更换图块组及 Force Action 的固定 Skill 正动画沿一致快照检查素材，并提供事件内 Asset Dependency Chain。
 
-   - 建立窄的必要字段读取和带关系来源的问题表达，读取同一 Snapshot；不补读实时 data，不把全库素材字段加入严格 schema。
-   - 动画两图及所有 timing SE、图块组全部非空槽分别检查；同名槽不丢来源，合法空、坏字段、缺目标与缺文件分别验收，未选动画／字段不扩张扫描。
-   - 完成 N03：记录动画双图及 timing SE 的原生来源与条件，区分预加载和执行。每种关系均经正式／raw 的 Compile／Check 验证。
-
-7. **07：传送地图与页图块的素材检查**
+7. **07：固定敌群与敌人变身素材的检查**
 
    **Blocked by:** 06。
 
-   **交付行为：** 固定传送地图检查其图块组、远景和 BGM／BGS；页图块只检查宿主初始图块组对应的一张 B–E 图片。
+   **交付：** 固定 Battle Processing 与 Enemy Transform 的战斗图得到检查，目录随前／侧视模式选择，错误可追溯到成员或 Enemy 字段。
 
-   - B08／B09 的每个字段、全部合法 B–E 选择分别验收；页图块是候选，关闭 autoplay 的保存音频仍检查并标注非活动。
-   - 保留覆盖及播放条件；不扩展目标地图事件网络、目标地图战斗背景或整组页图块，不用运行状态猜测。
-   - 完成 N04：原生更换图块组与页图块单图对照，区分地图绘制附带请求。补齐字段错误、None、范围反例和候选 warning 的操作验收。
-
-8. **08：敌人战斗图与加入角色候选的检查**
+8. **08：Game Over 与 Return to Title 素材的检查**
 
    **Blocked by:** 06。
 
-   **交付行为：** 固定敌群成员、敌人变身和加入角色的已选素材关系得到检查，并正确显示前／侧视及初始候选条件。
+   **交付：** Game Over 的 ME，以及 Return to Title 的两张图片和 BGM 在编译时检查，并定位到 System 保存字段。
 
-   - B03／B04 包含 hidden 和重复成员；使用 System.optSideView 选择准确敌人目录。仅有 Troop Event 身份不扫描宿主敌群图片。
-   - B10 只包含 Actor 初始 character／battler 候选，不增加 face、初始装备、移除重排或 HP 副作用；保留覆盖、侧视及有效战斗队员条件。
-   - 完成 N05／N06：前／侧视目录和一个已选初始候选被运行时设置覆盖的实际场景；自动化验证每个字段、来源、问题级别和排除范围。
+9. **09：精确素材例外与可定位诊断**
 
-9. **09：结束、标题与战斗默认素材的检查**
+   **Blocked by:** 03、06。
 
-   **Blocked by:** 06。
+   **交付：** 作者可为一个准确素材填写原因，将允许问题降为 warning，并在 CLI 获得分组结果、全部定义来源及未检查说明。
 
-   **交付行为：** Game Over、Return to Title、Battle Processing 中已选的 System 和宿主地图素材关系在编译时可见。
+10. **10：Compile／Check 的单次素材检查与发布保护**
 
-   - B11–B14 完整覆盖：Game Over ME；标题两图与 BGM；战斗 BGM／胜败 ME 默认候选和 sounds 槽 7；Map Event 宿主地图两层战斗背景候选。
-   - 保留胜败、地图启动、specifyBattleback 及运行时覆盖条件；动态敌群只停止该分支，已知系统关系继续。
-   - 不加入硬编码 GameOver／标题 UI、地形推导、Battle Test 背景；Common／Troop Event 不推断调用地图。字段错误和共享 System 失败保留全部来源。
+   **Blocked by:** 09。
 
-10. **10：公共事件调用链与有界停止**
+   **交付：** Check 返回前和 Compile 发布前各完成一次当前素材检查，保留编译输入保护并使检查结果具有明确时点。
 
-    **Blocked by:** 02。
+11. **11：Push 写前及无差异路径的素材检查**
 
-    **交付行为：** 固定 Common Event 调用展开到当前公共事件，并在诊断中保留每个调用来源、独立根以及循环停止。
+   **Blocked by:** 10。
 
-    - B15 使用当前事件图，公共事件独立根与两个调用者不互相吞掉；移除或替换后的旧快照事件不补回。
-    - 当前链检测自循环／互循环，记录停止位置与原因；长无环链完整遍历，不引入统一深度上限或全局 visited 去重。
-    - 建立共用的调用链／停止表达，CLI 可获取链和信息记录；本票完成 common 相关 C04／C05／D09，其他事件入口的动态停止随各关系票交付。
+   **交付：** Push 从已验证生成事件和对应快照重建素材使用，在暂存后且 pending／首次替换前检查一次，无差异返回前也检查。
 
-11. **11：强制行动的技能、默认攻击与公共事件 effects**
+12. **12：Push 写后记账与输入一致性保护**
 
-    **Blocked by:** 06, 10。
+   **Blocked by:** 11。
 
-    **交付行为：** Force Action 的固定 Skill 能同时检查动画和公共事件 effects；默认攻击按角色／敌人规则产生准确候选或停止记录。
+   **交付：** 完成素材门槛后只改变素材不会妨碍一致的 data 写入正常记账；真正输入或 data 不一致仍按既有规则处理。
 
-    - B05／B16：正动画继续到 Animation，零动画只关闭动画路径，所有保存的 Common Event effects 仍逐项展开，不用 reservation 覆盖裁掉来源。
-    - B06：角色默认攻击保留无武器时 Animation 1 候选及当前武器未知分支；不读初始装备冒充当前武器。
-    - B07：敌人默认攻击选 System.sounds 槽 9，不伪造动画 ID。完整验证共用链、循环、已知兄弟路径继续以及正式／raw 的独立预期。
+13. **13：Interrupted Push 恢复与当前素材条件分离**
 
-12. **12：准确例外与完整的多来源诊断**
+   **Blocked by:** 11。
 
-    **Blocked by:** 03, 07, 10。
+   **交付：** 作者能按内容证据恢复已完成或尚未开始的 data 写入，随后独立判断本次 Push 的当前依据和素材条件。
 
-    **交付行为：** 作者可为准确素材填写原因，将允许的问题降为 warning，并在 CLI 获取分组结果、全部来源及检查未完成原因。
+14. **14：首版集成验收与使用说明核对**
 
-    - 增加严格 assetCheckExceptions 配置，省略等同空数组，新初始化写入空数组；category／folder／name／reason、重复、额外字段和准确匹配分别验证。
-    - 三类允许问题只降 error → warning；候选／非活动和普通使用保留独立级别。支持范围、必要字段、查询失败及观察不一致不可豁免；无实际降级警告及不完整时抑制正确。
-    - 完成 D01–D10 的全部组合：稳定代码、组／文件／使用统计、共同失败、独立结果继续、位置／链／条件／原因及实际 CLI 退出。必要信息不压成第一条异常。
-    - 配置政策进入基线、Manifest 及已理解 pending 格式；测试旧格式按原结构验证，不先填新默认重算历史 hash。完整运行恢复的责任仍在 16。
+   **Blocked by:** 01、07、08、12、13。
 
-13. **13：Compile／Check 重查与输出有效性**
+   **交付：** 维护者获得当前首版的完整集成结果和可审阅回执，确认保留范围可交付。
 
-    **Blocked by:** 12。
+## 依赖依据
 
-    **交付行为：** Check 返回、Compile 发布及 Manifest 提交都根据新观察确认结果；作者不会得到使用了操作内过时素材条件的成功输出。
-
-    - Check 的 initial／fresh／stale × success／error／warning 全部只读；Compile 发布前失败不发布，发布已开始后的失败沿用无效输出语义，成功重编译才能恢复。
-    - 在三个完成边界验证全部相关变化，包含改善和 warning 到 warning；忽略内容、大小、时间、文件身份及无关目录项变化。每检查点／每命令新观察且逻辑计数稳定。
-    - 验证快照与实时素材的区别、未 Pull 标准数据改变及 Pull 后重编译、规则／绑定／政策新鲜度；Clone／Pull／Decompilation／Diff 不新增实时素材扫描。
-    - 受控子进程验证 API 和指定 CLI 路径、编译输入保护及只读边界，不承诺持续监控或原子隔离。
-
-14. **14：Push 从生成事件检查素材及无差异路径**
-
-    **Blocked by:** 13。
-
-    **交付行为：** Push 从当前 Generated Project Data 重建使用，在首次项目替换前检查素材；没有数据差异时同样检查。
-
-    - 验证完整性／Freshness／漂移后使用生成事件和对应快照，当前公共事件链完整，移除根不回流；模块求值哨兵证明不重新求值 DSL，不信任历史素材报告。
-    - 无差异也检查且单纯素材失败不创建 pending；写前错误／暂存后变化不开始替换。写前核对 source、验证依赖、config／exceptions、snapshot、generated、binding。
-    - Compile 后删图仍可保持 Freshness，Diff 不查素材；Push 失败后补图且其他依据当前，可直接重试。初次写前及无差异的 CLI／API 状态断言齐备。
-
-15. **15：Push 写后复核与完整输入保护**
-
-    **Blocked by:** 14。
-
-    **交付行为：** 全部项目 data 替换后、同步记账前再查素材及完整依据；发现变化时明确报告已写入并保留 pending。
-
-    - 写后缺失、各种相关变化和改善都失败，不回滚、不误报尚未写入；末端检查先于正常记账。
-    - 完成写后 source、验证依赖、config／exceptions、snapshot、generated、binding 变化；保留全标准 data 漂移和逐文件旧内容保护，不把自身合法写入当外部漂移。
-    - API 及指定 CLI 在真实边界暂停后核对 data、Snapshot、Manifest、pending 与素材树；稳定文件事实正常成功，素材不加入备份／写入。
-
-16. **16：恢复记账与当前素材条件分开判定**
-
-    **Blocked by:** 15。
-
-    **交付行为：** 作者能恢复已完成的 data 写入，即使素材仍缺失；恢复完成后按当前依据继续判断本次 Push。
-
-    - 全生成内容可完成记账，再因当前素材失败时 pending 已清且不重建；全旧快照可放弃后进入正常检查；混合、缺失、未知拒绝自动恢复。
-    - 独立历史 pending 证据覆盖旧编译政策／hash、当前配置改变及 stale 原依据：保留原结构和版本，恢复不能升级旧输出或获得新写权限。
-    - 验证锁、非 Push 遇 pending、重绑先按原目标处理；报告区分恢复结果和当前失败，素材不进入恢复备份或写入。完成真实中断与指定 CLI 回执。
-
-17. **17：完整功能验收与使用说明核对**
-
-    **Blocked by:** 01, 08, 09, 11, 16。
-
-    **交付行为：** 维护者得到可审阅的完整功能及验收回执，能够确认所有 97 族的有限子用例已有实际结果。
-
-    - 按下表审计全部实例的责任、测试和证据，运行 Windows / Node.js 22 的 pnpm check、pnpm build、pnpm --filter rpgmaker-event-dsl test:windows-baseline；核对源码与构建后 CLI 都包含新场景。
-    - 对当前集成实现核对完整根／关系在 Compile、Check、Push 的共用规则，复核 N01–N06 的实际证据与当前实现一致。没有未解决反例、必验未执行或环境限制遗留项才能提交完成验收。
-    - 核对公开说明、例外示例、文件存在性边界和修复／Push／恢复流程，汇总准确状态供维护者确认。发现缺口退回责任票，不用本票代替前票测试，也不修改已接受契约消除失败。
+- 03／04 复用 02 的最小事件检查路径；05 复用 04 的路线和镜像。06 在图片／音频路径上建立局部标准数据依赖，07／08 复用该边界。
+- 09 需要 03 的文件事实分类和 06 的间接／多媒体／未检查场景；明确非活动使用已由 04 经 05 纳入依赖链，不再等待延后关系。
+- 10 完成现行政策下的 Compile／Check 发布与只读验证，11 接入生成事件的 Push 门槛。其他关系可分别推进，由 14 验证完整集成。
+- 12 和 13 均依赖 11，彼此不阻塞；恢复可以使用独立内容证据，不依赖写后异常票先制造 fixture。14 联合验证两个行为。
+- 可立即开始 01／02。14 的直接前置 01／07／08／12／13 覆盖所有其他票。
 
 ## 验收责任分配
 
-下面覆盖上游全部 97 个族。A／B 的 owner 同时负责该字段在 C06／C07 中明确展开的合法空值、必要字段与固定目标变体。多票条目按分支分配，不要求某票等待无关分支；每票只在自身分支完成后关闭。最终全族是否齐备由 17 审计。
+每行分配一个有效族在一张票内的分支责任；共享族可有多行。A／B 对应的 C06／C07 已同时分配。完整实例、原生字段和表示由上游索引定义，不把一家族名或代表样例当作全部通过。14 审计全部 86 族，发现缺口退回其责任票。
 
-每个实例仍使用原索引完整 ID，不改变字段、分支、表示或预期。基础票建立的行为在后续组合中可复用，但不能把某一代表用例当成另一分支已经通过。
-
-| 验收族 | 责任票 | 有界责任 |
+| 验收族 | 责任票 | 当前分支责任 |
 | --- | --- | --- |
-| A01 | 04 | 页 characterName |
-| A02 | 04 | Show Text 脸图 |
-| A03 | 05 | 战斗 BGM |
-| A04 | 05 | 胜利 ME |
-| A05 | 05 | 失败 ME |
-| A06 | 05 | 载具 BGM |
-| A07 | 02 | Show Picture |
-| A08 | 05 | Play BGM |
-| A09 | 05 | Play BGS |
-| A10 | 05 | Play ME |
-| A11 | 05 | Play SE |
-| A12 | 05 | 影片 |
-| A13 | 04 | 两层战斗背景 |
-| A14 | 04 | 远景 |
-| A15 | 04 | 角色三种图像 |
-| A16 | 04 | 载具图像 |
-| A17 | 04 | 两种路线的图像 |
-| A18 | 05 | 两种路线的 SE |
-| B01 | 06 | 两个动画入口的双图与逐 timing SE |
-| B02 | 06 | 更换图块组的全部非空槽 |
-| B03 | 08 | 固定敌群成员与前／侧视 |
-| B04 | 08 | 变身后 Enemy |
-| B05 | 11 | 固定 Skill 正动画 |
-| B06 | 11 | 角色默认攻击候选与未知武器停止 |
-| B07 | 11 | 敌人默认攻击 sound9 |
-| B08 | 07 | 固定传送 Map 全部所选字段 |
-| B09 | 07 | 页图块 B–E 单槽 |
-| B10 | 08 | 加入角色两个候选 |
-| B11 | 09 | Game Over ME |
-| B12 | 09 | 标题两图与 BGM |
-| B13 | 09 | 战斗系统默认与 start SE |
-| B14 | 09 | Map Event 宿主地图两层背景 |
-| B15 | 10 | 固定当前公共事件调用 |
-| B16 | 11 | Skill 的全部 Common Event effects |
-| C01 | 02 | 所有列出的根、页与嵌套分支 |
-| C02 | 02 | 三种移除／重置；Push 再由 W20 的 14 验证 |
-| C03 | 04, 05, 13 | 04 图像镜像／独立指令；05 SE 同分支；13 两种字段 repeated-checkpoint |
-| C04 | 06, 08, 10 | 06 repeated-tileset-name；08 repeated-enemy；10 two-callers／common-independent-root |
-| C05 | 09, 10, 11 | 10 自／互循环和长链；09 动态敌群与已知系统兄弟；11 Skill／Common 链及武器动态路径和已知兄弟 |
-| C06 | 02, 04–11 | 按 A／B 字段 owner 分配 None；04 两个页默认与 saved-image-index；05 saved-audio-controls |
-| C07 | 06–11 | 按 B 字段 owner 完成 target／field／empty／file 五分支中适用部分 |
-| C08 | 02, 04, 05, 07, 09 | 02 false-page-condition／unreached-branch；04 三种非 custom 路线图像及 tile-with-character；05 同路线 SE；07 autoplay 两支；09 battleback-off |
-| C09 | 08 | actor-hp／vehicle-position 均不扩大素材关系 |
-| C10 | 06, 08 | 06 unrelated-animation／unrelated-field；08 unrelated-actor／troop-host-only |
-| C11 | 02, 04, 05, 12 | 02 script-command／plugin-command／unknown-raw／recognized-raw；04 route-script；05 路线 SE raw 同规则；12 Gate／结构错误不可例外 |
-| C12 | 02, 07, 08, 09, 11 | 02 plugin-declaration；07 transfer-network；08 enemy-ai；11 initial-equipment；09 hardcoded-system／terrain-background／battle-test-background |
-| C13 | 13, 14 | 13 check-success／check-failure；14 push-success；各字段票同时保留外部值 |
-| F01 | 02, 05 | 02 image；05 bgm／bgs／me／se／movie |
-| F02 | 03, 05 | 03 image-encrypted-only／other-only／exact-plus-alternative；05 audio-m4a-only／movie-mp4-only／audio-encrypted-only |
-| F03 | 03 | 全部大小写层次及并存分支 |
-| F04 | 03 | 全部支持名称分支 |
-| F05 | 03 | 双扩展名与 Unicode 不规范化 |
-| F06 | 03, 05 | 03 image-percent／image-hash／literal-percent20；05 audio-percent／audio-hash／movie-percent／movie-hash |
-| F07 | 03 | 全部名称形式、禁止字符、控制字符、设备名实例；02 先有查询前安全拒绝 |
-| F08 | 02 | 缺目录／缺文件／目录为文件／文件为目录 |
-| F09 | 03 | 根别名及全部根以下链接分支 |
-| F10 | 03 | 硬链接、零字节、仅元数据 |
-| F11 | 03 | 枚举／元数据／I/O 查询失败 |
-| F12 | 03 | 查询内消失／类型变化 |
-| F13 | 02, 05 | 02 全部 images 分支；05 全部 audio 分支 |
-| F14 | 02, 03, 05 | 02 no-images-use；05 no-audio-use／movie-only；03 no-www-fallback／no-other-root |
-| D01 | 12 | 全事实 × 合法普通／候选／非活动表示组合 |
-| D02 | 12 | 全部不可豁免组合及 reference／structure／script Gate |
-| D03 | 12 | 三类可降级、多来源与准确键区别 |
-| D04 | 12 | 全部配置错误 |
-| D05 | 12 | repaired／unused／warning-only／incomplete |
-| D06 | 12 | 混合级别及组／文件／使用独立计数 |
-| D07 | 12 | 公共目录／字段失败及无合法目标 |
-| D08 | 12 | 独立结果继续及各早期失败完整性 |
-| D09 | 12 | 全部列出定位／链／源码可靠性；各来源票先验收自身位置 |
-| D10 | 12 | 全部实际 CLI 结果分支 |
-| W01 | 13 | 全部三态 × 结果 × API／CLI |
-| W02 | 13 | Check 完成前删除／改善／稳定 warning |
-| W03 | 13 | Compile 发布前错误／变化 |
-| W04 | 13 | Manifest 前变化／发布 I/O 失败 |
-| W05 | 14 | Push 首次替换前错误／暂存后变化 |
-| W06 | 15 | 全部 data 写后删除／变化 |
-| W07 | 14 | 无差异素材错误／data 漂移 |
-| W08 | 14 | Compile → 删除 → Diff → Push 失败 → 修复 → 重试 |
-| W09 | 13 | 动画／图块未 Pull 改名与 Pull 后重编译 |
-| W10 | 13 | 内容／大小／mtime／身份／无关目录项全部分支 |
-| W11 | 13, 14, 15 | 13 Check 返回及 Compile 两边界；14 Push 写前；15 Push 记账前。每个边界均执行全部七种变化 |
-| W12 | 13 | same-point-reuse／next-point-fresh／next-command-fresh；Push 新命令由 14 再验证 |
-| W13 | 14, 15 | 14 所有 prewrite 输入；15 所有 postwrite 输入，含 source 的两个 CLI 边界 |
-| W14 | 12, 13 | 12 exception-change；13 pull／rebind／contract-change／check-does-not-refresh |
-| W15 | 16 | 五种恢复 data 状态及当前素材结果 |
-| W16 | 16 | 原依据过期与当前配置改变；12 提供格式兼容并先验证历史 hash |
-| W17 | 13 | Clone／Pull／Decompilation／Diff 全部不增加文件查询 |
-| W18 | 16 | 竞争／非 Push 遇 pending／pending 下重绑 |
-| W19 | 13–16 | 13 compile-success／compile-failure；14 push-success 与写前 failure；15 写后 failure；16 recovery |
-| W20 | 14 | 生成根与链／不求值 DSL／不信历史报告全部分支 |
-| N01 | 01 | 图片、音频、影片原生定位 |
-| N02 | 01 | 全部支持特殊名称原生映射 |
-| N03 | 06 | 动画双图与 timing SE |
-| N04 | 07 | 整组图块与 B–E 页单图 |
-| N05 | 08 | 敌人前／侧视 |
-| N06 | 08 | 运行时覆盖已选 Actor 初始候选 |
+| A01 | [04](issues/04-direct-image-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A02 | [04](issues/04-direct-image-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A03 | [05](issues/05-direct-audio-and-movie-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A04 | [05](issues/05-direct-audio-and-movie-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A05 | [05](issues/05-direct-audio-and-movie-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A06 | [05](issues/05-direct-audio-and-movie-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A07 | [02](issues/02-picture-compile-check.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A08 | [05](issues/05-direct-audio-and-movie-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A09 | [05](issues/05-direct-audio-and-movie-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A10 | [05](issues/05-direct-audio-and-movie-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A11 | [05](issues/05-direct-audio-and-movie-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A12 | [05](issues/05-direct-audio-and-movie-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A13 | [04](issues/04-direct-image-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A14 | [04](issues/04-direct-image-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A15 | [04](issues/04-direct-image-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A16 | [04](issues/04-direct-image-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A17 | [04](issues/04-direct-image-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| A18 | [05](issues/05-direct-audio-and-movie-uses.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| B01 | [06](issues/06-animation-tileset-and-skill-assets.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| B02 | [06](issues/06-animation-tileset-and-skill-assets.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| B03 | [07](issues/07-enemy-asset-dependencies.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| B04 | [07](issues/07-enemy-asset-dependencies.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| B05 | [06](issues/06-animation-tileset-and-skill-assets.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| B11 | [08](issues/08-game-over-and-title-assets.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| B12 | [08](issues/08-game-over-and-title-assets.md) | 该族全部保留字段、表示、正常与逐字段缺失分支。 |
+| C01 | [02](issues/02-picture-compile-check.md) | 全部保留分支；当前三类根、嵌套及移除／重置。 |
+| C02 | [02](issues/02-picture-compile-check.md) | 全部保留分支；当前三类根、嵌套及移除／重置。 |
+| C03 | [04](issues/04-direct-image-uses.md) | route-mirror／independent-command 的 image 字段；205／505 关联一次，其他真实来源保留。 |
+| C03 | [05](issues/05-direct-audio-and-movie-uses.md) | route-mirror／independent-command 的 se 字段；205／505 关联一次，其他真实来源保留。 |
+| C03 | [10](issues/10-compile-check-single-gate.md) | repeated-command 的 image／se，下一命令不累积历史来源。 |
+| C04 | [02](issues/02-picture-compile-check.md) | two-callers／common-independent-root；只报告公共事件定义位置。 |
+| C04 | [06](issues/06-animation-tileset-and-skill-assets.md) | repeated-tileset-name／repeated-common-effect；同名槽保留局部来源，effects 不复制根使用。 |
+| C04 | [07](issues/07-enemy-asset-dependencies.md) | repeated-enemy；每个成员路径保留。 |
+| C05 | [02](issues/02-picture-compile-check.md) | self-cycle／mutual-cycle／shared-callers；独立根检查，不构造调用图。 |
+| C05 | [06](issues/06-animation-tileset-and-skill-assets.md) | default-attack；保留未检查原因，不查询回退素材。 |
+| C05 | [07](issues/07-enemy-asset-dependencies.md) | dynamic-troop；不伪造已确定目标或检查通过。 |
+| C06 | [02](issues/02-picture-compile-check.md) | 本票 A07 的原生合法 None。 |
+| C06 | [04](issues/04-direct-image-uses.md) | 本票 A01、A02、A13、A14、A15、A16、A17 的原生合法 None。另含 default-page-image／default-page-route／saved-image-index。 |
+| C06 | [05](issues/05-direct-audio-and-movie-uses.md) | 本票 A03、A04、A05、A06、A08、A09、A10、A11、A12、A18 的原生合法 None。另含 saved-audio-controls。 |
+| C06 | [06](issues/06-animation-tileset-and-skill-assets.md) | 本票 B01、B02、B05 的原生合法 None。另含 zero-skill-animation。 |
+| C06 | [07](issues/07-enemy-asset-dependencies.md) | 本票 B03、B04 的原生合法 None。 |
+| C06 | [08](issues/08-game-over-and-title-assets.md) | 本票 B11、B12 的原生合法 None。 |
+| C07 | [06](issues/06-animation-tileset-and-skill-assets.md) | 本票 B 族全部适用 target-missing／field-missing／field-wrong-type／field-empty／file-missing；System 不伪造固定引用。 |
+| C07 | [07](issues/07-enemy-asset-dependencies.md) | 本票 B 族全部适用 target-missing／field-missing／field-wrong-type／field-empty／file-missing；System 不伪造固定引用。 |
+| C07 | [08](issues/08-game-over-and-title-assets.md) | 本票 B 族全部适用 target-missing／field-missing／field-wrong-type／field-empty／file-missing；System 不伪造固定引用。 |
+| C08 | [02](issues/02-picture-compile-check.md) | false-page-condition／unreached-branch 不自动降级。 |
+| C08 | [04](issues/04-direct-image-uses.md) | route-fixed／route-random／route-approach 的图像及 tile-with-character。 |
+| C08 | [05](issues/05-direct-audio-and-movie-uses.md) | route-fixed／route-random／route-approach 的路线 SE。 |
+| C09 | [07](issues/07-enemy-asset-dependencies.md) | actor-hp／vehicle-position，均不扩展素材。 |
+| C10 | [06](issues/06-animation-tileset-and-skill-assets.md) | unrelated-animation／unrelated-field。 |
+| C10 | [07](issues/07-enemy-asset-dependencies.md) | unrelated-actor／troop-host-only。 |
+| C11 | [02](issues/02-picture-compile-check.md) | script-command／plugin-command／unknown-raw／recognized-raw。 |
+| C11 | [04](issues/04-direct-image-uses.md) | route-script；不猜测脚本名称。 |
+| C11 | [05](issues/05-direct-audio-and-movie-uses.md) | 路线 SE 正式／raw 一致性的补充验证。 |
+| C11 | [09](issues/09-exceptions-and-actionable-diagnostics.md) | Script Gate／结构／引用错误不能由素材例外绕过。 |
+| C12 | [02](issues/02-picture-compile-check.md) | plugin-declaration。 |
+| C12 | [04](issues/04-direct-image-uses.md) | page-initial-tileset；不漏掉直接 characterName。 |
+| C12 | [06](issues/06-animation-tileset-and-skill-assets.md) | initial-equipment／transfer-network／actor-default-attack／enemy-default-attack／transfer-initial-assets。 |
+| C12 | [07](issues/07-enemy-asset-dependencies.md) | enemy-ai／actor-initial-images。 |
+| C12 | [08](issues/08-game-over-and-title-assets.md) | hardcoded-system／terrain-background／battle-test-background／battle-default-audio／battle-map-background。 |
+| C13 | [10](issues/10-compile-check-single-gate.md) | check-success／check-failure。 |
+| C13 | [11](issues/11-push-generated-asset-preflight.md) | push-success。 |
+| F01 | [02](issues/02-picture-compile-check.md) | image。 |
+| F01 | [05](issues/05-direct-audio-and-movie-uses.md) | bgm／bgs／me／se／movie。 |
+| F02 | [03](issues/03-exact-file-observation.md) | image-encrypted-only／other-only／exact-plus-alternative。 |
+| F02 | [05](issues/05-direct-audio-and-movie-uses.md) | audio-m4a-only／movie-mp4-only／audio-encrypted-only。 |
+| F03 | [03](issues/03-exact-file-observation.md) | 全部现行分支及按索引展开的实例。 |
+| F04 | [03](issues/03-exact-file-observation.md) | 全部现行分支及按索引展开的实例。 |
+| F05 | [03](issues/03-exact-file-observation.md) | 全部现行分支及按索引展开的实例。 |
+| F06 | [03](issues/03-exact-file-observation.md) | image-percent／image-hash／literal-percent20。 |
+| F06 | [05](issues/05-direct-audio-and-movie-uses.md) | audio-percent／audio-hash／movie-percent／movie-hash。 |
+| F07 | [03](issues/03-exact-file-observation.md) | 全部现行分支及按索引展开的实例。 |
+| F08 | [02](issues/02-picture-compile-check.md) | 全部基本缺失／类型分支。 |
+| F09 | [03](issues/03-exact-file-observation.md) | 全部现行分支及按索引展开的实例。 |
+| F10 | [03](issues/03-exact-file-observation.md) | 全部现行分支及按索引展开的实例。 |
+| F11 | [03](issues/03-exact-file-observation.md) | 全部现行分支及按索引展开的实例。 |
+| F12 | [03](issues/03-exact-file-observation.md) | 全部现行分支及按索引展开的实例。 |
+| F13 | [02](issues/02-picture-compile-check.md) | 全部 images 标志分支。 |
+| F13 | [05](issues/05-direct-audio-and-movie-uses.md) | 全部 audio 标志分支。 |
+| F14 | [02](issues/02-picture-compile-check.md) | no-images-use。 |
+| F14 | [03](issues/03-exact-file-observation.md) | no-www-fallback／no-other-root。 |
+| F14 | [05](issues/05-direct-audio-and-movie-uses.md) | no-audio-use／movie-only。 |
+| D01 | [09](issues/09-exceptions-and-actionable-diagnostics.md) | 现行全部分支；不恢复候选、caller、三套统计或 D05。 |
+| D02 | [09](issues/09-exceptions-and-actionable-diagnostics.md) | 现行全部分支；不恢复候选、caller、三套统计或 D05。 |
+| D03 | [09](issues/09-exceptions-and-actionable-diagnostics.md) | 现行全部分支；不恢复候选、caller、三套统计或 D05。 |
+| D04 | [09](issues/09-exceptions-and-actionable-diagnostics.md) | 现行全部分支；不恢复候选、caller、三套统计或 D05。 |
+| D06 | [09](issues/09-exceptions-and-actionable-diagnostics.md) | 现行全部分支；不恢复候选、caller、三套统计或 D05。 |
+| D07 | [09](issues/09-exceptions-and-actionable-diagnostics.md) | 现行全部分支；不恢复候选、caller、三套统计或 D05。 |
+| D08 | [09](issues/09-exceptions-and-actionable-diagnostics.md) | 现行全部分支；不恢复候选、caller、三套统计或 D05。 |
+| D09 | [09](issues/09-exceptions-and-actionable-diagnostics.md) | 现行全部分支；不恢复候选、caller、三套统计或 D05。 |
+| D10 | [09](issues/09-exceptions-and-actionable-diagnostics.md) | 现行全部分支；不恢复候选、caller、三套统计或 D05。 |
+| W01 | [10](issues/10-compile-check-single-gate.md) | 现行全部分支；W12 后续 Push 当前事实由 11 补证。 |
+| W02 | [10](issues/10-compile-check-single-gate.md) | 现行全部分支；W12 后续 Push 当前事实由 11 补证。 |
+| W03 | [10](issues/10-compile-check-single-gate.md) | 现行全部分支；W12 后续 Push 当前事实由 11 补证。 |
+| W04 | [10](issues/10-compile-check-single-gate.md) | 现行全部分支；W12 后续 Push 当前事实由 11 补证。 |
+| W05 | [11](issues/11-push-generated-asset-preflight.md) | 现行全部分支，保留指定 API／CLI 入口。 |
+| W06 | [12](issues/12-push-postwrite-consistency.md) | 全部写后只改素材的分支：正常记账，下一次 Push 再检查。 |
+| W07 | [11](issues/11-push-generated-asset-preflight.md) | 现行全部分支，保留指定 API／CLI 入口。 |
+| W08 | [11](issues/11-push-generated-asset-preflight.md) | 现行全部分支，保留指定 API／CLI 入口。 |
+| W09 | [10](issues/10-compile-check-single-gate.md) | 现行全部分支；W12 后续 Push 当前事实由 11 补证。 |
+| W10 | [10](issues/10-compile-check-single-gate.md) | 现行全部分支；W12 后续 Push 当前事实由 11 补证。 |
+| W11 | [10](issues/10-compile-check-single-gate.md) | check-gate／compile-gate 的全部七种门槛前变化；不比较跨时点事实。 |
+| W11 | [11](issues/11-push-generated-asset-preflight.md) | push-gate 的全部七种门槛前变化，补齐按当前事实通过。 |
+| W12 | [10](issues/10-compile-check-single-gate.md) | 现行全部分支；W12 后续 Push 当前事实由 11 补证。 |
+| W12 | [11](issues/11-push-generated-asset-preflight.md) | Push 的下一命令实际查询补证，不读取历史成功报告。 |
+| W13 | [11](issues/11-push-generated-asset-preflight.md) | 全部 prewrite 依据变更及 source 的 CLI 边界。 |
+| W13 | [12](issues/12-push-postwrite-consistency.md) | 全部 postwrite 依据变更及 source 的 CLI 边界；素材变化不算依据变更。 |
+| W14 | [09](issues/09-exceptions-and-actionable-diagnostics.md) | exception-change。 |
+| W14 | [10](issues/10-compile-check-single-gate.md) | pull／rebind／contract-change／check-does-not-refresh。 |
+| W15 | [13](issues/13-recovery-and-current-asset-policy.md) | 全部现行内容恢复、原依据或互斥／原绑定分支。 |
+| W16 | [13](issues/13-recovery-and-current-asset-policy.md) | 全部现行内容恢复、原依据或互斥／原绑定分支。 |
+| W17 | [10](issues/10-compile-check-single-gate.md) | 现行全部分支；W12 后续 Push 当前事实由 11 补证。 |
+| W18 | [13](issues/13-recovery-and-current-asset-policy.md) | 全部现行内容恢复、原依据或互斥／原绑定分支。 |
+| W19 | [10](issues/10-compile-check-single-gate.md) | compile-success／compile-failure。 |
+| W19 | [11](issues/11-push-generated-asset-preflight.md) | push-success 及 push-failure 写前部分。 |
+| W19 | [12](issues/12-push-postwrite-consistency.md) | 真正 data／输入异常的 push-failure 写后部分。 |
+| W19 | [13](issues/13-recovery-and-current-asset-policy.md) | recovery。 |
+| W20 | [11](issues/11-push-generated-asset-preflight.md) | 现行全部分支，保留指定 API／CLI 入口。 |
+| N01 | [01](issues/01-native-media-locations.md) | 全部现行原生分支。 |
+| N02 | [01](issues/01-native-media-locations.md) | 全部现行原生分支。 |
+| N03 | [06](issues/06-animation-tileset-and-skill-assets.md) | animation-images／animation-timing-se。 |
+| N04 | [06](issues/06-animation-tileset-and-skill-assets.md) | 仅 change-tileset；page-tile 延后。 |
+| N05 | [07](issues/07-enemy-asset-dependencies.md) | enemy-front／enemy-side。 |
 
-## 依赖核对
+## 新旧编号对照
 
-- 可立即开始：01、02。
-- 02 完成后可分别推进 03、04、10。
-- 04 → 05 → 06；06 完成后可分别推进 07、08、09，且与 10 一起解锁 11。
-- 03、07、10 全部完成后解锁 12；随后 12 → 13 → 14 → 15 → 16。
-- 17 等待 01、08、09、11、16；其余全部票均已由这五条依赖链覆盖。
-- 08、09、11 不阻塞编译重查和 Push 机制的开发；它们复用同一个原生使用收集与文件政策流程。最终集成必须验证全部已选关系，没有另写一套 Push 规则的许可。
+| 原编号 | 新编号 | 迁移结果 |
+| --- | --- | --- |
+| 01 | 01 | 原生证据保留 |
+| 02 | 02 | 补入公共事件独立根／循环输入的范围验证 |
+| 03 | 03 | 文件规则保留 |
+| 04 | 04 | 直接图像保留，补页初始 Tileset 排除 |
+| 05 | 05 | 直接音频／影片保留 |
+| 06 | 06 | 合并固定 Skill 正动画，接收 N04 整组图块 |
+| 07 | — | 传送／页图块关系延后；N04 保留部分转新 06，范围反例由新 04／06 承担 |
+| 08 | 07 | 仅固定敌群／变身；Actor 候选与 N06 延后 |
+| 09 | 08 | 仅 Game Over／Return to Title |
+| 10 | — | 调用报告延后；独立根测试转新 02，effects 范围验证转新 06 |
+| 11 | 06 | 正动画和默认攻击未检查说明合并；其余延后 |
+| 12 | 09 | 精确例外与诊断减重 |
+| 13 | 10 | 改为单次素材门槛 |
+| 14 | 11 | 当前事实写前／无差异检查 |
+| 15 | 12 | 写后素材不影响记账，保留真正输入保护 |
+| 16 | 13 | 依赖改为新 11，可与新 12 分别推进 |
+| 17 | 14 | 只验收当前 86 族 |
 
 ## 发布记录
 
-已按本文件发布 17 张独立实施票，标题、范围、阻塞关系和验收分配沿用已确认方案。每票附规范来源、专有验收、适用共通要求及本票子用例责任。现有文件名保留，便于引用已审阅的拆分记录。
+已发布连续编号 01–14 的独立票，任务索引、标题、依赖、验收责任和本地链接同步。原 17 票与原索引归档，历史状态不进入当前领取队列。父规格和已完成决策票保持本轮开始时的内容。
 
 ## Comments
 
-- 2026-10-24：用户在审阅 17 票完整方案后回复“确认”。据此发布独立的 ready-for-agent 实施票及领取索引；01、02 是初始可领取票。原规格、地图、六张决策票及原验收设计保持原状。本次完成任务发布，未实施产品功能或执行产品／原生验收。
+- 2026-10-24：原 17 票发布记录保留于历史目录。
+- 2026-11-02：用户先要求简化功能范围，随后审阅 14 张票的范围和依赖建议，并要求“重新编号吧”。按此要求改为连续编号 01–14；原提案中的保留旧号方案已被替代。完成的是任务文档更新，产品与验收仍待实施。

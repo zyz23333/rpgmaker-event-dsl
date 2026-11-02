@@ -1,18 +1,20 @@
-# 10: 公共事件调用链与有界停止
+# 14: Push 从生成事件检查素材及无差异路径
+
+> 历史归档，不可领取。正文保留当时的范围与状态，仅重定位链接；现行任务见[当前索引](../../../tickets.md)。
 
 Status: ready-for-agent
-Blocked by: 02
+Blocked by: 13
 Created: 2026-10-24
-Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
+Parent: [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)
 Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments)
 
-**What to build:** 固定 Common Event 调用展开到当前公共事件，并在诊断中保留每个调用来源、独立根以及循环停止。
+**What to build:** Push 从当前 Generated Project Data 重建使用，在首次项目替换前检查素材；没有数据差异时同样检查。
 
 ## Acceptance criteria
 
-- [ ] B15 使用当前事件图，公共事件独立根与两个调用者不互相吞掉；移除或替换后的旧快照事件不补回。
-- [ ] 当前链检测自循环／互循环，记录停止位置与原因；长无环链完整遍历，不引入统一深度上限或全局 visited 去重。
-- [ ] 建立共用的调用链／停止表达，CLI 可获取链和信息记录；本票完成 common 相关 C04／C05／D09，其他事件入口的动态停止随各关系票交付。
+- [ ] 验证完整性／Freshness／漂移后使用生成事件和对应快照，当前公共事件链完整，移除根不回流；模块求值哨兵证明不重新求值 DSL，不信任历史素材报告。
+- [ ] 无差异也检查且单纯素材失败不创建 pending；写前错误／暂存后变化不开始替换。写前核对 source、验证依赖、config／exceptions、snapshot、generated、binding。
+- [ ] Compile 后删图仍可保持 Freshness，Diff 不查素材；Push 失败后补图且其他依据当前，可直接重试。初次写前及无差异的 CLI／API 状态断言齐备。
 
 ### 共通要求（限本票适用范围）
 
@@ -29,15 +31,18 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 | 验收族 | 本票负责的分支／字段 |
 | --- | --- |
-| B15 | 固定当前公共事件调用 |
-| C04 | two-callers／common-independent-root：每个调用者和独立根分别保留。 |
-| C05 | self-cycle／mutual-cycle／long-acyclic：当前链闭环有界停止，预设 12 跳样例完整，不形成实现深度上限。 |
-| C06 | 本票 B15 所有原生允许 None 的到达字段，按上游有限子用例展开。 |
-| C07 | 本票 B15 到达字段的 target-missing／field-missing／field-wrong-type／field-empty／file-missing 适用变体；固定目标与 System 字段按原索引分别处理。 |
+| C13 | push-success：只允许既有 owned data 改变，素材与外部字段保持边界。 |
+| W05 | Push 首次替换前错误／暂存后变化 |
+| W07 | 无差异素材错误／data 漂移 |
+| W08 | Compile → 删除 → Diff → Push 失败 → 修复 → 重试 |
+| W11 | Push 写前：完整执行七种相关变化，包括改善，要求重跑。 |
+| W13 | source／validation-dependency／config／exception／snapshot／generated／binding 全部 prewrite；source 另有指定 CLI 边界。 |
+| W19 | push-success／push-failure 的写前失败：素材不进快照、备份、复制、写入。 |
+| W20 | 生成根与链／不求值 DSL／不信历史报告全部分支 |
 
 ## Dependencies
 
-- [02：显示图片在 Compile／Check 中完成最小检查路径](02-picture-compile-check.md)。
+- [13：Compile／Check 重查与输出有效性](13-compile-check-consistency.md)。
 
 只在列出的直接阻塞票均为 resolved 后领取整票。票号表示依赖顺序，产品最终完成仍须通过 17；本票完成不代表整套素材检查已经交付。
 
@@ -49,9 +54,9 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Sources
 
-- [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
-- [验收矩阵](../../asset-validation/acceptance-matrix.md)：规范预期。
-- [实施验收用例索引](../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
+- [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
+- [验收矩阵](../../../../asset-validation/acceptance-matrix.md)：规范预期。
+- [实施验收用例索引](../../../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
 - [已确认任务拆分](../ticket-breakdown-draft.md)：本票范围、直接阻塞关系及共享验收族分配。
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 

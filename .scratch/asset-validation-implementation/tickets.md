@@ -1,48 +1,68 @@
 # 事件素材存在性检查：实施任务索引
 
 Published: 2026-10-24
-Source: [事件素材文件存在性检查实施规格](../asset-validation/asset-validation-spec.md)
-Breakdown: [已确认任务拆分与验收责任](ticket-breakdown-draft.md)
+Updated: 2026-11-02
+Source: [现行实施规格](../asset-validation/asset-validation-spec.md)
+Breakdown: [已确认拆分与验收责任](ticket-breakdown-draft.md)
 
-用户已确认 17 票的范围、粒度与直接依赖。全部正式票初始状态为 ready-for-agent；当前执行状态以各票文件为准。原规格、决策地图和六张决策票保留原状。
+用户审阅简化后的 14 票建议并要求重新编号，现已按依赖顺序发布为连续的 01–14。当前有效任务仅为下表及 issues 目录中的 14 个文件；旧 17 票和原发布记录在 [历史目录](history/2026-10-24/README.md)，其中旧状态不表示可领取。所有产品实现、自动化和原生必验仍待执行。
 
 ## 领取规则
 
-- 只有 Blocked by 中全部直接依赖已 resolved 的票可以开始；ready-for-agent 表示任务已明确，不表示已经解除依赖或完成。
-- 发布时可立即开始 [01：核实原生媒体定位与特殊名称](issues/01-native-media-locations.md) 和 [02：显示图片在 Compile／Check 中完成最小检查路径](issues/02-picture-compile-check.md)；按票号顺序选择时下一票为 01。
-- 01 是原生证据工作，02 是最小产品行为；已有明确契约允许分别推进。实际发现的契约反例必须按规格处理。
-- 每票拥有自己的测试、fixture 和适用说明责任；17 汇总并审计完整交付。关闭前保留实际 outcome 与验证，未执行和环境受限不算通过。
+- Blocked by 的直接依赖全部 resolved 才能开始；ready-for-agent 表示任务明确，不等于解除依赖。
+- 当前可立即开始 01（原生定位证据）和 02（显示图片最小路径）；按最小票号领取时为 01。
+- 每票承担自己的测试、fixture、说明和证据。14 汇总当前 86 个有效族及 N01–N05 的保留分支，11 个延后族不进入首版门槛。
+- Compile／Check／Push 各一次素材检查，写后素材变化不妨碍正常 data 记账；旧票中的多次素材复查、调用链展开及初始候选要求不再生效。
+- 原生观察发现的契约反例必须按现行规格处理，不能以静态资料或环境 skip 代替必验结果。
 
-## 正式票
+## 当前实施票
 
-| 票号 | 标题 | 直接阻塞 | 发布时状态 |
+| 编号 | 任务 | 直接阻塞 | 状态 |
 | --- | --- | --- | --- |
 | 01 | [核实原生媒体定位与特殊名称](issues/01-native-media-locations.md) | 无 | ready-for-agent |
 | 02 | [显示图片在 Compile／Check 中完成最小检查路径](issues/02-picture-compile-check.md) | 无 | ready-for-agent |
 | 03 | [准确名称、链接与文件查询失败的检查](issues/03-exact-file-observation.md) | [02](issues/02-picture-compile-check.md) | ready-for-agent |
 | 04 | [事件页、图像指令与移动图像的检查](issues/04-direct-image-uses.md) | [02](issues/02-picture-compile-check.md) | ready-for-agent |
 | 05 | [音频与影片的直接检查](issues/05-direct-audio-and-movie-uses.md) | [04](issues/04-direct-image-uses.md) | ready-for-agent |
-| 06 | [动画与更换图块组的间接检查](issues/06-animation-and-tileset-dependencies.md) | [05](issues/05-direct-audio-and-movie-uses.md) | ready-for-agent |
-| 07 | [传送地图与页图块的素材检查](issues/07-transfer-and-page-tile-dependencies.md) | [06](issues/06-animation-and-tileset-dependencies.md) | ready-for-agent |
-| 08 | [敌人战斗图与加入角色候选的检查](issues/08-enemy-and-actor-candidates.md) | [06](issues/06-animation-and-tileset-dependencies.md) | ready-for-agent |
-| 09 | [结束、标题与战斗默认素材的检查](issues/09-system-and-battle-defaults.md) | [06](issues/06-animation-and-tileset-dependencies.md) | ready-for-agent |
-| 10 | [公共事件调用链与有界停止](issues/10-common-event-dependency-chains.md) | [02](issues/02-picture-compile-check.md) | ready-for-agent |
-| 11 | [强制行动的技能、默认攻击与公共事件 effects](issues/11-forced-action-dependencies.md) | [06](issues/06-animation-and-tileset-dependencies.md), [10](issues/10-common-event-dependency-chains.md) | ready-for-agent |
-| 12 | [准确例外与完整的多来源诊断](issues/12-exceptions-and-complete-diagnostics.md) | [03](issues/03-exact-file-observation.md), [07](issues/07-transfer-and-page-tile-dependencies.md), [10](issues/10-common-event-dependency-chains.md) | ready-for-agent |
-| 13 | [Compile／Check 重查与输出有效性](issues/13-compile-check-consistency.md) | [12](issues/12-exceptions-and-complete-diagnostics.md) | ready-for-agent |
-| 14 | [Push 从生成事件检查素材及无差异路径](issues/14-push-generated-asset-preflight.md) | [13](issues/13-compile-check-consistency.md) | ready-for-agent |
-| 15 | [Push 写后复核与完整输入保护](issues/15-push-postwrite-consistency.md) | [14](issues/14-push-generated-asset-preflight.md) | ready-for-agent |
-| 16 | [恢复记账与当前素材条件分开判定](issues/16-recovery-and-current-asset-policy.md) | [15](issues/15-push-postwrite-consistency.md) | ready-for-agent |
-| 17 | [完整功能验收与使用说明核对](issues/17-integrated-acceptance.md) | [01](issues/01-native-media-locations.md), [08](issues/08-enemy-and-actor-candidates.md), [09](issues/09-system-and-battle-defaults.md), [11](issues/11-forced-action-dependencies.md), [16](issues/16-recovery-and-current-asset-policy.md) | ready-for-agent |
+| 06 | [动画、图块组与固定技能正动画的检查](issues/06-animation-tileset-and-skill-assets.md) | [05](issues/05-direct-audio-and-movie-uses.md) | ready-for-agent |
+| 07 | [固定敌群与敌人变身素材的检查](issues/07-enemy-asset-dependencies.md) | [06](issues/06-animation-tileset-and-skill-assets.md) | ready-for-agent |
+| 08 | [Game Over 与 Return to Title 素材的检查](issues/08-game-over-and-title-assets.md) | [06](issues/06-animation-tileset-and-skill-assets.md) | ready-for-agent |
+| 09 | [精确素材例外与可定位诊断](issues/09-exceptions-and-actionable-diagnostics.md) | [03](issues/03-exact-file-observation.md)、[06](issues/06-animation-tileset-and-skill-assets.md) | ready-for-agent |
+| 10 | [Compile／Check 的单次素材检查与发布保护](issues/10-compile-check-single-gate.md) | [09](issues/09-exceptions-and-actionable-diagnostics.md) | ready-for-agent |
+| 11 | [Push 写前及无差异路径的素材检查](issues/11-push-generated-asset-preflight.md) | [10](issues/10-compile-check-single-gate.md) | ready-for-agent |
+| 12 | [Push 写后记账与输入一致性保护](issues/12-push-postwrite-consistency.md) | [11](issues/11-push-generated-asset-preflight.md) | ready-for-agent |
+| 13 | [Interrupted Push 恢复与当前素材条件分离](issues/13-recovery-and-current-asset-policy.md) | [11](issues/11-push-generated-asset-preflight.md) | ready-for-agent |
+| 14 | [首版集成验收与使用说明核对](issues/14-integrated-acceptance.md) | [01](issues/01-native-media-locations.md)、[07](issues/07-enemy-asset-dependencies.md)、[08](issues/08-game-over-and-title-assets.md)、[12](issues/12-push-postwrite-consistency.md)、[13](issues/13-recovery-and-current-asset-policy.md) | ready-for-agent |
 
-## 验收与依赖
+## 依赖与验收
 
-[已确认责任表](ticket-breakdown-draft.md#验收责任分配)逐族覆盖 A18、B16、C13、F14、D10、W20、N6，共 97 个族；每票已列出自己的分支责任。完整子用例仍由[原索引](../asset-validation/implementation-acceptance-cases.md)定义。
+02 完成后 03、04 可分别开始；04 → 05 → 06。06 后可开始 07、08，并与 03 一起解锁 09；随后 09 → 10 → 11。12 和 13 都只依赖 11，彼此不阻塞。14 等待 01、07、08、12、13，这五条链覆盖全部当前票。
 
-02 完成后可分别推进 03、04、10。04 → 05 → 06；之后 07、08、09 分开推进，06 和 10 一起解锁 11。03、07、10 汇合到 12，随后依次进入 13 → 14 → 15 → 16。17 等待 01、08、09、11、16，覆盖全部依赖链。
+N01／N02 由 01 负责；N03 与 N04 的 Change Tileset 分支由 06 负责；N05 由 07 负责。精确分支分配见[责任表](ticket-breakdown-draft.md#验收责任分配)，规范预期仍取自[子用例索引](../asset-validation/implementation-acceptance-cases.md)。
 
-01 负责 N01／N02；06 负责 N03；07 负责 N04；08 负责 N05／N06。最终全量验证与维护者审阅由 17 汇总，原生必验不能以静态证据、合成样例或未执行记录替代。
+## 新旧编号对照
+
+| 原编号 | 新编号 | 迁移结果 |
+| --- | --- | --- |
+| 01 | 01 | 原生证据保留 |
+| 02 | 02 | 补入公共事件独立根／循环输入的范围验证 |
+| 03 | 03 | 文件规则保留 |
+| 04 | 04 | 直接图像保留，补页初始 Tileset 排除 |
+| 05 | 05 | 直接音频／影片保留 |
+| 06 | 06 | 合并固定 Skill 正动画，接收 N04 整组图块 |
+| 07 | — | 传送／页图块关系延后；N04 保留部分转新 06，范围反例由新 04／06 承担 |
+| 08 | 07 | 仅固定敌群／变身；Actor 候选与 N06 延后 |
+| 09 | 08 | 仅 Game Over／Return to Title |
+| 10 | — | 调用报告延后；独立根测试转新 02，effects 范围验证转新 06 |
+| 11 | 06 | 正动画和默认攻击未检查说明合并；其余延后 |
+| 12 | 09 | 精确例外与诊断减重 |
+| 13 | 10 | 改为单次素材门槛 |
+| 14 | 11 | 当前事实写前／无差异检查 |
+| 15 | 12 | 写后素材不影响记账，保留真正输入保护 |
+| 16 | 13 | 依赖改为新 11，可与新 12 分别推进 |
+| 17 | 14 | 只验收当前 86 族 |
 
 ## Comments
 
-- 2026-10-24：用户确认拆分后，逐票发布 17 个 Markdown 文件，并核对编号、状态、直接依赖、本地链接及全部 97 族责任。发布仅创建任务文档，未执行产品实现或验收。
+- 2026-10-24：原 17 票经用户确认后发布；原文见历史目录。
+- 2026-11-02：用户在审阅收缩为 14 票的建议后要求“重新编号吧”。据此连续编号、同步直接依赖与 86 族责任，并保留旧票历史；未修改父规格或执行产品实现。

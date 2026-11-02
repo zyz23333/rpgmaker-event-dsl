@@ -1,0 +1,51 @@
+# 14: 首版集成验收与使用说明核对
+
+Status: ready-for-agent
+Blocked by: 01, 07, 08, 12, 13
+Created: 2026-11-02
+Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
+Approval: [拆分及重新编号记录](../ticket-breakdown-draft.md#comments)
+History: [旧 17](../history/2026-10-24/issues/17-integrated-acceptance.md)
+
+**What to build:** 维护者获得当前首版的完整集成结果和可审阅回执，确认保留范围可交付。
+
+## Acceptance criteria
+
+- [ ] 逐实例核对 86 个有效验收族及其保留分支，验证 Compile／Check／Push 对完整当前根与七族间接关系使用同一规则。
+- [ ] 复核 N01–N05 当前保留分支的真实证据；11 个延后族及撤销子分支不属于首版门槛，不作为通过或环境 skip。
+- [ ] 执行现行规格要求的 Windows / Node.js 22 仓库检查、构建与构建后 CLI 验证，核对源码及构建入口覆盖。
+- [ ] 审阅公开说明、例外示例、文件存在性边界、补图重试／恢复流程和延后范围；缺口退回责任票，保留行为测试不能转交本票补写。
+- [ ] 没有当前范围内未解决的契约反例、必验未执行或证据矛盾后，提供实际回执供维护者确认；不以本票发布宣称功能已完成。
+
+## Acceptance ownership
+
+下表只分配本票保留分支；准确预期、表示、字段及完整用例 ID 以[现行索引](../../asset-validation/implementation-acceptance-cases.md)为准。不得重新加入延后族。
+
+审计全部 **86 个有效族**：A01–A18、B01–B05／B11–B12、C01–C13、F01–F14、D01–D04／D06–D10、W01–W20、N01–N05 的保留分支。实施责任见[责任分配](../ticket-breakdown-draft.md#验收责任分配)，本票不替前票补写欠缺的实现或测试。
+
+## Dependencies
+
+- [01：核实原生媒体定位与特殊名称](01-native-media-locations.md)。
+- [07：固定敌群与敌人变身素材的检查](07-enemy-asset-dependencies.md)。
+- [08：Game Over 与 Return to Title 素材的检查](08-game-over-and-title-assets.md)。
+- [12：Push 写后记账与输入一致性保护](12-push-postwrite-consistency.md)。
+- [13：Interrupted Push 恢复与当前素材条件分离](13-recovery-and-current-asset-policy.md)。
+
+仅在直接依赖均 resolved 后领取；ready-for-agent 表示范围明确，不代表已解除依赖。各票完成只代表其保留范围，首版最终验收由 14 汇总。
+
+## Verification
+
+按现行验收索引执行本票分支及指定 CLI 路径，记录适用检查、构建、Windows 验证和实际结果。当前均待实施／执行；不能将失败或缺口留给最终汇总票后关闭本票。
+
+## Sources
+
+- [实施规格](../../asset-validation/asset-validation-spec.md)
+- [验收矩阵](../../asset-validation/acceptance-matrix.md)
+- [已确认拆分与验收责任](../ticket-breakdown-draft.md)
+- [实施任务索引](../tickets.md)
+
+## Comments
+
+### 2026-11-02 — 简化与重新编号
+
+用户在审阅 14 张票的修订建议后要求“重新编号吧”。按该要求连续编号并发布当前范围，原票及历史讨论保留在 History 链接中。此记录仅表示任务更新，未实施产品或执行验收；父规格及决策票不因本次编号修改。

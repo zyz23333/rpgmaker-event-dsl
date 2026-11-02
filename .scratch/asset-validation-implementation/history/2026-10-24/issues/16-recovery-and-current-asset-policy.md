@@ -1,19 +1,20 @@
-# 13: Compile／Check 重查与输出有效性
+# 16: 恢复记账与当前素材条件分开判定
+
+> 历史归档，不可领取。正文保留当时的范围与状态，仅重定位链接；现行任务见[当前索引](../../../tickets.md)。
 
 Status: ready-for-agent
-Blocked by: 12
+Blocked by: 15
 Created: 2026-10-24
-Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
+Parent: [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)
 Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments)
 
-**What to build:** Check 返回、Compile 发布及 Manifest 提交都根据新观察确认结果；作者不会得到使用了操作内过时素材条件的成功输出。
+**What to build:** 作者能恢复已完成的 data 写入，即使素材仍缺失；恢复完成后按当前依据继续判断本次 Push。
 
 ## Acceptance criteria
 
-- [ ] Check 的 initial／fresh／stale × success／error／warning 全部只读；Compile 发布前失败不发布，发布已开始后的失败沿用无效输出语义，成功重编译才能恢复。
-- [ ] 在三个完成边界验证全部相关变化，包含改善和 warning 到 warning；忽略内容、大小、时间、文件身份及无关目录项变化。每检查点／每命令新观察且逻辑计数稳定。
-- [ ] 验证快照与实时素材的区别、未 Pull 标准数据改变及 Pull 后重编译、规则／绑定／政策新鲜度；Clone／Pull／Decompilation／Diff 不新增实时素材扫描。
-- [ ] 受控子进程验证 API 和指定 CLI 路径、编译输入保护及只读边界，不承诺持续监控或原子隔离。
+- [ ] 全生成内容可完成记账，再因当前素材失败时 pending 已清且不重建；全旧快照可放弃后进入正常检查；混合、缺失、未知拒绝自动恢复。
+- [ ] 独立历史 pending 证据覆盖旧编译政策／hash、当前配置改变及 stale 原依据：保留原结构和版本，恢复不能升级旧输出或获得新写权限。
+- [ ] 验证锁、非 Push 遇 pending、重绑先按原目标处理；报告区分恢复结果和当前失败，素材不进入恢复备份或写入。完成真实中断与指定 CLI 回执。
 
 ### 共通要求（限本票适用范围）
 
@@ -30,23 +31,14 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 | 验收族 | 本票负责的分支／字段 |
 | --- | --- |
-| C03 | 图像和 SE 的 repeated-checkpoint；重查不增加逻辑使用数。 |
-| C13 | check-success／check-failure：外部字段与名称保留；素材树不复制、写入或备份。 |
-| W01 | 全部三态 × 结果 × API／CLI |
-| W02 | Check 完成前删除／改善／稳定 warning |
-| W03 | Compile 发布前错误／变化 |
-| W04 | Manifest 前变化／发布 I/O 失败 |
-| W09 | 动画／图块未 Pull 改名与 Pull 后重编译 |
-| W10 | 内容／大小／mtime／身份／无关目录项全部分支 |
-| W11 | Check 完成前、Compile 发布前、Compile Manifest 前：每个边界都执行 presence／case-match／path-type／path-link／queryability／failure-location／improvement。 |
-| W12 | same-point-reuse／next-point-fresh／next-command-fresh；Push 新命令由 14 再验证 |
-| W14 | pull／rebind／contract-change／check-does-not-refresh。 |
-| W17 | Clone／Pull／Decompilation／Diff 全部不增加文件查询 |
-| W19 | compile-success／compile-failure：联合检查全部状态载体和素材只读。 |
+| W15 | 五种恢复 data 状态及当前素材结果 |
+| W16 | 原依据过期与当前配置改变；12 提供格式兼容并先验证历史 hash |
+| W18 | 竞争／非 Push 遇 pending／pending 下重绑 |
+| W19 | recovery：只允许恢复数据记账语义，素材不参与恢复写入或备份。 |
 
 ## Dependencies
 
-- [12：准确例外与完整的多来源诊断](12-exceptions-and-complete-diagnostics.md)。
+- [15：Push 写后复核与完整输入保护](15-push-postwrite-consistency.md)。
 
 只在列出的直接阻塞票均为 resolved 后领取整票。票号表示依赖顺序，产品最终完成仍须通过 17；本票完成不代表整套素材检查已经交付。
 
@@ -58,9 +50,9 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Sources
 
-- [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
-- [验收矩阵](../../asset-validation/acceptance-matrix.md)：规范预期。
-- [实施验收用例索引](../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
+- [事件素材文件存在性检查实施规格](../../../../asset-validation/asset-validation-spec.md)：本票与共通契约的权威来源，包含适用 ADR、模块职责与完成门槛。
+- [验收矩阵](../../../../asset-validation/acceptance-matrix.md)：规范预期。
+- [实施验收用例索引](../../../../asset-validation/implementation-acceptance-cases.md)：有限分支、固定字段、执行入口和证据责任。
 - [已确认任务拆分](../ticket-breakdown-draft.md)：本票范围、直接阻塞关系及共享验收族分配。
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 
