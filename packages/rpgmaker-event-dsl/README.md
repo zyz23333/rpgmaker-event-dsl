@@ -956,6 +956,12 @@ directory, filename and extension must have the exact case. Formal commands and
 recognized raw 231 records use the same rules in every current Map Event, Common
 Event and Troop Event, including nested branches and uncalled Common Events.
 
+Each Common Event's assets belong to its own definition. Asset failures also list
+the direct Common Event call sites with their defining events, native positions
+and target IDs. Repeated, cyclic and shared calls retain each saved call site;
+they do not multiply the called definition's asset-use count or produce a separate
+cycle warning. Removed Snapshot events are excluded from the current call graph.
+
 The check observes ordinary-file metadata only: empty files pass, and no image
 decoding or layout guarantee is made. None needs no file. Missing directories or
 files, wrong types, unsupported Windows names, links below the resolved Project
