@@ -52,6 +52,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 Outcome：212／337 到达所选 Animation 双图及所有 timing SE，282 到达所选 Tileset 全命名槽；以同一捕获 Snapshot 的窄只读字段叶及完整来源链检查，不从外部载体恢复事件根。None、坏必要字段、缺目标、缺文件分别签收，同名槽、未知字段及旧断言保留；README 与显式 Windows 构建后清单同步。未改图片特殊名称政策或其他票状态。原生实际消费、先前失败尝试、全部输入／预期／实际／哈希详见 [验收说明](../evidence/06-dependency-acceptance.md) 与 [逐项机器合册](../evidence/06-dependency-acceptance.json)。
 
+2026-11-02 分发 Skill 说明回补：已修正 `skills/rpgmaker-event-authoring/references/event-patterns.md` 的指定段落，明确 helpers 保留引用与保存设置，Workspace 按共享文件规则沿捕获标准数据检查所选 Animation 双图、逐 timing SE 和 Tileset 全部命名槽；文件存在或 Tileset 引用有效均不保证布局、解码、加载或运行时使用。未将文件检查归给 helper，也未扩为全库扫描。与包 README 共用规则核对一致；`oxfmt --check` 该参考文件、`git diff --check`、两份变更 Markdown 的 12 处本地链接目标检查，以及“参考全文只改指定段落”的文本比对通过。主 Skill／router、Face 和其他 pattern、产品、Compile Contract Version、测试及全部既有证据均未变；此次无产品测试或广测执行，保留上文原 Outcome 与历史验收记录。本票重新 resolved，交回 17 继续公开说明核对。
+
 完成后记录实际 outcome 和验证，再更新本票状态。原规格、决策地图及已完成决策票不因本票发布而改状态。
 
 ## Sources
@@ -69,3 +71,5 @@ Outcome：212／337 到达所选 Animation 双图及所有 timing SE，282 到�
 - 2026-11-02：native_01 在独立工作树 `M:/Shuen/Codex/asset-validation-06-dependencies`、分支 `codex/asset-validation-06-dependencies` 领取；已 fast-forward integration `4a8fbe71`，contract29，干净基线 Picture 相关 Compile／metadata 检查 2/2 通过。按已确认 Workspace／CLI 与补充纯语义 seam 实施 TDD，N03 单独实际执行留证。
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
+
+- 2026-11-02：按 [17 的公开说明核对](17-integrated-acceptance.md)回补分发 Skill 的说明遗漏，短暂重新领取。06 worktree 开始 clean，已 fast-forward 到集成提交 `d0a53fb939065f337d363738dba0566cfcee9de1`；`references/event-patterns.md` 的 map appearance 段仍称 Workspace 不扫描素材文件，与当前选定 Animation／Tileset 有限关系的文件门槛矛盾。沿用已读 writing-for-agents／SKILL-MECHANICS 核对上下文，本次只修该段，保留主 Skill、Face、其他 pattern、原 Outcome 与全部验收证据；不修改产品、Compile Contract Version 或测试。
