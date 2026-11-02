@@ -888,6 +888,12 @@ or Project Drift checks.
 
 ## Picture commands
 
+Image names containing `%` or `#`, including `%20`, are outside the asset file
+check's support. Ordinary uses error; conditional candidates or explicitly inactive
+saved settings warn and remain unchecked. Asset Check Exceptions cannot waive this
+boundary. The helpers preserve the original saved values; file checks never decode
+or repair them. Audio keeps literal `%` and `#` support; movies exclude both.
+
 Picture commands use explicit complete display settings. `showPicture` requires a
 `pictures` image Asset Reference or `image: null`; `movePicture` has no image field.
 Both require top-level `origin: "upperLeft" | "center"`, direct integer coordinates

@@ -10,7 +10,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Acceptance criteria
 
-- [ ] 覆盖目录各级及扩展名大小写、追加双后缀、中文／空格／纯空白／点号／前缀／Unicode、图片字面量百分号和井号；按完整追加文件名校验禁止字符和全部保留设备名。
+- [ ] 覆盖目录各级及扩展名大小写、追加双后缀、中文／空格／纯空白／点号／前缀／Unicode；图片含 `%`／`#`（包括 `%20`）按不支持 input 验证，查询前拒绝且不伪造目标；按完整追加文件名校验禁止字符和全部保留设备名。
 - [x] 根别名沿既有绑定；根以下 symlink／junction 不跟随，包括根内、根外和 dangling。硬链接、空文件、元数据可查而媒体内容读取受阻的场景可通过。
 - [x] 以真实文件树及明确标注的故障注入验证查询失败、枚举后消失、类型变化、独立路径继续、准确问题位置和无资源根回退。通过实际 Compile／Check 验证，不止内部匹配测试。
 
@@ -33,7 +33,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 | F03 | 全部大小写层次及并存分支 |
 | F04 | 全部支持名称分支 |
 | F05 | 双扩展名与 Unicode 不规范化 |
-| F06 | image-percent／image-hash／literal-percent20：按字面量名称检查，不 URL 解码。 |
+| F06 | image-percent／image-hash／literal-percent20：分别使用 input canonical ID，图片含 `%`／`#` 一律不支持；普通 error，候选／非活动 warning + 未检查，例外不能豁免；不 URL 解码、不查询或构造替代目标。音频两支仍属05的 filesystem 责任。 |
 | F07 | 全部名称形式、禁止字符、控制字符、设备名实例；02 先有查询前安全拒绝 |
 | F09 | 根别名及全部根以下链接分支 |
 | F10 | 硬链接、零字节、仅元数据 |
@@ -48,6 +48,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 只在列出的直接阻塞票均为 resolved 后领取整票。票号表示依赖顺序，产品最终完成仍须通过 17；本票完成不代表整套素材检查已经交付。
 
 ## Verification
+
+2026-11-02 政策已确认，仍需产品收尾：在公共 Workspace API 与实际 CLI 分别验证源码／构建入口的新三个 F06 input ID，并保留独立预期。旧 filesystem ID 的六条 `not-executed-policy-pending` 回执不变，须以新回执另行记录，不能覆盖或以别名计通过；[权威身份修订](../../asset-validation/implementation-acceptance-cases.md#2026-11-02-f06-身份修订与历史回执)及[政策出处](../evidence/01-native-media/policy-resolution-2026-11-02.md)已就绪。本票在实现／验证完成前保持 claimed。
 
 按上游索引指定的实例与入口运行本票适用验证，并记录相关仓库检查、构建和 Windows CLI 结果；最终全量核对由 17 负责。本票发现的失败不得以延后到 17 代替修复。当前所有产品测试和原生检查均为待实施／未执行，完成时追加实际结果。
 
@@ -66,3 +68,4 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
 - 2026-11-02：独立 worktree 从集成 `3eb12b8d` 开始；测试入口沿用规格已确认的 Workspace API、实际 CLI 与测试子进程 OS 接口。先实现独立文件规则；图片百分号／井号的原生反例等待维护者决定，本票不自行改政策。
 - 2026-11-02：独立范围的 166 个用例均通过 Windows / Node.js 22 源码与构建入口，共 332 条实际通过回执；真实大小写并存、符号链接、junction 与硬链接均已执行。修正查询内类型矛盾分类与枚举异常的实际失败位置，保留逐项独立检查和元数据边界。[阶段回执](../evidence/03-file-observation-acceptance.md)及[机器回执](../evidence/03-file-observation-acceptance.json)明确列出 3 个 F06 待决用例、6 条未执行记录，不能计为通过。图片 `%`／`#` 政策保持原状，用户尚未回复，票仍 claimed，不能关闭或解除后续依赖。
+- 2026-11-02（后续人类答复）：维护者确认统一排除图片 `%`／`#`、音频继续支持。旧待决状态保留为历史，当前产品缺口已明确为三个 input 用例及行为，尚未在01文档票中实现或计通过；03继续 claimed。
