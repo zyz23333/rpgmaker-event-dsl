@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "kind": "failed-whole-validation-checkpoint; not final acceptance",
+  "verifiedRevision": "60fa85971177b9d53c04967503555be80de234cf",
+  "executionFreeze": "c5f7ead75ba78680b92ad81924ba8cb884d2b751",
+  "manifestPath": ".scratch/asset-validation-implementation/evidence/17-failed-checkpoint-manifest.json",
+  "manifestSha256": "d808a03077382314d870706333097670abca98c74d568002373da242a508af71",
+  "checkedArtifacts": 1978,
+  "checkedBytes": 209927177,
+  "allCommittedBlobsAndDiskBytesMatch": true,
+  "protectedSourceTestConfigurationUnchangedSinceExecutionFreeze": true,
+  "rawHistoryPreserved": true,
+  "maintainerApproval": null
+}
