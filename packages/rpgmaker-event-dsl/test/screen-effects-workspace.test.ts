@@ -68,6 +68,8 @@ function savedJson(value: unknown): string {
 
 async function prepare(workspaceRoot: string, list = commands) {
   const fixture = await createMinimalProject(workspaceRoot);
+  await mkdir(join(workspaceRoot, "Game/movies"), { recursive: true });
+  await writeFile(join(workspaceRoot, "Game/movies/Ending.webm"), "");
   const files: Record<string, unknown> = structuredClone(fixture.projectFiles);
   files["CommonEvents.json"] = [
     null,

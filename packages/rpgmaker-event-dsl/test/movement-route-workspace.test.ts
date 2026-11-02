@@ -1,5 +1,5 @@
 import { blankPage } from "./support/map-event-fixtures.js";
-import { readFile, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { expect, it } from "vitest";
 import { initWorkspace } from "../src/workspace/config.js";
@@ -24,6 +24,8 @@ const fixture = JSON.parse(
 
 async function prepare(workspaceRoot: string) {
   await createMinimalProject(workspaceRoot);
+  await mkdir(join(workspaceRoot, "Game/audio/se"), { recursive: true });
+  await writeFile(join(workspaceRoot, "Game/audio/se/Cursor1.ogg"), "");
   await writeFile(
     join(workspaceRoot, "Game/data/CommonEvents.json"),
     JSON.stringify(fixture.events),

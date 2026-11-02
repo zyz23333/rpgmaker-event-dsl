@@ -919,7 +919,11 @@ stopSe();
 All four fields are required. `volume` is an integer from 0 to 100, `pitch` from
 50 to 150, and `pan` from -100 to 100. Values between the editor's arrow steps
 are valid; numeric negative zero is preserved in volume and pan. An Audio Asset
-Reference has a nonempty exact filename stem and does not scan the project.
+Reference has a nonempty exact filename stem. Compile and Compile Check require
+the exact ordinary `audio/<folder>/<saved name>.ogg` file under Project Root;
+alternative M4A or encrypted suffixes do not satisfy that path. Literal `%` and
+`#` remain part of audio filenames. File metadata is checked without decoding
+audio, and None needs no file.
 Use `bgm` for `playBgm`, `changeBattleBgm` and `changeVehicleBgm`; `bgs` for
 `playBgs`; `me` for `playMe`, `changeVictoryMe` and `changeDefeatMe`; and `se` for
 `playSe`. `changeVehicleBgm` also requires `vehicle: "boat"`, `"ship"` or

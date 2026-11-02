@@ -1,6 +1,6 @@
 # 05: 音频与影片的直接检查
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 04
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -10,18 +10,18 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Acceptance criteria
 
-- [ ] 补齐 A03–A06／A08–A12／A18，路线复用已完成的两个容器和镜像语义；保留音量等独立保存值和合法 None。
-- [ ] OGG／WebM 扩展固定，M4A／MP4 或加密后缀不能替代；音频允许字面量百分号／井号，影片两者属于不支持名称且不查询。
-- [ ] 只解释有使用类别对应的加密标志；缺失／false、true、错误类型和影片不受影响分别验证。补齐直接媒体命名空间的 API／CLI 场景。
+- [x] 补齐 A03–A06／A08–A12／A18，路线复用已完成的两个容器和镜像语义；保留音量等独立保存值和合法 None。
+- [x] OGG／WebM 扩展固定，M4A／MP4 或加密后缀不能替代；音频允许字面量百分号／井号，影片两者属于不支持名称且不查询。
+- [x] 只解释有使用类别对应的加密标志；缺失／false、true、错误类型和影片不受影响分别验证。补齐直接媒体命名空间的 API／CLI 场景。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
-- [ ] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
-- [ ] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
-- [ ] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
-- [ ] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
+- [x] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
+- [x] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
+- [x] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
+- [x] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
+- [x] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
+- [x] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
 
 ## Acceptance ownership
 
@@ -72,3 +72,9 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 ## Comments
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
+
+## Outcome
+
+2026-11-02：完成本票全部直接音频／影片、两种路线 SE、None、格式、特殊名称与加密标志分支。规范共享 C08 三例和 C11 recognized-raw 均扩展原回调并保留已有图像／图片断言，回执分别标注 `04,05` 和 `02,05`；没有重复规范 ID。明确补齐旧成功 fixture 的 OGG／WebM，保留历史 CR/LF 原值和 Decompilation 断言，并增加拒绝／无发布验证。当前集成 `cfe4d505` 已合入，Compile Contract Version 为 29。
+
+[验收记录](../evidence/05-media-acceptance.md)及[172 条逐项结果](../evidence/05-media-acceptance.json)记录全部 86 个 ID 的源码和构建结果。相关源码 217 个中 216 初次通过，唯一旧 Screen 30 秒超时独立重试在 26.48 秒通过，没有改超时或断言；初始失败如实保留。构建主套件 81／81、共享／历史／版本 6／6，构建、typecheck、lint、format:check、diff 检查通过。没有剩余本票失败或未执行分支；全量及最终 Windows 汇总由 17 负责。

@@ -261,8 +261,10 @@ None; retain power, duration and wait when inactive. Battle execution skips the
 weather effect and its wait and produces a contextual warning. Common Events
 inherit their eventual caller's context. Give `playMovie` an explicit movies
 Asset Reference or `null` for None. Movie None continues without a video wait.
-Use `movieAsset({ name: "Ending" })` for a nonempty filename stem; check the
-actual movie in the game because asset references do not scan files or codecs.
+Use `movieAsset({ name: "Ending" })` for a nonempty filename stem. Compile and
+Check require the exact ordinary `movies/Ending.webm` file under Project Root;
+MP4 cannot substitute. Movie `%` and `#` names are unsupported. Check the actual
+movie in the game because file metadata does not validate playback or codecs.
 
 For audio playback and system settings, supply all four `audio` fields: `asset`
 is an Audio Asset Reference or explicit `null`, `volume` is integer 0..100,
@@ -270,7 +272,9 @@ is an Audio Asset Reference or explicit `null`, `volume` is integer 0..100,
 fields with None, including negative zero in volume/pan and values between the
 editor's arrow steps. Use the exact nonempty filename stem and matching folder:
 `bgm` for BGM/battle/vehicle, `bgs` for BGS, `me` for ME/victory/defeat, and `se`
-for SE. Give `changeVehicleBgm` boat, ship or airship explicitly. BGM/BGS None
+for SE. Compile and Check require exact ordinary `audio/<folder>/<name>.ogg`
+files; literal `%` and `#` remain in audio names. None needs no file. Give
+`changeVehicleBgm` boat, ship or airship explicitly. BGM/BGS None
 stops its stream; ME None stops ME and may restore BGM; SE None leaves active SE
 playing. Use `stopSe()` to stop SE, and `saveBgm()` / `replayBgm()` to retain and
 restore BGM playback position. These three helpers accept no arguments. Give
