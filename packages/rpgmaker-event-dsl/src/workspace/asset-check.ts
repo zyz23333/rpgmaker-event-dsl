@@ -3,16 +3,27 @@ import { collectCommonEventCalls } from "../validation/asset-common-calls.js";
 import { renderAssetCallContext } from "./asset-call-context.js";
 import { observeAssetFile } from "./asset-files.js";
 import { assetUseLevel } from "../validation/asset-policy.js";
+import { collectAnimationAndTilesetAssets } from "../validation/asset-dependencies.js";
+import type { AssetOrigin } from "../validation/asset-dependencies.js";
+
+function renderOrigin(use: AssetOrigin): string {
+  return `${use.identity} ${use.nativePath}${use.relatedNativePaths.length ? `; related: ${use.relatedNativePaths.join(", ")}` : ""}${use.dependencyChain.length ? `; chain: ${use.dependencyChain.map((step) => `${step.data}${step.id === undefined ? "" : `[${step.id}]`}.${step.field} (${step.relationship})`).join(" -> ")}` : ""}${use.conditions.length ? `; conditions: ${use.conditions.join(" ")}` : ""}${use.inactive ? `; inactive: ${use.inactive}` : ""}${use.candidate ? `; candidate: ${use.candidate}` : ""}`;
+}
 
 /** Live metadata is transient and deliberately absent from Compile Baseline. */
 export async function checkEventAssets(input: {
   projectRoot: string;
   files: ReadonlyMap<string, string>;
+  externalData: ReadonlyMap<string, string | Uint8Array>;
   commandName: string;
 }): Promise<void> {
-  const uses = collectEventAssetUses(input.files);
+  const relations = collectAnimationAndTilesetAssets(input.files, input.externalData);
+  const uses = [...collectEventAssetUses(input.files), ...relations.uses];
   const system = JSON.parse(input.files.get("System.json")!);
-  const failures: string[] = [];
+  const failures: string[] = relations.problems.map(
+    (problem) =>
+      `error MV-ASSET-INVALID-DATA: ${problem.dataPath}: ${problem.reason}\n  - ${renderOrigin(problem)}`,
+  );
   const groups = new Map<string, typeof uses>();
   for (const use of uses) {
     const key = assetTargetKey(use);
@@ -46,7 +57,7 @@ export async function checkEventAssets(input: {
       const level = group.some((use) => assetUseLevel(use, code!) === "error")
         ? "error"
         : "warning";
-      const rendered = `${level} ${message}\n  ${target.category}/${target.folder} ${JSON.stringify(target.name)}; ${group.length} use(s)\n${group.map((use) => `  - ${assetUseLevel(use, code!)} ${use.identity} ${use.nativePath}${use.relatedNativePaths.length ? `; related: ${use.relatedNativePaths.join(", ")}` : ""}${use.inactive ? `; inactive: ${use.inactive}` : ""}${use.candidate ? `; candidate: ${use.candidate}` : ""}`).join("\n")}`;
+      const rendered = `${level} ${message}\n  ${target.category}/${target.folder} ${JSON.stringify(target.name)}; ${group.length} use(s)\n${group.map((use) => `  - ${assetUseLevel(use, code!)} ${renderOrigin(use)}`).join("\n")}`;
       if (level === "error") failures.push(rendered);
       else console.error(`${input.commandName} asset check warning:\n${rendered}`);
     }

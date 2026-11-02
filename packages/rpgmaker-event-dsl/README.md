@@ -976,6 +976,20 @@ nested branches and uncalled Common Events. A 205 route and its 505 mirror are o
 logical use, with both native positions retained; independent commands remain
 independent uses.
 
+Show Animation and Show Battle Animation follow the selected Snapshot Animation's
+two image names in `img/animations` and every timing SE name in `audio/se`.
+Change Tileset follows every named `tilesetNames` slot in `img/tilesets`, including
+slots unused by the current map. Repeated names keep each slot's own origin.
+Diagnostics show the defining event, selected database entry and complete field
+chain. Image preloading and timing SE execution have separate conditions; these
+saved dependencies do not guarantee that an animation frame will execute.
+
+Only selected necessary fields are interpreted. Empty native names mean None;
+missing or invalid necessary names produce `MV-ASSET-INVALID-DATA` while safe
+independent fields continue checking. External data comes from the same captured
+Snapshot as compilation. Newer live database fields and unrelated entries do not
+replace that view or become asset roots, and external fields stay read-only.
+
 Each Common Event's assets belong to its own definition. Asset failures also list
 the direct Common Event call sites with their defining events, native positions
 and target IDs. Repeated, cyclic and shared calls retain each saved call site;

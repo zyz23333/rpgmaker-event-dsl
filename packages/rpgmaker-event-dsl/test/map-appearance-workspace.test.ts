@@ -242,6 +242,7 @@ async function prepare(workspaceRoot: string, list: SavedCommand[] = supportedSa
     ["battlebacks1", ["Castle1"]],
     ["battlebacks2", ["Brick"]],
     ["parallaxes", ["Sky", "Cloud"]],
+    ["tilesets", ["AppearanceB"]],
   ] as const) {
     await mkdir(join(workspaceRoot, "Game/img", folder), { recursive: true });
     for (const name of names)
@@ -268,7 +269,11 @@ async function prepare(workspaceRoot: string, list: SavedCommand[] = supportedSa
   await writeFile(join(workspaceRoot, "Game/data/Map001.json"), JSON.stringify(carrier));
   await writeFile(
     join(workspaceRoot, "Game/data/Tilesets.json"),
-    JSON.stringify([null, { id: 1, name: "Field" }, { id: 2, name: "" }]),
+    JSON.stringify([
+      null,
+      { id: 1, name: "Field" },
+      { id: 2, name: "", tilesetNames: ["", "", "", "", "", "AppearanceB", "", "", ""] },
+    ]),
   );
   await initWorkspace({ workspaceRoot, projectRoot: "./Game" });
   await cloneWorkspace({ workspaceRoot });
