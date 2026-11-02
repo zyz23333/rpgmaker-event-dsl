@@ -154,7 +154,8 @@ async function prepare(
   recordAssetInput({
     source,
     project,
-    expectedUse: "CommonEvents.json[10].list[0].parameters[1]",
+    defaultDirectFixtureOrigin:
+      "CommonEvents.json[10].list[0].parameters[1] (directSource only; overrides have their own literal assertions)",
     policy: "one current pass; no media input persistence",
   });
 }
@@ -178,6 +179,8 @@ async function operation(
     const process = sandbox.processes.at(-1)!;
     const text = [result?.message, process.stdout, process.stderr].filter(Boolean).join("\n");
     const actual = { exit, result, text, messages: child.messages, process };
+    if (input.operation === "check" || input.operation === "compile")
+      expect(child.messages.some((message) => message.kind === "asset-query")).toBe(true);
     expect(child.messages.filter((m) => m.kind === "asset-content-read-attempt")).toEqual([]);
     recordAssetInput({ operation: input, actual });
     return actual;
@@ -588,6 +591,13 @@ function expectGraphFailure(text: string) {
   expect(text).toContain('image/pictures "Poster"; 2 use(s)');
   const uses = text.split("\n").filter((line) => line.startsWith("  - error commonEvent:"));
   expect(uses).toHaveLength(2);
+  for (const line of uses) {
+    expect(line).not.toContain("; chain:");
+    expect(line).not.toContain("; conditions:");
+    expect(line).not.toContain("; related:");
+    expect(line).not.toContain("; candidate:");
+    expect(line).not.toContain("; inactive:");
+  }
   for (const use of graphUses) expect(uses.filter((line) => line.includes(use))).toHaveLength(1);
   const edges = text
     .split("\n")
