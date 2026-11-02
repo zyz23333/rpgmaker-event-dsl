@@ -4,6 +4,8 @@ Published: 2026-10-24
 Source: [事件素材文件存在性检查实施规格](../asset-validation/asset-validation-spec.md)
 Breakdown: [已确认任务拆分与验收责任](ticket-breakdown-draft.md)
 
+2026-11-02 实施核对：现行契约以 2026-10-25 修订的规格、验收矩阵和 ADR 0016–0019 为准。已将 10–15 的旧传递调用／重复素材观察要求同步为定义内使用及直接调用关系、每操作单次素材门槛和写后素材变化正常记账；依赖图不变。
+
 用户已确认 17 票的范围、粒度与直接依赖。全部正式票初始状态为 ready-for-agent；当前执行状态以各票文件为准。原规格、决策地图和六张决策票保留原状。
 
 ## 领取规则
@@ -26,12 +28,12 @@ Breakdown: [已确认任务拆分与验收责任](ticket-breakdown-draft.md)
 | 07 | [传送地图与页图块的素材检查](issues/07-transfer-and-page-tile-dependencies.md) | [06](issues/06-animation-and-tileset-dependencies.md) | ready-for-agent |
 | 08 | [敌人战斗图与加入角色候选的检查](issues/08-enemy-and-actor-candidates.md) | [06](issues/06-animation-and-tileset-dependencies.md) | ready-for-agent |
 | 09 | [结束、标题与战斗默认素材的检查](issues/09-system-and-battle-defaults.md) | [06](issues/06-animation-and-tileset-dependencies.md) | ready-for-agent |
-| 10 | [公共事件调用链与有界停止](issues/10-common-event-dependency-chains.md) | [02](issues/02-picture-compile-check.md) | ready-for-agent |
+| 10 | [公共事件直接调用关系](issues/10-common-event-dependency-chains.md) | [02](issues/02-picture-compile-check.md) | ready-for-agent |
 | 11 | [强制行动的技能、默认攻击与公共事件 effects](issues/11-forced-action-dependencies.md) | [06](issues/06-animation-and-tileset-dependencies.md), [10](issues/10-common-event-dependency-chains.md) | ready-for-agent |
 | 12 | [准确例外与完整的多来源诊断](issues/12-exceptions-and-complete-diagnostics.md) | [03](issues/03-exact-file-observation.md), [07](issues/07-transfer-and-page-tile-dependencies.md), [10](issues/10-common-event-dependency-chains.md) | ready-for-agent |
-| 13 | [Compile／Check 重查与输出有效性](issues/13-compile-check-consistency.md) | [12](issues/12-exceptions-and-complete-diagnostics.md) | ready-for-agent |
+| 13 | [Compile／Check 单次素材门槛与输出有效性](issues/13-compile-check-consistency.md) | [12](issues/12-exceptions-and-complete-diagnostics.md) | ready-for-agent |
 | 14 | [Push 从生成事件检查素材及无差异路径](issues/14-push-generated-asset-preflight.md) | [13](issues/13-compile-check-consistency.md) | ready-for-agent |
-| 15 | [Push 写后复核与完整输入保护](issues/15-push-postwrite-consistency.md) | [14](issues/14-push-generated-asset-preflight.md) | ready-for-agent |
+| 15 | [Push 写后记账与完整输入保护](issues/15-push-postwrite-consistency.md) | [14](issues/14-push-generated-asset-preflight.md) | ready-for-agent |
 | 16 | [恢复记账与当前素材条件分开判定](issues/16-recovery-and-current-asset-policy.md) | [15](issues/15-push-postwrite-consistency.md) | ready-for-agent |
 | 17 | [完整功能验收与使用说明核对](issues/17-integrated-acceptance.md) | [01](issues/01-native-media-locations.md), [08](issues/08-enemy-and-actor-candidates.md), [09](issues/09-system-and-battle-defaults.md), [11](issues/11-forced-action-dependencies.md), [16](issues/16-recovery-and-current-asset-policy.md) | ready-for-agent |
 
