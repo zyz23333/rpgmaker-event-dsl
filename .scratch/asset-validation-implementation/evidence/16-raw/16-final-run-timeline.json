@@ -1,0 +1,56 @@
+[
+  {
+    "CompletedAt": "2026-11-02T09:37:35.3330440Z",
+    "Failed": 0,
+    "StartedAt": "2026-11-02T09:36:42.8169461Z",
+    "Passed": 12,
+    "Arguments": [
+      "--config",
+      "vitest.windows.config.ts",
+      "test/asset-recovery-workspace.test.ts",
+      "--maxWorkers=1",
+      "--reporter=json"
+    ],
+    "ExitCode": 0,
+    "Name": "16-built-final",
+    "FilteredNotPassing": 0
+  },
+  {
+    "CompletedAt": "2026-11-02T09:45:46.9306498Z",
+    "Failed": 0,
+    "StartedAt": "2026-11-02T09:37:35.3584346Z",
+    "Passed": 86,
+    "Arguments": [
+      "test/push-recovery.test.ts",
+      "test/snapshot-binding.test.ts",
+      "test/workspace-locking.test.ts",
+      "test/compile-inputs.test.ts",
+      "test/push-drift.test.ts",
+      "--maxWorkers=1",
+      "--reporter=json"
+    ],
+    "ExitCode": 0,
+    "Name": "16-compatibility-source",
+    "FilteredNotPassing": 0
+  },
+  {
+    "CompletedAt": "2026-11-02T09:52:29.7877438Z",
+    "Failed": 0,
+    "StartedAt": "2026-11-02T09:45:46.9339534Z",
+    "Passed": 86,
+    "Arguments": [
+      "--config",
+      "vitest.windows.config.ts",
+      "test/push-recovery.test.ts",
+      "test/snapshot-binding.test.ts",
+      "test/workspace-locking.test.ts",
+      "test/compile-inputs.test.ts",
+      "test/push-drift.test.ts",
+      "--maxWorkers=1",
+      "--reporter=json"
+    ],
+    "ExitCode": 0,
+    "Name": "16-compatibility-built",
+    "FilteredNotPassing": 0
+  }
+]
