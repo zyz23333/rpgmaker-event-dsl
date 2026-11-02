@@ -5,6 +5,7 @@ import { observeAssetFile } from "./asset-files.js";
 import { assetUseLevel } from "../validation/asset-policy.js";
 import { collectAnimationAndTilesetAssets } from "../validation/asset-dependencies.js";
 import type { AssetOrigin } from "../validation/asset-dependencies.js";
+import { collectSystemAssets } from "../validation/asset-system-relations.js";
 import { collectActorEnemyAssets } from "../validation/asset-actor-enemy-relations.js";
 
 function renderOrigin(use: AssetOrigin): string {
@@ -20,9 +21,18 @@ export async function checkEventAssets(input: {
 }): Promise<void> {
   const animationTilesets = collectAnimationAndTilesetAssets(input.files, input.externalData);
   const actorsEnemies = collectActorEnemyAssets(input.files, input.externalData);
+  const systemRelations = collectSystemAssets(input.files, input.externalData);
+  for (const stop of systemRelations.stops)
+    console.error(
+      `${input.commandName} asset check info:\ninfo MV-ASSET-DYNAMIC-STOP: ${stop.reason}\n  - ${renderOrigin(stop)}`,
+    );
   const relations = {
-    uses: [...animationTilesets.uses, ...actorsEnemies.uses],
-    problems: [...animationTilesets.problems, ...actorsEnemies.problems],
+    uses: [...animationTilesets.uses, ...actorsEnemies.uses, ...systemRelations.uses],
+    problems: [
+      ...animationTilesets.problems,
+      ...actorsEnemies.problems,
+      ...systemRelations.problems,
+    ],
   };
   const uses = [...collectEventAssetUses(input.files), ...relations.uses];
   const system = JSON.parse(input.files.get("System.json")!);

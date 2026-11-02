@@ -93,6 +93,16 @@ async function prepare(workspaceRoot: string) {
   await mkdir(join(workspaceRoot, "Game/img/animations"), { recursive: true });
   await writeFile(join(workspaceRoot, "Game/img/animations/BattleAnimation.png"), "");
   (files["System.json"] as { variables: string[] }).variables = ["", ""];
+  Object.assign(files["System.json"] as object, {
+    gameoverMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    title1Name: "",
+    title2Name: "",
+    titleBgm: { name: "", volume: 90, pitch: 100, pan: 0 },
+    battleBgm: { name: "", volume: 90, pitch: 100, pan: 0 },
+    victoryMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    defeatMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    sounds: Array.from({ length: 8 }, () => ({ name: "", volume: 90, pitch: 100, pan: 0 })),
+  });
   files["CommonEvents.json"] = [
     null,
     { id: 1, name: "Battle Common", trigger: 0, switchId: 1, list: commands },
@@ -103,6 +113,9 @@ async function prepare(workspaceRoot: string) {
     width: 17,
     height: 13,
     tilesetId: 1,
+    specifyBattleback: false,
+    battleback1Name: "",
+    battleback2Name: "",
     external: { retain: [null, "", 9] },
     encounterList: [],
     events: [

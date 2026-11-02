@@ -74,6 +74,12 @@ async function createContextProject(workspaceRoot: string, validBattleMembers = 
     (troop: Record<string, unknown> | null) =>
       troop === null ? null : { ...troop, pages: [structuredClone(troopFixture.defaultPage)] },
   );
+  Object.assign(fixture.projectFiles["System.json"], {
+    battleBgm: { name: "", volume: 90, pitch: 100, pan: 0 },
+    victoryMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    defeatMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    sounds: Array.from({ length: 8 }, () => ({ name: "", volume: 90, pitch: 100, pan: 0 })),
+  });
   // Only the successful fixed-launch scenario needs every member to resolve.
   // Other contexts retain the original absent Enemy99 and its saved member position.
   if (validBattleMembers) fixture.projectFiles["Troops.json"][4].members[1].enemyId = 1;
