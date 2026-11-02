@@ -1,0 +1,130 @@
+{
+  "id": "AV.A12.cli.native.case.expected",
+  "ownerTicket": "05",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:25:37.192Z",
+  "completedAt": "2026-11-02T13:25:44.349Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,audioAsset,movieAsset,rawDslCommand,changeBattleBgm,changeVictoryMe,changeDefeatMe,changeVehicleBgm,playBgm,playBgs,playMe,playSe,playMovie,setMovementRoute} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Media\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[playMovie({movie:movieAsset({name:\"CliMedia\"})})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Media"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ]
+      }
+    },
+    {
+      "cliResult": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-cli-movies-Ky4Zyu\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:25:37.264Z",
+        "completedAt": "2026-11-02T13:25:39.064Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile --check asset check failed:\r\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-cli-movies-Ky4Zyu\\最小 Workspace with spaces\\Game; required extension: .webm; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-cli-movies-Ky4Zyu\\最小 Workspace with spaces\\Game\\movies\\CliMedia.webm; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-cli-movies-Ky4Zyu\\最小 Workspace with spaces\\Game\\movies\\CliMedia.webm\r\n  movie/movies \"CliMedia\"; 1 use(s)\r\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0]; DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-media-cli-movies-Ky4Zyu/最小 Workspace with spaces/src/media.events.ts (line 2, column 113); base: error; effective: error\r\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n"
+      }
+    },
+    {
+      "cliResult": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-cli-movies-Ky4Zyu\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:25:39.077Z",
+        "completedAt": "2026-11-02T13:25:40.790Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile asset check failed:\r\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-cli-movies-Ky4Zyu\\最小 Workspace with spaces\\Game; required extension: .webm; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-cli-movies-Ky4Zyu\\最小 Workspace with spaces\\Game\\movies\\CliMedia.webm; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-cli-movies-Ky4Zyu\\最小 Workspace with spaces\\Game\\movies\\CliMedia.webm\r\n  movie/movies \"CliMedia\"; 1 use(s)\r\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0]; DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-media-cli-movies-Ky4Zyu/最小 Workspace with spaces/src/media.events.ts (line 2, column 113); base: error; effective: error\r\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n"
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-cli-movies-Ky4Zyu\\最小 Workspace with spaces\\Game\\movies\\CliMedia.webm",
+      "extension": ".webm",
+      "timing": "before the asset gate"
+    },
+    {
+      "cliResult": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-cli-movies-Ky4Zyu\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:25:40.820Z",
+        "completedAt": "2026-11-02T13:25:42.571Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "cliResult": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-cli-movies-Ky4Zyu\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:25:42.586Z",
+        "completedAt": "2026-11-02T13:25:44.337Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": ""
+      }
+    }
+  ],
+  "expected": {
+    "description": "actual CLI reports each media namespace and accepts its repaired exact file",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+    "sha256": "843bbe0a812fb252cf1a6bfdc3709898389388f42d0a2bafaec2b031b1c1ba65",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-media-cli-${vector.folder}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, source(expression(vector, \"CliMedia\")));\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game\", ...vector.movie ? [] : [\"audio\"], vector.folder), { recursive: true });\n\t\tconst before = await state(root);\n\t\tfor (const args of [[\"compile\", \"--check\"], [\"compile\"]]) {\n\t\t\tconst result = await (0,__vite_ssr_import_4__.runCli)(sandbox, args, { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ cliResult: result });\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(expectedUse(vector, \"CliMedia\").nativePath);\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(`${vector.movie ? \"movie\" : \"audio\"}/${vector.folder}`);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t};\n\t\tawait mediaFile(root, vector.folder, \"CliMedia\");\n\t\tconst repaired = await state(root);\n\t\tconst check = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ cliResult: check });\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(repaired);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ cliResult: await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\"]) });\n\t\t(0,__vite_ssr_import_2__.expect)((await published(root)).uses).toEqual([expectedUse(vector, \"CliMedia\")]);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

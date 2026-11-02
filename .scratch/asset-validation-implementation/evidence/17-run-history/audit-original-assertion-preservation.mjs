@@ -7,6 +7,8 @@ import { join } from "node:path";
 const root = process.cwd();
 const prefix = ".scratch/asset-validation-implementation/evidence/";
 const original = JSON.parse(readFileSync(prefix + "17-original-evidence-audit.json"));
+const legacyRepair = JSON.parse(readFileSync(prefix + "17-regression-repair-audit.json"));
+if (legacyRepair.executionFreeze !== original.executionFreeze) throw new Error("Legacy repair and original assertion audit freezes differ");
 const ts = createRequire(join(root, "packages/rpgmaker-event-dsl/package.json"))("typescript");
 const sha = (value) => createHash("sha256").update(value).digest("hex");
 const sourceCache = new Map();
@@ -137,8 +139,11 @@ const result = { executionFreeze: original.executionFreeze, status: "static-asse
   unclassifiedSyntaxDifferences: [...groups.values()].flatMap((row) => row.reviewedSyntaxDifferences.filter((difference) => difference.disposition.startsWith("unclassified")).map((difference) => ({ path: row.path, id: row.representativeId, ...difference }))),
   intentionalExpectedUpdates: [
     { id: "AV.C07.shared-system-field.formal.case.expected", change: "two obsolete group-header counts 2 -> 1; exact two origin members retained and strengthened", owner: "09", evidence: prefix + "09-grouping-compatibility/acceptance.md" },
-    { id: "AV.W16.changed-current-config.api.case.expected", change: "strict CURRENT contract assertion and companion receipt metadata literal39 -> 40, two literal edits; historical /35, /6 and omitted forms retained", owner: "16", evidence: prefix + "16-current-contract40-acceptance.md" }
+    { id: "AV.W16.changed-current-config.api.case.expected", change: "strict CURRENT contract assertion and companion receipt metadata literal39 -> 40, two literal edits; historical /35, /6 and omitted forms retained", owner: "16", evidence: prefix + "16-current-contract40-acceptance.md" },
+    { id: "legacy-final-review-current-contract", change: "separate legacy strict CURRENT38 -> 40 assertion, title and sandbox label; exactly three strings; old /23 and all stale/fresh/Check-does-not-upgrade assertions unchanged", owner: "17-support", evidence: prefix + "17-regression-repair-audit.json", binding: legacyRepair.explicitLegacyCurrentCompatibility, countedAsCanonical: false }
   ],
+  additionalLegacyRepairAudit: { path: prefix + "17-regression-repair-audit.json", sha256: sha(readFileSync(prefix + "17-regression-repair-audit.json")),
+    fullFileNormalizedAstPreservation: legacyRepair.aggregatePreservedSyntax, separateFromOriginalReceiptCallbackPairCounts: true },
   limitations: ["Exact token preservation demonstrates retained assertion text, not equivalent fixture/setup/helper semantics.", "Additional expectations and changed expression forms require semantic review; no execution pass is inferred."],
   callbacks: [...groups.values()] };
 writeFileSync(prefix + "17-original-assertion-preservation.json", JSON.stringify(result, null, 2) + "\n");

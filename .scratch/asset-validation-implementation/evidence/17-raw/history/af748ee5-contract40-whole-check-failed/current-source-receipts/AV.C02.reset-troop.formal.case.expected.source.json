@@ -1,0 +1,88 @@
+{
+  "id": "AV.C02.reset-troop.formal.case.expected",
+  "ownerTicket": "02",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:33:24.979Z",
+  "completedAt": "2026-11-02T13:33:25.376Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import { mapEvent,commonEvent,troopEvent,showPicture,imageAsset,rawDslCommand,loop,showChoices,conditional,script,pluginCommand } from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Uncalled\",trigger:\"none\",commands:[]});\n",
+      "projectOverrides": {
+        "Troops.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Reset",
+            "members": [],
+            "pages": [
+              {
+                "conditions": {
+                  "actorHp": 50,
+                  "actorId": 1,
+                  "actorValid": false,
+                  "enemyHp": 50,
+                  "enemyIndex": 0,
+                  "enemyValid": false,
+                  "switchId": 1,
+                  "switchValid": false,
+                  "turnA": 0,
+                  "turnB": 0,
+                  "turnEnding": false,
+                  "turnValid": false
+                },
+                "span": 0,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "Old troop image",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "target": {
+        "category": "image",
+        "folder": "pictures",
+        "name": "Poster",
+        "extension": ".png"
+      },
+      "gates": "one complete native candidate validation followed by one live asset pass; no publication on errors"
+    }
+  ],
+  "expected": {
+    "description": "generated blank Troop Reset has no uses from old pages",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-picture-workspace.test.ts",
+    "sha256": "1c1a708c2ab685eb467f4ebd3eafd39d509a9682bd41a40cb1448fa217fb46e5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-reset-troop\", async ({ workspaceRoot: root }) => {\n\t\tconst oldPage = {\n\t\t\t...emptyBattlePage,\n\t\t\tlist: [{\n\t\t\t\tcode: 231,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [\n\t\t\t\t\t1,\n\t\t\t\t\t\"Old troop image\",\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t100,\n\t\t\t\t\t100,\n\t\t\t\t\t255,\n\t\t\t\t\t0\n\t\t\t\t]\n\t\t\t}, {\n\t\t\t\tcode: 0,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: []\n\t\t\t}]\n\t\t};\n\t\tawait prepare(root, {\n\t\t\tsource: commonSource(\"\"),\n\t\t\tproject: { \"Troops.json\": [null, {\n\t\t\t\tid: 1,\n\t\t\t\tname: \"Reset\",\n\t\t\t\tmembers: [],\n\t\t\t\tpages: [oldPage]\n\t\t\t}] }\n\t\t});\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await publishedUses(root)).toEqual([]);\n\t\tconst troops = JSON.parse(await (0,__vite_ssr_import_0__.readFile)((0,__vite_ssr_import_1__.join)((0,__vite_ssr_import_6__.getWorkspaceStatePaths)(root).generatedProjectDataDirectory, \"Troops.json\"), \"utf8\"));\n\t\t(0,__vite_ssr_import_2__.expect)(troops[1].pages).toEqual([emptyBattlePage]);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

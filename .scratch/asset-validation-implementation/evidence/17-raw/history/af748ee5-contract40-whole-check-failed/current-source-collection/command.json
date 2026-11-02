@@ -1,0 +1,17 @@
+{
+  "command": "pnpm --filter rpgmaker-event-dsl exec vitest list --json=../../.scratch/asset-validation-implementation/evidence/17-raw/current-source-collection/registrations.json --includeTaskLocation",
+  "startedAt": "2026-11-02T13:38:38.933Z",
+  "completedAt": "2026-11-02T13:39:10.391Z",
+  "exitCode": 0,
+  "signal": null,
+  "executionFreeze": "af748ee5067f41096a296a79f81b078415096606",
+  "environment": {
+    "node": "v22.23.4",
+    "nodeExecutable": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+    "TEMP": "C:\\Users\\Shuen\\AppData\\Local\\Temp",
+    "TMP": "C:\\Users\\Shuen\\AppData\\Local\\Temp",
+    "entryOverride": null
+  },
+  "kind": "Vitest-list-collection-only; no-test-callback-execution; not-pass-evidence",
+  "protectedInputAndSourceReceiptFilesVerifiedBeforeAndAfter": 1561
+}

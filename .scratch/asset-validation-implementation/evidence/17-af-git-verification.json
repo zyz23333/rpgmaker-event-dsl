@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "kind": "af-failed-whole-source-checkpoint; composite-follow-up-pending",
+  "verifiedRevision": "c66216402cb3b73998fa8c08f67a77c568ebbb65",
+  "executionFreeze": "af748ee5067f41096a296a79f81b078415096606",
+  "manifestPath": ".scratch/asset-validation-implementation/evidence/17-af-checkpoint-manifest.json",
+  "manifestSha256": "1d1cee03eb05d49a67c6da83739fd0776d5e289ef94b7516a3606df02c07b5bc",
+  "checkedArtifacts": 5473,
+  "checkedBytes": 584296393,
+  "allCommittedBlobsAndDiskBytesMatch": true,
+  "protectedSourceTestConfigurationUnchangedSinceExecutionFreeze": true,
+  "rawHistoryPreserved": true,
+  "maintainerApproval": null
+}

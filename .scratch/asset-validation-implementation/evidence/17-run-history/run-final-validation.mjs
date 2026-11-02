@@ -30,7 +30,8 @@ if (evidence.initialStatus !== "") throw new Error("The execution freeze must st
 const protectedPaths = ["packages/rpgmaker-event-dsl/src", "packages/rpgmaker-event-dsl/test",
   "packages/rpgmaker-event-dsl/package.json", "packages/rpgmaker-event-dsl/vitest.config.ts",
   "packages/rpgmaker-event-dsl/vitest.windows.config.ts", "package.json", "pnpm-lock.yaml",
-  "pnpm-workspace.yaml", "tsconfig.json"];
+  "pnpm-workspace.yaml", "tsconfig.json", "tsconfig.base.json", ".oxfmtrc.json", ".oxlintrc.json", ".oxfmtignore",
+  "packages/rpgmaker-event-dsl/tsconfig.json", "packages/rpgmaker-event-dsl/tsdown.config.ts"];
 evidence.compileContractVersion = (await readFile(join(root, "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts"), "utf8")).match(/compileContractVersion = "([^"]+)"/u)?.[1];
 evidence.frozenInputs = await Promise.all(git("ls-files", "--", ...protectedPaths).split("\n").filter(Boolean).map(async (path) => {
   const bytes = await readFile(join(root, path));

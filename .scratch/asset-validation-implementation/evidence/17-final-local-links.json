@@ -5,7 +5,7 @@
     ".scratch/asset-validation-implementation/issues/17-integrated-acceptance.md",
     ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md"
   ],
-  "count": 31,
+  "count": 39,
   "allLocalTargetsExist": true,
   "links": [
     {
@@ -121,106 +121,162 @@
       "exists": true
     },
     {
+      "source": ".scratch/asset-validation-implementation/issues/17-integrated-acceptance.md",
+      "line": 58,
+      "target": "../evidence/17-raw/history/af748ee5-contract40-whole-check-failed/disposition.json",
+      "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/history/af748ee5-contract40-whole-check-failed/disposition.json",
+      "exists": true
+    },
+    {
+      "source": ".scratch/asset-validation-implementation/issues/17-integrated-acceptance.md",
+      "line": 58,
+      "target": "../evidence/17-af-source-composite-base.json",
+      "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-af-source-composite-base.json",
+      "exists": true
+    },
+    {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 7,
+      "line": 5,
+      "target": "17-regression-repair-audit.json",
+      "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-regression-repair-audit.json",
+      "exists": true
+    },
+    {
+      "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
+      "line": 11,
       "target": "17-run-history/run-final-validation.mjs",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-run-history/run-final-validation.mjs",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 9,
+      "line": 13,
+      "target": "17-raw/history/af748ee5-contract40-whole-check-failed/01-pnpm-check.log",
+      "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/history/af748ee5-contract40-whole-check-failed/01-pnpm-check.log",
+      "exists": true
+    },
+    {
+      "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
+      "line": 13,
+      "target": "17-raw/history/af748ee5-contract40-whole-check-failed/command-history.json",
+      "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/history/af748ee5-contract40-whole-check-failed/command-history.json",
+      "exists": true
+    },
+    {
+      "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
+      "line": 15,
+      "target": "17-raw/history/af748ee5-contract40-whole-check-failed/disposition.json",
+      "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/history/af748ee5-contract40-whole-check-failed/disposition.json",
+      "exists": true
+    },
+    {
+      "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
+      "line": 15,
+      "target": "17-af-source-composite-base.json",
+      "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-af-source-composite-base.json",
+      "exists": true
+    },
+    {
+      "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
+      "line": 15,
+      "target": "17-raw/history/af748ee5-contract40-whole-check-failed/source-case-identities.json",
+      "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/history/af748ee5-contract40-whole-check-failed/source-case-identities.json",
+      "exists": true
+    },
+    {
+      "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
+      "line": 17,
       "target": "17-raw/history/c5f7ead7-contract40-whole-check-failed/command-history.json",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/history/c5f7ead7-contract40-whole-check-failed/command-history.json",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 9,
+      "line": 17,
       "target": "17-raw/history/c5f7ead7-contract40-whole-check-failed/01-pnpm-check.log",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/history/c5f7ead7-contract40-whole-check-failed/01-pnpm-check.log",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 9,
+      "line": 17,
       "target": "17-raw/history/c5f7ead7-contract40-whole-check-failed/disposition.json",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/history/c5f7ead7-contract40-whole-check-failed/disposition.json",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 13,
+      "line": 21,
       "target": "17-raw/history/c5f7ead7-contract40-whole-check-failed/current-legacy-regression-evidence/observation.json",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/history/c5f7ead7-contract40-whole-check-failed/current-legacy-regression-evidence/observation.json",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 15,
+      "line": 23,
       "target": "17-failed-checkpoint-manifest.json",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-failed-checkpoint-manifest.json",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 17,
+      "line": 25,
       "target": "17-raw/history/11e52e3c-contract39-canceled/disposition.json",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/history/11e52e3c-contract39-canceled/disposition.json",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 17,
+      "line": 25,
       "target": "17-raw/history/11e52e3c-contract39-canceled/command-history.json",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/history/11e52e3c-contract39-canceled/command-history.json",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 17,
+      "line": 25,
       "target": "17-raw/history/11e52e3c-contract39-canceled/01-pnpm-check.log",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/history/11e52e3c-contract39-canceled/01-pnpm-check.log",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 21,
+      "line": 29,
       "target": "09-grouping-compatibility/acceptance.md",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 27,
+      "line": 35,
       "target": "17-raw/final-canonical-id-plan.json",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-raw/final-canonical-id-plan.json",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 39,
+      "line": 47,
       "target": "17-original-evidence-audit.json",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-original-evidence-audit.json",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 41,
+      "line": 49,
       "target": "17-original-assertion-preservation.json",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-original-assertion-preservation.json",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 61,
+      "line": 69,
       "target": "17-native-evidence-audit.json",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-native-evidence-audit.json",
       "exists": true
     },
     {
       "source": ".scratch/asset-validation-implementation/evidence/17-integrated-acceptance.md",
-      "line": 76,
+      "line": 84,
       "target": "17-integrated-corrections-audit.json",
       "resolvedPath": ".scratch/asset-validation-implementation/evidence/17-integrated-corrections-audit.json",
       "exists": true
