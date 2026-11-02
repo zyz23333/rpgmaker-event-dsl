@@ -1,4 +1,6 @@
 import { assetTargetKey, collectEventAssetUses } from "../validation/asset-uses.js";
+import { collectCommonEventCalls } from "../validation/asset-common-calls.js";
+import { renderAssetCallContext } from "./asset-call-context.js";
 import { observeAssetFile } from "./asset-files.js";
 import { assetUseLevel } from "../validation/asset-policy.js";
 
@@ -50,5 +52,7 @@ export async function checkEventAssets(input: {
     }
   }
   if (failures.length)
-    throw new Error(`${input.commandName} asset check failed:\n${failures.join("\n")}`);
+    throw new Error(
+      `${input.commandName} asset check failed:\n${failures.join("\n")}${renderAssetCallContext(collectCommonEventCalls(input.files))}`,
+    );
 }

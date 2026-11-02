@@ -961,6 +961,12 @@ nested branches and uncalled Common Events. A 205 route and its 505 mirror are o
 logical use, with both native positions retained; independent commands remain
 independent uses.
 
+Each Common Event's assets belong to its own definition. Asset failures also list
+the direct Common Event call sites with their defining events, native positions
+and target IDs. Repeated, cyclic and shared calls retain each saved call site;
+they do not multiply the called definition's asset-use count or produce a separate
+cycle warning. Removed Snapshot events are excluded from the current call graph.
+
 The check observes ordinary-file metadata only: empty files pass, and no image
 decoding or layout guarantee is made. None needs no file. Missing directories or
 files, wrong types, unsupported Windows names, links below the resolved Project

@@ -1,6 +1,6 @@
 # 10: 公共事件直接调用关系
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 02
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -10,18 +10,18 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Acceptance criteria
 
-- [ ] B15 使用当前事件图，公共事件独立根与两个调用者不互相吞掉；移除或替换后的旧快照事件不补回。
-- [ ] 自循环／互循环、长无环和多层共享调用均保留有限直接边，不枚举传递路径、不新增循环诊断或任意深度上限。
-- [ ] 建立共用的直接调用关系表达，CLI 可获取定义位置及直接调用点；本票完成 common 相关 C04／C05／D09，其他事件入口的动态停止随各关系票交付。
+- [x] B15 使用当前事件图，公共事件独立根与两个调用者不互相吞掉；移除或替换后的旧快照事件不补回。
+- [x] 自循环／互循环、长无环和多层共享调用均保留有限直接边，不枚举传递路径、不新增循环诊断或任意深度上限。
+- [x] 建立共用的直接调用关系表达，CLI 可获取定义位置及直接调用点；本票完成 common 相关 C04／C05／D09，其他事件入口的动态停止随各关系票交付。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
-- [ ] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
-- [ ] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
-- [ ] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
-- [ ] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
+- [x] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
+- [x] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
+- [x] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
+- [x] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
+- [x] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
+- [x] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
 
 ## Acceptance ownership
 
@@ -31,7 +31,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 | --- | --- |
 | B15 | 固定当前公共事件调用 |
 | C04 | two-callers／common-independent-root：两个直接调用点分别保留，被调用事件的素材只按其定义位置计数。 |
-| C05 | self-cycle／mutual-cycle／long-acyclic／shared-call-graph：定义和直接边完整有限，无递归复制或循环额外诊断。 |
+| C05 | self-cycle／mutual-cycle／long-acyclic／shared-dag：定义和直接边完整有限，无递归复制或循环额外诊断。 |
 | C06 | 本票 B15 所有原生允许 None 的到达字段，按上游有限子用例展开。 |
 | C07 | 本票 B15 到达字段的 target-missing／field-missing／field-wrong-type／field-empty／file-missing 适用变体；固定目标与 System 字段按原索引分别处理。 |
 
@@ -56,5 +56,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 
 ## Comments
+
+- 2026-11-02：独立 worktree `M:/Shuen/Codex/asset-validation-10-common` 已从集成分支快进至 `3eb12b8d`，确认包含已 resolved 的 02 后领取。沿用已确认 Workspace API／实际 CLI 测试入口及补充内部语义断言，以 TDD 验证定义内使用和有限直接调用边。
+- 2026-11-02：完成独立直接调用收集与错误定位展示，不递归复制素材或新增循环诊断。21 个 AV ID 的源码／构建入口均通过，42 条机器回执；源码含既有图片共 54／54，构建入口含既有公共事件共 125／125，typecheck／lint／format:check／build／diff check 通过。完整 outcome、责任映射及实际回执见[10 验收记录](../evidence/10-common-acceptance.md)。当前设 resolved；其他关系、全量验收及 01 原生未决反例未计入本票完成。
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。

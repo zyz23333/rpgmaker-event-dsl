@@ -7,6 +7,8 @@ Acceptance: [已接受的验收矩阵](acceptance-matrix.md) · [实施验收用
 
 2026-10-25 已按用户要求完成设计减重，现行规则以本规格及修订后的 Answer／ADR 为准；此前 Comments 是历史。
 
+2026-11-02 实施发现待决反例：真实 MV 1.6.1 的图片 `literal%20image`／`image#hash` 没有定位到同名字面文件，详见[原生执行及因果对照](../asset-validation-implementation/evidence/01-native-media/observations.md)。图片特殊名称支持边界已按本规格反例规则重开源票 01／03 与 ADR 0017，等待维护者选择；本文尚未接受新的名称政策，其余独立实现继续。未解决前不能宣布 N02 或整套验收完成。
+
 本规格承接六张已 resolved 的决策票、ADR 0016–0019 及已确认的验收交接。它规定首版实现和完成标准；产品功能、自动化用例与原生必验项仍待实施／执行。`ready-for-agent` 表示规格可以交给实施方，不表示功能已完成。
 
 ## Problem Statement
