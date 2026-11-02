@@ -1,0 +1,160 @@
+{
+  "id": "AV.W11.path-type.api.compile-gate.expected",
+  "ownerTicket": "13",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:25:12.986Z",
+  "completedAt": "2026-11-02T13:25:14.808Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import type { WorkflowInput } from \"../types/workflow-input.js\";\nimport {commonEvent,mapEvent,showPicture,imageAsset,callCommonEvent,commonEventRef,showAnimation,animationRef,changeTileset,tilesetRef} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Workflow\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+      "project": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Map"
+          }
+        ],
+        "Map001.json": {
+          "id": 1,
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": [
+            null
+          ],
+          "custom": {
+            "keep": [
+              "opaque",
+              null
+            ]
+          }
+        }
+      },
+      "defaultDirectFixtureOrigin": "CommonEvents.json[10].list[0].parameters[1] (directSource only; overrides have their own literal assertions)",
+      "policy": "one current pass; no media input persistence"
+    },
+    {
+      "mutation": "path-type",
+      "timing": "before any media query; no earlier pass",
+      "expected": "current error prevents publication"
+    },
+    {
+      "operation": {
+        "operation": "compile",
+        "boundary": "asset-before-pass"
+      },
+      "actual": {
+        "exit": {
+          "exitCode": 1,
+          "signal": null
+        },
+        "result": {
+          "kind": "result",
+          "ok": false,
+          "message": "compile asset check failed:\nerror MV-ASSET-PATH-TYPE: Expected ordinary file. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-workflow-current-compile-path-type-2MebF9/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 80); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete."
+        },
+        "text": "compile asset check failed:\nerror MV-ASSET-PATH-TYPE: Expected ordinary file. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-workflow-current-compile-path-type-2MebF9/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 80); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.",
+        "messages": [
+          {
+            "kind": "checkpoint",
+            "pid": 41192
+          },
+          {
+            "kind": "asset-pass-entered"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png"
+          },
+          {
+            "kind": "result",
+            "ok": false,
+            "message": "compile asset check failed:\nerror MV-ASSET-PATH-TYPE: Expected ordinary file. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-workflow-current-compile-path-type-2MebF9/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 80); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete."
+          }
+        ],
+        "process": {
+          "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+          "arguments": [
+            "--import",
+            "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+            "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+          ],
+          "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces",
+          "startedAt": "2026-11-02T13:25:13.048Z",
+          "completedAt": "2026-11-02T13:25:14.779Z",
+          "exitCode": 1,
+          "signal": null,
+          "stdout": "",
+          "stderr": "",
+          "ipcMessages": [
+            {
+              "kind": "checkpoint",
+              "pid": 41192
+            },
+            {
+              "kind": "asset-pass-entered"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png"
+            },
+            {
+              "kind": "result",
+              "ok": false,
+              "message": "compile asset check failed:\nerror MV-ASSET-PATH-TYPE: Expected ordinary file. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-current-compile-path-type-2MebF9\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-workflow-current-compile-path-type-2MebF9/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 80); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "expected": {
+    "description": "only current facts at the single compile query decide the outcome",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-workflow-workspace.test.ts",
+    "sha256": "674ecaa8bf740225e8fa3615ba3dbdf107807fdd5dc660f3b89f90ddf3f8767a",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-workflow-current-${operationName}-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst warning = branch === \"failure-location\";\n\t\tawait prepare(sandbox, { source: warning ? inactiveSource : directSource });\n\t\tif (branch !== \"improvement\" && !warning) await put(root);\n\t\tif (warning) await (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, \"Game/img/characters\"), { recursive: true });\n\t\tlet before;\n\t\tconst result = await operation(sandbox, {\n\t\t\toperation: operationName,\n\t\t\tboundary: \"asset-before-pass\",\n\t\t\t...branch === \"queryability\" ? { assetFault: \"enumeration\" } : {}\n\t\t}, async () => {\n\t\t\tif (branch === \"presence\") await (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, media));\n\t\t\tif (branch === \"case-match\") {\n\t\t\t\tawait (0,__vite_ssr_import_0__.rename)((0,__vite_ssr_import_1__.join)(root, media), (0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/temporary.png\"));\n\t\t\t\tawait (0,__vite_ssr_import_0__.rename)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/temporary.png\"), (0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/poster.png\"));\n\t\t\t};\n\t\t\tif (branch === \"path-type\") {\n\t\t\t\tawait (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, media));\n\t\t\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, media));\n\t\t\t};\n\t\t\tif (branch === \"path-link\") {\n\t\t\t\tawait (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, media));\n\t\t\t\tconst target = (0,__vite_ssr_import_1__.join)(sandbox.root, \"linked directory\");\n\t\t\t\tawait (0,__vite_ssr_import_0__.mkdir)(target);\n\t\t\t\tawait (0,__vite_ssr_import_0__.symlink)(target, (0,__vite_ssr_import_1__.join)(root, media), \"junction\");\n\t\t\t};\n\t\t\tif (branch === \"failure-location\") await (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/img/characters\"));\n\t\t\tif (branch === \"improvement\") await put(root);\n\t\t\tbefore = await observe(root);\n\t\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\t\tmutation: branch,\n\t\t\t\ttiming: \"before any media query; no earlier pass\",\n\t\t\t\texpected: branch === \"improvement\" ? \"exact file succeeds\" : warning ? \"current missing-file warning succeeds\" : \"current error prevents publication\"\n\t\t\t});\n\t\t});\n\t\tconst succeeds = warning || branch === \"improvement\";\n\t\t(0,__vite_ssr_import_2__.expect)(result.exit.exitCode).toBe(succeeds ? 0 : 1);\n\t\tconst codes = {\n\t\t\tpresence: \"MISSING-FILE\",\n\t\t\t\"case-match\": \"NAME-MISMATCH\",\n\t\t\t\"path-type\": \"PATH-TYPE\",\n\t\t\t\"path-link\": \"UNSUPPORTED-LINK\",\n\t\t\tqueryability: \"QUERY-FAILED\",\n\t\t\t\"failure-location\": \"MISSING-FILE\",\n\t\t\timprovement: null\n\t\t};\n\t\tif (codes[branch]) (0,__vite_ssr_import_2__.expect)(result.text).toContain(`${warning ? \"warning\" : \"error\"} MV-ASSET-${codes[branch]}`);\n\t\telse (0,__vite_ssr_import_2__.expect)(result.text).not.toContain(\"MV-ASSET-\");\n\t\tif (warning) {\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.text).not.toContain(\"MV-ASSET-MISSING-DIRECTORY\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.text).toContain(\"Autonomous Movement is fixed\");\n\t\t};\n\t\tif (branch === \"queryability\") (0,__vite_ssr_import_2__.expect)(result.text).toContain(\"Controlled asset workflow enumeration denied\");\n\t\tif (operationName === \"compile\" && succeeds) await expectPublished(root, before);\n\t\telse (0,__vite_ssr_import_2__.expect)(await observe(root)).toEqual(before);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

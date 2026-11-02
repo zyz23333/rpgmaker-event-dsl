@@ -1,0 +1,302 @@
+{
+  "id": "AV.D05.incomplete.native.case.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:26:57.389Z",
+  "completedAt": "2026-11-02T13:27:08.936Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Diagnostics\",trigger:\"none\",commands:[showAnimation({target:{kind:\"runtimeSelector\",scope:\"character\",target:\"player\"},animation:animationRef({id:1}),wait:false})]});\n",
+      "project": {
+        "Animations.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Animation",
+            "animation1Name": 42,
+            "animation2Name": "",
+            "timings": []
+          }
+        ]
+      }
+    },
+    {
+      "assetCheckExceptions": [
+        {
+          "category": "image",
+          "folder": "animations",
+          "name": "Poster",
+          "reason": "Temporary authoring gap"
+        }
+      ]
+    },
+    {
+      "actualApi": {
+        "failure": "Error: compile --check asset check failed:\nerror MV-ASSET-INVALID-DATA: Animations.json[1].animation1Name: Necessary asset name must be a string; this relationship is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-ineffective-incomplete-0GI7wn\\最小 Workspace with spaces\\Game; failed at: Animations.json[1].animation1Name\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; chain: Animations.json[1].animation1Name (Animation image sheet); conditions: Animation image sheets may be preloaded before the command executes.; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-ineffective-incomplete-0GI7wn/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: error; effective: error\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.",
+        "output": "compile warning commonEvent:10: MV-E212-CONTEXT at list[0].parameters[0]: Character selection depends on the caller's current map and event context; a missing target does nothing and starts no animation/balloon wait.\nError: compile --check asset check failed:\nerror MV-ASSET-INVALID-DATA: Animations.json[1].animation1Name: Necessary asset name must be a string; this relationship is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-ineffective-incomplete-0GI7wn\\最小 Workspace with spaces\\Game; failed at: Animations.json[1].animation1Name\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; chain: Animations.json[1].animation1Name (Animation image sheet); conditions: Animation image sheets may be preloaded before the command executes.; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-ineffective-incomplete-0GI7wn/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: error; effective: error\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked."
+      }
+    },
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Diagnostics\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Other\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+      "project": {}
+    },
+    {
+      "fact": "present",
+      "target": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-8oFaoP\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png"
+    },
+    {
+      "fact": "present",
+      "target": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-8oFaoP\\最小 Workspace with spaces\\Game\\img\\pictures\\Other.png"
+    },
+    {
+      "assetCheckExceptions": [
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "Poster",
+          "reason": "Awaiting artwork"
+        },
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "Other",
+          "reason": "Independent exact sibling"
+        }
+      ]
+    },
+    {
+      "sibling": "repaired",
+      "mode": "api",
+      "actualProcess": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-8oFaoP\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:26:58.145Z",
+        "completedAt": "2026-11-02T13:26:59.872Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check warning:\nwarning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[1] image/pictures \"Other\" downgraded no error; reason: Independent exact sibling\n",
+        "ipcMessages": [
+          {
+            "kind": "result",
+            "ok": false,
+            "message": "compile --check asset check failed:\nerror MV-ASSET-QUERY-FAILED: Controlled asset metadata denied: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-8oFaoP\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-8oFaoP\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-8oFaoP\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-8oFaoP\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-related-incomplete-repaired-8oFaoP/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked."
+          }
+        ]
+      },
+      "exactScope": "Poster query failure leaves only its own effect indeterminate; Other remains determinable"
+    },
+    {
+      "sibling": "repaired",
+      "mode": "cli",
+      "actualProcess": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-8oFaoP\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:26:59.873Z",
+        "completedAt": "2026-11-02T13:27:01.590Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check warning:\nwarning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[1] image/pictures \"Other\" downgraded no error; reason: Independent exact sibling\nM:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile --check asset check failed:\r\nerror MV-ASSET-QUERY-FAILED: Controlled asset metadata denied: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-8oFaoP\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-8oFaoP\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-8oFaoP\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-8oFaoP\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\r\n  image/pictures \"Poster\"; 1 use(s)\r\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-related-incomplete-repaired-8oFaoP/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: error; effective: error\r\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n",
+        "ipcMessages": []
+      },
+      "exactScope": "Poster query failure leaves only its own effect indeterminate; Other remains determinable"
+    },
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Diagnostics\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+      "project": {}
+    },
+    {
+      "fact": "present",
+      "target": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-QiVVka\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png"
+    },
+    {
+      "assetCheckExceptions": [
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "Poster",
+          "reason": "Awaiting artwork"
+        },
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "Other",
+          "reason": "Independent exact sibling"
+        }
+      ]
+    },
+    {
+      "sibling": "unused",
+      "mode": "api",
+      "actualProcess": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-QiVVka\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:27:01.685Z",
+        "completedAt": "2026-11-02T13:27:03.379Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check warning:\nwarning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[1] image/pictures \"Other\" downgraded no error; reason: Independent exact sibling\n",
+        "ipcMessages": [
+          {
+            "kind": "result",
+            "ok": false,
+            "message": "compile --check asset check failed:\nerror MV-ASSET-QUERY-FAILED: Controlled asset metadata denied: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-QiVVka\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-QiVVka\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-QiVVka\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-QiVVka\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-related-incomplete-unused-QiVVka/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked."
+          }
+        ]
+      },
+      "exactScope": "Poster query failure leaves only its own effect indeterminate; Other remains determinable"
+    },
+    {
+      "sibling": "unused",
+      "mode": "cli",
+      "actualProcess": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-QiVVka\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:27:03.379Z",
+        "completedAt": "2026-11-02T13:27:05.126Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check warning:\nwarning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[1] image/pictures \"Other\" downgraded no error; reason: Independent exact sibling\nM:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile --check asset check failed:\r\nerror MV-ASSET-QUERY-FAILED: Controlled asset metadata denied: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-QiVVka\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-QiVVka\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-QiVVka\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-QiVVka\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\r\n  image/pictures \"Poster\"; 1 use(s)\r\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-related-incomplete-unused-QiVVka/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: error; effective: error\r\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n",
+        "ipcMessages": []
+      },
+      "exactScope": "Poster query failure leaves only its own effect indeterminate; Other remains determinable"
+    },
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Diagnostics\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"}),changePartyMember({actor:actorRef({id:1}),operation:\"add\",initialize:false})]});\n",
+      "project": {
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Sibling",
+            "characterName": "Other",
+            "battlerName": ""
+          }
+        ]
+      }
+    },
+    {
+      "fact": "present",
+      "target": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png"
+    },
+    {
+      "fact": "missing",
+      "target": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game\\img\\characters\\Other.png"
+    },
+    {
+      "assetCheckExceptions": [
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "Poster",
+          "reason": "Awaiting artwork"
+        },
+        {
+          "category": "image",
+          "folder": "characters",
+          "name": "Other",
+          "reason": "Independent exact sibling"
+        }
+      ]
+    },
+    {
+      "sibling": "warning-only",
+      "mode": "api",
+      "actualProcess": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:27:05.213Z",
+        "completedAt": "2026-11-02T13:27:06.913Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check warning:\nwarning MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game\\img\\characters\\Other.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game\\img\\characters\\Other.png\n  image/characters \"Other\"; 1 use(s)\n  - warning commonEvent:10 CommonEvents.json[10].list[1].parameters[0]; chain: Actors.json[1].characterName (Actor initial character image); conditions: The added Actor supplies a player or follower image only when effective in the current party.; candidate: Actor initial character image may be replaced by runtime image settings.; DSL: commands[1]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-related-incomplete-warning-only-Rou5R1/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 269); base: warning; effective: warning; exception reason: Independent exact sibling\nwarning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[1] image/characters \"Other\" downgraded no error; reason: Independent exact sibling\n",
+        "ipcMessages": [
+          {
+            "kind": "result",
+            "ok": false,
+            "message": "compile --check asset check failed:\nerror MV-ASSET-QUERY-FAILED: Controlled asset metadata denied: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-related-incomplete-warning-only-Rou5R1/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: error; effective: error\n2 problem group(s), 2 problem file(s), 2 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked."
+          }
+        ]
+      },
+      "exactScope": "Poster query failure leaves only its own effect indeterminate; Other remains determinable"
+    },
+    {
+      "sibling": "warning-only",
+      "mode": "cli",
+      "actualProcess": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:27:06.914Z",
+        "completedAt": "2026-11-02T13:27:08.895Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check warning:\nwarning MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game\\img\\characters\\Other.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game\\img\\characters\\Other.png\n  image/characters \"Other\"; 1 use(s)\n  - warning commonEvent:10 CommonEvents.json[10].list[1].parameters[0]; chain: Actors.json[1].characterName (Actor initial character image); conditions: The added Actor supplies a player or follower image only when effective in the current party.; candidate: Actor initial character image may be replaced by runtime image settings.; DSL: commands[1]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-related-incomplete-warning-only-Rou5R1/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 269); base: warning; effective: warning; exception reason: Independent exact sibling\nwarning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[1] image/characters \"Other\" downgraded no error; reason: Independent exact sibling\nM:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile --check asset check failed:\r\nerror MV-ASSET-QUERY-FAILED: Controlled asset metadata denied: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-Rou5R1\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\r\n  image/pictures \"Poster\"; 1 use(s)\r\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-related-incomplete-warning-only-Rou5R1/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: error; effective: error\r\n2 problem group(s), 2 problem file(s), 2 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n",
+        "ipcMessages": []
+      },
+      "exactScope": "Poster query failure leaves only its own effect indeterminate; Other remains determinable"
+    }
+  ],
+  "expected": {
+    "description": "ineffective exceptions are located only when complete relevant checking establishes that no error was downgraded",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-ineffective-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst value = fixture(branch === \"warning-only\" ? \"candidate\" : \"ordinary\", branch === \"incomplete\" ? \"indirect-formal\" : \"direct-formal\", branch === \"incomplete\" ? 42 : \"Poster\");\n\t\tawait prepare(root, branch === \"unused\" ? imports + common(\"\") : value.source, value.project);\n\t\tif (branch !== \"incomplete\") await fact(root, value, branch === \"repaired\" ? \"present\" : \"missing\");\n\t\tawait configuration(root, [{\n\t\t\tcategory: value.category,\n\t\t\tfolder: value.folder,\n\t\t\tname: \"Poster\",\n\t\t\treason: \"Temporary authoring gap\"\n\t\t}]);\n\t\tconst before = await state(root);\n\t\tconst result = await check(root);\n\t\t(0,__vite_ssr_import_2__.expect)(Boolean(result.failure)).toBe(branch === \"incomplete\");\n\t\tif (branch === \"incomplete\") {\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"MV-ASSET-INVALID-DATA\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.output).not.toContain(\"MV-ASSET-INEFFECTIVE-EXCEPTION\");\n\t\t} else {\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"warning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[0]\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"Temporary authoring gap\");\n\t\t};\n\t\tif (branch === \"warning-only\") {\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"base: warning; effective: warning\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"exception reason: Temporary authoring gap\");\n\t\t};\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ actualApi: result });\n\t});\n\tif (branch === \"incomplete\") await independentlyDeterminableExceptions();\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

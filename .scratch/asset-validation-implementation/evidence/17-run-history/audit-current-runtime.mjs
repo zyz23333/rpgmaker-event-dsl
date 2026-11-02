@@ -37,7 +37,8 @@ const commandSummaries = history.commands.map((command, index) => {
   if (index) check(history.commands[index - 1].completedAt <= command.startedAt, "Commands overlap");
   const bytes = readFileSync(raw + command.log);
   check(bytes.length === command.logBytes && sha(bytes) === command.logSha256, "Raw command log changed " + label);
-  const plain = bytes.toString().replace(/\x1b\[[0-?]*[ -/]*[@-~]/gu, "");
+  const plain = bytes.toString().replace(/\x1b\[[0-?]*[ -/]*[@-~]/gu, "")
+    .replace(/^packages\/rpgmaker-event-dsl test: /gmu, "");
   const result = { command: text, label, startedAt: command.startedAt, completedAt: command.completedAt,
     exitCode: command.exitCode, log: raw + command.log, bytes: bytes.length, sha256: sha(bytes) };
   if (command.receipts) {

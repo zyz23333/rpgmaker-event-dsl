@@ -1,0 +1,77 @@
+{
+  "id": "AV.D01.inactive.page.name-mismatch.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:26:04.081Z",
+  "completedAt": "2026-11-02T13:26:04.939Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Diagnostics\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[],movement:{type:\"fixed\",route:{commands:[{kind:\"changeImage\",character:imageAsset({folder:\"characters\",name:\"Poster\"}),characterIndex:0}]}}}]});",
+      "project": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Diagnostics"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles",
+            "tilesetNames": [
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fact": "name-mismatch",
+      "target": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-level-inactive-page-name-mismatch-7b8aMd\\最小 Workspace with spaces\\Game\\img\\characters\\Poster.png"
+    },
+    {
+      "independentlyExpected": {
+        "code": "MV-ASSET-NAME-MISMATCH",
+        "level": "warning",
+        "native": "Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]",
+        "chain": "inactive: Autonomous Movement is fixed"
+      },
+      "actualApi": {
+        "failure": "",
+        "output": "compile --check asset check warning:\nwarning MV-ASSET-NAME-MISMATCH: Exact name required; found poster.png. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-level-inactive-page-name-mismatch-7b8aMd\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-level-inactive-page-name-mismatch-7b8aMd\\最小 Workspace with spaces\\Game\\img\\characters\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-level-inactive-page-name-mismatch-7b8aMd\\最小 Workspace with spaces\\Game\\img\\characters\\Poster.png\n  image/characters \"Poster\"; 1 use(s)\n  - warning map:1/event:1 Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]; inactive: Autonomous Movement is fixed; the saved route is inactive.; DSL: pages[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-level-inactive-page-name-mismatch-7b8aMd/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 77); base: warning; effective: warning\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.\n"
+      }
+    }
+  ],
+  "expected": {
+    "description": "legal inactive page uses retain the independently specified base and effective level",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-level-${role}-${representation}-${problem}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst value = fixture(role, representation);\n\t\tawait prepare(root, value.source, value.project);\n\t\tawait fact(root, value, problem);\n\t\tconst before = await state(root);\n\t\tconst result = await check(root);\n\t\tconst code = {\n\t\t\tmissing: \"MV-ASSET-MISSING-FILE\",\n\t\t\t\"name-mismatch\": \"MV-ASSET-NAME-MISMATCH\",\n\t\t\t\"wrong-type\": \"MV-ASSET-PATH-TYPE\"\n\t\t}[problem];\n\t\tconst level = role === \"ordinary\" ? \"error\" : \"warning\";\n\t\t(0,__vite_ssr_import_2__.expect)(Boolean(result.failure)).toBe(role === \"ordinary\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(`${level} ${code}`);\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(`base: ${level}; effective: ${level}`);\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(value.native);\n\t\tif (value.chain) (0,__vite_ssr_import_2__.expect)(result.output).toContain(value.chain.replace(\"Map001.json[1]\", \"Map001.json\"));\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"1 problem group(s), 1 problem file(s), 1 affected use(s)\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"Coverage: complete\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tindependentlyExpected: {\n\t\t\t\tcode,\n\t\t\t\tlevel,\n\t\t\t\tnative: value.native,\n\t\t\t\tchain: value.chain\n\t\t\t},\n\t\t\tactualApi: result\n\t\t});\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

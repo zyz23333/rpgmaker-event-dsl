@@ -1,0 +1,126 @@
+{
+  "id": "AV.B02.change-tileset.raw.slot1.missing",
+  "ownerTicket": "06",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:03:41.080Z",
+  "completedAt": "2026-11-02T13:03:43.684Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {mapEvent,showAnimation,showBattleAnimation,changeTileset,animationRef,tilesetRef,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"Dependencies\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[rawDslCommand({code:282,parameters:[1]})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Dependencies"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Animations.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Animation",
+            "animation1Name": "First",
+            "animation2Name": "Second",
+            "timings": [
+              {
+                "frame": 0,
+                "se": {
+                  "name": "Timing0",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                }
+              },
+              {
+                "frame": 2,
+                "se": {
+                  "name": "Timing1",
+                  "volume": 23,
+                  "pitch": 80,
+                  "pan": 31
+                }
+              }
+            ],
+            "custom": {
+              "untouched": true
+            }
+          }
+        ],
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles",
+            "tilesetNames": [
+              "Tile0",
+              "Tile1",
+              "Tile2",
+              "Tile3",
+              "Tile4",
+              "Tile5",
+              "Tile6",
+              "Tile7",
+              "Tile8"
+            ],
+            "custom": {
+              "untouched": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tileset-slot1-missing-BviQEd\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile0.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tileset-slot1-missing-BviQEd\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile1.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tileset-slot1-missing-BviQEd\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile2.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tileset-slot1-missing-BviQEd\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile3.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tileset-slot1-missing-BviQEd\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile4.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tileset-slot1-missing-BviQEd\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile5.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tileset-slot1-missing-BviQEd\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile6.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tileset-slot1-missing-BviQEd\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile7.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tileset-slot1-missing-BviQEd\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile8.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-tileset-slot1-missing-BviQEd\\最小 Workspace with spaces\\Game\\img\\tilesets\\Tile1.png"
+    }
+  ],
+  "expected": {
+    "description": "whole-group Tileset sheets retain every native slot independently of map drawing",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-dependency-workspace.test.ts",
+    "sha256": "7fb1705a936b1937abe59c1e95fb58df3780eb1f707c847a4647d33e2ce8c2a4",
+    "assertions": "async () => {\n\t\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-tileset-${field.token}-${outcome}`, async (sandbox) => {\n\t\t\tconst root = sandbox.workspaceRoot;\n\t\t\tawait prepare(root, source(tilesetCommand(representation)));\n\t\t\tconst paths = new Map();\n\t\t\tfor (const item of tilesetFields) paths.set(item.token, await media(root, item.category, item.folder, item.name));\n\t\t\tif (outcome === \"missing\") await (0,__vite_ssr_import_0__.rm)(paths.get(field.token));\n\t\t\tconst before = await state(root);\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\tif (outcome === \"missing\") {\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"error MV-ASSET-MISSING-FILE\");\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(`Tilesets.json[1].${field.field}`);\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(tilesetExpected()[0].nativePath);\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(tilesetConditions[0]);\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t} else {\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toBe(\"\");\n\t\t\t\t\tif (check) (0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t}\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\tif (outcome === \"missing\") {\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).not.toBe(0);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(`Tilesets.json[1].${field.field}`);\n\t\t\t\tawait media(root, field.category, field.folder, field.name);\n\t\t\t\tawait compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck: false\n\t\t\t\t});\n\t\t\t} else (0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(0);\n\t\t\tconst actual = await observed(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)(actual.relations).toEqual({\n\t\t\t\tuses: tilesetExpected(),\n\t\t\t\tproblems: []\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(actual.external.get(\"Tilesets.json\"))[1]).toEqual(tileset());\n\t\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(actual.files.get(\"Map001.json\")).events[1].pages[0].list[0]).toEqual({\n\t\t\t\tcode: 282,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [1]\n\t\t\t});\n\t\t});\n\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

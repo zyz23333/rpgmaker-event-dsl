@@ -1,0 +1,37 @@
+{
+  "id": "AV.C11.plugin-command.formal.case.expected",
+  "ownerTicket": "02",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:33:27.123Z",
+  "completedAt": "2026-11-02T13:33:27.451Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import { mapEvent,commonEvent,troopEvent,showPicture,imageAsset,rawDslCommand,loop,showChoices,conditional,script,pluginCommand } from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Uncalled\",trigger:\"none\",commands:[pluginCommand({line:\"LoadPicture Missing\"})]});\n",
+      "projectOverrides": {},
+      "target": {
+        "category": "image",
+        "folder": "pictures",
+        "name": "Poster",
+        "extension": ".png"
+      },
+      "gates": "one complete native candidate validation followed by one live asset pass; no publication on errors"
+    }
+  ],
+  "expected": {
+    "description": "uninterpreted payload strings never become asset targets",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-picture-workspace.test.ts",
+    "sha256": "1c1a708c2ab685eb467f4ebd3eafd39d509a9682bd41a40cb1448fa217fb46e5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-scope-${branch}`, async ({ workspaceRoot: root }) => {\n\t\tawait prepare(root, { source: commonSource(command) });\n\t\tconst config = (0,__vite_ssr_import_1__.join)(root, \"rpgmaker-event-dsl.config.json\");\n\t\tconst data = JSON.parse(await (0,__vite_ssr_import_0__.readFile)(config, \"utf8\"));\n\t\tawait (0,__vite_ssr_import_0__.writeFile)(config, JSON.stringify({\n\t\t\t...data,\n\t\t\tscriptEnabled: true\n\t\t}));\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await publishedUses(root)).toEqual([]);\n\t\tif (branch === \"script-command\") {\n\t\t\tawait (0,__vite_ssr_import_0__.writeFile)(config, JSON.stringify({\n\t\t\t\t...data,\n\t\t\t\tscriptEnabled: false,\n\t\t\t\tassetCheckExceptions: [{\n\t\t\t\t\tcategory: \"image\",\n\t\t\t\t\tfolder: \"pictures\",\n\t\t\t\t\tname: \"Not a picture\",\n\t\t\t\t\treason: \"Cannot waive Script Command Gate\"\n\t\t\t\t}]\n\t\t\t}));\n\t\t\tconst before = await state(root);\n\t\t\tawait (0,__vite_ssr_import_2__.expect)(compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t})).rejects.toThrow(/script/iu);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\t\texceptionDoesNotBypassScriptGate: true,\n\t\t\t\tmatchingSavedString: \"Not a picture\"\n\t\t\t});\n\t\t}\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}
