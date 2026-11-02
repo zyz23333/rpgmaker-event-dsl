@@ -12,6 +12,7 @@ export type AssetOrigin = Pick<
   | "inactive"
 >;
 export type AssetDataProblem = AssetOrigin & { dataPath: string; reason: string };
+export type AssetDynamicStop = AssetOrigin & { reason: string };
 export type AssetRelations = { uses: EventAssetUse[]; problems: AssetDataProblem[] };
 
 function object(value: unknown): value is Record<string, unknown> {
