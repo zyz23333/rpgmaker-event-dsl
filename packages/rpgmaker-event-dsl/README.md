@@ -205,8 +205,10 @@ Show Text has 1–4 lines, Comment 1–6, and Scrolling Text at least one. Autho
 multiple Show Text calls for longer dialogue. Background is window/dim/transparent;
 position is top/middle/bottom. Face image is a `faces` Asset Reference or None
 (`null`), with an independent required index 0–2,147,483,647 excluding negative zero.
-Non-None indices at least 8 warn about the official two-row layout; image files and
-dimensions are unchecked. None preserves its saved index without that warning.
+Non-None indices at least 8 warn about the official two-row layout. Selected face
+files are checked for exact ordinary-file existence under the shared asset rules
+below; image dimensions, layout and decoding remain unchecked. None preserves its
+saved index without that warning.
 Digits and scrolling speed are integers 1–8; `noFastForward` is an explicit Boolean.
 Select Item types are regular/key/hiddenA/hiddenB, and its variable is the result
 destination, resolved using final System capacity. Valid message records are
