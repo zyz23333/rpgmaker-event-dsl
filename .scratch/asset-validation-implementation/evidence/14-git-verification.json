@@ -1,0 +1,40 @@
+{
+  "verifiedAt": "2026-11-02T08:18:55.530Z",
+  "node": "v22.23.4",
+  "evidenceRevision": "b45450e91720f80a866824812a7fcde826954702",
+  "implementationRevision": "7e6970f61cfc29dd7f58d16c220cfc73d16332d5",
+  "historyGitBlobsVerified": 61,
+  "frozenAssertionReceiptsVerified": 60,
+  "originalByteArchivesVerified": 41,
+  "localLinksVerified": 17,
+  "observers": [
+    {
+      "entry": "source",
+      "url": "file:///M:/Shuen/Codex/asset-validation-14-push/packages/rpgmaker-event-dsl/src/workspace/definitions.ts",
+      "runtimeSha256": "e7f3a574d624340470d1ec87c7f264fa3a04778f0a8054bbafdaca370a74195a",
+      "diskSha256": "6f9a6c016cb7e1476e937fc64706bf751b703b8dd94ba7f8d97f826570ef09a3",
+      "counts": [
+        1,
+        0,
+        1
+      ],
+      "pauses": []
+    },
+    {
+      "entry": "built",
+      "url": "file:///M:/Shuen/Codex/asset-validation-14-push/packages/rpgmaker-event-dsl/dist/operations-Cz2qzFp2.mjs",
+      "runtimeSha256": "d3885027c5132dbd726e6cb1f3d861e5e9fcf1fb6e6c3707142b9c3df96eb78d",
+      "diskSha256": "d3885027c5132dbd726e6cb1f3d861e5e9fcf1fb6e6c3707142b9c3df96eb78d",
+      "counts": [
+        1,
+        0,
+        1
+      ],
+      "pauses": []
+    }
+  ],
+  "integrationAncestor": true,
+  "gitDiffCheck": true,
+  "cleanBeforeWritingThisRecord": true,
+  "scope": "Verifies the already committed evidenceRevision and frozen product/assertion revision. This new record is committed separately to avoid a recursive self-hash."
+}
