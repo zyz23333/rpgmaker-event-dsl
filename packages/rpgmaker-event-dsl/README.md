@@ -168,8 +168,9 @@ None and big-character names (`$`, `!$`, `$!`) preserve nonzero indexes, directi
 and pattern. Selecting an image never changes priority. A nonzero tile uses the
 actual Snapshot Map's `tilesetId` and corresponding Tilesets entry, with B/C/D/E
 bands 1..255 / 256..511 / 512..767 / 768..1023. A missing required context errors;
-an empty selected group warns and preserves the tile. Assets are filename stems,
-with no image-file or dimension scan.
+an empty selected group warns and preserves the tile. Assets are filename stems.
+Compile and Check inspect exact ordinary-file existence for the selected initial
+sheet as a conditional candidate; image dimensions remain unchecked.
 
 Every saved route is validated, including fixed/random/approach pages, and route
 scripts require the Script Command Gate even when empty or inactive. Decompile
@@ -989,6 +990,21 @@ slots unused by the current map. Repeated names keep each slot's own origin.
 Diagnostics show the defining event, selected database entry and complete field
 chain. Image preloading and timing SE execution have separate conditions; these
 saved dependencies do not guarantee that an animation frame will execute.
+
+Fixed Transfer Player destinations follow their captured `MapNNN.json` to all
+named Tileset sheets, its `parallaxName` in `img/parallaxes`, and saved BGM/BGS in
+`audio/bgm` and `audio/bgs`. Diagnostics retain possible runtime configuration
+overrides and each audio's autoplay condition. Saved audio remains checked when
+autoplay is false; confirmed file problems warn with the inactive reason.
+Variable destinations report `MV-ASSET-DYNAMIC-STOP` with their native origin and
+unchecked reason. Transfer does not discover target-map events or battlebacks.
+
+A Map Event Page tile selects one B–E sheet from its host Map's initial captured
+Tileset. The check retains this conditional candidate because a runtime Tileset
+change may override it. Confirmed file problems warn. Map rendering can request
+the whole Tileset separately; those additional sheets do not become dependencies
+of the page tile. Its saved character image remains an independently checked
+inactive setting.
 
 Game Over follows `System.gameoverMe.name`; Return to Title follows both saved
 title images and `titleBgm.name`. Battle Processing checks the saved System battle

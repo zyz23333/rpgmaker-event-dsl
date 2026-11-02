@@ -1,0 +1,706 @@
+{
+  "created": "2026-11-02T03:49:54.978Z",
+  "baseIntegration": "898b87db05b47dda648bfa42e2f2ace0a26d3e67",
+  "runtime": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\rmmv-local-runtime-1.6.1",
+  "nw": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win\\Game.exe",
+  "outerNode": "v22.23.4",
+  "command": {
+    "executable": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+    "args": [
+      "M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-n04.mjs",
+      "F:/Shuen/RPG/rpgmaker-event-dsl/references/rmmv-local-runtime-1.6.1",
+      "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win/Game.exe",
+      "M:/Shuen/Codex/asset-validation-notes/n04-maps-20261102/run-change-01",
+      "change"
+    ]
+  },
+  "launch": {
+    "executable": "M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-change-01\\Game.exe",
+    "args": [
+      "--user-data-dir=M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-change-01\\nw-profile",
+      "--enable-logging",
+      "--log-file=M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-change-01\\nw.log"
+    ],
+    "cwd": "M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-change-01",
+    "windowsHide": true,
+    "stdio": "ignore",
+    "timeoutMs": 60000
+  },
+  "config": {
+    "scenario": "change",
+    "selected": null,
+    "expectedNames": [
+      "N04-A1",
+      "N04-A2",
+      "N04-A3",
+      "N04-A4",
+      "N04-A5",
+      "N04-B",
+      "N04-C",
+      "N04-D",
+      "N04-E"
+    ],
+    "expectedSheets": [
+      {
+        "slot": 0,
+        "name": "N04-A1",
+        "width": 768,
+        "height": 576,
+        "rgba": [
+          255,
+          0,
+          0,
+          255
+        ]
+      },
+      {
+        "slot": 1,
+        "name": "N04-A2",
+        "width": 768,
+        "height": 576,
+        "rgba": [
+          0,
+          255,
+          0,
+          255
+        ]
+      },
+      {
+        "slot": 2,
+        "name": "N04-A3",
+        "width": 768,
+        "height": 384,
+        "rgba": [
+          0,
+          0,
+          255,
+          255
+        ]
+      },
+      {
+        "slot": 3,
+        "name": "N04-A4",
+        "width": 768,
+        "height": 720,
+        "rgba": [
+          255,
+          255,
+          0,
+          255
+        ]
+      },
+      {
+        "slot": 4,
+        "name": "N04-A5",
+        "width": 384,
+        "height": 768,
+        "rgba": [
+          255,
+          0,
+          255,
+          255
+        ]
+      },
+      {
+        "slot": 5,
+        "name": "N04-B",
+        "width": 768,
+        "height": 768,
+        "rgba": [
+          0,
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "slot": 6,
+        "name": "N04-C",
+        "width": 768,
+        "height": 768,
+        "rgba": [
+          255,
+          128,
+          0,
+          255
+        ]
+      },
+      {
+        "slot": 7,
+        "name": "N04-D",
+        "width": 768,
+        "height": 768,
+        "rgba": [
+          128,
+          0,
+          255,
+          255
+        ]
+      },
+      {
+        "slot": 8,
+        "name": "N04-E",
+        "width": 768,
+        "height": 768,
+        "rgba": [
+          192,
+          192,
+          192,
+          255
+        ]
+      }
+    ]
+  },
+  "runtimeHashes": [
+    {
+      "file": "rpg_core.js",
+      "source": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6",
+      "copy": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6"
+    },
+    {
+      "file": "rpg_managers.js",
+      "source": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114",
+      "copy": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114"
+    },
+    {
+      "file": "rpg_objects.js",
+      "source": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e",
+      "copy": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e"
+    },
+    {
+      "file": "rpg_scenes.js",
+      "source": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20",
+      "copy": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20"
+    },
+    {
+      "file": "rpg_sprites.js",
+      "source": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0",
+      "copy": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0"
+    },
+    {
+      "file": "rpg_windows.js",
+      "source": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99",
+      "copy": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99"
+    }
+  ],
+  "shellHashes": [
+    {
+      "file": "Game.exe",
+      "source": "487bd28f3d0b43ed9827ba519d6d113c4f31059bd62b4492da586c7bc82a9474",
+      "copy": "487bd28f3d0b43ed9827ba519d6d113c4f31059bd62b4492da586c7bc82a9474"
+    },
+    {
+      "file": "nw.dll",
+      "source": "4a3f39e9476288d109dbfe0b0c245f032ebf920c5142af36a2a15b31f9ff2139",
+      "copy": "4a3f39e9476288d109dbfe0b0c245f032ebf920c5142af36a2a15b31f9ff2139"
+    }
+  ],
+  "probeHashes": [
+    {
+      "file": "run-n04.mjs",
+      "sha256": "1e49978c1b735eefe417dc07c5dd4fb236f0ee4f967bf0d0c4de84f8fa34862b"
+    },
+    {
+      "file": "native-n04.js",
+      "sha256": "840815dc877d202ff071a3e32047f8505911cf47b3792422742dee282d9d3f0c"
+    },
+    {
+      "file": "index.html",
+      "sha256": "1437ae16128e2051f409f3ef037e78a997d061dd697ebc89813f7df4c7126ff0"
+    }
+  ],
+  "projectScriptHashes": [
+    {
+      "relative": "libs/fpsmeter.js",
+      "sha256": "fec43a13a522dafe9c28c3d30635a275af350edf3423de0349fb6fb9c01e9450"
+    },
+    {
+      "relative": "libs/iphone-inline-video.browser.js",
+      "sha256": "68d7edfc56c4fc6a21de7d55107fd6a334e1a3ff72eb21c14a2553ab9c92eeba"
+    },
+    {
+      "relative": "libs/lz-string.js",
+      "sha256": "7acc5ae524455fb67dee09375b4246386241f7dc4708dcdf8af0e78ca8267de7"
+    },
+    {
+      "relative": "libs/pixi-picture.js",
+      "sha256": "93fd8355e6847e791f363718c400aa7087c153123cea4b3186f325e2b1976075"
+    },
+    {
+      "relative": "libs/pixi-tilemap.js",
+      "sha256": "18e1f1d138643392733998fb428d1134eb35a645db57d336baa7fe5e5b996405"
+    },
+    {
+      "relative": "libs/pixi.js",
+      "sha256": "e8c3aba19cbdb6bfdfe7e9e06753329171731d1a05d5c49b750cc6656a31444a"
+    },
+    {
+      "relative": "main.js",
+      "sha256": "dcab1427f95c4bcedf1ed595b828d0c423d4c8d1767452c9a4e651a9c07a3ab9"
+    },
+    {
+      "relative": "plugins/AltMenuScreen.js",
+      "sha256": "6e103b929c3df10350166db451d650c75f314620b384a0f7564c044cc9540027"
+    },
+    {
+      "relative": "plugins/AltSaveScreen.js",
+      "sha256": "5ad4a92a83f288d0215fea645a600d32194da34085c61d4154168449689ca9bd"
+    },
+    {
+      "relative": "plugins/Community_Basic.js",
+      "sha256": "93d25e8b1a9154da02685472c596ec9baa5a6ae2abc29ca1b8f85c5d651f0ad6"
+    },
+    {
+      "relative": "plugins/EnemyBook.js",
+      "sha256": "03f52b3152a71060e542cab551f2bbe8d3674539db67025a8dfd9d31a9521d61"
+    },
+    {
+      "relative": "plugins/ItemBook.js",
+      "sha256": "bd0127bfcd37667a638056d0f2566034db0b4cbfdf34cae173200ba2f8ccef45"
+    },
+    {
+      "relative": "plugins/MadeWithMv.js",
+      "sha256": "eb4f8afed8e68a326b681bc70aea2bb5c597664cc84b99b8fad48943e531be80"
+    },
+    {
+      "relative": "plugins/SimpleMsgSideView.js",
+      "sha256": "dd5724942020b99f2dd3763fe0700b8b0b6511e317e8f6b92d32293898629014"
+    },
+    {
+      "relative": "plugins/TitleCommandPosition.js",
+      "sha256": "76bfa385f96b5fd9ebb15245135e6fd4671116460d266736cb215d6be837a2c8"
+    },
+    {
+      "relative": "plugins/WeaponSkill.js",
+      "sha256": "89b99854c4db09f6be189832338d459747f96a75dfba5d500ad41fadfdfb88ac"
+    },
+    {
+      "relative": "plugins.js",
+      "sha256": "c98089dbbd54722b6a5961bcba4771a6f30b2693397a89bf22add152feb65dbb"
+    },
+    {
+      "relative": "rpg_core.js",
+      "sha256": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6"
+    },
+    {
+      "relative": "rpg_managers.js",
+      "sha256": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114"
+    },
+    {
+      "relative": "rpg_objects.js",
+      "sha256": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e"
+    },
+    {
+      "relative": "rpg_scenes.js",
+      "sha256": "a76ea8c14ec7414a0e2bb488b19734603cc3d8aace3f163e3aa82fc3d0d20d20"
+    },
+    {
+      "relative": "rpg_sprites.js",
+      "sha256": "f13e67ef4ed308afe71c8503dbe4da65b478cb772a7c0cea88d0e280a4e4fcb0"
+    },
+    {
+      "relative": "rpg_windows.js",
+      "sha256": "2501aea15906d84a2fb51de20e6dc006f847249674f14802ec2ac2dd5361bb99"
+    }
+  ],
+  "fixtures": [
+    {
+      "relative": "Actors.json",
+      "sha256": "d75b1e928e64343bc761316030c5fc692284a6032f6a841a5c07f88bc9c9b132"
+    },
+    {
+      "relative": "Animations.json",
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relative": "Armors.json",
+      "sha256": "45b3df06bfd2f99eaec7f5b05ace3bce6522d6d2f388bca26f791b6b6d8525c1"
+    },
+    {
+      "relative": "Classes.json",
+      "sha256": "e5c8053b1759eb7ebe325b3331209ad11164daa6d0f01b2eb9cd9b7812cb9f88"
+    },
+    {
+      "relative": "CommonEvents.json",
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relative": "Enemies.json",
+      "sha256": "0be1bb28bd3faef61d98923dcac8e37115b0225f6d92ecd4a22c9d0d1e685c93"
+    },
+    {
+      "relative": "Items.json",
+      "sha256": "4eb71f4d281a7d1022d9a8a677ee146bed8e8c5df99325890ceb65d9022200f6"
+    },
+    {
+      "relative": "Map001.json",
+      "sha256": "265ba9b63f54a8275c838e61cddf86697e92d571eb0f42b6b67638afd88eba4d"
+    },
+    {
+      "relative": "MapInfos.json",
+      "sha256": "6c197eaa684d28f3a5ba01217f57f54cad88eb409bb3667713adbfa2f45349df"
+    },
+    {
+      "relative": "Skills.json",
+      "sha256": "11e6d55e657c8d949c9448f765bc179da889c72ebda7f9802d0f2df581259982"
+    },
+    {
+      "relative": "States.json",
+      "sha256": "ec46fe60e73c35e22c3393911365385570bb15c2b51b03bee850ca315334e6e7"
+    },
+    {
+      "relative": "System.json",
+      "sha256": "7ba9a52a68d7558b77cd49a76cf1bc710adb9d34bb4ca343ecc4c5c1b89eaa75"
+    },
+    {
+      "relative": "Tilesets.json",
+      "sha256": "66579c6cae9aba06e3786822a7f8e84282234c40e291b1a569e51ceaac59a0a4"
+    },
+    {
+      "relative": "Troops.json",
+      "sha256": "18103bbb9bf9e2339a807b32dff09dfa8b9424f31f8276abab9ab1c3f0b989fe"
+    },
+    {
+      "relative": "Weapons.json",
+      "sha256": "0d94789174dd2f9735a95a321268c39d6a3a5ccdb09cc21aa98d82c65acecc4e"
+    }
+  ],
+  "generated": [
+    {
+      "relative": "img/tilesets/N04-A1.png",
+      "role": "selected Tileset sheet",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 768,
+        "height": 576,
+        "rgba": [
+          255,
+          0,
+          0,
+          255
+        ]
+      },
+      "sha256": "bc66625c998ca9ba5ea08405f82980f6248187266d81106a7472055093367aef"
+    },
+    {
+      "relative": "img/tilesets/N04-A2.png",
+      "role": "selected Tileset sheet",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 768,
+        "height": 576,
+        "rgba": [
+          0,
+          255,
+          0,
+          255
+        ]
+      },
+      "sha256": "d2e5f99ec02fb5ba1b48c8633a22c14602153954a6dc068f4c14fa4a5650103e"
+    },
+    {
+      "relative": "img/tilesets/N04-A3.png",
+      "role": "selected Tileset sheet",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 768,
+        "height": 384,
+        "rgba": [
+          0,
+          0,
+          255,
+          255
+        ]
+      },
+      "sha256": "4ce4fe213ed319bca9b61831c7d8a0f4b6742d53a06b2c931acc8fcd770fd4af"
+    },
+    {
+      "relative": "img/tilesets/N04-A4.png",
+      "role": "selected Tileset sheet",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 768,
+        "height": 720,
+        "rgba": [
+          255,
+          255,
+          0,
+          255
+        ]
+      },
+      "sha256": "82d79c1acc658637c9dd523540959c1c88966922b6d92e378e9cdbbd4db2f3c9"
+    },
+    {
+      "relative": "img/tilesets/N04-A5.png",
+      "role": "selected Tileset sheet",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 384,
+        "height": 768,
+        "rgba": [
+          255,
+          0,
+          255,
+          255
+        ]
+      },
+      "sha256": "ab45a5c9c51f0ef5a2099379ee3d21d716a60ffab924157a44ee01f2a9e59253"
+    },
+    {
+      "relative": "img/tilesets/N04-B.png",
+      "role": "selected Tileset sheet",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 768,
+        "height": 768,
+        "rgba": [
+          0,
+          255,
+          255,
+          255
+        ]
+      },
+      "sha256": "e9d8373471bf6d76ca21e9d3d3bcf33bcf9887216fe154f09f2c578c54c877f8"
+    },
+    {
+      "relative": "img/tilesets/N04-C.png",
+      "role": "selected Tileset sheet",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 768,
+        "height": 768,
+        "rgba": [
+          255,
+          128,
+          0,
+          255
+        ]
+      },
+      "sha256": "410f069bb949e660e1fcee03ddc7d8d40e6b3fae49bbb61ecac6229715b257d2"
+    },
+    {
+      "relative": "img/tilesets/N04-D.png",
+      "role": "selected Tileset sheet",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 768,
+        "height": 768,
+        "rgba": [
+          128,
+          0,
+          255,
+          255
+        ]
+      },
+      "sha256": "8689a515ab93a802cef52b67e1d348decd021c702148580639f76c9962a30247"
+    },
+    {
+      "relative": "img/tilesets/N04-E.png",
+      "role": "selected Tileset sheet",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 768,
+        "height": 768,
+        "rgba": [
+          192,
+          192,
+          192,
+          255
+        ]
+      },
+      "sha256": "6a5d91424bb485eb4cb8d318eecac8c94772fe55b75cde4d4c218bfed17e0527"
+    },
+    {
+      "relative": "img/system/Window.png",
+      "role": "background scene support, not selected Event Asset Use",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 192,
+        "height": 192,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "f81e2c960f6f3f32561e9d466e6bc7327975a8dc94c49df95ac9ec236796daef"
+    },
+    {
+      "relative": "img/system/Loading.png",
+      "role": "background scene support, not selected Event Asset Use",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 128,
+        "height": 128,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "3e2f158b2186e35b2db34043fabe3f48e3718c63c280484be8a123c1f174b658"
+    },
+    {
+      "relative": "img/system/Shadow1.png",
+      "role": "background scene support, not selected Event Asset Use",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 48,
+        "height": 48,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "f94fdc0ec51ea18d36013be68fe73532587e21a311bfcf4bf8801009de53ec06"
+    },
+    {
+      "relative": "img/system/Shadow2.png",
+      "role": "background scene support, not selected Event Asset Use",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 48,
+        "height": 48,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "f94fdc0ec51ea18d36013be68fe73532587e21a311bfcf4bf8801009de53ec06"
+    },
+    {
+      "relative": "img/system/Balloon.png",
+      "role": "background scene support, not selected Event Asset Use",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 384,
+        "height": 384,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "5b910e5960a5cfb4c21bd787b39879a90c6d6cad3872a9d8a08d1ba06e46c9aa"
+    },
+    {
+      "relative": "img/system/States.png",
+      "role": "background scene support, not selected Event Asset Use",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 768,
+        "height": 96,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "e2a0abe89176a25a48b5834ea8a35a45fab175dcb695c7a936e56285ea566537"
+    },
+    {
+      "relative": "img/system/IconSet.png",
+      "role": "background scene support, not selected Event Asset Use",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 512,
+        "height": 512,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "7a39387f34d1569fefaaec1b8f612e836166b72f1c0ce4364fc25e46cfec67f2"
+    },
+    {
+      "relative": "img/system/Damage.png",
+      "role": "background scene support, not selected Event Asset Use",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 240,
+        "height": 160,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "b1b93be842c628d682444d27a9c63978fad8c2212a320e4cbc920f6f57cf8699"
+    },
+    {
+      "relative": "img/system/Weapons1.png",
+      "role": "background scene support, not selected Event Asset Use",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 576,
+        "height": 384,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "45255e9aeed58efb50a6b9475f92ff093ffa29e4334caf448e7d7e1595daaa73"
+    },
+    {
+      "relative": "img/system/Weapons2.png",
+      "role": "background scene support, not selected Event Asset Use",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 576,
+        "height": 384,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "45255e9aeed58efb50a6b9475f92ff093ffa29e4334caf448e7d7e1595daaa73"
+    },
+    {
+      "relative": "img/system/Weapons3.png",
+      "role": "background scene support, not selected Event Asset Use",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 576,
+        "height": 384,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "45255e9aeed58efb50a6b9475f92ff093ffa29e4334caf448e7d7e1595daaa73"
+    },
+    {
+      "relative": "img/system/ButtonSet.png",
+      "role": "background scene support, not selected Event Asset Use",
+      "generator": {
+        "method": "self-made RGBA PNG with PNG CRC32 and zlib",
+        "width": 288,
+        "height": 96,
+        "rgba": [
+          128,
+          128,
+          128,
+          255
+        ]
+      },
+      "sha256": "faa9553666f4abc30858658a93fcadd01d7579a63e71633099dca35a55ac292c"
+    }
+  ]
+}

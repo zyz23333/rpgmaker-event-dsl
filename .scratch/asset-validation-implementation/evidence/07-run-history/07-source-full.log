@@ -1,0 +1,4 @@
+JSON report written to M:/Shuen/Codex/asset-validation-notes/07-source-full.json
+undefined
+M:\Shuen\Codex\asset-validation-07-maps\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/asset-map-workspace.test.ts --maxWorkers=1 --reporter=json --outputFile=M:/Shuen/Codex/asset-validation-notes/07-source-full.json

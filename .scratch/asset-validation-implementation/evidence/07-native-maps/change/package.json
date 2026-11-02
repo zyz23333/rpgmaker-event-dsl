@@ -1,0 +1,10 @@
+{
+  "name": "mv-n04-native-evidence",
+  "main": "index.html",
+  "window": {
+    "show": false,
+    "width": 64,
+    "height": 64
+  },
+  "chromium-args": "--autoplay-policy=no-user-gesture-required --disable-gpu"
+}
