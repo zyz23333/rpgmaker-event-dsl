@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-02T13:48:42.985Z",
+  "repairBaseRevision": "0b5195c4095e9b21b8e345541c4ae7859bc2d66a",
+  "originalWholeSourceFrozenRevision": "af748ee5067f41096a296a79f81b078415096606",
+  "comparison": "All af diagnostic source and helper bytes match the repair baseline modulo EOL. Canonical AST includes every node kind, identifier/literal text and child order, excluding positions/trivia. Only timeout parameter/forwarding and the D05 outer third argument are projected out.",
+  "entireDiagnosticAstBefore": "ece3bdc44abc706d4d7529f39ef936dd979e17a254a5b4eb818a1b290db5a588",
+  "entireDiagnosticAstAfterRemovingTimeoutOnly": "ece3bdc44abc706d4d7529f39ef936dd979e17a254a5b4eb818a1b290db5a588",
+  "diagnosticCallbacks": {
+    "countBefore": 64,
+    "countAfter": 64,
+    "allEqual": true,
+    "sha256": "1fb6ccd95ea0ba43e8596936f8c09bef2ea69b17c25ecd4c9ac3ef089c2ed1c3"
+  },
+  "independentlyDeterminableExceptions": {
+    "byteIdentical": true,
+    "sha256": "1688b2e4a5b6adb579332cc9ef49adc005d7ad91967cff3ea3f6b8acc0d49034",
+    "originalSiblingBranches": [
+      "repaired",
+      "unused",
+      "warning-only"
+    ],
+    "actualChildModesPerSibling": [
+      "api",
+      "cli"
+    ],
+    "actualChildBoundaries": 6,
+    "childStopFinallyAndStateAssertionsPreserved": true
+  },
+  "helperEntireAstBefore": "7db46b0022d5f0202ba3aebdb253a4a1da2be96d46041ebcc2a29126fea5b0ca",
+  "helperEntireAstAfterRemovingOptionalParameterAndForwarding": "7db46b0022d5f0202ba3aebdb253a4a1da2be96d46041ebcc2a29126fea5b0ca",
+  "helperAsyncCallbackIncludingFinallySha256": "bc5ee898f392035874fb338c74d005486659484fde41befc749d72bfeb850910",
+  "helperAsyncCallbackIncludingFinallyUnchanged": true,
+  "helperConsumers": [
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-action-workspace.test.ts",
+      "bindings": [
+        "it"
+      ],
+      "registrationCalls": 9,
+      "unchangedDefaultCalls": 9,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-battler-workspace.test.ts",
+      "bindings": [
+        "it"
+      ],
+      "registrationCalls": 6,
+      "unchangedDefaultCalls": 6,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+      "bindings": [
+        "it",
+        "diagnosticIt",
+        "graphIt"
+      ],
+      "registrationCalls": 9,
+      "unchangedDefaultCalls": 9,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-dependency-workspace.test.ts",
+      "bindings": [
+        "it"
+      ],
+      "registrationCalls": 8,
+      "unchangedDefaultCalls": 8,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+      "bindings": [
+        "it"
+      ],
+      "registrationCalls": 20,
+      "unchangedDefaultCalls": 19,
+      "localTimeoutCalls": 1
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+      "bindings": [
+        "it"
+      ],
+      "registrationCalls": 22,
+      "unchangedDefaultCalls": 22,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-image-workspace.test.ts",
+      "bindings": [
+        "it",
+        "repeatedIt",
+        "routeIt",
+        "tileIt"
+      ],
+      "registrationCalls": 13,
+      "unchangedDefaultCalls": 13,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-map-workspace.test.ts",
+      "bindings": [
+        "it"
+      ],
+      "registrationCalls": 11,
+      "unchangedDefaultCalls": 11,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+      "bindings": [
+        "it",
+        "repeatedIt"
+      ],
+      "registrationCalls": 12,
+      "unchangedDefaultCalls": 12,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-picture-workspace.test.ts",
+      "bindings": [
+        "it",
+        "rawIt",
+        "exceptionIt"
+      ],
+      "registrationCalls": 17,
+      "unchangedDefaultCalls": 17,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-push-workspace.test.ts",
+      "bindings": [
+        "it",
+        "postwrite",
+        "sharedPush"
+      ],
+      "registrationCalls": 17,
+      "unchangedDefaultCalls": 17,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-recovery-workspace.test.ts",
+      "bindings": [
+        "it"
+      ],
+      "registrationCalls": 11,
+      "unchangedDefaultCalls": 11,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-system-workspace.test.ts",
+      "bindings": [
+        "it",
+        "sharedIt"
+      ],
+      "registrationCalls": 15,
+      "unchangedDefaultCalls": 15,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-workflow-workspace.test.ts",
+      "bindings": [
+        "it"
+      ],
+      "registrationCalls": 16,
+      "unchangedDefaultCalls": 16,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/audio-commands-workspace.test.ts",
+      "bindings": [
+        "assetIt"
+      ],
+      "registrationCalls": 1,
+      "unchangedDefaultCalls": 1,
+      "localTimeoutCalls": 0
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/map-appearance-workspace.test.ts",
+      "bindings": [
+        "assetIt"
+      ],
+      "registrationCalls": 1,
+      "unchangedDefaultCalls": 1,
+      "localTimeoutCalls": 0
+    }
+  ],
+  "installedVitest": {
+    "file": "node_modules/.pnpm/@vitest+runner@4.1.9/node_modules/@vitest/runner/dist/chunk-artifact.js",
+    "version": "4.1.9",
+    "bytes": 119048,
+    "sha256": "c10a7a80fca65fb42e27eabf7655c5ce5ecf36e8aaeb1811499efd063df62556",
+    "parseArgumentsStartLine": 1680,
+    "interpretation": "Omitted and explicit undefined timeout both leave options empty; task timeout resolves options.timeout ?? runner.config.testTimeout. Only a numeric 30000 changes the incomplete registration."
+  },
+  "configuration": {
+    "defaultTimeoutMs": 10000,
+    "defaultMaxWorkers": 2,
+    "unchanged": true
+  },
+  "changedPackageFiles": [
+    "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "packages/rpgmaker-event-dsl/test/support/asset-evidence.ts"
+  ],
+  "productFixturesConfigPackageLockAndAllOtherTestsUnchanged": true,
+  "originalTicket12HistoricalFilesPreserved": 31,
+  "originalAfRawHashesPreserved": true,
+  "noNewVitestTestIdsOrAssertionsOrFixtures": true
+}

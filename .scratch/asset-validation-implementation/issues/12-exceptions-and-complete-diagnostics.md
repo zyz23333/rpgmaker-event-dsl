@@ -67,6 +67,10 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Comments
 
+- 2026-11-02：D05局部预算修复在 `154ad2cd30cf07d254ab17a819e4181ae2a95b79` 冻结后，四个既有D05 source全部通过，另外95个注册仅过滤，typecheck／lint／format:check均通过。本票恢复resolved；未运行99项完整诊断suite、103文件完整source、built或Windows baseline。新证据独立追加，原Outcome和31份旧证据保持；17仍claimed。
+
+- 2026-11-02：因17在冻结 `af748ee5067f41096a296a79f81b078415096606` 的完整 source `pnpm check` 自然结束时，唯一 D05 incomplete callback 超过默认10秒预算，本票重开为 claimed。原 Outcome、Contract37签收及全部旧证据保留；本轮只修复本票既有测试的局部预算，不改产品、政策、Contract、业务分支、fixture、输入或断言。仅定向运行四个既有 D05 source 用例，默认2 workers／Node22／C TEMP；不重跑99项诊断 suite、103文件完整 source 或built。原始失败和随后11.547秒helper完成记录将分别保存于 [D05修复证据](../evidence/12-d05-budget-repair/red-and-baseline.json)，17保持claimed，等待独立验收。
+
 - 2026-11-02：从干净预建工作树快进集成35后领取；实现并合入11／36，最终再次合最新集成显示 Already up to date，保留自身行为版本37。全部本票有限分支及组合／兼容验证通过，追加 Outcome 后设 resolved；没有提前注册16的W16，也未改原规格／地图状态。
 
 - 2026-11-02：仅澄清既有验收 ID 编码，行为范围与数量不变，见原索引新增的 D02–D10 标识展开。D02 使用角色分支与事实字段，D03 eligible 使用事实字段，其余单因子 D02–D10 使用默认 native 表示与 case 字段。扩展 10 已有 D09 三个协作 callback 时将其 formal 表示统一为 native，保留旧断言、来源和历史回执，不另注册同义测试。
@@ -84,3 +88,11 @@ D09 的原三个10协作 callback 一次迁移为 native 并扩展；原 Script�
 验证环境为 Windows／Node22.23.4，pnpm10.33.0，所有回归串行 `--maxWorkers=1`。100 个规范主 ID、2 个共享 C11 ID、2 个补充 ID 的 source／built 共208条回执全部通过；加10个关系组合回归，最终每入口114／114。受影响既有 Workspace／workflow／compile-inputs／publication／recovery 五 suite 每入口100／100。typecheck、lint、format:check、build、diff空白及本地链接检查通过。具体 ID、输入、独立预期、实际、环境、执行方式、原始红绿及失败历史见[机器合册](../evidence/12-exception-acceptance.json)和[说明](../evidence/12-exception-acceptance.md)。过滤项未计通过；本票未运行全仓或原生媒体探针，17及16各自剩余责任保持。
 
 产品实现提交 `099b2f06ca1bc3e9a924c1f32b3f87c8e45923cc`；工作树 `M:/Shuen/Codex/asset-validation-12-exceptions`，分支 `codex/asset-validation-12-exceptions`，Compile Contract Version `mv-1.6.1/37`。完成证据与闭票提交后以干净最终 tip 交集成 merger。
+
+## D05 局部预算修复 Outcome（2026-11-02）
+
+17在Contract40冻结 `af748ee5067f41096a296a79f81b078415096606` 的完整source自然结束后，唯一失败为本票D05 incomplete超过默认10000ms（runner10037ms）。原helper后来11547ms完成只作为业务体最终完成的历史记录，不当作完整runner通过。该分支包含三种独立sibling各自API／CLI的六个真实子进程边界，完整输入、诊断、状态及清理全部保留。
+
+`createAssetTest`增加可选局部timeout参数并直接转发Vitest，仅既有D05 incomplete传30000ms；另外三个D05和全部其他helper调用继续使用默认10000ms。64个诊断callback AST全同；移除唯一外部timeout表达式后整个诊断AST全同，helper移除可选参数与转发后整个AST全同，完整async／finally回执体保持。`independentlyDeterminableExceptions`原文、所有业务输入、断言、fixture、ID及六个真实边界未改。产品源码、政策、全局配置和Compile Contract `mv-1.6.1/40`均未改。
+
+修复代码／测试冻结 `154ad2cd30cf07d254ab17a819e4181ae2a95b79`；Windows／Node22.23.4／pnpm10.33.0、默认2workers、默认C TEMP。实际定向source runner退出0，4通过／0失败／95过滤（99注册）；incomplete耗时13478.5886ms。四条fresh source回执及六个真实子进程结果完整，typecheck／lint／format:check均退出0。本轮没有运行99项完整诊断suite、103文件完整source、built或Windows baseline。原12验收JSON／说明／raw共31份文件的字节和Git blob保持，旧Contract37 Outcome不改写。具体记录见[独立机器合册](../evidence/12-d05-budget-repair/12-d05-budget-repair.json)、[说明](../evidence/12-d05-budget-repair/12-d05-budget-repair.md)和[原始red](../evidence/12-d05-budget-repair/red-and-baseline.json)。12恢复resolved，17保持claimed，最终验收不由本次定向结果替代。

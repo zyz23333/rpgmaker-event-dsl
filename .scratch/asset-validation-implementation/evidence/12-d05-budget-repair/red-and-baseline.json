@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-02T13:46:00.379Z",
+  "worktree": "M:\\Shuen\\Codex\\asset-validation-12-exceptions",
+  "branch": "codex/asset-validation-12-exceptions",
+  "originalWholeSourceFrozenRevision": "af748ee5067f41096a296a79f81b078415096606",
+  "repairBaseRevision": "0b5195c4095e9b21b8e345541c4ae7859bc2d66a",
+  "originalRunner": {
+    "command": "pnpm check",
+    "exitCode": 1,
+    "files": {
+      "passed": 102,
+      "failed": 1,
+      "total": 103
+    },
+    "tests": {
+      "passed": 3408,
+      "failed": 1,
+      "total": 3409
+    },
+    "onlyFailure": "AV.D05.incomplete.native.case.expected",
+    "error": "Error: Test timed out in 10000ms.",
+    "runnerDurationMs": 10037
+  },
+  "eventualHelperCompletion": {
+    "status": "passed",
+    "startedAt": "2026-11-02T13:26:57.389Z",
+    "completedAt": "2026-11-02T13:27:08.936Z",
+    "durationMs": 11547,
+    "actual": "All independent assertions passed.",
+    "inputObjects": 20,
+    "assertionsSourceSha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "interpretation": "The helper completed after Vitest timed out. This is not a runner pass and does not change the original failed whole-source result."
+  },
+  "rawManifest": [
+    {
+      "file": "raw/af-whole-source/01-pnpm-check.log",
+      "source": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\.scratch\\asset-validation-implementation\\evidence\\17-raw\\history\\af748ee5-contract40-whole-check-failed\\01-pnpm-check.log",
+      "bytes": 3541,
+      "sha256": "2dd29c82d9929d84c713d9812d1130ac31cf67342f2753e24cfdb2e7ab96fd72"
+    },
+    {
+      "file": "raw/af-whole-source/command-history.json",
+      "source": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\.scratch\\asset-validation-implementation\\evidence\\17-raw\\history\\af748ee5-contract40-whole-check-failed\\command-history.json",
+      "bytes": 938285,
+      "sha256": "de2a7c1c0f426e807dc0bdc3a9eb88990ca55ac3625a51c109ec050de48345ea"
+    },
+    {
+      "file": "raw/af-whole-source/current-source-receipts/AV.D05.incomplete.native.case.expected.source.json",
+      "source": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\.scratch\\asset-validation-implementation\\evidence\\17-raw\\history\\af748ee5-contract40-whole-check-failed\\current-source-receipts\\AV.D05.incomplete.native.case.expected.source.json",
+      "bytes": 33221,
+      "sha256": "0f3710cf4adc4973eb5dd5c9c64bc622978abf0c7edb590041ff73d661382d75"
+    }
+  ],
+  "baseline": [
+    {
+      "file": "packages/rpgmaker-event-dsl/test/support/asset-evidence.ts",
+      "bytes": 2856,
+      "sha256": "427516c552d3e163e9dc67bd674c9fd9c2a571b976d2109558bfce84642c630a",
+      "afGitBytes": 2856,
+      "afGitSha256": "427516c552d3e163e9dc67bd674c9fd9c2a571b976d2109558bfce84642c630a",
+      "normalizedEolSameAsAf": true
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+      "bytes": 55150,
+      "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+      "afGitBytes": 55150,
+      "afGitSha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+      "normalizedEolSameAsAf": true
+    }
+  ],
+  "originalTicket12History": [
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-exception-acceptance.json",
+      "bytes": 2236005,
+      "sha256": "788cffb8b216fbed918f23bb6284a982d763ee2cc49888ec2fb729269dd0057b",
+      "gitBytes": 2236005,
+      "gitSha256": "788cffb8b216fbed918f23bb6284a982d763ee2cc49888ec2fb729269dd0057b"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-exception-acceptance.md",
+      "bytes": 6792,
+      "sha256": "cd0147bf82dc67a5a7b589c8878cf13805b5c1267209ca7da29d2a0adb7d2fa9",
+      "gitBytes": 6792,
+      "gitSha256": "cd0147bf82dc67a5a7b589c8878cf13805b5c1267209ca7da29d2a0adb7d2fa9"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-all-source-pass1.json",
+      "bytes": 42783,
+      "sha256": "1696cc8e31a049a6e073e7d8dee7f24acd256b9596584e26daad72fa8636d9c0",
+      "gitBytes": 42783,
+      "gitSha256": "1696cc8e31a049a6e073e7d8dee7f24acd256b9596584e26daad72fa8636d9c0"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-built-compatibility-final.json",
+      "bytes": 32765,
+      "sha256": "76b7a6537fe4c09b4a481c697fc7d795fef13e045b19f0b0e5da1cf7fd08b60d",
+      "gitBytes": 32765,
+      "gitSha256": "76b7a6537fe4c09b4a481c697fc7d795fef13e045b19f0b0e5da1cf7fd08b60d"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-built-final-composed.json",
+      "bytes": 178881,
+      "sha256": "fb3e7cbc9f0cb05700c83c5d387459dd58611ebb7d0b8992a00da25bb5322557",
+      "gitBytes": 178881,
+      "gitSha256": "fb3e7cbc9f0cb05700c83c5d387459dd58611ebb7d0b8992a00da25bb5322557"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-channel-preservation-green.json",
+      "bytes": 89872,
+      "sha256": "96e8e6904cfcb235d84e19ea20dd453ee3c53ac02c208b9944ca413350ac7949",
+      "gitBytes": 89872,
+      "gitSha256": "96e8e6904cfcb235d84e19ea20dd453ee3c53ac02c208b9944ca413350ac7949"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-config-green.json",
+      "bytes": 1094,
+      "sha256": "880ed6ced21318db466008ee2a588fb9a53d827b552f77ebdc54afd0aaa68444",
+      "gitBytes": 1094,
+      "gitSha256": "880ed6ced21318db466008ee2a588fb9a53d827b552f77ebdc54afd0aaa68444"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-config-red.json",
+      "bytes": 2437,
+      "sha256": "a35d61b697ce60e08a79bc6f47e73b4ea14a3a756ab8515761d7c5ba918d602c",
+      "gitBytes": 2437,
+      "gitSha256": "a35d61b697ce60e08a79bc6f47e73b4ea14a3a756ab8515761d7c5ba918d602c"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-d01-d04-source.json",
+      "bytes": 16056,
+      "sha256": "8d8e3ee10a9faec840980020bf61a83f57b38d5f759c0436e37de319297705d9",
+      "gitBytes": 16056,
+      "gitSha256": "8d8e3ee10a9faec840980020bf61a83f57b38d5f759c0436e37de319297705d9"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-d02-source.json",
+      "bytes": 28007,
+      "sha256": "dd2098e69aa62a76607532be3374b1949d8962139108fc24c61bf8b607c118c5",
+      "gitBytes": 28007,
+      "gitSha256": "dd2098e69aa62a76607532be3374b1949d8962139108fc24c61bf8b607c118c5"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-d03-d05-source.json",
+      "bytes": 32166,
+      "sha256": "028142183fc6c08f3cb76cf717ad5fad5e692770cf3ada06951705ea573eb642",
+      "gitBytes": 32166,
+      "gitSha256": "028142183fc6c08f3cb76cf717ad5fad5e692770cf3ada06951705ea573eb642"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-d03-d08-source.json",
+      "bytes": 40036,
+      "sha256": "55796652935188c5b3e42f95918ae6845bf536453426c50edb928cd38f42e680",
+      "gitBytes": 40036,
+      "gitSha256": "55796652935188c5b3e42f95918ae6845bf536453426c50edb928cd38f42e680"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-d09-d10-source.json",
+      "bytes": 40345,
+      "sha256": "8a18b164a8f4164606be0dc9dcca1dafd526c9b9d6e0a1704b1dd7953771c93c",
+      "gitBytes": 40345,
+      "gitSha256": "8a18b164a8f4164606be0dc9dcca1dafd526c9b9d6e0a1704b1dd7953771c93c"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-final-build.log",
+      "bytes": 2553,
+      "sha256": "fd269502ca8488cf4aff6b4c1fb3c5c12c9209705017e61475fc90562a1a222e",
+      "gitBytes": 2553,
+      "gitSha256": "fd269502ca8488cf4aff6b4c1fb3c5c12c9209705017e61475fc90562a1a222e"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-final-format.log",
+      "bytes": 395,
+      "sha256": "14c6b1c89a57e0d4e3ed0d01cdf2366f94dcd95f2d69cc4544752ea01f3da9a4",
+      "gitBytes": 395,
+      "gitSha256": "14c6b1c89a57e0d4e3ed0d01cdf2366f94dcd95f2d69cc4544752ea01f3da9a4"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-final-links.json",
+      "bytes": 489,
+      "sha256": "cb90838b4237468c17dd1dd77eb6cdc676110355430ce5085731547f83687d95",
+      "gitBytes": 489,
+      "gitSha256": "cb90838b4237468c17dd1dd77eb6cdc676110355430ce5085731547f83687d95"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-final-lint.log",
+      "bytes": 105,
+      "sha256": "32bf395e2d24b9fd37ac1f5d8697f5b043bd2081779c95b014bf696ebf5e2435",
+      "gitBytes": 105,
+      "gitSha256": "32bf395e2d24b9fd37ac1f5d8697f5b043bd2081779c95b014bf696ebf5e2435"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-final-typecheck.log",
+      "bytes": 268,
+      "sha256": "f6bd0ba291f2f01d39e331f1954092546f34a32625e507703be84c5a225f3812",
+      "gitBytes": 268,
+      "gitSha256": "f6bd0ba291f2f01d39e331f1954092546f34a32625e507703be84c5a225f3812"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-history-format-final.json",
+      "bytes": 40131,
+      "sha256": "200548ed3ed6fc2c84452e808b5113d1b0d653b86364e50749b1c7f9bcad59e5",
+      "gitBytes": 40131,
+      "gitSha256": "200548ed3ed6fc2c84452e808b5113d1b0d653b86364e50749b1c7f9bcad59e5"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-location-inconsistent-green.json",
+      "bytes": 25012,
+      "sha256": "7a6bdc1ec2947c0772904db4cffdb82301f9bc1f857820a32793f1337f55305b",
+      "gitBytes": 25012,
+      "gitSha256": "7a6bdc1ec2947c0772904db4cffdb82301f9bc1f857820a32793f1337f55305b"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-policy-green.json",
+      "bytes": 1510,
+      "sha256": "4e60b6799dabd7035ec1ea9f302383af2ad1611cb35f8a247954b2df40674279",
+      "gitBytes": 1510,
+      "gitSha256": "4e60b6799dabd7035ec1ea9f302383af2ad1611cb35f8a247954b2df40674279"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-policy-red.json",
+      "bytes": 3481,
+      "sha256": "c64eb55961d70688369889e6d2fadd0f845058a3db233100cfe281c57b4e3e68",
+      "gitBytes": 3481,
+      "gitSha256": "c64eb55961d70688369889e6d2fadd0f845058a3db233100cfe281c57b4e3e68"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-related-incomplete-recovery-green.json",
+      "bytes": 53696,
+      "sha256": "b8b2eb1b89e936481a97461fb7cfd551a438cab5213eab77eb3ae04c4b02e1bf",
+      "gitBytes": 53696,
+      "gitSha256": "b8b2eb1b89e936481a97461fb7cfd551a438cab5213eab77eb3ae04c4b02e1bf"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-related-incomplete-red.json",
+      "bytes": 41178,
+      "sha256": "98853e9f80668bf5bcdb1471169b104cb5bac64764c476c385540709e8dcb466",
+      "gitBytes": 41178,
+      "gitSha256": "98853e9f80668bf5bcdb1471169b104cb5bac64764c476c385540709e8dcb466"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-source-compatibility-final.json",
+      "bytes": 32798,
+      "sha256": "6149315bc28d9223e21095c667eee91178523dec2c9d01ecc342f5320e65b121",
+      "gitBytes": 32798,
+      "gitSha256": "6149315bc28d9223e21095c667eee91178523dec2c9d01ecc342f5320e65b121"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-source-compatibility.json",
+      "bytes": 83606,
+      "sha256": "ccb1ca4e37b635660f1cd182bf09bcf1df1e41869d744010f098cb43c7e35f87",
+      "gitBytes": 83606,
+      "gitSha256": "ccb1ca4e37b635660f1cd182bf09bcf1df1e41869d744010f098cb43c7e35f87"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-source-composed-channels-before.json",
+      "bytes": 179620,
+      "sha256": "d0b4e1f8330c25b3ce2824066cb047f485fe2876a9623fcda1db778d37ecf5e9",
+      "gitBytes": 179620,
+      "gitSha256": "d0b4e1f8330c25b3ce2824066cb047f485fe2876a9623fcda1db778d37ecf5e9"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-source-final-composed.json",
+      "bytes": 178855,
+      "sha256": "24ca3f021b1c3e0a806221870cf66b9ba88e9310481680f0522ff3cdfd79e4c7",
+      "gitBytes": 178855,
+      "gitSha256": "24ca3f021b1c3e0a806221870cf66b9ba88e9310481680f0522ff3cdfd79e4c7"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-source-final-diagnostics.json",
+      "bytes": 42886,
+      "sha256": "b050fe64802dc1d50c9aa2478b634d1856b67e8e97d87b2b98e4f7da1ec44eb9",
+      "gitBytes": 42886,
+      "gitSha256": "b050fe64802dc1d50c9aa2478b634d1856b67e8e97d87b2b98e4f7da1ec44eb9"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-source-final-targeted.json",
+      "bytes": 85557,
+      "sha256": "1bfade3cbf82c1893c564f3420e3702f0fc5d9cc180617fd9fe8be95b5897dbb",
+      "gitBytes": 85557,
+      "gitSha256": "1bfade3cbf82c1893c564f3420e3702f0fc5d9cc180617fd9fe8be95b5897dbb"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/12-run-history/12-source-location-red.json",
+      "bytes": 25702,
+      "sha256": "ccd4afc748bc9f5b4fd02c4052eabdb49bde6173ffe07ce566c9ef61213fc993",
+      "gitBytes": 25702,
+      "gitSha256": "ccd4afc748bc9f5b4fd02c4052eabdb49bde6173ffe07ce566c9ef61213fc993"
+    }
+  ],
+  "boundedPlan": {
+    "sourceIds": [
+      "AV.D05.repaired.native.case.expected",
+      "AV.D05.unused.native.case.expected",
+      "AV.D05.warning-only.native.case.expected",
+      "AV.D05.incomplete.native.case.expected"
+    ],
+    "newIncompleteBudgetMs": 30000,
+    "allOtherDefaultBudgetMs": 10000,
+    "maxWorkers": 2,
+    "completeSourceRerun": false,
+    "complete99DiagnosticSuiteRerun": false,
+    "builtRerun": false
+  }
+}
