@@ -1,0 +1,170 @@
+{
+  "status": "observed",
+  "assertionCount": 19,
+  "ids": [
+    "AV.N03.animation-images.native-run.case.observed",
+    "AV.N03.animation-timing-se.native-run.case.observed"
+  ],
+  "final": {
+    "frame": 19,
+    "scene": "Scene_Map",
+    "eventMarker": true,
+    "rendererType": 2,
+    "audioContextState": "running",
+    "animationStates": [
+      {
+        "id": "animation-16",
+        "animationId": 1,
+        "duration": 0,
+        "isPlaying": false,
+        "ready": true,
+        "bitmap1": {
+          "id": "bitmap-14",
+          "url": "img/animations/N03-first.png",
+          "ready": true,
+          "width": 960,
+          "height": 192
+        },
+        "bitmap2": {
+          "id": "bitmap-15",
+          "url": "img/animations/N03-second.png",
+          "ready": true,
+          "width": 960,
+          "height": 192
+        }
+      }
+    ]
+  },
+  "frames": [
+    {
+      "nativeFrame": 1,
+      "animationFrame": 0,
+      "sequence": 82
+    },
+    {
+      "nativeFrame": 5,
+      "animationFrame": 1,
+      "sequence": 107
+    },
+    {
+      "nativeFrame": 9,
+      "animationFrame": 2,
+      "sequence": 118
+    },
+    {
+      "nativeFrame": 13,
+      "animationFrame": 3,
+      "sequence": 138
+    }
+  ],
+  "timings": [
+    {
+      "timing": 0,
+      "animationFrame": 0,
+      "nativeFrame": 1,
+      "sequence": 85,
+      "name": "N03-se-first"
+    },
+    {
+      "timing": 1,
+      "animationFrame": 2,
+      "nativeFrame": 9,
+      "sequence": 121,
+      "name": "N03-se-second"
+    }
+  ],
+  "drawsByImage": [
+    {
+      "relative": "img/animations/N03-first.png",
+      "count": 16
+    },
+    {
+      "relative": "img/animations/N03-second.png",
+      "count": 16
+    }
+  ],
+  "decoded": [
+    {
+      "url": "audio/se/N03-se-first.ogg",
+      "nativeFrame": 2,
+      "sequence": 97,
+      "durationSeconds": 0.3149166666666667,
+      "sampleRate": 48000,
+      "channels": 1
+    },
+    {
+      "url": "audio/se/N03-se-second.ogg",
+      "nativeFrame": 10,
+      "sequence": 131,
+      "durationSeconds": 0.3149166666666667,
+      "sampleRate": 48000,
+      "channels": 1
+    }
+  ],
+  "detachedPreloadImageErrors": [
+    {
+      "sequence": 94,
+      "elapsedMs": 208,
+      "kind": "native-image-error",
+      "frame": 2,
+      "scene": "Scene_Map",
+      "operations": [],
+      "bitmapId": "bitmap-12",
+      "requested": "img/animations/N03-control-first.png",
+      "imageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/index.html",
+      "stillActiveImage": false,
+      "bitmapLoadingState": "purged"
+    },
+    {
+      "sequence": 102,
+      "elapsedMs": 223,
+      "kind": "native-image-error",
+      "frame": 3,
+      "scene": "Scene_Map",
+      "operations": [],
+      "bitmapId": "bitmap-13",
+      "requested": "img/animations/N03-control-second.png",
+      "imageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/index.html",
+      "stillActiveImage": false,
+      "bitmapLoadingState": "purged"
+    }
+  ],
+  "attempts": [
+    {
+      "directory": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-01",
+      "status": "failed",
+      "error": "Error: Native Scene_Map completion/decode deadline exceeded\n    at chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/native-n03.js:56:239",
+      "reason": "Background System resources Damage/Weapons1/Weapons2/Weapons3/ButtonSet were absent; Scene_Map never became ready; not accepted.",
+      "nativeResultsSha256": "75abd9022e1c7d46815baa73d085c711f9b69119324fd5741e772e0d098b897b",
+      "inputManifestSha256": "1d721eb67106aad14397cfd7d7788168f7a6f35be92bef95cd915ec2c634b494",
+      "launcherResultSha256": "6c1f49460e54a49c4d3b406543539ad7c79474d10761050641a7f1ac5c694be2"
+    },
+    {
+      "directory": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-02",
+      "status": "failed",
+      "error": "TypeError: Cannot read property 'src' of null\n    at Image.<anonymous> (chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/native-n03.js:21:391)",
+      "reason": "Observer error listener dereferenced bitmap._image after native preload purge; instrumentation TypeError aborted this attempt; not accepted.",
+      "nativeResultsSha256": "6671ad7350ab90cabd45d797f01a105c54b851dd3451dc47af54dc6a12383a37",
+      "inputManifestSha256": "2d03e6492fc9c49d2ebb3e5804c00db1a4053988b7b4fabcdfd4146fa6657085",
+      "launcherResultSha256": "22974a27781671ee6a5066c9cdbed42261af1580532eedd0f37b0c7448a1df1b"
+    },
+    {
+      "directory": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-03",
+      "status": "failed",
+      "error": "Error: Independent assertion failed: unselected timing SEs never requested or played\n    at assert (chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/native-n03.js:37:134)\n    at verify (chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/native-n03.js:50:5)\n    at chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/native-n03.js:56:180",
+      "reason": "Independent no-control-audio assertion used an overbroad control-se substring that also matched the control-second image; native execution occurred, but the harness assertion failed; not accepted.",
+      "nativeResultsSha256": "bc32a9b02538384f5b8111211ee9adbb93d8e884faea3552e510ead19e0b3045",
+      "inputManifestSha256": "8ad1dc0f238bbeb3f3413b8039ae69f5ad036b3db4e0f330f3fb91a1f525a7cf",
+      "launcherResultSha256": "50c4f69ab6a8f89ab4273ac7e7cd35f09600024bf67ac083f2753eab6467484e"
+    },
+    {
+      "directory": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04",
+      "status": "observed",
+      "error": null,
+      "reason": "Corrected exact audio-name assertion and observer image capture; nineteen independent assertions passed, including both real Canvas draws and WebAudio decode/start.",
+      "nativeResultsSha256": "0d83e54c8f0e371f78fbc9c9fb1c6789ae9824a7fb1b850afd4094988b9433df",
+      "inputManifestSha256": "f9c7d56255534aa6e511811d8501351f250ac413c5a33a323075273a0cafb269",
+      "launcherResultSha256": "4fb372dba7c3f5b324348be9861d1d5875958e4af5ec08b783a462e1f25fe49d"
+    }
+  ]
+}

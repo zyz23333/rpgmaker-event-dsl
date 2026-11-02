@@ -1,0 +1,3979 @@
+{
+  "created": "2026-11-02T02:59:51.284Z",
+  "baseIntegration": "4a8fbe712f2f5da567632bb7d80dfa666e9fb96b",
+  "scope": "Only N03, no product API/source/built acceptance claim",
+  "authorities": [
+    {
+      "relative": ".scratch/asset-validation/asset-validation-spec.md",
+      "sha256": "015233964c9565a983331ad16af6ac4e36e5e6ad6c41cba9ad42fd170905465c",
+      "baseCommit": "4a8fbe712f2f5da567632bb7d80dfa666e9fb96b"
+    },
+    {
+      "relative": ".scratch/asset-validation/acceptance-matrix.md",
+      "sha256": "ed2d910f4cc1fe73735d105b5e17dc03199528304e5196a519c69144534ac4c1",
+      "baseCommit": "4a8fbe712f2f5da567632bb7d80dfa666e9fb96b"
+    },
+    {
+      "relative": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "sha256": "b6dfe3f110d3d3c8ca28b81f217896560e3a1c7c013aad6c6e97b82d674daaa2",
+      "baseCommit": "4a8fbe712f2f5da567632bb7d80dfa666e9fb96b"
+    },
+    {
+      "relative": "docs/adr/0016-event-rooted-asset-use-coverage.md",
+      "sha256": "afad9bc125457056b23f62090d7249201bb17fe3b7778243ef7f0cca745d9fa5",
+      "baseCommit": "4a8fbe712f2f5da567632bb7d80dfa666e9fb96b"
+    }
+  ],
+  "shell": [
+    {
+      "relative": "Game.exe",
+      "sourceSha256": "487bd28f3d0b43ed9827ba519d6d113c4f31059bd62b4492da586c7bc82a9474",
+      "runCopySha256": "487bd28f3d0b43ed9827ba519d6d113c4f31059bd62b4492da586c7bc82a9474"
+    },
+    {
+      "relative": "nw.dll",
+      "sourceSha256": "4a3f39e9476288d109dbfe0b0c245f032ebf920c5142af36a2a15b31f9ff2139",
+      "runCopySha256": "4a3f39e9476288d109dbfe0b0c245f032ebf920c5142af36a2a15b31f9ff2139"
+    }
+  ],
+  "attempts": [
+    {
+      "directory": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-01",
+      "status": "failed",
+      "error": "Error: Native Scene_Map completion/decode deadline exceeded\n    at chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/native-n03.js:56:239",
+      "reason": "Background System resources Damage/Weapons1/Weapons2/Weapons3/ButtonSet were absent; Scene_Map never became ready; not accepted.",
+      "nativeResultsSha256": "75abd9022e1c7d46815baa73d085c711f9b69119324fd5741e772e0d098b897b",
+      "inputManifestSha256": "1d721eb67106aad14397cfd7d7788168f7a6f35be92bef95cd915ec2c634b494",
+      "launcherResultSha256": "6c1f49460e54a49c4d3b406543539ad7c79474d10761050641a7f1ac5c694be2"
+    },
+    {
+      "directory": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-02",
+      "status": "failed",
+      "error": "TypeError: Cannot read property 'src' of null\n    at Image.<anonymous> (chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/native-n03.js:21:391)",
+      "reason": "Observer error listener dereferenced bitmap._image after native preload purge; instrumentation TypeError aborted this attempt; not accepted.",
+      "nativeResultsSha256": "6671ad7350ab90cabd45d797f01a105c54b851dd3451dc47af54dc6a12383a37",
+      "inputManifestSha256": "2d03e6492fc9c49d2ebb3e5804c00db1a4053988b7b4fabcdfd4146fa6657085",
+      "launcherResultSha256": "22974a27781671ee6a5066c9cdbed42261af1580532eedd0f37b0c7448a1df1b"
+    },
+    {
+      "directory": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-03",
+      "status": "failed",
+      "error": "Error: Independent assertion failed: unselected timing SEs never requested or played\n    at assert (chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/native-n03.js:37:134)\n    at verify (chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/native-n03.js:50:5)\n    at chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/native-n03.js:56:180",
+      "reason": "Independent no-control-audio assertion used an overbroad control-se substring that also matched the control-second image; native execution occurred, but the harness assertion failed; not accepted.",
+      "nativeResultsSha256": "bc32a9b02538384f5b8111211ee9adbb93d8e884faea3552e510ead19e0b3045",
+      "inputManifestSha256": "8ad1dc0f238bbeb3f3413b8039ae69f5ad036b3db4e0f330f3fb91a1f525a7cf",
+      "launcherResultSha256": "50c4f69ab6a8f89ab4273ac7e7cd35f09600024bf67ac083f2753eab6467484e"
+    },
+    {
+      "directory": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04",
+      "status": "observed",
+      "error": null,
+      "reason": "Corrected exact audio-name assertion and observer image capture; nineteen independent assertions passed, including both real Canvas draws and WebAudio decode/start.",
+      "nativeResultsSha256": "0d83e54c8f0e371f78fbc9c9fb1c6789ae9824a7fb1b850afd4094988b9433df",
+      "inputManifestSha256": "f9c7d56255534aa6e511811d8501351f250ac413c5a33a323075273a0cafb269",
+      "launcherResultSha256": "4fb372dba7c3f5b324348be9861d1d5875958e4af5ec08b783a462e1f25fe49d"
+    }
+  ],
+  "receipts": [
+    {
+      "id": "AV.N03.animation-images.native-run.case.observed",
+      "owner": "06",
+      "status": "passed",
+      "actualResult": "observed",
+      "authority": {
+        "spec": ".scratch/asset-validation/asset-validation-spec.md sections selected indirect relationships and native evidence responsibility",
+        "matrix": ".scratch/asset-validation/acceptance-matrix.md N03",
+        "finiteIndex": ".scratch/asset-validation/implementation-acceptance-cases.md N03"
+      },
+      "execution": {
+        "method": "Saved Map001 JSON -> real Scene_Map -> native interpreter command212 -> native Sprite_Character/Sprite_Animation. Every wrapped original delegates apply(this, arguments); no implementation or return value replacement.",
+        "created": "2026-11-02T02:55:09.231Z",
+        "finished": "2026-11-02T02:55:09.739Z",
+        "environment": {
+          "mv": "1.6.1",
+          "platform": "win32",
+          "architecture": "ia32",
+          "release": "10.0.19045",
+          "versions": {
+            "http_parser": "2.7.0",
+            "node": "9.7.1",
+            "v8": "6.5.254.31",
+            "uv": "1.19.2",
+            "zlib": "1.2.11",
+            "ares": "1.13.0",
+            "modules": "59",
+            "nghttp2": "1.29.0",
+            "napi": "2",
+            "openssl": "1.0.2n",
+            "icu": "60.1",
+            "unicode": "10.0",
+            "cldr": "32.0",
+            "tz": "2017c",
+            "nw": "0.29.0",
+            "node-webkit": "0.29.0",
+            "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+            "nw-flavor": "normal",
+            "chromium": "65.0.3325.146"
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+        },
+        "command": {
+          "executable": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+          "args": [
+            "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-n03.mjs",
+            "F:/Shuen/RPG/rpgmaker-event-dsl/references/rmmv-local-runtime-1.6.1",
+            "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win/Game.exe",
+            "M:/Shuen/Codex/tools/media-python/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+            "M:/Shuen/Codex/asset-validation-notes/n03-animation-20261102/run-04"
+          ]
+        },
+        "launch": {
+          "executable": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04\\Game.exe",
+          "args": [
+            "--user-data-dir=M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04\\nw-profile",
+            "--enable-logging",
+            "--log-file=M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04\\nw.log"
+          ],
+          "cwd": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04",
+          "windowsHide": true,
+          "stdio": "ignore",
+          "timeoutMs": 60000
+        },
+        "launcherResult": "launcher-result.json",
+        "nativeResults": "native-results.json",
+        "nativeResultsSha256": "0d83e54c8f0e371f78fbc9c9fb1c6789ae9824a7fb1b850afd4094988b9433df",
+        "inputManifest": "input-manifest.json",
+        "inputManifestSha256": "f9c7d56255534aa6e511811d8501351f250ac413c5a33a323075273a0cafb269"
+      },
+      "input": "data/Map001.json events[2].pages[0].list[3] -> Animations[1].animation1Name/animation2Name; control list[1] -> Animations[2]",
+      "independentExpected": {
+        "images": [
+          {
+            "field": "Animations[1].animation1Name",
+            "relative": "img/animations/N03-first.png",
+            "pattern": 0,
+            "width": 960,
+            "height": 192,
+            "pixel": "#ff0000"
+          },
+          {
+            "field": "Animations[1].animation2Name",
+            "relative": "img/animations/N03-second.png",
+            "pattern": 100,
+            "width": 960,
+            "height": 192,
+            "pixel": "#0000ff"
+          }
+        ],
+        "control": {
+          "switch1": false,
+          "animationId": 2,
+          "preloadImages": true,
+          "executed": false,
+          "frameEvents": 0,
+          "seCalls": 0
+        }
+      },
+      "actual": {
+        "disks": [
+          {
+            "relative": "img/animations/N03-first.png",
+            "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04\\img\\animations\\N03-first.png",
+            "bytes": 1214,
+            "ordinaryFile": true,
+            "sha256": "d8951c93582bd85e929d69a7cdff826ab1c00e7502009f561f21adb8c6784f57"
+          },
+          {
+            "relative": "img/animations/N03-second.png",
+            "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04\\img\\animations\\N03-second.png",
+            "bytes": 1261,
+            "ordinaryFile": true,
+            "sha256": "dfe0df26ed669020f3525fa5a810354c7f06f349f4c4f709d4fc76da0e181397"
+          }
+        ],
+        "eventSequences": [
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          90,
+          91,
+          93,
+          98,
+          99,
+          100,
+          101,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          126,
+          127,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ],
+        "final": {
+          "frame": 19,
+          "scene": "Scene_Map",
+          "eventMarker": true,
+          "rendererType": 2,
+          "audioContextState": "running",
+          "animationStates": [
+            {
+              "id": "animation-16",
+              "animationId": 1,
+              "duration": 0,
+              "isPlaying": false,
+              "ready": true,
+              "bitmap1": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "bitmap2": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              }
+            }
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "label": "genuine Scene_Map and advancing hidden frames",
+          "passed": true,
+          "actual": {
+            "scene": "Scene_Map",
+            "frame": 19
+          }
+        },
+        {
+          "label": "only selected command212 executes once",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 69,
+              "elapsedMs": 184,
+              "kind": "command212",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [],
+              "phase": "execute",
+              "eventId": 2,
+              "commandIndex": 3,
+              "parameters": [
+                1,
+                1,
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "label": "preload requests both saved images before any animation instance",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 62,
+              "elapsedMs": 184,
+              "kind": "ImageManager.requestAnimation",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "setup",
+                  "eventId": 2,
+                  "commandCodes": [
+                    111,
+                    212,
+                    412,
+                    212,
+                    355,
+                    123,
+                    0
+                  ]
+                },
+                {
+                  "method": "requestImages",
+                  "phase": "preload"
+                },
+                {
+                  "method": "requestAnimation",
+                  "phase": "preload",
+                  "name": "N03-control-first",
+                  "hue": 0
+                }
+              ],
+              "name": "N03-control-first",
+              "hue": 0,
+              "bitmap": {
+                "id": "bitmap-12",
+                "url": "img/animations/N03-control-first.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "sequence": 64,
+              "elapsedMs": 184,
+              "kind": "ImageManager.requestAnimation",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "setup",
+                  "eventId": 2,
+                  "commandCodes": [
+                    111,
+                    212,
+                    412,
+                    212,
+                    355,
+                    123,
+                    0
+                  ]
+                },
+                {
+                  "method": "requestImages",
+                  "phase": "preload"
+                },
+                {
+                  "method": "requestAnimation",
+                  "phase": "preload",
+                  "name": "N03-control-second",
+                  "hue": 0
+                }
+              ],
+              "name": "N03-control-second",
+              "hue": 0,
+              "bitmap": {
+                "id": "bitmap-13",
+                "url": "img/animations/N03-control-second.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "sequence": 66,
+              "elapsedMs": 184,
+              "kind": "ImageManager.requestAnimation",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "setup",
+                  "eventId": 2,
+                  "commandCodes": [
+                    111,
+                    212,
+                    412,
+                    212,
+                    355,
+                    123,
+                    0
+                  ]
+                },
+                {
+                  "method": "requestImages",
+                  "phase": "preload"
+                },
+                {
+                  "method": "requestAnimation",
+                  "phase": "preload",
+                  "name": "N03-first",
+                  "hue": 0
+                }
+              ],
+              "name": "N03-first",
+              "hue": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "sequence": 68,
+              "elapsedMs": 184,
+              "kind": "ImageManager.requestAnimation",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "setup",
+                  "eventId": 2,
+                  "commandCodes": [
+                    111,
+                    212,
+                    412,
+                    212,
+                    355,
+                    123,
+                    0
+                  ]
+                },
+                {
+                  "method": "requestImages",
+                  "phase": "preload"
+                },
+                {
+                  "method": "requestAnimation",
+                  "phase": "preload",
+                  "name": "N03-second",
+                  "hue": 0
+                }
+              ],
+              "name": "N03-second",
+              "hue": 0,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              }
+            }
+          ]
+        },
+        {
+          "label": "unselected branch preloads both control images and never creates its animation",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 62,
+              "elapsedMs": 184,
+              "kind": "ImageManager.requestAnimation",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "setup",
+                  "eventId": 2,
+                  "commandCodes": [
+                    111,
+                    212,
+                    412,
+                    212,
+                    355,
+                    123,
+                    0
+                  ]
+                },
+                {
+                  "method": "requestImages",
+                  "phase": "preload"
+                },
+                {
+                  "method": "requestAnimation",
+                  "phase": "preload",
+                  "name": "N03-control-first",
+                  "hue": 0
+                }
+              ],
+              "name": "N03-control-first",
+              "hue": 0,
+              "bitmap": {
+                "id": "bitmap-12",
+                "url": "img/animations/N03-control-first.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "sequence": 64,
+              "elapsedMs": 184,
+              "kind": "ImageManager.requestAnimation",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "setup",
+                  "eventId": 2,
+                  "commandCodes": [
+                    111,
+                    212,
+                    412,
+                    212,
+                    355,
+                    123,
+                    0
+                  ]
+                },
+                {
+                  "method": "requestImages",
+                  "phase": "preload"
+                },
+                {
+                  "method": "requestAnimation",
+                  "phase": "preload",
+                  "name": "N03-control-second",
+                  "hue": 0
+                }
+              ],
+              "name": "N03-control-second",
+              "hue": 0,
+              "bitmap": {
+                "id": "bitmap-13",
+                "url": "img/animations/N03-control-second.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "sequence": 66,
+              "elapsedMs": 184,
+              "kind": "ImageManager.requestAnimation",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "setup",
+                  "eventId": 2,
+                  "commandCodes": [
+                    111,
+                    212,
+                    412,
+                    212,
+                    355,
+                    123,
+                    0
+                  ]
+                },
+                {
+                  "method": "requestImages",
+                  "phase": "preload"
+                },
+                {
+                  "method": "requestAnimation",
+                  "phase": "preload",
+                  "name": "N03-first",
+                  "hue": 0
+                }
+              ],
+              "name": "N03-first",
+              "hue": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "sequence": 68,
+              "elapsedMs": 184,
+              "kind": "ImageManager.requestAnimation",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "setup",
+                  "eventId": 2,
+                  "commandCodes": [
+                    111,
+                    212,
+                    412,
+                    212,
+                    355,
+                    123,
+                    0
+                  ]
+                },
+                {
+                  "method": "requestImages",
+                  "phase": "preload"
+                },
+                {
+                  "method": "requestAnimation",
+                  "phase": "preload",
+                  "name": "N03-second",
+                  "hue": 0
+                }
+              ],
+              "name": "N03-second",
+              "hue": 0,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              }
+            }
+          ]
+        },
+        {
+          "label": "native loadBitmaps consumes both images",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 73,
+              "elapsedMs": 185,
+              "kind": "ImageManager.loadAnimation",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "setupAnimation",
+                  "characterEventId": 1,
+                  "requestedAnimationId": 1
+                },
+                {
+                  "method": "setup",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "delay": 0,
+                  "targetCharacterEventId": 1
+                },
+                {
+                  "method": "loadBitmaps",
+                  "phase": "consumer",
+                  "animationInstance": "animation-16",
+                  "animationId": 1
+                },
+                {
+                  "method": "loadAnimation",
+                  "phase": "consumer",
+                  "name": "N03-first",
+                  "hue": 0
+                }
+              ],
+              "name": "N03-first",
+              "hue": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "sequence": 76,
+              "elapsedMs": 185,
+              "kind": "ImageManager.loadAnimation",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "setupAnimation",
+                  "characterEventId": 1,
+                  "requestedAnimationId": 1
+                },
+                {
+                  "method": "setup",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "delay": 0,
+                  "targetCharacterEventId": 1
+                },
+                {
+                  "method": "loadBitmaps",
+                  "phase": "consumer",
+                  "animationInstance": "animation-16",
+                  "animationId": 1
+                },
+                {
+                  "method": "loadAnimation",
+                  "phase": "consumer",
+                  "name": "N03-second",
+                  "hue": 0
+                }
+              ],
+              "name": "N03-second",
+              "hue": 0,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              }
+            }
+          ]
+        },
+        {
+          "label": "preload and native consumers retain the same bitmap identities",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 73,
+              "elapsedMs": 185,
+              "kind": "ImageManager.loadAnimation",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "setupAnimation",
+                  "characterEventId": 1,
+                  "requestedAnimationId": 1
+                },
+                {
+                  "method": "setup",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "delay": 0,
+                  "targetCharacterEventId": 1
+                },
+                {
+                  "method": "loadBitmaps",
+                  "phase": "consumer",
+                  "animationInstance": "animation-16",
+                  "animationId": 1
+                },
+                {
+                  "method": "loadAnimation",
+                  "phase": "consumer",
+                  "name": "N03-first",
+                  "hue": 0
+                }
+              ],
+              "name": "N03-first",
+              "hue": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "sequence": 76,
+              "elapsedMs": 185,
+              "kind": "ImageManager.loadAnimation",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "setupAnimation",
+                  "characterEventId": 1,
+                  "requestedAnimationId": 1
+                },
+                {
+                  "method": "setup",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "delay": 0,
+                  "targetCharacterEventId": 1
+                },
+                {
+                  "method": "loadBitmaps",
+                  "phase": "consumer",
+                  "animationInstance": "animation-16",
+                  "animationId": 1
+                },
+                {
+                  "method": "loadAnimation",
+                  "phase": "consumer",
+                  "name": "N03-second",
+                  "hue": 0
+                }
+              ],
+              "name": "N03-second",
+              "hue": 0,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              }
+            }
+          ]
+        },
+        {
+          "label": "four native animation frames execute",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 82,
+              "elapsedMs": 200,
+              "kind": "Sprite_Animation.updateFrame",
+              "frame": 1,
+              "scene": "Scene_Map",
+              "operations": [],
+              "phase": "frame",
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 0,
+              "duration": 16,
+              "ready": true
+            },
+            {
+              "sequence": 107,
+              "elapsedMs": 266,
+              "kind": "Sprite_Animation.updateFrame",
+              "frame": 5,
+              "scene": "Scene_Map",
+              "operations": [],
+              "phase": "frame",
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 1,
+              "duration": 12,
+              "ready": true
+            },
+            {
+              "sequence": 118,
+              "elapsedMs": 333,
+              "kind": "Sprite_Animation.updateFrame",
+              "frame": 9,
+              "scene": "Scene_Map",
+              "operations": [],
+              "phase": "frame",
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 2,
+              "duration": 8,
+              "ready": true
+            },
+            {
+              "sequence": 138,
+              "elapsedMs": 400,
+              "kind": "Sprite_Animation.updateFrame",
+              "frame": 13,
+              "scene": "Scene_Map",
+              "operations": [],
+              "phase": "frame",
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 3,
+              "duration": 4,
+              "ready": true
+            }
+          ]
+        },
+        {
+          "label": "native cells select N03-first as ready 192px sheet cell",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 83,
+              "elapsedMs": 200,
+              "kind": "Sprite_Animation.updateCellSprite",
+              "frame": 1,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "duration": 16,
+                  "ready": true
+                },
+                {
+                  "method": "updateCellSprite"
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 0,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "cellFrame": {
+                "x": 0,
+                "y": 0,
+                "width": 192,
+                "height": 192
+              },
+              "visible": true,
+              "pixel": "#ff0000"
+            },
+            {
+              "sequence": 108,
+              "elapsedMs": 266,
+              "kind": "Sprite_Animation.updateCellSprite",
+              "frame": 5,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 1,
+                  "duration": 12,
+                  "ready": true
+                },
+                {
+                  "method": "updateCellSprite"
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 1,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "cellFrame": {
+                "x": 0,
+                "y": 0,
+                "width": 192,
+                "height": 192
+              },
+              "visible": true,
+              "pixel": "#ff0000"
+            },
+            {
+              "sequence": 119,
+              "elapsedMs": 333,
+              "kind": "Sprite_Animation.updateCellSprite",
+              "frame": 9,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "duration": 8,
+                  "ready": true
+                },
+                {
+                  "method": "updateCellSprite"
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 2,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "cellFrame": {
+                "x": 0,
+                "y": 0,
+                "width": 192,
+                "height": 192
+              },
+              "visible": true,
+              "pixel": "#ff0000"
+            },
+            {
+              "sequence": 139,
+              "elapsedMs": 400,
+              "kind": "Sprite_Animation.updateCellSprite",
+              "frame": 13,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 3,
+                  "duration": 4,
+                  "ready": true
+                },
+                {
+                  "method": "updateCellSprite"
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 3,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "cellFrame": {
+                "x": 0,
+                "y": 0,
+                "width": 192,
+                "height": 192
+              },
+              "visible": true,
+              "pixel": "#ff0000"
+            }
+          ]
+        },
+        {
+          "label": "native cells select N03-second as ready 192px sheet cell",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 84,
+              "elapsedMs": 200,
+              "kind": "Sprite_Animation.updateCellSprite",
+              "frame": 1,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "duration": 16,
+                  "ready": true
+                },
+                {
+                  "method": "updateCellSprite"
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 0,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "cellFrame": {
+                "x": 0,
+                "y": 0,
+                "width": 192,
+                "height": 192
+              },
+              "visible": true,
+              "pixel": "#0000ff"
+            },
+            {
+              "sequence": 109,
+              "elapsedMs": 266,
+              "kind": "Sprite_Animation.updateCellSprite",
+              "frame": 5,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 1,
+                  "duration": 12,
+                  "ready": true
+                },
+                {
+                  "method": "updateCellSprite"
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 1,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "cellFrame": {
+                "x": 0,
+                "y": 0,
+                "width": 192,
+                "height": 192
+              },
+              "visible": true,
+              "pixel": "#0000ff"
+            },
+            {
+              "sequence": 120,
+              "elapsedMs": 333,
+              "kind": "Sprite_Animation.updateCellSprite",
+              "frame": 9,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "duration": 8,
+                  "ready": true
+                },
+                {
+                  "method": "updateCellSprite"
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 2,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "cellFrame": {
+                "x": 0,
+                "y": 0,
+                "width": 192,
+                "height": 192
+              },
+              "visible": true,
+              "pixel": "#0000ff"
+            },
+            {
+              "sequence": 140,
+              "elapsedMs": 400,
+              "kind": "Sprite_Animation.updateCellSprite",
+              "frame": 13,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 3,
+                  "duration": 4,
+                  "ready": true
+                },
+                {
+                  "method": "updateCellSprite"
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 3,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "cellFrame": {
+                "x": 0,
+                "y": 0,
+                "width": 192,
+                "height": 192
+              },
+              "visible": true,
+              "pixel": "#0000ff"
+            }
+          ]
+        },
+        {
+          "label": "native renderer drawImage consumes img/animations/N03-first.png",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 90,
+              "elapsedMs": 205,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 1,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 0,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 99,
+              "elapsedMs": 221,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 2,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 0,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 103,
+              "elapsedMs": 238,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 3,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 0,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 105,
+              "elapsedMs": 256,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 4,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 0,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 110,
+              "elapsedMs": 270,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 5,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 1,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 1,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 112,
+              "elapsedMs": 287,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 6,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 1,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 1,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 114,
+              "elapsedMs": 304,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 7,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 1,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 1,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 116,
+              "elapsedMs": 320,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 8,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 1,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 1,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 126,
+              "elapsedMs": 338,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 9,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 2,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 132,
+              "elapsedMs": 354,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 10,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 2,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 134,
+              "elapsedMs": 370,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 11,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 2,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 136,
+              "elapsedMs": 387,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 12,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 2,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 141,
+              "elapsedMs": 405,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 13,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 3,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 3,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 143,
+              "elapsedMs": 438,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 14,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 3,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 3,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 145,
+              "elapsedMs": 453,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 15,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 3,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 3,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 148,
+              "elapsedMs": 470,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 16,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 3,
+                  "pattern": 0
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 3,
+              "pattern": 0,
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            }
+          ]
+        },
+        {
+          "label": "native renderer drawImage consumes img/animations/N03-second.png",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 91,
+              "elapsedMs": 205,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 1,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 0,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 100,
+              "elapsedMs": 221,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 2,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 0,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 104,
+              "elapsedMs": 238,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 3,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 0,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 106,
+              "elapsedMs": 256,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 4,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 0,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 111,
+              "elapsedMs": 270,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 5,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 1,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 1,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 113,
+              "elapsedMs": 287,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 6,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 1,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 1,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 115,
+              "elapsedMs": 304,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 7,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 1,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 1,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 117,
+              "elapsedMs": 320,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 8,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 1,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 1,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 127,
+              "elapsedMs": 338,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 9,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 2,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 133,
+              "elapsedMs": 354,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 10,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 2,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 135,
+              "elapsedMs": 370,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 11,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 2,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 137,
+              "elapsedMs": 387,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 12,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 2,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 142,
+              "elapsedMs": 405,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 13,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 3,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 3,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 144,
+              "elapsedMs": 438,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 14,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 3,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 3,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 146,
+              "elapsedMs": 453,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 15,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 3,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 3,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            },
+            {
+              "sequence": 149,
+              "elapsedMs": 470,
+              "kind": "native-animation-canvas-drawImage",
+              "frame": 16,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_renderCanvas",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 3,
+                  "pattern": 100
+                }
+              ],
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "animationFrame": 3,
+              "pattern": 100,
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "drawArguments": [
+                0,
+                0,
+                192,
+                192,
+                -96,
+                -96,
+                192,
+                192
+              ],
+              "sourceWidth": 960,
+              "sourceHeight": 192
+            }
+          ]
+        },
+        {
+          "label": "selected images have genuine native load callbacks",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 34,
+              "elapsedMs": 23,
+              "kind": "Bitmap._onLoad",
+              "frame": 0,
+              "scene": null,
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Shadow2.png",
+                  "naturalWidth": 48,
+                  "naturalHeight": 48
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-4",
+                "url": "img/system/Shadow2.png",
+                "ready": true,
+                "width": 48,
+                "height": 48
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Shadow2.png",
+              "naturalWidth": 48,
+              "naturalHeight": 48,
+              "nativeRetainedImage": true,
+              "pixel": "#808080"
+            },
+            {
+              "sequence": 35,
+              "elapsedMs": 23,
+              "kind": "Bitmap._onLoad",
+              "frame": 0,
+              "scene": null,
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Damage.png",
+                  "naturalWidth": 240,
+                  "naturalHeight": 160
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-5",
+                "url": "img/system/Damage.png",
+                "ready": true,
+                "width": 240,
+                "height": 160
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Damage.png",
+              "naturalWidth": 240,
+              "naturalHeight": 160,
+              "nativeRetainedImage": true,
+              "pixel": "#808080"
+            },
+            {
+              "sequence": 36,
+              "elapsedMs": 24,
+              "kind": "Bitmap._onLoad",
+              "frame": 0,
+              "scene": null,
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/States.png",
+                  "naturalWidth": 768,
+                  "naturalHeight": 96
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-6",
+                "url": "img/system/States.png",
+                "ready": true,
+                "width": 768,
+                "height": 96
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/States.png",
+              "naturalWidth": 768,
+              "naturalHeight": 96,
+              "nativeRetainedImage": true,
+              "pixel": "#808080"
+            },
+            {
+              "sequence": 37,
+              "elapsedMs": 25,
+              "kind": "Bitmap._onLoad",
+              "frame": 0,
+              "scene": null,
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Weapons1.png",
+                  "naturalWidth": 576,
+                  "naturalHeight": 384
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-7",
+                "url": "img/system/Weapons1.png",
+                "ready": true,
+                "width": 576,
+                "height": 384
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Weapons1.png",
+              "naturalWidth": 576,
+              "naturalHeight": 384,
+              "nativeRetainedImage": true,
+              "pixel": "#808080"
+            },
+            {
+              "sequence": 38,
+              "elapsedMs": 27,
+              "kind": "Bitmap._onLoad",
+              "frame": 0,
+              "scene": null,
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Weapons2.png",
+                  "naturalWidth": 576,
+                  "naturalHeight": 384
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-8",
+                "url": "img/system/Weapons2.png",
+                "ready": true,
+                "width": 576,
+                "height": 384
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Weapons2.png",
+              "naturalWidth": 576,
+              "naturalHeight": 384,
+              "nativeRetainedImage": true,
+              "pixel": "#808080"
+            },
+            {
+              "sequence": 39,
+              "elapsedMs": 29,
+              "kind": "Bitmap._onLoad",
+              "frame": 0,
+              "scene": null,
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Weapons3.png",
+                  "naturalWidth": 576,
+                  "naturalHeight": 384
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-9",
+                "url": "img/system/Weapons3.png",
+                "ready": true,
+                "width": 576,
+                "height": 384
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Weapons3.png",
+              "naturalWidth": 576,
+              "naturalHeight": 384,
+              "nativeRetainedImage": true,
+              "pixel": "#808080"
+            },
+            {
+              "sequence": 40,
+              "elapsedMs": 29,
+              "kind": "Bitmap._onLoad",
+              "frame": 0,
+              "scene": null,
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/ButtonSet.png",
+                  "naturalWidth": 288,
+                  "naturalHeight": 96
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-10",
+                "url": "img/system/ButtonSet.png",
+                "ready": true,
+                "width": 288,
+                "height": 96
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/ButtonSet.png",
+              "naturalWidth": 288,
+              "naturalHeight": 96,
+              "nativeRetainedImage": true,
+              "pixel": "#808080"
+            },
+            {
+              "sequence": 41,
+              "elapsedMs": 32,
+              "kind": "Bitmap._onLoad",
+              "frame": 0,
+              "scene": null,
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/IconSet.png",
+                  "naturalWidth": 512,
+                  "naturalHeight": 512
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-1",
+                "url": "img/system/IconSet.png",
+                "ready": true,
+                "width": 512,
+                "height": 512
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/IconSet.png",
+              "naturalWidth": 512,
+              "naturalHeight": 512,
+              "nativeRetainedImage": true,
+              "pixel": "#808080"
+            },
+            {
+              "sequence": 42,
+              "elapsedMs": 33,
+              "kind": "Bitmap._onLoad",
+              "frame": 0,
+              "scene": null,
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Balloon.png",
+                  "naturalWidth": 384,
+                  "naturalHeight": 384
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-2",
+                "url": "img/system/Balloon.png",
+                "ready": true,
+                "width": 384,
+                "height": 384
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Balloon.png",
+              "naturalWidth": 384,
+              "naturalHeight": 384,
+              "nativeRetainedImage": true,
+              "pixel": "#808080"
+            },
+            {
+              "sequence": 43,
+              "elapsedMs": 33,
+              "kind": "Bitmap._onLoad",
+              "frame": 0,
+              "scene": null,
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Shadow1.png",
+                  "naturalWidth": 48,
+                  "naturalHeight": 48
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-3",
+                "url": "img/system/Shadow1.png",
+                "ready": true,
+                "width": 48,
+                "height": 48
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Shadow1.png",
+              "naturalWidth": 48,
+              "naturalHeight": 48,
+              "nativeRetainedImage": true,
+              "pixel": "#808080"
+            },
+            {
+              "sequence": 58,
+              "elapsedMs": 162,
+              "kind": "Bitmap._onLoad",
+              "frame": 0,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Window.png",
+                  "naturalWidth": 192,
+                  "naturalHeight": 192
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-11",
+                "url": "img/system/Window.png",
+                "ready": true,
+                "width": 192,
+                "height": 192
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/system/Window.png",
+              "naturalWidth": 192,
+              "naturalHeight": 192,
+              "nativeRetainedImage": true,
+              "pixel": "#808080"
+            },
+            {
+              "sequence": 79,
+              "elapsedMs": 197,
+              "kind": "Bitmap._onLoad",
+              "frame": 1,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/animations/N03-second.png",
+                  "naturalWidth": 960,
+                  "naturalHeight": 192
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/animations/N03-second.png",
+              "naturalWidth": 960,
+              "naturalHeight": 192,
+              "nativeRetainedImage": true,
+              "pixel": "#0000ff"
+            },
+            {
+              "sequence": 80,
+              "elapsedMs": 198,
+              "kind": "Bitmap._onLoad",
+              "frame": 1,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/animations/N03-first.png",
+                  "naturalWidth": 960,
+                  "naturalHeight": 192
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/animations/N03-first.png",
+              "naturalWidth": 960,
+              "naturalHeight": 192,
+              "nativeRetainedImage": true,
+              "pixel": "#ff0000"
+            },
+            {
+              "sequence": 93,
+              "elapsedMs": 208,
+              "kind": "Bitmap._onLoad",
+              "frame": 2,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/animations/N03-control-first.png",
+                  "naturalWidth": 960,
+                  "naturalHeight": 192
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-12",
+                "url": "img/animations/N03-control-first.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/animations/N03-control-first.png",
+              "naturalWidth": 960,
+              "naturalHeight": 192,
+              "nativeRetainedImage": false
+            },
+            {
+              "sequence": 101,
+              "elapsedMs": 223,
+              "kind": "Bitmap._onLoad",
+              "frame": 3,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "_onLoad",
+                  "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/animations/N03-control-second.png",
+                  "naturalWidth": 960,
+                  "naturalHeight": 192
+                }
+              ],
+              "bitmap": {
+                "id": "bitmap-13",
+                "url": "img/animations/N03-control-second.png",
+                "ready": false,
+                "width": 0,
+                "height": 0
+              },
+              "loadedImageSrc": "chrome-extension://gmilihhnhbjdfpooagnimmjkkepleheo/img/animations/N03-control-second.png",
+              "naturalWidth": 960,
+              "naturalHeight": 192,
+              "nativeRetainedImage": false
+            }
+          ]
+        },
+        {
+          "label": "animation stopped and native event wait completed",
+          "passed": true,
+          "actual": {
+            "marker": true,
+            "duration": 0,
+            "playing": false
+          }
+        }
+      ],
+      "limitation": "Valid self-made solid sheets and four native frames establish this sample; no media-content or all-animation guarantee."
+    },
+    {
+      "id": "AV.N03.animation-timing-se.native-run.case.observed",
+      "owner": "06",
+      "status": "passed",
+      "actualResult": "observed",
+      "authority": {
+        "spec": ".scratch/asset-validation/asset-validation-spec.md sections selected indirect relationships and native evidence responsibility",
+        "matrix": ".scratch/asset-validation/acceptance-matrix.md N03",
+        "finiteIndex": ".scratch/asset-validation/implementation-acceptance-cases.md N03"
+      },
+      "execution": {
+        "method": "Saved Map001 JSON -> real Scene_Map -> native interpreter command212 -> native Sprite_Character/Sprite_Animation. Every wrapped original delegates apply(this, arguments); no implementation or return value replacement.",
+        "created": "2026-11-02T02:55:09.231Z",
+        "finished": "2026-11-02T02:55:09.739Z",
+        "environment": {
+          "mv": "1.6.1",
+          "platform": "win32",
+          "architecture": "ia32",
+          "release": "10.0.19045",
+          "versions": {
+            "http_parser": "2.7.0",
+            "node": "9.7.1",
+            "v8": "6.5.254.31",
+            "uv": "1.19.2",
+            "zlib": "1.2.11",
+            "ares": "1.13.0",
+            "modules": "59",
+            "nghttp2": "1.29.0",
+            "napi": "2",
+            "openssl": "1.0.2n",
+            "icu": "60.1",
+            "unicode": "10.0",
+            "cldr": "32.0",
+            "tz": "2017c",
+            "nw": "0.29.0",
+            "node-webkit": "0.29.0",
+            "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+            "nw-flavor": "normal",
+            "chromium": "65.0.3325.146"
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+        },
+        "command": {
+          "executable": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+          "args": [
+            "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-n03.mjs",
+            "F:/Shuen/RPG/rpgmaker-event-dsl/references/rmmv-local-runtime-1.6.1",
+            "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win/Game.exe",
+            "M:/Shuen/Codex/tools/media-python/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+            "M:/Shuen/Codex/asset-validation-notes/n03-animation-20261102/run-04"
+          ]
+        },
+        "launch": {
+          "executable": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04\\Game.exe",
+          "args": [
+            "--user-data-dir=M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04\\nw-profile",
+            "--enable-logging",
+            "--log-file=M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04\\nw.log"
+          ],
+          "cwd": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04",
+          "windowsHide": true,
+          "stdio": "ignore",
+          "timeoutMs": 60000
+        },
+        "launcherResult": "launcher-result.json",
+        "nativeResults": "native-results.json",
+        "nativeResultsSha256": "0d83e54c8f0e371f78fbc9c9fb1c6789ae9824a7fb1b850afd4094988b9433df",
+        "inputManifest": "input-manifest.json",
+        "inputManifestSha256": "f9c7d56255534aa6e511811d8501351f250ac413c5a33a323075273a0cafb269"
+      },
+      "input": "Animations[1].timings[0/1].se.name at frame0/2",
+      "independentExpected": {
+        "timings": [
+          {
+            "field": "Animations[1].timings[0].se.name",
+            "frame": 0,
+            "relative": "audio/se/N03-se-first.ogg",
+            "volume": 70,
+            "pitch": 100,
+            "pan": -25
+          },
+          {
+            "field": "Animations[1].timings[1].se.name",
+            "frame": 2,
+            "relative": "audio/se/N03-se-second.ogg",
+            "volume": 80,
+            "pitch": 100,
+            "pan": 25
+          }
+        ],
+        "control": {
+          "switch1": false,
+          "animationId": 2,
+          "preloadImages": true,
+          "executed": false,
+          "frameEvents": 0,
+          "seCalls": 0
+        }
+      },
+      "actual": {
+        "disks": [
+          {
+            "relative": "audio/se/N03-se-first.ogg",
+            "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04\\audio\\se\\N03-se-first.ogg",
+            "bytes": 4137,
+            "ordinaryFile": true,
+            "sha256": "b3353d6046e1a0de679ce9c26eced849ef67cc961096d24000ff71e9a0f165af"
+          },
+          {
+            "relative": "audio/se/N03-se-second.ogg",
+            "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n03-animation-20261102\\run-04\\audio\\se\\N03-se-second.ogg",
+            "bytes": 4198,
+            "ordinaryFile": true,
+            "sha256": "9999b36281a3b9ee67a5fc15c9a226029382d73ff465455e10afc5fae4ef7ee1"
+          }
+        ],
+        "eventSequences": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          46,
+          47,
+          85,
+          86,
+          87,
+          88,
+          89,
+          92,
+          95,
+          96,
+          97,
+          121,
+          122,
+          123,
+          124,
+          125,
+          128,
+          129,
+          130,
+          131
+        ],
+        "final": {
+          "frame": 19,
+          "scene": "Scene_Map",
+          "eventMarker": true,
+          "rendererType": 2,
+          "audioContextState": "running",
+          "animationStates": [
+            {
+              "id": "animation-16",
+              "animationId": 1,
+              "duration": 0,
+              "isPlaying": false,
+              "ready": true,
+              "bitmap1": {
+                "id": "bitmap-14",
+                "url": "img/animations/N03-first.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              },
+              "bitmap2": {
+                "id": "bitmap-15",
+                "url": "img/animations/N03-second.png",
+                "ready": true,
+                "width": 960,
+                "height": 192
+              }
+            }
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "label": "two timings execute at saved frames0 and2 without duplicate suppression",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 85,
+              "elapsedMs": 200,
+              "kind": "Sprite_Animation.processTimingData",
+              "frame": 1,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "duration": 16,
+                  "ready": true
+                }
+              ],
+              "phase": "timing",
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "timingIndex": 0,
+              "animationFrame": 0,
+              "savedTiming": {
+                "frame": 0,
+                "flashScope": 0,
+                "flashColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "flashDuration": 0,
+                "se": {
+                  "name": "N03-se-first",
+                  "volume": 70,
+                  "pitch": 100,
+                  "pan": -25
+                }
+              },
+              "duplicated": false
+            },
+            {
+              "sequence": 121,
+              "elapsedMs": 333,
+              "kind": "Sprite_Animation.processTimingData",
+              "frame": 9,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "duration": 8,
+                  "ready": true
+                }
+              ],
+              "phase": "timing",
+              "animationInstance": "animation-16",
+              "animationId": 1,
+              "timingIndex": 1,
+              "animationFrame": 2,
+              "savedTiming": {
+                "frame": 2,
+                "flashScope": 0,
+                "flashColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "flashDuration": 0,
+                "se": {
+                  "name": "N03-se-second",
+                  "volume": 80,
+                  "pitch": 100,
+                  "pan": 25
+                }
+              },
+              "duplicated": false
+            }
+          ]
+        },
+        {
+          "label": "timing SE exact names and independent saved controls",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 86,
+              "elapsedMs": 201,
+              "kind": "AudioManager.playSe",
+              "frame": 1,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "duration": 16,
+                  "ready": true
+                },
+                {
+                  "method": "processTimingData",
+                  "phase": "timing",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "timingIndex": 0,
+                  "animationFrame": 0,
+                  "savedTiming": {
+                    "frame": 0,
+                    "flashScope": 0,
+                    "flashColor": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "flashDuration": 0,
+                    "se": {
+                      "name": "N03-se-first",
+                      "volume": 70,
+                      "pitch": 100,
+                      "pan": -25
+                    }
+                  },
+                  "duplicated": false
+                }
+              ],
+              "se": {
+                "name": "N03-se-first",
+                "volume": 70,
+                "pitch": 100,
+                "pan": -25
+              }
+            },
+            {
+              "sequence": 122,
+              "elapsedMs": 333,
+              "kind": "AudioManager.playSe",
+              "frame": 9,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "duration": 8,
+                  "ready": true
+                },
+                {
+                  "method": "processTimingData",
+                  "phase": "timing",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "timingIndex": 1,
+                  "animationFrame": 2,
+                  "savedTiming": {
+                    "frame": 2,
+                    "flashScope": 0,
+                    "flashColor": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "flashDuration": 0,
+                    "se": {
+                      "name": "N03-se-second",
+                      "volume": 80,
+                      "pitch": 100,
+                      "pan": 25
+                    }
+                  },
+                  "duplicated": false
+                }
+              ],
+              "se": {
+                "name": "N03-se-second",
+                "volume": 80,
+                "pitch": 100,
+                "pan": 25
+              }
+            }
+          ]
+        },
+        {
+          "label": "audio SE calls originate at actual processTimingData, never preload",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 86,
+              "elapsedMs": 201,
+              "kind": "AudioManager.playSe",
+              "frame": 1,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "duration": 16,
+                  "ready": true
+                },
+                {
+                  "method": "processTimingData",
+                  "phase": "timing",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "timingIndex": 0,
+                  "animationFrame": 0,
+                  "savedTiming": {
+                    "frame": 0,
+                    "flashScope": 0,
+                    "flashColor": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "flashDuration": 0,
+                    "se": {
+                      "name": "N03-se-first",
+                      "volume": 70,
+                      "pitch": 100,
+                      "pan": -25
+                    }
+                  },
+                  "duplicated": false
+                }
+              ],
+              "se": {
+                "name": "N03-se-first",
+                "volume": 70,
+                "pitch": 100,
+                "pan": -25
+              }
+            },
+            {
+              "sequence": 122,
+              "elapsedMs": 333,
+              "kind": "AudioManager.playSe",
+              "frame": 9,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "duration": 8,
+                  "ready": true
+                },
+                {
+                  "method": "processTimingData",
+                  "phase": "timing",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "timingIndex": 1,
+                  "animationFrame": 2,
+                  "savedTiming": {
+                    "frame": 2,
+                    "flashScope": 0,
+                    "flashColor": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "flashDuration": 0,
+                    "se": {
+                      "name": "N03-se-second",
+                      "volume": 80,
+                      "pitch": 100,
+                      "pan": 25
+                    }
+                  },
+                  "duplicated": false
+                }
+              ],
+              "se": {
+                "name": "N03-se-second",
+                "volume": 80,
+                "pitch": 100,
+                "pan": 25
+              }
+            }
+          ]
+        },
+        {
+          "label": "native SE buffer requests, decodes and starts N03-se-first",
+          "passed": true,
+          "actual": {
+            "buffers": [
+              {
+                "sequence": 89,
+                "elapsedMs": 201,
+                "kind": "AudioManager.createBuffer",
+                "frame": 1,
+                "scene": "Scene_Map",
+                "operations": [
+                  {
+                    "method": "updateFrame",
+                    "phase": "frame",
+                    "animationInstance": "animation-16",
+                    "animationId": 1,
+                    "animationFrame": 0,
+                    "duration": 16,
+                    "ready": true
+                  },
+                  {
+                    "method": "processTimingData",
+                    "phase": "timing",
+                    "animationInstance": "animation-16",
+                    "animationId": 1,
+                    "timingIndex": 0,
+                    "animationFrame": 0,
+                    "savedTiming": {
+                      "frame": 0,
+                      "flashScope": 0,
+                      "flashColor": [
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "flashDuration": 0,
+                      "se": {
+                        "name": "N03-se-first",
+                        "volume": 70,
+                        "pitch": 100,
+                        "pan": -25
+                      }
+                    },
+                    "duplicated": false
+                  },
+                  {
+                    "method": "playSe",
+                    "se": {
+                      "name": "N03-se-first",
+                      "volume": 70,
+                      "pitch": 100,
+                      "pan": -25
+                    }
+                  },
+                  {
+                    "method": "createBuffer",
+                    "folder": "se",
+                    "name": "N03-se-first"
+                  }
+                ],
+                "folder": "se",
+                "name": "N03-se-first",
+                "audioId": "audio-17",
+                "url": "audio/se/N03-se-first.ogg"
+              },
+              {
+                "sequence": 125,
+                "elapsedMs": 334,
+                "kind": "AudioManager.createBuffer",
+                "frame": 9,
+                "scene": "Scene_Map",
+                "operations": [
+                  {
+                    "method": "updateFrame",
+                    "phase": "frame",
+                    "animationInstance": "animation-16",
+                    "animationId": 1,
+                    "animationFrame": 2,
+                    "duration": 8,
+                    "ready": true
+                  },
+                  {
+                    "method": "processTimingData",
+                    "phase": "timing",
+                    "animationInstance": "animation-16",
+                    "animationId": 1,
+                    "timingIndex": 1,
+                    "animationFrame": 2,
+                    "savedTiming": {
+                      "frame": 2,
+                      "flashScope": 0,
+                      "flashColor": [
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "flashDuration": 0,
+                      "se": {
+                        "name": "N03-se-second",
+                        "volume": 80,
+                        "pitch": 100,
+                        "pan": 25
+                      }
+                    },
+                    "duplicated": false
+                  },
+                  {
+                    "method": "playSe",
+                    "se": {
+                      "name": "N03-se-second",
+                      "volume": 80,
+                      "pitch": 100,
+                      "pan": 25
+                    }
+                  },
+                  {
+                    "method": "createBuffer",
+                    "folder": "se",
+                    "name": "N03-se-second"
+                  }
+                ],
+                "folder": "se",
+                "name": "N03-se-second",
+                "audioId": "audio-18",
+                "url": "audio/se/N03-se-second.ogg"
+              }
+            ],
+            "decodes": [
+              {
+                "sequence": 97,
+                "elapsedMs": 210,
+                "kind": "WebAudio.decoded",
+                "frame": 2,
+                "scene": "Scene_Map",
+                "operations": [
+                  {
+                    "method": "_onLoad"
+                  }
+                ],
+                "audioId": "audio-17",
+                "url": "audio/se/N03-se-first.ogg",
+                "durationSeconds": 0.3149166666666667,
+                "sampleRate": 48000,
+                "channels": 1
+              },
+              {
+                "sequence": 131,
+                "elapsedMs": 340,
+                "kind": "WebAudio.decoded",
+                "frame": 10,
+                "scene": "Scene_Map",
+                "operations": [
+                  {
+                    "method": "_onLoad"
+                  }
+                ],
+                "audioId": "audio-18",
+                "url": "audio/se/N03-se-second.ogg",
+                "durationSeconds": 0.3149166666666667,
+                "sampleRate": 48000,
+                "channels": 1
+              }
+            ],
+            "starts": [
+              {
+                "sequence": 96,
+                "elapsedMs": 210,
+                "kind": "WebAudio.started",
+                "frame": 2,
+                "scene": "Scene_Map",
+                "operations": [
+                  {
+                    "method": "_onLoad"
+                  },
+                  {
+                    "method": "_startPlaying"
+                  }
+                ],
+                "audioId": "audio-17",
+                "url": "audio/se/N03-se-first.ogg",
+                "hasSourceNode": true
+              },
+              {
+                "sequence": 130,
+                "elapsedMs": 340,
+                "kind": "WebAudio.started",
+                "frame": 10,
+                "scene": "Scene_Map",
+                "operations": [
+                  {
+                    "method": "_onLoad"
+                  },
+                  {
+                    "method": "_startPlaying"
+                  }
+                ],
+                "audioId": "audio-18",
+                "url": "audio/se/N03-se-second.ogg",
+                "hasSourceNode": true
+              }
+            ]
+          }
+        },
+        {
+          "label": "native SE buffer requests, decodes and starts N03-se-second",
+          "passed": true,
+          "actual": {
+            "buffers": [
+              {
+                "sequence": 89,
+                "elapsedMs": 201,
+                "kind": "AudioManager.createBuffer",
+                "frame": 1,
+                "scene": "Scene_Map",
+                "operations": [
+                  {
+                    "method": "updateFrame",
+                    "phase": "frame",
+                    "animationInstance": "animation-16",
+                    "animationId": 1,
+                    "animationFrame": 0,
+                    "duration": 16,
+                    "ready": true
+                  },
+                  {
+                    "method": "processTimingData",
+                    "phase": "timing",
+                    "animationInstance": "animation-16",
+                    "animationId": 1,
+                    "timingIndex": 0,
+                    "animationFrame": 0,
+                    "savedTiming": {
+                      "frame": 0,
+                      "flashScope": 0,
+                      "flashColor": [
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "flashDuration": 0,
+                      "se": {
+                        "name": "N03-se-first",
+                        "volume": 70,
+                        "pitch": 100,
+                        "pan": -25
+                      }
+                    },
+                    "duplicated": false
+                  },
+                  {
+                    "method": "playSe",
+                    "se": {
+                      "name": "N03-se-first",
+                      "volume": 70,
+                      "pitch": 100,
+                      "pan": -25
+                    }
+                  },
+                  {
+                    "method": "createBuffer",
+                    "folder": "se",
+                    "name": "N03-se-first"
+                  }
+                ],
+                "folder": "se",
+                "name": "N03-se-first",
+                "audioId": "audio-17",
+                "url": "audio/se/N03-se-first.ogg"
+              },
+              {
+                "sequence": 125,
+                "elapsedMs": 334,
+                "kind": "AudioManager.createBuffer",
+                "frame": 9,
+                "scene": "Scene_Map",
+                "operations": [
+                  {
+                    "method": "updateFrame",
+                    "phase": "frame",
+                    "animationInstance": "animation-16",
+                    "animationId": 1,
+                    "animationFrame": 2,
+                    "duration": 8,
+                    "ready": true
+                  },
+                  {
+                    "method": "processTimingData",
+                    "phase": "timing",
+                    "animationInstance": "animation-16",
+                    "animationId": 1,
+                    "timingIndex": 1,
+                    "animationFrame": 2,
+                    "savedTiming": {
+                      "frame": 2,
+                      "flashScope": 0,
+                      "flashColor": [
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "flashDuration": 0,
+                      "se": {
+                        "name": "N03-se-second",
+                        "volume": 80,
+                        "pitch": 100,
+                        "pan": 25
+                      }
+                    },
+                    "duplicated": false
+                  },
+                  {
+                    "method": "playSe",
+                    "se": {
+                      "name": "N03-se-second",
+                      "volume": 80,
+                      "pitch": 100,
+                      "pan": 25
+                    }
+                  },
+                  {
+                    "method": "createBuffer",
+                    "folder": "se",
+                    "name": "N03-se-second"
+                  }
+                ],
+                "folder": "se",
+                "name": "N03-se-second",
+                "audioId": "audio-18",
+                "url": "audio/se/N03-se-second.ogg"
+              }
+            ],
+            "decodes": [
+              {
+                "sequence": 97,
+                "elapsedMs": 210,
+                "kind": "WebAudio.decoded",
+                "frame": 2,
+                "scene": "Scene_Map",
+                "operations": [
+                  {
+                    "method": "_onLoad"
+                  }
+                ],
+                "audioId": "audio-17",
+                "url": "audio/se/N03-se-first.ogg",
+                "durationSeconds": 0.3149166666666667,
+                "sampleRate": 48000,
+                "channels": 1
+              },
+              {
+                "sequence": 131,
+                "elapsedMs": 340,
+                "kind": "WebAudio.decoded",
+                "frame": 10,
+                "scene": "Scene_Map",
+                "operations": [
+                  {
+                    "method": "_onLoad"
+                  }
+                ],
+                "audioId": "audio-18",
+                "url": "audio/se/N03-se-second.ogg",
+                "durationSeconds": 0.3149166666666667,
+                "sampleRate": 48000,
+                "channels": 1
+              }
+            ],
+            "starts": [
+              {
+                "sequence": 96,
+                "elapsedMs": 210,
+                "kind": "WebAudio.started",
+                "frame": 2,
+                "scene": "Scene_Map",
+                "operations": [
+                  {
+                    "method": "_onLoad"
+                  },
+                  {
+                    "method": "_startPlaying"
+                  }
+                ],
+                "audioId": "audio-17",
+                "url": "audio/se/N03-se-first.ogg",
+                "hasSourceNode": true
+              },
+              {
+                "sequence": 130,
+                "elapsedMs": 340,
+                "kind": "WebAudio.started",
+                "frame": 10,
+                "scene": "Scene_Map",
+                "operations": [
+                  {
+                    "method": "_onLoad"
+                  },
+                  {
+                    "method": "_startPlaying"
+                  }
+                ],
+                "audioId": "audio-18",
+                "url": "audio/se/N03-se-second.ogg",
+                "hasSourceNode": true
+              }
+            ]
+          }
+        },
+        {
+          "label": "unselected timing SEs never requested or played",
+          "passed": true,
+          "actual": [
+            {
+              "sequence": 86,
+              "elapsedMs": 201,
+              "kind": "AudioManager.playSe",
+              "frame": 1,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 0,
+                  "duration": 16,
+                  "ready": true
+                },
+                {
+                  "method": "processTimingData",
+                  "phase": "timing",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "timingIndex": 0,
+                  "animationFrame": 0,
+                  "savedTiming": {
+                    "frame": 0,
+                    "flashScope": 0,
+                    "flashColor": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "flashDuration": 0,
+                    "se": {
+                      "name": "N03-se-first",
+                      "volume": 70,
+                      "pitch": 100,
+                      "pan": -25
+                    }
+                  },
+                  "duplicated": false
+                }
+              ],
+              "se": {
+                "name": "N03-se-first",
+                "volume": 70,
+                "pitch": 100,
+                "pan": -25
+              }
+            },
+            {
+              "sequence": 122,
+              "elapsedMs": 333,
+              "kind": "AudioManager.playSe",
+              "frame": 9,
+              "scene": "Scene_Map",
+              "operations": [
+                {
+                  "method": "updateFrame",
+                  "phase": "frame",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "animationFrame": 2,
+                  "duration": 8,
+                  "ready": true
+                },
+                {
+                  "method": "processTimingData",
+                  "phase": "timing",
+                  "animationInstance": "animation-16",
+                  "animationId": 1,
+                  "timingIndex": 1,
+                  "animationFrame": 2,
+                  "savedTiming": {
+                    "frame": 2,
+                    "flashScope": 0,
+                    "flashColor": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "flashDuration": 0,
+                    "se": {
+                      "name": "N03-se-second",
+                      "volume": 80,
+                      "pitch": 100,
+                      "pan": 25
+                    }
+                  },
+                  "duplicated": false
+                }
+              ],
+              "se": {
+                "name": "N03-se-second",
+                "volume": 80,
+                "pitch": 100,
+                "pan": 25
+              }
+            }
+          ]
+        },
+        {
+          "label": "animation stopped and native event wait completed",
+          "passed": true,
+          "actual": {
+            "marker": true,
+            "duration": 0,
+            "playing": false
+          }
+        }
+      ],
+      "limitation": "Native WebAudio decode and source start observed; no assertion of human-audible speaker output."
+    }
+  ]
+}
