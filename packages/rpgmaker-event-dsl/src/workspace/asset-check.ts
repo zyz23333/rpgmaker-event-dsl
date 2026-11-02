@@ -6,6 +6,7 @@ import { assetUseLevel } from "../validation/asset-policy.js";
 import { collectAnimationAndTilesetAssets } from "../validation/asset-dependencies.js";
 import type { AssetOrigin } from "../validation/asset-dependencies.js";
 import { collectActorEnemyAssets } from "../validation/asset-actor-enemy-relations.js";
+import { collectForcedActionAssets } from "../validation/asset-action-relations.js";
 
 function renderOrigin(use: AssetOrigin): string {
   return `${use.identity} ${use.nativePath}${use.relatedNativePaths.length ? `; related: ${use.relatedNativePaths.join(", ")}` : ""}${use.dependencyChain.length ? `; chain: ${use.dependencyChain.map((step) => `${step.data}${step.id === undefined ? "" : `[${step.id}]`}.${step.field} (${step.relationship})`).join(" -> ")}` : ""}${use.conditions.length ? `; conditions: ${use.conditions.join(" ")}` : ""}${use.inactive ? `; inactive: ${use.inactive}` : ""}${use.candidate ? `; candidate: ${use.candidate}` : ""}`;
@@ -20,9 +21,14 @@ export async function checkEventAssets(input: {
 }): Promise<void> {
   const animationTilesets = collectAnimationAndTilesetAssets(input.files, input.externalData);
   const actorsEnemies = collectActorEnemyAssets(input.files, input.externalData);
+  const actions = collectForcedActionAssets(input.files, input.externalData);
+  for (const stop of actions.stops)
+    console.error(
+      `${input.commandName} asset check info:\ninfo MV-ASSET-DYNAMIC-STOP: ${stop.reason}\n  - ${renderOrigin(stop)}`,
+    );
   const relations = {
-    uses: [...animationTilesets.uses, ...actorsEnemies.uses],
-    problems: [...animationTilesets.problems, ...actorsEnemies.problems],
+    uses: [...animationTilesets.uses, ...actorsEnemies.uses, ...actions.uses],
+    problems: [...animationTilesets.problems, ...actorsEnemies.problems, ...actions.problems],
   };
   const uses = [...collectEventAssetUses(input.files), ...relations.uses];
   const system = JSON.parse(input.files.get("System.json")!);
@@ -70,6 +76,6 @@ export async function checkEventAssets(input: {
   }
   if (failures.length)
     throw new Error(
-      `${input.commandName} asset check failed:\n${failures.join("\n")}${renderAssetCallContext(collectCommonEventCalls(input.files))}`,
+      `${input.commandName} asset check failed:\n${failures.join("\n")}${renderAssetCallContext([...collectCommonEventCalls(input.files), ...actions.calls])}`,
     );
 }

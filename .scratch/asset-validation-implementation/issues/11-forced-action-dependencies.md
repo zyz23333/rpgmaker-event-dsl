@@ -1,6 +1,6 @@
 # 11: 强制行动的技能、默认攻击与公共事件 effects
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 06, 10
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -61,6 +61,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 
 ## Comments
+
+- 2026-11-02：native_01 在 `M:/Shuen/Codex/asset-validation-11-action`、`codex/asset-validation-11-action` 领取。干净工作树已 fast-forward 当前集成 `4cf156255d077f06614578dd7bf11b5e85cdfd54`，06／10 已 resolved，contract31。沿已确认 Workspace API／实际 CLI 与补充语义 seam 使用 TDD；与07／09协调大矩阵和两个共享 C05 回调，保留公共事件独立根。
 
 - 2026-11-02 实施责任核对：上游索引已明确要求 `AV.C04.repeated-common-effect.formal.case.expected`，B16 也要求同目标重复 effect；原责任表遗漏 C04 行，现显式归属本票，不增加产品范围或新验收 token。共享规范 ID 的合并测试保留既有独立断言，避免重复注册及回执覆盖。
 
