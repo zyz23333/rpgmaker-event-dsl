@@ -34,3 +34,7 @@
 # Preserve N03's original native evidence and probe hashes, including raw log spaces.
 /.scratch/asset-validation-implementation/evidence/06-native-animation/** -text -whitespace
 /.scratch/asset-validation-implementation/probes/native-animation/** -text -whitespace
+
+# Preserve original N05/N06 native evidence and probe bytes, including NW log spaces.
+/.scratch/asset-validation-implementation/evidence/08-native-battlers/** -text -whitespace
+/.scratch/asset-validation-implementation/probes/native-battlers/** -text -whitespace

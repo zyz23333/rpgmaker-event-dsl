@@ -99,6 +99,20 @@ async function prepare(workspaceRoot: string, list = fixture.list) {
       join(workspaceRoot, `Game/data/${name}.json`),
       JSON.stringify([null, { id: 1, name: "", outsideEvent: { exact: [null, [], ""] } }]),
     );
+  const actorsPath = join(workspaceRoot, "Game/data/Actors.json");
+  const actors = JSON.parse(await readFile(actorsPath, "utf8"));
+  Object.assign(actors[1], {
+    characterName: "InventoryCharacter",
+    battlerName: "InventoryBattler",
+  });
+  await writeFile(actorsPath, JSON.stringify(actors));
+  for (const [folder, name] of [
+    ["characters", "InventoryCharacter"],
+    ["sv_actors", "InventoryBattler"],
+  ]) {
+    await mkdir(join(workspaceRoot, "Game/img", folder!), { recursive: true });
+    await writeFile(join(workspaceRoot, "Game/img", folder!, `${name}.png`), "");
+  }
   const systemPath = join(workspaceRoot, "Game/data/System.json");
   const system = JSON.parse(await readFile(systemPath, "utf8"));
   system.variables = ["", "", "", ""];

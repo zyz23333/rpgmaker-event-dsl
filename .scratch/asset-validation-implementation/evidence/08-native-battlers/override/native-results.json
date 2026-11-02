@@ -1,0 +1,2716 @@
+{
+  "created": "2026-11-02T03:45:52.975Z",
+  "scenario": "override",
+  "status": "observed",
+  "environment": {
+    "mv": "1.6.1",
+    "platform": "win32",
+    "architecture": "ia32",
+    "release": "10.0.19045",
+    "versions": {
+      "http_parser": "2.7.0",
+      "node": "9.7.1",
+      "v8": "6.5.254.31",
+      "uv": "1.19.2",
+      "zlib": "1.2.11",
+      "ares": "1.13.0",
+      "modules": "59",
+      "nghttp2": "1.29.0",
+      "napi": "2",
+      "openssl": "1.0.2n",
+      "icu": "60.1",
+      "unicode": "10.0",
+      "cldr": "32.0",
+      "tz": "2017c",
+      "nw": "0.29.0",
+      "node-webkit": "0.29.0",
+      "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+      "nw-flavor": "normal",
+      "chromium": "65.0.3325.146"
+    },
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+  },
+  "method": "Saved Map001 -> native Scene_Map/interpreter301 -> actual Scene_Battle and Sprite_Enemy; N06 native322 then129 initialize:false, actual map draw then saved switch-gated301 and Sprite_Actor. All wrappers original.apply(this,arguments).",
+  "events": [
+    {
+      "sequence": 0,
+      "elapsedMs": 18,
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "object-1",
+      "requested": "img/system/IconSet.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/IconSet.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 1,
+      "elapsedMs": 20,
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "object-2",
+      "requested": "img/system/Balloon.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Balloon.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 2,
+      "elapsedMs": 21,
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "object-3",
+      "requested": "img/system/Shadow1.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Shadow1.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 3,
+      "elapsedMs": 21,
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "object-4",
+      "requested": "img/system/Shadow2.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Shadow2.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 4,
+      "elapsedMs": 21,
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "object-5",
+      "requested": "img/system/Damage.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Damage.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 5,
+      "elapsedMs": 21,
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "object-6",
+      "requested": "img/system/States.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/States.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 6,
+      "elapsedMs": 21,
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "object-7",
+      "requested": "img/system/Weapons1.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Weapons1.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 7,
+      "elapsedMs": 21,
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "object-8",
+      "requested": "img/system/Weapons2.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Weapons2.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 8,
+      "elapsedMs": 21,
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "object-9",
+      "requested": "img/system/Weapons3.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Weapons3.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 9,
+      "elapsedMs": 22,
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "object-10",
+      "requested": "img/system/ButtonSet.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/ButtonSet.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 10,
+      "elapsedMs": 53,
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "kind": "database-loaded"
+    },
+    {
+      "sequence": 11,
+      "elapsedMs": 57,
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "state": {
+        "saved": {
+          "characterName": "InitialCharacter",
+          "characterIndex": 0,
+          "battlerName": "InitialBattler"
+        },
+        "runtime": {
+          "characterName": "InitialCharacter",
+          "characterIndex": 0,
+          "battlerName": "InitialBattler"
+        },
+        "party": [],
+        "player": {
+          "characterName": "",
+          "characterIndex": 0
+        }
+      },
+      "kind": "initial-state"
+    },
+    {
+      "sequence": 12,
+      "elapsedMs": 225,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/IconSet.png",
+          "naturalWidth": 512,
+          "naturalHeight": 512
+        }
+      ],
+      "bitmap": {
+        "id": "object-1",
+        "url": "img/system/IconSet.png",
+        "ready": true,
+        "width": 512,
+        "height": 512
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/IconSet.png",
+        "naturalWidth": 512,
+        "naturalHeight": 512
+      },
+      "pixel": "#808080",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 13,
+      "elapsedMs": 226,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Balloon.png",
+          "naturalWidth": 384,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "object-2",
+        "url": "img/system/Balloon.png",
+        "ready": true,
+        "width": 384,
+        "height": 384
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Balloon.png",
+        "naturalWidth": 384,
+        "naturalHeight": 384
+      },
+      "pixel": "#808080",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 14,
+      "elapsedMs": 227,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Shadow1.png",
+          "naturalWidth": 48,
+          "naturalHeight": 48
+        }
+      ],
+      "bitmap": {
+        "id": "object-3",
+        "url": "img/system/Shadow1.png",
+        "ready": true,
+        "width": 48,
+        "height": 48
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Shadow1.png",
+        "naturalWidth": 48,
+        "naturalHeight": 48
+      },
+      "pixel": "#808080",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 15,
+      "elapsedMs": 228,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Shadow2.png",
+          "naturalWidth": 48,
+          "naturalHeight": 48
+        }
+      ],
+      "bitmap": {
+        "id": "object-4",
+        "url": "img/system/Shadow2.png",
+        "ready": true,
+        "width": 48,
+        "height": 48
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Shadow2.png",
+        "naturalWidth": 48,
+        "naturalHeight": 48
+      },
+      "pixel": "#808080",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 16,
+      "elapsedMs": 228,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Damage.png",
+          "naturalWidth": 240,
+          "naturalHeight": 160
+        }
+      ],
+      "bitmap": {
+        "id": "object-5",
+        "url": "img/system/Damage.png",
+        "ready": true,
+        "width": 240,
+        "height": 160
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Damage.png",
+        "naturalWidth": 240,
+        "naturalHeight": 160
+      },
+      "pixel": "#808080",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 17,
+      "elapsedMs": 229,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/States.png",
+          "naturalWidth": 768,
+          "naturalHeight": 96
+        }
+      ],
+      "bitmap": {
+        "id": "object-6",
+        "url": "img/system/States.png",
+        "ready": true,
+        "width": 768,
+        "height": 96
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/States.png",
+        "naturalWidth": 768,
+        "naturalHeight": 96
+      },
+      "pixel": "#808080",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 18,
+      "elapsedMs": 231,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Weapons1.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "object-7",
+        "url": "img/system/Weapons1.png",
+        "ready": true,
+        "width": 576,
+        "height": 384
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Weapons1.png",
+        "naturalWidth": 576,
+        "naturalHeight": 384
+      },
+      "pixel": "#808080",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 19,
+      "elapsedMs": 231,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Weapons2.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "object-8",
+        "url": "img/system/Weapons2.png",
+        "ready": true,
+        "width": 576,
+        "height": 384
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Weapons2.png",
+        "naturalWidth": 576,
+        "naturalHeight": 384
+      },
+      "pixel": "#808080",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 20,
+      "elapsedMs": 234,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Weapons3.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "object-9",
+        "url": "img/system/Weapons3.png",
+        "ready": true,
+        "width": 576,
+        "height": 384
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Weapons3.png",
+        "naturalWidth": 576,
+        "naturalHeight": 384
+      },
+      "pixel": "#808080",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 21,
+      "elapsedMs": 234,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/ButtonSet.png",
+          "naturalWidth": 288,
+          "naturalHeight": 96
+        }
+      ],
+      "bitmap": {
+        "id": "object-10",
+        "url": "img/system/ButtonSet.png",
+        "ready": true,
+        "width": 288,
+        "height": 96
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/ButtonSet.png",
+        "naturalWidth": 288,
+        "naturalHeight": 96
+      },
+      "pixel": "#808080",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 22,
+      "elapsedMs": 241,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadCharacter",
+          "name": ""
+        }
+      ],
+      "name": "",
+      "bitmap": {
+        "id": "object-11",
+        "url": "",
+        "ready": true,
+        "width": 1,
+        "height": 1
+      },
+      "kind": "ImageManager.loadCharacter"
+    },
+    {
+      "sequence": 23,
+      "elapsedMs": 241,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadCharacter",
+          "name": ""
+        }
+      ],
+      "name": "",
+      "bitmap": {
+        "id": "object-11",
+        "url": "",
+        "ready": true,
+        "width": 1,
+        "height": 1
+      },
+      "kind": "ImageManager.loadCharacter"
+    },
+    {
+      "sequence": 24,
+      "elapsedMs": 241,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadCharacter",
+          "name": ""
+        }
+      ],
+      "name": "",
+      "bitmap": {
+        "id": "object-11",
+        "url": "",
+        "ready": true,
+        "width": 1,
+        "height": 1
+      },
+      "kind": "ImageManager.loadCharacter"
+    },
+    {
+      "sequence": 25,
+      "elapsedMs": 241,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadCharacter",
+          "name": ""
+        }
+      ],
+      "name": "",
+      "bitmap": {
+        "id": "object-11",
+        "url": "",
+        "ready": true,
+        "width": 1,
+        "height": 1
+      },
+      "kind": "ImageManager.loadCharacter"
+    },
+    {
+      "sequence": 26,
+      "elapsedMs": 241,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadCharacter",
+          "name": ""
+        }
+      ],
+      "name": "",
+      "bitmap": {
+        "id": "object-11",
+        "url": "",
+        "ready": true,
+        "width": 1,
+        "height": 1
+      },
+      "kind": "ImageManager.loadCharacter"
+    },
+    {
+      "sequence": 27,
+      "elapsedMs": 241,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadCharacter",
+          "name": ""
+        }
+      ],
+      "name": "",
+      "bitmap": {
+        "id": "object-11",
+        "url": "",
+        "ready": true,
+        "width": 1,
+        "height": 1
+      },
+      "kind": "ImageManager.loadCharacter"
+    },
+    {
+      "sequence": 28,
+      "elapsedMs": 242,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadCharacter",
+          "name": ""
+        }
+      ],
+      "name": "",
+      "bitmap": {
+        "id": "object-11",
+        "url": "",
+        "ready": true,
+        "width": 1,
+        "height": 1
+      },
+      "kind": "ImageManager.loadCharacter"
+    },
+    {
+      "sequence": 29,
+      "elapsedMs": 242,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadCharacter",
+          "name": ""
+        }
+      ],
+      "name": "",
+      "bitmap": {
+        "id": "object-11",
+        "url": "",
+        "ready": true,
+        "width": 1,
+        "height": 1
+      },
+      "kind": "ImageManager.loadCharacter"
+    },
+    {
+      "sequence": 30,
+      "elapsedMs": 242,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadCharacter",
+          "name": ""
+        }
+      ],
+      "name": "",
+      "bitmap": {
+        "id": "object-11",
+        "url": "",
+        "ready": true,
+        "width": 1,
+        "height": 1
+      },
+      "kind": "ImageManager.loadCharacter"
+    },
+    {
+      "sequence": 31,
+      "elapsedMs": 242,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        }
+      ],
+      "kind": "native-sprite-consumer",
+      "name": "",
+      "characterIndex": 0,
+      "spriteId": "object-12",
+      "bitmap": {
+        "id": "object-11",
+        "url": "",
+        "ready": true,
+        "width": 1,
+        "height": 1
+      },
+      "pixel": "#000000"
+    },
+    {
+      "sequence": 32,
+      "elapsedMs": 243,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [],
+      "bitmapId": "object-13",
+      "requested": "img/system/Window.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Window.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 33,
+      "elapsedMs": 260,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Window.png",
+          "naturalWidth": 192,
+          "naturalHeight": 192
+        }
+      ],
+      "bitmap": {
+        "id": "object-13",
+        "url": "img/system/Window.png",
+        "ready": true,
+        "width": 192,
+        "height": 192
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/system/Window.png",
+        "naturalWidth": 192,
+        "naturalHeight": 192
+      },
+      "pixel": "#808080",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 34,
+      "elapsedMs": 268,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [],
+      "eventId": 1,
+      "commandCodes": [
+        322,
+        129,
+        355,
+        123,
+        0
+      ],
+      "kind": "interpreter-setup"
+    },
+    {
+      "sequence": 35,
+      "elapsedMs": 268,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "setup",
+          "eventId": 1,
+          "commandCodes": [
+            322,
+            129,
+            355,
+            123,
+            0
+          ]
+        }
+      ],
+      "phase": "preload",
+      "commandCodes": [
+        322,
+        129,
+        355,
+        123,
+        0
+      ],
+      "kind": "preload-requestImages"
+    },
+    {
+      "sequence": 36,
+      "elapsedMs": 269,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "setup",
+          "eventId": 1,
+          "commandCodes": [
+            322,
+            129,
+            355,
+            123,
+            0
+          ]
+        },
+        {
+          "method": "requestImages",
+          "phase": "preload",
+          "commandCodes": [
+            322,
+            129,
+            355,
+            123,
+            0
+          ]
+        },
+        {
+          "method": "requestCharacter",
+          "name": "CurrentCharacter"
+        }
+      ],
+      "name": "CurrentCharacter",
+      "bitmap": {
+        "id": "object-14",
+        "url": "img/characters/CurrentCharacter.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      },
+      "kind": "ImageManager.requestCharacter"
+    },
+    {
+      "sequence": 37,
+      "elapsedMs": 269,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "setup",
+          "eventId": 1,
+          "commandCodes": [
+            322,
+            129,
+            355,
+            123,
+            0
+          ]
+        },
+        {
+          "method": "requestImages",
+          "phase": "preload",
+          "commandCodes": [
+            322,
+            129,
+            355,
+            123,
+            0
+          ]
+        },
+        {
+          "method": "requestSvActor",
+          "name": "CurrentBattler"
+        }
+      ],
+      "name": "CurrentBattler",
+      "bitmap": {
+        "id": "object-15",
+        "url": "img/sv_actors/CurrentBattler.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      },
+      "kind": "ImageManager.requestSvActor"
+    },
+    {
+      "sequence": 38,
+      "elapsedMs": 269,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "setup",
+          "eventId": 1,
+          "commandCodes": [
+            322,
+            129,
+            355,
+            123,
+            0
+          ]
+        },
+        {
+          "method": "requestImages",
+          "phase": "preload",
+          "commandCodes": [
+            322,
+            129,
+            355,
+            123,
+            0
+          ]
+        },
+        {
+          "method": "requestCharacter",
+          "name": "InitialCharacter"
+        }
+      ],
+      "name": "InitialCharacter",
+      "bitmap": {
+        "id": "object-16",
+        "url": "img/characters/InitialCharacter.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      },
+      "kind": "ImageManager.requestCharacter"
+    },
+    {
+      "sequence": 39,
+      "elapsedMs": 269,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [],
+      "phase": "execution",
+      "eventId": 1,
+      "commandIndex": 0,
+      "parameters": [
+        1,
+        "CurrentCharacter",
+        3,
+        "",
+        0,
+        "CurrentBattler"
+      ],
+      "before": {
+        "saved": {
+          "characterName": "InitialCharacter",
+          "characterIndex": 0,
+          "battlerName": "InitialBattler"
+        },
+        "runtime": {
+          "characterName": "InitialCharacter",
+          "characterIndex": 0,
+          "battlerName": "InitialBattler"
+        },
+        "party": [],
+        "player": {
+          "characterName": "",
+          "characterIndex": 0
+        }
+      },
+      "kind": "command322"
+    },
+    {
+      "sequence": 40,
+      "elapsedMs": 269,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "command322",
+          "phase": "execution",
+          "eventId": 1,
+          "commandIndex": 0,
+          "parameters": [
+            1,
+            "CurrentCharacter",
+            3,
+            "",
+            0,
+            "CurrentBattler"
+          ],
+          "before": {
+            "saved": {
+              "characterName": "InitialCharacter",
+              "characterIndex": 0,
+              "battlerName": "InitialBattler"
+            },
+            "runtime": {
+              "characterName": "InitialCharacter",
+              "characterIndex": 0,
+              "battlerName": "InitialBattler"
+            },
+            "party": [],
+            "player": {
+              "characterName": "",
+              "characterIndex": 0
+            }
+          }
+        }
+      ],
+      "eventId": 1,
+      "commandIndex": 0,
+      "parameters": [
+        1,
+        "CurrentCharacter",
+        3,
+        "",
+        0,
+        "CurrentBattler"
+      ],
+      "result": true,
+      "after": {
+        "saved": {
+          "characterName": "InitialCharacter",
+          "characterIndex": 0,
+          "battlerName": "InitialBattler"
+        },
+        "runtime": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3,
+          "battlerName": "CurrentBattler"
+        },
+        "party": [],
+        "player": {
+          "characterName": "",
+          "characterIndex": 0
+        }
+      },
+      "kind": "command322-complete"
+    },
+    {
+      "sequence": 41,
+      "elapsedMs": 269,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [],
+      "phase": "execution",
+      "eventId": 1,
+      "commandIndex": 1,
+      "parameters": [
+        1,
+        0,
+        false
+      ],
+      "before": {
+        "saved": {
+          "characterName": "InitialCharacter",
+          "characterIndex": 0,
+          "battlerName": "InitialBattler"
+        },
+        "runtime": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3,
+          "battlerName": "CurrentBattler"
+        },
+        "party": [],
+        "player": {
+          "characterName": "",
+          "characterIndex": 0
+        }
+      },
+      "kind": "command129"
+    },
+    {
+      "sequence": 42,
+      "elapsedMs": 269,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "command129",
+          "phase": "execution",
+          "eventId": 1,
+          "commandIndex": 1,
+          "parameters": [
+            1,
+            0,
+            false
+          ],
+          "before": {
+            "saved": {
+              "characterName": "InitialCharacter",
+              "characterIndex": 0,
+              "battlerName": "InitialBattler"
+            },
+            "runtime": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3,
+              "battlerName": "CurrentBattler"
+            },
+            "party": [],
+            "player": {
+              "characterName": "",
+              "characterIndex": 0
+            }
+          }
+        }
+      ],
+      "eventId": 1,
+      "commandIndex": 1,
+      "parameters": [
+        1,
+        0,
+        false
+      ],
+      "result": true,
+      "after": {
+        "saved": {
+          "characterName": "InitialCharacter",
+          "characterIndex": 0,
+          "battlerName": "InitialBattler"
+        },
+        "runtime": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3,
+          "battlerName": "CurrentBattler"
+        },
+        "party": [
+          1
+        ],
+        "player": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3
+        }
+      },
+      "kind": "command129-complete"
+    },
+    {
+      "sequence": 43,
+      "elapsedMs": 270,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [],
+      "state": {
+        "saved": {
+          "characterName": "InitialCharacter",
+          "characterIndex": 0,
+          "battlerName": "InitialBattler"
+        },
+        "runtime": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3,
+          "battlerName": "CurrentBattler"
+        },
+        "party": [
+          1
+        ],
+        "player": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3
+        }
+      },
+      "kind": "override-commands-marker"
+    },
+    {
+      "sequence": 44,
+      "elapsedMs": 272,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadCharacter",
+          "name": "CurrentCharacter"
+        }
+      ],
+      "bitmapId": "object-14",
+      "requested": "img/characters/CurrentCharacter.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/characters/CurrentCharacter.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 45,
+      "elapsedMs": 272,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadCharacter",
+          "name": "CurrentCharacter"
+        }
+      ],
+      "name": "CurrentCharacter",
+      "bitmap": {
+        "id": "object-14",
+        "url": "img/characters/CurrentCharacter.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      },
+      "kind": "ImageManager.loadCharacter"
+    },
+    {
+      "sequence": 46,
+      "elapsedMs": 272,
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        }
+      ],
+      "kind": "native-sprite-consumer",
+      "name": "CurrentCharacter",
+      "characterIndex": 3,
+      "spriteId": "object-12",
+      "bitmap": {
+        "id": "object-14",
+        "url": "img/characters/CurrentCharacter.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      },
+      "pixel": null
+    },
+    {
+      "sequence": 47,
+      "elapsedMs": 298,
+      "frame": 2,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/characters/CurrentCharacter.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "object-14",
+        "url": "img/characters/CurrentCharacter.png",
+        "ready": true,
+        "width": 576,
+        "height": 384
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/characters/CurrentCharacter.png",
+        "naturalWidth": 576,
+        "naturalHeight": 384
+      },
+      "pixel": "#00ffff",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 48,
+      "elapsedMs": 301,
+      "frame": 2,
+      "scene": "Scene_Map",
+      "operations": [],
+      "bitmapId": "object-15",
+      "requested": "img/sv_actors/CurrentBattler.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/sv_actors/CurrentBattler.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 49,
+      "elapsedMs": 303,
+      "frame": 2,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        }
+      ],
+      "kind": "native-sprite-consumer",
+      "name": "CurrentCharacter",
+      "characterIndex": 3,
+      "spriteId": "object-12",
+      "bitmap": {
+        "id": "object-14",
+        "url": "img/characters/CurrentCharacter.png",
+        "ready": true,
+        "width": 576,
+        "height": 384
+      },
+      "pixel": "#00ffff"
+    },
+    {
+      "sequence": 50,
+      "elapsedMs": 304,
+      "frame": 2,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_renderCanvas",
+          "renderMeta": {
+            "kind": "player",
+            "name": "CurrentCharacter",
+            "characterIndex": 3,
+            "spriteId": "object-12",
+            "bitmap": {
+              "id": "object-14",
+              "url": "img/characters/CurrentCharacter.png",
+              "ready": true,
+              "width": 576,
+              "height": 384
+            },
+            "pixel": "#00ffff"
+          }
+        }
+      ],
+      "consumer": {
+        "kind": "player",
+        "name": "CurrentCharacter",
+        "characterIndex": 3,
+        "spriteId": "object-12",
+        "bitmap": {
+          "id": "object-14",
+          "url": "img/characters/CurrentCharacter.png",
+          "ready": true,
+          "width": 576,
+          "height": 384
+        },
+        "pixel": "#00ffff"
+      },
+      "drawArguments": [
+        480,
+        0,
+        48,
+        48,
+        -24,
+        -48,
+        48,
+        48
+      ],
+      "sourceWidth": 576,
+      "sourceHeight": 384,
+      "sourceMatchesSelectedBitmap": true,
+      "kind": "native-canvas-drawImage"
+    },
+    {
+      "sequence": 51,
+      "elapsedMs": 311,
+      "frame": 3,
+      "scene": "Scene_Map",
+      "operations": [],
+      "state": {
+        "saved": {
+          "characterName": "InitialCharacter",
+          "characterIndex": 0,
+          "battlerName": "InitialBattler"
+        },
+        "runtime": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3,
+          "battlerName": "CurrentBattler"
+        },
+        "party": [
+          1
+        ],
+        "player": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3
+        }
+      },
+      "kind": "observed-map-stage"
+    },
+    {
+      "sequence": 52,
+      "elapsedMs": 311,
+      "frame": 3,
+      "scene": "Scene_Map",
+      "operations": [],
+      "switchId": 1,
+      "kind": "harness-enabled-saved-battle-event"
+    },
+    {
+      "sequence": 53,
+      "elapsedMs": 311,
+      "frame": 3,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/sv_actors/CurrentBattler.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "object-15",
+        "url": "img/sv_actors/CurrentBattler.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/sv_actors/CurrentBattler.png",
+        "naturalWidth": 576,
+        "naturalHeight": 384
+      },
+      "pixel": null,
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 54,
+      "elapsedMs": 311,
+      "frame": 3,
+      "scene": "Scene_Map",
+      "operations": [],
+      "bitmapId": "object-15",
+      "requested": "img/sv_actors/CurrentBattler.png",
+      "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/index.html",
+      "stillActiveImage": false,
+      "bitmapLoadingState": "purged",
+      "kind": "native-image-error"
+    },
+    {
+      "sequence": 55,
+      "elapsedMs": 318,
+      "frame": 3,
+      "scene": "Scene_Map",
+      "operations": [],
+      "bitmapId": "object-16",
+      "requested": "img/characters/InitialCharacter.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/characters/InitialCharacter.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 56,
+      "elapsedMs": 318,
+      "frame": 3,
+      "scene": "Scene_Map",
+      "operations": [],
+      "eventId": 2,
+      "commandCodes": [
+        301,
+        0
+      ],
+      "kind": "interpreter-setup"
+    },
+    {
+      "sequence": 57,
+      "elapsedMs": 318,
+      "frame": 3,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "setup",
+          "eventId": 2,
+          "commandCodes": [
+            301,
+            0
+          ]
+        }
+      ],
+      "phase": "preload",
+      "commandCodes": [
+        301,
+        0
+      ],
+      "kind": "preload-requestImages"
+    },
+    {
+      "sequence": 58,
+      "elapsedMs": 318,
+      "frame": 3,
+      "scene": "Scene_Map",
+      "operations": [],
+      "phase": "execution",
+      "eventId": 2,
+      "commandIndex": 0,
+      "parameters": [
+        0,
+        1,
+        false,
+        true
+      ],
+      "before": {
+        "saved": {
+          "characterName": "InitialCharacter",
+          "characterIndex": 0,
+          "battlerName": "InitialBattler"
+        },
+        "runtime": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3,
+          "battlerName": "CurrentBattler"
+        },
+        "party": [
+          1
+        ],
+        "player": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3
+        }
+      },
+      "kind": "command301"
+    },
+    {
+      "sequence": 59,
+      "elapsedMs": 318,
+      "frame": 3,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "command301",
+          "phase": "execution",
+          "eventId": 2,
+          "commandIndex": 0,
+          "parameters": [
+            0,
+            1,
+            false,
+            true
+          ],
+          "before": {
+            "saved": {
+              "characterName": "InitialCharacter",
+              "characterIndex": 0,
+              "battlerName": "InitialBattler"
+            },
+            "runtime": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3,
+              "battlerName": "CurrentBattler"
+            },
+            "party": [
+              1
+            ],
+            "player": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3
+            }
+          }
+        }
+      ],
+      "troopId": 1,
+      "kind": "Game_Troop.setup"
+    },
+    {
+      "sequence": 60,
+      "elapsedMs": 318,
+      "frame": 3,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "command301",
+          "phase": "execution",
+          "eventId": 2,
+          "commandIndex": 0,
+          "parameters": [
+            0,
+            1,
+            false,
+            true
+          ],
+          "before": {
+            "saved": {
+              "characterName": "InitialCharacter",
+              "characterIndex": 0,
+              "battlerName": "InitialBattler"
+            },
+            "runtime": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3,
+              "battlerName": "CurrentBattler"
+            },
+            "party": [
+              1
+            ],
+            "player": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3
+            }
+          }
+        },
+        {
+          "method": "setup",
+          "troopId": 1
+        }
+      ],
+      "members": [
+        {
+          "index": 0,
+          "enemyId": 1,
+          "name": "ModeEnemy",
+          "hidden": false
+        }
+      ],
+      "kind": "Game_Troop.members"
+    },
+    {
+      "sequence": 61,
+      "elapsedMs": 319,
+      "frame": 3,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "command301",
+          "phase": "execution",
+          "eventId": 2,
+          "commandIndex": 0,
+          "parameters": [
+            0,
+            1,
+            false,
+            true
+          ],
+          "before": {
+            "saved": {
+              "characterName": "InitialCharacter",
+              "characterIndex": 0,
+              "battlerName": "InitialBattler"
+            },
+            "runtime": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3,
+              "battlerName": "CurrentBattler"
+            },
+            "party": [
+              1
+            ],
+            "player": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3
+            }
+          }
+        }
+      ],
+      "eventId": 2,
+      "commandIndex": 0,
+      "parameters": [
+        0,
+        1,
+        false,
+        true
+      ],
+      "result": true,
+      "after": {
+        "saved": {
+          "characterName": "InitialCharacter",
+          "characterIndex": 0,
+          "battlerName": "InitialBattler"
+        },
+        "runtime": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3,
+          "battlerName": "CurrentBattler"
+        },
+        "party": [
+          1
+        ],
+        "player": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3
+        }
+      },
+      "kind": "command301-complete"
+    },
+    {
+      "sequence": 62,
+      "elapsedMs": 328,
+      "frame": 4,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/characters/InitialCharacter.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "object-16",
+        "url": "img/characters/InitialCharacter.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/characters/InitialCharacter.png",
+        "naturalWidth": 576,
+        "naturalHeight": 384
+      },
+      "pixel": null,
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 63,
+      "elapsedMs": 328,
+      "frame": 4,
+      "scene": "Scene_Map",
+      "operations": [],
+      "bitmapId": "object-16",
+      "requested": "img/characters/InitialCharacter.png",
+      "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/index.html",
+      "stillActiveImage": false,
+      "bitmapLoadingState": "purged",
+      "kind": "native-image-error"
+    },
+    {
+      "sequence": 64,
+      "elapsedMs": 1318,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [],
+      "bitmapId": "object-17",
+      "requested": "img/battlebacks1/ProbeBackdrop1.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/battlebacks1/ProbeBackdrop1.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 65,
+      "elapsedMs": 1318,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [],
+      "bitmapId": "object-18",
+      "requested": "img/battlebacks2/ProbeBackdrop2.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/battlebacks2/ProbeBackdrop2.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 66,
+      "elapsedMs": 1321,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadBitmap",
+          "phase": "enemy-consumer",
+          "enemyId": 1,
+          "name": "ModeEnemy",
+          "hue": 0,
+          "optSideView": true
+        },
+        {
+          "method": "loadSvEnemy",
+          "name": "ModeEnemy",
+          "hue": 0
+        }
+      ],
+      "bitmapId": "object-19",
+      "requested": "img/sv_enemies/ModeEnemy.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/sv_enemies/ModeEnemy.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 67,
+      "elapsedMs": 1321,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadBitmap",
+          "phase": "enemy-consumer",
+          "enemyId": 1,
+          "name": "ModeEnemy",
+          "hue": 0,
+          "optSideView": true
+        },
+        {
+          "method": "loadSvEnemy",
+          "name": "ModeEnemy",
+          "hue": 0
+        }
+      ],
+      "name": "ModeEnemy",
+      "hue": 0,
+      "bitmap": {
+        "id": "object-19",
+        "url": "img/sv_enemies/ModeEnemy.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      },
+      "kind": "ImageManager.loadSvEnemy"
+    },
+    {
+      "sequence": 68,
+      "elapsedMs": 1321,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadBitmap",
+          "phase": "enemy-consumer",
+          "enemyId": 1,
+          "name": "ModeEnemy",
+          "hue": 0,
+          "optSideView": true
+        }
+      ],
+      "kind": "native-sprite-consumer",
+      "enemyId": 1,
+      "name": "ModeEnemy",
+      "optSideView": true,
+      "spriteId": "object-20",
+      "bitmap": {
+        "id": "object-19",
+        "url": "img/sv_enemies/ModeEnemy.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      },
+      "pixel": null
+    },
+    {
+      "sequence": 69,
+      "elapsedMs": 1359,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/battlebacks2/ProbeBackdrop2.png",
+          "naturalWidth": 1000,
+          "naturalHeight": 740
+        }
+      ],
+      "bitmap": {
+        "id": "object-18",
+        "url": "img/battlebacks2/ProbeBackdrop2.png",
+        "ready": true,
+        "width": 1000,
+        "height": 740
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/battlebacks2/ProbeBackdrop2.png",
+        "naturalWidth": 1000,
+        "naturalHeight": 740
+      },
+      "pixel": "#282828",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 70,
+      "elapsedMs": 1362,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/battlebacks1/ProbeBackdrop1.png",
+          "naturalWidth": 1000,
+          "naturalHeight": 740
+        }
+      ],
+      "bitmap": {
+        "id": "object-17",
+        "url": "img/battlebacks1/ProbeBackdrop1.png",
+        "ready": true,
+        "width": 1000,
+        "height": 740
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/battlebacks1/ProbeBackdrop1.png",
+        "naturalWidth": 1000,
+        "naturalHeight": 740
+      },
+      "pixel": "#141414",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 71,
+      "elapsedMs": 1362,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/sv_enemies/ModeEnemy.png",
+          "naturalWidth": 96,
+          "naturalHeight": 80
+        }
+      ],
+      "bitmap": {
+        "id": "object-19",
+        "url": "img/sv_enemies/ModeEnemy.png",
+        "ready": true,
+        "width": 96,
+        "height": 80
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/sv_enemies/ModeEnemy.png",
+        "naturalWidth": 96,
+        "naturalHeight": 80
+      },
+      "pixel": "#00ff00",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 72,
+      "elapsedMs": 1368,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        }
+      ],
+      "kind": "native-sprite-consumer",
+      "enemyId": 1,
+      "name": "ModeEnemy",
+      "optSideView": true,
+      "spriteId": "object-20",
+      "bitmap": {
+        "id": "object-19",
+        "url": "img/sv_enemies/ModeEnemy.png",
+        "ready": true,
+        "width": 96,
+        "height": 80
+      },
+      "pixel": "#00ff00"
+    },
+    {
+      "sequence": 73,
+      "elapsedMs": 1368,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadSvActor",
+          "name": "CurrentBattler"
+        }
+      ],
+      "bitmapId": "object-15",
+      "requested": "img/sv_actors/CurrentBattler.png",
+      "absoluteUrl": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/sv_actors/CurrentBattler.png",
+      "kind": "Bitmap._requestImage"
+    },
+    {
+      "sequence": 74,
+      "elapsedMs": 1368,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        },
+        {
+          "method": "loadSvActor",
+          "name": "CurrentBattler"
+        }
+      ],
+      "name": "CurrentBattler",
+      "bitmap": {
+        "id": "object-15",
+        "url": "img/sv_actors/CurrentBattler.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      },
+      "kind": "ImageManager.loadSvActor"
+    },
+    {
+      "sequence": 75,
+      "elapsedMs": 1368,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        }
+      ],
+      "kind": "native-sprite-consumer",
+      "actorId": 1,
+      "name": "CurrentBattler",
+      "optSideView": true,
+      "spriteId": "object-21",
+      "bitmap": {
+        "id": "object-15",
+        "url": "img/sv_actors/CurrentBattler.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      },
+      "pixel": null
+    },
+    {
+      "sequence": 76,
+      "elapsedMs": 1371,
+      "frame": 62,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "_renderCanvas",
+          "renderMeta": {
+            "kind": "enemy",
+            "enemyId": 1,
+            "name": "ModeEnemy",
+            "optSideView": true,
+            "spriteId": "object-20",
+            "bitmap": {
+              "id": "object-19",
+              "url": "img/sv_enemies/ModeEnemy.png",
+              "ready": true,
+              "width": 96,
+              "height": 80
+            },
+            "pixel": "#00ff00"
+          }
+        }
+      ],
+      "consumer": {
+        "kind": "enemy",
+        "enemyId": 1,
+        "name": "ModeEnemy",
+        "optSideView": true,
+        "spriteId": "object-20",
+        "bitmap": {
+          "id": "object-19",
+          "url": "img/sv_enemies/ModeEnemy.png",
+          "ready": true,
+          "width": 96,
+          "height": 80
+        },
+        "pixel": "#00ff00"
+      },
+      "drawArguments": [
+        0,
+        0,
+        96,
+        80,
+        -48,
+        -80,
+        96,
+        80
+      ],
+      "sourceWidth": 96,
+      "sourceHeight": 80,
+      "sourceMatchesSelectedBitmap": true,
+      "kind": "native-canvas-drawImage"
+    },
+    {
+      "sequence": 77,
+      "elapsedMs": 1375,
+      "frame": 63,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/sv_actors/CurrentBattler.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "object-15",
+        "url": "img/sv_actors/CurrentBattler.png",
+        "ready": true,
+        "width": 576,
+        "height": 384
+      },
+      "image": {
+        "imageSrc": "chrome-extension://hjpoehkkpepnhdolacahkgpaificohjn/img/sv_actors/CurrentBattler.png",
+        "naturalWidth": 576,
+        "naturalHeight": 384
+      },
+      "pixel": "#0000ff",
+      "kind": "Bitmap._onLoad"
+    },
+    {
+      "sequence": 78,
+      "elapsedMs": 1384,
+      "frame": 63,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "updateBitmap"
+        }
+      ],
+      "kind": "native-sprite-consumer",
+      "actorId": 1,
+      "name": "CurrentBattler",
+      "optSideView": true,
+      "spriteId": "object-21",
+      "bitmap": {
+        "id": "object-15",
+        "url": "img/sv_actors/CurrentBattler.png",
+        "ready": true,
+        "width": 576,
+        "height": 384
+      },
+      "pixel": "#0000ff"
+    },
+    {
+      "sequence": 79,
+      "elapsedMs": 1386,
+      "frame": 63,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "_renderCanvas",
+          "renderMeta": {
+            "kind": "enemy",
+            "enemyId": 1,
+            "name": "ModeEnemy",
+            "optSideView": true,
+            "spriteId": "object-20",
+            "bitmap": {
+              "id": "object-19",
+              "url": "img/sv_enemies/ModeEnemy.png",
+              "ready": true,
+              "width": 96,
+              "height": 80
+            },
+            "pixel": "#00ff00"
+          }
+        }
+      ],
+      "consumer": {
+        "kind": "enemy",
+        "enemyId": 1,
+        "name": "ModeEnemy",
+        "optSideView": true,
+        "spriteId": "object-20",
+        "bitmap": {
+          "id": "object-19",
+          "url": "img/sv_enemies/ModeEnemy.png",
+          "ready": true,
+          "width": 96,
+          "height": 80
+        },
+        "pixel": "#00ff00"
+      },
+      "drawArguments": [
+        0,
+        0,
+        96,
+        80,
+        -48,
+        -80,
+        96,
+        80
+      ],
+      "sourceWidth": 96,
+      "sourceHeight": 80,
+      "sourceMatchesSelectedBitmap": true,
+      "kind": "native-canvas-drawImage"
+    },
+    {
+      "sequence": 80,
+      "elapsedMs": 1386,
+      "frame": 63,
+      "scene": "Scene_Battle",
+      "operations": [
+        {
+          "method": "_renderCanvas",
+          "renderMeta": {
+            "kind": "actor",
+            "actorId": 1,
+            "name": "CurrentBattler",
+            "optSideView": true,
+            "spriteId": "object-21",
+            "bitmap": {
+              "id": "object-15",
+              "url": "img/sv_actors/CurrentBattler.png",
+              "ready": true,
+              "width": 576,
+              "height": 384
+            },
+            "pixel": "#0000ff"
+          }
+        }
+      ],
+      "consumer": {
+        "kind": "actor",
+        "actorId": 1,
+        "name": "CurrentBattler",
+        "optSideView": true,
+        "spriteId": "object-21",
+        "bitmap": {
+          "id": "object-15",
+          "url": "img/sv_actors/CurrentBattler.png",
+          "ready": true,
+          "width": 576,
+          "height": 384
+        },
+        "pixel": "#0000ff"
+      },
+      "drawArguments": [
+        0,
+        0,
+        64,
+        64,
+        -32,
+        -64,
+        64,
+        64
+      ],
+      "sourceWidth": 576,
+      "sourceHeight": 384,
+      "sourceMatchesSelectedBitmap": true,
+      "kind": "native-canvas-drawImage"
+    }
+  ],
+  "assertions": [
+    {
+      "label": "genuine Scene_Battle reached through saved native301",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 58,
+          "elapsedMs": 318,
+          "frame": 3,
+          "scene": "Scene_Map",
+          "operations": [],
+          "phase": "execution",
+          "eventId": 2,
+          "commandIndex": 0,
+          "parameters": [
+            0,
+            1,
+            false,
+            true
+          ],
+          "before": {
+            "saved": {
+              "characterName": "InitialCharacter",
+              "characterIndex": 0,
+              "battlerName": "InitialBattler"
+            },
+            "runtime": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3,
+              "battlerName": "CurrentBattler"
+            },
+            "party": [
+              1
+            ],
+            "player": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3
+            }
+          },
+          "kind": "command301"
+        }
+      ]
+    },
+    {
+      "label": "native fixed Troop creates the selected Enemy",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 60,
+          "elapsedMs": 318,
+          "frame": 3,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "command301",
+              "phase": "execution",
+              "eventId": 2,
+              "commandIndex": 0,
+              "parameters": [
+                0,
+                1,
+                false,
+                true
+              ],
+              "before": {
+                "saved": {
+                  "characterName": "InitialCharacter",
+                  "characterIndex": 0,
+                  "battlerName": "InitialBattler"
+                },
+                "runtime": {
+                  "characterName": "CurrentCharacter",
+                  "characterIndex": 3,
+                  "battlerName": "CurrentBattler"
+                },
+                "party": [
+                  1
+                ],
+                "player": {
+                  "characterName": "CurrentCharacter",
+                  "characterIndex": 3
+                }
+              }
+            },
+            {
+              "method": "setup",
+              "troopId": 1
+            }
+          ],
+          "members": [
+            {
+              "index": 0,
+              "enemyId": 1,
+              "name": "ModeEnemy",
+              "hidden": false
+            }
+          ],
+          "kind": "Game_Troop.members"
+        }
+      ]
+    },
+    {
+      "label": "native322 overrides runtime images while saved Actor remains unchanged",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 40,
+          "elapsedMs": 269,
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "command322",
+              "phase": "execution",
+              "eventId": 1,
+              "commandIndex": 0,
+              "parameters": [
+                1,
+                "CurrentCharacter",
+                3,
+                "",
+                0,
+                "CurrentBattler"
+              ],
+              "before": {
+                "saved": {
+                  "characterName": "InitialCharacter",
+                  "characterIndex": 0,
+                  "battlerName": "InitialBattler"
+                },
+                "runtime": {
+                  "characterName": "InitialCharacter",
+                  "characterIndex": 0,
+                  "battlerName": "InitialBattler"
+                },
+                "party": [],
+                "player": {
+                  "characterName": "",
+                  "characterIndex": 0
+                }
+              }
+            }
+          ],
+          "eventId": 1,
+          "commandIndex": 0,
+          "parameters": [
+            1,
+            "CurrentCharacter",
+            3,
+            "",
+            0,
+            "CurrentBattler"
+          ],
+          "result": true,
+          "after": {
+            "saved": {
+              "characterName": "InitialCharacter",
+              "characterIndex": 0,
+              "battlerName": "InitialBattler"
+            },
+            "runtime": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3,
+              "battlerName": "CurrentBattler"
+            },
+            "party": [],
+            "player": {
+              "characterName": "",
+              "characterIndex": 0
+            }
+          },
+          "kind": "command322-complete"
+        }
+      ]
+    },
+    {
+      "label": "native129 adds Actor with initialize:false and retains runtime replacement",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 42,
+          "elapsedMs": 269,
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "command129",
+              "phase": "execution",
+              "eventId": 1,
+              "commandIndex": 1,
+              "parameters": [
+                1,
+                0,
+                false
+              ],
+              "before": {
+                "saved": {
+                  "characterName": "InitialCharacter",
+                  "characterIndex": 0,
+                  "battlerName": "InitialBattler"
+                },
+                "runtime": {
+                  "characterName": "CurrentCharacter",
+                  "characterIndex": 3,
+                  "battlerName": "CurrentBattler"
+                },
+                "party": [],
+                "player": {
+                  "characterName": "",
+                  "characterIndex": 0
+                }
+              }
+            }
+          ],
+          "eventId": 1,
+          "commandIndex": 1,
+          "parameters": [
+            1,
+            0,
+            false
+          ],
+          "result": true,
+          "after": {
+            "saved": {
+              "characterName": "InitialCharacter",
+              "characterIndex": 0,
+              "battlerName": "InitialBattler"
+            },
+            "runtime": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3,
+              "battlerName": "CurrentBattler"
+            },
+            "party": [
+              1
+            ],
+            "player": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3
+            }
+          },
+          "kind": "command129-complete"
+        }
+      ]
+    },
+    {
+      "label": "actual player uses current runtime character cell",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 51,
+          "elapsedMs": 311,
+          "frame": 3,
+          "scene": "Scene_Map",
+          "operations": [],
+          "state": {
+            "saved": {
+              "characterName": "InitialCharacter",
+              "characterIndex": 0,
+              "battlerName": "InitialBattler"
+            },
+            "runtime": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3,
+              "battlerName": "CurrentBattler"
+            },
+            "party": [
+              1
+            ],
+            "player": {
+              "characterName": "CurrentCharacter",
+              "characterIndex": 3
+            }
+          },
+          "kind": "observed-map-stage"
+        }
+      ]
+    },
+    {
+      "label": "actual side-view Actor uses current runtime battler sheet",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 80,
+          "elapsedMs": 1386,
+          "frame": 63,
+          "scene": "Scene_Battle",
+          "operations": [
+            {
+              "method": "_renderCanvas",
+              "renderMeta": {
+                "kind": "actor",
+                "actorId": 1,
+                "name": "CurrentBattler",
+                "optSideView": true,
+                "spriteId": "object-21",
+                "bitmap": {
+                  "id": "object-15",
+                  "url": "img/sv_actors/CurrentBattler.png",
+                  "ready": true,
+                  "width": 576,
+                  "height": 384
+                },
+                "pixel": "#0000ff"
+              }
+            }
+          ],
+          "consumer": {
+            "kind": "actor",
+            "actorId": 1,
+            "name": "CurrentBattler",
+            "optSideView": true,
+            "spriteId": "object-21",
+            "bitmap": {
+              "id": "object-15",
+              "url": "img/sv_actors/CurrentBattler.png",
+              "ready": true,
+              "width": 576,
+              "height": 384
+            },
+            "pixel": "#0000ff"
+          },
+          "drawArguments": [
+            0,
+            0,
+            64,
+            64,
+            -32,
+            -64,
+            64,
+            64
+          ],
+          "sourceWidth": 576,
+          "sourceHeight": 384,
+          "sourceMatchesSelectedBitmap": true,
+          "kind": "native-canvas-drawImage"
+        }
+      ]
+    },
+    {
+      "label": "saved initial character preload is separate from later actual drawing",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 36,
+          "elapsedMs": 269,
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "setup",
+              "eventId": 1,
+              "commandCodes": [
+                322,
+                129,
+                355,
+                123,
+                0
+              ]
+            },
+            {
+              "method": "requestImages",
+              "phase": "preload",
+              "commandCodes": [
+                322,
+                129,
+                355,
+                123,
+                0
+              ]
+            },
+            {
+              "method": "requestCharacter",
+              "name": "CurrentCharacter"
+            }
+          ],
+          "name": "CurrentCharacter",
+          "bitmap": {
+            "id": "object-14",
+            "url": "img/characters/CurrentCharacter.png",
+            "ready": false,
+            "width": 0,
+            "height": 0
+          },
+          "kind": "ImageManager.requestCharacter"
+        },
+        {
+          "sequence": 38,
+          "elapsedMs": 269,
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "setup",
+              "eventId": 1,
+              "commandCodes": [
+                322,
+                129,
+                355,
+                123,
+                0
+              ]
+            },
+            {
+              "method": "requestImages",
+              "phase": "preload",
+              "commandCodes": [
+                322,
+                129,
+                355,
+                123,
+                0
+              ]
+            },
+            {
+              "method": "requestCharacter",
+              "name": "InitialCharacter"
+            }
+          ],
+          "name": "InitialCharacter",
+          "bitmap": {
+            "id": "object-16",
+            "url": "img/characters/InitialCharacter.png",
+            "ready": false,
+            "width": 0,
+            "height": 0
+          },
+          "kind": "ImageManager.requestCharacter"
+        }
+      ]
+    },
+    {
+      "label": "saved candidates remain unchanged after map and battle consumption",
+      "passed": true,
+      "actual": {
+        "saved": {
+          "characterName": "InitialCharacter",
+          "characterIndex": 0,
+          "battlerName": "InitialBattler"
+        },
+        "runtime": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3,
+          "battlerName": "CurrentBattler"
+        },
+        "party": [
+          1
+        ],
+        "player": {
+          "characterName": "CurrentCharacter",
+          "characterIndex": 3
+        }
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "AV.N06.runtime-overrides-initial-candidate.native-run.case.observed",
+      "status": "observed",
+      "input": "Actor1 saved initial names -> native322 current replacements -> native129 initialize:false -> real player map draw -> saved gated301 -> real Sprite_Actor draw",
+      "disks": [
+        {
+          "relative": "img/characters/InitialCharacter.png",
+          "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n06-override-run-02\\img\\characters\\InitialCharacter.png",
+          "ordinaryFile": true,
+          "bytes": 1765,
+          "sha256": "a29c57b2099e9b9d4560f3d8709692da25c8092a9491cec91799ec888e7f8175"
+        },
+        {
+          "relative": "img/characters/CurrentCharacter.png",
+          "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n06-override-run-02\\img\\characters\\CurrentCharacter.png",
+          "ordinaryFile": true,
+          "bytes": 1860,
+          "sha256": "9d943e1e89b2b121aa290901004ee7f6fb31e4502bb78eb97f6db430d640c2d2"
+        },
+        {
+          "relative": "img/sv_actors/InitialBattler.png",
+          "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n06-override-run-02\\img\\sv_actors\\InitialBattler.png",
+          "ordinaryFile": true,
+          "bytes": 1765,
+          "sha256": "48d4cb3bdbd4fab36c00a64d81b433490a06c96731b34d6a0a77a8161fc0bacc"
+        },
+        {
+          "relative": "img/sv_actors/CurrentBattler.png",
+          "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n06-override-run-02\\img\\sv_actors\\CurrentBattler.png",
+          "ordinaryFile": true,
+          "bytes": 1860,
+          "sha256": "4231fd4b6fa1946908aad4cb12d99b01ec31a293d135d81aec9023668dccede4"
+        }
+      ],
+      "eventSequences": [
+        40,
+        42,
+        51,
+        50,
+        80
+      ],
+      "limitation": "One real runtime override example; saved candidates remain static relationships and are not guaranteed current images."
+    }
+  ],
+  "finished": "2026-11-02T03:45:54.364Z",
+  "final": {
+    "frame": 64,
+    "scene": "Scene_Battle",
+    "rendererType": 2,
+    "actor": {
+      "saved": {
+        "characterName": "InitialCharacter",
+        "characterIndex": 0,
+        "battlerName": "InitialBattler"
+      },
+      "runtime": {
+        "characterName": "CurrentCharacter",
+        "characterIndex": 3,
+        "battlerName": "CurrentBattler"
+      },
+      "party": [
+        1
+      ],
+      "player": {
+        "characterName": "CurrentCharacter",
+        "characterIndex": 3
+      }
+    },
+    "optSideView": true,
+    "mapStage": true,
+    "commandsComplete": true
+  }
+}
