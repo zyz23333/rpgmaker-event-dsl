@@ -1,8 +1,8 @@
-# Ticket09 System and host battle-background acceptance
+# Ticket 09 System and host battle-background acceptance
 
 Verified implementation revision: `ab7150c1a0c74b8744a3fe4c3f24cadd33e75764`. Initial integration base: `898b87db05b47dda648bfa42e2f2ace0a26d3e67`.
 
-Windows / Node.js22.23.4 / pnpm10.33.0. Real Workspace API and actual source and built CLI subprocesses. 96 normative IDs plus9 supplemental regressions:105 source +105 built =210 passing receipts. Native execution is not claimed here.
+Windows / Node.js 22.23.4 / pnpm 10.33.0. Real Workspace API and actual source and built CLI subprocesses. 96 normative IDs plus 9 supplemental regressions: 105 source + 105 built = 210 passing receipts. Native execution is not claimed here.
 
 Independent test inputs specify exact names, namespaces, native positions, field chains, conditions, candidate/inactive reasons and severity. Check and failure assertions compare source, config, project/media tree, Snapshot, generated tree, Manifest and pending state. Successful Compile preserves the project and captured external data; explicit test repairs are accounted for before comparison.
 
