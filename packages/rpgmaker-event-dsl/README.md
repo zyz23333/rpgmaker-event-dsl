@@ -939,7 +939,7 @@ tintPicture({
 
 Picture IDs 1..100 select runtime slots, including unshown slots. Show's `image`
 is a `pictures` Asset Reference or explicit `null`; None retains a complete Picture.
-`erasePicture({ pictureId })` erases it. Asset files and dimensions are not scanned.
+`erasePicture({ pictureId })` erases it. Image dimensions are not scanned.
 Show and Move require top-level `origin` (`upperLeft` or `center`), `position`,
 `scaleX`, `scaleY`, `opacity` and named `blendMode` (`normal`, `additive`, `multiply`,
 `screen`). Direct coordinates are integers −9999..9999; variables mode uses two
@@ -948,6 +948,22 @@ flips; opacity is integer 0..255. Numeric saved zero retains its sign.
 Move has no image field and requires duration 1..999 and explicit Boolean `wait`.
 Rotate speed is integer −90..90, including zero to stop. Tint requires named RGB
 integers −255..255, gray 0..255, duration 1..999 and explicit Boolean `wait`.
+
+Compile and `compile --check` check current Show Picture files before publishing or
+returning. The saved name is used exactly as written, with `.png` appended under
+`img/pictures` in the bound Project Root. An existing suffix is retained, and every
+directory, filename and extension must have the exact case. Formal commands and
+recognized raw 231 records use the same rules in every current Map Event, Common
+Event and Troop Event, including nested branches and uncalled Common Events.
+
+The check observes ordinary-file metadata only: empty files pass, and no image
+decoding or layout guarantee is made. None needs no file. Missing directories or
+files, wrong types, unsupported Windows names, links below the resolved Project
+Root and image encryption block these ordinary uses with an `MV-ASSET-` diagnostic
+and every defining native position. It preserves saved names; Decompilation can
+still expose an unsupported name so it can be repaired. Check leaves generated
+data, the Snapshot and synchronization metadata unchanged. Asset observations are
+transient and do not enter Compile Baseline.
 
 ## Enemies and battle control
 

@@ -67,6 +67,7 @@ import {
   publishDecompileCandidate,
 } from "./decompile-publication.js";
 import { assertCandidateDiscoverable } from "./source-discovery.js";
+import { checkEventAssets } from "./asset-check.js";
 
 export async function cloneWorkspace(options: WorkspaceCommandOptions): Promise<void> {
   await withWorkspaceOperationLock(options.workspaceRoot, "clone", () =>
@@ -268,6 +269,11 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
     resolver: graph.resolver,
     statePaths: snapshot.statePaths,
     scriptEnabled: workspace.config.scriptEnabled,
+  });
+  await checkEventAssets({
+    projectRoot: workspace.projectRoot,
+    files: candidate.files,
+    commandName,
   });
   if (options.check) {
     await assertCompileInputsUnchanged(
