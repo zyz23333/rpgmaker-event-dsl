@@ -7,6 +7,7 @@ import { z } from "zod";
 import { isCanonicalMapFileName, parseMapInfos } from "../project-data/project.js";
 import { writeStableJson } from "../project-data/writer.js";
 import { typeInputSchema } from "./type-inputs.js";
+import { assetCheckExceptionsSchema } from "../validation/asset-exceptions.js";
 
 export const workspaceStateDirectoryName = ".rpgmaker-event-dsl";
 export const projectDataSnapshotDirectoryName = "project-data-snapshot";
@@ -60,6 +61,7 @@ export const syncManifestSchema = z
         hash: hashSchema,
         config: z
           .object({
+            assetCheckExceptions: assetCheckExceptionsSchema.optional(),
             scriptEnabled: z.boolean(),
             sourceExclude: z.array(z.string().min(1)),
             sourceInclude: z.array(z.string().min(1)),

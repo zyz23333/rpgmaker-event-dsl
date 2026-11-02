@@ -833,6 +833,7 @@ export const gate = {
     );
     expect(manifest?.compileBaseline?.hash).toMatch(/^[0-9a-f]{64}$/u);
     expect(manifest?.compileBaseline?.config).toEqual({
+      assetCheckExceptions: [],
       scriptEnabled: false,
       sourceExclude: ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
       sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],

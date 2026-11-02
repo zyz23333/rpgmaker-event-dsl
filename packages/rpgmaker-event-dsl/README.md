@@ -1085,6 +1085,44 @@ If enumeration or metadata cannot complete, or their observed entry types disagr
 within the same query, the diagnostic is `MV-ASSET-QUERY-FAILED`. Such an inconclusive
 query is distinct from an observed missing file, and safe independent checks continue.
 
+An optional Workspace Config `assetCheckExceptions` array can retain a temporary
+authoring gap with a reason. New workspaces write `[]`; omitting the field has the
+same live policy. Every entry contains exactly `category`, `folder`, `name` and
+`reason`, for example:
+
+```json
+{
+  "category": "image",
+  "folder": "pictures",
+  "name": "Chapter 2 Poster",
+  "reason": "Final artwork is being commissioned."
+}
+```
+
+Category and folder must be a supported asset namespace. Name matching preserves
+case, spaces, suffixes and literal encoding; the reason must contain non-whitespace
+text. Duplicate exact keys and extra fields fail configuration validation. Only
+confirmed missing paths, name mismatches and wrong types can downgrade an ordinary
+error to warning. Unsupported names, links, encrypted modes, required fields,
+query failures, fixed references, structure checks and the Script Command Gate keep
+their own policy. Images and movies containing `%` or `#` remain unsupported even
+if an exception accurately names them. Audio retains its literal-name support.
+
+Compile and Check display each finding's stable code, every native origin, event-local
+dependency chain, conditions, base/effective levels and the reason for an actual
+exception downgrade. Reliable captured authored locations add a DSL path and
+one-based source line/column; otherwise native positions remain available. Direct
+Common Event calls stay separate and do not multiply uses. Reports count problem
+groups, distinct legal problem files and affected uses independently. A complete
+check warns at an exception that downgraded no error; incomplete coverage does not
+pretend that an exception's effect was determined. Early validation failures say
+that asset checking did not run. Any effective error fails the command; warning
+and informational reports can succeed with an explicit unchecked-coverage result.
+
+The exact exception policy is part of Compile Baseline. After changing it, run a
+successful Compile before Push; Check cannot refresh previously generated output.
+Live file observations and source-coordinate correspondence remain transient.
+
 ## Enemies and battle control
 
 Enemy resource commands use named operands and explicit saved selectors:

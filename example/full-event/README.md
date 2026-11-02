@@ -32,6 +32,7 @@ source discovery:
 - `sourceRoot`: `src`
 - `sourceInclude`: `["**/*.events.ts", "**/*.dsl.ts"]`
 - `sourceExclude`: `["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]`
+- `assetCheckExceptions`: `[]`; exact reasoned authoring exceptions belong to the compilation policy.
 
 Create a local live config from the template, then set `projectRoot` to your RPG Maker MV
 project:

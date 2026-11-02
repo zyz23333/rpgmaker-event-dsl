@@ -15,6 +15,7 @@ const {
 }: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 const it = createAssetTest({ ownerTicket: "02", testSource: import.meta.url });
 const rawIt = createAssetTest({ ownerTicket: "02,05", testSource: import.meta.url });
+const exceptionIt = createAssetTest({ ownerTicket: "02,12", testSource: import.meta.url });
 
 const picture =
   'showPicture({pictureId:1,image:imageAsset({folder:"pictures",name:"Poster"}),origin:"upperLeft",position:{kind:"direct",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:"normal"})';
@@ -565,13 +566,42 @@ for (const [branch, command] of [
     'rawDslCommand({code:9999,indent:0,parameters:["Missing","pictures","img/pictures/Missing.png"]})',
   ],
 ] as const)
-  it(`AV.C11.${branch}.formal.case.expected: uninterpreted payload strings never become asset targets`, async () => {
-    await withWindowsSandbox(`asset-scope-${branch}`, async ({ workspaceRoot: root }) => {
-      await prepare(root, { source: commonSource(command) });
-      const config = join(root, "rpgmaker-event-dsl.config.json");
-      const data = JSON.parse(await readFile(config, "utf8"));
-      await writeFile(config, JSON.stringify({ ...data, scriptEnabled: true }));
-      await compileWorkspace({ workspaceRoot: root, check: false });
-      expect(await publishedUses(root)).toEqual([]);
-    });
-  });
+  (branch === "script-command" ? exceptionIt : it)(
+    `AV.C11.${branch}.formal.case.expected: uninterpreted payload strings never become asset targets`,
+    async () => {
+      await withWindowsSandbox(`asset-scope-${branch}`, async ({ workspaceRoot: root }) => {
+        await prepare(root, { source: commonSource(command) });
+        const config = join(root, "rpgmaker-event-dsl.config.json");
+        const data = JSON.parse(await readFile(config, "utf8"));
+        await writeFile(config, JSON.stringify({ ...data, scriptEnabled: true }));
+        await compileWorkspace({ workspaceRoot: root, check: false });
+        expect(await publishedUses(root)).toEqual([]);
+        if (branch === "script-command") {
+          await writeFile(
+            config,
+            JSON.stringify({
+              ...data,
+              scriptEnabled: false,
+              assetCheckExceptions: [
+                {
+                  category: "image",
+                  folder: "pictures",
+                  name: "Not a picture",
+                  reason: "Cannot waive Script Command Gate",
+                },
+              ],
+            }),
+          );
+          const before = await state(root);
+          await expect(compileWorkspace({ workspaceRoot: root, check: true })).rejects.toThrow(
+            /script/iu,
+          );
+          expect(await state(root)).toEqual(before);
+          recordAssetInput({
+            exceptionDoesNotBypassScriptGate: true,
+            matchingSavedString: "Not a picture",
+          });
+        }
+      });
+    },
+  );

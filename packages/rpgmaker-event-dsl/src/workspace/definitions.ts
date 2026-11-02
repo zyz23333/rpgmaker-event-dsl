@@ -6,11 +6,13 @@ import * as dsl from "../authoring/index.js";
 import type { DslOwnedDeclaration } from "../domain/declarations.js";
 import { collectDslOwnedDeclarations } from "../validation/declarations.js";
 import { TypeInputCapture } from "./type-inputs.js";
+import { rememberCapturedLocation } from "./asset-provenance.js";
 
 export { discoverDefinitionFiles, type DefinitionSourceDiscovery } from "./source-discovery.js";
 
 type EvaluationScope = {
   bindings: Map<string, unknown>;
+  sourceFile: ts.SourceFile;
 };
 
 export async function loadDefinitionFile(
@@ -190,6 +192,7 @@ function collectDiagnostics(
 function evaluateModule(sourceFile: ts.SourceFile): Record<string, unknown> {
   const scope: EvaluationScope = {
     bindings: new Map<string, unknown>(),
+    sourceFile,
   };
   const exports: Record<string, unknown> = Object.create(null) as Record<string, unknown>;
 
@@ -387,6 +390,14 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
       output.push(evaluateExpression(element, scope));
     }
 
+    const position = scope.sourceFile.getLineAndCharacterOfPosition(
+      node.getStart(scope.sourceFile),
+    );
+    rememberCapturedLocation(output, {
+      file: scope.sourceFile.fileName,
+      line: position.line + 1,
+      column: position.character + 1,
+    });
     return output;
   }
 
@@ -423,6 +434,14 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
       set(evaluatePropertyName(property.name), evaluateExpression(property.initializer, scope));
     }
 
+    const position = scope.sourceFile.getLineAndCharacterOfPosition(
+      node.getStart(scope.sourceFile),
+    );
+    rememberCapturedLocation(output, {
+      file: scope.sourceFile.fileName,
+      line: position.line + 1,
+      column: position.character + 1,
+    });
     return output;
   }
 
@@ -433,7 +452,16 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
     }
 
     const args = node.arguments.map((argument) => evaluateExpression(argument, scope));
-    return callee(...args);
+    const result = callee(...args);
+    const position = scope.sourceFile.getLineAndCharacterOfPosition(
+      node.getStart(scope.sourceFile),
+    );
+    rememberCapturedLocation(result, {
+      file: scope.sourceFile.fileName,
+      line: position.line + 1,
+      column: position.character + 1,
+    });
+    return result;
   }
 
   if (ts.isPropertyAccessExpression(node)) {

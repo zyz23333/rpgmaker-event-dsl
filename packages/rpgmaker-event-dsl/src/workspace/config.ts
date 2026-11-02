@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { resolve } from "node:path";
 
 import { z } from "zod";
+import { assetCheckExceptionsSchema } from "../validation/asset-exceptions.js";
 
 export const defaultSourceRoot = "src";
 export const defaultSourceInclude = ["**/*.events.ts", "**/*.dsl.ts"] as const;
@@ -15,6 +16,7 @@ export const workspaceConfigSchema = z
     sourceRoot: z.string().min(1),
     sourceInclude: z.array(z.string().min(1)),
     sourceExclude: z.array(z.string().min(1)),
+    assetCheckExceptions: assetCheckExceptionsSchema.default([]),
   })
   .strict();
 
@@ -38,7 +40,18 @@ export async function loadWorkspace(workspaceRoot: string): Promise<LoadedWorksp
   const configPath = resolve(workspaceRoot, "rpgmaker-event-dsl.config.json");
   const configBytes = await readFile(configPath);
   const rawConfig = new TextDecoder("utf-8", { fatal: true, ignoreBOM: true }).decode(configBytes);
-  const config = workspaceConfigSchema.parse(JSON.parse(rawConfig));
+  const parsed = workspaceConfigSchema.safeParse(JSON.parse(rawConfig));
+  if (!parsed.success) {
+    const exceptionIssues = parsed.error.issues.filter(
+      (issue) => issue.path[0] === "assetCheckExceptions",
+    );
+    if (exceptionIssues.length)
+      throw new Error(
+        `MV-ASSET-INVALID-EXCEPTION: ${exceptionIssues.map((issue) => `${issue.path.map((part, index) => (typeof part === "number" ? `[${part}]` : `${index ? "." : ""}${String(part)}`)).join("")}: ${issue.message}`).join("\n")}\ncompile asset check not run: Workspace Config is invalid.`,
+      );
+    throw parsed.error;
+  }
+  const config = parsed.data;
   const projectRoot = resolve(workspaceRoot, config.projectRoot);
   const dataDirectory = resolve(projectRoot, "data");
 
@@ -66,6 +79,7 @@ export async function initWorkspace(options: InitWorkspaceOptions): Promise<Load
     sourceRoot: defaultSourceRoot,
     sourceInclude: [...defaultSourceInclude],
     sourceExclude: [...defaultSourceExclude],
+    assetCheckExceptions: [],
   };
 
   await assertProjectRoot(projectRoot);
