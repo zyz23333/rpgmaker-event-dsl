@@ -110,6 +110,15 @@ it("AV.B01.show-animation.formal.image1.missing: selected Animation image fails 
     expect(cli.stderr).toContain("Animations.json[1].animation1Name");
     await media(root, "image", "animations", "First");
     await compileWorkspace({ workspaceRoot: root, check: true });
+    await compileWorkspace({ workspaceRoot: root, check: false });
+    const actual = await observed(root);
+    expect(actual.relations).toEqual({ uses: animationExpected(), problems: [] });
+    expect(JSON.parse(actual.external.get("Animations.json")!)[1]).toEqual(animation());
+    expect(JSON.parse(actual.files.get("Map001.json")!).events[1].pages[0].list[0]).toEqual({
+      code: 212,
+      indent: 0,
+      parameters: [-1, 1, false],
+    });
   });
 });
 
@@ -190,18 +199,26 @@ it("AV.B01.show-animation.formal.image2.missing: second Animation image is indep
     await media(root, "audio", "se", "Timing0");
     await media(root, "audio", "se", "Timing1");
     const before = await state(root);
-    const failure = await compileWorkspace({ workspaceRoot: root, check: true }).then(
-      () => "",
-      String,
-    );
-    expect(failure).toContain("MV-ASSET-MISSING-FILE");
-    expect(failure).toContain("Animations.json[1].animation2Name");
+    for (const check of [true, false]) {
+      const failure = await compileWorkspace({ workspaceRoot: root, check }).then(() => "", String);
+      expect(failure).toContain("MV-ASSET-MISSING-FILE");
+      expect(failure).toContain("Animations.json[1].animation2Name");
+      expect(await state(root)).toEqual(before);
+    }
+    const cli = await runCli(sandbox, ["compile", "--check"], { allowFailure: true });
+    expect(cli.exitCode).not.toBe(0);
+    expect(cli.stderr).toContain("Animations.json[1].animation2Name");
     expect(await state(root)).toEqual(before);
     await media(root, "image", "animations", "Second");
     await compileWorkspace({ workspaceRoot: root, check: false });
-    expect((await observed(root)).relations.uses.slice(0, 2)).toEqual(
-      animationExpected().slice(0, 2),
-    );
+    const actual = await observed(root);
+    expect(actual.relations).toEqual({ uses: animationExpected(), problems: [] });
+    expect(JSON.parse(actual.external.get("Animations.json")!)[1]).toEqual(animation());
+    expect(JSON.parse(actual.files.get("Map001.json")!).events[1].pages[0].list[0]).toEqual({
+      code: 212,
+      indent: 0,
+      parameters: [-1, 1, false],
+    });
   });
 });
 
