@@ -18,6 +18,8 @@ export default defineConfig({
       "test/asset-dependency-workspace.test.ts",
       "test/asset-dependency-data.test.ts",
       "test/asset-system-workspace.test.ts",
+      "test/system-access-window-scenes-workspace.test.ts",
+      "test/battle-workspace.test.ts",
       "test/asset-battler-workspace.test.ts",
       "test/asset-battler-data.test.ts",
       "test/asset-common-workspace.test.ts",
