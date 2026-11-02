@@ -1,0 +1,15 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/asset-validation-03-files/packages/rpgmaker-event-dsl
+
+ ✓ test/asset-media-workspace.test.ts (81 tests | 77 skipped) 3192ms
+   ✓ AV.F06.audio-percent.filesystem.case.expected: audio keeps literal encoded-looking characters  572ms
+   ✓ AV.F06.audio-hash.filesystem.case.expected: audio keeps literal encoded-looking characters  340ms
+   ✓ AV.F06.movie-percent.input.case.expected: unsupported movie names are explicit and never traverse a media target  1100ms
+   ✓ AV.F06.movie-hash.input.case.expected: unsupported movie names are explicit and never traverse a media target  1178ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed | 77 skipped (81)
+   Start at  12:52:44
+   Duration  4.23s (transform 399ms, setup 0ms, import 885ms, tests 3.19s, environment 0ms)
+
+JSON report written to M:/Shuen/Codex/asset-validation-03-files/packages/rpgmaker-event-dsl/test-results/03-image-policy-media-built.json

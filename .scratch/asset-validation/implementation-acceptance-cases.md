@@ -125,6 +125,8 @@ F07 的字符和设备名实例把具体 Unicode 编号／设备名追加到字�
 
 旧 `AV.F06.image-percent.filesystem.case.expected`、`AV.F06.image-hash.filesystem.case.expected`、`AV.F06.literal-percent20.filesystem.case.expected` 已退出当前义务；[03 历史机器回执](../asset-validation-implementation/evidence/03-file-observation-acceptance.json)中的源码／构建共六条 `not-executed-policy-pending` 必须原样保留，不能覆盖成通过或别名复用。实施03须在新 input ID 下通过公共 Workspace API 与实际 CLI 分别验证源码／构建行为，并保留独立预期。F06族和其七个分支不减少，改变的是三个图片分支的输入语义及ID。
 
+实施03另追加两个窄交互回归ID：`AV.F06.image-candidate.input.case.expected`、`AV.F06.image-inactive.input.case.expected`，验证图片不支持名称在Actor初始候选和明确非活动路线中为warning+未检查、保持原值且不查询。这是独立补充，不替代上表七个主分支或D02完整例外责任；实际源码／构建证据见[03收尾回执](../asset-validation-implementation/evidence/03-image-policy-acceptance.md)。
+
 ## D. 诊断与例外：10 族
 
 结果固定 `expected`，字段为问题事实或配置项。普通／候选／非活动使用各自核对基础和有效级别。除 D06 的纯聚合分支外，以真实 Workspace 编译及结构化内部预期相互支持；D10 全部经实际 CLI。
