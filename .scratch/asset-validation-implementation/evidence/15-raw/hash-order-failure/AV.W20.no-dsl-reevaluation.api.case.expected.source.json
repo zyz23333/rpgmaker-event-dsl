@@ -1,0 +1,142 @@
+{
+  "id": "AV.W20.no-dsl-reevaluation.api.case.expected",
+  "ownerTicket": "14",
+  "status": "failed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T08:40:39.838Z",
+  "completedAt": "2026-11-02T08:40:43.984Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-no-evaluation-JCHVGt\\最小 Workspace with spaces",
+      "source": "import type {PushInput} from \"../types/push-input.js\";\nimport {commonEvent,mapEvent,troopEvent,showPicture,imageAsset,callCommonEvent,commonEventRef,forceAction,actorRef,skillRef,showAnimation,animationRef} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Push workflow\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"PushPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+      "project": {
+        "CommonEvents.json": [
+          null
+        ],
+        "System.json": {
+          "gameTitle": "Push fixture",
+          "switches": [
+            ""
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          }
+        },
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Push Map"
+          }
+        ],
+        "Map001.json": {
+          "id": 1,
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": [
+            null
+          ],
+          "custom": {
+            "preserved": [
+              "opaque",
+              null
+            ]
+          }
+        }
+      },
+      "exceptions": [],
+      "media": "ordinary zero-byte PNG; metadata only"
+    },
+    {
+      "observer": {
+        "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-no-evaluation-JCHVGt\\最小 Workspace with spaces",
+        "apiEntry": "file:///M:/Shuen/Codex/asset-validation-15-postwrite/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "node": "v22.23.4",
+        "phases": [
+          {
+            "operation": "warm Compile",
+            "observed": false
+          },
+          {
+            "operation": "Compile positive control",
+            "count": 1
+          },
+          {
+            "operation": "Push",
+            "count": 0
+          },
+          {
+            "operation": "unchanged-source Check positive control",
+            "count": 1
+          }
+        ],
+        "observer": {
+          "counterKey": "__assetEvaluation_f8fffd32035c44daad890f9dd494a7e3",
+          "url": "file:///M:/Shuen/Codex/asset-validation-15-postwrite/packages/rpgmaker-event-dsl/src/workspace/definitions.ts",
+          "scriptId": "210",
+          "runtimeSha256": "84bb7d38669cc13e8011fce179ba709a4c1286cea70a0faeb9f4e68355b00003",
+          "diskSha256": "6f9a6c016cb7e1476e937fc64706bf751b703b8dd94ba7f8d97f826570ef09a3",
+          "functionRange": [
+            5504,
+            7432
+          ],
+          "firstStatementRange": [
+            5540,
+            5582
+          ],
+          "selected": {
+            "scriptId": "210",
+            "lineNumber": 0,
+            "columnNumber": 5552
+          },
+          "resolved": {
+            "scriptId": "210",
+            "lineNumber": 0,
+            "columnNumber": 5552
+          },
+          "breakpointId": "1:0:5552:file:///M:/Shuen/Codex/asset-validation-15-postwrite/packages/rpgmaker-event-dsl/src/workspace/definitions.ts"
+        },
+        "ok": true,
+        "pauses": []
+      },
+      "process": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-15-postwrite/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-15-postwrite\\packages\\rpgmaker-event-dsl\\test\\support\\asset-evaluation-child.mjs",
+          "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-no-evaluation-JCHVGt\\最小 Workspace with spaces",
+          "file:///M:/Shuen/Codex/asset-validation-15-postwrite/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+          "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-no-evaluation-JCHVGt\\w20-inspector.json"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-no-evaluation-JCHVGt\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T08:40:40.621Z",
+        "completedAt": "2026-11-02T08:40:43.928Z",
+        "signal": null,
+        "exitCode": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    }
+  ],
+  "expected": {
+    "description": "the actual evaluator observer hits Compile, stays explicitly zero through Push, and hits unchanged-source Check again",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-push-workspace.test.ts",
+    "sha256": "69374a70f37bf2209131a8db25b2f89aa94feb4b68ee2eb8161a344befe41474",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_5__.withWindowsSandbox)(\"asset-push-no-evaluation\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait (0,__vite_ssr_import_6__.preparePush)(sandbox);\n\t\tawait __vite_ssr_import_6__.pushApi.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst before = await (0,__vite_ssr_import_6__.observePush)(root);\n\t\tconst actual = await (0,__vite_ssr_import_6__.observedEvaluationPush)(sandbox);\n\t\t(0,__vite_ssr_import_3__.expect)(actual.report.error).toBeUndefined();\n\t\t(0,__vite_ssr_import_3__.expect)(actual.exitCode).toBe(0);\n\t\t(0,__vite_ssr_import_3__.expect)(actual.report.ok).toBe(true);\n\t\t(0,__vite_ssr_import_3__.expect)(actual.report.pauses).toEqual([]);\n\t\t(0,__vite_ssr_import_3__.expect)(actual.report.phases).toEqual([\n\t\t\t{\n\t\t\t\toperation: \"warm Compile\",\n\t\t\t\tobserved: false\n\t\t\t},\n\t\t\t{\n\t\t\t\toperation: \"Compile positive control\",\n\t\t\t\tcount: __vite_ssr_import_3__.expect.any(Number)\n\t\t\t},\n\t\t\t{\n\t\t\t\toperation: \"Push\",\n\t\t\t\tcount: 0\n\t\t\t},\n\t\t\t{\n\t\t\t\toperation: \"unchanged-source Check positive control\",\n\t\t\t\tcount: __vite_ssr_import_3__.expect.any(Number)\n\t\t\t}\n\t\t]);\n\t\t(0,__vite_ssr_import_3__.expect)(actual.report.phases[1].count).toBeGreaterThan(0);\n\t\t(0,__vite_ssr_import_3__.expect)(actual.report.phases[3].count).toBeGreaterThan(0);\n\t\t(0,__vite_ssr_import_3__.expect)(actual.report.observer.runtimeSha256).toMatch(/^[a-f0-9]{64}$/);\n\t\t(0,__vite_ssr_import_3__.expect)(actual.report.observer.diskSha256).toMatch(/^[a-f0-9]{64}$/);\n\t\tawait successfulPush(root, before);\n\t});\n}"
+  },
+  "actual": "AssertionError: expected { version: 1, …(4) } to deeply equal { version: 1, …(4) }",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

@@ -1,0 +1,165 @@
+{
+  "id": "AV.W05.repair-after-staging.api.case.expected",
+  "ownerTicket": "14",
+  "status": "failed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T08:41:07.709Z",
+  "completedAt": "2026-11-02T08:41:09.677Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-stage-repair-RW9BNr\\最小 Workspace with spaces",
+      "source": "import type {PushInput} from \"../types/push-input.js\";\nimport {commonEvent,mapEvent,troopEvent,showPicture,imageAsset,callCommonEvent,commonEventRef,forceAction,actorRef,skillRef,showAnimation,animationRef} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Push workflow\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"PushPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+      "project": {
+        "CommonEvents.json": [
+          null
+        ],
+        "System.json": {
+          "gameTitle": "Push fixture",
+          "switches": [
+            ""
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          }
+        },
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Push Map"
+          }
+        ],
+        "Map001.json": {
+          "id": 1,
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": [
+            null
+          ],
+          "custom": {
+            "preserved": [
+              "opaque",
+              null
+            ]
+          }
+        }
+      },
+      "exceptions": [],
+      "media": "ordinary zero-byte PNG; metadata only"
+    },
+    {
+      "operation": {
+        "operation": "push",
+        "boundary": "asset-before-pass"
+      },
+      "actual": {
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "message": "",
+        "messages": [
+          {
+            "kind": "checkpoint",
+            "pid": 31644
+          },
+          {
+            "kind": "asset-pass-entered"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-stage-repair-RW9BNr\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-stage-repair-RW9BNr\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-stage-repair-RW9BNr\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-stage-repair-RW9BNr\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-stage-repair-RW9BNr\\最小 Workspace with spaces\\Game\\img\\pictures\\PushPoster.png"
+          },
+          {
+            "kind": "result",
+            "ok": true
+          }
+        ]
+      },
+      "process": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-15-postwrite/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-15-postwrite\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-stage-repair-RW9BNr\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T08:41:08.361Z",
+        "completedAt": "2026-11-02T08:41:09.651Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "ipcMessages": [
+          {
+            "kind": "checkpoint",
+            "pid": 31644
+          },
+          {
+            "kind": "asset-pass-entered"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-stage-repair-RW9BNr\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-stage-repair-RW9BNr\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-stage-repair-RW9BNr\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-stage-repair-RW9BNr\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-stage-repair-RW9BNr\\最小 Workspace with spaces\\Game\\img\\pictures\\PushPoster.png"
+          },
+          {
+            "kind": "result",
+            "ok": true
+          }
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "description": "a file repaired before the single staged gate permits normal Push",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-push-workspace.test.ts",
+    "sha256": "69374a70f37bf2209131a8db25b2f89aa94feb4b68ee2eb8161a344befe41474",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_5__.withWindowsSandbox)(\"asset-push-stage-repair\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait (0,__vite_ssr_import_6__.preparePush)(sandbox);\n\t\tawait __vite_ssr_import_6__.pushApi.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tawait (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, (0,__vite_ssr_import_6__.pushPicturePath)));\n\t\tlet changed;\n\t\tconst actual = await (0,__vite_ssr_import_6__.controlledPush)(sandbox, { boundary: \"asset-before-pass\" }, async () => {\n\t\t\tawait (0,__vite_ssr_import_6__.putPushFile)(root);\n\t\t\tchanged = await (0,__vite_ssr_import_6__.observePush)(root);\n\t\t});\n\t\t(0,__vite_ssr_import_3__.expect)(actual.exitCode).toBe(0);\n\t\tawait successfulPush(root, {\n\t\t\t...changed,\n\t\t\tproject: withoutStage(changed.project)\n\t\t});\n\t});\n}"
+  },
+  "actual": "AssertionError: expected { version: 1, …(4) } to deeply equal { version: 1, …(4) }",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

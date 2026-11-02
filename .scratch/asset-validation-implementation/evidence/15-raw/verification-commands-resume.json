@@ -1,0 +1,52 @@
+[
+  {
+    "name": "regression-built",
+    "command": "pnpm",
+    "arguments": [
+      "--filter",
+      "rpgmaker-event-dsl",
+      "test:windows-baseline",
+      "--maxWorkers=1",
+      "test/push-drift.test.ts",
+      "test/push-recovery.test.ts",
+      "test/snapshot-binding.test.ts",
+      "test/workspace-locking.test.ts",
+      "test/compile-inputs.test.ts",
+      "--reporter=json",
+      "--outputFile=../../test-results/15-regression-built.json"
+    ],
+    "startedAt": "2026-11-02T08:55:35.6025938Z",
+    "completedAt": "2026-11-02T08:59:51.9177020Z",
+    "exitCode": 0
+  },
+  {
+    "name": "typecheck",
+    "command": "pnpm",
+    "arguments": [
+      "typecheck"
+    ],
+    "startedAt": "2026-11-02T08:59:51.9339153Z",
+    "completedAt": "2026-11-02T08:59:57.8290552Z",
+    "exitCode": 0
+  },
+  {
+    "name": "lint",
+    "command": "pnpm",
+    "arguments": [
+      "lint"
+    ],
+    "startedAt": "2026-11-02T08:59:57.8307937Z",
+    "completedAt": "2026-11-02T08:59:58.6400619Z",
+    "exitCode": 0
+  },
+  {
+    "name": "format-check",
+    "command": "pnpm",
+    "arguments": [
+      "format:check"
+    ],
+    "startedAt": "2026-11-02T08:59:58.6413838Z",
+    "completedAt": "2026-11-02T08:59:59.9731155Z",
+    "exitCode": 0
+  }
+]

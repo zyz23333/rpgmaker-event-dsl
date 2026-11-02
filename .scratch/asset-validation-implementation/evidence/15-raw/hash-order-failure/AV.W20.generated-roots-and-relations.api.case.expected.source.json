@@ -1,0 +1,1351 @@
+{
+  "id": "AV.W20.generated-roots-and-relations.api.case.expected",
+  "ownerTicket": "14",
+  "status": "failed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T08:40:22.033Z",
+  "completedAt": "2026-11-02T08:40:25.353Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces",
+      "source": "import type {PushInput} from \"../types/push-input.js\";\nimport {commonEvent,mapEvent,troopEvent,showPicture,imageAsset,callCommonEvent,commonEventRef,forceAction,actorRef,skillRef,showAnimation,animationRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Graph 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:12})}),forceAction({subject:{kind:\"runtimeSelector\",scope:\"battler\",target:\"actor\",actor:actorRef({id:1})},skill:skillRef({id:1}),target:{kind:\"random\"}})]});\nexport const event11=commonEvent({id:11,name:\"Graph 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:12})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"PushPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\nexport const event12=commonEvent({id:12,name:\"Graph 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const map=mapEvent({mapId:1,id:1,name:\"Current map\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"MapPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]}]});\nexport const troop=troopEvent({troopId:1,pages:[{commands:[callCommonEvent({commonEvent:commonEventRef({id:12})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"TroopPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]}]});\n",
+      "project": {
+        "CommonEvents.json": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "id": 9,
+            "name": "Removed common",
+            "trigger": 0,
+            "switchId": 1,
+            "list": [
+              {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                  1,
+                  "ObsoletePoster",
+                  0,
+                  0,
+                  0,
+                  0,
+                  100,
+                  100,
+                  255,
+                  0
+                ]
+              },
+              {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+              }
+            ]
+          }
+        ],
+        "System.json": {
+          "gameTitle": "Push fixture",
+          "switches": [
+            ""
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          }
+        },
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Push Map"
+          }
+        ],
+        "Map001.json": {
+          "id": 1,
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+              "id": 9,
+              "name": "Removed map event",
+              "x": 0,
+              "y": 0,
+              "pages": [
+                {
+                  "conditions": {
+                    "actorId": 1,
+                    "actorValid": false,
+                    "itemId": 1,
+                    "itemValid": false,
+                    "selfSwitchCh": "A",
+                    "selfSwitchValid": false,
+                    "switch1Id": 1,
+                    "switch1Valid": false,
+                    "switch2Id": 1,
+                    "switch2Valid": false,
+                    "variableId": 1,
+                    "variableValid": false,
+                    "variableValue": 0
+                  },
+                  "directionFix": false,
+                  "image": {
+                    "tileId": 0,
+                    "characterName": "",
+                    "characterIndex": 0,
+                    "direction": 2,
+                    "pattern": 1
+                  },
+                  "list": [
+                    {
+                      "code": 231,
+                      "indent": 0,
+                      "parameters": [
+                        1,
+                        "ObsoletePoster",
+                        0,
+                        0,
+                        0,
+                        0,
+                        100,
+                        100,
+                        255,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "moveFrequency": 3,
+                  "moveRoute": {
+                    "list": [
+                      {
+                        "code": 0,
+                        "parameters": []
+                      }
+                    ],
+                    "repeat": true,
+                    "skippable": false,
+                    "wait": false
+                  },
+                  "moveSpeed": 3,
+                  "moveType": 0,
+                  "priorityType": 1,
+                  "stepAnime": false,
+                  "through": false,
+                  "trigger": 0,
+                  "walkAnime": true
+                }
+              ]
+            }
+          ],
+          "custom": {
+            "preserved": [
+              "opaque",
+              null
+            ]
+          }
+        },
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Graph actor",
+            "equips": [
+              99
+            ],
+            "unknown": {
+              "preserve": true
+            }
+          }
+        ],
+        "Troops.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Graph troop",
+            "members": [],
+            "pages": [
+              {
+                "conditions": {},
+                "span": 0,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "ObsoletePoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              },
+              {
+                "conditions": {},
+                "span": 0,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "ObsoletePoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              }
+            ],
+            "unknown": {
+              "preserve": true
+            }
+          }
+        ],
+        "Skills.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Captured skill",
+            "animationId": 2,
+            "effects": [
+              {
+                "code": 44,
+                "dataId": 11,
+                "value1": 17,
+                "value2": 23
+              },
+              {
+                "code": 44,
+                "dataId": 12,
+                "value1": 31,
+                "value2": 47
+              }
+            ],
+            "unknown": {
+              "preserve": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Unselected missing asset",
+            "animationId": 99,
+            "effects": []
+          }
+        ],
+        "Animations.json": [
+          null,
+          null,
+          {
+            "id": 2,
+            "name": "Captured animation",
+            "animation1Name": "GraphFirst",
+            "animation2Name": "GraphSecond",
+            "animation1Hue": 123,
+            "animation2Hue": 234,
+            "timings": [
+              {
+                "frame": 7,
+                "se": {
+                  "name": "GraphSound",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 23
+              }
+            ],
+            "unknown": {
+              "preserve": true
+            }
+          }
+        ]
+      },
+      "exceptions": [],
+      "media": "ordinary zero-byte PNG; metadata only"
+    },
+    {
+      "source": "import {commonEvent,mapEvent,troopEvent,showPicture,imageAsset,callCommonEvent,commonEventRef,forceAction,actorRef,skillRef,showAnimation,animationRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Graph 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:12})}),forceAction({subject:{kind:\"runtimeSelector\",scope:\"battler\",target:\"actor\",actor:actorRef({id:1})},skill:skillRef({id:1}),target:{kind:\"random\"}})]});\nexport const event11=commonEvent({id:11,name:\"Graph 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:12})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"PushPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\nexport const event12=commonEvent({id:12,name:\"Graph 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const map=mapEvent({mapId:1,id:1,name:\"Current map\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"MapPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]}]});\nexport const troop=troopEvent({troopId:1,pages:[{commands:[callCommonEvent({commonEvent:commonEventRef({id:12})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"TroopPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]}]});\n",
+      "project": {
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Graph actor",
+            "equips": [
+              99
+            ],
+            "unknown": {
+              "preserve": true
+            }
+          }
+        ],
+        "CommonEvents.json": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "id": 9,
+            "name": "Removed common",
+            "trigger": 0,
+            "switchId": 1,
+            "list": [
+              {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                  1,
+                  "ObsoletePoster",
+                  0,
+                  0,
+                  0,
+                  0,
+                  100,
+                  100,
+                  255,
+                  0
+                ]
+              },
+              {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+              }
+            ]
+          }
+        ],
+        "Map001.json": {
+          "id": 1,
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+              "id": 9,
+              "name": "Removed map event",
+              "x": 0,
+              "y": 0,
+              "pages": [
+                {
+                  "conditions": {
+                    "actorId": 1,
+                    "actorValid": false,
+                    "itemId": 1,
+                    "itemValid": false,
+                    "selfSwitchCh": "A",
+                    "selfSwitchValid": false,
+                    "switch1Id": 1,
+                    "switch1Valid": false,
+                    "switch2Id": 1,
+                    "switch2Valid": false,
+                    "variableId": 1,
+                    "variableValid": false,
+                    "variableValue": 0
+                  },
+                  "directionFix": false,
+                  "image": {
+                    "tileId": 0,
+                    "characterName": "",
+                    "characterIndex": 0,
+                    "direction": 2,
+                    "pattern": 1
+                  },
+                  "list": [
+                    {
+                      "code": 231,
+                      "indent": 0,
+                      "parameters": [
+                        1,
+                        "ObsoletePoster",
+                        0,
+                        0,
+                        0,
+                        0,
+                        100,
+                        100,
+                        255,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "moveFrequency": 3,
+                  "moveRoute": {
+                    "list": [
+                      {
+                        "code": 0,
+                        "parameters": []
+                      }
+                    ],
+                    "repeat": true,
+                    "skippable": false,
+                    "wait": false
+                  },
+                  "moveSpeed": 3,
+                  "moveType": 0,
+                  "priorityType": 1,
+                  "stepAnime": false,
+                  "through": false,
+                  "trigger": 0,
+                  "walkAnime": true
+                }
+              ]
+            }
+          ],
+          "custom": {
+            "preserved": [
+              "opaque",
+              null
+            ]
+          }
+        },
+        "Troops.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Graph troop",
+            "members": [],
+            "pages": [
+              {
+                "conditions": {},
+                "span": 0,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "ObsoletePoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              },
+              {
+                "conditions": {},
+                "span": 0,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "ObsoletePoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              }
+            ],
+            "unknown": {
+              "preserve": true
+            }
+          }
+        ],
+        "Skills.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Captured skill",
+            "animationId": 2,
+            "effects": [
+              {
+                "code": 44,
+                "dataId": 11,
+                "value1": 17,
+                "value2": 23
+              },
+              {
+                "code": 44,
+                "dataId": 12,
+                "value1": 31,
+                "value2": 47
+              }
+            ],
+            "unknown": {
+              "preserve": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Unselected missing asset",
+            "animationId": 99,
+            "effects": []
+          }
+        ],
+        "Animations.json": [
+          null,
+          null,
+          {
+            "id": 2,
+            "name": "Captured animation",
+            "animation1Name": "GraphFirst",
+            "animation2Name": "GraphSecond",
+            "animation1Hue": 123,
+            "animation2Hue": 234,
+            "timings": [
+              {
+                "frame": 7,
+                "se": {
+                  "name": "GraphSound",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 23
+              }
+            ],
+            "unknown": {
+              "preserve": true
+            }
+          }
+        ]
+      },
+      "graphMedia": [
+        "img/pictures/PushPoster.png",
+        "img/pictures/MapPoster.png",
+        "img/pictures/TroopPoster.png",
+        "img/animations/GraphFirst.png",
+        "img/animations/GraphSecond.png",
+        "audio/se/GraphSound.ogg"
+      ],
+      "obsoleteMedia": "ObsoletePoster.png intentionally absent; Snapshot-only Map/Common/Troop uses must not return"
+    },
+    {
+      "generated": {
+        "CommonEvents.json": "[\n  null,\n  null,\n  null,\n  null,\n  null,\n  null,\n  null,\n  null,\n  null,\n  null,\n  {\n    \"id\":10,\n    \"name\":\"Graph 10\",\n    \"trigger\":0,\n    \"switchId\":1,\n    \"list\":[\n      {\n        \"code\":117,\n        \"indent\":0,\n        \"parameters\":[\n          11\n        ]\n      },\n      {\n        \"code\":117,\n        \"indent\":0,\n        \"parameters\":[\n          12\n        ]\n      },\n      {\n        \"code\":339,\n        \"indent\":0,\n        \"parameters\":[\n          1,\n          1,\n          1,\n          -1\n        ]\n      },\n      {\n        \"code\":0,\n        \"indent\":0,\n        \"parameters\":[]\n      }\n    ]\n  },\n  {\n    \"id\":11,\n    \"name\":\"Graph 11\",\n    \"trigger\":0,\n    \"switchId\":1,\n    \"list\":[\n      {\n        \"code\":117,\n        \"indent\":0,\n        \"parameters\":[\n          12\n        ]\n      },\n      {\n        \"code\":231,\n        \"indent\":0,\n        \"parameters\":[\n          1,\n          \"PushPoster\",\n          0,\n          0,\n          0,\n          0,\n          100,\n          100,\n          255,\n          0\n        ]\n      },\n      {\n        \"code\":0,\n        \"indent\":0,\n        \"parameters\":[]\n      }\n    ]\n  },\n  {\n    \"id\":12,\n    \"name\":\"Graph 12\",\n    \"trigger\":0,\n    \"switchId\":1,\n    \"list\":[\n      {\n        \"code\":117,\n        \"indent\":0,\n        \"parameters\":[\n          11\n        ]\n      },\n      {\n        \"code\":0,\n        \"indent\":0,\n        \"parameters\":[]\n      }\n    ]\n  }\n]\n",
+        "Map001.json": "{\n  \"id\":1,\n  \"width\":1,\n  \"height\":1,\n  \"tilesetId\":1,\n  \"events\":[\n    null,\n    {\n      \"id\":1,\n      \"name\":\"Current map\",\n      \"x\":0,\n      \"y\":0,\n      \"note\":\"\",\n      \"pages\":[\n        {\n          \"conditions\":{\n            \"actorId\":1,\n            \"actorValid\":false,\n            \"itemId\":1,\n            \"itemValid\":false,\n            \"selfSwitchCh\":\"A\",\n            \"selfSwitchValid\":false,\n            \"switch1Id\":1,\n            \"switch1Valid\":false,\n            \"switch2Id\":1,\n            \"switch2Valid\":false,\n            \"variableId\":1,\n            \"variableValid\":false,\n            \"variableValue\":0\n          },\n          \"image\":{\n            \"characterName\":\"\",\n            \"characterIndex\":0,\n            \"tileId\":0,\n            \"direction\":2,\n            \"pattern\":0\n          },\n          \"directionFix\":false,\n          \"stepAnime\":false,\n          \"through\":false,\n          \"walkAnime\":true,\n          \"priorityType\":0,\n          \"trigger\":0,\n          \"list\":[\n            {\n              \"code\":117,\n              \"indent\":0,\n              \"parameters\":[\n                11\n              ]\n            },\n            {\n              \"code\":231,\n              \"indent\":0,\n              \"parameters\":[\n                1,\n                \"MapPoster\",\n                0,\n                0,\n                0,\n                0,\n                100,\n                100,\n                255,\n                0\n              ]\n            },\n            {\n              \"code\":0,\n              \"indent\":0,\n              \"parameters\":[]\n            }\n          ],\n          \"moveType\":0,\n          \"moveSpeed\":3,\n          \"moveFrequency\":3,\n          \"moveRoute\":{\n            \"list\":[\n              {\n                \"code\":0,\n                \"parameters\":[]\n              }\n            ],\n            \"repeat\":true,\n            \"skippable\":false,\n            \"wait\":false\n          }\n        }\n      ]\n    },\n    null,\n    null,\n    null,\n    null,\n    null,\n    null,\n    null,\n    null\n  ],\n  \"custom\":{\n    \"preserved\":[\n      \"opaque\",\n      null\n    ]\n  }\n}\n",
+        "System.json": "{\n  \"gameTitle\":\"Push fixture\",\n  \"switches\":[\n    \"\"\n  ],\n  \"variables\":[\n    \"\"\n  ],\n  \"fixtureOrigin\":{\n    \"retainedNull\":null,\n    \"retainedArray\":[]\n  }\n}\n",
+        "Troops.json": "[\n  null,\n  {\n    \"id\":1,\n    \"name\":\"Graph troop\",\n    \"members\":[],\n    \"pages\":[\n      {\n        \"conditions\":{\n          \"actorHp\":50,\n          \"actorId\":1,\n          \"actorValid\":false,\n          \"enemyHp\":50,\n          \"enemyIndex\":0,\n          \"enemyValid\":false,\n          \"switchId\":1,\n          \"switchValid\":false,\n          \"turnA\":0,\n          \"turnB\":0,\n          \"turnEnding\":false,\n          \"turnValid\":false\n        },\n        \"span\":0,\n        \"list\":[\n          {\n            \"code\":117,\n            \"indent\":0,\n            \"parameters\":[\n              12\n            ]\n          },\n          {\n            \"code\":231,\n            \"indent\":0,\n            \"parameters\":[\n              1,\n              \"TroopPoster\",\n              0,\n              0,\n              0,\n              0,\n              100,\n              100,\n              255,\n              0\n            ]\n          },\n          {\n            \"code\":0,\n            \"indent\":0,\n            \"parameters\":[]\n          }\n        ]\n      }\n    ],\n    \"unknown\":{\n      \"preserve\":true\n    }\n  }\n]\n"
+      },
+      "capturedExternal": {
+        "Actors.json": "[null,{\"id\":1,\"name\":\"Graph actor\",\"equips\":[99],\"unknown\":{\"preserve\":true}}]",
+        "Animations.json": "[null,null,{\"id\":2,\"name\":\"Captured animation\",\"animation1Name\":\"GraphFirst\",\"animation2Name\":\"GraphSecond\",\"animation1Hue\":123,\"animation2Hue\":234,\"timings\":[{\"frame\":7,\"se\":{\"name\":\"GraphSound\",\"volume\":17,\"pitch\":73,\"pan\":-41},\"unknown\":23}],\"unknown\":{\"preserve\":true}}]",
+        "Armors.json": "[null]",
+        "Classes.json": "[null]",
+        "CommonEvents.json": "[null,null,null,null,null,null,null,null,null,{\"id\":9,\"name\":\"Removed common\",\"trigger\":0,\"switchId\":1,\"list\":[{\"code\":231,\"indent\":0,\"parameters\":[1,\"ObsoletePoster\",0,0,0,0,100,100,255,0]},{\"code\":0,\"indent\":0,\"parameters\":[]}]}]",
+        "Enemies.json": "[null]",
+        "Items.json": "[null]",
+        "Map001.json": "{\"id\":1,\"width\":1,\"height\":1,\"tilesetId\":1,\"events\":[null,null,null,null,null,null,null,null,null,{\"id\":9,\"name\":\"Removed map event\",\"x\":0,\"y\":0,\"pages\":[{\"conditions\":{\"actorId\":1,\"actorValid\":false,\"itemId\":1,\"itemValid\":false,\"selfSwitchCh\":\"A\",\"selfSwitchValid\":false,\"switch1Id\":1,\"switch1Valid\":false,\"switch2Id\":1,\"switch2Valid\":false,\"variableId\":1,\"variableValid\":false,\"variableValue\":0},\"directionFix\":false,\"image\":{\"tileId\":0,\"characterName\":\"\",\"characterIndex\":0,\"direction\":2,\"pattern\":1},\"list\":[{\"code\":231,\"indent\":0,\"parameters\":[1,\"ObsoletePoster\",0,0,0,0,100,100,255,0]},{\"code\":0,\"indent\":0,\"parameters\":[]}],\"moveFrequency\":3,\"moveRoute\":{\"list\":[{\"code\":0,\"parameters\":[]}],\"repeat\":true,\"skippable\":false,\"wait\":false},\"moveSpeed\":3,\"moveType\":0,\"priorityType\":1,\"stepAnime\":false,\"through\":false,\"trigger\":0,\"walkAnime\":true}]}],\"custom\":{\"preserved\":[\"opaque\",null]}}",
+        "MapInfos.json": "[null,{\"id\":1,\"name\":\"Push Map\"}]",
+        "Skills.json": "[null,{\"id\":1,\"name\":\"Captured skill\",\"animationId\":2,\"effects\":[{\"code\":44,\"dataId\":11,\"value1\":17,\"value2\":23},{\"code\":44,\"dataId\":12,\"value1\":31,\"value2\":47}],\"unknown\":{\"preserve\":true}},{\"id\":2,\"name\":\"Unselected missing asset\",\"animationId\":99,\"effects\":[]}]",
+        "States.json": "[null]",
+        "System.json": "{\"gameTitle\":\"Push fixture\",\"switches\":[\"\"],\"variables\":[\"\"],\"fixtureOrigin\":{\"retainedNull\":null,\"retainedArray\":[]}}",
+        "Tilesets.json": "[null]",
+        "Troops.json": "[null,{\"id\":1,\"name\":\"Graph troop\",\"members\":[],\"pages\":[{\"conditions\":{},\"span\":0,\"list\":[{\"code\":231,\"indent\":0,\"parameters\":[1,\"ObsoletePoster\",0,0,0,0,100,100,255,0]},{\"code\":0,\"indent\":0,\"parameters\":[]}]},{\"conditions\":{},\"span\":0,\"list\":[{\"code\":231,\"indent\":0,\"parameters\":[1,\"ObsoletePoster\",0,0,0,0,100,100,255,0]},{\"code\":0,\"indent\":0,\"parameters\":[]}]}],\"unknown\":{\"preserve\":true}}]",
+        "Weapons.json": "[null]"
+      },
+      "expectedRoots": [
+        "commonEvent:10",
+        "commonEvent:11",
+        "commonEvent:12",
+        "map:1/event:1",
+        "troop:1"
+      ],
+      "expectedUses": [
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "PushPoster",
+          "identity": "commonEvent:11",
+          "nativePath": "CommonEvents.json[11].list[1].parameters[1]",
+          "relatedNativePaths": [],
+          "dependencyChain": [],
+          "conditions": []
+        },
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "MapPoster",
+          "identity": "map:1/event:1",
+          "nativePath": "Map001.json.events[1].pages[0].list[1].parameters[1]",
+          "relatedNativePaths": [],
+          "dependencyChain": [],
+          "conditions": []
+        },
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "TroopPoster",
+          "identity": "troop:1",
+          "nativePath": "Troops.json[1].pages[0].list[1].parameters[1]",
+          "relatedNativePaths": [],
+          "dependencyChain": [],
+          "conditions": []
+        }
+      ],
+      "expectedCalls": [
+        {
+          "caller": "commonEvent:10",
+          "nativePath": "CommonEvents.json[10].list[0].parameters[0]",
+          "target": "commonEvent:11",
+          "targetId": 11,
+          "dependencyChain": []
+        },
+        {
+          "caller": "commonEvent:10",
+          "nativePath": "CommonEvents.json[10].list[1].parameters[0]",
+          "target": "commonEvent:12",
+          "targetId": 12,
+          "dependencyChain": []
+        },
+        {
+          "caller": "commonEvent:11",
+          "nativePath": "CommonEvents.json[11].list[0].parameters[0]",
+          "target": "commonEvent:12",
+          "targetId": 12,
+          "dependencyChain": []
+        },
+        {
+          "caller": "commonEvent:12",
+          "nativePath": "CommonEvents.json[12].list[0].parameters[0]",
+          "target": "commonEvent:11",
+          "targetId": 11,
+          "dependencyChain": []
+        },
+        {
+          "caller": "map:1/event:1",
+          "nativePath": "Map001.json.events[1].pages[0].list[0].parameters[0]",
+          "target": "commonEvent:11",
+          "targetId": 11,
+          "dependencyChain": []
+        },
+        {
+          "caller": "troop:1",
+          "nativePath": "Troops.json[1].pages[0].list[0].parameters[0]",
+          "target": "commonEvent:12",
+          "targetId": 12,
+          "dependencyChain": []
+        }
+      ],
+      "expectedActionUses": [
+        {
+          "category": "image",
+          "folder": "animations",
+          "name": "GraphFirst",
+          "identity": "commonEvent:10",
+          "nativePath": "CommonEvents.json[10].list[2].parameters[2]",
+          "relatedNativePaths": [],
+          "dependencyChain": [
+            {
+              "data": "Skills.json",
+              "id": 1,
+              "field": "animationId",
+              "relationship": "Forced action Skill animation"
+            },
+            {
+              "data": "Animations.json",
+              "id": 2,
+              "field": "animation1Name",
+              "relationship": "Animation image sheet"
+            }
+          ],
+          "conditions": [
+            "Animation image sheets may be preloaded before the command executes."
+          ]
+        },
+        {
+          "category": "image",
+          "folder": "animations",
+          "name": "GraphSecond",
+          "identity": "commonEvent:10",
+          "nativePath": "CommonEvents.json[10].list[2].parameters[2]",
+          "relatedNativePaths": [],
+          "dependencyChain": [
+            {
+              "data": "Skills.json",
+              "id": 1,
+              "field": "animationId",
+              "relationship": "Forced action Skill animation"
+            },
+            {
+              "data": "Animations.json",
+              "id": 2,
+              "field": "animation2Name",
+              "relationship": "Animation image sheet"
+            }
+          ],
+          "conditions": [
+            "Animation image sheets may be preloaded before the command executes."
+          ]
+        },
+        {
+          "category": "audio",
+          "folder": "se",
+          "name": "GraphSound",
+          "identity": "commonEvent:10",
+          "nativePath": "CommonEvents.json[10].list[2].parameters[2]",
+          "relatedNativePaths": [],
+          "dependencyChain": [
+            {
+              "data": "Skills.json",
+              "id": 1,
+              "field": "animationId",
+              "relationship": "Forced action Skill animation"
+            },
+            {
+              "data": "Animations.json",
+              "id": 2,
+              "field": "timings[0].se.name",
+              "relationship": "Animation timing sound effect"
+            }
+          ],
+          "conditions": [
+            "Animation timing SE plays only when its frame is reached and duplicate suppression permits playback."
+          ]
+        }
+      ],
+      "expectedActionCalls": [
+        {
+          "caller": "commonEvent:10",
+          "nativePath": "CommonEvents.json[10].list[2].parameters[2]",
+          "target": "commonEvent:11",
+          "targetId": 11,
+          "dependencyChain": [
+            {
+              "data": "Skills.json",
+              "id": 1,
+              "field": "effects[0].dataId",
+              "relationship": "Skill Common Event effect"
+            }
+          ]
+        },
+        {
+          "caller": "commonEvent:10",
+          "nativePath": "CommonEvents.json[10].list[2].parameters[2]",
+          "target": "commonEvent:12",
+          "targetId": 12,
+          "dependencyChain": [
+            {
+              "data": "Skills.json",
+              "id": 1,
+              "field": "effects[1].dataId",
+              "relationship": "Skill Common Event effect"
+            }
+          ]
+        }
+      ],
+      "expected": "five current roots; finite direct shared/cyclic edges; six defining asset uses total; no obsolete Snapshot-only root"
+    },
+    {
+      "operation": {
+        "operation": "push",
+        "mode": "api",
+        "allowDestructive": true
+      },
+      "actual": {
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "message": "push --allow-destructive (before pending state or Project Root replacement) asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .ogg; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se\\GraphSound.ogg; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se\\GraphSound.ogg\n  audio/se \"GraphSound\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[2].parameters[2]; chain: Skills.json[1].animationId (Forced action Skill animation) -> Animations.json[2].timings[0].se.name (Animation timing sound effect); conditions: Animation timing SE plays only when its frame is reached and duplicate suppression permits playback.; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphFirst.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphFirst.png\n  image/animations \"GraphFirst\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[2].parameters[2]; chain: Skills.json[1].animationId (Forced action Skill animation) -> Animations.json[2].animation1Name (Animation image sheet); conditions: Animation image sheets may be preloaded before the command executes.; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphSecond.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphSecond.png\n  image/animations \"GraphSecond\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[2].parameters[2]; chain: Skills.json[1].animationId (Forced action Skill animation) -> Animations.json[2].animation2Name (Animation image sheet); conditions: Animation image sheets may be preloaded before the command executes.; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\MapPoster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\MapPoster.png\n  image/pictures \"MapPoster\"; 1 use(s)\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[1].parameters[1]; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\PushPoster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\PushPoster.png\n  image/pictures \"PushPoster\"; 1 use(s)\n  - error commonEvent:11 CommonEvents.json[11].list[1].parameters[1]; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\TroopPoster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\TroopPoster.png\n  image/pictures \"TroopPoster\"; 1 use(s)\n  - error troop:1 Troops.json[1].pages[0].list[1].parameters[1]; base: error; effective: error\n6 problem group(s), 6 problem file(s), 6 affected use(s). Coverage: complete.\nDirect Common Event calls:\n  - commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\n  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:12\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:11; chain: Skills.json[1].effects[0].dataId (Skill Common Event effect)\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:12; chain: Skills.json[1].effects[1].dataId (Skill Common Event effect)\n  - commonEvent:11 CommonEvents.json[11].list[0].parameters[0] -> commonEvent:12\n  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:11\n  - map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0] -> commonEvent:11\n  - troop:1 Troops.json[1].pages[0].list[0].parameters[0] -> commonEvent:12",
+        "messages": [
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "result",
+            "ok": false,
+            "message": "push --allow-destructive (before pending state or Project Root replacement) asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .ogg; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se\\GraphSound.ogg; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se\\GraphSound.ogg\n  audio/se \"GraphSound\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[2].parameters[2]; chain: Skills.json[1].animationId (Forced action Skill animation) -> Animations.json[2].timings[0].se.name (Animation timing sound effect); conditions: Animation timing SE plays only when its frame is reached and duplicate suppression permits playback.; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphFirst.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphFirst.png\n  image/animations \"GraphFirst\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[2].parameters[2]; chain: Skills.json[1].animationId (Forced action Skill animation) -> Animations.json[2].animation1Name (Animation image sheet); conditions: Animation image sheets may be preloaded before the command executes.; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphSecond.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphSecond.png\n  image/animations \"GraphSecond\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[2].parameters[2]; chain: Skills.json[1].animationId (Forced action Skill animation) -> Animations.json[2].animation2Name (Animation image sheet); conditions: Animation image sheets may be preloaded before the command executes.; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\MapPoster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\MapPoster.png\n  image/pictures \"MapPoster\"; 1 use(s)\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[1].parameters[1]; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\PushPoster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\PushPoster.png\n  image/pictures \"PushPoster\"; 1 use(s)\n  - error commonEvent:11 CommonEvents.json[11].list[1].parameters[1]; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\TroopPoster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\TroopPoster.png\n  image/pictures \"TroopPoster\"; 1 use(s)\n  - error troop:1 Troops.json[1].pages[0].list[1].parameters[1]; base: error; effective: error\n6 problem group(s), 6 problem file(s), 6 affected use(s). Coverage: complete.\nDirect Common Event calls:\n  - commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\n  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:12\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:11; chain: Skills.json[1].effects[0].dataId (Skill Common Event effect)\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:12; chain: Skills.json[1].effects[1].dataId (Skill Common Event effect)\n  - commonEvent:11 CommonEvents.json[11].list[0].parameters[0] -> commonEvent:12\n  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:11\n  - map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0] -> commonEvent:11\n  - troop:1 Troops.json[1].pages[0].list[0].parameters[0] -> commonEvent:12"
+          }
+        ]
+      },
+      "process": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-15-postwrite/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-15-postwrite\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T08:40:22.913Z",
+        "completedAt": "2026-11-02T08:40:23.977Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "ipcMessages": [
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "result",
+            "ok": false,
+            "message": "push --allow-destructive (before pending state or Project Root replacement) asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .ogg; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se\\GraphSound.ogg; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se\\GraphSound.ogg\n  audio/se \"GraphSound\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[2].parameters[2]; chain: Skills.json[1].animationId (Forced action Skill animation) -> Animations.json[2].timings[0].se.name (Animation timing sound effect); conditions: Animation timing SE plays only when its frame is reached and duplicate suppression permits playback.; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphFirst.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphFirst.png\n  image/animations \"GraphFirst\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[2].parameters[2]; chain: Skills.json[1].animationId (Forced action Skill animation) -> Animations.json[2].animation1Name (Animation image sheet); conditions: Animation image sheets may be preloaded before the command executes.; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphSecond.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphSecond.png\n  image/animations \"GraphSecond\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[2].parameters[2]; chain: Skills.json[1].animationId (Forced action Skill animation) -> Animations.json[2].animation2Name (Animation image sheet); conditions: Animation image sheets may be preloaded before the command executes.; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\MapPoster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\MapPoster.png\n  image/pictures \"MapPoster\"; 1 use(s)\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[1].parameters[1]; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\PushPoster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\PushPoster.png\n  image/pictures \"PushPoster\"; 1 use(s)\n  - error commonEvent:11 CommonEvents.json[11].list[1].parameters[1]; base: error; effective: error\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\TroopPoster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\TroopPoster.png\n  image/pictures \"TroopPoster\"; 1 use(s)\n  - error troop:1 Troops.json[1].pages[0].list[1].parameters[1]; base: error; effective: error\n6 problem group(s), 6 problem file(s), 6 affected use(s). Coverage: complete.\nDirect Common Event calls:\n  - commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\n  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:12\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:11; chain: Skills.json[1].effects[0].dataId (Skill Common Event effect)\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:12; chain: Skills.json[1].effects[1].dataId (Skill Common Event effect)\n  - commonEvent:11 CommonEvents.json[11].list[0].parameters[0] -> commonEvent:12\n  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:11\n  - map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0] -> commonEvent:11\n  - troop:1 Troops.json[1].pages[0].list[0].parameters[0] -> commonEvent:12"
+          }
+        ]
+      }
+    },
+    {
+      "operation": {
+        "operation": "push",
+        "mode": "api",
+        "allowDestructive": true
+      },
+      "actual": {
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "push --allow-destructive (before pending state or Project Root replacement) asset check info:\nDirect Common Event calls:\n  - commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\n  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:12\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:11; chain: Skills.json[1].effects[0].dataId (Skill Common Event effect)\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:12; chain: Skills.json[1].effects[1].dataId (Skill Common Event effect)\n  - commonEvent:11 CommonEvents.json[11].list[0].parameters[0] -> commonEvent:12\n  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:11\n  - map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0] -> commonEvent:11\n  - troop:1 Troops.json[1].pages[0].list[0].parameters[0] -> commonEvent:12\n",
+        "message": "",
+        "messages": [
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se\\GraphSound.ogg"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphFirst.png"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphSecond.png"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\MapPoster.png"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\PushPoster.png"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\TroopPoster.png"
+          },
+          {
+            "kind": "result",
+            "ok": true
+          }
+        ]
+      },
+      "process": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-15-postwrite/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-15-postwrite\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T08:40:24.023Z",
+        "completedAt": "2026-11-02T08:40:25.315Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "push --allow-destructive (before pending state or Project Root replacement) asset check info:\nDirect Common Event calls:\n  - commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\n  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:12\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:11; chain: Skills.json[1].effects[0].dataId (Skill Common Event effect)\n  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:12; chain: Skills.json[1].effects[1].dataId (Skill Common Event effect)\n  - commonEvent:11 CommonEvents.json[11].list[0].parameters[0] -> commonEvent:12\n  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:11\n  - map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0] -> commonEvent:11\n  - troop:1 Troops.json[1].pages[0].list[0].parameters[0] -> commonEvent:12\n",
+        "ipcMessages": [
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\audio\\se\\GraphSound.ogg"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphFirst.png"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\animations\\GraphSecond.png"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\MapPoster.png"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\PushPoster.png"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-push-generated-api-rQhkoI\\最小 Workspace with spaces\\Game\\img\\pictures\\TroopPoster.png"
+          },
+          {
+            "kind": "result",
+            "ok": true
+          }
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "description": "Push rebuilds current generated roots and captured direct shared/cyclic relations",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-push-workspace.test.ts",
+    "sha256": "69374a70f37bf2209131a8db25b2f89aa94feb4b68ee2eb8161a344befe41474",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_5__.withWindowsSandbox)(`asset-push-generated-${mode}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait (0,__vite_ssr_import_7__.preparePushGraph)(sandbox);\n\t\tawait __vite_ssr_import_6__.pushApi.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst expected = await (0,__vite_ssr_import_7__.verifyPushGraph)(root);\n\t\tfor (const path of __vite_ssr_import_7__.graphMedia) await (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, \"Game\", path));\n\t\tconst before = await (0,__vite_ssr_import_6__.observePush)(root), actual = await (0,__vite_ssr_import_6__.controlledPush)(sandbox, {\n\t\t\tmode,\n\t\t\tallowDestructive: true\n\t\t});\n\t\t(0,__vite_ssr_import_3__.expect)(actual.exitCode).toBe(1);\n\t\tconst text = actual.message + actual.stderr;\n\t\t(0,__vite_ssr_import_3__.expect)(text).toContain(\"6 problem group(s), 6 problem file(s), 6 affected use(s)\");\n\t\t(0,__vite_ssr_import_3__.expect)(text).not.toContain(\"ObsoletePoster\");\n\t\t(0,__vite_ssr_import_3__.expect)(text).not.toContain(\"Unselected\");\n\t\tfor (const use of [...expected.expectedUses, ...expected.expectedActionUses]) (0,__vite_ssr_import_3__.expect)(text).toContain(`${use.identity} ${use.nativePath}`);\n\t\t(0,__vite_ssr_import_3__.expect)((text.match(/  - error /gu) ?? []).length).toBe(6);\n\t\tconst callLines = text.split(\"\\n\").filter((line) => /^  - (?:commonEvent:|map:|troop:).* -> commonEvent:/u.test(line));\n\t\t(0,__vite_ssr_import_3__.expect)(callLines).toHaveLength(8);\n\t\tfor (const edge of [...expected.expectedCalls, ...expected.expectedActionCalls]) (0,__vite_ssr_import_3__.expect)(callLines.filter((line) => line.includes(`${edge.caller} ${edge.nativePath} -> ${edge.target}`))).toHaveLength(1);\n\t\t(0,__vite_ssr_import_3__.expect)(text).toContain(\"Skills.json[1].animationId (Forced action Skill animation) -> Animations.json[2].animation1Name (Animation image sheet)\");\n\t\t(0,__vite_ssr_import_3__.expect)(text).toContain(\"Skills.json[1].effects[0].dataId (Skill Common Event effect)\");\n\t\t(0,__vite_ssr_import_3__.expect)(text).toContain(\"Skills.json[1].effects[1].dataId (Skill Common Event effect)\");\n\t\t(0,__vite_ssr_import_3__.expect)(actual.messages.some((m) => m.kind === \"asset-query\")).toBe(true);\n\t\t(0,__vite_ssr_import_3__.expect)(actual.messages.filter((m) => m.kind === \"asset-content-read-attempt\")).toEqual([]);\n\t\t(0,__vite_ssr_import_3__.expect)(await (0,__vite_ssr_import_6__.observePush)(root)).toEqual(before);\n\t\tfor (const path of __vite_ssr_import_7__.graphMedia) await (0,__vite_ssr_import_6__.putPushFile)(root, `Game/${path}`);\n\t\tconst repaired = await (0,__vite_ssr_import_6__.observePush)(root), retry = await (0,__vite_ssr_import_6__.controlledPush)(sandbox, {\n\t\t\tmode,\n\t\t\tallowDestructive: true\n\t\t});\n\t\t(0,__vite_ssr_import_3__.expect)(retry.exitCode).toBe(0);\n\t\tawait successfulPush(root, repaired, [\n\t\t\t\"CommonEvents.json\",\n\t\t\t\"Map001.json\",\n\t\t\t\"Troops.json\"\n\t\t]);\n\t});\n}"
+  },
+  "actual": "AssertionError: expected { version: 1, …(4) } to deeply equal { version: 1, …(4) }",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

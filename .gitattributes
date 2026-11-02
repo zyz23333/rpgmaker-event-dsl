@@ -61,3 +61,5 @@ packages/rpgmaker-event-dsl/test/fixtures/asset-legacy-policy-evidence.json -tex
 /.scratch/asset-validation-implementation/evidence/13-run-history/*.log -whitespace
 # Retain ticket14 raw log spaces; exact original CRLF bytes are archived separately.
 /.scratch/asset-validation-implementation/evidence/14-run-history/*.log -whitespace
+# Keep ticket15 original failed and successful runner/receipt bytes unchanged.
+/.scratch/asset-validation-implementation/evidence/15-raw/** -text -whitespace

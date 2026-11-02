@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "ticket": "15",
+  "status": "passed",
+  "verifiedAt": "2026-11-02T09:05:40.037Z",
+  "implementationRevision": "5dbf1c41447ffe52fca954e9bed0305f0e33add8",
+  "canonicalRunRevision": "0212a757956f0aff0860c9e0e7a291703e8d59f4",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "worktree": "M:\\Shuen\\Codex\\asset-validation-15-postwrite"
+  },
+  "mainEvidence": {
+    "path": ".scratch/asset-validation-implementation/evidence/15-postwrite-acceptance.json",
+    "bytes": 36529219,
+    "sha256": "2662c7f0ddc3fd9e5890bcbcb3c3b5554c01bf250bd2738bf76193aca5f15a7f",
+    "gitBlob": "71c7cd1af34a0356561554cc9602b43b01f06c0c"
+  },
+  "checked": {
+    "originalRawDiskAndIndexBytes": 108,
+    "frozenGitInputs": 19,
+    "builtArtifacts": 15,
+    "primaryReceipts": 24,
+    "supportingReceipts": 2,
+    "localLinks": 17
+  },
+  "sourceOldRegression": "85 original successes plus one exact failed-name recheck; 43 filtered cases excluded. 86 unique successes, not a single 86/86 execution.",
+  "builtOldRegression": "One 86/86 execution, zero filtering.",
+  "validation": "Raw Git blobs equal original disk bytes; all recorded sizes/SHA-256/Git objects and complete receipt objects agree. Frozen inputs equal their Git blobs and current disk; build hashes and local links agree."
+}

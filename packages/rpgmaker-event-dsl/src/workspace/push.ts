@@ -252,6 +252,9 @@ async function pushWorkspaceUnlocked(options: PushWorkspaceOptions): Promise<voi
         await replaceProjectRootFile(stagedFile, expectedHash);
         writtenFiles.push(stagedFile.relativePath);
       }
+      await assertWorkspaceUnchanged(workspace, commandName);
+      await assertGeneratedProjectDataIntegrity(statePaths, manifest, commandName);
+      await assertGeneratedProjectDataFresh({ commandName, manifest, statePaths, workspace });
       const generatedHashes = new Map(
         generatedFiles.map(({ relativePath, hash }) => [relativePath, hash]),
       );

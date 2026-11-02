@@ -1,0 +1,5 @@
+
+> rpgmaker-event-dsl@0.1.2 test:windows-baseline M:\Shuen\Codex\asset-validation-15-postwrite\packages\rpgmaker-event-dsl
+> vitest run --config vitest.windows.config.ts "--maxWorkers=1" "test/push-drift.test.ts" "test/push-recovery.test.ts" "test/snapshot-binding.test.ts" "test/workspace-locking.test.ts" "test/compile-inputs.test.ts" "--reporter=json" "--outputFile=../../test-results/15-regression-built.json"
+
+JSON report written to M:/Shuen/Codex/asset-validation-15-postwrite/test-results/15-regression-built.json

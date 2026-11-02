@@ -1,5 +1,6 @@
 import { rm, appendFile, readFile, writeFile, cp, mkdir, rename, symlink } from "node:fs/promises";
 import { join } from "node:path";
+import { createHash } from "node:crypto";
 import { expect, test } from "vitest";
 import { createAssetTest, recordAssetInput } from "./support/asset-evidence.js";
 import { withWindowsSandbox } from "./support/windows-sandbox.js";
@@ -17,6 +18,260 @@ import {
 import { preparePushGraph, verifyPushGraph, graphMedia } from "./support/asset-push-graph.js";
 
 const it = createAssetTest({ ownerTicket: "14", testSource: import.meta.url });
+const postwrite = createAssetTest({ ownerTicket: "15", testSource: import.meta.url });
+const sharedPush = createAssetTest({ ownerTicket: "14,15", testSource: import.meta.url });
+const graphAffected = ["CommonEvents.json", "Map001.json", "Troops.json"];
+type PushObservation = Awaited<ReturnType<typeof observePush>>;
+
+function assertAllGraphWritesInstalled(before: PushObservation, checkpoint: PushObservation) {
+  const expectedProject = { ...before.project };
+  for (const file of graphAffected) {
+    expectedProject[`data/${file}`] = before.state![`generated-project-data/${file}`]!;
+    expect(checkpoint.state![`pending-push/backup/${file}`]).toBe(
+      before.state![`project-data-snapshot/${file}`],
+    );
+  }
+  expect(withoutStage(checkpoint.project)).toEqual(expectedProject);
+  expect(withoutPending(checkpoint.state)).toEqual(before.state);
+  const pending = JSON.parse(
+    Buffer.from(checkpoint.state!["pending-push/pending-push.json"]!, "base64").toString(),
+  );
+  expect(
+    pending.affectedFiles.map((entry: { relativePath: string }) => entry.relativePath),
+  ).toEqual(graphAffected);
+  expect(pending.originalManifest).toEqual(
+    JSON.parse(Buffer.from(before.state!["sync-manifest.json"]!, "base64").toString()),
+  );
+  recordAssetInput({ before, allInstalledBeforeBookkeeping: checkpoint, graphAffected });
+}
+
+function assertNoPostwriteMediaQuery(actual: Awaited<ReturnType<typeof controlledPush>>) {
+  const checkpoint = actual.messages.findIndex((message) => message.kind === "checkpoint");
+  expect(checkpoint).toBeGreaterThanOrEqual(0);
+  expect(
+    actual.messages.slice(0, checkpoint).some((message) => message.kind === "asset-query"),
+  ).toBe(true);
+  expect(
+    actual.messages.slice(checkpoint + 1).filter((message) => message.kind === "asset-query"),
+  ).toEqual([]);
+  expect(
+    actual.messages.filter((message) => message.kind === "asset-content-read-attempt"),
+  ).toEqual([]);
+}
+
+for (const [branch, mode] of [
+  ["source", "api"],
+  ["source", "cli"],
+  ["validation-dependency", "api"],
+  ["config", "api"],
+  ["exception", "api"],
+  ["snapshot", "api"],
+  ["generated", "api"],
+] as const)
+  postwrite(
+    `AV.W13.${branch}.${mode}.postwrite.expected: changed captured input after all live installations refuses normal bookkeeping and retains evidence`,
+    async () => {
+      await withWindowsSandbox(`asset-push-postwrite-${branch}-${mode}`, async (sandbox) => {
+        const root = sandbox.workspaceRoot;
+        await preparePushGraph(sandbox);
+        await pushApi.compileWorkspace({ workspaceRoot: root, check: false });
+        await verifyPushGraph(root);
+        const before = await observePush(root);
+        const manifest = JSON.parse(
+          Buffer.from(before.state!["sync-manifest.json"]!, "base64").toString(),
+        );
+        expect(
+          manifest.compileBaseline.typeInputs.some(
+            (entry: { kind: string; path: string }) =>
+              entry.kind === "readFile" && entry.path.endsWith("/types/push-input.ts"),
+          ),
+        ).toBe(true);
+        let changed!: PushObservation;
+        const actual = await controlledPush(
+          sandbox,
+          {
+            mode,
+            boundary: "push-after-install",
+            captureFile: "Troops.json",
+            allowDestructive: true,
+          },
+          async () => {
+            assertAllGraphWritesInstalled(before, await observePush(root));
+            if (branch === "source")
+              await appendFile(join(root, pushSourceName), "\n// postwrite source change\n");
+            if (branch === "validation-dependency")
+              await appendFile(
+                join(root, "types/push-input.ts"),
+                "\n// postwrite dependency change\n",
+              );
+            if (branch === "snapshot")
+              await appendFile(
+                join(root, ".rpgmaker-event-dsl/project-data-snapshot/Actors.json"),
+                "\n",
+              );
+            if (branch === "generated")
+              await appendFile(
+                join(root, ".rpgmaker-event-dsl/generated-project-data/CommonEvents.json"),
+                "\n",
+              );
+            if (branch === "config" || branch === "exception") {
+              const path = join(root, "rpgmaker-event-dsl.config.json"),
+                config = JSON.parse(await readFile(path, "utf8"));
+              if (branch === "config") config.scriptEnabled = true;
+              else
+                config.assetCheckExceptions = [
+                  {
+                    category: "image",
+                    folder: "pictures",
+                    name: "PushPoster",
+                    reason: "postwrite policy change",
+                  },
+                ];
+              await writeFile(path, JSON.stringify(config));
+            }
+            changed = await observePush(root);
+            recordAssetInput({ driverChanged: changed });
+          },
+        );
+        expect(actual.exitCode).toBe(1);
+        expect(actual.message + actual.stderr).toMatch(/stale|changed|integrity/i);
+        expect(actual.message + actual.stderr).not.toContain("asset check not run");
+        assertNoPostwriteMediaQuery(actual);
+        const after = await observePush(root);
+        expect(after).toEqual({ ...changed, project: withoutStage(changed.project) });
+        recordAssetInput({
+          after,
+          expected:
+            "All affected live files retain G0; changed input and original pending/backups remain; no Snapshot/Manifest completion or later media query.",
+        });
+      });
+    },
+  );
+
+postwrite(
+  "AV.W13.binding.api.postwrite.expected: retargeting the unchanged configured junction refuses completion and preserves both real roots",
+  async () => {
+    await withWindowsSandbox("asset-push-postwrite-binding", async (sandbox) => {
+      const root = sandbox.workspaceRoot,
+        originalRoot = join(root, "OriginalGame"),
+        otherRoot = join(root, "OtherGame"),
+        alias = join(root, "Game");
+      await preparePushGraph(sandbox);
+      await rename(alias, originalRoot);
+      await symlink(originalRoot, alias, "junction");
+      // Re-clone the fixture through its established alias, so the public API captures real root A.
+      await rm(join(root, ".rpgmaker-event-dsl"), { recursive: true });
+      await pushApi.cloneWorkspace({ workspaceRoot: root });
+      await cp(originalRoot, otherRoot, { recursive: true });
+      await pushApi.compileWorkspace({ workspaceRoot: root, check: false });
+      await verifyPushGraph(root);
+      const before = await observePush(root),
+        otherBefore = await pushTree(otherRoot);
+      let changed!: PushObservation, installedOriginal!: Record<string, string> | null;
+      const actual = await controlledPush(
+        sandbox,
+        {
+          boundary: "push-after-install-cleanup",
+          captureFile: "Troops.json",
+          allowDestructive: true,
+          assetProjectRoots: [originalRoot, otherRoot],
+        },
+        async () => {
+          assertAllGraphWritesInstalled(before, await observePush(root));
+          installedOriginal = await pushTree(originalRoot);
+          await rm(alias);
+          await symlink(otherRoot, alias, "junction");
+          changed = await observePush(root);
+          expect(changed.config).toBe(before.config);
+          recordAssetInput({
+            driverChanged: changed,
+            originalRoot,
+            otherRoot,
+            installedOriginal,
+            otherBefore,
+          });
+        },
+      );
+      expect(actual.exitCode).toBe(1);
+      expect(actual.message + actual.stderr).toContain("Project Root changed");
+      expect(actual.message + actual.stderr).not.toContain("asset check not run");
+      assertNoPostwriteMediaQuery(actual);
+      const after = await observePush(root),
+        originalAfter = await pushTree(originalRoot);
+      expect(after).toEqual(changed);
+      expect(await pushTree(otherRoot)).toEqual(otherBefore);
+      expect(withoutStage(originalAfter)).toEqual(withoutStage(installedOriginal));
+      recordAssetInput({
+        after,
+        originalAfter,
+        otherAfter: await pushTree(otherRoot),
+        expected:
+          "A retains G0 and any inaccessible original staging evidence; B and config bytes unchanged; original Snapshot/Manifest/pending retained.",
+      });
+    });
+  },
+);
+
+for (const [branch, mode] of [
+  ["delete-after-writes", "api"],
+  ["delete-after-writes", "cli"],
+  ["type-change-after-writes", "api"],
+] as const)
+  postwrite(
+    `AV.W06.${branch}.${mode}.case.expected: postwrite media changes allow bookkeeping but the next no-diff Push rejects current facts without pending`,
+    async () => {
+      await withWindowsSandbox(`asset-push-postwrite-media-${branch}-${mode}`, async (sandbox) => {
+        const root = sandbox.workspaceRoot,
+          media = "audio/se/GraphSound.ogg";
+        await preparePushGraph(sandbox);
+        await pushApi.compileWorkspace({ workspaceRoot: root, check: false });
+        await verifyPushGraph(root);
+        const before = await observePush(root),
+          driverProject = { ...before.project };
+        delete driverProject[media];
+        if (branch === "type-change-after-writes") driverProject[media + "/"] = "directory";
+        const actual = await controlledPush(
+          sandbox,
+          {
+            mode,
+            boundary: "push-after-install",
+            captureFile: "Troops.json",
+            allowDestructive: true,
+          },
+          async () => {
+            assertAllGraphWritesInstalled(before, await observePush(root));
+            await rm(join(root, "Game", media));
+            if (branch === "type-change-after-writes") await mkdir(join(root, "Game", media));
+            recordAssetInput({ driverChanged: await observePush(root) });
+          },
+        );
+        expect(actual.exitCode).toBe(0);
+        assertNoPostwriteMediaQuery(actual);
+        const synchronized = await successfulPush(
+          root,
+          { ...before, project: driverProject },
+          graphAffected,
+        );
+        const next = await controlledPush(sandbox, { mode, allowDestructive: true });
+        expect(next.exitCode).toBe(1);
+        expect(next.message + next.stderr).toContain(
+          branch === "delete-after-writes" ? "MV-ASSET-MISSING-FILE" : "MV-ASSET-PATH-TYPE",
+        );
+        expect(next.messages.some((message) => message.kind === "asset-query")).toBe(true);
+        expect(
+          next.messages.filter((message) => message.kind === "asset-content-read-attempt"),
+        ).toEqual([]);
+        expect(await observePush(root)).toEqual(synchronized);
+        expect(synchronized.state!["pending-push/"]).toBeUndefined();
+        recordAssetInput({
+          synchronized,
+          nextNoDiffAfter: await observePush(root),
+          expected:
+            "First Push updates only affected data/Snapshot and exact original-basis bookkeeping, with no media recheck. Next fresh no-diff Push fails current media and changes no state.",
+        });
+      });
+    },
+  );
 for (const mode of ["api", "cli"] as const)
   it(`AV.W20.generated-roots-and-relations.${mode}.case.expected: Push rebuilds current generated roots and captured direct shared/cyclic relations`, async () => {
     await withWindowsSandbox(`asset-push-generated-${mode}`, async (sandbox) => {
@@ -60,44 +315,97 @@ for (const mode of ["api", "cli"] as const)
       await successfulPush(root, repaired, ["CommonEvents.json", "Map001.json", "Troops.json"]);
     });
   });
-it("AV.W19.push-failure.api.case.expected: a prewrite indirect asset error preserves every project and state byte", async () => {
-  await withWindowsSandbox("asset-push-media-failure", async (sandbox) => {
-    const root = sandbox.workspaceRoot;
-    await preparePushGraph(sandbox);
-    await pushApi.compileWorkspace({ workspaceRoot: root, check: false });
-    await rm(join(root, "Game/audio/se/GraphSound.ogg"));
-    const before = await observePush(root),
-      actual = await controlledPush(sandbox, { allowDestructive: true });
-    expect(actual.exitCode).toBe(1);
-    expect(actual.message).toContain('audio/se "GraphSound"');
-    expect(actual.message).toContain("Animation timing sound effect");
-    expect(await observePush(root)).toEqual(before);
-    expect(actual.messages.filter((m) => m.kind === "asset-content-read-attempt")).toEqual([]);
-    recordAssetInput({
-      before,
-      after: await observePush(root),
-      expected:
-        "Prewrite asset failure: no media, data, Snapshot, Manifest, generated or backup publication; no pending/staging remains.",
+sharedPush(
+  "AV.W19.push-failure.api.case.expected: prewrite asset failure preserves bytes and postwrite full-data drift preserves completed writes and pending",
+  async () => {
+    await withWindowsSandbox("asset-push-media-failure", async (sandbox) => {
+      const root = sandbox.workspaceRoot;
+      await preparePushGraph(sandbox);
+      await pushApi.compileWorkspace({ workspaceRoot: root, check: false });
+      await rm(join(root, "Game/audio/se/GraphSound.ogg"));
+      const before = await observePush(root),
+        actual = await controlledPush(sandbox, { allowDestructive: true });
+      expect(actual.exitCode).toBe(1);
+      expect(actual.message).toContain('audio/se "GraphSound"');
+      expect(actual.message).toContain("Animation timing sound effect");
+      expect(await observePush(root)).toEqual(before);
+      expect(actual.messages.filter((m) => m.kind === "asset-content-read-attempt")).toEqual([]);
+      recordAssetInput({
+        before,
+        after: await observePush(root),
+        expected:
+          "Prewrite asset failure: no media, data, Snapshot, Manifest, generated or backup publication; no pending/staging remains.",
+      });
     });
-  });
-});
-for (const [id, label] of [
-  ["AV.W19.push-success.api.case.expected", "asset-push-media-success"],
-  ["AV.C13.push-success.formal.case.expected", "asset-push-owned-boundary"],
-] as const)
-  it(`${id}: successful Push changes only affected owned data and normal bookkeeping`, async () => {
-    await withWindowsSandbox(label, async (sandbox) => {
+    await withWindowsSandbox("asset-push-postwrite-data-drift", async (sandbox) => {
       const root = sandbox.workspaceRoot;
       await preparePushGraph(sandbox);
       await pushApi.compileWorkspace({ workspaceRoot: root, check: false });
       await verifyPushGraph(root);
       const before = await observePush(root);
-      const actual = await controlledPush(sandbox, { allowDestructive: true });
-      expect(actual.exitCode).toBe(0);
-      expect(actual.messages.filter((m) => m.kind === "asset-content-read-attempt")).toEqual([]);
-      await successfulPush(root, before, ["CommonEvents.json", "Map001.json", "Troops.json"]);
+      let changed!: PushObservation;
+      const externalActors =
+        '[null,{"id":1,"name":"External postwrite actor","unknown":{"preserve":[null,23]}}]';
+      const actual = await controlledPush(
+        sandbox,
+        { boundary: "push-after-install", captureFile: "Troops.json", allowDestructive: true },
+        async () => {
+          assertAllGraphWritesInstalled(before, await observePush(root));
+          await writeFile(join(root, "Game/data/Actors.json"), externalActors);
+          changed = await observePush(root);
+          recordAssetInput({ externalActors, driverChanged: changed });
+        },
+      );
+      expect(actual.exitCode).toBe(1);
+      expect(actual.message + actual.stderr).toContain(
+        "Project Drift detected before push for Actors.json",
+      );
+      expect(actual.message + actual.stderr).not.toContain("asset check not run");
+      assertNoPostwriteMediaQuery(actual);
+      const after = await observePush(root);
+      expect(after).toEqual({ ...changed, project: withoutStage(changed.project) });
+      recordAssetInput({
+        after,
+        expected:
+          "All three owned writes and external Actors bytes retained; original Snapshot/Manifest, pending/backups, input/media bytes retained; no asset write or later scan.",
+      });
     });
-  });
+  },
+);
+for (const [id, label] of [
+  ["AV.W19.push-success.api.case.expected", "asset-push-media-success"],
+  ["AV.C13.push-success.formal.case.expected", "asset-push-owned-boundary"],
+] as const)
+  (id === "AV.W19.push-success.api.case.expected" ? sharedPush : it)(
+    `${id}: successful Push changes only affected owned data and normal bookkeeping`,
+    async () => {
+      await withWindowsSandbox(label, async (sandbox) => {
+        const root = sandbox.workspaceRoot;
+        await preparePushGraph(sandbox);
+        await pushApi.compileWorkspace({ workspaceRoot: root, check: false });
+        await verifyPushGraph(root);
+        const before = await observePush(root);
+        const actual = await controlledPush(
+          sandbox,
+          {
+            allowDestructive: true,
+            ...(id === "AV.W19.push-success.api.case.expected"
+              ? { boundary: "push-after-install" as const, captureFile: "Troops.json" }
+              : {}),
+          },
+          id === "AV.W19.push-success.api.case.expected"
+            ? async () => {
+                assertAllGraphWritesInstalled(before, await observePush(root));
+              }
+            : undefined,
+        );
+        expect(actual.exitCode).toBe(0);
+        expect(actual.messages.filter((m) => m.kind === "asset-content-read-attempt")).toEqual([]);
+        if (id === "AV.W19.push-success.api.case.expected") assertNoPostwriteMediaQuery(actual);
+        await successfulPush(root, before, ["CommonEvents.json", "Map001.json", "Troops.json"]);
+      });
+    },
+  );
 it("AV.W20.no-historical-report.api.case.expected: each new Push queries media afresh despite a recorded successful Compile", async () => {
   await withWindowsSandbox("asset-push-no-history", async (sandbox) => {
     const root = sandbox.workspaceRoot;
@@ -318,18 +626,39 @@ async function successfulPush(
   const expectedSnapshot = original.snapshotFiles.map(
     (entry: { relativePath: string; hash: string }) =>
       changedFiles.includes(entry.relativePath)
-        ? original.generatedFiles.find(
-            (generated: { relativePath: string }) => generated.relativePath === entry.relativePath,
-          )
+        ? {
+            ...entry,
+            hash: createHash("sha256")
+              .update(
+                Buffer.from(
+                  before.state![`generated-project-data/${entry.relativePath}`]!,
+                  "base64",
+                ),
+              )
+              .digest("hex"),
+          }
         : entry,
   );
+  // Independently declared bookkeeping basis: only the Snapshot hashes change.
+  // This test-owned JSON formatting follows the persisted manifest format.
+  const expectedBasis = {
+    compileContractVersion: original.compileBaseline.compileContractVersion,
+    typeInputs: original.compileBaseline.typeInputs,
+    projectRootBinding: original.compileBaseline.projectRootBinding,
+    config: original.compileBaseline.config,
+    snapshotFiles: expectedSnapshot,
+    sourceFiles: original.compileBaseline.sourceFiles,
+  };
+  const expectedBaselineBytes =
+    JSON.stringify(expectedBasis, null, 2).replace(/^(\s*"[^"\n]+":) /gm, "$1") + "\n";
+  const expectedBaselineHash = createHash("sha256").update(expectedBaselineBytes).digest("hex");
   expect(current).toEqual({
     ...original,
     snapshotFiles: expectedSnapshot,
     compileBaseline: {
       ...original.compileBaseline,
       snapshotFiles: expectedSnapshot,
-      hash: expect.stringMatching(/^[a-f0-9]{64}$/),
+      hash: expectedBaselineHash,
     },
   });
   expect(current.compileBaseline.hash).not.toBe(original.compileBaseline.hash);
