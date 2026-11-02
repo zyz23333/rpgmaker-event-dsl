@@ -1,4 +1,4 @@
-# 15: Push 写后复核与完整输入保护
+# 15: Push 写后记账与完整输入保护
 
 Status: ready-for-agent
 Blocked by: 14
@@ -6,11 +6,11 @@ Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
 Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments)
 
-**What to build:** 全部项目 data 替换后、同步记账前再查素材及完整依据；发现变化时明确报告已写入并保留 pending。
+**What to build:** 全部项目 data 替换后保留完整输入及 data 证据保护；不再查素材，素材变化本身不阻止正常同步记账。
 
 ## Acceptance criteria
 
-- [ ] 写后缺失、各种相关变化和改善都失败，不回滚、不误报尚未写入；末端检查先于正常记账。
+- [ ] 写后素材缺失或类型变化不追加扫描；data 证据一致则记账并清 pending，下一次无差异 Push 按当前素材失败且不创建 pending。
 - [ ] 完成写后 source、验证依赖、config／exceptions、snapshot、generated、binding 变化；保留全标准 data 漂移和逐文件旧内容保护，不把自身合法写入当外部漂移。
 - [ ] API 及指定 CLI 在真实边界暂停后核对 data、Snapshot、Manifest、pending 与素材树；稳定文件事实正常成功，素材不加入备份／写入。
 
@@ -29,10 +29,10 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 | 验收族 | 本票负责的分支／字段 |
 | --- | --- |
-| W06 | 全部 data 写后删除／变化 |
-| W11 | Push 记账前：完整执行七种相关变化，包括改善，保留写后状态与 pending。 |
+| W06 | 全部 data 写后删除／类型变化不阻止记账；下一次无差异 Push 当前检查失败。 |
+| W11 | 素材当前事实判定由 13／14 在唯一门槛验证，本票验证记账前不追加素材检查。 |
 | W13 | source／validation-dependency／config／exception／snapshot／generated／binding 全部 postwrite；source 另有指定 CLI 边界。 |
-| W19 | push-failure 的写后失败：允许既有 data 写入及 pending，素材保持只读。 |
+| W19 | 素材变化正常记账；编译输入／data 证据写后失败保留既有 data 写入及 pending，素材保持只读。 |
 
 ## Dependencies
 

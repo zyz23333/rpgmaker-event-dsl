@@ -1,4 +1,4 @@
-# 13: Compile／Check 重查与输出有效性
+# 13: Compile／Check 单次素材门槛与输出有效性
 
 Status: ready-for-agent
 Blocked by: 12
@@ -6,12 +6,12 @@ Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
 Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments)
 
-**What to build:** Check 返回、Compile 发布及 Manifest 提交都根据新观察确认结果；作者不会得到使用了操作内过时素材条件的成功输出。
+**What to build:** Check 返回前、Compile 发布前各执行一次当前素材检查；保留发布与 Manifest 提交的既有编译输入一致性保护。
 
 ## Acceptance criteria
 
 - [ ] Check 的 initial／fresh／stale × success／error／warning 全部只读；Compile 发布前失败不发布，发布已开始后的失败沿用无效输出语义，成功重编译才能恢复。
-- [ ] 在三个完成边界验证全部相关变化，包含改善和 warning 到 warning；忽略内容、大小、时间、文件身份及无关目录项变化。每检查点／每命令新观察且逻辑计数稳定。
+- [ ] 唯一素材门槛按当前事实判断，包含补齐后成功和 warning 到 warning；检查后删图不追加扫描、不使本次发布失败。内容、大小、时间、文件身份及无关目录项不比较；新命令重新查询且逻辑计数稳定。
 - [ ] 验证快照与实时素材的区别、未 Pull 标准数据改变及 Pull 后重编译、规则／绑定／政策新鲜度；Clone／Pull／Decompilation／Diff 不新增实时素材扫描。
 - [ ] 受控子进程验证 API 和指定 CLI 路径、编译输入保护及只读边界，不承诺持续监控或原子隔离。
 
@@ -30,16 +30,16 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 | 验收族 | 本票负责的分支／字段 |
 | --- | --- |
-| C03 | 图像和 SE 的 repeated-checkpoint；重查不增加逻辑使用数。 |
+| C03 | 图像和 SE 的重复命令检查；新命令不累积逻辑使用数。 |
 | C13 | check-success／check-failure：外部字段与名称保留；素材树不复制、写入或备份。 |
 | W01 | 全部三态 × 结果 × API／CLI |
 | W02 | Check 完成前删除／改善／稳定 warning |
 | W03 | Compile 发布前错误／变化 |
-| W04 | Manifest 前变化／发布 I/O 失败 |
+| W04 | 素材门槛后删图仍可发布／发布 I/O 或编译输入保护失败 |
 | W09 | 动画／图块未 Pull 改名与 Pull 后重编译 |
 | W10 | 内容／大小／mtime／身份／无关目录项全部分支 |
-| W11 | Check 完成前、Compile 发布前、Compile Manifest 前：每个边界都执行 presence／case-match／path-type／path-link／queryability／failure-location／improvement。 |
-| W12 | same-point-reuse／next-point-fresh／next-command-fresh；Push 新命令由 14 再验证 |
+| W11 | Check／Compile 各自唯一素材门槛前的 presence／case-match／path-type／path-link／queryability／failure-location／improvement，只判断当前事实。 |
+| W12 | same-pass-reuse／next-command-fresh；Push 新命令由 14 再验证，不建立跨点比较。 |
 | W14 | pull／rebind／contract-change／check-does-not-refresh。 |
 | W17 | Clone／Pull／Decompilation／Diff 全部不增加文件查询 |
 | W19 | compile-success／compile-failure：联合检查全部状态载体和素材只读。 |
