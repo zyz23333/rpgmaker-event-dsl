@@ -1,0 +1,435 @@
+{
+  "date": "2026-11-02",
+  "ownerTicket": "01",
+  "status": "resolved-native-evidence-and-policy-disposition",
+  "verification": {
+    "node": "v22.23.4",
+    "platform": "win32",
+    "method": "Read-only SHA-256 verification of archived evidence against original Git blobs and recorded native inputs; no new native execution and no product test run."
+  },
+  "humanDecision": {
+    "source": "Direct human answer in root implementation chat, relayed by parent assignment and M:/Shuen/Codex/asset-validation-notes/accepted-image-policy-2026-11-02.md",
+    "quote": "将图片含 % 或 # 统一列为不支持；音频保持支持（推荐，规则简单）",
+    "acceptedRule": "Every image stem containing % or # is unsupported. Audio retains literal-name support. Movie exclusions are unchanged.",
+    "authorityInRepository": ".scratch/asset-validation/issues/03-asset-file-existence-contract.md#answer"
+  },
+  "originalRun": {
+    "receipt": ".scratch/asset-validation-implementation/evidence/01-native-media/native-results.json",
+    "mediaSamples": 15,
+    "observedSuccesses": 13,
+    "failedCounterexamples": 2,
+    "differentialControls": 2,
+    "originalExitCode": 1,
+    "unchanged": true
+  },
+  "currentObligations": [
+    {
+      "id": "AV.N01.image-png.native-run.case.observed",
+      "currentObligation": true,
+      "status": "satisfied-by-original-native-observation",
+      "samples": [
+        {
+          "category": "image",
+          "savedName": "image-png",
+          "originalStatus": "observed",
+          "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1"
+        }
+      ]
+    },
+    {
+      "id": "AV.N01.audio-ogg.native-run.case.observed",
+      "currentObligation": true,
+      "status": "satisfied-by-original-native-observation",
+      "samples": [
+        {
+          "category": "audio",
+          "savedName": "audio-ogg",
+          "originalStatus": "observed",
+          "sha256": "e6c23e8fbdddeb612695a874d79db974770b3191a45aec90e255817453248b25"
+        }
+      ]
+    },
+    {
+      "id": "AV.N01.movie-webm.native-run.case.observed",
+      "currentObligation": true,
+      "status": "satisfied-by-original-native-observation",
+      "samples": [
+        {
+          "category": "movie",
+          "savedName": "movie-webm",
+          "originalStatus": "observed",
+          "sha256": "6eb7cdb7373d84a6440877f05832326618c94937b742f6c1541162d59776776f"
+        }
+      ]
+    },
+    {
+      "id": "AV.N02.chinese.native-run.case.observed",
+      "currentObligation": true,
+      "status": "satisfied-by-original-native-observation",
+      "samples": [
+        {
+          "category": "image",
+          "savedName": "中文图片",
+          "originalStatus": "observed",
+          "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1"
+        },
+        {
+          "category": "audio",
+          "savedName": "中文音频",
+          "originalStatus": "observed",
+          "sha256": "9e32f562bbbc0de5fa649f1647ed3ac2debfdf21c773080b2885dbd121dbda8d"
+        },
+        {
+          "category": "movie",
+          "savedName": "中文影片",
+          "originalStatus": "observed",
+          "sha256": "df25a97ed9ae29d61d60367f6f3283613a7cd02e812a797437f50d6117c3b553"
+        }
+      ]
+    },
+    {
+      "id": "AV.N02.space.native-run.case.observed",
+      "currentObligation": true,
+      "status": "satisfied-by-original-native-observation",
+      "samples": [
+        {
+          "category": "image",
+          "savedName": "image with space",
+          "originalStatus": "observed",
+          "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1"
+        },
+        {
+          "category": "audio",
+          "savedName": "audio with space",
+          "originalStatus": "observed",
+          "sha256": "3841960bc0b28ddfa6b28c2252364e3cbf576ba059bb096f6a5b62fa43e83589"
+        },
+        {
+          "category": "movie",
+          "savedName": "movie with space",
+          "originalStatus": "observed",
+          "sha256": "23d05ed0da50ca8d14b3597965be55fc553efc5d0ab0c294a277f37ea632bfe9"
+        }
+      ]
+    },
+    {
+      "id": "AV.N02.audio-percent.native-run.case.observed",
+      "currentObligation": true,
+      "status": "satisfied-by-original-native-observation",
+      "samples": [
+        {
+          "category": "audio",
+          "savedName": "literal%20audio",
+          "originalStatus": "observed",
+          "sha256": "3fe37bc09f538f5d129b9332cfaae5c7dc6d135f9aaf51b932a016f67fb7e7e4"
+        },
+        {
+          "category": "audio",
+          "savedName": "audio%percent",
+          "originalStatus": "observed",
+          "sha256": "61ffc8ecedc1fa9e0f53d271403c0aae7c2701c357d690568c69e0dc321dcca6"
+        }
+      ]
+    },
+    {
+      "id": "AV.N02.audio-hash.native-run.case.observed",
+      "currentObligation": true,
+      "status": "satisfied-by-original-native-observation",
+      "samples": [
+        {
+          "category": "audio",
+          "savedName": "audio#hash",
+          "originalStatus": "observed",
+          "sha256": "a1bbd1a676f04515b286a8f08636f75681e9aef3f45c5e6e18dbcf6815921ae0"
+        }
+      ]
+    }
+  ],
+  "excludedHistoricalObservations": [
+    {
+      "id": "AV.N02.image-percent.native-run.case.observed",
+      "savedName": "literal%20image",
+      "originalStatus": "failed",
+      "currentObligation": false,
+      "disposition": "explicit-maintainer-support-exclusion; original observation unchanged"
+    },
+    {
+      "id": "AV.N02.image-percent.native-run.case.observed",
+      "savedName": "image%percent",
+      "originalStatus": "observed",
+      "currentObligation": false,
+      "disposition": "explicit-maintainer-support-exclusion; original observation unchanged"
+    },
+    {
+      "id": "AV.N02.image-hash.native-run.case.observed",
+      "savedName": "image#hash",
+      "originalStatus": "failed",
+      "currentObligation": false,
+      "disposition": "explicit-maintainer-support-exclusion; original observation unchanged"
+    }
+  ],
+  "productHandoff": {
+    "ownerTicket": "03",
+    "status": "claimed-implementation-and-new-source-built-verification-required",
+    "retiredFilesystemIds": [
+      "AV.F06.image-percent.filesystem.case.expected",
+      "AV.F06.image-hash.filesystem.case.expected",
+      "AV.F06.literal-percent20.filesystem.case.expected"
+    ],
+    "newInputIds": [
+      "AV.F06.image-percent.input.case.expected",
+      "AV.F06.image-hash.input.case.expected",
+      "AV.F06.literal-percent20.input.case.expected"
+    ],
+    "oldPendingEvidence": {
+      "path": ".scratch/asset-validation-implementation/evidence/03-file-observation-acceptance.json",
+      "sha256": "a8652ef3feda52e3677af8d8d52f9fd3fbbedbbf4a1dacfea453af802e14d071",
+      "pendingReceipts": 6,
+      "unchanged": true
+    },
+    "audioIdsUnchanged": [
+      "AV.F06.audio-percent.filesystem.case.expected",
+      "AV.F06.audio-hash.filesystem.case.expected"
+    ]
+  },
+  "preservedArtifacts": [
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/01-native-media/native-results.json",
+      "bytes": 30596,
+      "sha256": "a44d131f4be8f2519fb8fd84f73caf1b2974bddbf5dbb349cf6bcc6d357e4a47",
+      "comparedWith": "9181a023:.scratch/asset-validation-implementation/evidence/01-native-media/native-results.json",
+      "unchanged": true
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/01-native-media/input-manifest.json",
+      "bytes": 3819,
+      "sha256": "46068130ab8e4d98a8acb28a360ee0b83728af6845c4ede0769c8abe2cd25b7b",
+      "comparedWith": "9181a023:.scratch/asset-validation-implementation/evidence/01-native-media/input-manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/01-native-media/nw.log",
+      "bytes": 817,
+      "sha256": "989d8d7205d73138af2bf7a76cdcdcdbac5a67402c503a7648c0871c8a07be76",
+      "comparedWith": "9181a023:.scratch/asset-validation-implementation/evidence/01-native-media/nw.log",
+      "unchanged": true
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/01-native-media/samples/red.png",
+      "bytes": 101,
+      "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+      "comparedWith": "9181a023:.scratch/asset-validation-implementation/evidence/01-native-media/samples/red.png",
+      "unchanged": true
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/01-native-media/samples/green.png",
+      "bytes": 99,
+      "sha256": "c57d632e3d98397f65cf47be7dee1e05aeb4e52434c23e496ab85e9212bcb042",
+      "comparedWith": "9181a023:.scratch/asset-validation-implementation/evidence/01-native-media/samples/green.png",
+      "unchanged": true
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/01-native-media/samples/tone.ogg",
+      "bytes": 3916,
+      "sha256": "e6c23e8fbdddeb612695a874d79db974770b3191a45aec90e255817453248b25",
+      "comparedWith": "9181a023:.scratch/asset-validation-implementation/evidence/01-native-media/samples/tone.ogg",
+      "unchanged": true
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/01-native-media/samples/blue.webm",
+      "bytes": 652,
+      "sha256": "6eb7cdb7373d84a6440877f05832326618c94937b742f6c1541162d59776776f",
+      "comparedWith": "9181a023:.scratch/asset-validation-implementation/evidence/01-native-media/samples/blue.webm",
+      "unchanged": true
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/probes/native-media/run-native-media.mjs",
+      "bytes": 4539,
+      "sha256": "89058046361a3199d00fb160efdbd44c6aa26f23620d8f96c6d0569d4c818490",
+      "comparedWith": "9181a023:.scratch/asset-validation-implementation/probes/native-media/run-native-media.mjs",
+      "unchanged": true
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/probes/native-media/native-media.js",
+      "bytes": 7889,
+      "sha256": "54904341df7c171dd93e05771917899342da69da748ca9ef901e0622f4f5a21e",
+      "comparedWith": "9181a023:.scratch/asset-validation-implementation/probes/native-media/native-media.js",
+      "unchanged": true
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/probes/native-media/index.html",
+      "bytes": 569,
+      "sha256": "e5d8f3252951a9a8c0bbf00d12b55bb431c926ca34d771fe331e21bacd8e8ee3",
+      "comparedWith": "9181a023:.scratch/asset-validation-implementation/probes/native-media/index.html",
+      "unchanged": true
+    }
+  ],
+  "verifiedInputs": [
+    {
+      "kind": "runtime-original-and-run-copy",
+      "file": "rpg_core.js",
+      "sha256": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6",
+      "matched": true
+    },
+    {
+      "kind": "runtime-original-and-run-copy",
+      "file": "rpg_managers.js",
+      "sha256": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114",
+      "matched": true
+    },
+    {
+      "kind": "runtime-original-and-run-copy",
+      "file": "rpg_objects.js",
+      "sha256": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e",
+      "matched": true
+    },
+    {
+      "kind": "native-shell",
+      "path": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win\\Game.exe",
+      "sha256": "487bd28f3d0b43ed9827ba519d6d113c4f31059bd62b4492da586c7bc82a9474",
+      "matched": true
+    },
+    {
+      "kind": "native-shell",
+      "path": "F:/Shuen/RPG/rpgmaker-event-dsl/references/RPGMV/nwjs-win/nw.dll",
+      "sha256": "4a3f39e9476288d109dbfe0b0c245f032ebf920c5142af36a2a15b31f9ff2139",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N01.image-png.native-run.case.observed",
+      "savedName": "image-png",
+      "path": "img/pictures/image-png.png",
+      "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N01.audio-ogg.native-run.case.observed",
+      "savedName": "audio-ogg",
+      "path": "audio/se/audio-ogg.ogg",
+      "sha256": "e6c23e8fbdddeb612695a874d79db974770b3191a45aec90e255817453248b25",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N01.movie-webm.native-run.case.observed",
+      "savedName": "movie-webm",
+      "path": "movies/movie-webm.webm",
+      "sha256": "6eb7cdb7373d84a6440877f05832326618c94937b742f6c1541162d59776776f",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N02.chinese.native-run.case.observed",
+      "savedName": "中文图片",
+      "path": "img/pictures/中文图片.png",
+      "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N02.chinese.native-run.case.observed",
+      "savedName": "中文音频",
+      "path": "audio/se/中文音频.ogg",
+      "sha256": "9e32f562bbbc0de5fa649f1647ed3ac2debfdf21c773080b2885dbd121dbda8d",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N02.chinese.native-run.case.observed",
+      "savedName": "中文影片",
+      "path": "movies/中文影片.webm",
+      "sha256": "df25a97ed9ae29d61d60367f6f3283613a7cd02e812a797437f50d6117c3b553",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N02.space.native-run.case.observed",
+      "savedName": "image with space",
+      "path": "img/pictures/image with space.png",
+      "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N02.space.native-run.case.observed",
+      "savedName": "audio with space",
+      "path": "audio/se/audio with space.ogg",
+      "sha256": "3841960bc0b28ddfa6b28c2252364e3cbf576ba059bb096f6a5b62fa43e83589",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N02.space.native-run.case.observed",
+      "savedName": "movie with space",
+      "path": "movies/movie with space.webm",
+      "sha256": "23d05ed0da50ca8d14b3597965be55fc553efc5d0ab0c294a277f37ea632bfe9",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N02.image-percent.native-run.case.observed",
+      "savedName": "literal%20image",
+      "path": "img/pictures/literal%20image.png",
+      "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N02.image-percent.native-run.case.observed",
+      "savedName": "image%percent",
+      "path": "img/pictures/image%percent.png",
+      "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N02.image-hash.native-run.case.observed",
+      "savedName": "image#hash",
+      "path": "img/pictures/image#hash.png",
+      "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N02.audio-percent.native-run.case.observed",
+      "savedName": "literal%20audio",
+      "path": "audio/se/literal%20audio.ogg",
+      "sha256": "3fe37bc09f538f5d129b9332cfaae5c7dc6d135f9aaf51b932a016f67fb7e7e4",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N02.audio-percent.native-run.case.observed",
+      "savedName": "audio%percent",
+      "path": "audio/se/audio%percent.ogg",
+      "sha256": "61ffc8ecedc1fa9e0f53d271403c0aae7c2701c357d690568c69e0dc321dcca6",
+      "matched": true
+    },
+    {
+      "kind": "executed-media",
+      "id": "AV.N02.audio-hash.native-run.case.observed",
+      "savedName": "audio#hash",
+      "path": "audio/se/audio#hash.ogg",
+      "sha256": "a1bbd1a676f04515b286a8f08636f75681e9aef3f45c5e6e18dbcf6815921ae0",
+      "matched": true
+    },
+    {
+      "kind": "counterexample-control",
+      "savedName": "literal%20image",
+      "retainedOriginalSha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+      "alternativeSha256": "c57d632e3d98397f65cf47be7dee1e05aeb4e52434c23e496ab85e9212bcb042",
+      "observedPixel": "#007f00",
+      "matched": true
+    },
+    {
+      "kind": "counterexample-control",
+      "savedName": "image#hash",
+      "retainedOriginalSha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+      "alternativeSha256": "c57d632e3d98397f65cf47be7dee1e05aeb4e52434c23e496ab85e9212bcb042",
+      "observedPixel": "#007f00",
+      "matched": true
+    }
+  ]
+}

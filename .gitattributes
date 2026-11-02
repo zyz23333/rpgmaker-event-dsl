@@ -31,6 +31,13 @@
 # Ticket52 preserves exact game-evidence bindings, archived tools, and original logs.
 /.scratch/complete-mv-events-implementation/evidence/52-final-games/** -text -whitespace
 
+# Preserve N01/N02's original counterexamples, input bytes, samples and probes.
+/.scratch/asset-validation-implementation/evidence/01-native-media/native-results.json -text -whitespace
+/.scratch/asset-validation-implementation/evidence/01-native-media/input-manifest.json -text -whitespace
+/.scratch/asset-validation-implementation/evidence/01-native-media/nw.log -text -whitespace
+/.scratch/asset-validation-implementation/evidence/01-native-media/samples/** -text -whitespace
+/.scratch/asset-validation-implementation/probes/native-media/** -text -whitespace
+
 # Preserve N03's original native evidence and probe hashes, including raw log spaces.
 /.scratch/asset-validation-implementation/evidence/06-native-animation/** -text -whitespace
 /.scratch/asset-validation-implementation/probes/native-animation/** -text -whitespace

@@ -3,9 +3,9 @@
 所属规格：[事件素材文件存在性检查实施规格](asset-validation-spec.md)
 规范预期：[已接受的验收矩阵](acceptance-matrix.md)
 建立日期：2026-10-24
-修订日期：2026-10-25（设计减重；以下现行预期取代旧版本）
+修订日期：2026-11-02（沿用 2026-10-25 设计减重，并落实维护者确认的图片 `%`／`#` 排除；以下现行预期取代旧版本）
 
-本附件为已接受的 97 个用例族分配有穷的子用例标识、fixture 和执行入口，供实施时逐项落实。**所有子用例当前均为计划，未实施／执行。** 以下事实预期来自已决契约，不能由产品收集器、判定器或诊断策略生成。
+本附件为已接受的 97 个用例族分配有穷的子用例标识、fixture 和执行入口，供实施时逐项落实。**本索引定义现行义务，实际执行状态及证据见各实施票；索引自身不代表通过。** 以下事实预期来自已决契约，不能由产品收集器、判定器或诊断策略生成。
 
 ## 标识、公共输入与回执
 
@@ -107,7 +107,7 @@ C06／C07 的到达字段映射固定来自上方 A／B 表，并在完整标识
 | F03 | top-directory-case,category-directory-case,stem-case,extension-case,exact-plus-case-variant,multiple-case-variants | filesystem；每一级准确匹配；无准确项名称不符，有准确项通过；并存能力不足保留未执行 |
 | F04 | chinese,space,whitespace-only,dot,dollar,bang,trailing-space-stem,trailing-dot-stem | filesystem；原值追加后缀，非空空白不当 None；不修复名字 |
 | F05 | double-extension,unicode-distinct | filesystem；已有后缀仍追加；规范等价字符串不替代准确项 |
-| F06 | image-percent,image-hash,audio-percent,audio-hash,literal-percent20,movie-percent,movie-hash | 前五为 filesystem，后二为 input；不 URL 解码；影片禁止形式不查询 |
+| F06 | image-percent,image-hash,audio-percent,audio-hash,literal-percent20,movie-percent,movie-hash | image-percent／image-hash／literal-percent20／movie-percent／movie-hash 为 input；不支持名称、查询前拒绝且无替代目标，普通 error、候选／非活动 warning + 未检查且例外不能豁免。audio-percent／audio-hash 仍为 filesystem，按原名查询，不 URL 解码 |
 | F07 | slash,backslash,absolute,drive-relative,parent-traversal,forbidden-character,control-character,device-name,device-name-extension,device-name-case | input；不支持名称、不穿越查询；forbidden-character 子字段逐一枚举普通 Windows 禁止字符，control-character 为 U+0000–U+001F，device 三支按决策票首方保留设备名清单逐项构造，不用单个 NUL 代表全集 |
 | F08 | missing-category,missing-file,directory-is-file,file-is-directory | filesystem；分别辨认原因与具体位置 |
 | F09 | root-alias,top-symlink,category-junction,file-symlink,link-in-root,link-outside-root,dangling-link | filesystem；root-alias 沿既有规则；根以下拒绝且目标不可被访问，目标位置与存在性不改变拒绝 |
@@ -118,6 +118,12 @@ C06／C07 的到达字段映射固定来自上方 A／B 表，并在完整标识
 | F14 | no-images-use,no-audio-use,movie-only,no-www-fallback,no-other-root | input 加 filesystem；无关标志不解释，不切换资源根 |
 
 F07 的字符和设备名实例把具体 Unicode 编号／设备名追加到字段 token，名称大小写及带后缀的实例分支明确区分。设备名枚举为 CON、PRN、AUX、NUL、COM1–COM9、LPT1–LPT9、COM¹／COM²／COM³、LPT¹／LPT²／LPT³，独立转录自文件判定决定的首方列表。禁止字符枚举为小于号、大于号、冒号、双引号、斜线、反斜线、竖线、问号、星号；控制字符为 U+0000–U+001F。不能导入产品验证函数或常量作为预期；本族不以非法名称真的能在磁盘创建为前提。
+
+### 2026-11-02 F06 身份修订与历史回执
+
+维护者确认图片含 `%` 或 `#` 统一不支持，音频继续支持。三个图片分支各自保留独立 canonical ID：`AV.F06.image-percent.input.case.expected`、`AV.F06.image-hash.input.case.expected`、`AV.F06.literal-percent20.input.case.expected`。音频仍为 `AV.F06.audio-percent.filesystem.case.expected`、`AV.F06.audio-hash.filesystem.case.expected`，影片两个 input ID 不变。
+
+旧 `AV.F06.image-percent.filesystem.case.expected`、`AV.F06.image-hash.filesystem.case.expected`、`AV.F06.literal-percent20.filesystem.case.expected` 已退出当前义务；[03 历史机器回执](../asset-validation-implementation/evidence/03-file-observation-acceptance.json)中的源码／构建共六条 `not-executed-policy-pending` 必须原样保留，不能覆盖成通过或别名复用。实施03须在新 input ID 下通过公共 Workspace API 与实际 CLI 分别验证源码／构建行为，并保留独立预期。F06族和其七个分支不减少，改变的是三个图片分支的输入语义及ID。
 
 ## D. 诊断与例外：10 族
 
@@ -181,16 +187,18 @@ W11 的变化发生在唯一素材门槛的查询开始前，不构造并不存�
 
 ## N. 原生必验：6 族
 
-表示固定 `native-run`，字段为 `case`，结果为 `observed`。所有项要求版本、输入、请求／文件定位和证据；当前全部未执行。真实有效自制媒体用于观察，不能把自动化空文件拿来判断原生解码行为。
+表示固定 `native-run`，字段为 `case`，结果为 `observed`。所有项要求版本、输入、请求／文件定位和证据；实际状态以各责任票证据为准。真实有效自制媒体用于观察，不能把自动化空文件拿来判断原生解码行为。
 
 | 族 | 确定分支 token | 必须记录的事实 |
 | --- | --- | --- |
 | N01 | image-png,audio-ogg,movie-webm | 代表性原生目录、追加扩展名与磁盘定位；不从播放结果推导全面保证 |
-| N02 | chinese,space,image-percent,image-hash,audio-percent,audio-hash | 支持范围内原始名称到请求及实际文件的映射，区分 URL 编码与文件名 |
+| N02 | chinese,space,audio-percent,audio-hash | 当前支持域的成功映射；chinese／space 各含图片、音频、影片，audio-percent 含普通百分号及看似编码字串，audio-hash 为音频井号；区分 URL 编码与磁盘文件名 |
 | N03 | animation-images,animation-timing-se | 双图与逐时机 SE 消费来源及条件，区分预加载与实际帧播放 |
 | N04 | change-tileset,page-tile | 整组和单张不同关系；页图块实例包含 B–E 对应合法值的定位记录，区分场景中地图绘制附带请求 |
 | N05 | enemy-front,enemy-side | 同一 Enemy 在两种模式的原生目录选择 |
 | N06 | runtime-overrides-initial-candidate | 一个已选初始候选被运行时设置覆盖的场景；保存候选与当前运行值区分 |
+
+2026-11-02 的人类政策明确排除图片含 `%`／`#`。旧 `AV.N02.image-percent.native-run.case.observed` 和 `AV.N02.image-hash.native-run.case.observed` 仅作为历史观察 ID 保留，不再是当前支持域原生成功义务，也不另造通过 ID。原始15样本13成功2反例、普通百分号图片成功与两个红绿因果对照均不改写；[政策处置](../asset-validation-implementation/evidence/01-native-media/policy-resolution-2026-11-02.md)按当前四个 N02 ID 对账九个成功样本。N01 三个样本亦已原生成功，证据票01交付不代表其他 N 族或产品完成。
 
 ## 覆盖与执行交接
 
