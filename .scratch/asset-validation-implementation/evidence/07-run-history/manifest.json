@@ -1,0 +1,204 @@
+{
+  "created": "2026-11-02T04:17:51.393Z",
+  "scope": "Original runner outputs and hashes, including actual failed attempts. Skipped/filtered cases are not passing acceptance.",
+  "files": [
+    {
+      "name": "07-after08-source.json",
+      "bytes": 105966,
+      "sha256": "29fe095337758325770327c66205f8d2d26cf47218160b4967178d04f79af449",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-after08-source.json"
+    },
+    {
+      "name": "07-after08-source.log",
+      "bytes": 85,
+      "sha256": "991baf0c38352873170f043d145724b932485f5d6bcd27f10d34042f83373ce3",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-after08-source.log"
+    },
+    {
+      "name": "07-autoplay-green.json",
+      "bytes": 67501,
+      "sha256": "32b307df8886048d84cd4e4cf67d6cd11f81ebe0c6084d14e5c50296dd25175d",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-autoplay-green.json"
+    },
+    {
+      "name": "07-autoplay-red.json",
+      "bytes": 68082,
+      "sha256": "0cc26ebdc4b3616ab1e49d3537ee4b65bddb22422f14d7a9cb1da3c500fd1c19",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-autoplay-red.json"
+    },
+    {
+      "name": "07-bgm-green.json",
+      "bytes": 1796,
+      "sha256": "038c98a5fc9cd29d2486c668014d86c4ea2acac5debc3649084c05e92c3644b8",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-bgm-green.json"
+    },
+    {
+      "name": "07-bgm-red.json",
+      "bytes": 2496,
+      "sha256": "a20e6d69678ea63abc27b7d1e45ddd9b238f9db899ab31defcef43f8ff43a8ef",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-bgm-red.json"
+    },
+    {
+      "name": "07-bgs-green.json",
+      "bytes": 2129,
+      "sha256": "b4577d4f90a75998ec0f75bc28dad643f70bac57953af9303d2eb3ff31f8eacb",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-bgs-green.json"
+    },
+    {
+      "name": "07-bgs-red.json",
+      "bytes": 2840,
+      "sha256": "6632bb9e63730b697919461df71dc3d4ede2d668ad99032ac2ce9596a26ae49a",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-bgs-red.json"
+    },
+    {
+      "name": "07-build.log",
+      "bytes": 1536,
+      "sha256": "ee310e4fd0b6c2e7918d3f09671c68115d8c680a4e37883ee55fcd5e5262585f",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-build.log"
+    },
+    {
+      "name": "07-built-full.json",
+      "bytes": 73751,
+      "sha256": "182ed03a8838c0e3bd393ae3849f3e16ca6bdc24586310794c229b49b63fb0b8",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-built-full.json"
+    },
+    {
+      "name": "07-built-full.log",
+      "bytes": 81,
+      "sha256": "bf5f88008c213d3029bd7c551dacca96462ba3f439cae1692644214890042e9c",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-built-full.log"
+    },
+    {
+      "name": "07-dynamic-green.json",
+      "bytes": 5015,
+      "sha256": "3bc69b51deaf66f1ba9609167370d2073802c47621fba6b103e6f53c1349f24d",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-dynamic-green.json"
+    },
+    {
+      "name": "07-dynamic-red.json",
+      "bytes": 5005,
+      "sha256": "9d665f8578ece28ebff2466a8e226891b087d1d3172a98f70be56c853d9a32f8",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-dynamic-red.json"
+    },
+    {
+      "name": "07-dynamic-valid-green.json",
+      "bytes": 3359,
+      "sha256": "cebb689da1a8203629f54364f55cc65f91358cb57645a11261622d9f4bcc03cf",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-dynamic-valid-green.json"
+    },
+    {
+      "name": "07-dynamic-valid-red.json",
+      "bytes": 4119,
+      "sha256": "d52fdb09474966e483d5a33ce28ce60c1edcaafa1241cf00ed29cc7d1f41b1ed",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-dynamic-valid-red.json"
+    },
+    {
+      "name": "07-main-inputs.json",
+      "bytes": 3664,
+      "sha256": "c9d8d06b6057f5add9cfc419a5c2589e00cda16441fc1322c114a31cf9ee18ce",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-main-inputs.json"
+    },
+    {
+      "name": "07-matrix-smoke.json",
+      "bytes": 66679,
+      "sha256": "aaa1d702ef9c3d96b94203ab2b1af0af1c8908e2a70b6cd585acfec4231b390e",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-matrix-smoke.json"
+    },
+    {
+      "name": "07-necessary-data.json",
+      "bytes": 74757,
+      "sha256": "c24b123ffaa62977e1c1d93749aed618cba9147d892e3390c56236857369c6ad",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-necessary-data.json"
+    },
+    {
+      "name": "07-object-green.json",
+      "bytes": 2390,
+      "sha256": "54c445756ea1f938f67fa5c9827c13055f10ce15f1bc863b55e9e7ed36461aa4",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-object-green.json"
+    },
+    {
+      "name": "07-object-red.json",
+      "bytes": 3618,
+      "sha256": "73c9035184e0a59442a44eb6a0035eb0aa911175f248fe67f9322ea398f6cb3c",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-object-red.json"
+    },
+    {
+      "name": "07-page-green.json",
+      "bytes": 2531,
+      "sha256": "65c36930d1e5eb645d06c2f916acca7345b5c2cc5ae5110f7c15668255fdfaa8",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-page-green.json"
+    },
+    {
+      "name": "07-page-red.json",
+      "bytes": 3320,
+      "sha256": "3739bfa6e5506736376da1d7be079a5bbcef15735882961a7a99ffad6c0fcd2c",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-page-red.json"
+    },
+    {
+      "name": "07-parallax-green.json",
+      "bytes": 1097,
+      "sha256": "e78b1fd404616609f4864935883a27db7b8e29faab2fa33e88207682164a2d9d",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-parallax-green.json"
+    },
+    {
+      "name": "07-parallax-red.json",
+      "bytes": 1806,
+      "sha256": "f1a4e9dbc7573ee3e8165bbc9132ccf9858b4e6e13087d58cd83ff7e0403903d",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-parallax-red.json"
+    },
+    {
+      "name": "07-regression-smoke.json",
+      "bytes": 88680,
+      "sha256": "91a136bb904e062a4d3bad111c9e4cbcecaa2c24da2a455ebf7b769885ea13e2",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-regression-smoke.json"
+    },
+    {
+      "name": "07-source-final-targeted.json",
+      "bytes": 92004,
+      "sha256": "491512f2fb6a763e87f98631cfa7d821d852bd42f2138b0fe2b6413b36e16595",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-source-final-targeted.json"
+    },
+    {
+      "name": "07-source-final-targeted.log",
+      "bytes": 92,
+      "sha256": "901aa74161abb5a5fb1b4912e6e69038d1bc83c3ded2e323c7e6c604006c3b96",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-source-final-targeted.log"
+    },
+    {
+      "name": "07-source-full.json",
+      "bytes": 77616,
+      "sha256": "b11d97fcd76d78c83d83c03b78e13141100edc9266ab2c7ab38d925f8a53e032",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-source-full.json"
+    },
+    {
+      "name": "07-source-full.log",
+      "bytes": 384,
+      "sha256": "5c87d75501990e0680252bba18b2cc2fb393d490c53eaa4a09e52582fe1ce9a1",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-source-full.log"
+    },
+    {
+      "name": "07-source-retry-shared.json",
+      "bytes": 91957,
+      "sha256": "2f1236579c190ae19f657e4e735535179b4d8265a1eaa9e207d7dd14419ae7be",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-source-retry-shared.json"
+    },
+    {
+      "name": "07-source-retry-shared.log",
+      "bytes": 90,
+      "sha256": "444a68c78b7164547a33ded53a7553f522390f3dbad4d191500c76d6911558f7",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-source-retry-shared.log"
+    },
+    {
+      "name": "07-tileset-green.json",
+      "bytes": 1453,
+      "sha256": "d44ddaac1e3558b7b8a10064da3aff549800240a65dbe0f086f0eb2dcb021eb9",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-tileset-green.json"
+    },
+    {
+      "name": "07-tileset-red.json",
+      "bytes": 2154,
+      "sha256": "49186d556a381ce1095469c9e1051a867abb54b4b537cb40e688cd9fd1e7d369",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-tileset-red.json"
+    }
+  ]
+}

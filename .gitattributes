@@ -38,6 +38,8 @@
 # Preserve N04's original native logs, fixtures and probe hashes byte-for-byte.
 /.scratch/asset-validation-implementation/evidence/07-native-maps/** -text -whitespace
 /.scratch/asset-validation-implementation/probes/native-maps/** -text -whitespace
+# Keep original ticket07 red/green and verification runner reports unchanged.
+/.scratch/asset-validation-implementation/evidence/07-run-history/** -text -whitespace
 # Preserve original N05/N06 native evidence and probe bytes, including NW log spaces.
 /.scratch/asset-validation-implementation/evidence/08-native-battlers/** -text -whitespace
 /.scratch/asset-validation-implementation/probes/native-battlers/** -text -whitespace
