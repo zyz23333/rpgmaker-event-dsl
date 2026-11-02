@@ -1,5 +1,5 @@
 {
-  "created": "2026-11-02T04:17:51.393Z",
+  "created": "2026-11-02T04:40:34.784Z",
   "scope": "Original runner outputs and hashes, including actual failed attempts. Skipped/filtered cases are not passing acceptance.",
   "files": [
     {
@@ -51,6 +51,12 @@
       "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-bgs-red.json"
     },
     {
+      "name": "07-build-final.log",
+      "bytes": 2541,
+      "sha256": "9b5569d0c0c1f2216b3b2c7ce6f0809017e56a1248c6d24f2d4e942ce831a4df",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-build-final.log"
+    },
+    {
       "name": "07-build.log",
       "bytes": 1536,
       "sha256": "ee310e4fd0b6c2e7918d3f09671c68115d8c680a4e37883ee55fcd5e5262585f",
@@ -67,6 +73,36 @@
       "bytes": 81,
       "sha256": "bf5f88008c213d3029bd7c551dacca96462ba3f439cae1692644214890042e9c",
       "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-built-full.log"
+    },
+    {
+      "name": "07-composed-built.json",
+      "bytes": 178208,
+      "sha256": "6b56d3539a00fd1a6436ff846ee3e95091d33180aaded74a339c585719b6af2c",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-composed-built.json"
+    },
+    {
+      "name": "07-composed-built.log",
+      "bytes": 85,
+      "sha256": "5b3273fa4a057559e6b20900e27dbe0c56a0116bc0fd7110600d80d95716234c",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-composed-built.log"
+    },
+    {
+      "name": "07-composed-source.json",
+      "bytes": 178238,
+      "sha256": "9079abcd14c3dce93c2b58c4638a28202f5d2309373c49d48ac732813a03b6df",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-composed-source.json"
+    },
+    {
+      "name": "07-composed-source.log",
+      "bytes": 86,
+      "sha256": "10c57599765d0dfa47e5c604e20e779ca0555060db495cbdabe1198ac9bc7c2c",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-composed-source.log"
+    },
+    {
+      "name": "07-diff-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-diff-final.log"
     },
     {
       "name": "07-dynamic-green.json",
@@ -91,6 +127,24 @@
       "bytes": 4119,
       "sha256": "d52fdb09474966e483d5a33ce28ce60c1edcaafa1241cf00ed29cc7d1f41b1ed",
       "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-dynamic-valid-red.json"
+    },
+    {
+      "name": "07-final-inputs.json",
+      "bytes": 3966,
+      "sha256": "6eb51bcf5b39ad7ca3d4a3b309c1a46f8093ad8f4a1d2bc6c9a49870329a5f9c",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-final-inputs.json"
+    },
+    {
+      "name": "07-format-final.log",
+      "bytes": 389,
+      "sha256": "e1bff11cea285731c918c959aec800ecd45615643756e6ee76547ca76535c710",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-format-final.log"
+    },
+    {
+      "name": "07-lint-final.log",
+      "bytes": 99,
+      "sha256": "3f4164ca731090991cea12bd5aba061d26956df094fbb24d2892dd02b5787d43",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-lint-final.log"
     },
     {
       "name": "07-main-inputs.json",
@@ -147,10 +201,40 @@
       "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-parallax-red.json"
     },
     {
+      "name": "07-regression-built.json",
+      "bytes": 57308,
+      "sha256": "33073333a5405be3bd6931996c6a5c08143d7894c32b76668dec7842516d05bc",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-regression-built.json"
+    },
+    {
+      "name": "07-regression-built.log",
+      "bytes": 87,
+      "sha256": "08fd8c9a6b6d31f5bcef01f622e283fefa2ff4871fb5d8c0f5c84b0562e4eb53",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-regression-built.log"
+    },
+    {
       "name": "07-regression-smoke.json",
       "bytes": 88680,
       "sha256": "91a136bb904e062a4d3bad111c9e4cbcecaa2c24da2a455ebf7b769885ea13e2",
       "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-regression-smoke.json"
+    },
+    {
+      "name": "07-regression-source-inputs.json",
+      "bytes": 501,
+      "sha256": "ecfb41624d88a33686ae3e5e527e2efc81b737262db22270691d687a99cbd91f",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-regression-source-inputs.json"
+    },
+    {
+      "name": "07-regression-source.json",
+      "bytes": 57326,
+      "sha256": "aa3034c23e999470994fec44356aa3223f4e35df81a8c1c15482ba25ac2614d1",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-regression-source.json"
+    },
+    {
+      "name": "07-regression-source.log",
+      "bytes": 88,
+      "sha256": "b274acd287e9c6302b5b0c78f5ff43ef27bda159ec486230b84a734240df5a99",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-regression-source.log"
     },
     {
       "name": "07-source-final-targeted.json",
@@ -199,6 +283,12 @@
       "bytes": 2154,
       "sha256": "49186d556a381ce1095469c9e1051a867abb54b4b537cb40e688cd9fd1e7d369",
       "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-tileset-red.json"
+    },
+    {
+      "name": "07-typecheck-final.log",
+      "bytes": 262,
+      "sha256": "b4a582f8d8fd34f6ed1df31a020ae1f799bfd80465b5768c2c6dd481aa1009ed",
+      "original": "M:\\Shuen\\Codex\\asset-validation-notes\\07-typecheck-final.log"
     }
   ]
 }

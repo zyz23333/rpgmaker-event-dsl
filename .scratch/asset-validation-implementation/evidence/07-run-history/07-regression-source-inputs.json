@@ -1,0 +1,15 @@
+{
+  "created": "2026-11-02T04:22:38.233Z",
+  "revision": "fb9048b74b912b0f5a34d909bf624e61faf14862",
+  "compileContractVersion": "mv-1.6.1/32",
+  "files": [
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/asset-check.ts",
+      "sha256": "425ceddcf6d121418c2a4453fae3830d3576d585a849322a2c987bf2d167965a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+      "sha256": "5372edc265b19041612346f4c4afcf08dfd371fcf6ec6a57cc70f6c80ff8a965"
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 # 07：Transfer Map 与 Map Event Page 图块素材验收
 
-日期：2026-11-02。票据：[07](../issues/07-transfer-and-page-tile-dependencies.md)。契约：[实施规格](../../asset-validation/asset-validation-spec.md)、[验收矩阵](../../asset-validation/acceptance-matrix.md)、[有限子用例索引](../../asset-validation/implementation-acceptance-cases.md)。实施分支 `codex/asset-validation-07-maps`，工作树 `M:/Shuen/Codex/asset-validation-07-maps`；从已完成06的集成 `898b87db` 实施。产品与原生归档提交 `8030b14f`，五项缺文件 fixture 修正提交 `3bcc85c5`。本票仍在收尾，旧回归、最终集成与契约版本将在完成后记入下方。
+日期：2026-11-02。票据：[07](../issues/07-transfer-and-page-tile-dependencies.md)。契约：[实施规格](../../asset-validation/asset-validation-spec.md)、[验收矩阵](../../asset-validation/acceptance-matrix.md)、[有限子用例索引](../../asset-validation/implementation-acceptance-cases.md)。实施分支 `codex/asset-validation-07-maps`，工作树 `M:/Shuen/Codex/asset-validation-07-maps`；从已完成06的集成 `898b87db` 实施。产品与原生归档提交 `8030b14f`，五项缺文件 fixture 修正提交 `3bcc85c5`。已合入08和09的最新集成 `9d860dac`，最终产品组合提交 `68d7205a`，Compile Contract Version `mv-1.6.1/33` 高于当前集成32。
+
+[机器合册](07-map-acceptance.json)保留168个不同ID：自动化166各有源码／构建通过回执，另有2个原生规范ID。每条自动化回执以ID与执行时间匹配唯一实际runner，包含断言源版本／SHA256、输入、预期、实际CLI结果及对应阶段产品／构建哈希。主规范的源码、构建、原生集合分别与独立计划精确匹配，没有漏项或重复归属。原始报告在 [07-run-history](07-run-history/manifest.json) 按字节保留，包括失败和过滤未选项。
 
 ## 行为与范围
 
@@ -26,11 +28,11 @@ Map Event Page 的非零 tileId 读取捕获宿主初始 Tileset，B–E 只选�
 
 - 源码主矩阵165项：160通过、5失败。三个C07和两个autoplay关闭的缺文件 fixture 没有先建唯一目录，实际是缺目录，不能满足独立指定的缺文件预期。补齐准确空目录，未改产品与文件事实断言。
 - 首轮修正验证6／6：三个C07、共享C08、捕获对象读取器与transfer-network。最终8／8再次签收全部五个失败用例、共享C08、读取器与transfer-network。过滤未选项均不计通过。
-- 因此本票165个源码ID与共享C08现在都有通过回执。159个Map回执仍对应主矩阵提交8030b14f的断言源哈希，6个Map回执对应最终fixture提交3bcc85c5；共享callback有其独立源文件哈希。机器合册按每条实际回执记录其版本，未把旧运行伪装成最终文件版本。
-- 完整构建入口矩阵165／165通过、无过滤跳过。实际公共Workspace API从dist/workspace-api.mjs载入，真实CLI从dist/cli.mjs执行；源码入口分别为对应src文件。每个ID均有真实CLI进程输入、退出码、stdout／stderr和Windows／Node22环境。当前源码166条共有168次真实CLI；构建165条共有167次，待旧回归执行共享callback后合册最终统计。
+- 因此本票165个源码ID与共享C08均有通过回执。机器合册区分主矩阵提交8030b14f与最终fixture提交3bcc85c5的断言源哈希；共享callback有其独立源文件哈希。后续组合只重跑适用ID，每条最终回执仍回配其实际测试源和runner，未把旧运行伪装成最终文件版本。
+- 完整构建入口主矩阵165／165通过、无过滤跳过；共享C08在完整旧回归及最终组合中通过。实际公共Workspace API从dist/workspace-api.mjs载入，真实CLI从dist/cli.mjs执行；源码入口分别为对应src文件。每个ID均有真实CLI进程输入、退出码、stdout／stderr和Windows／Node22环境。最终源码166条与构建166条回执各含168次真实CLI，共336次。
 - TDD逐片保留object、parallax、Tileset、BGM、BGS、page、有效变量传送及必要autoplay的实际red／green JSON。最初变量fixture漏Variable Definition，被先行reference验证拒绝；补声明后重新得到有意义red再green。早期页图块smoke的预期pattern1与默认0不符，改为明确作者输入pattern1，保留原生预期。这些准备失败与修正均不计通过。
 
-源码与完整构建矩阵在相同产品文件／contract31上运行，`07-main-inputs.json`保留当时产品与全部dist文件SHA256。旧回归和最新集成组合另记录最终产品及构建哈希，避免将收尾组合二进制误当主矩阵的原始输入。完整日志和JSON位于 `M:/Shuen/Codex/asset-validation-notes/07-*`。
+源码与完整构建主矩阵在相同产品文件／contract31上运行，[07-main-inputs.json](07-run-history/07-main-inputs.json)保留当时产品与全部dist文件SHA256。08后旧源码回归有 [单独输入](07-run-history/07-regression-source-inputs.json)，09后完整旧构建回归及最终组合对应 [07-final-inputs.json](07-run-history/07-final-inputs.json)，避免将收尾组合二进制误当主矩阵的原始输入。完整原始日志和JSON同时留在 `M:/Shuen/Codex/asset-validation-notes/07-*`。
 
 ## N04 原生结果
 
@@ -38,8 +40,18 @@ Map Event Page 的非零 tileId 读取捕获宿主初始 Tileset，B–E 只选�
 
 原样委托的解释器282实际reserve全部九个命名槽并将实时Tileset1改为2，预加载和地图绘制栈分别保留。页图块1／256／512／768分别实际只选B／C／D／E，图片真实加载为独立颜色与768×768尺寸，原生48像素格和Canvas drawImage都被观察。地图绘制的九张附带请求没有计入页图块关系。探针、原始日志、保存输入与自制有效PNG按原样字节归档；完整shell／profile留在外部原始项目。
 
-原生审阅及最终集成签收待收尾时补入。本票没有改图片 `%`／`#` 政策，也不关闭01／03或宣称全规格完成。
+native_01 已只读独立审阅，无发现：两个规范ID、五次首次实际进程、49项断言及outer exit0一致，440次 evidence／外部原始项目／runtime／shell／probe／PNG／脚本／fixture SHA256比较全部匹配；同步来源栈、单槽、48px格、颜色、bitmap源身份和Canvas真实draw均分别核对。没有重跑原生或修改归档。
+
+本票没有改图片 `%`／`#` 政策代码，也不关闭01／03或宣称全规格完成。父任务随后接受图片名含 `%` 或 `#` 统一不支持、音频仍支持的新决定，由其对应票落实；本票全部关系样例均为普通名称，N04关系观察仍适用。
 
 ## 收尾验证
 
-待已协调的旧回归窗口、最新集成合入和最终机器合册完成后追加；本节待办不作为已执行证据，也不能据此关闭本票。
+已将08集成tip4cf15625合入为8b645aaf，组合后contract32；固定传送 formal／raw、页E、动态传送、autoplay关闭、坏必要flag、范围网络与敌人前视字段的8项窄源码组合全部通过。随后五组旧源码回归178／178通过、零跳过：Map Event80、图像68、数值保存22、地图定位3、依赖数据5。运行期间产品文件保持不变。
+
+源码旧回归结束后合入09最新集成9d860dac，保留06／07／08／09全部uses／problems及201／301各自来源的动态停止信息；提高contract至33并构建。同五组完整构建回归178／178通过、零跳过。既有成功fixture只补必要标准字段和准确普通文件：Map定位提供Map音频／远景None与Tileset九空槽，完整页保存例提供被选E.png，共享图块页提供BaseB.png。旧断言和未知字段全部保留；Map定位的公共API入口同时改为真实可选择源码／构建模块。
+
+最终源码组合16／16、构建组合16／16通过，415个过滤未选项各自保留但不计通过。组合覆盖 formal／raw固定传送、页E、两种表达的变量传送、共享C08与autoplay关闭、坏flag、None、目标网络边界、敌人、System动态／已知兄弟、战斗BGM、宿主战斗背景和旧／23编译结果过期门禁。完整命令、过滤正则、时间和结果在机器合册verificationReports中。
+
+根 `pnpm build`、`pnpm typecheck`、`pnpm lint`、`pnpm format:check` 和 `git diff --check` 全部通过。Windows构建后显式清单包含新增Map套件及既有地图定位套件，并保留08／09新增清单。README同步固定Transfer、页单图候选、关闭autoplay与动态停止；父任务确认的Face段存在性说明一并修正，保留None索引与未检查尺寸的边界。
+
+工单07已记录Outcome并resolved，等待父任务merger合入。宽回归窗口已释放给11；最终全仓、其他关系／例外／Push与整规格签收仍由相应票及17负责。

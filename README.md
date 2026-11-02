@@ -592,7 +592,8 @@ Background is `window`/`dim`/`transparent`, and position is `top`/`middle`/`bott
 Face `image` is a `faces` image Asset Reference or `null` for None; its independent
 integer `index` is required, accepts 0–2,147,483,647 and rejects negative zero.
 Non-None indices at least 8 warn about the official two-row layout while preserving
-the saved value. Asset files and dimensions are unchecked; None retains its index.
+the saved value. Workspace Compile/Check/Push check supported event asset files;
+image dimensions remain unchecked. None retains its index.
 Number input requires digits 1–8. Item selection requires `regular`, `key`, `hiddenA`
 or `hiddenB`; its variable is the result destination and must resolve to an existing
 System Variable Slot. Scrolling speed is an integer 1–8 and `noFastForward` is an
