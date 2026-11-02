@@ -1,0 +1,267 @@
+{
+  "observedAtUtc": "2026-11-02T10:23:33.1217656Z",
+  "os": "Microsoft Windows NT 10.0.19045.0",
+  "powershell": "7.4.14",
+  "api": "ntdll.dll!RtlIsDosDeviceName_U (read-only name classification)",
+  "repositoryIntegration": "29f19dfd3ed943df2e0c9ae2b7c446ada248d501",
+  "purpose": "Independent Windows device-name classification; not an MV runtime rerun or product acceptance test.",
+  "results": [
+    {
+      "name": "NUL.png",
+      "codePoints": [
+        "004E",
+        "0055",
+        "004C",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": true,
+      "nativeResult": "00000006"
+    },
+    {
+      "name": "NUL .png",
+      "codePoints": [
+        "004E",
+        "0055",
+        "004C",
+        "0020",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": true,
+      "nativeResult": "00000006"
+    },
+    {
+      "name": "NUL  .png",
+      "codePoints": [
+        "004E",
+        "0055",
+        "004C",
+        "0020",
+        "0020",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": true,
+      "nativeResult": "00000006"
+    },
+    {
+      "name": "NUL...png",
+      "codePoints": [
+        "004E",
+        "0055",
+        "004C",
+        "002E",
+        "002E",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": true,
+      "nativeResult": "00000006"
+    },
+    {
+      "name": "NUL. .png",
+      "codePoints": [
+        "004E",
+        "0055",
+        "004C",
+        "002E",
+        "0020",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": true,
+      "nativeResult": "00000006"
+    },
+    {
+      "name": "NULx.png",
+      "codePoints": [
+        "004E",
+        "0055",
+        "004C",
+        "0078",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": false,
+      "nativeResult": "00000000"
+    },
+    {
+      "name": "COM1 .ogg",
+      "codePoints": [
+        "0043",
+        "004F",
+        "004D",
+        "0031",
+        "0020",
+        "002E",
+        "006F",
+        "0067",
+        "0067"
+      ],
+      "isDosDevice": true,
+      "nativeResult": "00000008"
+    },
+    {
+      "name": "LPT¹ .webm",
+      "codePoints": [
+        "004C",
+        "0050",
+        "0054",
+        "00B9",
+        "0020",
+        "002E",
+        "0077",
+        "0065",
+        "0062",
+        "006D"
+      ],
+      "isDosDevice": true,
+      "nativeResult": "00000008"
+    },
+    {
+      "name": "COM0 .png",
+      "codePoints": [
+        "0043",
+        "004F",
+        "004D",
+        "0030",
+        "0020",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": false,
+      "nativeResult": "00000000"
+    },
+    {
+      "name": "NUL .png.png",
+      "codePoints": [
+        "004E",
+        "0055",
+        "004C",
+        "0020",
+        "002E",
+        "0070",
+        "006E",
+        "0067",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": true,
+      "nativeResult": "00000006"
+    },
+    {
+      "name": "cOn   .png",
+      "codePoints": [
+        "0063",
+        "004F",
+        "006E",
+        "0020",
+        "0020",
+        "0020",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": true,
+      "nativeResult": "00000006"
+    },
+    {
+      "name": " NUL.png",
+      "codePoints": [
+        "0020",
+        "004E",
+        "0055",
+        "004C",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": false,
+      "nativeResult": "00000000"
+    },
+    {
+      "name": "NUL x.png",
+      "codePoints": [
+        "004E",
+        "0055",
+        "004C",
+        "0020",
+        "0078",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": false,
+      "nativeResult": "00000000"
+    },
+    {
+      "name": "NUL .foo.png",
+      "codePoints": [
+        "004E",
+        "0055",
+        "004C",
+        "0020",
+        "002E",
+        "0066",
+        "006F",
+        "006F",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": true,
+      "nativeResult": "00000006"
+    },
+    {
+      "name": "NUL .png",
+      "codePoints": [
+        "004E",
+        "0055",
+        "004C",
+        "00A0",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": false,
+      "nativeResult": "00000000"
+    },
+    {
+      "name": "NUL　.png",
+      "codePoints": [
+        "004E",
+        "0055",
+        "004C",
+        "3000",
+        "002E",
+        "0070",
+        "006E",
+        "0067"
+      ],
+      "isDosDevice": false,
+      "nativeResult": "00000000"
+    }
+  ]
+}

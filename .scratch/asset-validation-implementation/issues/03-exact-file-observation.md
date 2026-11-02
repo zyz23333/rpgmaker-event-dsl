@@ -49,6 +49,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Verification
 
+2026-11-02 设备名缺口重开收尾：以公共 Compile genuine red 复现 `NUL .png` 在准确例外下错误成功和发布，再最小补上设备 token 与首点之间的 U+0020 匹配。Contract40；最终冻结 `15b893b3c36df545eafa4d0e621bd0df7986f1a2` 的完整文件套件 source／built 各178/178、零过滤，原171 callbacks保留并增加7项无canonical身份的补充；owner05媒体F06 source／built各4通过、78过滤，过滤不计通过。build、typecheck、lint、format及diff检查通过；364条当前回执、原始red／green、23个冻结输入及15份built哈希见[本次验收](../evidence/03-device-space-acceptance.md)、[机器合册](../evidence/03-device-space-acceptance.json)及[Git字节审计](../evidence/03-device-space-git-verification.json)。原F07输入／拼写和332pass＋6pending原JSON字节保留；97族／1209义务不变。Windows API只读探针不当作MV原生重跑，17仍承担最终全仓与原生汇总。
+
 2026-11-02 政策收尾完成：在公共 Workspace API 与实际 CLI 分别通过源码／构建入口的新三个 F06 input ID，并保留独立预期。旧 filesystem ID 的六条 `not-executed-policy-pending` 回执原字节不变，新结果另记于[收尾回执](../evidence/03-image-policy-acceptance.md)及[新机器回执](../evidence/03-image-policy-acceptance.json)；[权威身份修订](../../asset-validation/implementation-acceptance-cases.md#2026-11-02-f06-身份修订与历史回执)及[政策出处](../evidence/01-native-media/policy-resolution-2026-11-02.md)一致。原166个ID完整证据继续保留，未受影响156项不虚称本次重跑；10个合法名ID及原音频／影片另作源码／构建复核。
 
 新政策及两项候选／非活动补充在Windows／Node22分别通过源码／构建，共10条新通过；合法名称及05原音频／影片28条定向复核通过，既有图片／发布两套回归各入口42/42。typecheck、lint、format:check、build及diff检查通过；Compile Contract Version为35，已保留最新integration行为。最终全仓及Windows baseline仍由17汇总，原生反例由01处置并保留，本票未重跑原生。
@@ -56,6 +58,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 完成后记录实际 outcome 和验证，再更新本票状态。原规格、决策地图及已完成决策票不因本票发布而改状态。
 
 ## Outcome
+
+2026-11-02 设备名缺口再次 resolved。完整追加名在构造目标／查询前正确拒绝 `NUL .png`、`COM1 .ogg` 等 ASCII 空格设备名；只匹配U+0020，普通尾空格、前导空格、近似token及Unicode空格仍按原拼写验证。28个独立字面设备名跨图片／音频／影片，candidate／inactive来源、准确例外不豁免和真实普通文件／缺失可豁免控制全部通过API及实际CLI验证。不修改政策／ADR／canonical计划，不改旧验收历史，不增加公共测试开关。
 
 2026-11-02 resolved。共用文件观察在构造路径／文件查询前拒绝所有图片 `%`／`#`；音频字面查询、影片原排除、保存值表达与既定候选／非活动warning政策保持。三新F06 input ID补齐正式／raw、公共API与实际源码／构建CLI；另验证候选／非活动及非pictures目录。原332条通过与六条待决JSON保全，新历史迁移和red/green证据另存；没有新公共开关、测试API或提前实现12例外配置。本票完成不替代17验收。
 
@@ -68,6 +72,10 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 
 ## Comments
+
+- 2026-11-02（设备名修复关闭）：最小修复、七项独立补充、source／built完整文件套件178/178及媒体F06各4项完成，原red的错误发布与同断言首次green保留。本次新资料单独归档并作Git原字节审计，原F07片段、旧332pass／6pending及有限主计划保持原样；03恢复resolved，工作树留待集成与最终17验收。
+
+- 2026-11-02（设备名缺口重开）：按root明确指派，原resolved／政策收尾历史及六条旧pending原字节保留。03工作树原clean，已快进到当前integration `29f19dfd3ed943df2e0c9ae2b7c446ada248d501`，在自身 `M:/Shuen/Codex/asset-validation-03-files`／`codex/asset-validation-03-files` 重新claim。现行ordinary Windows保留设备名规则漏掉设备名与首点之间的ASCII空格；不是新增支持政策或ADR变更。沿规格已确认公共Workspace API／实际CLI／测试自有OS边界先red再最小修复，只补无新canonical身份的回归，97族／1209主计划不改。Contract40由root预留；测试窗口释放前仅准备，不运行测试。适用source／built文件名称及政策回归随后留实际计数、原始失败和哈希，新结果单独归档。
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
 - 2026-11-02：独立 worktree 从集成 `3eb12b8d` 开始；测试入口沿用规格已确认的 Workspace API、实际 CLI 与测试子进程 OS 接口。先实现独立文件规则；图片百分号／井号的原生反例等待维护者决定，本票不自行改政策。
