@@ -66,4 +66,6 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Comments
 
+- 2026-11-02：仅澄清 W01 既有状态 × 结果组合的 ID 编码：按状态、结果顺序用连字符合成分支，分别展开 api／cli，共 18 个 ID；case 字段和 expected 结果段保持固定，行为范围、入口与数量不变。见原索引 W 组引言。
+
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。

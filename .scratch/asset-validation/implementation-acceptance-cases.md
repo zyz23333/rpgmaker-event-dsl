@@ -140,9 +140,19 @@ F07 的字符和设备名实例把具体 Unicode 编号／设备名追加到字�
 
 ordinary 的表示展开 `direct-formal,direct-raw,indirect-formal,indirect-raw`；candidate 展开 `indirect-formal,indirect-raw`，使用已选初始化关系；inactive 展开 `page,indirect-formal,indirect-raw`，分别使用非 custom 自主路线和关闭 autoplay 的固定传送目标地图音频。raw 修饰事件入口的表达，不表示给地图字段添加 raw 接口。缺失／名称不符／类型不符分别作为字段 token；不虚构直接字段天然候选或 raw 页，也不通过篡改内部条件标记制造用例。
 
+### D02–D10 的标识展开
+
+未另列表示组合的 D02–D10 使用全局默认表示 `native`；这里的表示 token 不代表执行了原生游戏，D10 的实际执行入口仍全部为 CLI。单因子分支使用表内 token 作分支、`case` 作字段，例如 `AV.D09.common-definition.native.case.expected`。
+
+D02 的 24 个事实与角色组合使用角色作分支、事实作字段，例如 `AV.D02.candidate.native.unsupported-name.expected`；四种角色与六种事实全部展开。另三支使用 `AV.D02.reference-error.native.case.expected`、`AV.D02.structure-error.native.case.expected`、`AV.D02.script-gate.native.case.expected`。D03 的三个 eligible 组合使用 `eligible` 作分支、事实作字段，例如 `AV.D03.eligible.native.missing.expected`；其余五支使用各自 token 作分支、`case` 作字段。
+
+2026-11-02 实施编码核对：以上只明确既有行为组合的完整 ID，不改变场景、入口、级别或数量。早期 D09 协作回执曾采用 `formal`；12 在扩展原有唯一 callback 时统一为上述 `native`，保留旧断言和历史回执，不为同一行为再注册别名测试。
+
 ## W. 工作流：20 族
 
 真实操作子进程与文件树为主要入口，字段为 `case`、结果为 `expected`。除 W01 已特别指定外，每个分支至少用 API 执行精确状态断言；W02–W08、W13、W15、W20 还必须把每行列出的第一个分支经真实 CLI 重复执行，使用表示 token `api`／`cli` 分别记录。正常 CLI 路径由 W01 的 success 组合及这些序列的正常准备操作覆盖；其余变化分支以 API 加 D10 补充展示覆盖。W13 的 source 分支保留 prewrite、postwrite 两个 CLI 边界。
+
+W01 的状态与结果两个因子按表内顺序用连字符合成分支，例如 `AV.W01.initial-success.api.case.expected`、`AV.W01.stale-warning.cli.case.expected`。三种状态与三种结果分别经 API、CLI，完整展开为 18 个 ID；`expected` 仍是结果段，不把 success／error／warning 移入该段。
 
 | 族 | 确定分支 token | 时机与最终状态预期 |
 | --- | --- | --- |
