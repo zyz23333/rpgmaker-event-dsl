@@ -52,4 +52,6 @@
 3. 并发分支首次真正执行失败于观察预期遗漏合法 pre-pending staging。保存原失败断言／helper／receipt／sandbox；改为精确两份 N staging、live 仍 O，并保留 owner 死亡遗留的原 stage。竞争者仍需立即 busy，所有状态断言保留。没有产品违约反例或产品补丁。
 4. built 启动脚本首次将 PowerShell 数组合为一个 `--config` 参数；Vitest parser 在执行测试前拒绝，没有结果 JSON。原 log／script 保存，修复 argument splatting 后执行最终完整 built 矩阵。该启动错误不计为测试通过或产品失败。
 
-机器合册严格匹配两份预先独立计划、24条最终规范回执、每个实际 runner 的 ID 集合与 pass／filter 数、冻结 Git blob 的 test／helper SHA、原失败断言字节和 source／built 环境。每份最终 receipt 的 input、expected、actual、完整 callback 与执行进程均可回溯。最终原始字节、构建文件、局部链接和 Git 持久化核验将在交付前写入索引。
+机器合册严格匹配两份预先独立计划、24条最终规范回执、每个实际 runner 的 ID 集合与 pass／filter 数、冻结 Git blob 的 test／helper SHA、原失败断言字节和 source／built 环境。每份最终 receipt 的 input、expected、actual、完整 callback 与执行进程均可回溯。
+
+typecheck、lint、format、build、完整 diff whitespace 与本地链接检查均通过。[Git 持久化核验](16-git-verification.json)逐一证明100份 raw artifact 的长度／SHA等于已提交 Git blob和工作树原字节，16份最终 test／helper／产品／OS控制／旧回归来源保持冻结 Git 字节，24份最终原 receipt bytes及断言 SHA一致；两份规范矩阵均12/12、零过滤。原日志／JSON由 `.gitattributes` 的本票 `-text` 范围保留原始字节，没有补写或洗成通过。
