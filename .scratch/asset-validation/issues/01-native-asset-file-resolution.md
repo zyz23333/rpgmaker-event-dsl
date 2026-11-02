@@ -2,7 +2,7 @@
 
 Type: research
 Labels: wayfinder:research
-Status: needs-info
+Status: resolved
 Mode: AFK
 Blocked by: none
 Parent: [事件素材引用检查的决策地图](../map.md)
@@ -28,7 +28,7 @@ Assignee: Codex research agent
 
 ## Answer
 
-2026-11-02 — 原生执行反例重开：下述静态研究遗漏了 `loadNormalBitmap` 的 `decodeURIComponent(path)`。真实 MV 1.6.1／NW.js 的图片 `literal%20image` 和 `image#hash` 未定位到同名字面文件；保留原名红图、仅加入 URL 解释后的绿图后，相同调用加载绿图。详见[实际观察与最小复现](../../asset-validation-implementation/evidence/01-native-media/observations.md)。普通 `%percent` 图片及已测音频 `%`／`#` 通过，不能将局部失败推广为全部百分号均失败。事实已留证；图片支持边界交由文件规则票和维护者决定，历史研究结论不再作为该部分通过依据。
+2026-11-02 — 原生执行反例已按维护者决定处置。下述静态研究遗漏了 `loadNormalBitmap` 的 `decodeURIComponent(path)`。真实 MV 1.6.1／NW.js 的图片 `literal%20image` 和 `image#hash` 未定位到同名字面文件；保留原名红图、仅加入 URL 解释后的绿图后，相同调用加载绿图。详见[实际观察与最小复现](../../asset-validation-implementation/evidence/01-native-media/observations.md)。普通 `%percent` 图片及已测音频 `%`／`#` 通过，不能将局部失败推广为全部百分号均失败。维护者随后确认“将图片含 % 或 # 统一列为不支持；音频保持支持”；[文件规则票](03-asset-file-existence-contract.md#answer)与 ADR 0017 已同步，研究票恢复 resolved。原研究、15 样本的 13 成功／2 反例与两个因果对照均保留，[政策处置对账](../../asset-validation-implementation/evidence/01-native-media/policy-resolution-2026-11-02.md)另行记录当前支持域，不将历史失败改写为通过。
 
 2026-10-20 — 事实调查完成，详见 [MV 原生素材文件定位研究](../research/native-asset-file-resolution.md)。报告逐项保留首方文件与行号，记录 v1.6.1 输入哈希，并区分文档、静态实现和未实测部分；不替后续 HITL 设计票选择支持政策。
 
@@ -45,3 +45,7 @@ Assignee: Codex research agent
 ### 2026-10-20 — 地图扩展间接素材范围
 
 用户随后确认把事件可静态追踪的间接素材依赖纳入规划。本票仍按原问题 resolved：目录、名称、扩展名与部署差异的事实可复用，但原报告中的“事件直接引用”是当时的研究范围，不能当作现地图继续排除间接素材的依据。标准数据关系、操作相关性及其覆盖证据由[事件直接与间接素材依赖的检查边界如何统一](02-direct-asset-reference-coverage.md)负责；未改写历史研究或将新增关系记成已经研究完成。
+
+### 2026-11-02 — 图片名称政策已确认
+
+维护者在主会话选择统一排除图片 `%`／`#`、音频继续支持；文件规则票 03 和 ADR 0017 已接受此支持边界。本票只更正研究结论的证据边界，原报告的遗漏及原生反例保留。研究事实与政策决定均已有出处，解除 needs-info；实现及最终验收分别由实施票 03／17 负责。

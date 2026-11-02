@@ -4,6 +4,8 @@
 
 本文提供文件存在性检查所需的事实输入。目标为 Windows 上 RPG Maker MV 1.6.1 的编辑项目与事件直接保存的素材名称；报告不决定首版支持政策、诊断级别或 Compile / Push 契约，也不扩展为图片尺寸、索引、媒体解码或实际播放研究。
 
+2026-11-02 证据更正：本历史静态研究遗漏 `ImageManager.loadNormalBitmap` 的 `decodeURIComponent(path)`，不能据“上层编码”推论图片特殊名称最终按原名加载。[真实原生观察](../../asset-validation-implementation/evidence/01-native-media/observations.md)保留普通百分号成功和 `%20`／`#` 两个反例及因果对照；维护者随后选择图片含 `%`／`#` 统一不支持、音频继续支持，见[现行文件规则](../issues/03-asset-file-existence-contract.md#answer)。以下原始研究内容保留供追溯。
+
 ## 结论及证据边界
 
 原生图片加载路径固定追加 `.png`；音频与影片在运行时选择一个扩展名，再加载该路径。官方帮助对 Windows 桌面游戏分别要求 Ogg 与 WebM。原生实现没有在这几个选择函数中通过“某个文件缺失”来尝试另一个格式。因而“找到任意一个同名媒体文件”与“存在原生目标环境会请求的文件”是不同的判定契约。证据见下文的逐项出处。

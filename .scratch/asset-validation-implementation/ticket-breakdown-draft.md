@@ -31,7 +31,7 @@ Acceptance: [验收矩阵](../asset-validation/acceptance-matrix.md) · [实施�
 
    **交付行为：** 用 MV 1.6.1 的真实请求和磁盘定位确认图片、音频、影片及受支持特殊名称的规则，为实施提供可复核的原生事实。
 
-   - 完成 N01／N02 全部分支：PNG、OGG、WebM；中文、空格及图片／音频中的字面量百分号、井号。
+   - 完成当前支持域的 N01／N02 全部分支：PNG、OGG、WebM；中文、空格及音频字面量百分号、井号与看似编码名称。2026-11-02 维护者确认图片含 `%`／`#` 统一排除；原图片两支只保留历史观察及政策处置，不改判通过。
    - 记录版本、有效自制输入、保存名称、原生请求、实际文件、执行方式与证据；区分 URL 编码与磁盘名称。
    - 如有反例，给出最小复现和受影响决定，按规格处理；静态研究、旧重放或空文件自动化不能代替这次原生观察。
 
@@ -51,7 +51,7 @@ Acceptance: [验收矩阵](../asset-validation/acceptance-matrix.md) · [实施�
 
    **交付行为：** 作者能通过 Compile／Check 区分准确文件、大小写错误、不支持名称／链接及无法检查，不把异常或替代文件报告成存在。
 
-   - 覆盖目录各级及扩展名大小写、追加双后缀、中文／空格／纯空白／点号／前缀／Unicode、图片字面量百分号和井号；按完整追加文件名校验禁止字符和全部保留设备名。
+   - 覆盖目录各级及扩展名大小写、追加双后缀、中文／空格／纯空白／点号／前缀／Unicode；图片字面量百分号、井号及 `%20` 按不支持 input 验证，不查询、不构造替代目标；按完整追加文件名校验禁止字符和全部保留设备名。
    - 根别名沿既有绑定；根以下 symlink／junction 不跟随，包括根内、根外和 dangling。硬链接、空文件、元数据可查而媒体内容读取受阻的场景可通过。
    - 以真实文件树及明确标注的故障注入验证查询失败、枚举后消失、类型变化、独立路径继续、准确问题位置和无资源根回退。通过实际 Compile／Check 验证，不止内部匹配测试。
 
@@ -257,7 +257,7 @@ Acceptance: [验收矩阵](../asset-validation/acceptance-matrix.md) · [实施�
 | F03 | 03 | 全部大小写层次及并存分支 |
 | F04 | 03 | 全部支持名称分支 |
 | F05 | 03 | 双扩展名与 Unicode 不规范化 |
-| F06 | 03, 05 | 03 image-percent／image-hash／literal-percent20；05 audio-percent／audio-hash／movie-percent／movie-hash |
+| F06 | 03, 05 | 03 image-percent／image-hash／literal-percent20（现行为 input；旧 filesystem 待决回执保留）；05 audio-percent／audio-hash（filesystem）／movie-percent／movie-hash（input） |
 | F07 | 03 | 全部名称形式、禁止字符、控制字符、设备名实例；02 先有查询前安全拒绝 |
 | F08 | 02 | 缺目录／缺文件／目录为文件／文件为目录 |
 | F09 | 03 | 根别名及全部根以下链接分支 |
@@ -297,7 +297,7 @@ Acceptance: [验收矩阵](../asset-validation/acceptance-matrix.md) · [实施�
 | W19 | 13–16 | 13 compile-success／compile-failure；14 push-success 与写前 failure；15 写后 failure；16 recovery |
 | W20 | 14 | 生成根与链／不求值 DSL／不信历史报告全部分支 |
 | N01 | 01 | 图片、音频、影片原生定位 |
-| N02 | 01 | 全部支持特殊名称原生映射 |
+| N02 | 01 | 当前 chinese／space（图片、音频、影片）、audio-percent／audio-hash 成功映射；图片特殊名称两支保留历史观察和政策处置 |
 | N03 | 06 | 动画双图与 timing SE |
 | N04 | 07 | 整组图块与 B–E 页单图 |
 | N05 | 08 | 敌人前／侧视 |
