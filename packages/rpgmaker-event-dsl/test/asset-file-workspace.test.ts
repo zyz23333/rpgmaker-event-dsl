@@ -58,6 +58,112 @@ async function localState(root: string) {
   };
 }
 
+async function deviceFixtureTree(directory: string) {
+  const result: Record<string, string> = {};
+  async function visit(path: string, prefix: string) {
+    for (const entry of await readdir(path, { withFileTypes: true })) {
+      const key = prefix + entry.name;
+      if (key === "operation.lock") continue;
+      if (entry.isDirectory()) {
+        result[key + "/"] = "directory";
+        await visit(join(path, entry.name), key + "/");
+      } else result[key] = (await readFile(join(path, entry.name))).toString("base64");
+    }
+  }
+  await visit(directory, "");
+  return result;
+}
+
+async function deviceFixtureState(root: string) {
+  return {
+    config: await readFile(join(root, "rpgmaker-event-dsl.config.json"), "utf8"),
+    source: await readFile(join(root, "src/files.events.ts"), "utf8"),
+    project: await deviceFixtureTree(join(root, "Game")),
+    state: await deviceFixtureTree(join(root, ".rpgmaker-event-dsl")),
+  };
+}
+
+it("SUPPLEMENT.device-space-exception: a reserved device followed by ASCII space rejects before querying and cannot be waived by its exact exception", async () => {
+  await withWindowsSandbox("asset-device-space-exception", async (sandbox) => {
+    const root = sandbox.workspaceRoot,
+      name = "NUL ";
+    await prepare(root, [name]);
+    await mkdir(join(root, "Game/img/pictures"), { recursive: true });
+    const configPath = join(root, "rpgmaker-event-dsl.config.json"),
+      config = JSON.parse(await readFile(configPath, "utf8"));
+    config.assetCheckExceptions = [
+      {
+        category: "image",
+        folder: "pictures",
+        name,
+        reason: "Exact exception must not waive unsupported devices",
+      },
+    ];
+    await writeFile(configPath, JSON.stringify(config));
+    const before = await deviceFixtureState(root);
+    const failure = await api
+      .compileWorkspace({ workspaceRoot: root, check: false })
+      .then(() => "", String);
+    const after = await deviceFixtureState(root);
+    recordAssetInput({
+      supplementary: true,
+      canonicalId: null,
+      name,
+      appendedName: "NUL .png",
+      expectedDevice: true,
+      independentAuthority:
+        "Accepted ordinary Windows device-name contract and read-only RtlIsDosDeviceName_U probe; no product matching oracle",
+      before,
+      after,
+      actualCompileFailure: failure,
+    });
+    expect(failure).toContain("error MV-ASSET-UNSUPPORTED-NAME");
+    expect(failure).toContain(JSON.stringify(name));
+    expect(failure).toContain("this use is unchecked");
+    expect(failure).toContain("Coverage: incomplete");
+    expect(failure).not.toContain("; target:");
+    expect(failure).not.toContain("; failed at:");
+    expect(failure).not.toContain("MV-ASSET-MISSING");
+    expect(failure).not.toContain("exception reason:");
+    expect(failure).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
+    expect(after).toEqual(before);
+    for (const [operation, mode] of [
+      ["check", "api"],
+      ["compile", "cli"],
+    ] as const) {
+      const child = startWorkspaceOperation(sandbox, {
+        operation,
+        mode,
+        boundary: "asset-no-media-query",
+        observeAssets: true,
+      });
+      try {
+        const ended = await child.ended,
+          process = sandbox.processes.at(-1)!,
+          output =
+            (child.messages.find((message) => message.kind === "result")?.message ?? "") +
+            process.stderr;
+        recordAssetInput({ operation, mode, ended, process, messages: child.messages });
+        expect(ended.exitCode).toBe(1);
+        expect(output).toContain("error MV-ASSET-UNSUPPORTED-NAME");
+        expect(output).not.toContain("MV-ASSET-QUERY-FAILED");
+        expect(output).not.toContain("; target:");
+        expect(output).not.toContain("exception reason:");
+        expect(output).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
+        expect(
+          child.messages.filter(
+            (message) =>
+              message.kind === "asset-query" || message.kind === "asset-content-read-attempt",
+          ),
+        ).toEqual([]);
+        expect(await deviceFixtureState(root)).toEqual(before);
+      } finally {
+        await child.stop();
+      }
+    }
+  });
+});
+
 function unsupportedImageNameCase(branch: string, name: string, alternative: string) {
   it(`AV.F06.${branch}.input.case.expected: image percent and hash names are rejected before any category lookup without changing the saved value`, async () => {
     for (const representation of ["formal", "raw"] as const)

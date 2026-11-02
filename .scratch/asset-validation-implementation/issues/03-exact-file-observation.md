@@ -1,6 +1,6 @@
 # 03: 准确名称、链接与文件查询失败的检查
 
-Status: resolved
+Status: claimed
 Blocked by: 02
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -68,6 +68,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 
 ## Comments
+
+- 2026-11-02（设备名缺口重开）：按root明确指派，原resolved／政策收尾历史及六条旧pending原字节保留。03工作树原clean，已快进到当前integration `29f19dfd3ed943df2e0c9ae2b7c446ada248d501`，在自身 `M:/Shuen/Codex/asset-validation-03-files`／`codex/asset-validation-03-files` 重新claim。现行ordinary Windows保留设备名规则漏掉设备名与首点之间的ASCII空格；不是新增支持政策或ADR变更。沿规格已确认公共Workspace API／实际CLI／测试自有OS边界先red再最小修复，只补无新canonical身份的回归，97族／1209主计划不改。Contract40由root预留；测试窗口释放前仅准备，不运行测试。适用source／built文件名称及政策回归随后留实际计数、原始失败和哈希，新结果单独归档。
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。
 - 2026-11-02：独立 worktree 从集成 `3eb12b8d` 开始；测试入口沿用规格已确认的 Workspace API、实际 CLI 与测试子进程 OS 接口。先实现独立文件规则；图片百分号／井号的原生反例等待维护者决定，本票不自行改政策。
