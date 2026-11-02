@@ -26,7 +26,7 @@
 
 [原生观察说明](06-native-animation/observations.md)、[两份规范回执](06-native-animation/acceptance-receipts.json)与 [逐事件原始记录](06-native-animation/native-results.json)保留真实执行。执行者从保存 JSON 经原生 DataManager、Scene_Map、解释器 212 与 Sprite_Animation 运行；包装器原样调用原方法，没有替换路径或返回值。MV 1.6.1／NW.js 0.29.0／Chromium 65／内置 Node 9.7.1 与外围 Node 22.23.4 分开记录。
 
-native_01 已阅读探针与实际观察，校验全部 20 个交接文件的 SHA256，核对原始 observed 状态与 19 项独立断言。两张有效自制 960×192 PNG 各有 16 次真实 Canvas drawImage；四个有效动画帧为 0／1／2／3，timing 在帧 0／2 发生；两份有效 OGG 各有原生 XHR、WebAudio 解码和 source start。假分支中的对照动画双图被预加载，但没有该动画的实际命令、帧或 SE 执行。最终事件等待完成、duration 为 0。两份规范 ID 均通过。
+native_01 已阅读探针与实际观察，校验全部 20 个交接文件的 SHA256，核对原始 observed 状态与 19 项独立断言。原生 evidence／probe 目录在 `.gitattributes` 中按原样字节保存，原始 NW 日志的 PixiJS 横幅尾随空格保留，不清洗原始观察。两张有效自制 960×192 PNG 各有 16 次真实 Canvas drawImage；四个有效动画帧为 0／1／2／3，timing 在帧 0／2 发生；两份有效 OGG 各有原生 XHR、WebAudio 解码和 source start。假分支中的对照动画双图被预加载，但没有该动画的实际命令、帧或 SE 执行。最终事件等待完成、duration 为 0。两份规范 ID 均通过。
 
 前三次未完成探针尝试按失败保留：缺背景图导致场景未 ready、观察器解引用已 purge 的图像、过宽的对照音频子串断言。成功 run-04 修复探针并增加 Canvas 消费证据；机器回执保留各次输入／原始结果哈希。没有把失败、静态来源或预加载计成原生执行通过。控制预加载图在原生清理后的浏览器 error 事件也原样保留，并有其先前加载和 bitmap 身份记录。原始成功目录为 `M:/Shuen/Codex/asset-validation-notes/n03-animation-20261102/run-04`；仓库探针位于 [native-animation](../probes/native-animation/run-n03.mjs)。
 

@@ -84,6 +84,11 @@
       "stage": "final targeted source and built rerun of both early Animation image tests"
     }
   ],
+  "rawEvidenceBytePreservation": {
+    "path": ".gitattributes",
+    "sha256": "fb9b5f4eae963eda192d3a311195cc6b2d5e931b95e34c1e703c190b9695e5b4",
+    "scope": "Only the native N03 evidence/probe directories preserve handed bytes and raw log whitespace; no product or test execution bypass."
+  },
   "plannedSetAudit": {
     "path": "M:/Shuen/Codex/asset-validation-notes/planned-acceptance-ids-06-11.json",
     "sha256": "87bb6f182f95ff23547f11aafba25e685ae9cb2f43b5d2d277707f82006598c2",
