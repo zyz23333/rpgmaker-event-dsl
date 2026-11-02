@@ -1,16 +1,9 @@
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { expect, it } from "vitest";
-import { initWorkspace } from "../src/workspace/config.js";
-import {
-  cloneWorkspace,
-  compileWorkspace,
-  decompileWorkspace,
-  diffWorkspace,
-} from "../src/workspace/operations.js";
+import { workspaceApiEntry } from "./support/workspace-operation-process.js";
 import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/definitions.js";
 import { getWorkspaceStatePaths } from "../src/workspace/state.js";
-import { pushWorkspace } from "../src/workspace/push.js";
 import {
   createMinimalProject,
   withWindowsSandbox,
@@ -19,6 +12,15 @@ import {
 import { recordEvidence } from "./support/mv-evidence.js";
 import { blankPage } from "./support/map-event-fixtures.js";
 import { locationRecords } from "./support/map-location-fixtures.js";
+
+const {
+  initWorkspace,
+  cloneWorkspace,
+  compileWorkspace,
+  decompileWorkspace,
+  diffWorkspace,
+  pushWorkspace,
+}: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 
 const discovery = {
   sourceRoot: "src",
@@ -94,6 +96,11 @@ async function prepare(workspaceRoot: string) {
     width: 4,
     height: 3,
     tilesetId: 1,
+    parallaxName: "",
+    autoplayBgm: false,
+    autoplayBgs: false,
+    bgm: { name: "", volume: 90, pitch: 100, pan: 0 },
+    bgs: { name: "", volume: 90, pitch: 100, pan: 0 },
     opaque: { preserved: [null, "carrier"] },
     events: [
       null,
@@ -107,6 +114,10 @@ async function prepare(workspaceRoot: string) {
       },
     ],
   };
+  expected["Tilesets.json"] = [
+    null,
+    { id: 1, name: "Location tiles", tilesetNames: ["", "", "", "", "", "", "", "", ""] },
+  ];
   for (const [name, value] of Object.entries(expected))
     await writeFile(join(workspaceRoot, "Game/data", name), JSON.stringify(value));
   await initWorkspace({ workspaceRoot, projectRoot: "./Game" });

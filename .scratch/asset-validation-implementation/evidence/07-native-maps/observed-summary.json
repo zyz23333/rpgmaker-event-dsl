@@ -1,0 +1,665 @@
+[
+  {
+    "scenario": "change",
+    "status": "passed",
+    "selection": null,
+    "assertionCount": 9,
+    "final": {
+      "frame": 3,
+      "scene": "Scene_Map",
+      "marker": true,
+      "liveTilesetId": 2,
+      "rendererType": 2,
+      "bitmaps": [
+        {
+          "name": "N04-A1",
+          "bitmap": {
+            "id": "bitmap-13",
+            "url": "img/tilesets/N04-A1.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          }
+        },
+        {
+          "name": "N04-A2",
+          "bitmap": {
+            "id": "bitmap-14",
+            "url": "img/tilesets/N04-A2.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          }
+        },
+        {
+          "name": "N04-A3",
+          "bitmap": {
+            "id": "bitmap-15",
+            "url": "img/tilesets/N04-A3.png",
+            "ready": true,
+            "width": 768,
+            "height": 384
+          }
+        },
+        {
+          "name": "N04-A4",
+          "bitmap": {
+            "id": "bitmap-16",
+            "url": "img/tilesets/N04-A4.png",
+            "ready": true,
+            "width": 768,
+            "height": 720
+          }
+        },
+        {
+          "name": "N04-A5",
+          "bitmap": {
+            "id": "bitmap-17",
+            "url": "img/tilesets/N04-A5.png",
+            "ready": true,
+            "width": 384,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-B",
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-B.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-C",
+          "bitmap": {
+            "id": "bitmap-19",
+            "url": "img/tilesets/N04-C.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-D",
+          "bitmap": {
+            "id": "bitmap-20",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-E",
+          "bitmap": {
+            "id": "bitmap-21",
+            "url": "img/tilesets/N04-E.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        }
+      ]
+    },
+    "records": [
+      {
+        "path": "change/native-results.json",
+        "sha256": "ef8129b318d9f9ffba1c4df9e1433c5a88a6c43bbc33b185a836d332d981b99a"
+      },
+      {
+        "path": "change/input-manifest.json",
+        "sha256": "ff6f845be95c3f0e4fd26e33746a9a1bdf96f0e3cf5495b0f600f49673faa33f"
+      },
+      {
+        "path": "change/launcher-result.json",
+        "sha256": "d952fb7bd8931a2988cbc7d0760ce08fe7d57cd765fed0be03606fbb738841c9"
+      },
+      {
+        "path": "change/nw.log",
+        "sha256": "d2ebcba9036a05debbc446d3e731605e1a34712ef5fd18c27c6cf5cbee51d982"
+      },
+      {
+        "path": "change/probe-input.json",
+        "sha256": "9d272dbfa9911279f153c91022c8fdbd4905f254653c359c81bb49ef93dfabdf"
+      }
+    ]
+  },
+  {
+    "scenario": "tile-b",
+    "status": "passed",
+    "selection": {
+      "tileId": 1,
+      "slot": 5,
+      "name": "N04-B",
+      "sx": 48,
+      "sy": 0,
+      "pixel": "#00ffff"
+    },
+    "assertionCount": 10,
+    "final": {
+      "frame": 4,
+      "scene": "Scene_Map",
+      "marker": true,
+      "liveTilesetId": 1,
+      "rendererType": 2,
+      "bitmaps": [
+        {
+          "name": "N04-A1",
+          "bitmap": {
+            "id": "bitmap-11",
+            "url": "img/tilesets/N04-A1.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          }
+        },
+        {
+          "name": "N04-A2",
+          "bitmap": {
+            "id": "bitmap-12",
+            "url": "img/tilesets/N04-A2.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          }
+        },
+        {
+          "name": "N04-A3",
+          "bitmap": {
+            "id": "bitmap-13",
+            "url": "img/tilesets/N04-A3.png",
+            "ready": true,
+            "width": 768,
+            "height": 384
+          }
+        },
+        {
+          "name": "N04-A4",
+          "bitmap": {
+            "id": "bitmap-14",
+            "url": "img/tilesets/N04-A4.png",
+            "ready": true,
+            "width": 768,
+            "height": 720
+          }
+        },
+        {
+          "name": "N04-A5",
+          "bitmap": {
+            "id": "bitmap-15",
+            "url": "img/tilesets/N04-A5.png",
+            "ready": true,
+            "width": 384,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-B",
+          "bitmap": {
+            "id": "bitmap-16",
+            "url": "img/tilesets/N04-B.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-C",
+          "bitmap": {
+            "id": "bitmap-17",
+            "url": "img/tilesets/N04-C.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-D",
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-E",
+          "bitmap": {
+            "id": "bitmap-19",
+            "url": "img/tilesets/N04-E.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        }
+      ]
+    },
+    "records": [
+      {
+        "path": "tile-b/native-results.json",
+        "sha256": "7606535acc6d13935b44ebc6b078994a5026f1d0adac19f6dd1f74fb9f57532c"
+      },
+      {
+        "path": "tile-b/input-manifest.json",
+        "sha256": "af54414e8e63ab52137b0644f2bf8c265f6cb4701da52fe6152f4df936016f26"
+      },
+      {
+        "path": "tile-b/launcher-result.json",
+        "sha256": "365a59a6267d65e7a3a79ae5e10b75d785293686ea94d25bbd7e3fbda1dcf284"
+      },
+      {
+        "path": "tile-b/nw.log",
+        "sha256": "1e141c91b3ab9563e05178efc2a5bc68f32b9ff697c4e5a4a73abeac65c5f894"
+      },
+      {
+        "path": "tile-b/probe-input.json",
+        "sha256": "a5d0709fd3212ef6ccde57dfa3978753490897afb4c650f279490a850e1c18e1"
+      }
+    ]
+  },
+  {
+    "scenario": "tile-c",
+    "status": "passed",
+    "selection": {
+      "tileId": 256,
+      "slot": 6,
+      "name": "N04-C",
+      "sx": 0,
+      "sy": 0,
+      "pixel": "#ff8000"
+    },
+    "assertionCount": 10,
+    "final": {
+      "frame": 3,
+      "scene": "Scene_Map",
+      "marker": true,
+      "liveTilesetId": 1,
+      "rendererType": 2,
+      "bitmaps": [
+        {
+          "name": "N04-A1",
+          "bitmap": {
+            "id": "bitmap-11",
+            "url": "img/tilesets/N04-A1.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          }
+        },
+        {
+          "name": "N04-A2",
+          "bitmap": {
+            "id": "bitmap-12",
+            "url": "img/tilesets/N04-A2.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          }
+        },
+        {
+          "name": "N04-A3",
+          "bitmap": {
+            "id": "bitmap-13",
+            "url": "img/tilesets/N04-A3.png",
+            "ready": true,
+            "width": 768,
+            "height": 384
+          }
+        },
+        {
+          "name": "N04-A4",
+          "bitmap": {
+            "id": "bitmap-14",
+            "url": "img/tilesets/N04-A4.png",
+            "ready": true,
+            "width": 768,
+            "height": 720
+          }
+        },
+        {
+          "name": "N04-A5",
+          "bitmap": {
+            "id": "bitmap-15",
+            "url": "img/tilesets/N04-A5.png",
+            "ready": true,
+            "width": 384,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-B",
+          "bitmap": {
+            "id": "bitmap-16",
+            "url": "img/tilesets/N04-B.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-C",
+          "bitmap": {
+            "id": "bitmap-17",
+            "url": "img/tilesets/N04-C.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-D",
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-E",
+          "bitmap": {
+            "id": "bitmap-19",
+            "url": "img/tilesets/N04-E.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        }
+      ]
+    },
+    "records": [
+      {
+        "path": "tile-c/native-results.json",
+        "sha256": "8ca57253fba18dd44d7660396d804fbe332faec8a2e4a4dfe102fc1e03a164fd"
+      },
+      {
+        "path": "tile-c/input-manifest.json",
+        "sha256": "0f156ed41b108de283a62ad06b134efed559342a741318dcdd0c9e11b0159ac8"
+      },
+      {
+        "path": "tile-c/launcher-result.json",
+        "sha256": "1f15330e6145b909c706d555f8e27302905f8dc84def8ff74afc2af7572928ff"
+      },
+      {
+        "path": "tile-c/nw.log",
+        "sha256": "46048393ad89b94d2b108d1e0fa16db0d106a64fe5e5380479a1a2bb356edd49"
+      },
+      {
+        "path": "tile-c/probe-input.json",
+        "sha256": "90243e7b33d118ece643485c049db587fe194321b45eb19a2ba71069117926c0"
+      }
+    ]
+  },
+  {
+    "scenario": "tile-d",
+    "status": "passed",
+    "selection": {
+      "tileId": 512,
+      "slot": 7,
+      "name": "N04-D",
+      "sx": 0,
+      "sy": 0,
+      "pixel": "#8000ff"
+    },
+    "assertionCount": 10,
+    "final": {
+      "frame": 3,
+      "scene": "Scene_Map",
+      "marker": true,
+      "liveTilesetId": 1,
+      "rendererType": 2,
+      "bitmaps": [
+        {
+          "name": "N04-A1",
+          "bitmap": {
+            "id": "bitmap-11",
+            "url": "img/tilesets/N04-A1.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          }
+        },
+        {
+          "name": "N04-A2",
+          "bitmap": {
+            "id": "bitmap-12",
+            "url": "img/tilesets/N04-A2.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          }
+        },
+        {
+          "name": "N04-A3",
+          "bitmap": {
+            "id": "bitmap-13",
+            "url": "img/tilesets/N04-A3.png",
+            "ready": true,
+            "width": 768,
+            "height": 384
+          }
+        },
+        {
+          "name": "N04-A4",
+          "bitmap": {
+            "id": "bitmap-14",
+            "url": "img/tilesets/N04-A4.png",
+            "ready": true,
+            "width": 768,
+            "height": 720
+          }
+        },
+        {
+          "name": "N04-A5",
+          "bitmap": {
+            "id": "bitmap-15",
+            "url": "img/tilesets/N04-A5.png",
+            "ready": true,
+            "width": 384,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-B",
+          "bitmap": {
+            "id": "bitmap-16",
+            "url": "img/tilesets/N04-B.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-C",
+          "bitmap": {
+            "id": "bitmap-17",
+            "url": "img/tilesets/N04-C.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-D",
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-E",
+          "bitmap": {
+            "id": "bitmap-19",
+            "url": "img/tilesets/N04-E.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        }
+      ]
+    },
+    "records": [
+      {
+        "path": "tile-d/native-results.json",
+        "sha256": "90a37afb260235bb9e8f387fcb78a61463d7c4c18af4abfc89fb531f347c8b19"
+      },
+      {
+        "path": "tile-d/input-manifest.json",
+        "sha256": "c4cb47c182af338441fca7a340c9cea8206ced037174c425a9480a1ce41ca085"
+      },
+      {
+        "path": "tile-d/launcher-result.json",
+        "sha256": "d3911bf07001c10adcfd0598c52b6b152560f7157467a83b4a8e8b3a484323b3"
+      },
+      {
+        "path": "tile-d/nw.log",
+        "sha256": "573468355afbe7c51c6c6c30a041fe012afcc2244fc8aae16b8cf3f6af1df8da"
+      },
+      {
+        "path": "tile-d/probe-input.json",
+        "sha256": "205ab7d05f3b1c6c1dff329d6d4d4f6e5b419f89ae66896d8182fa3ae89ca8a4"
+      }
+    ]
+  },
+  {
+    "scenario": "tile-e",
+    "status": "passed",
+    "selection": {
+      "tileId": 768,
+      "slot": 8,
+      "name": "N04-E",
+      "sx": 0,
+      "sy": 0,
+      "pixel": "#c0c0c0"
+    },
+    "assertionCount": 10,
+    "final": {
+      "frame": 3,
+      "scene": "Scene_Map",
+      "marker": true,
+      "liveTilesetId": 1,
+      "rendererType": 2,
+      "bitmaps": [
+        {
+          "name": "N04-A1",
+          "bitmap": {
+            "id": "bitmap-11",
+            "url": "img/tilesets/N04-A1.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          }
+        },
+        {
+          "name": "N04-A2",
+          "bitmap": {
+            "id": "bitmap-12",
+            "url": "img/tilesets/N04-A2.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          }
+        },
+        {
+          "name": "N04-A3",
+          "bitmap": {
+            "id": "bitmap-13",
+            "url": "img/tilesets/N04-A3.png",
+            "ready": true,
+            "width": 768,
+            "height": 384
+          }
+        },
+        {
+          "name": "N04-A4",
+          "bitmap": {
+            "id": "bitmap-14",
+            "url": "img/tilesets/N04-A4.png",
+            "ready": true,
+            "width": 768,
+            "height": 720
+          }
+        },
+        {
+          "name": "N04-A5",
+          "bitmap": {
+            "id": "bitmap-15",
+            "url": "img/tilesets/N04-A5.png",
+            "ready": true,
+            "width": 384,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-B",
+          "bitmap": {
+            "id": "bitmap-16",
+            "url": "img/tilesets/N04-B.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-C",
+          "bitmap": {
+            "id": "bitmap-17",
+            "url": "img/tilesets/N04-C.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-D",
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        },
+        {
+          "name": "N04-E",
+          "bitmap": {
+            "id": "bitmap-19",
+            "url": "img/tilesets/N04-E.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          }
+        }
+      ]
+    },
+    "records": [
+      {
+        "path": "tile-e/native-results.json",
+        "sha256": "4e4d57ae6c085b1e5bb1ce3d3a91e46840205d1eea892d98e7e02e920cd060b4"
+      },
+      {
+        "path": "tile-e/input-manifest.json",
+        "sha256": "9fc0c0ba6e306f6ee845db4d723c17b22ce7905b54eec80f6f2cdb8cc6f8578c"
+      },
+      {
+        "path": "tile-e/launcher-result.json",
+        "sha256": "1984e2424690b45f7cf27582f14aa3cddfc2219553c977f0fbab628c533d25a6"
+      },
+      {
+        "path": "tile-e/nw.log",
+        "sha256": "c68885754ec62b870f015455df891def48b81ea7d39fae526918fbfc414a827d"
+      },
+      {
+        "path": "tile-e/probe-input.json",
+        "sha256": "ffb208219dcd42c2f589c83028bfd489a3eace886e4eb3007659c07dca778e59"
+      }
+    ]
+  }
+]

@@ -1,0 +1,3361 @@
+{
+  "created": "2026-11-02T03:50:27.928Z",
+  "status": "observed",
+  "scenario": "tile-d",
+  "environment": {
+    "mv": "1.6.1",
+    "platform": "win32",
+    "architecture": "ia32",
+    "release": "10.0.19045",
+    "versions": {
+      "http_parser": "2.7.0",
+      "node": "9.7.1",
+      "v8": "6.5.254.31",
+      "uv": "1.19.2",
+      "zlib": "1.2.11",
+      "ares": "1.13.0",
+      "modules": "59",
+      "nghttp2": "1.29.0",
+      "napi": "2",
+      "openssl": "1.0.2n",
+      "icu": "60.1",
+      "unicode": "10.0",
+      "cldr": "32.0",
+      "tz": "2017c",
+      "nw": "0.29.0",
+      "node-webkit": "0.29.0",
+      "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+      "nw-flavor": "normal",
+      "chromium": "65.0.3325.146"
+    },
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+  },
+  "method": "Real saved Map001 and Scene_Map, native command282/reservations or native Sprite_Character page tile consumer; wrappers delegate original.apply(this,arguments) unchanged.",
+  "events": [
+    {
+      "sequence": 0,
+      "elapsedMs": 14,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "bitmap-1",
+      "requested": "img/system/IconSet.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/IconSet.png"
+    },
+    {
+      "sequence": 1,
+      "elapsedMs": 15,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "bitmap-2",
+      "requested": "img/system/Balloon.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Balloon.png"
+    },
+    {
+      "sequence": 2,
+      "elapsedMs": 15,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "bitmap-3",
+      "requested": "img/system/Shadow1.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow1.png"
+    },
+    {
+      "sequence": 3,
+      "elapsedMs": 15,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "bitmap-4",
+      "requested": "img/system/Shadow2.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow2.png"
+    },
+    {
+      "sequence": 4,
+      "elapsedMs": 15,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "bitmap-5",
+      "requested": "img/system/Damage.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Damage.png"
+    },
+    {
+      "sequence": 5,
+      "elapsedMs": 15,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "bitmap-6",
+      "requested": "img/system/States.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/States.png"
+    },
+    {
+      "sequence": 6,
+      "elapsedMs": 16,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "bitmap-7",
+      "requested": "img/system/Weapons1.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons1.png"
+    },
+    {
+      "sequence": 7,
+      "elapsedMs": 16,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "bitmap-8",
+      "requested": "img/system/Weapons2.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons2.png"
+    },
+    {
+      "sequence": 8,
+      "elapsedMs": 16,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "bitmap-9",
+      "requested": "img/system/Weapons3.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons3.png"
+    },
+    {
+      "sequence": 9,
+      "elapsedMs": 16,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": null,
+      "operations": [],
+      "bitmapId": "bitmap-10",
+      "requested": "img/system/ButtonSet.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/ButtonSet.png"
+    },
+    {
+      "sequence": 10,
+      "elapsedMs": 23,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": null,
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow2.png",
+          "naturalWidth": 48,
+          "naturalHeight": 48
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-4",
+        "url": "img/system/Shadow2.png",
+        "ready": true,
+        "width": 48,
+        "height": 48
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow2.png",
+      "naturalWidth": 48,
+      "naturalHeight": 48,
+      "pixel": "#808080"
+    },
+    {
+      "sequence": 11,
+      "elapsedMs": 23,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": null,
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Damage.png",
+          "naturalWidth": 240,
+          "naturalHeight": 160
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-5",
+        "url": "img/system/Damage.png",
+        "ready": true,
+        "width": 240,
+        "height": 160
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Damage.png",
+      "naturalWidth": 240,
+      "naturalHeight": 160,
+      "pixel": "#808080"
+    },
+    {
+      "sequence": 12,
+      "elapsedMs": 24,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": null,
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/States.png",
+          "naturalWidth": 768,
+          "naturalHeight": 96
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-6",
+        "url": "img/system/States.png",
+        "ready": true,
+        "width": 768,
+        "height": 96
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/States.png",
+      "naturalWidth": 768,
+      "naturalHeight": 96,
+      "pixel": "#808080"
+    },
+    {
+      "sequence": 13,
+      "elapsedMs": 26,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": null,
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons1.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-7",
+        "url": "img/system/Weapons1.png",
+        "ready": true,
+        "width": 576,
+        "height": 384
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons1.png",
+      "naturalWidth": 576,
+      "naturalHeight": 384,
+      "pixel": "#808080"
+    },
+    {
+      "sequence": 14,
+      "elapsedMs": 28,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": null,
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons2.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-8",
+        "url": "img/system/Weapons2.png",
+        "ready": true,
+        "width": 576,
+        "height": 384
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons2.png",
+      "naturalWidth": 576,
+      "naturalHeight": 384,
+      "pixel": "#808080"
+    },
+    {
+      "sequence": 15,
+      "elapsedMs": 30,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": null,
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons3.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-9",
+        "url": "img/system/Weapons3.png",
+        "ready": true,
+        "width": 576,
+        "height": 384
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons3.png",
+      "naturalWidth": 576,
+      "naturalHeight": 384,
+      "pixel": "#808080"
+    },
+    {
+      "sequence": 16,
+      "elapsedMs": 31,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": null,
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/ButtonSet.png",
+          "naturalWidth": 288,
+          "naturalHeight": 96
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-10",
+        "url": "img/system/ButtonSet.png",
+        "ready": true,
+        "width": 288,
+        "height": 96
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/ButtonSet.png",
+      "naturalWidth": 288,
+      "naturalHeight": 96,
+      "pixel": "#808080"
+    },
+    {
+      "sequence": 17,
+      "elapsedMs": 35,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": null,
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/IconSet.png",
+          "naturalWidth": 512,
+          "naturalHeight": 512
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-1",
+        "url": "img/system/IconSet.png",
+        "ready": true,
+        "width": 512,
+        "height": 512
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/IconSet.png",
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "pixel": "#808080"
+    },
+    {
+      "sequence": 18,
+      "elapsedMs": 37,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": null,
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Balloon.png",
+          "naturalWidth": 384,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-2",
+        "url": "img/system/Balloon.png",
+        "ready": true,
+        "width": 384,
+        "height": 384
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Balloon.png",
+      "naturalWidth": 384,
+      "naturalHeight": 384,
+      "pixel": "#808080"
+    },
+    {
+      "sequence": 19,
+      "elapsedMs": 39,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": null,
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow1.png",
+          "naturalWidth": 48,
+          "naturalHeight": 48
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-3",
+        "url": "img/system/Shadow1.png",
+        "ready": true,
+        "width": 48,
+        "height": 48
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow1.png",
+      "naturalWidth": 48,
+      "naturalHeight": 48,
+      "pixel": "#808080"
+    },
+    {
+      "sequence": 20,
+      "elapsedMs": 42,
+      "kind": "scene-run",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": []
+    },
+    {
+      "sequence": 21,
+      "elapsedMs": 159,
+      "kind": "Spriteset_Map.loadTileset-before",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [],
+      "phase": "map-render",
+      "liveTilesetId": 1
+    },
+    {
+      "sequence": 22,
+      "elapsedMs": 159,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-A1"
+        }
+      ],
+      "bitmapId": "bitmap-11",
+      "requested": "img/tilesets/N04-A1.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A1.png"
+    },
+    {
+      "sequence": 23,
+      "elapsedMs": 159,
+      "kind": "ImageManager.loadTileset",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-A1"
+        }
+      ],
+      "name": "N04-A1",
+      "bitmap": {
+        "id": "bitmap-11",
+        "url": "img/tilesets/N04-A1.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "sequence": 24,
+      "elapsedMs": 159,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-A2"
+        }
+      ],
+      "bitmapId": "bitmap-12",
+      "requested": "img/tilesets/N04-A2.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A2.png"
+    },
+    {
+      "sequence": 25,
+      "elapsedMs": 159,
+      "kind": "ImageManager.loadTileset",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-A2"
+        }
+      ],
+      "name": "N04-A2",
+      "bitmap": {
+        "id": "bitmap-12",
+        "url": "img/tilesets/N04-A2.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "sequence": 26,
+      "elapsedMs": 159,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-A3"
+        }
+      ],
+      "bitmapId": "bitmap-13",
+      "requested": "img/tilesets/N04-A3.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A3.png"
+    },
+    {
+      "sequence": 27,
+      "elapsedMs": 159,
+      "kind": "ImageManager.loadTileset",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-A3"
+        }
+      ],
+      "name": "N04-A3",
+      "bitmap": {
+        "id": "bitmap-13",
+        "url": "img/tilesets/N04-A3.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "sequence": 28,
+      "elapsedMs": 159,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-A4"
+        }
+      ],
+      "bitmapId": "bitmap-14",
+      "requested": "img/tilesets/N04-A4.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A4.png"
+    },
+    {
+      "sequence": 29,
+      "elapsedMs": 159,
+      "kind": "ImageManager.loadTileset",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-A4"
+        }
+      ],
+      "name": "N04-A4",
+      "bitmap": {
+        "id": "bitmap-14",
+        "url": "img/tilesets/N04-A4.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "sequence": 30,
+      "elapsedMs": 159,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-A5"
+        }
+      ],
+      "bitmapId": "bitmap-15",
+      "requested": "img/tilesets/N04-A5.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A5.png"
+    },
+    {
+      "sequence": 31,
+      "elapsedMs": 159,
+      "kind": "ImageManager.loadTileset",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-A5"
+        }
+      ],
+      "name": "N04-A5",
+      "bitmap": {
+        "id": "bitmap-15",
+        "url": "img/tilesets/N04-A5.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "sequence": 32,
+      "elapsedMs": 159,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-B"
+        }
+      ],
+      "bitmapId": "bitmap-16",
+      "requested": "img/tilesets/N04-B.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-B.png"
+    },
+    {
+      "sequence": 33,
+      "elapsedMs": 159,
+      "kind": "ImageManager.loadTileset",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-B"
+        }
+      ],
+      "name": "N04-B",
+      "bitmap": {
+        "id": "bitmap-16",
+        "url": "img/tilesets/N04-B.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "sequence": 34,
+      "elapsedMs": 159,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-C"
+        }
+      ],
+      "bitmapId": "bitmap-17",
+      "requested": "img/tilesets/N04-C.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-C.png"
+    },
+    {
+      "sequence": 35,
+      "elapsedMs": 159,
+      "kind": "ImageManager.loadTileset",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-C"
+        }
+      ],
+      "name": "N04-C",
+      "bitmap": {
+        "id": "bitmap-17",
+        "url": "img/tilesets/N04-C.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "sequence": 36,
+      "elapsedMs": 159,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-D"
+        }
+      ],
+      "bitmapId": "bitmap-18",
+      "requested": "img/tilesets/N04-D.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-D.png"
+    },
+    {
+      "sequence": 37,
+      "elapsedMs": 159,
+      "kind": "ImageManager.loadTileset",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-D"
+        }
+      ],
+      "name": "N04-D",
+      "bitmap": {
+        "id": "bitmap-18",
+        "url": "img/tilesets/N04-D.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "sequence": 38,
+      "elapsedMs": 159,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-E"
+        }
+      ],
+      "bitmapId": "bitmap-19",
+      "requested": "img/tilesets/N04-E.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-E.png"
+    },
+    {
+      "sequence": 39,
+      "elapsedMs": 159,
+      "kind": "ImageManager.loadTileset",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-E"
+        }
+      ],
+      "name": "N04-E",
+      "bitmap": {
+        "id": "bitmap-19",
+        "url": "img/tilesets/N04-E.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "sequence": 40,
+      "elapsedMs": 159,
+      "kind": "Spriteset_Map.loadTileset-after",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "loadTileset",
+          "phase": "map-render",
+          "liveTilesetId": 1
+        }
+      ],
+      "liveTilesetId": 1,
+      "tilesetNames": [
+        "N04-A1",
+        "N04-A2",
+        "N04-A3",
+        "N04-A4",
+        "N04-A5",
+        "N04-B",
+        "N04-C",
+        "N04-D",
+        "N04-E"
+      ],
+      "bitmaps": [
+        {
+          "id": "bitmap-11",
+          "url": "img/tilesets/N04-A1.png",
+          "ready": false,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": "bitmap-12",
+          "url": "img/tilesets/N04-A2.png",
+          "ready": false,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": "bitmap-13",
+          "url": "img/tilesets/N04-A3.png",
+          "ready": false,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": "bitmap-14",
+          "url": "img/tilesets/N04-A4.png",
+          "ready": false,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": "bitmap-15",
+          "url": "img/tilesets/N04-A5.png",
+          "ready": false,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": "bitmap-16",
+          "url": "img/tilesets/N04-B.png",
+          "ready": false,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": "bitmap-17",
+          "url": "img/tilesets/N04-C.png",
+          "ready": false,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": "bitmap-18",
+          "url": "img/tilesets/N04-D.png",
+          "ready": false,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": "bitmap-19",
+          "url": "img/tilesets/N04-E.png",
+          "ready": false,
+          "width": 0,
+          "height": 0
+        }
+      ]
+    },
+    {
+      "sequence": 41,
+      "elapsedMs": 162,
+      "kind": "Sprite_Character.tilesetBitmap-before",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [],
+      "phase": "page-tile",
+      "characterEventId": 1,
+      "tileId": 512,
+      "liveTilesetId": 1
+    },
+    {
+      "sequence": 42,
+      "elapsedMs": 162,
+      "kind": "ImageManager.loadTileset",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "tilesetBitmap",
+          "phase": "page-tile",
+          "characterEventId": 1,
+          "tileId": 512,
+          "liveTilesetId": 1
+        },
+        {
+          "method": "loadTileset",
+          "name": "N04-D"
+        }
+      ],
+      "name": "N04-D",
+      "bitmap": {
+        "id": "bitmap-18",
+        "url": "img/tilesets/N04-D.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "sequence": 43,
+      "elapsedMs": 162,
+      "kind": "Sprite_Character.tilesetBitmap-after",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "tilesetBitmap",
+          "phase": "page-tile",
+          "characterEventId": 1,
+          "tileId": 512,
+          "liveTilesetId": 1
+        }
+      ],
+      "characterEventId": 1,
+      "tileId": 512,
+      "bitmap": {
+        "id": "bitmap-18",
+        "url": "img/tilesets/N04-D.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "sequence": 44,
+      "elapsedMs": 162,
+      "kind": "Sprite_Character.updateTileFrame",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateTileFrame"
+        }
+      ],
+      "tileId": 512,
+      "bitmap": {
+        "id": "bitmap-18",
+        "url": "img/tilesets/N04-D.png",
+        "ready": false,
+        "width": 0,
+        "height": 0
+      },
+      "cellFrame": {
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 48
+      }
+    },
+    {
+      "sequence": 45,
+      "elapsedMs": 164,
+      "kind": "Bitmap._requestImage",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [],
+      "bitmapId": "bitmap-20",
+      "requested": "img/system/Window.png",
+      "absoluteUrl": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Window.png"
+    },
+    {
+      "sequence": 46,
+      "elapsedMs": 180,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A2.png",
+          "naturalWidth": 768,
+          "naturalHeight": 576
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-12",
+        "url": "img/tilesets/N04-A2.png",
+        "ready": true,
+        "width": 768,
+        "height": 576
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A2.png",
+      "naturalWidth": 768,
+      "naturalHeight": 576,
+      "pixel": "#00ff00"
+    },
+    {
+      "sequence": 47,
+      "elapsedMs": 183,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A3.png",
+          "naturalWidth": 768,
+          "naturalHeight": 384
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-13",
+        "url": "img/tilesets/N04-A3.png",
+        "ready": true,
+        "width": 768,
+        "height": 384
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A3.png",
+      "naturalWidth": 768,
+      "naturalHeight": 384,
+      "pixel": "#0000ff"
+    },
+    {
+      "sequence": 48,
+      "elapsedMs": 186,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A4.png",
+          "naturalWidth": 768,
+          "naturalHeight": 720
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-14",
+        "url": "img/tilesets/N04-A4.png",
+        "ready": true,
+        "width": 768,
+        "height": 720
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A4.png",
+      "naturalWidth": 768,
+      "naturalHeight": 720,
+      "pixel": "#ffff00"
+    },
+    {
+      "sequence": 49,
+      "elapsedMs": 187,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A5.png",
+          "naturalWidth": 384,
+          "naturalHeight": 768
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-15",
+        "url": "img/tilesets/N04-A5.png",
+        "ready": true,
+        "width": 384,
+        "height": 768
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A5.png",
+      "naturalWidth": 384,
+      "naturalHeight": 768,
+      "pixel": "#ff00ff"
+    },
+    {
+      "sequence": 50,
+      "elapsedMs": 190,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-B.png",
+          "naturalWidth": 768,
+          "naturalHeight": 768
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-16",
+        "url": "img/tilesets/N04-B.png",
+        "ready": true,
+        "width": 768,
+        "height": 768
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-B.png",
+      "naturalWidth": 768,
+      "naturalHeight": 768,
+      "pixel": "#00ffff"
+    },
+    {
+      "sequence": 51,
+      "elapsedMs": 193,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-C.png",
+          "naturalWidth": 768,
+          "naturalHeight": 768
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-17",
+        "url": "img/tilesets/N04-C.png",
+        "ready": true,
+        "width": 768,
+        "height": 768
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-C.png",
+      "naturalWidth": 768,
+      "naturalHeight": 768,
+      "pixel": "#ff8000"
+    },
+    {
+      "sequence": 52,
+      "elapsedMs": 196,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-D.png",
+          "naturalWidth": 768,
+          "naturalHeight": 768
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-18",
+        "url": "img/tilesets/N04-D.png",
+        "ready": true,
+        "width": 768,
+        "height": 768
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-D.png",
+      "naturalWidth": 768,
+      "naturalHeight": 768,
+      "pixel": "#8000ff"
+    },
+    {
+      "sequence": 53,
+      "elapsedMs": 200,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-E.png",
+          "naturalWidth": 768,
+          "naturalHeight": 768
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-19",
+        "url": "img/tilesets/N04-E.png",
+        "ready": true,
+        "width": 768,
+        "height": 768
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-E.png",
+      "naturalWidth": 768,
+      "naturalHeight": 768,
+      "pixel": "#c0c0c0"
+    },
+    {
+      "sequence": 54,
+      "elapsedMs": 201,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Window.png",
+          "naturalWidth": 192,
+          "naturalHeight": 192
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-20",
+        "url": "img/system/Window.png",
+        "ready": true,
+        "width": 192,
+        "height": 192
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Window.png",
+      "naturalWidth": 192,
+      "naturalHeight": 192,
+      "pixel": "#808080"
+    },
+    {
+      "sequence": 55,
+      "elapsedMs": 205,
+      "kind": "Bitmap._onLoad",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_onLoad",
+          "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A1.png",
+          "naturalWidth": 768,
+          "naturalHeight": 576
+        }
+      ],
+      "bitmap": {
+        "id": "bitmap-11",
+        "url": "img/tilesets/N04-A1.png",
+        "ready": true,
+        "width": 768,
+        "height": 576
+      },
+      "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A1.png",
+      "naturalWidth": 768,
+      "naturalHeight": 576,
+      "pixel": "#ff0000"
+    },
+    {
+      "sequence": 56,
+      "elapsedMs": 206,
+      "kind": "interpreter-setup",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [],
+      "eventId": 2,
+      "commandCodes": [
+        355,
+        123,
+        0
+      ]
+    },
+    {
+      "sequence": 57,
+      "elapsedMs": 206,
+      "kind": "preload-requestImages",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "setup",
+          "eventId": 2,
+          "commandCodes": [
+            355,
+            123,
+            0
+          ]
+        }
+      ],
+      "commandCodes": [
+        355,
+        123,
+        0
+      ]
+    },
+    {
+      "sequence": 58,
+      "elapsedMs": 206,
+      "kind": "event-completion-marker",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [],
+      "value": "N04"
+    },
+    {
+      "sequence": 59,
+      "elapsedMs": 207,
+      "kind": "Sprite_Character.updateTileFrame",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateTileFrame"
+        }
+      ],
+      "tileId": 512,
+      "bitmap": {
+        "id": "bitmap-18",
+        "url": "img/tilesets/N04-D.png",
+        "ready": true,
+        "width": 768,
+        "height": 768
+      },
+      "cellFrame": {
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 48
+      }
+    },
+    {
+      "sequence": 60,
+      "elapsedMs": 208,
+      "kind": "Sprite_Character.updateTileFrame",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateTileFrame"
+        }
+      ],
+      "tileId": 512,
+      "bitmap": {
+        "id": "bitmap-18",
+        "url": "img/tilesets/N04-D.png",
+        "ready": true,
+        "width": 768,
+        "height": 768
+      },
+      "cellFrame": {
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 48
+      }
+    },
+    {
+      "sequence": 61,
+      "elapsedMs": 212,
+      "kind": "native-page-canvas-drawImage",
+      "frame": 0,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_renderCanvas",
+          "phase": "page-tile-render",
+          "tileId": 512,
+          "selectedBitmapId": "bitmap-18"
+        }
+      ],
+      "tileId": 512,
+      "bitmap": {
+        "id": "bitmap-18",
+        "url": "img/tilesets/N04-D.png",
+        "ready": true,
+        "width": 768,
+        "height": 768
+      },
+      "drawArguments": [
+        0,
+        0,
+        48,
+        48,
+        -24,
+        -48,
+        48,
+        48
+      ]
+    },
+    {
+      "sequence": 62,
+      "elapsedMs": 219,
+      "kind": "Sprite_Character.updateTileFrame",
+      "frame": 1,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "updateTileFrame"
+        }
+      ],
+      "tileId": 512,
+      "bitmap": {
+        "id": "bitmap-18",
+        "url": "img/tilesets/N04-D.png",
+        "ready": true,
+        "width": 768,
+        "height": 768
+      },
+      "cellFrame": {
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 48
+      }
+    },
+    {
+      "sequence": 63,
+      "elapsedMs": 219,
+      "kind": "native-page-canvas-drawImage",
+      "frame": 1,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_renderCanvas",
+          "phase": "page-tile-render",
+          "tileId": 512,
+          "selectedBitmapId": "bitmap-18"
+        }
+      ],
+      "tileId": 512,
+      "bitmap": {
+        "id": "bitmap-18",
+        "url": "img/tilesets/N04-D.png",
+        "ready": true,
+        "width": 768,
+        "height": 768
+      },
+      "drawArguments": [
+        0,
+        0,
+        48,
+        48,
+        -24,
+        -48,
+        48,
+        48
+      ]
+    },
+    {
+      "sequence": 64,
+      "elapsedMs": 225,
+      "kind": "native-page-canvas-drawImage",
+      "frame": 2,
+      "scene": "Scene_Map",
+      "operations": [
+        {
+          "method": "_renderCanvas",
+          "phase": "page-tile-render",
+          "tileId": 512,
+          "selectedBitmapId": "bitmap-18"
+        }
+      ],
+      "tileId": 512,
+      "bitmap": {
+        "id": "bitmap-18",
+        "url": "img/tilesets/N04-D.png",
+        "ready": true,
+        "width": 768,
+        "height": 768
+      },
+      "drawArguments": [
+        0,
+        0,
+        48,
+        48,
+        -24,
+        -48,
+        48,
+        48
+      ]
+    }
+  ],
+  "assertions": [
+    {
+      "label": "actual Scene_Map and advancing hidden frames",
+      "passed": true,
+      "actual": {
+        "frame": 3,
+        "scene": "Scene_Map"
+      }
+    },
+    {
+      "label": "every saved sheet actually requested and loaded as valid self-made image",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 10,
+          "elapsedMs": 23,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow2.png",
+              "naturalWidth": 48,
+              "naturalHeight": 48
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-4",
+            "url": "img/system/Shadow2.png",
+            "ready": true,
+            "width": 48,
+            "height": 48
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow2.png",
+          "naturalWidth": 48,
+          "naturalHeight": 48,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 11,
+          "elapsedMs": 23,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Damage.png",
+              "naturalWidth": 240,
+              "naturalHeight": 160
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-5",
+            "url": "img/system/Damage.png",
+            "ready": true,
+            "width": 240,
+            "height": 160
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Damage.png",
+          "naturalWidth": 240,
+          "naturalHeight": 160,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 12,
+          "elapsedMs": 24,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/States.png",
+              "naturalWidth": 768,
+              "naturalHeight": 96
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-6",
+            "url": "img/system/States.png",
+            "ready": true,
+            "width": 768,
+            "height": 96
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/States.png",
+          "naturalWidth": 768,
+          "naturalHeight": 96,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 13,
+          "elapsedMs": 26,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons1.png",
+              "naturalWidth": 576,
+              "naturalHeight": 384
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-7",
+            "url": "img/system/Weapons1.png",
+            "ready": true,
+            "width": 576,
+            "height": 384
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons1.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 14,
+          "elapsedMs": 28,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons2.png",
+              "naturalWidth": 576,
+              "naturalHeight": 384
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-8",
+            "url": "img/system/Weapons2.png",
+            "ready": true,
+            "width": 576,
+            "height": 384
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons2.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 15,
+          "elapsedMs": 30,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons3.png",
+              "naturalWidth": 576,
+              "naturalHeight": 384
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-9",
+            "url": "img/system/Weapons3.png",
+            "ready": true,
+            "width": 576,
+            "height": 384
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons3.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 16,
+          "elapsedMs": 31,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/ButtonSet.png",
+              "naturalWidth": 288,
+              "naturalHeight": 96
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-10",
+            "url": "img/system/ButtonSet.png",
+            "ready": true,
+            "width": 288,
+            "height": 96
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/ButtonSet.png",
+          "naturalWidth": 288,
+          "naturalHeight": 96,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 17,
+          "elapsedMs": 35,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/IconSet.png",
+              "naturalWidth": 512,
+              "naturalHeight": 512
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-1",
+            "url": "img/system/IconSet.png",
+            "ready": true,
+            "width": 512,
+            "height": 512
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/IconSet.png",
+          "naturalWidth": 512,
+          "naturalHeight": 512,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 18,
+          "elapsedMs": 37,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Balloon.png",
+              "naturalWidth": 384,
+              "naturalHeight": 384
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-2",
+            "url": "img/system/Balloon.png",
+            "ready": true,
+            "width": 384,
+            "height": 384
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Balloon.png",
+          "naturalWidth": 384,
+          "naturalHeight": 384,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 19,
+          "elapsedMs": 39,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow1.png",
+              "naturalWidth": 48,
+              "naturalHeight": 48
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-3",
+            "url": "img/system/Shadow1.png",
+            "ready": true,
+            "width": 48,
+            "height": 48
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow1.png",
+          "naturalWidth": 48,
+          "naturalHeight": 48,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 46,
+          "elapsedMs": 180,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A2.png",
+              "naturalWidth": 768,
+              "naturalHeight": 576
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-12",
+            "url": "img/tilesets/N04-A2.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A2.png",
+          "naturalWidth": 768,
+          "naturalHeight": 576,
+          "pixel": "#00ff00"
+        },
+        {
+          "sequence": 47,
+          "elapsedMs": 183,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A3.png",
+              "naturalWidth": 768,
+              "naturalHeight": 384
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-13",
+            "url": "img/tilesets/N04-A3.png",
+            "ready": true,
+            "width": 768,
+            "height": 384
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A3.png",
+          "naturalWidth": 768,
+          "naturalHeight": 384,
+          "pixel": "#0000ff"
+        },
+        {
+          "sequence": 48,
+          "elapsedMs": 186,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A4.png",
+              "naturalWidth": 768,
+              "naturalHeight": 720
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-14",
+            "url": "img/tilesets/N04-A4.png",
+            "ready": true,
+            "width": 768,
+            "height": 720
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A4.png",
+          "naturalWidth": 768,
+          "naturalHeight": 720,
+          "pixel": "#ffff00"
+        },
+        {
+          "sequence": 49,
+          "elapsedMs": 187,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A5.png",
+              "naturalWidth": 384,
+              "naturalHeight": 768
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-15",
+            "url": "img/tilesets/N04-A5.png",
+            "ready": true,
+            "width": 384,
+            "height": 768
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A5.png",
+          "naturalWidth": 384,
+          "naturalHeight": 768,
+          "pixel": "#ff00ff"
+        },
+        {
+          "sequence": 50,
+          "elapsedMs": 190,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-B.png",
+              "naturalWidth": 768,
+              "naturalHeight": 768
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-16",
+            "url": "img/tilesets/N04-B.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-B.png",
+          "naturalWidth": 768,
+          "naturalHeight": 768,
+          "pixel": "#00ffff"
+        },
+        {
+          "sequence": 51,
+          "elapsedMs": 193,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-C.png",
+              "naturalWidth": 768,
+              "naturalHeight": 768
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-17",
+            "url": "img/tilesets/N04-C.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-C.png",
+          "naturalWidth": 768,
+          "naturalHeight": 768,
+          "pixel": "#ff8000"
+        },
+        {
+          "sequence": 52,
+          "elapsedMs": 196,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-D.png",
+              "naturalWidth": 768,
+              "naturalHeight": 768
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-D.png",
+          "naturalWidth": 768,
+          "naturalHeight": 768,
+          "pixel": "#8000ff"
+        },
+        {
+          "sequence": 53,
+          "elapsedMs": 200,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-E.png",
+              "naturalWidth": 768,
+              "naturalHeight": 768
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-19",
+            "url": "img/tilesets/N04-E.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-E.png",
+          "naturalWidth": 768,
+          "naturalHeight": 768,
+          "pixel": "#c0c0c0"
+        },
+        {
+          "sequence": 54,
+          "elapsedMs": 201,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Window.png",
+              "naturalWidth": 192,
+              "naturalHeight": 192
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-20",
+            "url": "img/system/Window.png",
+            "ready": true,
+            "width": 192,
+            "height": 192
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Window.png",
+          "naturalWidth": 192,
+          "naturalHeight": 192,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 55,
+          "elapsedMs": 205,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A1.png",
+              "naturalWidth": 768,
+              "naturalHeight": 576
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-11",
+            "url": "img/tilesets/N04-A1.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A1.png",
+          "naturalWidth": 768,
+          "naturalHeight": 576,
+          "pixel": "#ff0000"
+        }
+      ]
+    },
+    {
+      "label": "all selected bitmaps ready without active Image errors",
+      "passed": true,
+      "actual": [
+        {
+          "id": "bitmap-11",
+          "url": "img/tilesets/N04-A1.png",
+          "ready": true,
+          "width": 768,
+          "height": 576
+        },
+        {
+          "id": "bitmap-12",
+          "url": "img/tilesets/N04-A2.png",
+          "ready": true,
+          "width": 768,
+          "height": 576
+        },
+        {
+          "id": "bitmap-13",
+          "url": "img/tilesets/N04-A3.png",
+          "ready": true,
+          "width": 768,
+          "height": 384
+        },
+        {
+          "id": "bitmap-14",
+          "url": "img/tilesets/N04-A4.png",
+          "ready": true,
+          "width": 768,
+          "height": 720
+        },
+        {
+          "id": "bitmap-15",
+          "url": "img/tilesets/N04-A5.png",
+          "ready": true,
+          "width": 384,
+          "height": 768
+        },
+        {
+          "id": "bitmap-16",
+          "url": "img/tilesets/N04-B.png",
+          "ready": true,
+          "width": 768,
+          "height": 768
+        },
+        {
+          "id": "bitmap-17",
+          "url": "img/tilesets/N04-C.png",
+          "ready": true,
+          "width": 768,
+          "height": 768
+        },
+        {
+          "id": "bitmap-18",
+          "url": "img/tilesets/N04-D.png",
+          "ready": true,
+          "width": 768,
+          "height": 768
+        },
+        {
+          "id": "bitmap-19",
+          "url": "img/tilesets/N04-E.png",
+          "ready": true,
+          "width": 768,
+          "height": 768
+        }
+      ]
+    },
+    {
+      "label": "page tile saved value selects exactly one literal B–E slot",
+      "passed": true,
+      "actual": {
+        "consumers": [
+          {
+            "sequence": 43,
+            "elapsedMs": 162,
+            "kind": "Sprite_Character.tilesetBitmap-after",
+            "frame": 0,
+            "scene": "Scene_Map",
+            "operations": [
+              {
+                "method": "tilesetBitmap",
+                "phase": "page-tile",
+                "characterEventId": 1,
+                "tileId": 512,
+                "liveTilesetId": 1
+              }
+            ],
+            "characterEventId": 1,
+            "tileId": 512,
+            "bitmap": {
+              "id": "bitmap-18",
+              "url": "img/tilesets/N04-D.png",
+              "ready": false,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "pageLoads": [
+          {
+            "sequence": 42,
+            "elapsedMs": 162,
+            "kind": "ImageManager.loadTileset",
+            "frame": 0,
+            "scene": "Scene_Map",
+            "operations": [
+              {
+                "method": "tilesetBitmap",
+                "phase": "page-tile",
+                "characterEventId": 1,
+                "tileId": 512,
+                "liveTilesetId": 1
+              },
+              {
+                "method": "loadTileset",
+                "name": "N04-D"
+              }
+            ],
+            "name": "N04-D",
+            "bitmap": {
+              "id": "bitmap-18",
+              "url": "img/tilesets/N04-D.png",
+              "ready": false,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "savedSlot": 7
+      }
+    },
+    {
+      "label": "map rendering separately loads all nine sheets, including eight unselected by page sprite",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 23,
+          "elapsedMs": 159,
+          "kind": "ImageManager.loadTileset",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "loadTileset",
+              "phase": "map-render",
+              "liveTilesetId": 1
+            },
+            {
+              "method": "loadTileset",
+              "name": "N04-A1"
+            }
+          ],
+          "name": "N04-A1",
+          "bitmap": {
+            "id": "bitmap-11",
+            "url": "img/tilesets/N04-A1.png",
+            "ready": false,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "sequence": 25,
+          "elapsedMs": 159,
+          "kind": "ImageManager.loadTileset",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "loadTileset",
+              "phase": "map-render",
+              "liveTilesetId": 1
+            },
+            {
+              "method": "loadTileset",
+              "name": "N04-A2"
+            }
+          ],
+          "name": "N04-A2",
+          "bitmap": {
+            "id": "bitmap-12",
+            "url": "img/tilesets/N04-A2.png",
+            "ready": false,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "sequence": 27,
+          "elapsedMs": 159,
+          "kind": "ImageManager.loadTileset",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "loadTileset",
+              "phase": "map-render",
+              "liveTilesetId": 1
+            },
+            {
+              "method": "loadTileset",
+              "name": "N04-A3"
+            }
+          ],
+          "name": "N04-A3",
+          "bitmap": {
+            "id": "bitmap-13",
+            "url": "img/tilesets/N04-A3.png",
+            "ready": false,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "sequence": 29,
+          "elapsedMs": 159,
+          "kind": "ImageManager.loadTileset",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "loadTileset",
+              "phase": "map-render",
+              "liveTilesetId": 1
+            },
+            {
+              "method": "loadTileset",
+              "name": "N04-A4"
+            }
+          ],
+          "name": "N04-A4",
+          "bitmap": {
+            "id": "bitmap-14",
+            "url": "img/tilesets/N04-A4.png",
+            "ready": false,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "sequence": 31,
+          "elapsedMs": 159,
+          "kind": "ImageManager.loadTileset",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "loadTileset",
+              "phase": "map-render",
+              "liveTilesetId": 1
+            },
+            {
+              "method": "loadTileset",
+              "name": "N04-A5"
+            }
+          ],
+          "name": "N04-A5",
+          "bitmap": {
+            "id": "bitmap-15",
+            "url": "img/tilesets/N04-A5.png",
+            "ready": false,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "sequence": 33,
+          "elapsedMs": 159,
+          "kind": "ImageManager.loadTileset",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "loadTileset",
+              "phase": "map-render",
+              "liveTilesetId": 1
+            },
+            {
+              "method": "loadTileset",
+              "name": "N04-B"
+            }
+          ],
+          "name": "N04-B",
+          "bitmap": {
+            "id": "bitmap-16",
+            "url": "img/tilesets/N04-B.png",
+            "ready": false,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "sequence": 35,
+          "elapsedMs": 159,
+          "kind": "ImageManager.loadTileset",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "loadTileset",
+              "phase": "map-render",
+              "liveTilesetId": 1
+            },
+            {
+              "method": "loadTileset",
+              "name": "N04-C"
+            }
+          ],
+          "name": "N04-C",
+          "bitmap": {
+            "id": "bitmap-17",
+            "url": "img/tilesets/N04-C.png",
+            "ready": false,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "sequence": 37,
+          "elapsedMs": 159,
+          "kind": "ImageManager.loadTileset",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "loadTileset",
+              "phase": "map-render",
+              "liveTilesetId": 1
+            },
+            {
+              "method": "loadTileset",
+              "name": "N04-D"
+            }
+          ],
+          "name": "N04-D",
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": false,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "sequence": 39,
+          "elapsedMs": 159,
+          "kind": "ImageManager.loadTileset",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "loadTileset",
+              "phase": "map-render",
+              "liveTilesetId": 1
+            },
+            {
+              "method": "loadTileset",
+              "name": "N04-E"
+            }
+          ],
+          "name": "N04-E",
+          "bitmap": {
+            "id": "bitmap-19",
+            "url": "img/tilesets/N04-E.png",
+            "ready": false,
+            "width": 0,
+            "height": 0
+          }
+        }
+      ]
+    },
+    {
+      "label": "native selected bitmap has exact self-made color and 768px sheet dimensions",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 10,
+          "elapsedMs": 23,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow2.png",
+              "naturalWidth": 48,
+              "naturalHeight": 48
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-4",
+            "url": "img/system/Shadow2.png",
+            "ready": true,
+            "width": 48,
+            "height": 48
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow2.png",
+          "naturalWidth": 48,
+          "naturalHeight": 48,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 11,
+          "elapsedMs": 23,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Damage.png",
+              "naturalWidth": 240,
+              "naturalHeight": 160
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-5",
+            "url": "img/system/Damage.png",
+            "ready": true,
+            "width": 240,
+            "height": 160
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Damage.png",
+          "naturalWidth": 240,
+          "naturalHeight": 160,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 12,
+          "elapsedMs": 24,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/States.png",
+              "naturalWidth": 768,
+              "naturalHeight": 96
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-6",
+            "url": "img/system/States.png",
+            "ready": true,
+            "width": 768,
+            "height": 96
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/States.png",
+          "naturalWidth": 768,
+          "naturalHeight": 96,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 13,
+          "elapsedMs": 26,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons1.png",
+              "naturalWidth": 576,
+              "naturalHeight": 384
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-7",
+            "url": "img/system/Weapons1.png",
+            "ready": true,
+            "width": 576,
+            "height": 384
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons1.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 14,
+          "elapsedMs": 28,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons2.png",
+              "naturalWidth": 576,
+              "naturalHeight": 384
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-8",
+            "url": "img/system/Weapons2.png",
+            "ready": true,
+            "width": 576,
+            "height": 384
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons2.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 15,
+          "elapsedMs": 30,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons3.png",
+              "naturalWidth": 576,
+              "naturalHeight": 384
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-9",
+            "url": "img/system/Weapons3.png",
+            "ready": true,
+            "width": 576,
+            "height": 384
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Weapons3.png",
+          "naturalWidth": 576,
+          "naturalHeight": 384,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 16,
+          "elapsedMs": 31,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/ButtonSet.png",
+              "naturalWidth": 288,
+              "naturalHeight": 96
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-10",
+            "url": "img/system/ButtonSet.png",
+            "ready": true,
+            "width": 288,
+            "height": 96
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/ButtonSet.png",
+          "naturalWidth": 288,
+          "naturalHeight": 96,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 17,
+          "elapsedMs": 35,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/IconSet.png",
+              "naturalWidth": 512,
+              "naturalHeight": 512
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-1",
+            "url": "img/system/IconSet.png",
+            "ready": true,
+            "width": 512,
+            "height": 512
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/IconSet.png",
+          "naturalWidth": 512,
+          "naturalHeight": 512,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 18,
+          "elapsedMs": 37,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Balloon.png",
+              "naturalWidth": 384,
+              "naturalHeight": 384
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-2",
+            "url": "img/system/Balloon.png",
+            "ready": true,
+            "width": 384,
+            "height": 384
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Balloon.png",
+          "naturalWidth": 384,
+          "naturalHeight": 384,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 19,
+          "elapsedMs": 39,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": null,
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow1.png",
+              "naturalWidth": 48,
+              "naturalHeight": 48
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-3",
+            "url": "img/system/Shadow1.png",
+            "ready": true,
+            "width": 48,
+            "height": 48
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Shadow1.png",
+          "naturalWidth": 48,
+          "naturalHeight": 48,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 46,
+          "elapsedMs": 180,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A2.png",
+              "naturalWidth": 768,
+              "naturalHeight": 576
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-12",
+            "url": "img/tilesets/N04-A2.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A2.png",
+          "naturalWidth": 768,
+          "naturalHeight": 576,
+          "pixel": "#00ff00"
+        },
+        {
+          "sequence": 47,
+          "elapsedMs": 183,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A3.png",
+              "naturalWidth": 768,
+              "naturalHeight": 384
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-13",
+            "url": "img/tilesets/N04-A3.png",
+            "ready": true,
+            "width": 768,
+            "height": 384
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A3.png",
+          "naturalWidth": 768,
+          "naturalHeight": 384,
+          "pixel": "#0000ff"
+        },
+        {
+          "sequence": 48,
+          "elapsedMs": 186,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A4.png",
+              "naturalWidth": 768,
+              "naturalHeight": 720
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-14",
+            "url": "img/tilesets/N04-A4.png",
+            "ready": true,
+            "width": 768,
+            "height": 720
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A4.png",
+          "naturalWidth": 768,
+          "naturalHeight": 720,
+          "pixel": "#ffff00"
+        },
+        {
+          "sequence": 49,
+          "elapsedMs": 187,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A5.png",
+              "naturalWidth": 384,
+              "naturalHeight": 768
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-15",
+            "url": "img/tilesets/N04-A5.png",
+            "ready": true,
+            "width": 384,
+            "height": 768
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A5.png",
+          "naturalWidth": 384,
+          "naturalHeight": 768,
+          "pixel": "#ff00ff"
+        },
+        {
+          "sequence": 50,
+          "elapsedMs": 190,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-B.png",
+              "naturalWidth": 768,
+              "naturalHeight": 768
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-16",
+            "url": "img/tilesets/N04-B.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-B.png",
+          "naturalWidth": 768,
+          "naturalHeight": 768,
+          "pixel": "#00ffff"
+        },
+        {
+          "sequence": 51,
+          "elapsedMs": 193,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-C.png",
+              "naturalWidth": 768,
+              "naturalHeight": 768
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-17",
+            "url": "img/tilesets/N04-C.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-C.png",
+          "naturalWidth": 768,
+          "naturalHeight": 768,
+          "pixel": "#ff8000"
+        },
+        {
+          "sequence": 52,
+          "elapsedMs": 196,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-D.png",
+              "naturalWidth": 768,
+              "naturalHeight": 768
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-D.png",
+          "naturalWidth": 768,
+          "naturalHeight": 768,
+          "pixel": "#8000ff"
+        },
+        {
+          "sequence": 53,
+          "elapsedMs": 200,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-E.png",
+              "naturalWidth": 768,
+              "naturalHeight": 768
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-19",
+            "url": "img/tilesets/N04-E.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-E.png",
+          "naturalWidth": 768,
+          "naturalHeight": 768,
+          "pixel": "#c0c0c0"
+        },
+        {
+          "sequence": 54,
+          "elapsedMs": 201,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Window.png",
+              "naturalWidth": 192,
+              "naturalHeight": 192
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-20",
+            "url": "img/system/Window.png",
+            "ready": true,
+            "width": 192,
+            "height": 192
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/system/Window.png",
+          "naturalWidth": 192,
+          "naturalHeight": 192,
+          "pixel": "#808080"
+        },
+        {
+          "sequence": 55,
+          "elapsedMs": 205,
+          "kind": "Bitmap._onLoad",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_onLoad",
+              "src": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A1.png",
+              "naturalWidth": 768,
+              "naturalHeight": 576
+            }
+          ],
+          "bitmap": {
+            "id": "bitmap-11",
+            "url": "img/tilesets/N04-A1.png",
+            "ready": true,
+            "width": 768,
+            "height": 576
+          },
+          "loadedImageSrc": "chrome-extension://paoepepidmmjbgfkfnhhffeegdjniace/img/tilesets/N04-A1.png",
+          "naturalWidth": 768,
+          "naturalHeight": 576,
+          "pixel": "#ff0000"
+        }
+      ]
+    },
+    {
+      "label": "native page frame is the independently specified 48px B–E cell",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 44,
+          "elapsedMs": 162,
+          "kind": "Sprite_Character.updateTileFrame",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "updateTileFrame"
+            }
+          ],
+          "tileId": 512,
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": false,
+            "width": 0,
+            "height": 0
+          },
+          "cellFrame": {
+            "x": 0,
+            "y": 0,
+            "width": 48,
+            "height": 48
+          }
+        },
+        {
+          "sequence": 59,
+          "elapsedMs": 207,
+          "kind": "Sprite_Character.updateTileFrame",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "updateTileFrame"
+            }
+          ],
+          "tileId": 512,
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "cellFrame": {
+            "x": 0,
+            "y": 0,
+            "width": 48,
+            "height": 48
+          }
+        },
+        {
+          "sequence": 60,
+          "elapsedMs": 208,
+          "kind": "Sprite_Character.updateTileFrame",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "updateTileFrame"
+            }
+          ],
+          "tileId": 512,
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "cellFrame": {
+            "x": 0,
+            "y": 0,
+            "width": 48,
+            "height": 48
+          }
+        },
+        {
+          "sequence": 62,
+          "elapsedMs": 219,
+          "kind": "Sprite_Character.updateTileFrame",
+          "frame": 1,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "updateTileFrame"
+            }
+          ],
+          "tileId": 512,
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "cellFrame": {
+            "x": 0,
+            "y": 0,
+            "width": 48,
+            "height": 48
+          }
+        }
+      ]
+    },
+    {
+      "label": "native Canvas renderer actually draws selected sheet",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 61,
+          "elapsedMs": 212,
+          "kind": "native-page-canvas-drawImage",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_renderCanvas",
+              "phase": "page-tile-render",
+              "tileId": 512,
+              "selectedBitmapId": "bitmap-18"
+            }
+          ],
+          "tileId": 512,
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "drawArguments": [
+            0,
+            0,
+            48,
+            48,
+            -24,
+            -48,
+            48,
+            48
+          ]
+        },
+        {
+          "sequence": 63,
+          "elapsedMs": 219,
+          "kind": "native-page-canvas-drawImage",
+          "frame": 1,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_renderCanvas",
+              "phase": "page-tile-render",
+              "tileId": 512,
+              "selectedBitmapId": "bitmap-18"
+            }
+          ],
+          "tileId": 512,
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "drawArguments": [
+            0,
+            0,
+            48,
+            48,
+            -24,
+            -48,
+            48,
+            48
+          ]
+        },
+        {
+          "sequence": 64,
+          "elapsedMs": 225,
+          "kind": "native-page-canvas-drawImage",
+          "frame": 2,
+          "scene": "Scene_Map",
+          "operations": [
+            {
+              "method": "_renderCanvas",
+              "phase": "page-tile-render",
+              "tileId": 512,
+              "selectedBitmapId": "bitmap-18"
+            }
+          ],
+          "tileId": 512,
+          "bitmap": {
+            "id": "bitmap-18",
+            "url": "img/tilesets/N04-D.png",
+            "ready": true,
+            "width": 768,
+            "height": 768
+          },
+          "drawArguments": [
+            0,
+            0,
+            48,
+            48,
+            -24,
+            -48,
+            48,
+            48
+          ]
+        }
+      ]
+    },
+    {
+      "label": "no Change Tileset command or reservations are credited to page selection",
+      "passed": true,
+      "actual": {
+        "commands": [],
+        "reserves": []
+      }
+    },
+    {
+      "label": "native one-shot controller completion marker was reached",
+      "passed": true,
+      "actual": [
+        {
+          "sequence": 58,
+          "elapsedMs": 206,
+          "kind": "event-completion-marker",
+          "frame": 0,
+          "scene": "Scene_Map",
+          "operations": [],
+          "value": "N04"
+        }
+      ]
+    }
+  ],
+  "disks": [
+    {
+      "relative": "img/tilesets/N04-A1.png",
+      "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-tile-d-01\\img\\tilesets\\N04-A1.png",
+      "bytes": 3037,
+      "ordinaryFile": true,
+      "sha256": "bc66625c998ca9ba5ea08405f82980f6248187266d81106a7472055093367aef"
+    },
+    {
+      "relative": "img/tilesets/N04-A2.png",
+      "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-tile-d-01\\img\\tilesets\\N04-A2.png",
+      "bytes": 3178,
+      "ordinaryFile": true,
+      "sha256": "d2e5f99ec02fb5ba1b48c8633a22c14602153954a6dc068f4c14fa4a5650103e"
+    },
+    {
+      "relative": "img/tilesets/N04-A3.png",
+      "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-tile-d-01\\img\\tilesets\\N04-A3.png",
+      "bytes": 2148,
+      "ordinaryFile": true,
+      "sha256": "4ce4fe213ed319bca9b61831c7d8a0f4b6742d53a06b2c931acc8fcd770fd4af"
+    },
+    {
+      "relative": "img/tilesets/N04-A4.png",
+      "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-tile-d-01\\img\\tilesets\\N04-A4.png",
+      "bytes": 3775,
+      "ordinaryFile": true,
+      "sha256": "82d79c1acc658637c9dd523540959c1c88966922b6d92e378e9cdbbd4db2f3c9"
+    },
+    {
+      "relative": "img/tilesets/N04-A5.png",
+      "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-tile-d-01\\img\\tilesets\\N04-A5.png",
+      "bytes": 2772,
+      "ordinaryFile": true,
+      "sha256": "ab45a5c9c51f0ef5a2099379ee3d21d716a60ffab924157a44ee01f2a9e59253"
+    },
+    {
+      "relative": "img/tilesets/N04-B.png",
+      "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-tile-d-01\\img\\tilesets\\N04-B.png",
+      "bytes": 4212,
+      "ordinaryFile": true,
+      "sha256": "e9d8373471bf6d76ca21e9d3d3bcf33bcf9887216fe154f09f2c578c54c877f8"
+    },
+    {
+      "relative": "img/tilesets/N04-C.png",
+      "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-tile-d-01\\img\\tilesets\\N04-C.png",
+      "bytes": 4022,
+      "ordinaryFile": true,
+      "sha256": "410f069bb949e660e1fcee03ddc7d8d40e6b3fae49bbb61ecac6229715b257d2"
+    },
+    {
+      "relative": "img/tilesets/N04-D.png",
+      "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-tile-d-01\\img\\tilesets\\N04-D.png",
+      "bytes": 4022,
+      "ordinaryFile": true,
+      "sha256": "8689a515ab93a802cef52b67e1d348decd021c702148580639f76c9962a30247"
+    },
+    {
+      "relative": "img/tilesets/N04-E.png",
+      "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\n04-maps-20261102\\run-tile-d-01\\img\\tilesets\\N04-E.png",
+      "bytes": 4023,
+      "ordinaryFile": true,
+      "sha256": "6a5d91424bb485eb4cb8d318eecac8c94772fe55b75cde4d4c218bfed17e0527"
+    }
+  ],
+  "finished": "2026-11-02T03:50:28.162Z",
+  "final": {
+    "frame": 3,
+    "scene": "Scene_Map",
+    "marker": true,
+    "liveTilesetId": 1,
+    "rendererType": 2,
+    "bitmaps": [
+      {
+        "name": "N04-A1",
+        "bitmap": {
+          "id": "bitmap-11",
+          "url": "img/tilesets/N04-A1.png",
+          "ready": true,
+          "width": 768,
+          "height": 576
+        }
+      },
+      {
+        "name": "N04-A2",
+        "bitmap": {
+          "id": "bitmap-12",
+          "url": "img/tilesets/N04-A2.png",
+          "ready": true,
+          "width": 768,
+          "height": 576
+        }
+      },
+      {
+        "name": "N04-A3",
+        "bitmap": {
+          "id": "bitmap-13",
+          "url": "img/tilesets/N04-A3.png",
+          "ready": true,
+          "width": 768,
+          "height": 384
+        }
+      },
+      {
+        "name": "N04-A4",
+        "bitmap": {
+          "id": "bitmap-14",
+          "url": "img/tilesets/N04-A4.png",
+          "ready": true,
+          "width": 768,
+          "height": 720
+        }
+      },
+      {
+        "name": "N04-A5",
+        "bitmap": {
+          "id": "bitmap-15",
+          "url": "img/tilesets/N04-A5.png",
+          "ready": true,
+          "width": 384,
+          "height": 768
+        }
+      },
+      {
+        "name": "N04-B",
+        "bitmap": {
+          "id": "bitmap-16",
+          "url": "img/tilesets/N04-B.png",
+          "ready": true,
+          "width": 768,
+          "height": 768
+        }
+      },
+      {
+        "name": "N04-C",
+        "bitmap": {
+          "id": "bitmap-17",
+          "url": "img/tilesets/N04-C.png",
+          "ready": true,
+          "width": 768,
+          "height": 768
+        }
+      },
+      {
+        "name": "N04-D",
+        "bitmap": {
+          "id": "bitmap-18",
+          "url": "img/tilesets/N04-D.png",
+          "ready": true,
+          "width": 768,
+          "height": 768
+        }
+      },
+      {
+        "name": "N04-E",
+        "bitmap": {
+          "id": "bitmap-19",
+          "url": "img/tilesets/N04-E.png",
+          "ready": true,
+          "width": 768,
+          "height": 768
+        }
+      }
+    ]
+  }
+}

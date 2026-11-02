@@ -1,0 +1,96 @@
+{
+  "created": "2026-11-02T04:32:23.258Z",
+  "revision": "68d7205a0f3070ff13d90aff1069a5fe8c6f0832",
+  "integrationRevision": "9d860dac0c618aa4e2874733e209af9e67b52260",
+  "compileContractVersion": "mv-1.6.1/33",
+  "node": "v22.23.4",
+  "product": [
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-map-relations.ts",
+      "sha256": "3cf34e0925e2f0f58f9b360bb8627f67eb09fd5752c4c05e138ed8e79422512d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-dependencies.ts",
+      "sha256": "2cf47594e7124150e41529a2afcaeae2ad71e6bdac5ca31050cc61c8ebe9c07a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-actor-enemy-relations.ts",
+      "sha256": "fb0a1ea6a586e66cb65b83173cac011c37ea12c78cb3857f6c8df3c1631b7f09"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-system-relations.ts",
+      "sha256": "af667516e688bdce4baac26106866cd214edd5f49925e89d7e2a8bffedcde68b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/asset-check.ts",
+      "sha256": "eb2780df62328c72f46cc7a618dc9c2bfdeb0a1c65471e1460e13f6d87b88cbe"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+      "sha256": "6f4ddbc469ec996a626d54d02ebbb89cd9345f90baee1683cd5f1d944d1f3624"
+    }
+  ],
+  "dist": [
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/authoring-BPj5f60w.mjs",
+      "sha256": "99455ab0c8d51de5877d60213679a80f6a695b7fe5e025b11d977a1297f2a2bb"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/authoring-BPj5f60w.mjs.map",
+      "sha256": "c3f1e79a649c0725774d3172c6d4850154d109b8da56de0c2ac4e08b103c9420"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/cli.d.mts",
+      "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/cli.d.mts.map",
+      "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/cli.mjs",
+      "sha256": "2890d51a9b98b64403fbc355019bb521514aedb22ce10d539ddc3bf95b50355a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/cli.mjs.map",
+      "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/index.d.mts",
+      "sha256": "84df6738b61413bd007bfbfbea0faa0bd8163ce9bb35bab50858ac485efb3e47"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/index.d.mts.map",
+      "sha256": "2b63bd6ced0bcaf8cc28d2064bc32aa9c3c79fb727179d076c25f1e84aefb938"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/index.mjs",
+      "sha256": "9cca8459f3f314b97f0b90cc6f1a60f0333d13f2c4dc6955a1b399cc1dbdb255"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/index.mjs.map",
+      "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/operations-CSOXWFDW.mjs",
+      "sha256": "cb293b135d723b2e7a2c2a49eb11480be9c8ebb43e63aac4daad4fdfec83e5ed"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/operations-CSOXWFDW.mjs.map",
+      "sha256": "52a8238f865d699e757f3ad96ebe1ae69574d3e649d585091a5ffbc0ffac29c1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/workspace-api.d.mts",
+      "sha256": "6d8c2b7c75f1343064815bca883cce954439674f3ace0525c514079cd7267594"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/workspace-api.d.mts.map",
+      "sha256": "2f2cf8d7e5951eb6612ba102000cf0cfa8e1bead1c3f26ae1b7b98bad48f2607"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/workspace-api.mjs",
+      "sha256": "91342e630bcc2073e21422dcb7a9e6b2a0fad229b1de9112dce1c3b8986dcc8b"
+    }
+  ],
+  "scope": "Complete five-suite built regression plus final source/built composition; contains08+09+07 and both201/301 dynamic stops. Product files held fixed during these runs."
+}

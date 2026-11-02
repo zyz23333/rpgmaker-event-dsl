@@ -5,6 +5,7 @@ import { observeAssetFile } from "./asset-files.js";
 import { assetUseLevel } from "../validation/asset-policy.js";
 import { collectAnimationAndTilesetAssets } from "../validation/asset-dependencies.js";
 import type { AssetOrigin } from "../validation/asset-dependencies.js";
+import { collectMapAssetRelations } from "../validation/asset-map-relations.js";
 import { collectSystemAssets } from "../validation/asset-system-relations.js";
 import { collectActorEnemyAssets } from "../validation/asset-actor-enemy-relations.js";
 import { collectForcedActionAssets } from "../validation/asset-action-relations.js";
@@ -20,28 +21,24 @@ export async function checkEventAssets(input: {
   externalData: ReadonlyMap<string, string | Uint8Array>;
   commandName: string;
 }): Promise<void> {
-  const animationTilesets = collectAnimationAndTilesetAssets(input.files, input.externalData);
-  const actorsEnemies = collectActorEnemyAssets(input.files, input.externalData);
   const actions = collectForcedActionAssets(input.files, input.externalData);
+  const mapRelations = collectMapAssetRelations(input.files, input.externalData);
   const systemRelations = collectSystemAssets(input.files, input.externalData);
-  for (const stop of [...systemRelations.stops, ...actions.stops])
+  const relationGroups = [
+    collectAnimationAndTilesetAssets(input.files, input.externalData),
+    collectActorEnemyAssets(input.files, input.externalData),
+    mapRelations,
+    systemRelations,
+    actions,
+  ];
+  const relations = {
+    uses: relationGroups.flatMap((group) => group.uses),
+    problems: relationGroups.flatMap((group) => group.problems),
+  };
+  for (const stop of [...mapRelations.stops, ...systemRelations.stops, ...actions.stops])
     console.error(
       `${input.commandName} asset check info:\ninfo MV-ASSET-DYNAMIC-STOP: ${stop.reason}\n  - ${renderOrigin(stop)}`,
     );
-  const relations = {
-    uses: [
-      ...animationTilesets.uses,
-      ...actorsEnemies.uses,
-      ...systemRelations.uses,
-      ...actions.uses,
-    ],
-    problems: [
-      ...animationTilesets.problems,
-      ...actorsEnemies.problems,
-      ...systemRelations.problems,
-      ...actions.problems,
-    ],
-  };
   const uses = [...collectEventAssetUses(input.files), ...relations.uses];
   const system = JSON.parse(input.files.get("System.json")!);
   const failures: string[] = relations.problems.map(
