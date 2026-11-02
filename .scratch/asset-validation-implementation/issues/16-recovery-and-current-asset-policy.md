@@ -1,6 +1,6 @@
 # 16: 恢复记账与当前素材条件分开判定
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 15
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -55,5 +55,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 
 ## Comments
+
+- 2026-11-02：picture_02 在 `M:/Shuen/Codex/asset-validation-16-recovery`、`codex/asset-validation-16-recovery` 领取。确认原工作树 clean 后已快进到含已 resolved 15 的 integration `5aab331ae7bf1f3d038a0fb7a595087b5d09156a`，Contract39。沿用已确认公共 Workspace API／实际 CLI／真实测试子进程 OS checkpoint，独立完成 12 个主责 ID；历史 runtime pending 使用明确 synthetic 临时根、实际 O/N bytes 与独立原式 hash，12 的 schema 金样只作格式出处。按当前 Contract 隔离 current-config 变化；不将正常写后 guards 移入历史恢复。Node22、默认 C TEMP、maxWorkers1，广测窗口已由主代理独占授权；baseline green 如实记录，无须制造产品补丁。
 
 - 2026-10-24：用户回复“确认”，本票按已确认的 17 票拆分发布为 ready-for-agent。产品实现、自动化与原生验收均尚未由本次发布执行。

@@ -1270,6 +1270,15 @@ without invalidating the recorded synchronization. Recovery preserves the origin
 source, dependency, configuration and contract basis, including missing fields.
 Ordinary Freshness and full Project Drift checks then run before any new write.
 
+Missing media does not prevent recording data writes that are already complete.
+Recovery can finish and clear pending even when the following no-diff Push fails
+its current asset check; that failure does not recreate pending. An all-old attempt
+can likewise be abandoned before the ordinary checks decide whether to start a new
+Push. Recovery retains an older configuration's omitted policy fields and its
+original contract, source, dependency and target basis. A changed current policy or
+stale contract can still prohibit new writes after recovery; completing bookkeeping
+does not certify current assets or upgrade old generated output.
+
 ## License
 
 MIT
