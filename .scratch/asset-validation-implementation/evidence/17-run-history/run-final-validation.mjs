@@ -10,7 +10,7 @@ await mkdir(out, { recursive: true });
 const sha = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const git = (...args) => execFileSync("git", args, { cwd: root, encoding: "utf8" }).trim();
 const evidence = {
-  schema: "asset-validation-final-command-history/v1",
+  schema: "asset-validation-final-command-history/v2",
   frozenRevision: git("rev-parse", "HEAD"),
   initialStatus: git("status", "--porcelain"),
   environment: {
@@ -26,6 +26,29 @@ const evidence = {
 if (process.versions.node.split(".")[0] !== "22") throw new Error("Node22 is required");
 if (!/^[Cc]:[\\/]/u.test(tmpdir())) throw new Error("Default C TEMP is required");
 if (process.env.MV_CLI_ENTRY) throw new Error("No global entry override is permitted");
+if (evidence.initialStatus !== "") throw new Error("The execution freeze must start clean");
+const protectedPaths = ["packages/rpgmaker-event-dsl/src", "packages/rpgmaker-event-dsl/test",
+  "packages/rpgmaker-event-dsl/package.json", "packages/rpgmaker-event-dsl/vitest.config.ts",
+  "packages/rpgmaker-event-dsl/vitest.windows.config.ts", "package.json", "pnpm-lock.yaml",
+  "pnpm-workspace.yaml", "tsconfig.json"];
+evidence.compileContractVersion = (await readFile(join(root, "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts"), "utf8")).match(/compileContractVersion = "([^"]+)"/u)?.[1];
+evidence.frozenInputs = await Promise.all(git("ls-files", "--", ...protectedPaths).split("\n").filter(Boolean).map(async (path) => {
+  const bytes = await readFile(join(root, path));
+  return { path, bytes: bytes.length, sha256: sha(bytes) };
+}));
+
+async function buildArtifacts() {
+  const result = [];
+  async function visit(directory, prefix) {
+    for (const entry of (await readdir(directory, { withFileTypes: true })).sort((a, b) => a.name.localeCompare(b.name, "en"))) {
+      const path = join(directory, entry.name), relative = prefix + entry.name;
+      if (entry.isDirectory()) await visit(path, relative + "/");
+      else { const bytes = await readFile(path); result.push({ path: relative, bytes: bytes.length, sha256: sha(bytes) }); }
+    }
+  }
+  await visit(join(root, "packages/rpgmaker-event-dsl/dist"), "packages/rpgmaker-event-dsl/dist/");
+  return result;
+}
 
 async function snapshotReceipts(entry, command) {
   const source = join(root, "test-results/asset-validation");
@@ -50,10 +73,13 @@ async function snapshotReceipts(entry, command) {
 }
 
 async function run(command, label, entry) {
+  if (git("rev-parse", "HEAD") !== evidence.frozenRevision) throw new Error("Execution HEAD changed");
+  execFileSync("git", ["diff", "--quiet", evidence.frozenRevision, "--", ...protectedPaths], { cwd: root });
   const row = { command, label, startedAt: new Date().toISOString() };
   const chunks = [];
   console.log(`START ${label}: ${command}`);
   const child = spawn("cmd.exe", ["/d", "/s", "/c", command], { cwd: root, env: process.env, windowsHide: true });
+  row.ownedCommandPid = child.pid;
   child.stdout.on("data", (bytes) => { chunks.push(bytes); process.stdout.write(bytes); });
   child.stderr.on("data", (bytes) => { chunks.push(bytes); process.stderr.write(bytes); });
   row.exitCode = await new Promise((accept, reject) => {
@@ -67,6 +93,7 @@ async function run(command, label, entry) {
   row.logSha256 = sha(bytes);
   await writeFile(join(out, row.log), bytes);
   if (entry) row.receipts = await snapshotReceipts(entry, row);
+  if (command === "pnpm build" && row.exitCode === 0) row.builtArtifacts = await buildArtifacts();
   evidence.commands.push(row);
   await writeFile(join(out, "command-history.json"), `${JSON.stringify(evidence, null, 2)}\n`);
   console.log(`COMPLETE ${label}: exit=${row.exitCode}, receipts=${row.receipts?.length ?? 0}`);

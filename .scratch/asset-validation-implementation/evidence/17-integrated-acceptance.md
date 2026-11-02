@@ -10,7 +10,7 @@ Windows10 `10.0.19045` x64、Node `v22.23.4`、pnpm `10.33.0`；默认 `C:\Users
 
 - setup `pnpm build` exit0；`pnpm check` 的 typecheck、lint、format检查已通过。
 - source测试取消前落盘631条真实完成回执：630 passed、1 failed；没有全量测试总结。
-- 真实失败 `AV.C07.shared-system-field.formal.case.expected` 在取消前发生：两个 `gameOver()` 独立使用共享损坏 `System.gameoverMe` 字段，应保留两个诊断来源，实际只得到一处。原断言及失败回执均保留，已退责任09诊断。
+- 真实失败 `AV.C07.shared-system-field.formal.case.expected` 在取消前发生：旧断言要求两个 `error MV-ASSET-INVALID-DATA` 标题，实际得到一个。第一次API断言已中止callback，后续来源／状态／CLI断言未到，原失败不能证明丢失来源。09随后经独立真实API Check／Compile及CLI捕获确认共同字段正确合为一组，两个独立来源均保留；[09纠正证据](09-grouping-compatibility/acceptance.md)记录标题期待2→1及增强的成员／统计／状态断言。原failed回执和原坏预期源码不改写。
 - 根协调端另确认设备名后、点号前ASCII空格的Windows保留设备名识别缺口，退责任03修复；属于原文件支持契约实现缺口，不重开政策。
 - 只终止已验证属于本记录器的 `pnpm check` 进程树；记录器收到非零退出后落盘原始日志和631条回执。复查无本次残留测试进程，正式第二条build与Windows baseline均未启动。
 
@@ -30,7 +30,7 @@ Windows10 `10.0.19045` x64、Node `v22.23.4`、pnpm `10.33.0`；默认 `C:\Users
 
 [原始证据审计](17-original-evidence-audit.json)重读真实Git blob及原JSON pointer，核对2484条原聚合自动化记录、15的26条原回执、16的24条原回执、28组原断言源码哈希绑定，以及16的100份原始工件与16项原冻结输入。每项当前义务都找到所需入口与全部主责任贡献；F07的编码拼写通过一一对应映射保留既有canonical ID，不利用别名双计。该工件的当前完整执行字段仍待后续最终命令，不能从原历史passed推断当前版本passed。
 
-[原断言保留审计](17-original-assertion-preservation.json)比较2450个当前义务原回执位置（含15／16追加的50条），归并为185个原／现callback版本对。15对callback文本有扩展，其原expect表达式均保留；两处静态token差异为格式尾逗号，人工核对原义不变。静态保留只证明断言文本及注册位置，fixture参数、辅助函数与真实行为仍由语义审阅和最终运行共同证明。
+[原断言保留审计](17-original-assertion-preservation.json)在旧39冻结比较2450个当前义务原回执位置（含15／16追加的50条），归并为185个原／现callback版本对。该旧冻结的15对callback文本有扩展。后续最终冻结必须另外明确：09的两个过时标题期待2→1按规格共同依据分组规则纠正，并增强两来源、统计和状态核对；16的CURRENT Contract39→40包含一个严格版本断言与一个记录值更新，以隔离当前配置变化原因。原09及16/f03/39的源码／回执／失败历史均保留，不能笼统声称所有原expect字面未改。静态保留和语法差异不单独证明fixture参数、辅助函数或真实行为，仍需语义审阅和最终运行共同证明。
 
 原03六条 `not-executed-policy-pending` 原字节哈希 `a8652ef3feda52e3677af8d8d52f9fd3fbbedbbf4a1dacfea453af802e14d071` 保留；退出义务的旧图片filesystem ID不改写为通过。D09三条旧formal ID迁移到native后不构成别名双计。B14的两个host-target-missing为不适用；宿主载体不是另选固定目标。W12由13唯一注册，14的记录仅引用；W19保留14／15共同责任，原断言及独立成功／失败callback不重复注册。15、16的原失败、过滤、准备错误及重跑经过均保留，不能改写成一次全过。
 
@@ -38,7 +38,7 @@ Windows10 `10.0.19045` x64、Node `v22.23.4`、pnpm `10.33.0`；默认 `C:\Users
 
 Compile／Check在完整候选验证后调用同一个素材门槛：当前事件来自Staged Data Graph，外部关系与必要System字段来自对应捕获Snapshot，文件元数据来自绑定的实时Project Root。Push由验证过的完整Generated Project Data与对应捕获Snapshot重建相同使用和直接调用；不重新求值DSL。Common Event定义为独立根，调用关系单独保留，循环与共享图不复制素材使用；强制Skill的effects也只增加直接关系。
 
-直接字段、双动画图和timing SE、九Tileset槽、页图块B–E单槽、前／侧视Enemy、Actor初始候选、固定传送Map及System字段均以独立文字预期核对完整使用集合、原生保存位置、事件内链、执行条件和必要的候选／非活动原因。formal/raw指向各自真实合法原生字段；205／505镜像只计一次，第二真实命令及重复成员／槽保留独立位置。None保留独立控制值并省略查询；已知兄弟关系不会因为另一路动态停止而消失。C07共享System字段的来源丢失已由真实失败揭示，修复前本节不构成无缺口结论。
+直接字段、双动画图和timing SE、九Tileset槽、页图块B–E单槽、前／侧视Enemy、Actor初始候选、固定传送Map及System字段均以独立文字预期核对完整使用集合、原生保存位置、事件内链、执行条件和必要的候选／非活动原因。formal/raw指向各自真实合法原生字段；205／505镜像只计一次，第二真实命令及重复成员／槽保留独立位置。None保留独立控制值并省略查询；已知兄弟关系不会因为另一路动态停止而消失。C07的首次失败是旧标题计数预期与共同字段分组规则冲突；09实际捕获证实1组、0合法问题文件、2成员／2使用，list[0]和list[1]各一次，安全标题兄弟关系继续查询且状态不变，没有产品丢来源结论。
 
 文件观察器从根realpath逐层枚举准确名称并lstat；不读媒体内容或跟随根以下链接。只有合法名称形成目标；图片与影片任一`%`／`#`在查询前拒绝，音频按原名查询。普通文件、缺失、大小写不符、类型不符、支持范围、查询错误和查询内矛盾分开。设备名空格变体缺口已退03，修复后须复核不可例外豁免的事实分类。
 

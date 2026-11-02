@@ -34,9 +34,9 @@
     "id": "AV.C07.shared-system-field.formal.case.expected",
     "ownerTicket": "09",
     "receipt": "current-source-receipts/AV.C07.shared-system-field.formal.case.expected.source.json",
-    "assertion": "Two malformed System.gameoverMe uses should retain both independent defining commands.",
+    "assertion": "The old first API assertion expected two INVALID-DATA group headers; the actual header count was one. Later origin/state/CLI assertions were not reached.",
     "actual": "AssertionError: expected [ 'error MV-ASSET-INVALID-DATA' ] to have a length of 2 but got 1",
-    "disposition": "Reported to root for owner09 diagnosis; original failure is not converted to cancellation or a pass."
+    "disposition": "Original failure is not converted to cancellation or a pass. Owner09 later confirmed correct common-field grouping with one header and two preserved members, then corrected the two obsolete header expectations and strengthened origin/statistics/state assertions."
   },
   "originalFiles": [
     {
