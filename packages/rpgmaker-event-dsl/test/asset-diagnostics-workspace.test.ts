@@ -558,46 +558,54 @@ for (const [branch, changed] of [
   });
 
 for (const branch of ["repaired", "unused", "warning-only", "incomplete"] as const)
-  it(`AV.D05.${branch}.native.case.expected: ineffective exceptions are located only when complete relevant checking establishes that no error was downgraded`, async () => {
-    await withWindowsSandbox(`asset-ineffective-${branch}`, async (sandbox) => {
-      const root = sandbox.workspaceRoot;
-      const value = fixture(
-        branch === "warning-only" ? "candidate" : "ordinary",
-        branch === "incomplete" ? "indirect-formal" : "direct-formal",
-        branch === "incomplete" ? 42 : "Poster",
-      );
-      await prepare(root, branch === "unused" ? imports + common("") : value.source, value.project);
-      if (branch !== "incomplete")
-        await fact(root, value, branch === "repaired" ? "present" : "missing");
-      await configuration(root, [
-        {
-          category: value.category,
-          folder: value.folder,
-          name: "Poster",
-          reason: "Temporary authoring gap",
-        },
-      ]);
-      const before = await state(root);
-      const result = await check(root);
-      expect(Boolean(result.failure)).toBe(branch === "incomplete");
-      if (branch === "incomplete") {
-        expect(result.output).toContain("MV-ASSET-INVALID-DATA");
-        expect(result.output).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
-      } else {
-        expect(result.output).toContain(
-          "warning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[0]",
+  it(
+    `AV.D05.${branch}.native.case.expected: ineffective exceptions are located only when complete relevant checking establishes that no error was downgraded`,
+    async () => {
+      await withWindowsSandbox(`asset-ineffective-${branch}`, async (sandbox) => {
+        const root = sandbox.workspaceRoot;
+        const value = fixture(
+          branch === "warning-only" ? "candidate" : "ordinary",
+          branch === "incomplete" ? "indirect-formal" : "direct-formal",
+          branch === "incomplete" ? 42 : "Poster",
         );
-        expect(result.output).toContain("Temporary authoring gap");
-      }
-      if (branch === "warning-only") {
-        expect(result.output).toContain("base: warning; effective: warning");
-        expect(result.output).toContain("exception reason: Temporary authoring gap");
-      }
-      expect(await state(root)).toEqual(before);
-      recordAssetInput({ actualApi: result });
-    });
-    if (branch === "incomplete") await independentlyDeterminableExceptions();
-  });
+        await prepare(
+          root,
+          branch === "unused" ? imports + common("") : value.source,
+          value.project,
+        );
+        if (branch !== "incomplete")
+          await fact(root, value, branch === "repaired" ? "present" : "missing");
+        await configuration(root, [
+          {
+            category: value.category,
+            folder: value.folder,
+            name: "Poster",
+            reason: "Temporary authoring gap",
+          },
+        ]);
+        const before = await state(root);
+        const result = await check(root);
+        expect(Boolean(result.failure)).toBe(branch === "incomplete");
+        if (branch === "incomplete") {
+          expect(result.output).toContain("MV-ASSET-INVALID-DATA");
+          expect(result.output).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
+        } else {
+          expect(result.output).toContain(
+            "warning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[0]",
+          );
+          expect(result.output).toContain("Temporary authoring gap");
+        }
+        if (branch === "warning-only") {
+          expect(result.output).toContain("base: warning; effective: warning");
+          expect(result.output).toContain("exception reason: Temporary authoring gap");
+        }
+        expect(await state(root)).toEqual(before);
+        recordAssetInput({ actualApi: result });
+      });
+      if (branch === "incomplete") await independentlyDeterminableExceptions();
+    },
+    branch === "incomplete" ? 30_000 : undefined,
+  );
 
 async function independentlyDeterminableExceptions() {
   for (const sibling of ["repaired", "unused", "warning-only"] as const)
