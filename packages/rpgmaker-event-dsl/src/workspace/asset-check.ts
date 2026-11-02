@@ -5,6 +5,7 @@ import { observeAssetFile } from "./asset-files.js";
 import { assetUseLevel } from "../validation/asset-policy.js";
 import { collectAnimationAndTilesetAssets } from "../validation/asset-dependencies.js";
 import type { AssetOrigin } from "../validation/asset-dependencies.js";
+import { collectSystemAssets } from "../validation/asset-system-relations.js";
 
 function renderOrigin(use: AssetOrigin): string {
   return `${use.identity} ${use.nativePath}${use.relatedNativePaths.length ? `; related: ${use.relatedNativePaths.join(", ")}` : ""}${use.dependencyChain.length ? `; chain: ${use.dependencyChain.map((step) => `${step.data}${step.id === undefined ? "" : `[${step.id}]`}.${step.field} (${step.relationship})`).join(" -> ")}` : ""}${use.conditions.length ? `; conditions: ${use.conditions.join(" ")}` : ""}${use.inactive ? `; inactive: ${use.inactive}` : ""}${use.candidate ? `; candidate: ${use.candidate}` : ""}`;
@@ -18,9 +19,14 @@ export async function checkEventAssets(input: {
   commandName: string;
 }): Promise<void> {
   const relations = collectAnimationAndTilesetAssets(input.files, input.externalData);
-  const uses = [...collectEventAssetUses(input.files), ...relations.uses];
+  const systemRelations = collectSystemAssets(input.files, input.externalData);
+  for (const stop of systemRelations.stops)
+    console.error(
+      `${input.commandName} asset check info:\ninfo MV-ASSET-DYNAMIC-STOP: ${stop.reason}\n  - ${renderOrigin(stop)}`,
+    );
+  const uses = [...collectEventAssetUses(input.files), ...relations.uses, ...systemRelations.uses];
   const system = JSON.parse(input.files.get("System.json")!);
-  const failures: string[] = relations.problems.map(
+  const failures: string[] = [...relations.problems, ...systemRelations.problems].map(
     (problem) =>
       `error MV-ASSET-INVALID-DATA: ${problem.dataPath}: ${problem.reason}\n  - ${renderOrigin(problem)}`,
   );

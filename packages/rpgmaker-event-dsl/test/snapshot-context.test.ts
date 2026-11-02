@@ -73,6 +73,12 @@ async function createContextProject(workspaceRoot: string) {
     (troop: Record<string, unknown> | null) =>
       troop === null ? null : { ...troop, pages: [structuredClone(troopFixture.defaultPage)] },
   );
+  Object.assign(fixture.projectFiles["System.json"], {
+    battleBgm: { name: "", volume: 90, pitch: 100, pan: 0 },
+    victoryMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    defeatMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    sounds: Array.from({ length: 8 }, () => ({ name: "", volume: 90, pitch: 100, pan: 0 })),
+  });
   for (const [name, value] of Object.entries(fixture.projectFiles))
     await writeFile(join(workspaceRoot, "Game", "data", name), JSON.stringify(value));
   await initWorkspace({ workspaceRoot, projectRoot: "./Game" });

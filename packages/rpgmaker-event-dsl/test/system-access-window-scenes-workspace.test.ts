@@ -118,6 +118,12 @@ async function observe(workspaceRoot: string) {
 
 async function prepare(workspaceRoot: string, carriers = structuredClone(fixture.projectFiles)) {
   await createMinimalProject(workspaceRoot);
+  Object.assign(carriers["System.json"], {
+    gameoverMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    title1Name: "",
+    title2Name: "",
+    titleBgm: { name: "", volume: 90, pitch: 100, pan: 0 },
+  });
   for (const [name, value] of Object.entries(carriers))
     await writeFile(join(workspaceRoot, "Game/data", name), nativeLiteral(value));
   await api.initWorkspace({ workspaceRoot, projectRoot: "./Game" });
