@@ -10,7 +10,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Acceptance criteria
 
-- [ ] B05／B16：正动画继续到 Animation，零动画只关闭动画路径，所有保存的 Common Event effects 仍逐项展开，不用 reservation 覆盖裁掉来源。
+- [ ] B05／B16：正动画继续到 Animation，零动画只关闭动画路径，所有保存的 Common Event effects 仍逐项记录直接调用关系，不用 reservation 覆盖裁掉来源；目标作为独立根，不复制传递素材。
 - [ ] B06：角色默认攻击保留无武器时 Animation 1 候选及当前武器未知分支；不读初始装备冒充当前武器。
 - [ ] B07：敌人默认攻击选 System.sounds 槽 9，不伪造动画 ID。完整验证共用链、循环、已知兄弟路径继续以及正式／raw 的独立预期。
 
@@ -33,7 +33,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 | B06 | 角色默认攻击候选与未知武器停止 |
 | B07 | 敌人默认攻击 sound9 |
 | B16 | Skill 的全部 Common Event effects |
-| C05 | Skill／Common 链的循环与角色默认攻击的动态武器路径；已知动画／effects 兄弟路径继续。 |
+| C05 | Skill effects／Common 直接关系有限表示及角色默认攻击的动态武器路径；已知动画／effects 兄弟路径继续。 |
 | C06 | 本票 B05、B06、B07、B16 所有原生允许 None 的到达字段，按上游有限子用例展开。 |
 | C07 | 本票 B05、B06、B07、B16 到达字段的 target-missing／field-missing／field-wrong-type／field-empty／file-missing 适用变体；固定目标与 System 字段按原索引分别处理。 |
 | C12 | initial-equipment：不以初始装备替代当前武器。 |

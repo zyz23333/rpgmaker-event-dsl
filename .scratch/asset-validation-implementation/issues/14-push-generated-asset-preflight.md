@@ -10,7 +10,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Acceptance criteria
 
-- [ ] 验证完整性／Freshness／漂移后使用生成事件和对应快照，当前公共事件链完整，移除根不回流；模块求值哨兵证明不重新求值 DSL，不信任历史素材报告。
+- [ ] 验证完整性／Freshness／漂移后使用生成事件和对应快照，定义内使用及直接公共事件调用关系完整，移除根不回流；模块求值哨兵证明不重新求值 DSL，不信任历史素材报告。
 - [ ] 无差异也检查且单纯素材失败不创建 pending；写前错误／暂存后变化不开始替换。写前核对 source、验证依赖、config／exceptions、snapshot、generated、binding。
 - [ ] Compile 后删图仍可保持 Freshness，Diff 不查素材；Push 失败后补图且其他依据当前，可直接重试。初次写前及无差异的 CLI／API 状态断言齐备。
 
@@ -33,7 +33,7 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 | W05 | Push 首次替换前错误／暂存后变化 |
 | W07 | 无差异素材错误／data 漂移 |
 | W08 | Compile → 删除 → Diff → Push 失败 → 修复 → 重试 |
-| W11 | Push 写前：完整执行七种相关变化，包括改善，要求重跑。 |
+| W11 | Push 唯一写前素材门槛：七种相关变化按当前事实判断，补齐可成功，不要求因改善重跑。 |
 | W13 | source／validation-dependency／config／exception／snapshot／generated／binding 全部 prewrite；source 另有指定 CLI 边界。 |
 | W19 | push-success／push-failure 的写前失败：素材不进快照、备份、复制、写入。 |
 | W20 | 生成根与链／不求值 DSL／不信历史报告全部分支 |

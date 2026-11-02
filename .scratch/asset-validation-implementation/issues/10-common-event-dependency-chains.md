@@ -1,4 +1,4 @@
-# 10: 公共事件调用链与有界停止
+# 10: 公共事件直接调用关系
 
 Status: ready-for-agent
 Blocked by: 02
@@ -6,13 +6,13 @@ Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
 Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments)
 
-**What to build:** 固定 Common Event 调用展开到当前公共事件，并在诊断中保留每个调用来源、独立根以及循环停止。
+**What to build:** 所有当前 Common Event 作为独立根检查，逐次保留固定调用的 caller、原生位置和 target，不递归复制被调用事件的素材。
 
 ## Acceptance criteria
 
 - [ ] B15 使用当前事件图，公共事件独立根与两个调用者不互相吞掉；移除或替换后的旧快照事件不补回。
-- [ ] 当前链检测自循环／互循环，记录停止位置与原因；长无环链完整遍历，不引入统一深度上限或全局 visited 去重。
-- [ ] 建立共用的调用链／停止表达，CLI 可获取链和信息记录；本票完成 common 相关 C04／C05／D09，其他事件入口的动态停止随各关系票交付。
+- [ ] 自循环／互循环、长无环和多层共享调用均保留有限直接边，不枚举传递路径、不新增循环诊断或任意深度上限。
+- [ ] 建立共用的直接调用关系表达，CLI 可获取定义位置及直接调用点；本票完成 common 相关 C04／C05／D09，其他事件入口的动态停止随各关系票交付。
 
 ### 共通要求（限本票适用范围）
 
@@ -30,8 +30,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 | 验收族 | 本票负责的分支／字段 |
 | --- | --- |
 | B15 | 固定当前公共事件调用 |
-| C04 | two-callers／common-independent-root：每个调用者和独立根分别保留。 |
-| C05 | self-cycle／mutual-cycle／long-acyclic：当前链闭环有界停止，预设 12 跳样例完整，不形成实现深度上限。 |
+| C04 | two-callers／common-independent-root：两个直接调用点分别保留，被调用事件的素材只按其定义位置计数。 |
+| C05 | self-cycle／mutual-cycle／long-acyclic／shared-call-graph：定义和直接边完整有限，无递归复制或循环额外诊断。 |
 | C06 | 本票 B15 所有原生允许 None 的到达字段，按上游有限子用例展开。 |
 | C07 | 本票 B15 到达字段的 target-missing／field-missing／field-wrong-type／field-empty／file-missing 适用变体；固定目标与 System 字段按原索引分别处理。 |
 
