@@ -23,12 +23,7 @@ export class CapturedAssetData {
   private readonly parsed = new Map<string, unknown>();
   constructor(private readonly files: ReadonlyMap<string, string | Uint8Array>) {}
 
-  entry(
-    file: string,
-    id: number,
-    origin: AssetOrigin,
-    result: AssetRelations,
-  ): Record<string, unknown> | undefined {
+  private read(file: string): unknown {
     if (!this.parsed.has(file)) {
       const text = this.files.get(file);
       this.parsed.set(
@@ -38,7 +33,33 @@ export class CapturedAssetData {
           : JSON.parse(typeof text === "string" ? text : new TextDecoder().decode(text)),
       );
     }
-    const table = this.parsed.get(file);
+    return this.parsed.get(file);
+  }
+
+  object(
+    file: string,
+    origin: AssetOrigin,
+    result: AssetRelations,
+  ): Record<string, unknown> | undefined {
+    const value = this.read(file);
+    if (!object(value)) {
+      result.problems.push({
+        ...origin,
+        dataPath: file,
+        reason: "Selected standard-data file must be an object; this relationship is unchecked.",
+      });
+      return undefined;
+    }
+    return value;
+  }
+
+  entry(
+    file: string,
+    id: number,
+    origin: AssetOrigin,
+    result: AssetRelations,
+  ): Record<string, unknown> | undefined {
+    const table = this.read(file);
     const entry: unknown = Array.isArray(table) ? table[id] : undefined;
     if (!object(entry)) {
       result.problems.push({
