@@ -627,7 +627,7 @@ async function successfulPush(
     (entry: { relativePath: string; hash: string }) =>
       changedFiles.includes(entry.relativePath)
         ? {
-            relativePath: entry.relativePath,
+            ...entry,
             hash: createHash("sha256")
               .update(
                 Buffer.from(
