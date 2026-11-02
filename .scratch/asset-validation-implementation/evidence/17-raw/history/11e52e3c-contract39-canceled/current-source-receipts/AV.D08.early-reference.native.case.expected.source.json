@@ -1,0 +1,46 @@
+{
+  "id": "AV.D08.early-reference.native.case.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:10:16.077Z",
+  "completedAt": "2026-11-02T10:10:16.495Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Diagnostics\",trigger:\"none\",commands:[showAnimation({target:{kind:\"runtimeSelector\",scope:\"character\",target:\"player\"},animation:animationRef({id:1}),wait:false})]});\n",
+      "project": {}
+    },
+    {
+      "assetCheckExceptions": [
+        {
+          "category": "image",
+          "folder": "pictures",
+          "name": "Poster",
+          "reason": "Awaiting artwork"
+        }
+      ]
+    },
+    {
+      "earlierFailure": "early-reference",
+      "actualApi": {
+        "failure": "Error: compile --check validation failed:\n- compile error common event 10: MV-E212-REFERENCE: Unknown animation reference id: 1 (commands[0].animation); expected existing uniquely resolved animation reference; actual {\"id\":1,\"kind\":\"animation\"}\n- compile error commonEvent:10: MV-E212-REFERENCE: Unknown animation reference id: 1 (commands[0].animation); expected existing uniquely resolved animation reference; actual {\"id\":1,\"kind\":\"animation\"}\ncompile asset check not run: earlier compile input or validation failure left no trusted complete candidate.",
+        "output": "Error: compile --check validation failed:\n- compile error common event 10: MV-E212-REFERENCE: Unknown animation reference id: 1 (commands[0].animation); expected existing uniquely resolved animation reference; actual {\"id\":1,\"kind\":\"animation\"}\n- compile error commonEvent:10: MV-E212-REFERENCE: Unknown animation reference id: 1 (commands[0].animation); expected existing uniquely resolved animation reference; actual {\"id\":1,\"kind\":\"animation\"}\ncompile asset check not run: earlier compile input or validation failure left no trusted complete candidate."
+      }
+    }
+  ],
+  "expected": {
+    "description": "untrusted earlier input reports that asset checking never ran instead of treating zero findings as success",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-early-${branch}`, async (sandbox) => {\n\t\tawait earlyFailure(sandbox.workspaceRoot, branch);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

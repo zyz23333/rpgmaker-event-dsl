@@ -1,0 +1,37 @@
+{
+  "id": "AV.C12.plugin-declaration.formal.case.expected",
+  "ownerTicket": "02",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:50:00.384Z",
+  "completedAt": "2026-11-02T11:50:01.505Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import { mapEvent,commonEvent,troopEvent,showPicture,imageAsset,rawDslCommand,loop,showChoices,conditional,script,pluginCommand } from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Uncalled\",trigger:\"none\",commands:[]});\n",
+      "projectOverrides": {},
+      "target": {
+        "category": "image",
+        "folder": "pictures",
+        "name": "Poster",
+        "extension": ".png"
+      },
+      "gates": "one complete native candidate validation followed by one live asset pass; no publication on errors"
+    }
+  ],
+  "expected": {
+    "description": "plugin asset declarations do not expand roots",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-picture-workspace.test.ts",
+    "sha256": "1c1a708c2ab685eb467f4ebd3eafd39d509a9682bd41a40cb1448fa217fb46e5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-plugin-declaration\", async ({ workspaceRoot: root }) => {\n\t\tawait prepare(root, { source: commonSource(\"\") });\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/js\"));\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/js/plugins.js\"), \"var $plugins=[{name:\\\"Missing\\\",status:true,parameters:{image:\\\"img/pictures/NotFound\\\"}}];\");\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)((0,__vite_ssr_import_1__.join)(root, \"Game/js/plugins.js\"), \"utf8\")).toContain(\"NotFound\");\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

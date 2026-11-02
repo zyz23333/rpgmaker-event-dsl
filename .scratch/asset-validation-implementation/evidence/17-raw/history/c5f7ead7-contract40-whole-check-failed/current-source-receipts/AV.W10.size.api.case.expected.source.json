@@ -1,0 +1,166 @@
+{
+  "id": "AV.W10.size.api.case.expected",
+  "ownerTicket": "13",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:27:31.608Z",
+  "completedAt": "2026-11-02T11:27:33.076Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import type { WorkflowInput } from \"../types/workflow-input.js\";\nimport {commonEvent,mapEvent,showPicture,imageAsset,callCommonEvent,commonEventRef,showAnimation,animationRef,changeTileset,tilesetRef} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Workflow\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+      "project": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Map"
+          }
+        ],
+        "Map001.json": {
+          "id": 1,
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": [
+            null
+          ],
+          "custom": {
+            "keep": [
+              "opaque",
+              null
+            ]
+          }
+        }
+      },
+      "defaultDirectFixtureOrigin": "CommonEvents.json[10].list[0].parameters[1] (directSource only; overrides have their own literal assertions)",
+      "policy": "one current pass; no media input persistence"
+    },
+    {
+      "mutation": "size",
+      "beforeMetadata": {
+        "ino": 3659174699407715,
+        "size": 2,
+        "mtime": "2026-11-02T11:27:31.658Z"
+      },
+      "currentMetadata": {
+        "ino": 3659174699407715,
+        "size": 5,
+        "mtime": "2026-11-02T11:27:32.973Z"
+      },
+      "expected": "no content/identity/time/directory-set equality requirement"
+    },
+    {
+      "operation": {
+        "operation": "check",
+        "boundary": "asset-before-pass"
+      },
+      "actual": {
+        "exit": {
+          "exitCode": 0,
+          "signal": null
+        },
+        "result": {
+          "kind": "result",
+          "ok": true
+        },
+        "text": "",
+        "messages": [
+          {
+            "kind": "checkpoint",
+            "pid": 22368
+          },
+          {
+            "kind": "asset-pass-entered"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-irrelevant-size-TRyI8I\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-irrelevant-size-TRyI8I\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-irrelevant-size-TRyI8I\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-irrelevant-size-TRyI8I\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-irrelevant-size-TRyI8I\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png"
+          },
+          {
+            "kind": "result",
+            "ok": true
+          }
+        ],
+        "process": {
+          "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+          "arguments": [
+            "--import",
+            "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+            "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+          ],
+          "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-irrelevant-size-TRyI8I\\最小 Workspace with spaces",
+          "startedAt": "2026-11-02T11:27:31.657Z",
+          "completedAt": "2026-11-02T11:27:33.054Z",
+          "exitCode": 0,
+          "signal": null,
+          "stdout": "",
+          "stderr": "",
+          "ipcMessages": [
+            {
+              "kind": "checkpoint",
+              "pid": 22368
+            },
+            {
+              "kind": "asset-pass-entered"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-irrelevant-size-TRyI8I\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-irrelevant-size-TRyI8I\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-irrelevant-size-TRyI8I\\最小 Workspace with spaces\\Game\\img\\pictures"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-irrelevant-size-TRyI8I\\最小 Workspace with spaces\\Game\\img\\pictures"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-irrelevant-size-TRyI8I\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png"
+            },
+            {
+              "kind": "result",
+              "ok": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "expected": {
+    "description": "irrelevant media changes do not affect an otherwise valid current existence query",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-workflow-workspace.test.ts",
+    "sha256": "674ecaa8bf740225e8fa3615ba3dbdf107807fdd5dc660f3b89f90ddf3f8767a",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-workflow-irrelevant-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(sandbox);\n\t\tawait put(root, media, \"AB\");\n\t\tconst original = await (0,__vite_ssr_import_0__.stat)((0,__vite_ssr_import_1__.join)(root, media));\n\t\tlet before;\n\t\tconst result = await operation(sandbox, {\n\t\t\toperation: \"check\",\n\t\t\tboundary: \"asset-before-pass\"\n\t\t}, async () => {\n\t\t\tif (branch === \"content\") await (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, media), \"CD\");\n\t\t\tif (branch === \"size\") await (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, media), \"ABCDE\");\n\t\t\tif (branch === \"mtime\") await (0,__vite_ssr_import_0__.utimes)((0,__vite_ssr_import_1__.join)(root, media), new Date(\"2001-01-01T00:00:00Z\"), new Date(\"2001-01-01T00:00:00Z\"));\n\t\t\tif (branch === \"file-identity\") {\n\t\t\t\tawait (0,__vite_ssr_import_0__.rename)((0,__vite_ssr_import_1__.join)(root, media), (0,__vite_ssr_import_1__.join)(sandbox.root, \"retained-original.png\"));\n\t\t\t\tawait put(root, media, \"AB\");\n\t\t\t};\n\t\t\tif (branch === \"unrelated-directory-entry\") await put(root, \"Game/img/pictures/Unrelated.png\", \"unrelated\");\n\t\t\tconst current = await (0,__vite_ssr_import_0__.stat)((0,__vite_ssr_import_1__.join)(root, media));\n\t\t\tif (branch === \"content\") {\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(current.size).toBe(2);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)((0,__vite_ssr_import_1__.join)(root, media), \"utf8\")).toBe(\"CD\");\n\t\t\t};\n\t\t\tif (branch === \"size\") (0,__vite_ssr_import_2__.expect)(current.size).toBe(5);\n\t\t\tif (branch === \"mtime\") (0,__vite_ssr_import_2__.expect)(current.mtime.toISOString()).toBe(\"2001-01-01T00:00:00.000Z\");\n\t\t\tif (branch === \"file-identity\") (0,__vite_ssr_import_2__.expect)(current.ino).not.toBe(original.ino);\n\t\t\tbefore = await observe(root);\n\t\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\t\tmutation: branch,\n\t\t\t\tbeforeMetadata: {\n\t\t\t\t\tino: original.ino,\n\t\t\t\t\tsize: original.size,\n\t\t\t\t\tmtime: original.mtime\n\t\t\t\t},\n\t\t\t\tcurrentMetadata: {\n\t\t\t\t\tino: current.ino,\n\t\t\t\t\tsize: current.size,\n\t\t\t\t\tmtime: current.mtime\n\t\t\t\t},\n\t\t\t\texpected: \"no content/identity/time/directory-set equality requirement\"\n\t\t\t});\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(result.exit.exitCode).toBe(0);\n\t\t(0,__vite_ssr_import_2__.expect)(result.text).not.toContain(\"MV-ASSET-\");\n\t\t(0,__vite_ssr_import_2__.expect)(await observe(root)).toEqual(before);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

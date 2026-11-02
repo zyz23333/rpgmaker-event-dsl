@@ -1,0 +1,51 @@
+{
+  "id": "AV.C06.none-direct.formal.A18-set-route-p0-name.expected",
+  "ownerTicket": "05",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:42:47.063Z",
+  "completedAt": "2026-11-02T11:42:48.114Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,audioAsset,movieAsset,rawDslCommand,changeBattleBgm,changeVictoryMe,changeDefeatMe,changeVehicleBgm,playBgm,playBgs,playMe,playSe,playMovie,setMovementRoute} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Media\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[setMovementRoute({target:{kind:\"runtimeSelector\",scope:\"character\",target:\"player\"},route:{commands:[{kind:\"playSe\",audio:{asset:null,volume:17,pitch:73,pan:-41}}]}})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Media"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "description": "route None keeps volume pitch and pan in both saved containers",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+    "sha256": "843bbe0a812fb252cf1a6bfdc3709898389388f42d0a2bafaec2b031b1c1ba65",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-route-se-none-${branch}`, async ({ workspaceRoot: root }) => {\n\t\tconst command = branch === \"set-route\" ? formalRoute.replace(audio(\"se\", \"RouteSE\"), audio(\"se\", null)) : \"\";\n\t\tawait prepare(root, source(command, branch === \"autonomous\" ? `,movement:{type:\"custom\",route:{commands:[{kind:\"playSe\",audio:${audio(\"se\", null)}}]}}` : \"\"));\n\t\tconst before = await state(root);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst actual = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)(actual.uses).toEqual([]);\n\t\tconst saved = {\n\t\t\tcode: 44,\n\t\t\tparameters: [{\n\t\t\t\tname: \"\",\n\t\t\t\tvolume: 17,\n\t\t\t\tpitch: 73,\n\t\t\t\tpan: -41\n\t\t\t}]\n\t\t};\n\t\t(0,__vite_ssr_import_2__.expect)((branch === \"autonomous\" ? actual.page.moveRoute : actual.page.list[0].parameters[1]).list).toEqual([saved, {\n\t\t\tcode: 0,\n\t\t\tparameters: []\n\t\t}]);\n\t\tif (branch === \"set-route\") (0,__vite_ssr_import_2__.expect)(actual.page.list[1].parameters).toEqual([saved]);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

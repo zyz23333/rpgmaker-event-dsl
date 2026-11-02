@@ -1,0 +1,268 @@
+{
+  "executionFreeze": "c5f7ead75ba78680b92ad81924ba8cb884d2b751",
+  "runner": [
+    "MV-S3-INPUT-003 actorRef failed; full error pending",
+    "MV-S6-MOVEMENT-003 malformed movement values failed; full error pending"
+  ],
+  "helperRecords": [
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-02-11-841Z-6e07d3d2-54d3-4453-8d73-3f97088342d7.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-02-11-841Z-6e07d3d2-54d3-4453-8d73-3f97088342d7.json",
+      "bytes": 59432,
+      "sha256": "e5a46485b5d580677b9e550cebcf6935a9892196ad771b282e84bbf40c5f3ad7",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: actorRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:02:01.226Z",
+      "completedAt": "2026-11-02T12:02:11.841Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-02-20-801Z-a40d748a-52ef-4cc2-8f52-5e867c379e16.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-02-20-801Z-a40d748a-52ef-4cc2-8f52-5e867c379e16.json",
+      "bytes": 59436,
+      "sha256": "ccb7af9ff9754d0443c3d255e1b229d9c5e866715a4e191e40c1a112d3d46425",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: animationRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:02:11.582Z",
+      "completedAt": "2026-11-02T12:02:20.801Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-02-30-403Z-55a6795b-7aa2-4ddd-ab49-afa55b22548d.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-02-30-403Z-55a6795b-7aa2-4ddd-ab49-afa55b22548d.json",
+      "bytes": 59432,
+      "sha256": "24e35d60773a76fe1fbfc501e38d9e357ac8c314cb191a25cf076bea80f544de",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: armorRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:02:20.847Z",
+      "completedAt": "2026-11-02T12:02:30.403Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-02-39-445Z-4f0581e1-0f26-49fd-aabf-b85a4df24dae.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-02-39-445Z-4f0581e1-0f26-49fd-aabf-b85a4df24dae.json",
+      "bytes": 59432,
+      "sha256": "5f9a0b7ade12a562bf422049121f7ab10d487b85d68a0c17b7b179717b0f2c5d",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: classRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:02:30.453Z",
+      "completedAt": "2026-11-02T12:02:39.445Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-02-48-203Z-ae214118-4277-46fa-8dac-5c26d6dcdad5.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-02-48-203Z-ae214118-4277-46fa-8dac-5c26d6dcdad5.json",
+      "bytes": 59438,
+      "sha256": "fbf9b0428e81e7335f905bf8c3d2ec1826ba2450a7eaf8636a559ce59f921176",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: commonEventRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:02:39.491Z",
+      "completedAt": "2026-11-02T12:02:48.203Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-02-56-614Z-8be9f354-2adc-4204-ba9f-3b20bc81bea4.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-02-56-614Z-8be9f354-2adc-4204-ba9f-3b20bc81bea4.json",
+      "bytes": 59432,
+      "sha256": "763ff942b51e3be8799f403dda351d28d124abd2209a17c962f667d307f212c0",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: enemyRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:02:48.243Z",
+      "completedAt": "2026-11-02T12:02:56.614Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-03-04-986Z-2a0ee6c9-e7bd-44cb-bd90-ff60d783d78e.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-03-04-986Z-2a0ee6c9-e7bd-44cb-bd90-ff60d783d78e.json",
+      "bytes": 59431,
+      "sha256": "c2fb2632a747f6bd329a76b0f751c3b29338401c96a5cff634e50f9b6f0d6789",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: itemRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:02:56.648Z",
+      "completedAt": "2026-11-02T12:03:04.986Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-03-14-212Z-3603969d-1b01-47c3-9fb7-c2efd88e0721.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-03-14-212Z-3603969d-1b01-47c3-9fb7-c2efd88e0721.json",
+      "bytes": 59430,
+      "sha256": "ae2b47bc0eb6607ac0897112f5e1a26adc27300ce0e4835855f9c8009a21ce0f",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: mapRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:03:05.030Z",
+      "completedAt": "2026-11-02T12:03:14.212Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-03-23-246Z-9bf3c577-630a-41eb-8df3-6ca4ea2484de.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-03-23-246Z-9bf3c577-630a-41eb-8df3-6ca4ea2484de.json",
+      "bytes": 59432,
+      "sha256": "a280ad5d7f3c4bc4b8e6c82cdbda1fde95ddb224640205667deace2a8a27f068",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: skillRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:03:14.278Z",
+      "completedAt": "2026-11-02T12:03:23.246Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-03-32-197Z-47ec39ca-1bb9-4f4c-aeba-5ae97e2f1929.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-03-32-197Z-47ec39ca-1bb9-4f4c-aeba-5ae97e2f1929.json",
+      "bytes": 59432,
+      "sha256": "a670111ac8d2937deea9d4df56701a821d715c18d3c810c80369a8040e9299af",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: stateRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:03:23.285Z",
+      "completedAt": "2026-11-02T12:03:32.197Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-03-41-093Z-66c26bef-5522-4529-9294-dcce79a4354e.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-03-41-093Z-66c26bef-5522-4529-9294-dcce79a4354e.json",
+      "bytes": 59433,
+      "sha256": "2d0711fe9178aca74e1bc585a12ebd74342c82d934ba8e25bbb705a423a22539",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: switchRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:03:32.237Z",
+      "completedAt": "2026-11-02T12:03:41.093Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-03-50-317Z-294fc1b3-8eac-460f-b03c-283ba15ddb34.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-03-50-317Z-294fc1b3-8eac-460f-b03c-283ba15ddb34.json",
+      "bytes": 59434,
+      "sha256": "091184bdf904ef535189181a5b5a6c3e690b5bde4a1c2835f3ecfa712b85d04d",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: tilesetRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:03:41.140Z",
+      "completedAt": "2026-11-02T12:03:50.317Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-03-59-061Z-a1378199-880c-46e5-adc9-a6e12a3a80ab.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-03-59-061Z-a1378199-880c-46e5-adc9-a6e12a3a80ab.json",
+      "bytes": 59432,
+      "sha256": "ebd2b0c5ce2de2fcf206004e7c65724a1cd27dac6f746f376d39c2bd0b3cd874",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: troopRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:03:50.368Z",
+      "completedAt": "2026-11-02T12:03:59.061Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-04-08-004Z-c7acc562-a58c-41f7-83a2-d374aa022de6.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-04-08-004Z-c7acc562-a58c-41f7-83a2-d374aa022de6.json",
+      "bytes": 59435,
+      "sha256": "b77059167cc9f9ced7f2b9d309644e291e6d29dfe1acb3ceddad169c11298836",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: variableRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:03:59.105Z",
+      "completedAt": "2026-11-02T12:04:08.004Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S3-INPUT-003-2026-11-02T12-04-16-232Z-93162af0-cdba-4f0d-a789-8dfe4083d861.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S3-INPUT-003-2026-11-02T12-04-16-232Z-93162af0-cdba-4f0d-a789-8dfe4083d861.json",
+      "bytes": 59433,
+      "sha256": "c52cc731c5673c4e5d7e3ceeed6ae7d631a3d6378fccd308b70a4a8362b422b5",
+      "status": "passed",
+      "expected": "MV-S3-INPUT-003: weaponRef evaluates controls and rejects discarded actual source fields",
+      "actual": {
+        "assertionsCompleted": true,
+        "entry": "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/src/workspace-api.ts",
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:04:08.047Z",
+      "completedAt": "2026-11-02T12:04:16.232Z",
+      "difference": null
+    },
+    {
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S6-MOVEMENT-003-2026-11-02T12-07-13-369Z-46a6b581-a2aa-4c6c-9415-de8d559156fc.json",
+      "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S6-MOVEMENT-003-2026-11-02T12-07-13-369Z-46a6b581-a2aa-4c6c-9415-de8d559156fc.json",
+      "bytes": 216423,
+      "sha256": "142078d0b95d16c759161f3d3cc06303cab732d38601c50a1a6ce3b52a64a68d",
+      "status": "passed",
+      "expected": "The linked assertions compare complete independent native values and intended diagnostics, including saved/inactive route fields and exact205/505. Rejected operations preserve every captured Workspace state field.",
+      "actual": {
+        "case": "movement-untyped",
+        "entry": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+        "processCount": 0,
+        "fullActualRetainedInPreservedReceipt": true
+      },
+      "startedAt": "2026-11-02T12:06:41.938Z",
+      "completedAt": "2026-11-02T12:07:13.369Z",
+      "difference": null
+    }
+  ],
+  "helperStatusDoesNotOverrideRunnerFailure": true,
+  "noTestRepeatOrMutation": true
+}

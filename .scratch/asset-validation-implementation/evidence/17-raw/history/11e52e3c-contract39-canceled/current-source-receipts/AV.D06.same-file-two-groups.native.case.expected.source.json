@@ -1,0 +1,89 @@
+{
+  "id": "AV.D06.same-file-two-groups.native.case.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:10:08.946Z",
+  "completedAt": "2026-11-02T10:10:08.947Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "scope": "Explicitly internal aggregation input, not a claim that contradictory filesystem states coexisted",
+      "independentInput": [
+        {
+          "code": "MV-ASSET-MISSING-FILE",
+          "reason": "Independent aggregation fact A",
+          "targetPath": "C:/Game/img/pictures/Poster.png",
+          "target": {
+            "identity": "commonEvent:10",
+            "nativePath": "CommonEvents.json[10].list[0].parameters[1]",
+            "relatedNativePaths": [],
+            "dependencyChain": [],
+            "conditions": [],
+            "category": "image",
+            "folder": "pictures",
+            "name": "Poster"
+          },
+          "uses": [
+            {
+              "identity": "commonEvent:10",
+              "nativePath": "CommonEvents.json[10].list[0].parameters[1]",
+              "relatedNativePaths": [],
+              "dependencyChain": [],
+              "conditions": []
+            }
+          ]
+        },
+        {
+          "code": "MV-ASSET-PATH-TYPE",
+          "reason": "Independent aggregation fact B",
+          "targetPath": "C:/Game/img/pictures/Poster.png",
+          "target": {
+            "identity": "commonEvent:10",
+            "nativePath": "CommonEvents.json[10].list[0].parameters[1]",
+            "relatedNativePaths": [],
+            "dependencyChain": [],
+            "conditions": [],
+            "category": "image",
+            "folder": "pictures",
+            "name": "Poster"
+          },
+          "uses": [
+            {
+              "identity": "commonEvent:10",
+              "nativePath": "CommonEvents.json[10].list[1].parameters[1]",
+              "relatedNativePaths": [],
+              "dependencyChain": [],
+              "conditions": [],
+              "candidate": "Selected initial candidate"
+            }
+          ]
+        }
+      ],
+      "expectedStatistics": {
+        "groups": 2,
+        "files": 1,
+        "uses": 2
+      },
+      "actualStatistics": {
+        "groups": 2,
+        "files": 1,
+        "uses": 2
+      }
+    }
+  ],
+  "expected": {
+    "description": "independent aggregation input counts one legal file across two problem categories while retaining both occurrences",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "async () => {\n\tconst origin = {\n\t\tidentity: \"commonEvent:10\",\n\t\tnativePath: \"CommonEvents.json[10].list[0].parameters[1]\",\n\t\trelatedNativePaths: [],\n\t\tdependencyChain: [],\n\t\tconditions: []\n\t};\n\tconst target = {\n\t\t...origin,\n\t\tcategory: \"image\",\n\t\tfolder: \"pictures\",\n\t\tname: \"Poster\"\n\t};\n\tconst input = [{\n\t\tcode: \"MV-ASSET-MISSING-FILE\",\n\t\treason: \"Independent aggregation fact A\",\n\t\ttargetPath: \"C:/Game/img/pictures/Poster.png\",\n\t\ttarget,\n\t\tuses: [origin]\n\t}, {\n\t\tcode: \"MV-ASSET-PATH-TYPE\",\n\t\treason: \"Independent aggregation fact B\",\n\t\ttargetPath: \"C:/Game/img/pictures/Poster.png\",\n\t\ttarget,\n\t\tuses: [{\n\t\t\t...origin,\n\t\t\tnativePath: \"CommonEvents.json[10].list[1].parameters[1]\",\n\t\t\tcandidate: \"Selected initial candidate\"\n\t\t}]\n\t}];\n\tconst report = (0,__vite_ssr_import_6__.buildAssetReport)(input, []);\n\t(0,__vite_ssr_import_2__.expect)(report.statistics).toEqual({\n\t\tgroups: 2,\n\t\tfiles: 1,\n\t\tuses: 2\n\t});\n\t(0,__vite_ssr_import_2__.expect)(report.groups.map((group) => [group.code, group.level])).toEqual([[\"MV-ASSET-MISSING-FILE\", \"error\"], [\"MV-ASSET-PATH-TYPE\", \"warning\"]]);\n\t(0,__vite_ssr_import_2__.expect)(report.hasErrors).toBe(true);\n\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\tscope: \"Explicitly internal aggregation input, not a claim that contradictory filesystem states coexisted\",\n\t\tindependentInput: input,\n\t\texpectedStatistics: {\n\t\t\tgroups: 2,\n\t\t\tfiles: 1,\n\t\t\tuses: 2\n\t\t},\n\t\tactualStatistics: report.statistics\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

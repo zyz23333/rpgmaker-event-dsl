@@ -1,0 +1,56 @@
+{
+  "id": "AV.A18.set-route.formal.p0-name.missing",
+  "ownerTicket": "05",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:42:32.787Z",
+  "completedAt": "2026-11-02T11:42:34.189Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,audioAsset,movieAsset,rawDslCommand,changeBattleBgm,changeVictoryMe,changeDefeatMe,changeVehicleBgm,playBgm,playBgs,playMe,playSe,playMovie,setMovementRoute} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Media\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[setMovementRoute({target:{kind:\"runtimeSelector\",scope:\"character\",target:\"player\"},route:{commands:[{kind:\"playSe\",audio:{asset:audioAsset({folder:\"se\",name:\"RouteSE\"}),volume:17,pitch:73,pan:-41}}]}})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Media"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-se-set-route-formal-missing-AW4FcZ\\最小 Workspace with spaces\\Game\\audio\\se\\RouteSE.ogg",
+      "extension": ".ogg",
+      "timing": "before the asset gate"
+    }
+  ],
+  "expected": {
+    "description": "route SE has one defining use and exact mirror positions",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+    "sha256": "843bbe0a812fb252cf1a6bfdc3709898389388f42d0a2bafaec2b031b1c1ba65",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-se-${branch}-${representation}-${outcome}`, async ({ workspaceRoot: root }) => {\n\t\tawait prepare(root, source(command, pageFields));\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/audio/se\"), { recursive: true });\n\t\tif (outcome === \"missing\") {\n\t\t\tconst before = await state(root);\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain((branch === \"autonomous\" ? autonomousUse : routeUse).nativePath);\n\t\t\t\tif (branch === \"set-route\") (0,__vite_ssr_import_2__.expect)(failure).toContain(routeUse.relatedNativePaths[0]);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"1 use(s)\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tawait mediaFile(root, \"se\", \"RouteSE\");\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst repaired = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)(repaired.uses).toEqual([branch === \"autonomous\" ? autonomousUse : routeUse]);\n\t\t\tconst repairedRoute = branch === \"autonomous\" ? repaired.page.moveRoute : repaired.page.list[0].parameters[1];\n\t\t\t(0,__vite_ssr_import_2__.expect)(repairedRoute).toEqual(representation === \"raw\" ? nativeRoute : {\n\t\t\t\tlist: [routeSe, {\n\t\t\t\t\tcode: 0,\n\t\t\t\t\tparameters: []\n\t\t\t\t}],\n\t\t\t\trepeat: true,\n\t\t\t\tskippable: false,\n\t\t\t\twait: false\n\t\t\t});\n\t\t} else {\n\t\t\tawait mediaFile(root, \"se\", \"RouteSE\");\n\t\t\tconst before = await state(root);\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst actual = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)(actual.uses).toEqual([branch === \"autonomous\" ? autonomousUse : routeUse]);\n\t\t\tconst route = branch === \"autonomous\" ? actual.page.moveRoute : actual.page.list[0].parameters[1];\n\t\t\t(0,__vite_ssr_import_2__.expect)(route).toEqual(representation === \"raw\" ? nativeRoute : {\n\t\t\t\tlist: [routeSe, {\n\t\t\t\t\tcode: 0,\n\t\t\t\t\tparameters: []\n\t\t\t\t}],\n\t\t\t\trepeat: true,\n\t\t\t\tskippable: false,\n\t\t\t\twait: false\n\t\t\t});\n\t\t\tif (branch === \"set-route\") (0,__vite_ssr_import_2__.expect)(actual.page.list[1]).toEqual({\n\t\t\t\tcode: 505,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [routeSe]\n\t\t\t});\n\t\t}\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

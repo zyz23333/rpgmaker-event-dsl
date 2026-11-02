@@ -1,0 +1,136 @@
+{
+  "id": "AV.C07.system-container.formal.sound-array.expected",
+  "ownerTicket": "09",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:34:08.818Z",
+  "completedAt": "2026-11-02T11:34:10.930Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {mapEvent,commonEvent,troopEvent,gameOver,returnToTitleScreen,battleProcessing,troopRef,variableRef,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"System\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[battleProcessing({troop:{kind:\"fixed\",troop:troopRef({id:1})}})]}]});",
+      "projectOverrides": {
+        "System.json": {
+          "gameTitle": "Synthetic evidence context",
+          "switches": [
+            "",
+            "Saved switch"
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          },
+          "gameoverMe": {
+            "name": "GameOver",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "title1Name": "TitleOne",
+          "title2Name": "TitleTwo",
+          "titleBgm": {
+            "name": "TitleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "battleBgm": {
+            "name": "BattleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "victoryMe": {
+            "name": "Victory",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "defeatMe": {
+            "name": "Defeat",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "sounds": {
+            "7": {
+              "name": "WouldBeName",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            }
+          },
+          "optSideView": false,
+          "hasEncryptedImages": false,
+          "hasEncryptedAudio": false
+        },
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "System"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "specifyBattleback": true,
+          "battleback1Name": "BackOne",
+          "battleback2Name": "BackTwo",
+          "events": [],
+          "custom": {
+            "retain": [
+              null,
+              17
+            ]
+          }
+        },
+        "Troops.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Selected troop",
+            "members": [],
+            "pages": []
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-container-sound-array-XhQNb5\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-container-sound-array-XhQNb5\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-container-sound-array-XhQNb5\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-container-sound-array-XhQNb5\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-container-sound-array-XhQNb5\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-container-sound-array-XhQNb5\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+    }
+  ],
+  "expected": {
+    "description": "malformed necessary audio containers are errors without treating them as None or inventing missing file targets",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-system-workspace.test.ts",
+    "sha256": "86934f80311612ea09e08259af880c9b2de50bfe6f9f47a50f4fa3555cba7e91",
+    "assertions": "async () => {\n\t\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-system-container-${token}`, async (sandbox) => {\n\t\t\tconst root = sandbox.workspaceRoot;\n\t\t\tawait prepare(root, source(commandFor(battleFields[0])), system);\n\t\t\tfor (const field of [...backgroundFields, ...battleFields]) await media(root, field);\n\t\t\tconst before = await state(root), path = token === \"audio-object\" ? \"System.json.battleBgm.name\" : \"System.json.sounds[7].name\";\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst actual = await capture(root, check);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure).toContain(`error MV-ASSET-INVALID-DATA: ${path}`);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.failure).not.toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).not.toBe(0);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(path);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t});\n\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

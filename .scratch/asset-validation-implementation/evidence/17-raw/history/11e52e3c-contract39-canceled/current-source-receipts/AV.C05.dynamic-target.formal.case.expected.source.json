@@ -1,0 +1,556 @@
+{
+  "id": "AV.C05.dynamic-target.formal.case.expected",
+  "ownerTicket": "09,11",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:12:52.410Z",
+  "completedAt": "2026-11-02T10:12:58.416Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {mapEvent,commonEvent,troopEvent,gameOver,returnToTitleScreen,battleProcessing,troopRef,variableRef,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"System\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[battleProcessing({troop:{kind:\"variable\",variable:variableRef({id:1})},canEscape:true,canLose:true,win:{commands:[]},escape:{commands:[]},lose:{commands:[]}})]}]});",
+      "projectOverrides": {
+        "System.json": {
+          "gameTitle": "Synthetic evidence context",
+          "switches": [
+            "",
+            "Saved switch"
+          ],
+          "variables": [
+            "",
+            "Runtime troop"
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          },
+          "gameoverMe": {
+            "name": "GameOver",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "title1Name": "TitleOne",
+          "title2Name": "TitleTwo",
+          "titleBgm": {
+            "name": "TitleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "battleBgm": {
+            "name": "BattleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "victoryMe": {
+            "name": "Victory",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "defeatMe": {
+            "name": "Defeat",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "sounds": [
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "BattleStart",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            }
+          ],
+          "optSideView": false,
+          "hasEncryptedImages": false,
+          "hasEncryptedAudio": false
+        },
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "System"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "specifyBattleback": true,
+          "battleback1Name": "BackOne",
+          "battleback2Name": "BackTwo",
+          "events": [],
+          "custom": {
+            "retain": [
+              null,
+              17
+            ]
+          }
+        },
+        "Troops.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Selected troop",
+            "members": [],
+            "pages": []
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-r0IzqJ\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-r0IzqJ\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-r0IzqJ\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-r0IzqJ\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-r0IzqJ\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-r0IzqJ\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+    },
+    {
+      "source": "import {mapEvent,commonEvent,troopEvent,gameOver,returnToTitleScreen,battleProcessing,troopRef,variableRef,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"System\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[battleProcessing({troop:{kind:\"randomEncounter\"},canEscape:true,canLose:true,win:{commands:[]},escape:{commands:[]},lose:{commands:[]}})]}]});",
+      "projectOverrides": {
+        "System.json": {
+          "gameTitle": "Synthetic evidence context",
+          "switches": [
+            "",
+            "Saved switch"
+          ],
+          "variables": [
+            "",
+            "Runtime troop"
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          },
+          "gameoverMe": {
+            "name": "GameOver",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "title1Name": "TitleOne",
+          "title2Name": "TitleTwo",
+          "titleBgm": {
+            "name": "TitleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "battleBgm": {
+            "name": "BattleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "victoryMe": {
+            "name": "Victory",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "defeatMe": {
+            "name": "Defeat",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "sounds": [
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "BattleStart",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            }
+          ],
+          "optSideView": false,
+          "hasEncryptedImages": false,
+          "hasEncryptedAudio": false
+        },
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "System"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "specifyBattleback": true,
+          "battleback1Name": "BackOne",
+          "battleback2Name": "BackTwo",
+          "events": [],
+          "custom": {
+            "retain": [
+              null,
+              17
+            ]
+          }
+        },
+        "Troops.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Selected troop",
+            "members": [],
+            "pages": []
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-g4eN39\\最小 Workspace with spaces\\Game\\img\\battlebacks1\\BackOne.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-g4eN39\\最小 Workspace with spaces\\Game\\img\\battlebacks2\\BackTwo.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-g4eN39\\最小 Workspace with spaces\\Game\\audio\\bgm\\BattleMusic.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-g4eN39\\最小 Workspace with spaces\\Game\\audio\\me\\Victory.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-g4eN39\\最小 Workspace with spaces\\Game\\audio\\me\\Defeat.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-troop-g4eN39\\最小 Workspace with spaces\\Game\\audio\\se\\BattleStart.ogg"
+    },
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-shared-dynamic-target-tRvz62\\最小 Workspace with spaces",
+      "source": "import {commonEvent,forceAction,actorRef,skillRef,callCommonEvent,commonEventRef,showPicture,imageAsset} from \"rpgmaker-event-dsl\";export const event1=commonEvent({id:1,name:\"Action graph 1\",trigger:\"none\",commands:[forceAction({subject:{kind:\"runtimeSelector\",scope:\"battler\",target:\"actor\",actor:actorRef({id:1})},skill:skillRef({id:2}),target:{kind:\"random\"}})]});",
+      "project": {
+        "Skills.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Known siblings",
+            "animationId": 2,
+            "effects": [
+              {
+                "code": 44,
+                "dataId": 10
+              },
+              {
+                "code": 44,
+                "dataId": 11
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Current weapons unknown",
+            "animationId": -1,
+            "effects": []
+          }
+        ],
+        "Animations.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Sibling 1",
+            "animation1Name": "SiblingUnarmed1",
+            "animation2Name": "SiblingUnarmed2",
+            "timings": [
+              {
+                "frame": 0,
+                "se": {
+                  "name": "SiblingUnarmedSe0",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                }
+              },
+              {
+                "frame": 1,
+                "se": {
+                  "name": "SiblingUnarmedSe1",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                }
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Sibling 2",
+            "animation1Name": "SiblingSkill1",
+            "animation2Name": "SiblingSkill2",
+            "timings": [
+              {
+                "frame": 0,
+                "se": {
+                  "name": "SiblingSkillSe0",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                }
+              },
+              {
+                "frame": 1,
+                "se": {
+                  "name": "SiblingSkillSe1",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "expectedUses": [
+        {
+          "identity": "commonEvent:1",
+          "nativePath": "CommonEvents.json[1].list[0].parameters[2]",
+          "relatedNativePaths": [],
+          "category": "image",
+          "folder": "animations",
+          "name": "SiblingUnarmed1",
+          "dependencyChain": [
+            {
+              "data": "Skills.json",
+              "id": 2,
+              "field": "animationId",
+              "relationship": "Forced action Skill animation"
+            },
+            {
+              "data": "Animations.json",
+              "id": 1,
+              "field": "animation1Name",
+              "relationship": "Animation image sheet"
+            }
+          ],
+          "conditions": [
+            "Current equipped weapons are runtime state; initial Actor equipment does not determine them.",
+            "Animation image sheets may be preloaded before the command executes."
+          ],
+          "candidate": "Animation 1 applies only when the forced Actor has no current weapon."
+        },
+        {
+          "identity": "commonEvent:1",
+          "nativePath": "CommonEvents.json[1].list[0].parameters[2]",
+          "relatedNativePaths": [],
+          "category": "image",
+          "folder": "animations",
+          "name": "SiblingUnarmed2",
+          "dependencyChain": [
+            {
+              "data": "Skills.json",
+              "id": 2,
+              "field": "animationId",
+              "relationship": "Forced action Skill animation"
+            },
+            {
+              "data": "Animations.json",
+              "id": 1,
+              "field": "animation2Name",
+              "relationship": "Animation image sheet"
+            }
+          ],
+          "conditions": [
+            "Current equipped weapons are runtime state; initial Actor equipment does not determine them.",
+            "Animation image sheets may be preloaded before the command executes."
+          ],
+          "candidate": "Animation 1 applies only when the forced Actor has no current weapon."
+        },
+        {
+          "identity": "commonEvent:1",
+          "nativePath": "CommonEvents.json[1].list[0].parameters[2]",
+          "relatedNativePaths": [],
+          "category": "audio",
+          "folder": "se",
+          "name": "SiblingUnarmedSe0",
+          "dependencyChain": [
+            {
+              "data": "Skills.json",
+              "id": 2,
+              "field": "animationId",
+              "relationship": "Forced action Skill animation"
+            },
+            {
+              "data": "Animations.json",
+              "id": 1,
+              "field": "timings[0].se.name",
+              "relationship": "Animation timing sound effect"
+            }
+          ],
+          "conditions": [
+            "Current equipped weapons are runtime state; initial Actor equipment does not determine them.",
+            "Animation timing SE plays only when its frame is reached and duplicate suppression permits playback."
+          ],
+          "candidate": "Animation 1 applies only when the forced Actor has no current weapon."
+        },
+        {
+          "identity": "commonEvent:1",
+          "nativePath": "CommonEvents.json[1].list[0].parameters[2]",
+          "relatedNativePaths": [],
+          "category": "audio",
+          "folder": "se",
+          "name": "SiblingUnarmedSe1",
+          "dependencyChain": [
+            {
+              "data": "Skills.json",
+              "id": 2,
+              "field": "animationId",
+              "relationship": "Forced action Skill animation"
+            },
+            {
+              "data": "Animations.json",
+              "id": 1,
+              "field": "timings[1].se.name",
+              "relationship": "Animation timing sound effect"
+            }
+          ],
+          "conditions": [
+            "Current equipped weapons are runtime state; initial Actor equipment does not determine them.",
+            "Animation timing SE plays only when its frame is reached and duplicate suppression permits playback."
+          ],
+          "candidate": "Animation 1 applies only when the forced Actor has no current weapon."
+        }
+      ],
+      "dynamicStop": "The forced Actor's current weapons and their attack animations are runtime state; this branch is unchecked.",
+      "knownEffectTargets": []
+    }
+  ],
+  "expected": {
+    "description": "variable and encounter Troop selections retain a finite unchecked stop and known System relationships",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-system-workspace.test.ts",
+    "sha256": "0a6e12bc45987f79a2f8cb6a7ade8fce917e434156c26bea01c94a640972d7d4",
+    "assertions": "async () => {\n\tfor (const selector of [\"{kind:\\\"variable\\\",variable:variableRef({id:1})}\", \"{kind:\\\"randomEncounter\\\"}\"]) await (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-dynamic-troop\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, source(battleCommand.replace(\"{kind:\\\"fixed\\\",troop:troopRef({id:1})}\", selector)), { variables: [\"\", \"Runtime troop\"] });\n\t\tfor (const field of [...backgroundFields, ...battleFields]) await media(root, field);\n\t\tconst before = await state(root);\n\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"info MV-ASSET-DYNAMIC-STOP\");\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"Troop target is selected at runtime; the Troop/Enemy asset relationship is unchecked.\");\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"Map001.json.events[1].pages[0].list[0].parameters[0]\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst actual = (await observed(root)).relations;\n\t\t(0,__vite_ssr_import_2__.expect)(actual.uses).toEqual(expected([...backgroundFields, ...battleFields]));\n\t\t(0,__vite_ssr_import_2__.expect)(actual.problems).toEqual([]);\n\t\t(0,__vite_ssr_import_2__.expect)(actual.stops).toEqual([{\n\t\t\tidentity: \"map:1/event:1\",\n\t\t\tnativePath: \"Map001.json.events[1].pages[0].list[0].parameters[0]\",\n\t\t\trelatedNativePaths: [],\n\t\t\tdependencyChain: [],\n\t\t\tconditions: [],\n\t\t\treason: \"Troop target is selected at runtime; the Troop/Enemy asset relationship is unchecked.\"\n\t\t}]);\n\t});\n\tawait (0,__vite_ssr_import_8__.verifyForcedActionSibling)(\"dynamic-target\");\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

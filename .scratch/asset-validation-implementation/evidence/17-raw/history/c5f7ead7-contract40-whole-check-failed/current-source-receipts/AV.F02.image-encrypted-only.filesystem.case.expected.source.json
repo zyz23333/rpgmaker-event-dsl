@@ -1,0 +1,38 @@
+{
+  "id": "AV.F02.image-encrypted-only.filesystem.case.expected",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:26:18.620Z",
+  "completedAt": "2026-11-02T11:26:19.073Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [
+        "Poster"
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"Poster\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {},
+    {
+      "file": "img/pictures/Poster.rpgmvp",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    }
+  ],
+  "expected": {
+    "description": "alternate formats do not satisfy or invalidate the exact PNG target",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_6__.withWindowsSandbox)(`asset-${branch}`, async (sandbox) => {\n\t\tawait prepare(sandbox.workspaceRoot);\n\t\tfor (const alternative of alternatives) await png(sandbox.workspaceRoot, `img/pictures/${alternative}`);\n\t\tif (present) await api.compileWorkspace({\n\t\t\tworkspaceRoot: sandbox.workspaceRoot,\n\t\t\tcheck: true\n\t\t});\n\t\telse await (0,__vite_ssr_import_4__.expect)(api.compileWorkspace({\n\t\t\tworkspaceRoot: sandbox.workspaceRoot,\n\t\t\tcheck: true\n\t\t})).rejects.toThrow(\"MV-ASSET-MISSING-FILE\");\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

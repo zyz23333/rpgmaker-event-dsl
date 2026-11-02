@@ -73,5 +73,7 @@ packages/rpgmaker-event-dsl/test/fixtures/asset-legacy-policy-evidence.json -tex
 /.scratch/asset-validation-implementation/evidence/17-regression-repair/raw/** -text -whitespace
 # Keep ticket16's original failed and successful execution bytes unchanged.
 /.scratch/asset-validation-implementation/evidence/16-raw/** -text -whitespace
+# Keep ticket17 actual command logs, receipts, and canceled attempts byte-identical.
+/.scratch/asset-validation-implementation/evidence/17-raw/** -text -whitespace
 # Preserve ticket09's original failure and grouping-compatibility execution bytes.
 /.scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/** -text -whitespace

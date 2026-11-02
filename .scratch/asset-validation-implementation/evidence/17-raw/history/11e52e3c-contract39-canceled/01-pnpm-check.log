@@ -1,0 +1,34 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check M:\Shuen\Codex\asset-validation-17-acceptance
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck M:\Shuen\Codex\asset-validation-17-acceptance
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint M:\Shuen\Codex\asset-validation-17-acceptance
+> oxlint .
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check M:\Shuen\Codex\asset-validation-17-acceptance
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 638ms on 339 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test M:\Shuen\Codex\asset-validation-17-acceptance
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test: stderr | test/asset-system-workspace.test.ts > AV.C07.shared-system-field.formal.case.expected: one malformed System field retains every independent defining command and safe title sibling
+packages/rpgmaker-event-dsl test: Windows verification sandbox retained: C:\Users\Shuen\AppData\Local\Temp\rpgmaker-event-dsl-windows\asset-system-shared-field-tmu3VM
+packages/rpgmaker-event-dsl test:  ❯ test/asset-system-workspace.test.ts (105 tests | 1 failed) 250806ms
+packages/rpgmaker-event-dsl test:    × AV.C07.shared-system-field.formal.case.expected: one malformed System field retains every independent defining command and safe title sibling 444ms

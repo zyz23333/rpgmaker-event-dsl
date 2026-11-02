@@ -1,0 +1,186 @@
+{
+  "id": "AV.C05.dynamic-transfer.formal.case.expected",
+  "ownerTicket": "07",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:40:26.146Z",
+  "completedAt": "2026-11-02T11:40:29.743Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {mapEvent,transferPlayer,mapRef,rawDslCommand,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"Map assets\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[transferPlayer({destination:{kind:\"variables\",map:variableRef({id:1}),x:variableRef({id:1}),y:variableRef({id:1})}}),transferPlayer({destination:{kind:\"direct\",map:mapRef({id:2}),x:0,y:0}})]}]});export const destinationVariable=variableDefinition({id:1,name:\"Destination\"});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Host"
+          },
+          {
+            "id": 2,
+            "name": "Transfer"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Map002.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 2,
+          "parallaxName": "TransferSky",
+          "autoplayBgm": true,
+          "autoplayBgs": true,
+          "bgm": {
+            "name": "TransferBgm",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "bgs": {
+            "name": "TransferBgs",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "battleback1Name": "ExcludedBack1",
+          "battleback2Name": "ExcludedBack2",
+          "events": [],
+          "custom": {
+            "untouched": true
+          }
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Map tiles",
+            "tilesetNames": [
+              "Transfer0",
+              "Transfer1",
+              "Transfer2",
+              "Transfer3",
+              "Transfer4",
+              "Transfer5",
+              "Transfer6",
+              "Transfer7",
+              "Transfer8"
+            ],
+            "custom": {
+              "untouched": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Map tiles",
+            "tilesetNames": [
+              "Transfer0",
+              "Transfer1",
+              "Transfer2",
+              "Transfer3",
+              "Transfer4",
+              "Transfer5",
+              "Transfer6",
+              "Transfer7",
+              "Transfer8"
+            ],
+            "custom": {
+              "untouched": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer0.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer1.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer2.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer3.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer4.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer5.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer6.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer7.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer8.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\img\\parallaxes\\TransferSky.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\audio\\bgm\\TransferBgm.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\audio\\bgs\\TransferBgs.ogg"
+    },
+    {
+      "cliResult": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T11:40:26.666Z",
+        "completedAt": "2026-11-02T11:40:27.934Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check info:\ninfo MV-ASSET-DYNAMIC-STOP: Transfer destination Map is selected by a runtime variable; this path has no fixed Map candidate and is unchecked.\n  - map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[1]; DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-dynamic-transfer-formal-GpOvoZ/最小 Workspace with spaces/src/map-assets.events.ts (line 1, column 229)\n0 problem group(s), 0 problem file(s), 0 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\n"
+      }
+    },
+    {
+      "cliResult": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T11:40:28.483Z",
+        "completedAt": "2026-11-02T11:40:29.721Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check info:\ninfo MV-ASSET-DYNAMIC-STOP: Transfer destination Map is selected by a runtime variable; this path has no fixed Map candidate and is unchecked.\n  - map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[1]; DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-dynamic-transfer-formal-GpOvoZ/最小 Workspace with spaces/src/map-assets.events.ts (line 1, column 229)\nM:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile --check asset check failed:\r\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\img\\parallaxes\\TransferSky.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-dynamic-transfer-formal-GpOvoZ\\最小 Workspace with spaces\\Game\\img\\parallaxes\\TransferSky.png\r\n  image/parallaxes \"TransferSky\"; 1 use(s)\r\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[1].parameters[1]; chain: Map002.json.parallaxName (Transfer destination Map parallax); conditions: Transfer destination configuration may be overridden at runtime.; DSL: pages[0].commands[1]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-dynamic-transfer-formal-GpOvoZ/最小 Workspace with spaces/src/map-assets.events.ts (line 1, column 346); base: error; effective: error\r\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n"
+      }
+    }
+  ],
+  "expected": {
+    "description": "variable destination stops with its saved origin while fixed Map siblings remain independently checked",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-map-workspace.test.ts",
+    "sha256": "57756a93e3b4949db852ed777c4805229f65e1e5194ac060f1de25a762444ccd",
+    "assertions": "async () => {\n\t\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-dynamic-transfer-${representation}`, async (sandbox) => {\n\t\t\tconst root = sandbox.workspaceRoot;\n\t\t\tconst dynamic = representation === \"raw\" ? \"rawDslCommand({code:201,parameters:[1,1,1,1,0,0]})\" : \"transferPlayer({destination:{kind:\\\"variables\\\",map:variableRef({id:1}),x:variableRef({id:1}),y:variableRef({id:1})}})\";\n\t\t\tawait prepare(root, source(`${dynamic},${transfer(representation)}`) + \"export const destinationVariable=variableDefinition({id:1,name:\\\"Destination\\\"});\");\n\t\t\tconst paths = await allMedia(root);\n\t\t\tconst before = await state(root);\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ cliResult: cli });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"info MV-ASSET-DYNAMIC-STOP\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"Map001.json.events[1].pages[0].list[0].parameters[1]\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"variable\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst actual = await observed(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)(actual.relations).toEqual({\n\t\t\t\tuses: transferExpected().map((use) => ({\n\t\t\t\t\t...use,\n\t\t\t\t\tnativePath: \"Map001.json.events[1].pages[0].list[1].parameters[1]\"\n\t\t\t\t})),\n\t\t\t\tproblems: [],\n\t\t\t\tstops: [{\n\t\t\t\t\tidentity: \"map:1/event:1\",\n\t\t\t\t\tnativePath: \"Map001.json.events[1].pages[0].list[0].parameters[1]\",\n\t\t\t\t\trelatedNativePaths: [],\n\t\t\t\t\tdependencyChain: [],\n\t\t\t\t\tconditions: [],\n\t\t\t\t\treason: \"Transfer destination Map is selected by a runtime variable; this path has no fixed Map candidate and is unchecked.\"\n\t\t\t\t}]\n\t\t\t});\n\t\t\tawait (0,__vite_ssr_import_0__.rm)(paths.get(\"parallax\"));\n\t\t\tconst missing = await state(root);\n\t\t\tconst failure = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ cliResult: failure });\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure.exitCode).not.toBe(0);\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure.stderr).toContain(\"info MV-ASSET-DYNAMIC-STOP\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure.stderr).toContain(\"Map002.json.parallaxName\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure.stderr).toContain(\"list[1].parameters[1]\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(missing);\n\t\t});\n\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

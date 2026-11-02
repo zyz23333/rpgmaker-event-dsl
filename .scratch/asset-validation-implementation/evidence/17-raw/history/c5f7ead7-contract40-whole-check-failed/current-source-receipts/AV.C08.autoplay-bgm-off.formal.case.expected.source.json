@@ -1,0 +1,164 @@
+{
+  "id": "AV.C08.autoplay-bgm-off.formal.case.expected",
+  "ownerTicket": "07",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:40:16.875Z",
+  "completedAt": "2026-11-02T11:40:19.185Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {mapEvent,transferPlayer,mapRef,rawDslCommand,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"Map assets\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[transferPlayer({destination:{kind:\"direct\",map:mapRef({id:2}),x:0,y:0}})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Host"
+          },
+          {
+            "id": 2,
+            "name": "Transfer"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Map002.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 2,
+          "parallaxName": "TransferSky",
+          "autoplayBgm": false,
+          "autoplayBgs": true,
+          "bgm": {
+            "name": "TransferBgm",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "bgs": {
+            "name": "TransferBgs",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "battleback1Name": "ExcludedBack1",
+          "battleback2Name": "ExcludedBack2",
+          "events": [],
+          "custom": {
+            "untouched": true
+          }
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Map tiles",
+            "tilesetNames": [
+              "Transfer0",
+              "Transfer1",
+              "Transfer2",
+              "Transfer3",
+              "Transfer4",
+              "Transfer5",
+              "Transfer6",
+              "Transfer7",
+              "Transfer8"
+            ],
+            "custom": {
+              "untouched": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Map tiles",
+            "tilesetNames": [
+              "Transfer0",
+              "Transfer1",
+              "Transfer2",
+              "Transfer3",
+              "Transfer4",
+              "Transfer5",
+              "Transfer6",
+              "Transfer7",
+              "Transfer8"
+            ],
+            "custom": {
+              "untouched": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer0.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer1.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer2.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer3.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer4.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer5.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer6.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer7.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer8.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\img\\parallaxes\\TransferSky.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\audio\\bgs\\TransferBgs.ogg"
+    },
+    {
+      "cliResult": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T11:40:17.419Z",
+        "completedAt": "2026-11-02T11:40:18.649Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check warning:\nwarning MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game; required extension: .ogg; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\audio\\bgm\\TransferBgm.ogg; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-map-autoplay-bgm-C29RI0\\最小 Workspace with spaces\\Game\\audio\\bgm\\TransferBgm.ogg\n  audio/bgm \"TransferBgm\"; 1 use(s)\n  - warning map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[1]; chain: Map002.json.bgm.name (Transfer destination Map autoplay audio); conditions: Transfer destination configuration may be overridden at runtime. Map BGM plays only when its saved autoplay setting is enabled.; inactive: Map autoplayBgm is false; the saved bgm is inactive.; DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-map-autoplay-bgm-C29RI0/最小 Workspace with spaces/src/map-assets.events.ts (line 1, column 229); base: warning; effective: warning\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.\n"
+      }
+    }
+  ],
+  "expected": {
+    "description": "disabled saved autoplay remains an explicit inactive use with a warning and unchanged Check state",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-map-workspace.test.ts",
+    "sha256": "57756a93e3b4949db852ed777c4805229f65e1e5194ac060f1de25a762444ccd",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-map-autoplay-${audioField}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot, flag = audioField === \"bgm\" ? \"autoplayBgm\" : \"autoplayBgs\", saved = {\n\t\t\t...targetMap(),\n\t\t\t[flag]: false\n\t\t};\n\t\tawait prepare(root, source(), { \"Map002.json\": saved });\n\t\tawait allMedia(root, fields.filter((f) => f.token !== audioField));\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/audio\", audioField), { recursive: true });\n\t\tconst before = await state(root);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ cliResult: cli });\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"warning MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(`Map ${flag} is false`);\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"inactive:\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst expected = transferExpected().map((use) => use.folder === audioField ? {\n\t\t\t...use,\n\t\t\tinactive: `Map ${flag} is false; the saved ${audioField} is inactive.`\n\t\t} : use);\n\t\t(0,__vite_ssr_import_2__.expect)((await observed(root)).relations).toEqual({\n\t\t\tuses: expected,\n\t\t\tproblems: [],\n\t\t\tstops: []\n\t\t});\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

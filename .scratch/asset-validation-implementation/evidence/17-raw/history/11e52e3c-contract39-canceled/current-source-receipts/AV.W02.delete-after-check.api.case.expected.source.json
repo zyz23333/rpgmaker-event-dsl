@@ -1,0 +1,230 @@
+{
+  "id": "AV.W02.delete-after-check.api.case.expected",
+  "ownerTicket": "13",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:10:56.370Z",
+  "completedAt": "2026-11-02T10:10:58.994Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import type { WorkflowInput } from \"../types/workflow-input.js\";\nimport {commonEvent,mapEvent,showPicture,imageAsset,callCommonEvent,commonEventRef,showAnimation,animationRef,changeTileset,tilesetRef} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Workflow\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+      "project": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Map"
+          }
+        ],
+        "Map001.json": {
+          "id": 1,
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": [
+            null
+          ],
+          "custom": {
+            "keep": [
+              "opaque",
+              null
+            ]
+          }
+        }
+      },
+      "defaultDirectFixtureOrigin": "CommonEvents.json[10].list[0].parameters[1] (directSource only; overrides have their own literal assertions)",
+      "policy": "one current pass; no media input persistence"
+    },
+    {
+      "operation": {
+        "operation": "check",
+        "boundary": "asset-after-check-pass"
+      },
+      "actual": {
+        "exit": {
+          "exitCode": 0,
+          "signal": null
+        },
+        "result": {
+          "kind": "result",
+          "ok": true
+        },
+        "text": "",
+        "messages": [
+          {
+            "kind": "asset-pass-entered"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png"
+          },
+          {
+            "kind": "checkpoint",
+            "pid": 28160
+          },
+          {
+            "kind": "result",
+            "ok": true
+          }
+        ],
+        "process": {
+          "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+          "arguments": [
+            "--import",
+            "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+            "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+          ],
+          "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces",
+          "startedAt": "2026-11-02T10:10:56.420Z",
+          "completedAt": "2026-11-02T10:10:57.743Z",
+          "exitCode": 0,
+          "signal": null,
+          "stdout": "",
+          "stderr": "",
+          "ipcMessages": [
+            {
+              "kind": "asset-pass-entered"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png"
+            },
+            {
+              "kind": "checkpoint",
+              "pid": 28160
+            },
+            {
+              "kind": "result",
+              "ok": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "operation": {
+        "operation": "check"
+      },
+      "actual": {
+        "exit": {
+          "exitCode": 1,
+          "signal": null
+        },
+        "result": {
+          "kind": "result",
+          "ok": false,
+          "message": "compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-workflow-after-check-OvEhx5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 80); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete."
+        },
+        "text": "compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-workflow-after-check-OvEhx5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 80); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.",
+        "messages": [
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures"
+          },
+          {
+            "kind": "result",
+            "ok": false,
+            "message": "compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-workflow-after-check-OvEhx5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 80); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete."
+          }
+        ],
+        "process": {
+          "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+          "arguments": [
+            "--import",
+            "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+            "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+          ],
+          "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces",
+          "startedAt": "2026-11-02T10:10:57.756Z",
+          "completedAt": "2026-11-02T10:10:58.973Z",
+          "exitCode": 1,
+          "signal": null,
+          "stdout": "",
+          "stderr": "",
+          "ipcMessages": [
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures"
+            },
+            {
+              "kind": "result",
+              "ok": false,
+              "message": "compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-after-check-OvEhx5\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-workflow-after-check-OvEhx5/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 80); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "expected": {
+    "description": "a completed Check pass is not repeated before return and a new command observes missing media",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-workflow-workspace.test.ts",
+    "sha256": "674ecaa8bf740225e8fa3615ba3dbdf107807fdd5dc660f3b89f90ddf3f8767a",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-workflow-after-check\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(sandbox);\n\t\tawait put(root);\n\t\tlet atBoundary;\n\t\tconst result = await operation(sandbox, {\n\t\t\toperation: \"check\",\n\t\t\tboundary: \"asset-after-check-pass\"\n\t\t}, async () => {\n\t\t\tawait (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, media));\n\t\t\tatBoundary = await observe(root);\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(result.exit.exitCode).toBe(0);\n\t\t(0,__vite_ssr_import_2__.expect)(result.messages.some((m) => m.kind === \"asset-pass-entered\")).toBe(true);\n\t\tconst completedIndex = result.messages.findIndex((m) => m.kind === \"checkpoint\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.messages.slice(completedIndex + 1).filter((m) => m.kind === \"asset-query\")).toEqual([]);\n\t\t(0,__vite_ssr_import_2__.expect)(await observe(root)).toEqual(atBoundary);\n\t\tconst next = await operation(sandbox, { operation: \"check\" });\n\t\t(0,__vite_ssr_import_2__.expect)(next.exit.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(next.text).toContain(\"error MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(await observe(root)).toEqual(atBoundary);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

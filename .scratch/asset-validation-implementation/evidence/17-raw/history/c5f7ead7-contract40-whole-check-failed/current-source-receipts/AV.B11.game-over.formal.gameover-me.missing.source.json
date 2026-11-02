@@ -1,0 +1,175 @@
+{
+  "id": "AV.B11.game-over.formal.gameover-me.missing",
+  "ownerTicket": "09",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:30:16.903Z",
+  "completedAt": "2026-11-02T11:30:19.288Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {mapEvent,commonEvent,troopEvent,gameOver,returnToTitleScreen,battleProcessing,troopRef,variableRef,rawDslCommand} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"System\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[gameOver()]}]});",
+      "projectOverrides": {
+        "System.json": {
+          "gameTitle": "Synthetic evidence context",
+          "switches": [
+            "",
+            "Saved switch"
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          },
+          "gameoverMe": {
+            "name": "GameOver",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "title1Name": "TitleOne",
+          "title2Name": "TitleTwo",
+          "titleBgm": {
+            "name": "TitleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "battleBgm": {
+            "name": "BattleMusic",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "victoryMe": {
+            "name": "Victory",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "defeatMe": {
+            "name": "Defeat",
+            "volume": 21,
+            "pitch": 71,
+            "pan": -31
+          },
+          "sounds": [
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "BattleStart",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            },
+            {
+              "name": "",
+              "volume": 21,
+              "pitch": 71,
+              "pan": -31
+            }
+          ],
+          "optSideView": false,
+          "hasEncryptedImages": false,
+          "hasEncryptedAudio": false
+        },
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "System"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "specifyBattleback": true,
+          "battleback1Name": "BackOne",
+          "battleback2Name": "BackTwo",
+          "events": [],
+          "custom": {
+            "retain": [
+              null,
+              17
+            ]
+          }
+        },
+        "Troops.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Selected troop",
+            "members": [],
+            "pages": []
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-system-tracer-SZjToY\\最小 Workspace with spaces\\Game\\audio\\me\\GameOver.ogg"
+    }
+  ],
+  "expected": {
+    "description": "Game Over selects its saved System ME and fails Compile and Check before publication with the defining event origin",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-system-workspace.test.ts",
+    "sha256": "86934f80311612ea09e08259af880c9b2de50bfe6f9f47a50f4fa3555cba7e91",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-system-tracer\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, source(\"gameOver()\"));\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/audio/me\"), { recursive: true });\n\t\tconst before = await state(root);\n\t\tfor (const check of [true, false]) {\n\t\t\tconst failure = await compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck\n\t\t\t}).then(() => \"\", String);\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"error MV-ASSET-MISSING-FILE\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"System.json.gameoverMe.name\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"Map001.json.events[1].pages[0].list[0]\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t};\n\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).not.toBe(0);\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"System.json.gameoverMe.name\");\n\t\tawait media(root, gameoverFields[0]);\n\t\tconst repaired = await state(root);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)((await observed(root)).relations).toEqual({\n\t\t\tuses: expected(gameoverFields),\n\t\t\tproblems: [],\n\t\t\tstops: []\n\t\t});\n\t\tconst after = await state(root);\n\t\t(0,__vite_ssr_import_2__.expect)(after.project).toEqual(repaired.project);\n\t\t(0,__vite_ssr_import_2__.expect)(after.snapshot).toEqual(before.snapshot);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}
