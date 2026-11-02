@@ -1,0 +1,16 @@
+{
+  "status": "verified",
+  "verifiedCommit": "45fac3489c2c736b4ee5228297e77f4181aa9f9a",
+  "assertionFreeze": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+  "rawGitBlobs": 100,
+  "frozenSourceInputs": 16,
+  "finalReceiptPairs": 24,
+  "aggregateSha256": "1f55c1c65901e6ee296cee5c2bf67d3df8ecada0387d4ed0c68dff314857b01f",
+  "rawManifestSha256": "24954e5266d664782b24f64a790b27e15551e75292f0666ef1f6cf0acf1de9c8",
+  "checks": [
+    "Every raw artifact byte length and SHA equals both worktree and committed Git blob",
+    "Final test/helper/product/control and old-regression sources equal assertion-freeze Git blobs",
+    "All24 embedded original receipt bytes and assertion-source SHA verified",
+    "Exact source/built12 matrices, zero filtered, and integration ancestry retained"
+  ]
+}

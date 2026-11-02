@@ -1,0 +1,38 @@
+{
+  "recordedAt": "2026-11-02T09:45:23.5884562Z",
+  "sourceFreeze": "f03e66e6e4550da8a72f98c118fbc36c3af4d1d5",
+  "integrationBase": "5aab331ae7bf1f3d038a0fb7a595087b5d09156a",
+  "nodeVersion": "v22.23.4",
+  "pnpmVersion": "10.33.0",
+  "nodeExecutable": "M:/Shuen/Codex/tools/node-v22.23.4-win-x64\\node.exe",
+  "TEMP": "C:\\Users\\Shuen\\AppData\\Local\\Temp",
+  "workspace": "M:/Shuen/Codex/asset-validation-16-recovery",
+  "maxWorkers": 1,
+  "sourceCommand": "pnpm --filter rpgmaker-event-dsl exec vitest run test/asset-recovery-workspace.test.ts --maxWorkers=1 --reporter=json --outputFile=../../.scratch/asset-validation-implementation/evidence/16-raw/16-source-final.json",
+  "builtAndCompatibilityCommands": "run-16-final.ps1",
+  "productBehaviorChanged": false,
+  "compileContractVersion": "mv-1.6.1/39",
+  "checkResults": [
+    {
+      "log": "16-typecheck-final.log",
+      "command": "pnpm typecheck",
+      "exitCode": 0
+    },
+    {
+      "log": "16-lint-first.log",
+      "command": "pnpm lint",
+      "exitCode": 0
+    },
+    {
+      "log": "16-format-final.log",
+      "command": "pnpm format:check",
+      "exitCode": 0
+    },
+    {
+      "log": "16-build.log",
+      "command": "pnpm build",
+      "exitCode": 0
+    }
+  ],
+  "checkResultProvenance": "Actual previously completed shell results in this task; logs retained, no check rerun or inferred pass from filtered tests."
+}
