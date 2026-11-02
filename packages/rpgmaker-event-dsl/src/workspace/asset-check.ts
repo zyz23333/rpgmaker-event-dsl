@@ -2,12 +2,14 @@ import { assetTargetKey, collectEventAssetUses } from "../validation/asset-uses.
 import { collectCommonEventCalls } from "../validation/asset-common-calls.js";
 import { renderAssetCallContext } from "./asset-call-context.js";
 import { observeAssetFile } from "./asset-files.js";
-import { assetUseLevel } from "../validation/asset-policy.js";
+import { buildAssetReport, type AssetFinding } from "../validation/asset-report.js";
+import type { AssetCheckException } from "../validation/asset-exceptions.js";
 import { collectAnimationAndTilesetAssets } from "../validation/asset-dependencies.js";
 import type { AssetOrigin } from "../validation/asset-dependencies.js";
 import { collectMapAssetRelations } from "../validation/asset-map-relations.js";
 import { collectSystemAssets } from "../validation/asset-system-relations.js";
 import { collectActorEnemyAssets } from "../validation/asset-actor-enemy-relations.js";
+import { renderAuthoredAssetLocation, type AuthoredAssetLocation } from "./asset-provenance.js";
 
 function renderOrigin(use: AssetOrigin): string {
   return `${use.identity} ${use.nativePath}${use.relatedNativePaths.length ? `; related: ${use.relatedNativePaths.join(", ")}` : ""}${use.dependencyChain.length ? `; chain: ${use.dependencyChain.map((step) => `${step.data}${step.id === undefined ? "" : `[${step.id}]`}.${step.field} (${step.relationship})`).join(" -> ")}` : ""}${use.conditions.length ? `; conditions: ${use.conditions.join(" ")}` : ""}${use.inactive ? `; inactive: ${use.inactive}` : ""}${use.candidate ? `; candidate: ${use.candidate}` : ""}`;
@@ -19,6 +21,8 @@ export async function checkEventAssets(input: {
   files: ReadonlyMap<string, string>;
   externalData: ReadonlyMap<string, string | Uint8Array>;
   commandName: string;
+  exceptions?: readonly AssetCheckException[];
+  locations?: ReadonlyMap<string, AuthoredAssetLocation>;
 }): Promise<void> {
   const mapRelations = collectMapAssetRelations(input.files, input.externalData);
   const systemRelations = collectSystemAssets(input.files, input.externalData);
@@ -32,16 +36,15 @@ export async function checkEventAssets(input: {
     uses: relationGroups.flatMap((group) => group.uses),
     problems: relationGroups.flatMap((group) => group.problems),
   };
-  for (const stop of [...mapRelations.stops, ...systemRelations.stops])
-    console.error(
-      `${input.commandName} asset check info:\ninfo MV-ASSET-DYNAMIC-STOP: ${stop.reason}\n  - ${renderOrigin(stop)}`,
-    );
+  const stops = [...mapRelations.stops, ...systemRelations.stops];
   const uses = [...collectEventAssetUses(input.files), ...relations.uses];
   const system = JSON.parse(input.files.get("System.json")!);
-  const failures: string[] = relations.problems.map(
-    (problem) =>
-      `error MV-ASSET-INVALID-DATA: ${problem.dataPath}: ${problem.reason}\n  - ${renderOrigin(problem)}`,
-  );
+  const findings: AssetFinding[] = relations.problems.map((problem) => ({
+    code: "MV-ASSET-INVALID-DATA",
+    reason: `${problem.dataPath}: ${problem.reason}`,
+    failurePath: problem.dataPath,
+    uses: [problem],
+  }));
   const groups = new Map<string, typeof uses>();
   for (const use of uses) {
     const key = assetTargetKey(use);
@@ -57,31 +60,59 @@ export async function checkEventAssets(input: {
         : target.category === "audio"
           ? "hasEncryptedAudio"
           : undefined;
-    let message: string | undefined;
-    let code: string | undefined;
+    let finding: Omit<AssetFinding, "uses"> | undefined;
     if (flag !== undefined && system[flag] !== undefined && typeof system[flag] !== "boolean") {
-      code = "MV-ASSET-INVALID-DATA";
-      message = `MV-ASSET-INVALID-DATA: System.json.${flag} must be boolean when present; this use is unchecked.`;
+      finding = {
+        code: "MV-ASSET-INVALID-DATA",
+        reason: `System.json.${flag} must be boolean when present; this use is unchecked.`,
+        failurePath: `System.json.${flag}`,
+      };
     } else if (flag !== undefined && system[flag] === true) {
-      code = "MV-ASSET-UNSUPPORTED-ENCRYPTION";
-      message = `MV-ASSET-UNSUPPORTED-ENCRYPTION: System.json.${flag} is true; ordinary editing files cannot be checked; this use is unchecked.`;
+      finding = {
+        code: "MV-ASSET-UNSUPPORTED-ENCRYPTION",
+        reason: `System.json.${flag} is true; ordinary editing files cannot be checked; this use is unchecked.`,
+        failurePath: `System.json.${flag}`,
+      };
     } else {
       const fact = await observeAssetFile(input.projectRoot, target);
-      code = fact.code;
       if (fact.code !== undefined)
-        message = `${fact.code}: ${fact.reason} Project Root: ${input.projectRoot}; required extension: ${fact.extension}${fact.targetPath === undefined ? "" : `; target: ${fact.targetPath}`}${fact.failurePath === undefined ? "" : `; failed at: ${fact.failurePath}`}`;
+        finding = {
+          code: fact.code,
+          reason: fact.reason!,
+          target,
+          extension: fact.extension,
+          ...(fact.targetPath === undefined ? {} : { targetPath: fact.targetPath }),
+          ...(fact.failurePath === undefined ? {} : { failurePath: fact.failurePath }),
+        };
     }
-    if (message !== undefined && code !== undefined) {
-      const level = group.some((use) => assetUseLevel(use, code!) === "error")
-        ? "error"
-        : "warning";
-      const rendered = `${level} ${message}\n  ${target.category}/${target.folder} ${JSON.stringify(target.name)}; ${group.length} use(s)\n${group.map((use) => `  - ${assetUseLevel(use, code!)} ${renderOrigin(use)}`).join("\n")}`;
-      if (level === "error") failures.push(rendered);
-      else console.error(`${input.commandName} asset check warning:\n${rendered}`);
-    }
+    if (finding) findings.push({ ...finding, target, uses: group });
   }
-  if (failures.length)
-    throw new Error(
-      `${input.commandName} asset check failed:\n${failures.join("\n")}${renderAssetCallContext(collectCommonEventCalls(input.files))}`,
+  const origin = (value: AssetOrigin) =>
+    renderOrigin(value) + renderAuthoredAssetLocation(value.nativePath, input.locations);
+  const report = buildAssetReport(findings, input.exceptions ?? [], stops.length > 0);
+  const parts = report.groups.map(
+    (group) =>
+      `${group.level} ${group.code}: ${group.reason} Project Root: ${input.projectRoot}${group.extension === undefined ? "" : `; required extension: ${group.extension}`}${group.targetPath === undefined ? "" : `; target: ${group.targetPath}`}${group.failurePath === undefined ? "" : `; failed at: ${group.failurePath}`}\n${group.target === undefined ? "" : `  ${group.target.category}/${group.target.folder} ${JSON.stringify(group.target.name)}; ${group.members.length} use(s)\n`}${group.members.map((member) => `  - ${member.effectiveLevel} ${origin(member.origin)}; base: ${member.baseLevel}; effective: ${member.effectiveLevel}${member.exceptionReason === undefined ? "" : `; exception reason: ${member.exceptionReason}`}`).join("\n")}`,
+  );
+  parts.push(
+    ...stops.map((stop) => `info MV-ASSET-DYNAMIC-STOP: ${stop.reason}\n  - ${origin(stop)}`),
+  );
+  parts.push(
+    ...report.ineffective.map(
+      ({ index, entry }) =>
+        `warning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[${index}] ${entry.category}/${entry.folder} ${JSON.stringify(entry.name)} downgraded no error; reason: ${entry.reason}`,
+    ),
+  );
+  if (parts.length)
+    parts.push(
+      `${report.statistics.groups} problem group(s), ${report.statistics.files} problem file(s), ${report.statistics.uses} affected use(s). Coverage: ${report.incomplete ? "incomplete; named relationships or file checks remain unchecked" : "complete"}.`,
+    );
+  const calls = renderAssetCallContext(collectCommonEventCalls(input.files), input.locations);
+  if (calls) parts.push(calls.trimStart());
+  if (report.hasErrors)
+    throw new Error(`${input.commandName} asset check failed:\n${parts.join("\n")}`);
+  if (parts.length)
+    console.error(
+      `${input.commandName} asset check ${report.groups.length || report.ineffective.length ? "warning" : "info"}:\n${parts.join("\n")}`,
     );
 }

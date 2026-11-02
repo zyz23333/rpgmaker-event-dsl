@@ -1,6 +1,6 @@
 # 12: 准确例外与完整的多来源诊断
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 03, 07, 10
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
