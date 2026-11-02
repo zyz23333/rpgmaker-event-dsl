@@ -559,8 +559,11 @@ for (const field of reached) {
               ? []
               : [fields[field.slot!]!],
         );
-        if (branch === "file-missing" && field.family === "B09")
-          await mkdir(join(root, "Game/img/tilesets"), { recursive: true });
+        if (branch === "file-missing")
+          await mkdir(
+            join(root, "Game", field.category === "image" ? "img" : "audio", field.folder),
+            { recursive: true },
+          );
         const before = await state(root);
         const successful =
           branch === "field-empty" || (branch === "file-missing" && field.family === "B09");
@@ -642,6 +645,7 @@ for (const audioField of ["bgm", "bgs"] as const)
         root,
         fields.filter((f) => f.token !== audioField),
       );
+      await mkdir(join(root, "Game/audio", audioField), { recursive: true });
       const before = await state(root);
       await compileWorkspace({ workspaceRoot: root, check: true });
       expect(await state(root)).toEqual(before);
