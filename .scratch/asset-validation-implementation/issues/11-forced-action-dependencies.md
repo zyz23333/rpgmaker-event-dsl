@@ -1,6 +1,6 @@
 # 11: 强制行动的技能、默认攻击与公共事件 effects
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 06, 10
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -10,18 +10,18 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Acceptance criteria
 
-- [ ] B05／B16：正动画继续到 Animation，零动画只关闭动画路径，所有保存的 Common Event effects 仍逐项记录直接调用关系，不用 reservation 覆盖裁掉来源；目标作为独立根，不复制传递素材。
-- [ ] B06：角色默认攻击保留无武器时 Animation 1 候选及当前武器未知分支；不读初始装备冒充当前武器。
-- [ ] B07：敌人默认攻击选 System.sounds 槽 9，不伪造动画 ID。完整验证共用链、循环、已知兄弟路径继续以及正式／raw 的独立预期。
+- [x] B05／B16：正动画继续到 Animation，零动画只关闭动画路径，所有保存的 Common Event effects 仍逐项记录直接调用关系，不用 reservation 覆盖裁掉来源；目标作为独立根，不复制传递素材。
+- [x] B06：角色默认攻击保留无武器时 Animation 1 候选及当前武器未知分支；不读初始装备冒充当前武器。
+- [x] B07：敌人默认攻击选 System.sounds 槽 9，不伪造动画 ID。完整验证共用链、循环、已知兄弟路径继续以及正式／raw 的独立预期。
 
 ### 共通要求（限本票适用范围）
 
-- [ ] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
-- [ ] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
-- [ ] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
-- [ ] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
-- [ ] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
+- [x] 完成本票验收族中分配给本票的全部有限子用例；共享族按下表分支签收，不减少字段、表示、时机或结果，不把其他票负责的分支误记为通过。
+- [x] 正式表达与已识别 raw 各自对照独立预期；按适用范围核对完整 Event Asset Use、Asset Dependency Chain、条件、None、必要字段问题及文件事实。预期不得调用被测收集器、匹配器或政策函数生成。
+- [x] 在 Windows / Node.js 22 的真实临时 Workspace 中，按原索引指定的 API／实际 CLI 入口和边界验证结果及允许的状态变化。纯语义测试只作补充，故障注入位于测试子进程操作系统边界。
+- [x] 保留现有公共 Workspace API 和 CLI；不新增产品测试开关、JSON CLI、全局跳过或通配符例外。素材不进入持久编译基线、快照、备份、复制或写入范围。
+- [x] 补齐本票影响的既有成功 fixture 所需真实文件与必要标准字段，保留旧断言与未知字段。同步适用使用说明、样例及构建后 CLI 用例清单；行为变更协调 Compile Contract Version。
+- [x] 记录完整子用例 ID、契约出处、输入、预期、实际、环境、执行方式及证据；未执行、能力受限和失败分别记录，不能以 skip 计为通过。反例按规格回到责任行为或决定处理。
 
 ## Acceptance ownership
 
@@ -48,9 +48,13 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 
 ## Verification
 
-按上游索引指定的实例与入口运行本票适用验证，并记录相关仓库检查、构建和 Windows CLI 结果；最终全量核对由 17 负责。本票发现的失败不得以延后到 17 代替修复。当前所有产品测试和原生检查均为待实施／未执行，完成时追加实际结果。
+完成113个primary和4个supporting规范ID，源码／构建各117个精确回执，包含API与实际CLI，预期均独立。contract34的完整定向检查每入口143／143（主116、Common／Battle／契约25、System共享2）；合入03最新集成并升contract36后，代表B05／B06／B07／B16、六共享C05、契约及图片名称政策组合各入口20／20。所有矩阵串行、`--maxWorkers=1`，Windows10／Node22.23.4。typecheck、lint、format:check、build及diff检查通过。
 
-完成后记录实际 outcome 和验证，再更新本票状态。原规格、决策地图及已完成决策票不因本票发布而改状态。
+实际实现、完整集合、测试与进程／Workspace证据、五个行为red／green切片及两次已修正测试预期失败详见[人工验收记录](../evidence/11-action-acceptance.md)与[机器合册](../evidence/11-action-acceptance.json)。本票无所属未执行分支或未修复失败，不要求新增N组原生执行。最终全仓和整规格验收属于17，原规格、决策地图及其他票状态保持各自责任。
+
+## Outcome
+
+当前339按捕获Skill追踪正动画、无武器Animation1候选／未知当前武器停止、敌人sound9，以及每个code44 effect的独立当前Common目标关系。零动画不抑制effects，损坏必要字段不阻断安全兄弟；直接调用有限且素材按Common定义位置计数。旧Battle fixture、文档、示例和构建Windows清单同步，公共API／CLI与素材所有权不变。完成结果和验证已记录，状态设resolved。
 
 ## Sources
 
@@ -61,6 +65,10 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 
 ## Comments
+
+- 2026-11-02：native_01 完成11，合入03集成 `e103e373c26771f5ed117d7703614466c31b32cc`（此前含07／08／09／10），合并提交 `32273bef`，最终Compile Contract Version `mv-1.6.1/36`。source／built规范集合各117，完整contract34各143通过，最终36各20组合通过，仓库静态检查及build通过；具体完整日志、实际输入、独立预期、进程和SHA256见验收合册。历史98／18主矩阵及24／1契约回归失败保留，修正测试自有预期后相关完整矩阵已重跑成功，无失败转交17。
+
+- 2026-11-02：native_01 在 `M:/Shuen/Codex/asset-validation-11-action`、`codex/asset-validation-11-action` 领取。干净工作树已 fast-forward 当前集成 `4cf156255d077f06614578dd7bf11b5e85cdfd54`，06／10 已 resolved，contract31。沿已确认 Workspace API／实际 CLI 与补充语义 seam 使用 TDD；与07／09协调大矩阵和两个共享 C05 回调，保留公共事件独立根。
 
 - 2026-11-02 实施责任核对：上游索引已明确要求 `AV.C04.repeated-common-effect.formal.case.expected`，B16 也要求同目标重复 effect；原责任表遗漏 C04 行，现显式归属本票，不增加产品范围或新验收 token。共享规范 ID 的合并测试保留既有独立断言，避免重复注册及回执覆盖。
 

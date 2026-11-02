@@ -8,6 +8,7 @@ import type { AssetOrigin } from "../validation/asset-dependencies.js";
 import { collectMapAssetRelations } from "../validation/asset-map-relations.js";
 import { collectSystemAssets } from "../validation/asset-system-relations.js";
 import { collectActorEnemyAssets } from "../validation/asset-actor-enemy-relations.js";
+import { collectForcedActionAssets } from "../validation/asset-action-relations.js";
 
 function renderOrigin(use: AssetOrigin): string {
   return `${use.identity} ${use.nativePath}${use.relatedNativePaths.length ? `; related: ${use.relatedNativePaths.join(", ")}` : ""}${use.dependencyChain.length ? `; chain: ${use.dependencyChain.map((step) => `${step.data}${step.id === undefined ? "" : `[${step.id}]`}.${step.field} (${step.relationship})`).join(" -> ")}` : ""}${use.conditions.length ? `; conditions: ${use.conditions.join(" ")}` : ""}${use.inactive ? `; inactive: ${use.inactive}` : ""}${use.candidate ? `; candidate: ${use.candidate}` : ""}`;
@@ -20,6 +21,7 @@ export async function checkEventAssets(input: {
   externalData: ReadonlyMap<string, string | Uint8Array>;
   commandName: string;
 }): Promise<void> {
+  const actions = collectForcedActionAssets(input.files, input.externalData);
   const mapRelations = collectMapAssetRelations(input.files, input.externalData);
   const systemRelations = collectSystemAssets(input.files, input.externalData);
   const relationGroups = [
@@ -27,12 +29,13 @@ export async function checkEventAssets(input: {
     collectActorEnemyAssets(input.files, input.externalData),
     mapRelations,
     systemRelations,
+    actions,
   ];
   const relations = {
     uses: relationGroups.flatMap((group) => group.uses),
     problems: relationGroups.flatMap((group) => group.problems),
   };
-  for (const stop of [...mapRelations.stops, ...systemRelations.stops])
+  for (const stop of [...mapRelations.stops, ...systemRelations.stops, ...actions.stops])
     console.error(
       `${input.commandName} asset check info:\ninfo MV-ASSET-DYNAMIC-STOP: ${stop.reason}\n  - ${renderOrigin(stop)}`,
     );
@@ -82,6 +85,6 @@ export async function checkEventAssets(input: {
   }
   if (failures.length)
     throw new Error(
-      `${input.commandName} asset check failed:\n${failures.join("\n")}${renderAssetCallContext(collectCommonEventCalls(input.files))}`,
+      `${input.commandName} asset check failed:\n${failures.join("\n")}${renderAssetCallContext([...collectCommonEventCalls(input.files), ...actions.calls])}`,
     );
 }

@@ -7,9 +7,11 @@ import { workspaceApiEntry } from "./support/workspace-operation-process.js";
 import { getWorkspaceStatePaths } from "../src/workspace/state.js";
 import { collectCommonEventCalls } from "../src/validation/asset-common-calls.js";
 import { collectEventAssetUses, nativeAssetEvents } from "../src/validation/asset-uses.js";
+import { verifyForcedActionGraph } from "./support/asset-action-scenarios.js";
 
 const api: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 const it = createAssetTest({ ownerTicket: "10", testSource: import.meta.url });
+const graphIt = createAssetTest({ ownerTicket: "10,11", testSource: import.meta.url });
 const imports =
   'import {commonEvent,mapEvent,troopEvent,callCommonEvent,commonEventRef,showPicture,imageAsset,rawDslCommand,loop} from "rpgmaker-event-dsl";\n';
 const picture =
@@ -22,7 +24,12 @@ const common = (id: number, commands: string) =>
   `export const event${id}=commonEvent({id:${id},name:"Event ${id}",trigger:"none",commands:[${commands}]});\n`;
 
 async function prepare(root: string, source: string, project: Record<string, unknown> = {}) {
-  recordAssetInput({ source, project, target: "Game/img/pictures/CalledPoster.png" });
+  recordAssetInput({
+    workspaceRoot: root,
+    source,
+    project,
+    target: "Game/img/pictures/CalledPoster.png",
+  });
   await createMinimalProject(root);
   for (const [file, data] of Object.entries(project))
     await writeFile(join(root, "Game/data", file), JSON.stringify(data));
@@ -250,39 +257,47 @@ const graphs = [
 ] as const;
 
 for (const graph of graphs)
-  it(`AV.C05.${graph.branch}.formal.case.expected: retains every finite direct edge without multiplying defining asset uses`, async () => {
-    await withWindowsSandbox(`asset-common-${graph.branch}`, async (sandbox) => {
-      const root = sandbox.workspaceRoot;
-      recordAssetInput({ graph, expectedUseCount: 1, recursion: "none; definitions independent" });
-      await prepare(root, graph.source);
-      await writeFile(join(root, "Game/img/pictures/CalledPoster.png"), "");
-      const before = await state(root);
-      await api.compileWorkspace({ workspaceRoot: root, check: true });
-      expect(await state(root)).toEqual(before);
-      await api.compileWorkspace({ workspaceRoot: root, check: false });
-      const files = await published(root);
-      expect(nativeAssetEvents(files).map(({ identity }) => identity)).toEqual(graph.identities);
-      expect(collectCommonEventCalls(files)).toEqual(
-        graph.edges.map(([caller, nativePath, target, targetId]) => ({
-          caller,
-          nativePath,
-          target,
-          targetId,
-          dependencyChain: [],
-        })),
-      );
-      expect(collectEventAssetUses(files)).toEqual([
-        { ...expectedCalledUse, identity: graph.useIdentity, nativePath: graph.usePath },
-      ]);
-      await writeFile(join(root, "Game/img/pictures/CalledPoster.png"), "same name new bytes");
-      await runCli(sandbox, ["compile", "--check"]);
-      const source = join(root, "src/calls.events.ts");
-      expect(await readFile(source, "utf8")).toBe(imports + graph.source);
-      expect((await state(root)).project!["img/pictures/CalledPoster.png"]).toBe(
-        Buffer.from("same name new bytes").toString("base64"),
-      );
-    });
-  });
+  graphIt(
+    `AV.C05.${graph.branch}.formal.case.expected: retains every finite direct edge without multiplying defining asset uses`,
+    async () => {
+      await withWindowsSandbox(`asset-common-${graph.branch}`, async (sandbox) => {
+        const root = sandbox.workspaceRoot;
+        recordAssetInput({
+          graph,
+          expectedUseCount: 1,
+          recursion: "none; definitions independent",
+        });
+        await prepare(root, graph.source);
+        await writeFile(join(root, "Game/img/pictures/CalledPoster.png"), "");
+        const before = await state(root);
+        await api.compileWorkspace({ workspaceRoot: root, check: true });
+        expect(await state(root)).toEqual(before);
+        await api.compileWorkspace({ workspaceRoot: root, check: false });
+        const files = await published(root);
+        expect(nativeAssetEvents(files).map(({ identity }) => identity)).toEqual(graph.identities);
+        expect(collectCommonEventCalls(files)).toEqual(
+          graph.edges.map(([caller, nativePath, target, targetId]) => ({
+            caller,
+            nativePath,
+            target,
+            targetId,
+            dependencyChain: [],
+          })),
+        );
+        expect(collectEventAssetUses(files)).toEqual([
+          { ...expectedCalledUse, identity: graph.useIdentity, nativePath: graph.usePath },
+        ]);
+        await writeFile(join(root, "Game/img/pictures/CalledPoster.png"), "same name new bytes");
+        await runCli(sandbox, ["compile", "--check"]);
+        const source = join(root, "src/calls.events.ts");
+        expect(await readFile(source, "utf8")).toBe(imports + graph.source);
+        expect((await state(root)).project!["img/pictures/CalledPoster.png"]).toBe(
+          Buffer.from("same name new bytes").toString("base64"),
+        );
+      });
+      await verifyForcedActionGraph(graph.branch);
+    },
+  );
 
 for (const branch of ["two-callers", "common-independent-root"] as const)
   it(`AV.C04.${branch}.formal.case.expected: keeps all caller positions and each actual defining picture once`, async () => {
