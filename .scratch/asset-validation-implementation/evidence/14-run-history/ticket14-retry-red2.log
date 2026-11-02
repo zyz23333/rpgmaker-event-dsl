@@ -1,0 +1,44 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/asset-validation-14-push/packages/rpgmaker-event-dsl
+
+stderr | test/asset-push-workspace.test.ts > AV.W08.delete-diff-push-repair.api.case.expected: current missing media blocks Push and a repair permits retry without Compile
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-red-retry-workspaces\asset-push-retry-5TT1HD
+
+ ❯ test/asset-push-workspace.test.ts (1 test | 1 failed) 775ms
+   × AV.W08.delete-diff-push-repair.api.case.expected: current missing media blocks Push and a repair permits retry without Compile 774ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/asset-push-workspace.test.ts > AV.W08.delete-diff-push-repair.api.case.expected: current missing media blocks Push and a repair permits retry without Compile
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ test/asset-push-workspace.test.ts:15:85
+     13|     expect(await pushApi.isGeneratedProjectDataFresh({workspaceRoot:ro…
+     14|     await pushApi.diffWorkspace({workspaceRoot:root});expect(await obs…
+     15|     await expect(pushApi.pushWorkspace({workspaceRoot:root,allowDestru…
+       |                                                                                     ^
+     16|     expect(await observePush(root)).toEqual(before);
+     17|     await putPushFile(root);await pushApi.pushWorkspace({workspaceRoot…
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/asset-push-workspace.test.ts:10:3
+ ❯ test/support/asset-evidence.ts:25:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  15:08:52
+   Duration  2.90s (transform 710ms, setup 0ms, import 1.97s, tests 775ms, environment 0ms)
+
+undefined
+M:\Shuen\Codex\asset-validation-14-push\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/asset-push-workspace.test.ts --maxWorkers=1

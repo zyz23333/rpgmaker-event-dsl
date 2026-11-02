@@ -1,0 +1,42 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/asset-validation-14-push/packages/rpgmaker-event-dsl
+
+stderr | test/asset-push-workspace.test.ts > AV.W13.source.api.prewrite.expected: source changes after pending installation stop all data replacement
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-source-red-workspaces\asset-push-source-MOAv45
+
+ ❯ test/asset-push-workspace.test.ts (2 tests | 1 failed | 1 skipped) 1745ms
+   × AV.W13.source.api.prewrite.expected: source changes after pending installation stop all data replacement 1744ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/asset-push-workspace.test.ts > AV.W13.source.api.prewrite.expected: source changes after pending installation stop all data replacement
+AssertionError: expected +0 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ test/asset-push-workspace.test.ts:27:29
+     25|     const before=await observePush(root);
+     26|     const actual=await controlledPush(sandbox,{boundary:"push-prewrite…
+     27|     expect(actual.exitCode).toBe(1);expect(actual.message+actual.stder…
+       |                             ^
+     28|     expect((await observePush(root)).project).toEqual(before.project);
+     29|   });
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/asset-push-workspace.test.ts:23:3
+ ❯ test/support/asset-evidence.ts:25:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 skipped (2)
+   Start at  15:11:03
+   Duration  3.89s (transform 702ms, setup 0ms, import 2.00s, tests 1.74s, environment 0ms)
+
+undefined
+M:\Shuen\Codex\asset-validation-14-push\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/asset-push-workspace.test.ts --maxWorkers=1 -t W13.source
