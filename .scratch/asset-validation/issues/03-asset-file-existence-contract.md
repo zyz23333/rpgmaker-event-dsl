@@ -2,7 +2,7 @@
 
 Type: grilling
 Labels: wayfinder:grilling
-Status: resolved
+Status: needs-info
 Mode: HITL
 Blocked by: 01, 02
 Parent: [事件素材引用检查的决策地图](../map.md)
@@ -21,6 +21,8 @@ Assignee: Codex（与用户进行 HITL 设计讨论）
 判定结果不能依赖未声明的运行平台或把“存在一个文件”写成可播放保证。锁定命名/路径规则与失败分类，不自动重命名、复制、修复素材或改写原生保存名称。
 
 ## Answer
+
+2026-11-02 — 图片特殊名称边界重开，等待维护者决定。实施阶段的[原生观察](../../asset-validation-implementation/evidence/01-native-media/observations.md)与下文图片字面 `%`／`#` 定位承诺矛盾，ADR 0017 已重新设为 proposed。下文其他已确认规则继续有效；没有擅自接受排除全部图片 `%`／`#`、精细筛选危险形态或撤销原生定位承诺中的任何选项。不能用例外或调整预期将反例算为通过。
 
 2026-10-25 修订：用户在过度设计评审后要求调整；以下 Answer 已同步收缩后的契约。Comments 中此前的确认记录保留为历史，不覆盖当前 Answer。
 

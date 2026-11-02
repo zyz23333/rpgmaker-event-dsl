@@ -1,8 +1,10 @@
 ---
-status: accepted
+status: proposed
 ---
 
 # Match exact asset files in ordinary editing projects
+
+Reopened on 2026-11-02 for the image percent/hash support boundary only. The [native execution receipt](../../.scratch/asset-validation-implementation/evidence/01-native-media/observations.md) disproves the literal-file mapping assumed below for `literal%20image` and `image#hash`: MV 1.6.1's `loadNormalBitmap` decodes the previously encoded path before giving it to the browser. Differential red/green-file controls confirm that URL interpretation selects another disk file. Ordinary image percent text and all tested audio percent/hash names do load; this is not evidence that every percent image name fails. The existing exact-file rule, ownership and workflow decisions otherwise remain the accepted basis. The image-name policy is awaiting a maintainer decision; no replacement support rule has been accepted and these two native cases are not passing acceptance evidence.
 
 Event Asset Uses selected by [ADR 0016](0016-event-rooted-asset-use-coverage.md) need a file contract that does not inherit an unstated host filesystem or media capability. We choose the ordinary Windows / RPG Maker MV 1.6.1 editing Project Root, exact category-directory and filename spelling, and one appended desktop extension: `.png`, `.ogg`, or `.webm`. This is deliberately stricter than typical Windows case-insensitive lookup: names are not trimmed, normalized, URL-decoded, or repaired, and another format cannot substitute for the required file. Direct, recognized raw, and indirect uses share the same rules while retaining each origin. The detailed contract is in [the asset file existence decision](../../.scratch/asset-validation/issues/03-asset-file-existence-contract.md#answer).
 
