@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "kind": "ticket17-legacy-regression-support",
+  "status": "passed",
+  "verifiedAt": "2026-11-02T12:41:24.848Z",
+  "implementationRevision": "14ef1dddaecc8df069a07277f449013b0cdb475c",
+  "mergedIntegration": "ea5a6b6fdf00dd8cf13294a5150ce57936c7f258",
+  "compileContractVersion": "mv-1.6.1/40",
+  "mainEvidence": {
+    "path": ".scratch/asset-validation-implementation/evidence/17-regression-repair/acceptance.json",
+    "bytes": 518376,
+    "sha256": "5d0943651ed051c63b47e33aa044cd3662ad4d37d44df411f149926f036a3524",
+    "gitBlob": "75f9c27f8c5fc0c00959e22a3cb4d9a9e45163ea"
+  },
+  "checked": {
+    "rawDiskAndIndexBytes": 85,
+    "frozenGitInputs": 18,
+    "builtArtifacts": 15,
+    "freshHelperReceipts": 42,
+    "originalSourceCopies": 6,
+    "originalNativeArchiveCopies": 8,
+    "localLinks": 13
+  },
+  "result": "Source/built each22actual passes/115filtered in6real suites;42fresh helpers bound to exact test bytes/entry. Original natural full-check six failures and eventual-helper passes remain distinct. Product source/fixtures/support/global configs/default2workers unchanged;122callbackAST/295arrays/936strings preserved except explicit CURRENT38->40 normalization.17 remainsclaimed. No broad rerun or final acceptance claimed.",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "worktree": "M:\\Shuen\\Codex\\asset-validation-17-regression-repair"
+  }
+}
