@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-02T14:00:05.695Z",
+  "status": "passed",
+  "integrationRevisionMerged": "e9368cbd3f6a7e4528b457c6eca7b21f3dc02812",
+  "repairPayloadRevision": "94e1c0e3e3fe0021ff1df89e0cb6a0e7ebcb91b5",
+  "integrationMergeRevision": "899882485df1ff2a3c1f71c6885c22b8acff63a8",
+  "codeAndTestExecutionFrozenRevision": "154ad2cd30cf07d254ab17a819e4181ae2a95b79",
+  "allPackageFilesAndRootPackageLockUnchangedFromExecutionFreeze": true,
+  "focusedTestFiles": [
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+      "bytes": 55332,
+      "sha256": "d42af99a66c7dbe470e8aaaff276b5a2212968ecbbebb13013bbaa446277ae50"
+    },
+    {
+      "file": "packages/rpgmaker-event-dsl/test/support/asset-evidence.ts",
+      "bytes": 3014,
+      "sha256": "b2bab74f73144f70a7e341658d8d2934508f52a7fee3b88be7d01a18b9daaa41"
+    }
+  ],
+  "committedAndWorkingRawFilesByteIdentical": 16,
+  "mainAcceptanceSha256": "7475649cebda94a4ecd3e9a50245febd2e6774b8e0b5e256eb07606550e3f6a9",
+  "oldTicket12History": "31 files preserved and audited in the bounded execution acceptance; no repeated full-history audit after the evidence-only merge",
+  "ticket12": "resolved",
+  "ticket17": "claimed",
+  "additionalProductInvocationsAfterEvidenceOnlyMerge": 0,
+  "cleanBeforeAuditArtifact": true
+}
