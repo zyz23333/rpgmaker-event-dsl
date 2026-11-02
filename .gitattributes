@@ -77,3 +77,5 @@ packages/rpgmaker-event-dsl/test/fixtures/asset-legacy-policy-evidence.json -tex
 /.scratch/asset-validation-implementation/evidence/17-raw/** -text -whitespace
 # Preserve ticket09's original failure and grouping-compatibility execution bytes.
 /.scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/** -text -whitespace
+# Preserve ticket12's original D05 timeout, baseline, runner and receipt bytes.
+/.scratch/asset-validation-implementation/evidence/12-d05-budget-repair/raw/** -text -whitespace

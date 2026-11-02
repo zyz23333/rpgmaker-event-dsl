@@ -1,6 +1,6 @@
 # 12: 准确例外与完整的多来源诊断
 
-Status: resolved
+Status: claimed
 Blocked by: 03, 07, 10
 Created: 2026-10-24
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -66,6 +66,8 @@ Approval: [已确认拆分与发布记录](../ticket-breakdown-draft.md#comments
 - [实施任务索引](../tickets.md)：全部正式票与初始领取入口。
 
 ## Comments
+
+- 2026-11-02：因17在冻结 `af748ee5067f41096a296a79f81b078415096606` 的完整 source `pnpm check` 自然结束时，唯一 D05 incomplete callback 超过默认10秒预算，本票重开为 claimed。原 Outcome、Contract37签收及全部旧证据保留；本轮只修复本票既有测试的局部预算，不改产品、政策、Contract、业务分支、fixture、输入或断言。仅定向运行四个既有 D05 source 用例，默认2 workers／Node22／C TEMP；不重跑99项诊断 suite、103文件完整 source 或built。原始失败和随后11.547秒helper完成记录将分别保存于 [D05修复证据](../evidence/12-d05-budget-repair/red-and-baseline.json)，17保持claimed，等待独立验收。
 
 - 2026-11-02：从干净预建工作树快进集成35后领取；实现并合入11／36，最终再次合最新集成显示 Already up to date，保留自身行为版本37。全部本票有限分支及组合／兼容验证通过，追加 Outcome 后设 resolved；没有提前注册16的W16，也未改原规格／地图状态。
 
