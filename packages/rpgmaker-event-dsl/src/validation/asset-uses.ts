@@ -15,7 +15,6 @@ export type EventAssetUse = AssetTarget & {
   relatedNativePaths: readonly string[];
   dependencyChain: readonly AssetDependency[];
   conditions: readonly string[];
-  candidate?: string;
   inactive?: string;
 };
 export type NativeAssetEvent = {

@@ -3,13 +3,7 @@ import { nativeAssetEvents } from "./asset-uses.js";
 
 export type AssetOrigin = Pick<
   EventAssetUse,
-  | "identity"
-  | "nativePath"
-  | "relatedNativePaths"
-  | "dependencyChain"
-  | "conditions"
-  | "candidate"
-  | "inactive"
+  "identity" | "nativePath" | "relatedNativePaths" | "dependencyChain" | "conditions" | "inactive"
 >;
 export type AssetDataProblem = AssetOrigin & { dataPath: string; reason: string };
 export type AssetDynamicStop = AssetOrigin & { reason: string };

@@ -13,7 +13,7 @@ const {
   cloneWorkspace,
   compileWorkspace,
 }: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
-const it = createAssetTest({ ownerTicket: "08", testSource: import.meta.url });
+const it = createAssetTest({ ownerTicket: "07", testSource: import.meta.url });
 const imports =
   'import {commonEvent,battleProcessing,troopRef,enemyTransform,enemyRef,changePartyMember,actorRef,rawDslCommand,setVehicleLocation,troopEvent,changeHp,mapRef,comment} from "rpgmaker-event-dsl";';
 const source = (command: string) =>
@@ -151,53 +151,7 @@ const transformConditions = [
 ];
 const frontCondition = "Enemy battlers use img/enemies when System.optSideView is false.";
 const sideCondition = "Enemy battlers use img/sv_enemies when System.optSideView is true.";
-const characterCandidate =
-  "Actor initial character image may be replaced by runtime image settings.";
-const battlerCandidate = "Actor initial battler image may be replaced by runtime image settings.";
-const characterConditions = [
-  "The added Actor supplies a player or follower image only when effective in the current party.",
-];
-const battlerConditions = [
-  "Actor battler images apply only in side-view battle and while the Actor is an effective battle member.",
-];
 function expectedUses(family: string, branch: string): EventAssetUse[] {
-  if (family === "B10")
-    return [
-      {
-        ...commonOrigin,
-        nativePath: "CommonEvents.json[1].list[0].parameters[0]",
-        category: "image",
-        folder: "characters",
-        name: "InitialCharacter",
-        dependencyChain: [
-          {
-            data: "Actors.json",
-            id: 1,
-            field: "characterName",
-            relationship: "Actor initial character image",
-          },
-        ],
-        conditions: characterConditions,
-        candidate: characterCandidate,
-      },
-      {
-        ...commonOrigin,
-        nativePath: "CommonEvents.json[1].list[0].parameters[0]",
-        category: "image",
-        folder: "sv_actors",
-        name: "InitialBattler",
-        dependencyChain: [
-          {
-            data: "Actors.json",
-            id: 1,
-            field: "battlerName",
-            relationship: "Actor initial battler image",
-          },
-        ],
-        conditions: battlerConditions,
-        candidate: battlerCandidate,
-      },
-    ];
   const leaf = (
     id: number,
     name: string,
@@ -319,40 +273,18 @@ const reached: Leaf[] = [
     id: 2,
     field: "battlerName",
   },
-  {
-    family: "B10",
-    branch: "add-actor",
-    token: "character",
-    index: 0,
-    file: "Actors.json",
-    id: 1,
-    field: "characterName",
-  },
-  {
-    family: "B10",
-    branch: "add-actor",
-    token: "battler",
-    index: 1,
-    file: "Actors.json",
-    id: 1,
-    field: "battlerName",
-  },
 ];
 function commandFor(field: Leaf, representation: string) {
   if (field.family === "B03")
     return representation === "formal"
       ? fixed
       : "rawDslCommand({code:301,parameters:[0,1,false,false]})";
-  if (field.family === "B04")
-    return representation === "formal"
-      ? 'enemyTransform({target:{kind:"runtimeSelector",scope:"enemy",target:"enemy",index:7},enemy:enemyRef({id:2})})'
-      : "rawDslCommand({code:336,parameters:[7,2]})";
   return representation === "formal"
-    ? 'changePartyMember({actor:actorRef({id:1}),operation:"add",initialize:false})'
-    : "rawDslCommand({code:129,parameters:[1,0,false]})";
+    ? 'enemyTransform({target:{kind:"runtimeSelector",scope:"enemy",target:"enemy",index:7},enemy:enemyRef({id:2})})'
+    : "rawDslCommand({code:336,parameters:[7,2]})";
 }
 function leafCase(field: Leaf, representation: string, outcome: string) {
-  it(`AV.${field.family}.${field.branch}.${representation}.${field.token}.${outcome}: selected battler field retains exact native directory, complete chain, conditions and candidate policy`, async () => {
+  it(`AV.${field.family}.${field.branch}.${representation}.${field.token}.${outcome}: selected battler field retains exact native directory, complete chain and conditions`, async () => {
     await withWindowsSandbox(
       `asset-${field.family}-${field.branch}-${field.token}-${outcome}`,
       async (sandbox) => {
@@ -364,16 +296,14 @@ function leafCase(field: Leaf, representation: string, outcome: string) {
           if (outcome !== "missing" || index !== field.index)
             await media(root, item.folder, item.name);
         await mkdir(join(root, "Game/img", target.folder), { recursive: true });
-        if (field.family !== "B10")
-          await media(root, field.branch === "front" ? "sv_enemies" : "enemies", target.name);
-        const before = await state(root),
-          candidate = field.family === "B10";
+        await media(root, field.branch === "front" ? "sv_enemies" : "enemies", target.name);
+        const before = await state(root);
         for (const check of [true, false]) {
           const failure = await compileWorkspace({ workspaceRoot: root, check }).then(
             () => "",
             String,
           );
-          if (outcome === "missing" && !candidate) {
+          if (outcome === "missing") {
             expect(failure).toContain("error MV-ASSET-MISSING-FILE");
             expect(failure).toContain(`${field.file}[${field.id}].${field.field}`);
             expect(failure).toContain(target.nativePath);
@@ -384,29 +314,26 @@ function leafCase(field: Leaf, representation: string, outcome: string) {
           }
         }
         const cli = await runCli(sandbox, ["compile", "--check"], { allowFailure: true });
-        expect(cli.exitCode).toBe(outcome === "missing" && !candidate ? 1 : 0);
+        expect(cli.exitCode).toBe(outcome === "missing" ? 1 : 0);
         if (outcome === "missing") {
-          expect(cli.stderr).toContain(`${candidate ? "warning" : "error"} MV-ASSET-MISSING-FILE`);
+          expect(cli.stderr).toContain("error MV-ASSET-MISSING-FILE");
           expect(cli.stderr).toContain(`${field.file}[${field.id}].${field.field}`);
           expect(cli.stderr).toContain(target.conditions[0]);
-          if (candidate) expect(cli.stderr).toContain(target.candidate);
-          else expect(await state(root)).toEqual(before);
+          expect(await state(root)).toEqual(before);
           await media(root, target.folder, target.name);
           await compileWorkspace({ workspaceRoot: root, check: false });
         }
         const actual = await observed(root);
         expect(actual.relations).toEqual({ uses: expected, problems: [] });
-        expect(JSON.parse(actual.external.get(field.file)!)).toEqual(
-          field.family === "B10"
-            ? [null, actor()]
-            : [null, enemy(1, "VisibleEnemy"), enemy(2, "HiddenEnemy")],
-        );
+        expect(JSON.parse(actual.external.get(field.file)!)).toEqual([
+          null,
+          enemy(1, "VisibleEnemy"),
+          enemy(2, "HiddenEnemy"),
+        ]);
         expect(JSON.parse(actual.files.get("CommonEvents.json")!)[1].list[0]).toEqual(
           field.family === "B03"
             ? { code: 301, indent: 0, parameters: [0, 1, false, false] }
-            : field.family === "B04"
-              ? { code: 336, indent: 0, parameters: [7, 2] }
-              : { code: 129, indent: 0, parameters: [1, 0, false] },
+            : { code: 336, indent: 0, parameters: [7, 2] },
         );
       },
     );
@@ -414,24 +341,20 @@ function leafCase(field: Leaf, representation: string, outcome: string) {
 }
 leafCase(reached[2]!, "formal", "missing");
 leafCase(reached[4]!, "formal", "missing");
-leafCase(reached[6]!, "formal", "missing");
 for (const field of reached)
   for (const representation of ["formal", "raw"])
     for (const outcome of ["present", "missing"]) {
       if (
         representation === "formal" &&
         outcome === "missing" &&
-        [reached[0], reached[2], reached[4], reached[6]].includes(field)
+        [reached[0], reached[2], reached[4]].includes(field)
       )
         continue;
       leafCase(field, representation, outcome);
     }
 
 function changed(field: Leaf, value: unknown, remove = false): Record<string, unknown> {
-  const table =
-    field.family === "B10"
-      ? [null, actor()]
-      : [null, enemy(1, "VisibleEnemy"), enemy(2, "HiddenEnemy")];
+  const table = [null, enemy(1, "VisibleEnemy"), enemy(2, "HiddenEnemy")];
   const entry = table[field.id] as Record<string, unknown>;
   if (remove) delete entry[field.field];
   else entry[field.field] = value;
@@ -443,7 +366,7 @@ function collected(field: Leaf, overrides: Record<string, unknown>) {
       ? { code: 301, indent: 0, parameters: [0, 1, false, false] }
       : field.family === "B04"
         ? { code: 336, indent: 0, parameters: [7, 2] }
-        : { code: 129, indent: 0, parameters: [1, 0, false] };
+        : { code: 336, indent: 0, parameters: [7, 2] };
   const files = new Map([
     ["CommonEvents.json", JSON.stringify([null, { id: 1, name: "Selected", list: [command] }])],
   ]);
@@ -488,7 +411,7 @@ for (const field of reached) {
     "field-empty",
     "file-missing",
   ]) {
-    it(`AV.C07.${branch}.formal.${suffix}.expected: fixed target, damaged necessary field, None and file fact remain distinct with candidate-independent input errors`, async () => {
+    it(`AV.C07.${branch}.formal.${suffix}.expected: fixed target, damaged necessary field, None and file fact remain distinct`, async () => {
       await withWindowsSandbox(`asset-problem-${branch}-${suffix}`, async (sandbox) => {
         const root = sandbox.workspaceRoot,
           all = expectedUses(field.family, field.branch),
@@ -512,8 +435,7 @@ for (const field of reached) {
         await mkdir(join(root, "Game/img", selected.folder), { recursive: true });
         recordAssetInput({ workspaceRoot: root });
         const before = await state(root),
-          success =
-            branch === "field-empty" || (branch === "file-missing" && field.family === "B10");
+          success = branch === "field-empty";
         for (const check of [true, false]) {
           const failure = await compileWorkspace({ workspaceRoot: root, check }).then(
             () => "",
@@ -538,8 +460,6 @@ for (const field of reached) {
         }
         const cli = await runCli(sandbox, ["compile", "--check"], { allowFailure: true });
         expect(cli.exitCode).toBe(success ? 0 : 1);
-        if (branch === "file-missing" && field.family === "B10")
-          expect(cli.stderr).toContain("warning MV-ASSET-MISSING-FILE");
         if (!success) expect(await state(root)).toEqual(before);
         if (branch !== "target-missing") {
           const result = collected(field, overrides);
@@ -676,3 +596,20 @@ for (const [family, branch] of [
     });
   });
 }
+
+it("AV.C12.actor-initial-images.formal.case.expected: Change Party Member does not inspect Actor initial image candidates", async () => {
+  await withWindowsSandbox("asset-actor-initial-deferred", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(
+      root,
+      source('changePartyMember({actor:actorRef({id:1}),operation:"add",initialize:false})'),
+    );
+    const before = await state(root);
+    await compileWorkspace({ workspaceRoot: root, check: true });
+    expect(await state(root)).toEqual(before);
+    const result = await runCli(sandbox, ["compile", "--check"]);
+    expect(result.exitCode).toBe(0);
+    expect(result.stderr).not.toContain("InitialCharacter");
+    expect(result.stderr).not.toContain("InitialBattler");
+  });
+});
