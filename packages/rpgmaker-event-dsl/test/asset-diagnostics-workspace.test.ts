@@ -761,6 +761,56 @@ for (const branch of ["map-page", "nested-body", "route"] as const)
     });
   });
 
+for (const branch of ["common-definition", "shared-file"] as const)
+  it(`AV.D09.${branch}.native.case.expected: current Common Events report their own saved asset positions without caller attribution`, async () => {
+    await withWindowsSandbox(`asset-definition-${branch}`, async (sandbox) => {
+      const root = sandbox.workspaceRoot;
+      const second = branch === "shared-file" ? "Poster" : "Second";
+      await prepare(root, imports + common(picture(), 10) + common(picture(second), 11));
+      await mkdir(join(root, "Game/img/pictures"), { recursive: true });
+      const before = await state(root);
+      const result = await check(root);
+      expect(result.failure).toContain("error MV-ASSET-MISSING-FILE");
+      expect(result.failure).toContain(
+        "commonEvent:10 CommonEvents.json[10].list[0].parameters[1]",
+      );
+      expect(result.failure).toContain(
+        "commonEvent:11 CommonEvents.json[11].list[0].parameters[1]",
+      );
+      expect(result.failure).not.toContain("-> commonEvent:");
+      if (branch === "shared-file") {
+        expect(result.failure.match(/error MV-ASSET-MISSING-FILE:/gu)).toHaveLength(1);
+        expect(result.failure).toContain('image/pictures "Poster"');
+      } else {
+        expect(result.failure).toContain('image/pictures "Second"');
+      }
+      expect(await state(root)).toEqual(before);
+      recordAssetInput({
+        independentlyExpected: { branch, origins: ["commonEvent:10", "commonEvent:11"] },
+        actualApi: result,
+      });
+    });
+  });
+
+it("AV.D09.unknown-source.native.case.expected: raw saved input retains its native and DSL paths without claiming an unreliable authored line", async () => {
+  await withWindowsSandbox("asset-unknown-source", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(root, imports + common(picture("Poster", true)));
+    await mkdir(join(root, "Game/img/pictures"), { recursive: true });
+    const before = await state(root);
+    const result = await check(root);
+    expect(result.failure).toContain("CommonEvents.json[10].list[0].parameters[1]");
+    expect(result.failure).toContain("DSL: commands[0]");
+    expect(result.failure).not.toContain("source: diagnostics.events.ts");
+    expect(await state(root)).toEqual(before);
+    recordAssetInput({
+      independentlyExpected:
+        "raw command has native and DSL origin but no reliable line coordinate",
+      actualApi: result,
+    });
+  });
+});
+
 for (const branch of [
   "cli-error",
   "cli-warning",
