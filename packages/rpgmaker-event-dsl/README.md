@@ -974,8 +974,8 @@ Image and Change Image in both movement route containers. Each supported saved n
 exactly as written, with `.png` appended in its native `img` folder in the bound
 Project Root. Image names containing `%` or `#`, including text such as `%20`, are
 unsupported and are rejected before file lookup; names are never URL-decoded or
-repaired. Ordinary uses error, while conditional candidates or explicitly inactive
-saved settings warn with unchecked coverage. Asset Check Exceptions cannot waive
+repaired. Ordinary uses error, while explicitly inactive saved settings warn with
+unchecked coverage. Asset Check Exceptions cannot waive
 unsupported names. Audio retains literal `%` and `#` support; movies exclude both.
 The helpers still preserve these saved values. An existing suffix is retained,
 and every directory, filename and extension must have the exact case.
@@ -995,38 +995,21 @@ saved dependencies do not guarantee that an animation frame will execute.
 
 Force Action follows its fixed Snapshot Skill. A positive `animationId` selects
 that Animation's image sheets and timing SE; zero closes only the animation path.
-Actor default attacks retain Animation 1 as a conditional candidate for having no
-current weapon, alongside an explicit unchecked stop for runtime weapon choices.
-Initial Actor equipment does not stand in for current weapons. Enemy default
-attacks select `System.sounds[9].name` in `audio/se`, without inventing an Animation.
-Missing unarmed candidate files warn; malformed necessary Skill, Animation or
-sound fields remain errors.
-
-Fixed Transfer Player destinations follow their captured `MapNNN.json` to all
-named Tileset sheets, its `parallaxName` in `img/parallaxes`, and saved BGM/BGS in
-`audio/bgm` and `audio/bgs`. Diagnostics retain possible runtime configuration
-overrides and each audio's autoplay condition. Saved audio remains checked when
-autoplay is false; confirmed file problems warn with the inactive reason.
-Variable destinations report `MV-ASSET-DYNAMIC-STOP` with their native origin and
-unchecked reason. Transfer does not discover target-map events or battlebacks.
-
-A Map Event Page tile selects one B–E sheet from its host Map's initial captured
-Tileset. The check retains this conditional candidate because a runtime Tileset
-change may override it. Confirmed file problems warn. Map rendering can request
-the whole Tileset separately; those additional sheets do not become dependencies
-of the page tile. Its saved character image remains an independently checked
-inactive setting.
+Negative `animationId` takes the runtime default-attack path and is reported as
+unchecked; the first release does not infer a weapon, Animation 1 or System attack
+SE. Malformed necessary Skill or Animation fields remain errors. Fixed Transfer
+Player destinations retain their existing Map reference validation, but their
+initial Tileset, parallax and audio files are not asset-check dependencies. A Map
+Event Page tile does not infer its host Map's initial Tileset; its saved character
+image remains an independently checked inactive setting.
 
 Game Over follows `System.gameoverMe.name`; Return to Title follows both saved
-title images and `titleBgm.name`. Battle Processing checks the saved System battle
-BGM, victory ME and defeat ME as defaults that runtime settings may replace, plus
-`sounds[7].name` with its map-launch condition. A Map Event's battle command also
-checks its host Map's two saved battle backgrounds as conditional candidates.
-Disabled `specifyBattleback` retains those names and their inactive reason. Common
-and Troop Events do not infer a caller Map. Dynamic Troop selectors report their
-unchecked enemy relationship while known System and host Map relationships
-continue. Hardcoded GameOver/title UI, terrain-derived backgrounds and System
-Battle Test backgrounds are outside this selected relationship coverage.
+title images and `titleBgm.name`. Battle Processing does not infer System battle
+audio or host Map backgrounds. A dynamic Troop selector records its unchecked
+enemy relationship. Direct Change Battle BGM, Change Victory ME, Change Defeat ME
+and Change Battleback saved names remain checked. Hardcoded GameOver/title UI,
+terrain-derived backgrounds and System Battle Test backgrounds are outside this
+selected relationship coverage.
 
 Fixed Battle Processing follows every Troop member's Enemy battler image,
 including hidden and repeated members. Enemy Transform follows the saved new
@@ -1035,12 +1018,9 @@ exactly `img/enemies` or `img/sv_enemies`; a non-boolean required mode is an inp
 error. A Troop Event's identity alone does not select its host members' images,
 and Enemy AI skills are outside these relationships.
 
-Adding an Actor retains its saved initial character and side-view battler names
-as conditional candidates. Current runtime image settings may replace them;
-player/follower participation, side-view battle and effective battle membership
-remain explicit conditions. Missing candidate files warn, while damaged required
-names still block. This relationship excludes face images, initial equipment,
-party removal/reordering and HP side effects.
+Adding an Actor does not infer its initial character, face or side-view battler
+names. Direct Change Actor Images saved names remain checked. Initial equipment,
+party removal/reordering and HP side effects are outside this relationship scope.
 
 Only selected necessary fields are interpreted. Empty native names mean None;
 missing or invalid necessary names produce `MV-ASSET-INVALID-DATA` while safe
@@ -1048,16 +1028,11 @@ independent fields continue checking. External data comes from the same captured
 Snapshot as compilation. Newer live database fields and unrelated entries do not
 replace that view or become asset roots, and external fields stay read-only.
 
-Each Common Event's assets belong to its own definition. Asset failures also list
-the direct Common Event call sites with their defining events, native positions
-and target IDs. Repeated, cyclic and shared calls retain each saved call site;
-they do not multiply the called definition's asset-use count or produce a separate
-cycle warning. Removed Snapshot events are excluded from the current call graph.
-Every saved Common Event effect of a selected Skill retains its own direct call
-site and Skill/effect field chain, including repeated effects targeting the same
-event. Its target must be a current Common Event definition. Animation errors or
-runtime weapon stops leave safe effect relationships in scope; Common Event
-assets continue to belong only to their defining event.
+Each current Common Event is an independent root, including one with no callers.
+The first release does not collect direct or transitive Common Event callers or
+follow Skill Common Event effects for asset reporting. Existing fixed reference
+and structure validation still applies. Repeated or cyclic calls do not multiply
+another definition's asset uses or produce an asset-call cycle report.
 
 The check observes ordinary-file metadata only: empty files pass, and no image
 decoding or layout guarantee is made. None needs no file. Missing directories or
@@ -1125,13 +1100,12 @@ if an exception accurately names them. Audio retains its literal-name support.
 Compile and Check display each finding's stable code, every native origin, event-local
 dependency chain, conditions, base/effective levels and the reason for an actual
 exception downgrade. Reliable captured authored locations add a DSL path and
-one-based source line/column; otherwise native positions remain available. Direct
-Common Event calls stay separate and do not multiply uses. Reports count problem
-groups, distinct legal problem files and affected uses independently. A complete
-check warns at an exception that downgraded no error; incomplete coverage does not
-pretend that an exception's effect was determined. Early validation failures say
-that asset checking did not run. Any effective error fails the command; warning
-and informational reports can succeed with an explicit unchecked-coverage result.
+one-based source line/column; otherwise native positions remain available.
+Grouped findings retain every origin and their strongest effective severity.
+Legal exceptions that do not downgrade an error produce no additional warning.
+Early validation failures say that asset checking did not run. Any effective
+error fails the command; warning and informational reports can succeed with an
+explicit unchecked-coverage result.
 
 The exact exception policy is part of Compile Baseline. After changing it, run a
 successful Compile before Push; Check cannot refresh previously generated output.
@@ -1229,7 +1203,7 @@ battle warns that execution may stall.
 ## Push safety
 
 Push rebuilds asset uses from verified Generated Project Data and its complete
-captured Snapshot, including direct Common Event calls and selected Skill effects.
+captured Snapshot, with every current Common Event as an independent root.
 It does not reevaluate Definition Source or rely on an earlier asset report. One
 current-file check runs after staging and before pending state or the first
 replacement. A data-identical Push also checks current assets. An asset error at

@@ -22,7 +22,7 @@ Status: resolved
 
 - [01 原生文件定位](issues/01-native-asset-file-resolution.md#answer)：MV 1.6.1 文件定位事实和研究边界，未因缩小首版覆盖而改写历史事实。
 - [02 覆盖与来源](issues/02-direct-asset-reference-coverage.md#answer)：直接字段与七族固定间接关系，独立事件根、局部来源和延后清单；见 ADR 0016。
-- [03 文件事实](issues/03-asset-file-existence-contract.md#answer)：准确名称、扩展名、元数据及支持边界，保持 ADR 0017。
+- [03 文件事实](issues/03-asset-file-existence-contract.md#answer)：准确名称、扩展名、元数据及支持边界；依据原生反例与用户确认，图片 `%`／`#` 统一不支持，音频保留字面名称，见 ADR 0017。
 - [04 诊断政策](issues/04-asset-diagnostics-and-policy.md#answer)：普通／非活动政策、精确例外、来源与完整性；取消首版候选、调用报告、三套统计及未生效例外告警，见 ADR 0018。
 - [05 工作流](issues/05-workspace-asset-check-lifecycle.md#answer)：ADR 0019 单次门槛、当前文件事实和 data 恢复分离不变。
 - [06 验收交接](issues/06-asset-validation-acceptance.md#answer)：保留范围独立验收，延后族不阻塞首版；[规格](asset-validation-spec.md)、[矩阵](acceptance-matrix.md)和[子用例索引](implementation-acceptance-cases.md)一致。

@@ -172,12 +172,10 @@ Asset Reference name is invalid. Tilesets must exist in the Snapshot and have no
 None value. Compile and Check validate selected event assets against exact local
 ordinary files while preserving their saved names; file existence does not
 guarantee that MV can decode or display the images. Change Tileset checks all nine
-named sheets. Fixed Transfer Player destinations check their captured Map's
-Tileset sheets, parallax and saved BGM/BGS, retaining autoplay conditions and
-warning for confirmed file problems in audio whose autoplay is off. A Map Event
-Page tile checks only its selected initial-host B–E sheet as a conditional
-candidate; runtime tileset changes may replace that choice. Variable transfer
-destinations report their unchecked dynamic boundary without guessing a Map.
+named sheets. Transfer Player destinations and a Map Event Page tile do not add
+asset-file dependencies in the first release; fixed Map references retain their
+existing validation. A tile page's saved character image is checked as an
+explicitly inactive setting.
 
 System access commands each require an explicit Boolean `enabled`:
 
@@ -899,8 +897,8 @@ or Project Drift checks.
 ## Picture commands
 
 Image names containing `%` or `#`, including `%20`, are outside the asset file
-check's support. Ordinary uses error; conditional candidates or explicitly inactive
-saved settings warn and remain unchecked. Asset Check Exceptions cannot waive this
+check's support. Ordinary uses error; explicitly inactive saved settings warn and
+remain unchecked. Asset Check Exceptions cannot waive this
 boundary. The helpers preserve the original saved values; file checks never decode
 or repair them. Audio keeps literal `%` and `#` support; movies exclude both.
 
