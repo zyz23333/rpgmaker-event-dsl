@@ -141,8 +141,13 @@ async function decompileWorkspaceUnlocked(options: WorkspaceCommandOptions): Pro
   const files = await discoverDefinitionFiles(workspace.workspaceRoot, workspace.config);
   const capture = new TypeInputCapture(workspace.workspaceRoot);
   for (const file of files) capture.fileHash(file);
-  const existingIdentities = new Set(
-    files.flatMap((file) => definitionIdentities(file, capture.readFile(file)!)),
+  const existingIdentities = new Map(
+    files.flatMap((file) =>
+      definitionIdentities(file, capture.readFile(file)!, {
+        capture,
+        sourceRoot: resolve(workspace.workspaceRoot, workspace.config.sourceRoot),
+      }).map((identity) => [identity, file] as const),
+    ),
   );
   const snapshot = await captureCompileSnapshot(statePaths, manifest.snapshotFiles);
   await decompileProjectDataSnapshot({
@@ -188,7 +193,7 @@ async function decompileWorkspaceUnlocked(options: WorkspaceCommandOptions): Pro
         for (const identity of definitionIdentities(file.path, file.content))
           if (existingIdentities.has(identity))
             throw new Error(
-              `MV-DECOMPILE-IDENTITY: candidate conflicts with existing ${identity}.`,
+              `MV-DECOMPILE-IDENTITY: candidate conflicts with existing ${identity} in ${existingIdentities.get(identity)}; candidate source ${file.path}.`,
             );
     },
     publishCandidate: (candidates) =>

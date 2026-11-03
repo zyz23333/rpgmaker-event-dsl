@@ -325,7 +325,7 @@ it("MV-S4-DECOMPILE-011: direct object and namespace identities preserve spread 
     for (const source of [
       'const base = {kind:"commonEvent",id:99}; const value = {...base,id:1,commands:missingIdentifier}; export {value as __proto__};',
       'import * as dsl from "rpgmaker-event-dsl"; const define = dsl.commonEvent; export const value = define({id:1,commands:missingIdentifier});',
-      'const identity = {value:1}; export const value = {kind:"commonEvent",id:identity.value,pages:missingIdentifier};',
+      'const identity = {value:1}; export const value = {kind:"commonEvent",id:identity.value,commands:missingIdentifier};',
     ]) {
       await writeFile(path, source);
       const before = await state(workspaceRoot);
@@ -334,7 +334,10 @@ it("MV-S4-DECOMPILE-011: direct object and namespace identities preserve spread 
       );
       expect(await state(workspaceRoot)).toStrictEqual(before);
     }
-    await writeFile(path, 'export const value = {kind:"commonEvent",id:missingIdentifier};');
+    await writeFile(
+      path,
+      'export const value = {kind:"commonEvent",id:missingIdentifier,commands:[]};',
+    );
     const before = await state(workspaceRoot);
     await expect(decompileWorkspace({ workspaceRoot })).rejects.toThrow(
       /MV-DECOMPILE-IDENTITY.*Unresolved/s,
