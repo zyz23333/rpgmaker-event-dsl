@@ -169,8 +169,10 @@ and pattern. Selecting an image never changes priority. A nonzero tile uses the
 actual Snapshot Map's `tilesetId` and corresponding Tilesets entry, with B/C/D/E
 bands 1..255 / 256..511 / 512..767 / 768..1023. A missing required context errors;
 an empty selected group warns and preserves the tile. Assets are filename stems.
-Compile and Check inspect exact ordinary-file existence for the selected initial
-sheet as a conditional candidate; image dimensions remain unchecked.
+The tile and its Snapshot Map/Tileset context are validated, but a Map Event Page
+tile does not add an initial Tileset sheet to the first-release asset-file check.
+The page's saved character image is checked independently as an inactive setting;
+image dimensions remain unchecked.
 
 Every saved route is validated, including fixed/random/approach pages, and route
 scripts require the Script Command Gate even when empty or inactive. Decompile
