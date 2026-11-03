@@ -37,6 +37,7 @@ export default defineConfig({
       "test/audio-commands-workspace.test.ts",
       "test/movement-instructions-workspace.test.ts",
       "test/cli-entry.test.ts",
+      "test/shared-authoring-cli.test.ts",
       "test/workspace-locking.test.ts",
       "test/snapshot-binding.test.ts",
       "test/snapshot-context.test.ts",

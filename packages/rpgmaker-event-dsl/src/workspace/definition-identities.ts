@@ -195,7 +195,7 @@ function identityModule(
     }
   };
   const binding = (name: string): Value => {
-    if (name === "undefined") return undefined;
+    if (name === "undefined" && !bindings.has(name)) return undefined;
     if (memo.has(name)) return memo.get(name);
     if (!bindings.has(name) || resolving.has(name))
       return fail(`Unresolved or cyclic binding ${name}.`);

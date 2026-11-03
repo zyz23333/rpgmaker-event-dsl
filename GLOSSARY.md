@@ -40,6 +40,14 @@ _Avoid_: helper module, generated project data, target mapping
 The Workspace Config behavior that selects DSL source files for workspace-level compilation.
 _Avoid_: definition binding, target mapping, all TypeScript files
 
+**Shared Authoring Module**:
+A local source module that provides reusable Event DSL values or Parameterized Command Functions to Definition Sources or other shared modules. Importing it does not make its exports additional Event Definitions.
+_Avoid_: Common Event, event entry, runtime module, plugin
+
+**Parameterized Command Function**:
+An author-defined function that composes Event DSL values from compile-time options for use within explicitly declared events. Each use contributes commands or configuration to its event rather than creating a game-time function call.
+_Avoid_: Common Event, event factory, runtime function, macro
+
 **Empty Command List**:
 A required `commands` field with no DSL Commands that compiles to only the RPG Maker MV end marker.
 _Avoid_: missing command list, implicit delete

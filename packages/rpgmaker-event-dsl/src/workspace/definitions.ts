@@ -252,7 +252,6 @@ function validateAuthorCalls(author: AuthorFunction): ReadonlySet<AuthorFunction
     )
       return resolveValue(node.expression);
     if (ts.isIdentifier(node)) {
-      if (node.text === "undefined") return undefined;
       if (!locals.has(node.text)) return lookupBinding(node.text, author.closure);
       const initializer = locals.get(node.text);
       if (!initializer || resolving.has(node.text)) return undefined;
@@ -346,6 +345,7 @@ function lookupBinding(name: string, scope: EvaluationScope): unknown {
     return value;
   }
   if (scope.parent) return lookupBinding(name, scope.parent);
+  if (name === "undefined") return undefined;
   throw new Error(`Unknown identifier in Event Definition source: ${name}`);
 }
 
@@ -884,10 +884,6 @@ function evaluateExpressionValue(node: ts.Expression, scope: EvaluationScope): u
   }
 
   if (ts.isIdentifier(node)) {
-    if (node.text === "undefined") {
-      return undefined;
-    }
-
     try {
       return captureSourceUse(
         lookupBinding(node.text, scope),

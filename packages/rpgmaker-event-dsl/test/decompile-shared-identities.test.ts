@@ -55,6 +55,38 @@ async function state(workspaceRoot: string) {
   };
 }
 
+it("Decompile resolves shared undefined bindings and function scopes without reading commands", async () => {
+  await withWindowsSandbox("decompile-identity-undefined", async ({ workspaceRoot }) => {
+    await prepare(workspaceRoot);
+    await writeFile(
+      join(workspaceRoot, "src/shared/ids.ts"),
+      `const undefined = { id: 99 };
+function parameter(undefined: { id: number }) { return undefined.id; }
+function local() { const undefined = { id: 100 }; return parameter(undefined); }
+export const identity = { id: parameter(undefined) };
+export const other = local();
+`,
+    );
+    await writeFile(
+      join(workspaceRoot, "src/existing.events.ts"),
+      `import { commonEvent } from "rpgmaker-event-dsl";
+import { identity, other } from "./shared/ids.js";
+export const existing = commonEvent({ ...identity, id: other, commands: invalidCommands });
+export const moduleBinding = commonEvent({ ...identity, commands: invalidCommands });
+`,
+    );
+    const before = await state(workspaceRoot);
+    await decompileWorkspace({ workspaceRoot });
+    const after = await state(workspaceRoot);
+    expect(after.project).toStrictEqual(before.project);
+    expect(after.metadata).toStrictEqual(before.metadata);
+    expect(after.source["existing.events.ts"]).toBe(before.source["existing.events.ts"]);
+    expect(await readdir(join(workspaceRoot, "src/decompiled"))).toContain(
+      "common-events.events.ts",
+    );
+  });
+}, 30_000);
+
 it("Decompile reads shared identity constants without validating unrelated command functions or types", async () => {
   await withWindowsSandbox("decompile-shared-lazy", async ({ workspaceRoot }) => {
     await prepare(workspaceRoot);
@@ -198,6 +230,11 @@ it.each([
   [
     "uninitialized function local",
     "const id = 1; function pick() { const chosen = id; const id = 99; return chosen; } export const identity = { id: pick() };",
+    /before initialization/,
+  ],
+  [
+    "uninitialized undefined local",
+    "const undefined = 1; function pick() { const chosen = undefined; const undefined = 99; return chosen; } export const identity = { id: pick() };",
     /before initialization/,
   ],
   [

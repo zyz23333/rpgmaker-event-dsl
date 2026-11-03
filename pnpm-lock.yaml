@@ -24,6 +24,12 @@ importers:
         specifier: ^0.1.1
         version: 0.1.1
 
+  example/shared-authoring:
+    devDependencies:
+      rpgmaker-event-dsl:
+        specifier: workspace:*
+        version: link:../../packages/rpgmaker-event-dsl
+
   packages/rpgmaker-event-dsl:
     dependencies:
       commander:
