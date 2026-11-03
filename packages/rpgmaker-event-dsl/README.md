@@ -245,6 +245,17 @@ must be absent, including an empty directory or junction. All generated files mu
 match source discovery, and their identities must not conflict with existing source.
 Existing source provides identities only; it cannot repair candidate references.
 
+Existing sources may import shared constants and use the supported command functions.
+Identity analysis follows only the values needed to identify declarations, including
+shared object fields and spreads, using the same local module containment rules as
+Compile. It captures those dependency bytes and resolution observations and rejects
+changes before publication. Unrelated command payloads, function bodies and type
+errors are not fully validated, and a closed Script Command Gate remains compatible
+with Decompile. An indeterminate identity or a collision still prevents the complete
+candidate from being published. Common Event references and commands are helper
+values rather than declarations; declaration-shaped objects carry `commands` or
+`trigger` in addition to their `kind` and explicit ID.
+
 Use `"type": "module"` in the source package. Complete publication requires Windows
 PowerShell, an existing source root, and source/state paths on the same filesystem.
 `init` creates the default `src`; pre-create a custom source root. Unsupported paths
