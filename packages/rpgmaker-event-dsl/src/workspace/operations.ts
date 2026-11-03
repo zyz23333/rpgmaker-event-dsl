@@ -69,6 +69,7 @@ import {
 import { assertCandidateDiscoverable } from "./source-discovery.js";
 import { checkEventAssets } from "./asset-check.js";
 import { createAssetProvenance } from "./asset-provenance.js";
+import { renderValidationIssue } from "./validation-presentation.js";
 
 export async function cloneWorkspace(options: WorkspaceCommandOptions): Promise<void> {
   await withWorkspaceOperationLock(options.workspaceRoot, "clone", () =>
@@ -258,12 +259,15 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
 
     const errors = validation.issues.filter((issue) => issue.level === "error");
     for (const issue of validation.issues.filter((issue) => issue.level === "warning"))
-      console.error(issue.message);
+      console.error(renderValidationIssue(issue, definitionInput.declarations));
     if (errors.length > 0) {
       throw new Error(
-        [`${commandName} validation failed:`, ...errors.map((issue) => `- ${issue.message}`)].join(
-          "\n",
-        ),
+        [
+          `${commandName} validation failed:`,
+          ...errors.map(
+            (issue) => `- ${renderValidationIssue(issue, definitionInput.declarations)}`,
+          ),
+        ].join("\n"),
       );
     }
 

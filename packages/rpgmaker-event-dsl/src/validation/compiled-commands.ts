@@ -189,15 +189,18 @@ export function validateCompiledCommandLists(
             { identity: list.identity, stage: "compile", prefix, origins },
           ),
         );
-        for (const index of breaksOutsideLoops)
+        for (const index of breaksOutsideLoops) {
+          const dslPath = origins.get(commands[index]!)?.path;
           issues.push({
             level: "warning",
             code: "MV-BREAK-OUTSIDE-LOOP",
             stage: "compile",
             identity: list.identity,
             nativePath: `${list.path.replace(/commands$/u, "list")}[${index}]`,
+            ...(dslPath === undefined ? {} : { dslPath }),
             message: `${list.identity}: Break Loop outside a Loop can skip the remaining event commands while looking for a matching Repeat Above record.`,
           });
+        }
       } catch (error) {
         if (error instanceof CommandStructureError) {
           const location = { ...error.location };

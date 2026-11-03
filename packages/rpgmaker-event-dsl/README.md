@@ -456,6 +456,14 @@ classes, higher-order functions and Event Definition factories are unsupported.
 Recursive calls report their function chain. Parameter type errors and constructor
 failures retain source locations; functions never execute event JavaScript.
 
+Reference, context and asset diagnostics retain each event use after shared composition.
+Read `source` as the nearest reliable authored expression, `use` as a shared value
+expansion, and `call NAME` / `defined` as the author call and definition locations.
+Nested chains run from the inner definition out to the event use; repeated commands
+keep separate chains. Event identities and DSL/native paths remain available. A source
+coordinate does not claim an individual parameter's position, and raw saved commands
+or unresolved identities do not acquire invented coordinates.
+
 Local default/namespace imports, direct re-exports, value-module cycles and host-module
 execution are unsupported. Changing a shared dependency invalidates old generated
 data and requires another Compile before Diff/Push. Event JavaScript remains stored
