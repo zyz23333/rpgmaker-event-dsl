@@ -492,6 +492,53 @@ all ordinary files. Discovery always excludes the reserved Decompile isolation
 directory by physical location and deduplicates physical file aliases. The source
 package must use `"type": "module"` for the generated TypeScript imports and exports.
 
+### Shared authoring values
+
+Local modules can export constants, configuration objects, references and command
+arrays for several Definition Sources to reuse. For example, a shared module:
+
+```ts
+// src/shared/greeting.ts
+import { comment } from "rpgmaker-event-dsl";
+
+export const greeting = [comment({ lines: ["Welcome to the village."] })];
+export const eventSettings = { trigger: "none" } as const;
+```
+
+An event source imports the named values and explicitly spreads the command array:
+
+```ts
+// src/intro.events.ts
+import { commonEvent } from "rpgmaker-event-dsl";
+import { eventSettings, greeting } from "./shared/greeting.js";
+
+export const intro = commonEvent({
+  ...eventSettings,
+  id: 1,
+  name: "Introduction",
+  commands: [...greeting],
+});
+```
+
+Relative imports follow ESM/NodeNext resolution, including `.js` specifiers resolving
+to `.ts` source. Dependencies may import other shared modules and use named import
+aliases and local named export lists. Value-module cycles fail with their import chain.
+Only discovered entry exports are collected as project declarations; importing a
+helper does not make its exports additional events. Include/exclude patterns select
+entry files, so a dependency can be imported even when it is not an entry candidate.
+
+Value-module targets must remain physically inside `sourceRoot` and outside the
+reserved Decompile isolation area, including through directory aliases. Local default
+or namespace imports, direct re-exports, and host-module execution are unsupported.
+The loader evaluates a restricted DSL expression subset; this is compile-time source
+composition and does not add a runtime Common Event call. Type-only imports remain
+validated without evaluating their module values.
+
+Shared implementation files are type-checked and captured with their dependencies.
+After changing a shared module, run `compile` again before `diff` or `push`; an unchanged
+entry file does not keep the old generated data fresh. `compile --check` validates the
+same composition without publishing data or refreshing its compilation baseline.
+
 Keep `scriptEnabled` set to `false` for workspaces that should reject JavaScript-bearing
 event commands. Set it to `true` only when Script Inputs are intentional and reviewed.
 
@@ -833,8 +880,9 @@ deleted or migrated.
 ### Generated Freshness
 
 Generated Freshness is checked before `diff` and `push`. Generated Project Data becomes
-stale when discovered source files, relevant workspace config fields, or the Project Data
-Snapshot baseline differ from the baseline used by the last `compile`.
+stale when discovered source files, shared source or validation dependencies and their
+resolution observations, relevant workspace config fields, or the Project Data Snapshot
+baseline differ from the baseline used by the last `compile`.
 
 ### Project Drift
 

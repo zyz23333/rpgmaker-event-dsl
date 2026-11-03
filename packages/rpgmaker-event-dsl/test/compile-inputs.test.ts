@@ -355,7 +355,7 @@ it("MV-S4-INPUT-007: missing old or mismatched contract basis stays stale and Ch
   });
 }, 30_000);
 
-it("MV-S4-INPUT-008: capturing type dependencies never executes helper values or event JavaScript", async () => {
+it("MV-S4-INPUT-008: capturing type dependencies never executes external modules or event JavaScript", async () => {
   await withWindowsSandbox("restricted-imports", async (sandbox) => {
     const { source } = await prepare(sandbox);
     const original = await readFile(source, "utf8");
@@ -364,7 +364,7 @@ it("MV-S4-INPUT-008: capturing type dependencies never executes helper values or
     await writeFile(source, `import { value } from "../../types/helper.js";\n${original}`);
     const before = await observe(sandbox.workspaceRoot);
     await expect(api.compileWorkspace({ ...sandbox, check: false })).rejects.toThrow(
-      /Unsupported import source/isu,
+      /outside sourceRoot/isu,
     );
     expect(await observe(sandbox.workspaceRoot)).toEqual(before);
     await writeFile(source, `import type { value } from "../../types/helper.js";\n${original}`);

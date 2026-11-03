@@ -380,7 +380,7 @@ the old binding. Junction aliases to the same target are accepted. A pending Int
 Push must first be recovered by Push against its original target. Unknown, incomplete
 or inconsistent pending state is preserved for manual correction.
 
-Compile captures discovered source bytes and the TypeScript host's actual validation
+Compile captures discovered and imported shared source bytes and the TypeScript host's actual validation
 inputs, including declaration files, package metadata, module-resolution candidates
 that are currently missing, and relevant directory listings. They join the relevant
 Workspace Config, complete Snapshot file set and content, canonical target and a
@@ -432,8 +432,18 @@ original evidence uses the understood complete Common/System/Map output set. It
 retains that original Compile Contract and type/source/configuration basis. A new
 Compile is still required before current output is fresh; arbitrary incomplete output
 sets cannot authorize recovery or ordinary Push.
-Type-only imports are validated without executing modules; ordinary helper value
-imports remain unsupported, and event JavaScript remains stored text. These are
+Type-only imports are validated without evaluating module values. Relative named
+value imports can share constants, configuration, references and command arrays from
+TypeScript modules physically inside `sourceRoot`, outside the Decompile isolation
+area. Local dependencies are type-checked and evaluated using the restricted DSL
+expression subset, including transitive imports and named aliases. Discovery still
+selects declaration entries rather than restricting which local dependencies can be
+imported. Imported module exports are not recursively collected as events.
+
+Local default/namespace imports, direct re-exports, value-module cycles and host-module
+execution are unsupported. Changing a shared dependency invalidates old generated
+data and requires another Compile before Diff/Push. Event JavaScript remains stored
+text and retains the Script Command Gate. These are
 explicit consistency checks; an external editor may still save after the last check.
 
 `controlSwitches` ranges include both endpoints and reject reversed order.
