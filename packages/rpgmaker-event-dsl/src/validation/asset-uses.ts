@@ -20,9 +20,6 @@ export type EventAssetUse = AssetTarget & {
 export type NativeAssetEvent = {
   kind: "mapEvent" | "commonEvent" | "troopEvent";
   identity: string;
-  id: number;
-  mapId?: number;
-  file: string;
   pages: readonly {
     nativePath: string;
     list: readonly RawEventCommand[];
@@ -47,9 +44,6 @@ export function nativeAssetEvents(files: ReadonlyMap<string, string>): NativeAss
       roots.push({
         kind: common ? "commonEvent" : troop ? "troopEvent" : "mapEvent",
         identity: common ? `commonEvent:${id}` : troop ? `troop:${id}` : `map:${mapId}/event:${id}`,
-        id,
-        ...(mapId === undefined ? {} : { mapId }),
-        file,
         pages: common
           ? [{ nativePath: path, list: entry.list as RawEventCommand[], saved: entry }]
           : (entry.pages as Record<string, unknown>[]).map((page, index) => ({

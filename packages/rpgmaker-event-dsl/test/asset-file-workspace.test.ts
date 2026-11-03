@@ -278,109 +278,89 @@ for (const category of ["image", "audio", "movie"] as const)
     });
   });
 
-for (const role of ["inactive"] as ("candidate" | "inactive")[])
-  it(`SUPPLEMENT.device-space-${role}: unsupported saved devices warn with incomplete coverage without an exception downgrade or ineffective finding`, async () => {
-    await withWindowsSandbox(`asset-device-space-${role}`, async (sandbox) => {
-      const root = sandbox.workspaceRoot,
-        name = role === "candidate" ? "lPt¹ " : "cOn   .foo";
-      const authored =
-        role === "candidate"
-          ? 'import {commonEvent,changePartyMember,actorRef} from "rpgmaker-event-dsl";export const event=commonEvent({id:10,name:"Device candidate",trigger:"none",commands:[changePartyMember({actor:actorRef({id:1}),operation:"add",initialize:false})]});'
-          : `import {mapEvent,imageAsset} from "rpgmaker-event-dsl";export const event=mapEvent({mapId:1,id:1,name:"Device inactive",x:0,y:0,pages:[{conditions:{},trigger:"action",commands:[],movement:{type:"fixed",route:{commands:[{kind:"changeImage",character:imageAsset({folder:"characters",name:${JSON.stringify(name)}}),characterIndex:7}]}}}]});`;
-      const projectFiles =
-        role === "candidate"
-          ? {
-              "Actors.json": [null, { id: 1, name: "Actor", characterName: name, battlerName: "" }],
-            }
-          : {
-              "MapInfos.json": [null, { id: 1, name: "Map" }],
-              "Map001.json": { width: 1, height: 1, tilesetId: 1, events: [] },
-              "Tilesets.json": [null, { id: 1, name: "Tiles" }],
-            };
-      await prepare(root, [], { source: authored, projectFiles });
-      const configPath = join(root, "rpgmaker-event-dsl.config.json"),
-        config = JSON.parse(await readFile(configPath, "utf8"));
-      config.assetCheckExceptions = [
-        {
-          category: "image",
-          folder: "characters",
-          name,
-          reason: "Unsupported role remains unchecked",
-        },
-      ];
-      await writeFile(configPath, JSON.stringify(config));
-      const before = await deviceFixtureState(root);
-      await api.compileWorkspace({ workspaceRoot: root, check: true });
-      expect(await deviceFixtureState(root)).toEqual(before);
-      const child = startWorkspaceOperation(sandbox, {
-        operation: "check",
-        mode: "cli",
-        boundary: "asset-no-media-query",
-        observeAssets: true,
-      });
-      try {
-        expect((await child.ended).exitCode).toBe(0);
-        const record = sandbox.processes.at(-1)!;
-        recordAssetInput({
-          supplementary: true,
-          canonicalId: null,
-          role,
-          name,
-          before,
-          actualCli: record,
-          messages: child.messages,
-        });
-        expect(record.stderr).toContain("warning MV-ASSET-UNSUPPORTED-NAME");
-        expect(record.stderr).toContain(JSON.stringify(name));
-        expect(record.stderr).toContain("base: warning; effective: warning");
-        expect(record.stderr).toContain("Coverage: incomplete");
-        expect(record.stderr).toContain(
-          role === "candidate"
-            ? "candidate: Actor initial"
-            : "inactive: Autonomous Movement is fixed",
-        );
-        expect(record.stderr).not.toContain("; target:");
-        expect(record.stderr).not.toContain("exception reason:");
-        expect(record.stderr).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
-        expect(record.stderr).not.toContain("error MV-ASSET");
-        expect(
-          child.messages.filter(
-            (message) =>
-              message.kind === "asset-query" || message.kind === "asset-content-read-attempt",
-          ),
-        ).toEqual([]);
-      } finally {
-        await child.stop();
-      }
-      expect(await deviceFixtureState(root)).toEqual(before);
-      await api.compileWorkspace({ workspaceRoot: root, check: false });
-      const after = await deviceFixtureState(root);
-      expect({ ...after, state: before.state }).toEqual(before);
-      const retained = (state: Record<string, string>) =>
-        Object.fromEntries(
-          Object.entries(state).filter(
-            ([key]) => key !== "sync-manifest.json" && !key.startsWith("generated-project-data/"),
-          ),
-        );
-      expect(retained(after.state)).toEqual(retained(before.state));
-      if (role === "candidate") {
-        const actors = JSON.parse(
-          Buffer.from(after.state["project-data-snapshot/Actors.json"]!, "base64").toString(),
-        );
-        expect(actors[1].characterName).toBe(name);
-      } else {
-        const map = JSON.parse(
-          Buffer.from(after.state["generated-project-data/Map001.json"]!, "base64").toString(),
-        );
-        expect(map.events[1].pages[0].moveRoute.list[0].parameters[0]).toBe(name);
-      }
+it("SUPPLEMENT.device-space-inactive: unsupported saved devices warn with incomplete coverage without an exception downgrade or ineffective finding", async () => {
+  await withWindowsSandbox("asset-device-space-inactive", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    const name = "cOn   .foo";
+    const authored = `import {mapEvent,imageAsset} from "rpgmaker-event-dsl";export const event=mapEvent({mapId:1,id:1,name:"Device inactive",x:0,y:0,pages:[{conditions:{},trigger:"action",commands:[],movement:{type:"fixed",route:{commands:[{kind:"changeImage",character:imageAsset({folder:"characters",name:${JSON.stringify(name)}}),characterIndex:7}]}}}]});`;
+    const projectFiles = {
+      "MapInfos.json": [null, { id: 1, name: "Map" }],
+      "Map001.json": { width: 1, height: 1, tilesetId: 1, events: [] },
+      "Tilesets.json": [null, { id: 1, name: "Tiles" }],
+    };
+    await prepare(root, [], { source: authored, projectFiles });
+    const configPath = join(root, "rpgmaker-event-dsl.config.json"),
+      config = JSON.parse(await readFile(configPath, "utf8"));
+    config.assetCheckExceptions = [
+      {
+        category: "image",
+        folder: "characters",
+        name,
+        reason: "Unsupported role remains unchecked",
+      },
+    ];
+    await writeFile(configPath, JSON.stringify(config));
+    const before = await deviceFixtureState(root);
+    await api.compileWorkspace({ workspaceRoot: root, check: true });
+    expect(await deviceFixtureState(root)).toEqual(before);
+    const child = startWorkspaceOperation(sandbox, {
+      operation: "check",
+      mode: "cli",
+      boundary: "asset-no-media-query",
+      observeAssets: true,
+    });
+    try {
+      expect((await child.ended).exitCode).toBe(0);
+      const record = sandbox.processes.at(-1)!;
       recordAssetInput({
-        after,
-        expected:
-          "Only normal Compile generated/Manifest publication; original saved spelling, Snapshot and all Project/media bytes preserved; warning is not an exception downgrade.",
+        supplementary: true,
+        canonicalId: null,
+        role: "inactive",
+        name,
+        before,
+        actualCli: record,
+        messages: child.messages,
       });
+      expect(record.stderr).toContain("warning MV-ASSET-UNSUPPORTED-NAME");
+      expect(record.stderr).toContain(JSON.stringify(name));
+      expect(record.stderr).toContain("base: warning; effective: warning");
+      expect(record.stderr).toContain("Coverage: incomplete");
+      expect(record.stderr).toContain("inactive: Autonomous Movement is fixed");
+      expect(record.stderr).not.toContain("; target:");
+      expect(record.stderr).not.toContain("exception reason:");
+      expect(record.stderr).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
+      expect(record.stderr).not.toContain("error MV-ASSET");
+      expect(
+        child.messages.filter(
+          (message) =>
+            message.kind === "asset-query" || message.kind === "asset-content-read-attempt",
+        ),
+      ).toEqual([]);
+    } finally {
+      await child.stop();
+    }
+    expect(await deviceFixtureState(root)).toEqual(before);
+    await api.compileWorkspace({ workspaceRoot: root, check: false });
+    const after = await deviceFixtureState(root);
+    expect({ ...after, state: before.state }).toEqual(before);
+    const retained = (state: Record<string, string>) =>
+      Object.fromEntries(
+        Object.entries(state).filter(
+          ([key]) => key !== "sync-manifest.json" && !key.startsWith("generated-project-data/"),
+        ),
+      );
+    expect(retained(after.state)).toEqual(retained(before.state));
+    const map = JSON.parse(
+      Buffer.from(after.state["generated-project-data/Map001.json"]!, "base64").toString(),
+    );
+    expect(map.events[1].pages[0].moveRoute.list[0].parameters[0]).toBe(name);
+    recordAssetInput({
+      after,
+      expected:
+        "Only normal Compile generated/Manifest publication; original saved spelling, Snapshot and all Project/media bytes preserved; warning is not an exception downgrade.",
     });
   });
+});
 
 it("SUPPLEMENT.device-space-supported-controls: ordinary trailing spaces, leading spaces and non-ASCII whitespace preserve exact real filenames", async () => {
   await withWindowsSandbox("asset-device-space-supported", async (sandbox) => {
@@ -562,98 +542,60 @@ unsupportedImageNameCase("image-percent", "image%percent", "imagepercent.png");
 unsupportedImageNameCase("image-hash", "image#hash", "image");
 unsupportedImageNameCase("literal-percent20", "literal%20image", "literal image.png");
 
-for (const [branch, name] of [["inactive", "Inactive%20#Image"]] as [
-  "candidate" | "inactive",
-  string,
-][])
-  it(`AV.F06.image-${branch}.input.case.expected: unsupported saved image names warn with unchecked coverage and preserve their candidate or inactive origin`, async () => {
-    await withWindowsSandbox(`asset-image-${branch}`, async (sandbox) => {
-      const root = sandbox.workspaceRoot;
-      const authored =
-        branch === "candidate"
-          ? `import {commonEvent,changePartyMember,actorRef} from "rpgmaker-event-dsl";export const event=commonEvent({id:10,name:"Files",trigger:"none",commands:[changePartyMember({actor:actorRef({id:1}),operation:"add",initialize:false})]});`
-          : `import {mapEvent,imageAsset} from "rpgmaker-event-dsl";export const event=mapEvent({mapId:1,id:1,name:"Files",x:0,y:0,pages:[{conditions:{},trigger:"action",commands:[],movement:{type:"fixed",route:{commands:[{kind:"changeImage",character:imageAsset({folder:"characters",name:${JSON.stringify(name)}}),characterIndex:7}]}}}]});`;
-      const projectFiles =
-        branch === "candidate"
-          ? {
-              "Actors.json": [
-                null,
-                { id: 1, name: "Actor", characterName: name, battlerName: name },
-              ],
-            }
-          : {
-              "MapInfos.json": [null, { id: 1, name: "Files" }],
-              "Map001.json": { width: 1, height: 1, tilesetId: 1, events: [] },
-              "Tilesets.json": [null, { id: 1, name: "Tiles" }],
-            };
-      await prepare(root, [], { source: authored, projectFiles });
-      const before = await localState(root);
-      await api.compileWorkspace({ workspaceRoot: root, check: true });
-      expect(await localState(root)).toEqual(before);
-      const child = startWorkspaceOperation(sandbox, {
-        operation: "check",
-        mode: "cli",
-        boundary: "asset-link-guard",
-        assetPath: "img",
-      });
-      try {
-        expect((await child.ended).exitCode).toBe(0);
-        expect(child.messages.some((message) => message.kind === "asset-link-follow-attempt")).toBe(
-          false,
-        );
-        const cli = sandbox.processes.at(-1)!;
-        expect(cli.stderr).toContain("warning MV-ASSET-UNSUPPORTED-NAME");
-        expect(cli.stderr).toContain(JSON.stringify(name));
-        expect(cli.stderr).toContain("this use is unchecked");
-        expect(cli.stderr).toContain(
-          branch === "candidate"
-            ? "candidate: Actor initial"
-            : "inactive: Autonomous Movement is fixed",
-        );
-        expect(cli.stderr).not.toContain("error MV-ASSET");
-        expect(cli.stderr).not.toContain("; target:");
-        if (branch === "candidate") {
-          expect(cli.stderr).toContain("image/characters");
-          expect(cli.stderr).toContain("image/sv_actors");
-          expect(cli.stderr).toContain("Actors.json[1].characterName");
-          expect(cli.stderr).toContain("Actors.json[1].battlerName");
-        } else
-          expect(cli.stderr).toContain(
-            "Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]",
-          );
-        recordAssetInput({
-          actualCli: cli,
-          guard: "no image lookup, even without any img directory",
-        });
-      } finally {
-        await child.stop();
-      }
-      expect(await localState(root)).toEqual(before);
-      await api.compileWorkspace({ workspaceRoot: root, check: false });
-      const cli = await runCli(sandbox, ["compile"]);
-      expect(cli.stderr).toContain("warning MV-ASSET-UNSUPPORTED-NAME");
-      recordAssetInput({ actualCompileCli: cli });
-      if (branch === "inactive") {
-        const map = JSON.parse(
-          await readFile(
-            join(root, ".rpgmaker-event-dsl/generated-project-data/Map001.json"),
-            "utf8",
-          ),
-        );
-        expect(map.events[1].pages[0].moveRoute.list[0].parameters[0]).toBe(name);
-      } else {
-        const actors = JSON.parse(
-          await readFile(
-            join(root, ".rpgmaker-event-dsl/project-data-snapshot/Actors.json"),
-            "utf8",
-          ),
-        );
-        expect(actors[1].characterName).toBe(name);
-        expect(actors[1].battlerName).toBe(name);
-      }
-      expect(await readdir(join(root, "Game"))).not.toContain("img");
+it("AV.F06.image-inactive.input.case.expected: unsupported saved image names warn with unchecked coverage and preserve their inactive origin", async () => {
+  await withWindowsSandbox("asset-image-inactive", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    const name = "Inactive%20#Image";
+    const authored = `import {mapEvent,imageAsset} from "rpgmaker-event-dsl";export const event=mapEvent({mapId:1,id:1,name:"Files",x:0,y:0,pages:[{conditions:{},trigger:"action",commands:[],movement:{type:"fixed",route:{commands:[{kind:"changeImage",character:imageAsset({folder:"characters",name:${JSON.stringify(name)}}),characterIndex:7}]}}}]});`;
+    const projectFiles = {
+      "MapInfos.json": [null, { id: 1, name: "Files" }],
+      "Map001.json": { width: 1, height: 1, tilesetId: 1, events: [] },
+      "Tilesets.json": [null, { id: 1, name: "Tiles" }],
+    };
+    await prepare(root, [], { source: authored, projectFiles });
+    const before = await localState(root);
+    await api.compileWorkspace({ workspaceRoot: root, check: true });
+    expect(await localState(root)).toEqual(before);
+    const child = startWorkspaceOperation(sandbox, {
+      operation: "check",
+      mode: "cli",
+      boundary: "asset-link-guard",
+      assetPath: "img",
     });
+    try {
+      expect((await child.ended).exitCode).toBe(0);
+      expect(child.messages.some((message) => message.kind === "asset-link-follow-attempt")).toBe(
+        false,
+      );
+      const cli = sandbox.processes.at(-1)!;
+      expect(cli.stderr).toContain("warning MV-ASSET-UNSUPPORTED-NAME");
+      expect(cli.stderr).toContain(JSON.stringify(name));
+      expect(cli.stderr).toContain("this use is unchecked");
+      expect(cli.stderr).toContain("inactive: Autonomous Movement is fixed");
+      expect(cli.stderr).not.toContain("error MV-ASSET");
+      expect(cli.stderr).not.toContain("; target:");
+      expect(cli.stderr).toContain(
+        "Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]",
+      );
+      recordAssetInput({
+        actualCli: cli,
+        guard: "no image lookup, even without any img directory",
+      });
+    } finally {
+      await child.stop();
+    }
+    expect(await localState(root)).toEqual(before);
+    await api.compileWorkspace({ workspaceRoot: root, check: false });
+    const cli = await runCli(sandbox, ["compile"]);
+    expect(cli.stderr).toContain("warning MV-ASSET-UNSUPPORTED-NAME");
+    recordAssetInput({ actualCompileCli: cli });
+    const map = JSON.parse(
+      await readFile(join(root, ".rpgmaker-event-dsl/generated-project-data/Map001.json"), "utf8"),
+    );
+    expect(map.events[1].pages[0].moveRoute.list[0].parameters[0]).toBe(name);
+    expect(await readdir(join(root, "Game"))).not.toContain("img");
   });
+});
 
 it("AV.F12.type-changes-during-query.injected.case.expected: an enumerated ordinary file becoming a directory is an inconclusive query", async () => {
   await withWindowsSandbox("asset-file-type-change", async (sandbox) => {

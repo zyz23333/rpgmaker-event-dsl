@@ -149,8 +149,8 @@ export function collectAnimationAssets(
   }
 }
 
-/** Shared selected-entry leaf; a page-tile consumer can later select its one slot. */
-export function readTilesetNames(
+/** Read the selected Tileset sheets for Change Tileset. */
+function readTilesetNames(
   data: CapturedAssetData,
   id: number,
   origin: AssetOrigin,
