@@ -1,6 +1,6 @@
 # 跨事件的共享编写模块与参数化命令函数（第一版）
 
-Status: ready-for-agent
+Status: resolved
 Created: 2026-11-03
 Scope: 本地共享模块、参数化命令函数、命令组合，以及现有 Workspace 工作流集成
 
@@ -99,22 +99,22 @@ Common Event 与 Common Event DSL Command 已能提供游戏运行时复用，�
 
 以下是第一版必须覆盖的外部行为，允许一个有独立预期的案例覆盖多项：
 
-| 场景 | 必须观察到的结果 |
-| --- | --- |
-| 两个入口导入同一命令数组、配置和引用常量 | 入口无需扩大 Discovery；各事件生成正确内容，共享模块不额外生成项目条目。 |
-| 参数化函数用于不同宝箱或奖励事件 | 至少两个不同参数集产生各自独立的预期命令；具名函数、箭头函数和选项对象读取/浅解构均有覆盖。 |
-| 本地函数、跨模块函数组合和菱形依赖 | 命令及展开顺序正确；不因依赖共享重复收集 Event Definition。 |
-| 同一共享片段多次使用及放入 Child Command Body | 原生顺序、缩进、分支/循环边界、终止记录与独立预期一致；不发生跨调用参数污染。 |
-| Map、Common、Troop 使用及上下文错误 | 三类容器有代表性成功使用；一个上下文不合法的共享片段仍产生相应验证结果。 |
-| 类型或语法失败 | 缺失导出、参数类型错误、共享模块内部类型错误、不支持的函数体或导入形式明确失败，定位到真实源码；覆盖未调用但已加载的非法函数体。 |
-| 解析边界 | 合法相对说明符和 Windows 含空格/中文路径可用；缺失文件、超出 sourceRoot 的真实目标、隔离区目标被明确拒绝。 |
-| 循环和递归 | 值模块循环、函数直接/间接递归得到有限失败及相关链；合法共享依赖及类型循环不误报。 |
-| 来源诊断 | 覆盖共享函数内部构造错误、调用参数问题，以及组合后引用或素材问题；两个调用者或同事件两个使用位置的来源不会互相覆盖，嵌套调用仍可追踪。 |
-| 共享输入新鲜度 | 编译后只改直接依赖或传递依赖，旧输出失效，Diff/Push 拒绝；删除、重命名、替换和解析目标变化有代表性验证；重新编译后所有相关输出更新。 |
-| 输入一致性和失败状态 | 使用现有可控工作流边界让共享输入在操作期间变化，Compile/Check 在既定检查点拒绝；Check 不改变 generated、manifest、Snapshot、Project Root 或源文件，不建立新鲜度。普通 Compile 的失败状态符合已有发布契约。 |
-| Decompile 身份兼容 | 有共享导入/函数的现有源码能进行正确身份检查；共享常量决定身份时冲突仍拒绝，相关依赖变化仍被发现；不相关命令错误或关闭 Script Command Gate 不扩大成既有事件的完整校验。 |
-| Decompile 原有保护 | 无法确定身份及候选冲突均保留原源码和 Snapshot，失败不发布部分候选；未修改的反编译源码仍满足 Event Semantic Round Trip。 |
-| 旧行为与文档示例 | 现有内联 DSL、同文件 const 展开、DSL namespace、类型导入和 Common Event 调用继续工作；文档中的第一版示例能通过实际 Workspace 编译。 |
+| 场景                                          | 必须观察到的结果                                                                                                                                                                                           |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 两个入口导入同一命令数组、配置和引用常量      | 入口无需扩大 Discovery；各事件生成正确内容，共享模块不额外生成项目条目。                                                                                                                                   |
+| 参数化函数用于不同宝箱或奖励事件              | 至少两个不同参数集产生各自独立的预期命令；具名函数、箭头函数和选项对象读取/浅解构均有覆盖。                                                                                                                |
+| 本地函数、跨模块函数组合和菱形依赖            | 命令及展开顺序正确；不因依赖共享重复收集 Event Definition。                                                                                                                                                |
+| 同一共享片段多次使用及放入 Child Command Body | 原生顺序、缩进、分支/循环边界、终止记录与独立预期一致；不发生跨调用参数污染。                                                                                                                              |
+| Map、Common、Troop 使用及上下文错误           | 三类容器有代表性成功使用；一个上下文不合法的共享片段仍产生相应验证结果。                                                                                                                                   |
+| 类型或语法失败                                | 缺失导出、参数类型错误、共享模块内部类型错误、不支持的函数体或导入形式明确失败，定位到真实源码；覆盖未调用但已加载的非法函数体。                                                                           |
+| 解析边界                                      | 合法相对说明符和 Windows 含空格/中文路径可用；缺失文件、超出 sourceRoot 的真实目标、隔离区目标被明确拒绝。                                                                                                 |
+| 循环和递归                                    | 值模块循环、函数直接/间接递归得到有限失败及相关链；合法共享依赖及类型循环不误报。                                                                                                                          |
+| 来源诊断                                      | 覆盖共享函数内部构造错误、调用参数问题，以及组合后引用或素材问题；两个调用者或同事件两个使用位置的来源不会互相覆盖，嵌套调用仍可追踪。                                                                     |
+| 共享输入新鲜度                                | 编译后只改直接依赖或传递依赖，旧输出失效，Diff/Push 拒绝；删除、重命名、替换和解析目标变化有代表性验证；重新编译后所有相关输出更新。                                                                       |
+| 输入一致性和失败状态                          | 使用现有可控工作流边界让共享输入在操作期间变化，Compile/Check 在既定检查点拒绝；Check 不改变 generated、manifest、Snapshot、Project Root 或源文件，不建立新鲜度。普通 Compile 的失败状态符合已有发布契约。 |
+| Decompile 身份兼容                            | 有共享导入/函数的现有源码能进行正确身份检查；共享常量决定身份时冲突仍拒绝，相关依赖变化仍被发现；不相关命令错误或关闭 Script Command Gate 不扩大成既有事件的完整校验。                                     |
+| Decompile 原有保护                            | 无法确定身份及候选冲突均保留原源码和 Snapshot，失败不发布部分候选；未修改的反编译源码仍满足 Event Semantic Round Trip。                                                                                    |
+| 旧行为与文档示例                              | 现有内联 DSL、同文件 const 展开、DSL namespace、类型导入和 Common Event 调用继续工作；文档中的第一版示例能通过实际 Workspace 编译。                                                                        |
 
 完成时执行与变更相关的类型、静态和测试检查，进行一次必要的构建及上述 CLI 验证。仅在新失败、代码变化或未解决风险要求时扩大或重复运行；本规格不要求额外的大型验收归档体系。
 
@@ -129,7 +129,7 @@ Common Event 与 Common Event DSL Command 已能提供游戏运行时复用，�
 - 符号级最小增量编译、跨命令持久缓存、watch 模式、IDE 导航或独立调试器。
 - 重新制定资产检查、原生事件保存形态、同步恢复或跨 Workspace 协调政策。
 
-## Further Notes
+## Further Notes（规格阶段记录）
 
 - **授权与完成边界。** 用户选择了上一轮推荐的“本地共享模块＋参数化命令函数＋命令组合”第一版，并确认本规格的工作流测试入口。本轮交付规格；ready-for-agent 表示可进入实施，不表示功能已实现或测试已通过。
 - **范围收敛。** 上一轮尚未选择完整 TypeScript 执行或有限求值的具体路线。本规格按第一版建议收敛为现有受限求值的纯组合子集，并明确语法边界；后续不能把支持任意函数体当成已承诺能力。
@@ -138,3 +138,13 @@ Common Event 与 Common Event DSL Command 已能提供游戏运行时复用，�
 - **架构冲突处理。** ADR 0013 的普通值导入限制是本功能需要明确扩展的旧边界，不能只修改加载器而保留相反文档和测试。ADR 0002 的 tsx 加载表述与当前实际受限求值也需要对齐。其余引用 ADR 的工作流和保存语义继续适用；本轮没有直接改写已接受 ADR。
 - **依据。** [领域术语](../../GLOSSARY.md)、[ADR 0001](../../docs/adr/0001-schema-first-dsl-entry-model.md)、[ADR 0002](../../docs/adr/0002-technical-architecture-and-toolchain.md)、[ADR 0003](../../docs/adr/0003-workspace-compile-push-model.md)、[ADR 0004](../../docs/adr/0004-explicit-mv-id-entry-identity.md)、[ADR 0012](../../docs/adr/0012-event-saved-state-roundtrip-boundary.md)、[ADR 0013](../../docs/adr/0013-bind-generated-data-to-compilation-assumptions.md)、[ADR 0014](../../docs/adr/0014-publish-decompiled-source-as-a-complete-directory.md)。
 - **实现与测试先例。** [源码加载](../../packages/rpgmaker-event-dsl/src/workspace/definitions.ts)、[身份分析](../../packages/rpgmaker-event-dsl/src/workspace/definition-identities.ts)、[输入捕获](../../packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts)、[现有来源关联](../../packages/rpgmaker-event-dsl/src/workspace/asset-provenance.ts)、[加载和 Discovery 测试](../../packages/rpgmaker-event-dsl/test/definitions.test.ts)、[编译输入测试](../../packages/rpgmaker-event-dsl/test/compile-inputs.test.ts)、[Decompile 发布测试](../../packages/rpgmaker-event-dsl/test/decompile-publication.test.ts)。这些是当前定位信息，不是固定实现文件边界。
+
+## Outcome
+
+2026-11-03：第一版全部实现。01–07 票均已 resolved，完整结果保留在 `codex/shared-authoring-modules` 集成分支。共享本地具名值、受限参数化命令函数与嵌套组合已接入三类事件、来源诊断、Compile/Check、Diff/Push 和惰性 Decompile 身份读取。编译契约最终为 `mv-1.6.1/44`。示例、两份 README、Agent Event Authoring Skill、GLOSSARY 和相关 ADR 已同步；[07 验收映射](issues/07-cli-examples-and-acceptance.md) 覆盖 30 条 User Stories、16 条 Implementation Decisions 和 14 类验收场景。
+
+最终双轴审查针对基线 `d24991486b118f3b71f24f0938b400652c5cd857`：Standards 提出 1 项 P2，Spec 提出 2 项 P2，其中 1 项重合。两个独立问题均由同一实现者修复：惰性身份函数保留模块 const 初始化边界；未调用函数的数组及展开返回值检查已知的非法函数/事件声明。修复在 `9c92973750fde1619607e32ad73557756b2a8b0b` 集成后，两位原审查者独立复现并确认全部解决，无遗留发现。完整报告见 [最终审查](final-review.md)。
+
+实际验证环境为 Windows / Node 22.19.0 / pnpm 10.33.0。01–07 的公开 Workspace 行为与静态检查记录保留在各票；最终修复额外通过共享身份 31 项、作者函数/发布/加载 60 项、旧契约拒绝 1 项，以及 typecheck、lint、format 和 diff 检查。保留的集成工作树完成 frozen install、实际构建，并以 `MV_CLI_ENTRY=built` 再次运行 `shared-authoring-cli.test.ts`，1/1 通过（15.22 秒）：覆盖正常工作流、传递共享依赖变更后的拒绝及重新编译、两个文档错误示例和项目落盘内容。首次构建后还实际验证了重新安装刷新示例 CLI 命令入口的步骤；该说明已在 `9ca0f2a567b584ad95093caff977d444a1345aa0` 合入，产品代码不变。
+
+所有第一版必需项已完成。任意 TypeScript 执行、运行时函数传参、完整事件工厂、自动抽取重复逻辑等仍按规格排除。验证未包含真实 RPG Maker MV 编辑器或游戏运行，不作该范围的通过声明。
