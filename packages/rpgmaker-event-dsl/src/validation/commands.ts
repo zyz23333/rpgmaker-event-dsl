@@ -193,6 +193,10 @@ export function validateNodes(
       } catch (error) {
         issues.push({
           level: "error",
+          code,
+          stage: "compile",
+          ...(options.identity === undefined ? {} : { identity: options.identity }),
+          dslPath: `${nodePath}.${field}`,
           message: `${code} validation ${options.identity ?? "event"}.${nodePath}.${field}: ${error instanceof Error ? error.message : String(error)}`,
         });
         return undefined;

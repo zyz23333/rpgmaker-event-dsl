@@ -605,6 +605,13 @@ this subset. Recursive calls fail with the function chain. Loaded function bodie
 are checked even when unused; unimported helper files remain outside Discovery.
 
 Function construction failures identify the shared definition and call locations.
+Later reference, context and asset diagnostics keep their event identity and DSL/native
+paths. `source` is the nearest reliable authored object or command location; `use`
+identifies a shared value expansion, and `call NAME` with `defined` follows author
+functions from the inner definition out to the event use. Repeated uses retain separate
+chains even when asset findings are grouped. These coordinates identify authored
+expressions, not necessarily individual parameter fields. Raw saved commands and
+unresolved identities keep their available paths without claiming unknown coordinates.
 After editing an implementation, re-run Compile before Diff/Push; Check validates the
 new implementation without making existing output fresh. Event JavaScript inside
 commands remains stored text governed by the existing Script Command Gate.
