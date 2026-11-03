@@ -1,6 +1,6 @@
 # 14: 首版集成验收与使用说明核对
 
-Status: ready-for-agent
+Status: claimed
 Blocked by: 01, 07, 08, 12, 13
 Created: 2026-11-02
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -11,9 +11,9 @@ History: [旧 17](../history/2026-10-24/issues/17-integrated-acceptance.md)
 
 ## Acceptance criteria
 
-- [ ] 逐实例核对 86 个有效验收族及其保留分支，验证 Compile／Check／Push 对完整当前根与七族间接关系使用同一规则。
-- [ ] 复核 N01–N05 当前保留分支的真实证据；11 个延后族及撤销子分支不属于首版门槛，不作为通过或环境 skip。
-- [ ] 执行现行规格要求的 Windows / Node.js 22 仓库检查、构建与构建后 CLI 验证，核对源码及构建入口覆盖。
+- [x] 逐实例核对 86 个有效验收族及其保留分支，验证 Compile／Check／Push 对完整当前根与七族间接关系使用同一规则。
+- [x] 复核 N01–N05 当前保留分支的真实证据；11 个延后族及撤销子分支不属于首版门槛，不作为通过或环境 skip。
+- [x] 执行现行规格要求的 Windows / Node.js 22 仓库检查、构建与构建后 CLI 验证，核对源码及构建入口覆盖。
 - [ ] 审阅公开说明、例外示例、文件存在性边界、补图重试／恢复流程和延后范围；缺口退回责任票，保留行为测试不能转交本票补写。
 - [ ] 没有当前范围内未解决的契约反例、必验未执行或证据矛盾后，提供实际回执供维护者确认；不以本票发布宣称功能已完成。
 
@@ -33,9 +33,15 @@ History: [旧 17](../history/2026-10-24/issues/17-integrated-acceptance.md)
 
 仅在直接依赖均 resolved 后领取；ready-for-agent 表示范围明确，不代表已解除依赖。各票完成只代表其保留范围，首版最终验收由 14 汇总。
 
+## Outcome
+
+当前首版 86 族的技术验收已取得完整自动化运行和 12 个保留原生 ID 的证据对账。交付确认属于维护者审阅步骤，尚未完成。
+
 ## Verification
 
-按现行验收索引执行本票分支及指定 CLI 路径，记录适用检查、构建、Windows 验证和实际结果。当前均待实施／执行；不能将失败或缺口留给最终汇总票后关闭本票。
+冻结提交 `403b39aa` 的 Windows 10 / Node.js 22.23.0 最终运行：`pnpm check` 退出 0（105 文件、3064 测试通过），`pnpm build` 退出 0，`pnpm --filter rpgmaker-event-dsl test:windows-baseline` 退出 0（44 文件、1494 测试通过）；源码与构建后入口各含相同的 895 个互不重复 `AV.` ID，当前有限 ID 无缺失、无 skip。原始日志、逐 ID 回执、86 族对照和 N01–N05 的 12 个历史真实原生 ID 与最终代码政策核对，见[当前技术验收回执](../evidence/14-current-acceptance/README.md)。先前中断／失败的中间提交运行没有计作本次通过。
+
+**维护者最终确认待完成。** 公开使用说明、例外示例、存在性边界、补图重试／恢复流程及延后范围仍需维护者审阅；本票和父规格保持未 resolved。
 
 ## Sources
 

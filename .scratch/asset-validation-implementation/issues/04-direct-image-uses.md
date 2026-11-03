@@ -1,6 +1,6 @@
 # 04: 事件页、图像指令与移动图像的检查
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 02
 Created: 2026-11-02
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -11,18 +11,18 @@ History: [旧 04](../history/2026-10-24/issues/04-direct-image-uses.md)、[旧 0
 
 ## Acceptance criteria
 
-- [ ] 覆盖 A01／A02／A13–A17 每个字段，适用的正式／raw 分别对照独立预期；None、已有 Compiler Default 和独立索引值保留。
-- [ ] 非 custom 自主路线和图块页保留的 characterName 仍检查并标明明确非活动状态；页条件或未执行分支不因此降级。
-- [ ] 205／505 镜像关联同一次使用及两处原生位置，不丢失其他真实指令的独立来源。
-- [ ] 页图块不引出宿主初始 Tileset 素材；直接 characterName 的检查不受该关系延后影响。
+- [x] 覆盖 A01／A02／A13–A17 每个字段，适用的正式／raw 分别对照独立预期；None、已有 Compiler Default 和独立索引值保留。
+- [x] 非 custom 自主路线和图块页保留的 characterName 仍检查并标明明确非活动状态；页条件或未执行分支不因此降级。
+- [x] 205／505 镜像关联同一次使用及两处原生位置，不丢失其他真实指令的独立来源。
+- [x] 页图块不引出宿主初始 Tileset 素材；直接 characterName 的检查不受该关系延后影响。
 
 ### 共通要求（限本票范围）
 
-- [ ] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
-- [ ] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
-- [ ] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
-- [ ] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
+- [x] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
+- [x] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
+- [x] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
+- [x] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
+- [x] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
 
 ## Acceptance ownership
 
@@ -49,9 +49,15 @@ History: [旧 04](../history/2026-10-24/issues/04-direct-image-uses.md)、[旧 0
 
 仅在直接依赖均 resolved 后领取；ready-for-agent 表示范围明确，不代表已解除依赖。各票完成只代表其保留范围，首版最终验收由 14 汇总。
 
+## Outcome
+
+页图像、脸图、背景、远景、角色／载具图像及两种 Movement Route 使用保留原生位置；205／505 镜像合并一次，明确非活动保存字段保留条件。
+
 ## Verification
 
-按现行验收索引执行本票分支及指定 CLI 路径，记录适用检查、构建、Windows 验证和实际结果。当前均待实施／执行；不能将失败或缺口留给最终汇总票后关闭本票。
+A01／A02／A13–A17 及本票 C03／C06／C08／C11／C12 分支见[ID 回执](../evidence/14-current-acceptance/id-receipts.json)；准确文件、逐字段缺失、正式／raw 和延后页图块范围反例在[冻结运行](../evidence/14-current-acceptance/README.md)通过。
+
+最终公共门槛在冻结提交 `403b39aa` 的 Windows 10 / Node.js 22.23.0 环境执行：`pnpm check` 退出 0（105 文件、3064 测试通过），`pnpm build` 退出 0，`pnpm --filter rpgmaker-event-dsl test:windows-baseline` 退出 0（44 文件、1494 测试通过）。三份原始日志见[当前技术验收回执](../evidence/14-current-acceptance/README.md)。
 
 ## Sources
 

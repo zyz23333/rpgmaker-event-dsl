@@ -1,6 +1,6 @@
 # 13: Interrupted Push 恢复与当前素材条件分离
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 11
 Created: 2026-11-02
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -11,19 +11,19 @@ History: [旧 16](../history/2026-10-24/issues/16-recovery-and-current-asset-pol
 
 ## Acceptance criteria
 
-- [ ] 全生成可完成记账、全旧可放弃；混合、缺失、未知或不一致拒绝自动恢复。素材缺失不阻止已完成 data 记账。
-- [ ] 恢复完成后继续正常 freshness／drift／素材门槛；本次素材失败不重新创建已经清除的 pending。
-- [ ] 独立构造历史 pending，覆盖旧格式／hash、原依据过期和当前配置改变；保留原编译依据与绑定，不升级旧输出或授权新写入。
-- [ ] 验证同 Workspace 互斥、非 Push 遇 pending 停止、目标重绑前按原目标恢复；报告区分恢复结果与当前失败，素材不参与恢复写入或备份。
-- [ ] 使用独立内容证据及真实中断场景验证，无需等待 12 制造写后失败；最终联合验收由 14 完成。
+- [x] 全生成可完成记账、全旧可放弃；混合、缺失、未知或不一致拒绝自动恢复。素材缺失不阻止已完成 data 记账。
+- [x] 恢复完成后继续正常 freshness／drift／素材门槛；本次素材失败不重新创建已经清除的 pending。
+- [x] 独立构造历史 pending，覆盖旧格式／hash、原依据过期和当前配置改变；保留原编译依据与绑定，不升级旧输出或授权新写入。
+- [x] 验证同 Workspace 互斥、非 Push 遇 pending 停止、目标重绑前按原目标恢复；报告区分恢复结果与当前失败，素材不参与恢复写入或备份。
+- [x] 使用独立内容证据及真实中断场景验证，无需等待 12 制造写后失败；最终联合验收由 14 完成。
 
 ### 共通要求（限本票范围）
 
-- [ ] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
-- [ ] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
-- [ ] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
-- [ ] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
+- [x] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
+- [x] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
+- [x] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
+- [x] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
+- [x] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
 
 ## Acceptance ownership
 
@@ -42,9 +42,15 @@ History: [旧 16](../history/2026-10-24/issues/16-recovery-and-current-asset-pol
 
 仅在直接依赖均 resolved 后领取；ready-for-agent 表示范围明确，不代表已解除依赖。各票完成只代表其保留范围，首版最终验收由 14 汇总。
 
+## Outcome
+
+Interrupted Push 依据内容证据完成全生成记账、放弃全旧状态，拒绝混合／缺失／未知；保留原绑定和编译依据，再独立判断当前 freshness、drift 和素材。
+
 ## Verification
 
-按现行验收索引执行本票分支及指定 CLI 路径，记录适用检查、构建、Windows 验证和实际结果。当前均待实施／执行；不能将失败或缺口留给最终汇总票后关闭本票。
+W15／W16／W18 及 W19 recovery 的历史 pending 格式、原目标、互斥与真实中断分支见[ID 回执](../evidence/14-current-acceptance/id-receipts.json)，源码与构建后运行通过。
+
+最终公共门槛在冻结提交 `403b39aa` 的 Windows 10 / Node.js 22.23.0 环境执行：`pnpm check` 退出 0（105 文件、3064 测试通过），`pnpm build` 退出 0，`pnpm --filter rpgmaker-event-dsl test:windows-baseline` 退出 0（44 文件、1494 测试通过）。三份原始日志见[当前技术验收回执](../evidence/14-current-acceptance/README.md)。
 
 ## Sources
 

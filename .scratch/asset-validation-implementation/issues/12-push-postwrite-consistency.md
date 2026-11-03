@@ -1,6 +1,6 @@
 # 12: Push 写后记账与输入一致性保护
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 11
 Created: 2026-11-02
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -11,18 +11,18 @@ History: [旧 15](../history/2026-10-24/issues/15-push-postwrite-consistency.md)
 
 ## Acceptance criteria
 
-- [ ] 写完 data 后删图或改变素材类型不追加扫描，证据一致则刷新 Snapshot／Manifest 并清除 pending；下一次无差异 Push 重新检查当前素材并可失败。
-- [ ] 写后源、验证依赖、配置／例外、快照、生成数据或绑定异常仍保留 Interrupted Push；不把素材变化单独当作 data 恢复条件。
-- [ ] 保留完整标准 data 的末端预期及受影响文件旧内容保护，不把本工具合法写入误认为外部漂移，不增加回滚或素材备份。
-- [ ] 使用受控真实边界和指定 CLI 路径验证写后结果、同步状态、pending 以及素材树；不新增写后素材门槛。
+- [x] 写完 data 后删图或改变素材类型不追加扫描，证据一致则刷新 Snapshot／Manifest 并清除 pending；下一次无差异 Push 重新检查当前素材并可失败。
+- [x] 写后源、验证依赖、配置／例外、快照、生成数据或绑定异常仍保留 Interrupted Push；不把素材变化单独当作 data 恢复条件。
+- [x] 保留完整标准 data 的末端预期及受影响文件旧内容保护，不把本工具合法写入误认为外部漂移，不增加回滚或素材备份。
+- [x] 使用受控真实边界和指定 CLI 路径验证写后结果、同步状态、pending 以及素材树；不新增写后素材门槛。
 
 ### 共通要求（限本票范围）
 
-- [ ] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
-- [ ] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
-- [ ] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
-- [ ] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
+- [x] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
+- [x] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
+- [x] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
+- [x] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
+- [x] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
 
 ## Acceptance ownership
 
@@ -40,9 +40,15 @@ History: [旧 15](../history/2026-10-24/issues/15-push-postwrite-consistency.md)
 
 仅在直接依赖均 resolved 后领取；ready-for-agent 表示范围明确，不代表已解除依赖。各票完成只代表其保留范围，首版最终验收由 14 汇总。
 
+## Outcome
+
+素材门槛后的媒体变化不阻断一致的 data 写入记账，真正输入或 data 不一致仍按 Interrupted Push 处理；下一命令重新检查素材。
+
 ## Verification
 
-按现行验收索引执行本票分支及指定 CLI 路径，记录适用检查、构建、Windows 验证和实际结果。当前均待实施／执行；不能将失败或缺口留给最终汇总票后关闭本票。
+W06、W13 postwrite 和 W19 写后失败分支的同步状态、pending 与真实 CLI 检查点见[ID 回执](../evidence/14-current-acceptance/id-receipts.json)，源码与构建后运行通过。
+
+最终公共门槛在冻结提交 `403b39aa` 的 Windows 10 / Node.js 22.23.0 环境执行：`pnpm check` 退出 0（105 文件、3064 测试通过），`pnpm build` 退出 0，`pnpm --filter rpgmaker-event-dsl test:windows-baseline` 退出 0（44 文件、1494 测试通过）。三份原始日志见[当前技术验收回执](../evidence/14-current-acceptance/README.md)。
 
 ## Sources
 

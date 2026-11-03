@@ -1,0 +1,35 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check M:\Shuen\Codex\asset-validation-current
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck M:\Shuen\Codex\asset-validation-current
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint M:\Shuen\Codex\asset-validation-current
+> oxlint .
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check M:\Shuen\Codex\asset-validation-current
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 609ms on 338 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test M:\Shuen\Codex\asset-validation-current
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 M:/Shuen/Codex/asset-validation-current/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test:  Test Files  105 passed (105)
+packages/rpgmaker-event-dsl test:       Tests  3064 passed (3064)
+packages/rpgmaker-event-dsl test:    Start at  13:39:10
+packages/rpgmaker-event-dsl test:    Duration  1978.85s (transform 2.98s, setup 0ms, import 42.70s, tests 3898.58s, environment 7ms)
+packages/rpgmaker-event-dsl test: Done
