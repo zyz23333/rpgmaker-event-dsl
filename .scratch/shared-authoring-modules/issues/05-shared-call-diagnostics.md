@@ -31,6 +31,7 @@ User Stories: 17, 19, 20, 21
 
 - 新增 `shared-call-diagnostics.test.ts`：9 个公开 Compile/Check 案例，含常量跨事件/同事件多次复用、直接与嵌套调用素材诊断、引用错误、上下文警告、求值/构造错误、参数/共享类型/语法/导入错误及原生值保存。新增行为按逐个失败测试→实现→通过进行；既有构造、类型和保存契约补回归验收。
 - 联合既有 `asset-diagnostics-workspace.test.ts`、`definitions.test.ts`、`author-functions-workspace.test.ts`：4 文件、109 测试通过，涵盖内联位置、Raw DSL Command 未知来源、失败状态和参数独立性。
+- 合并集成分支 `e3ca79c0841a0879347cc894fd7d9045441b07e7` 后，`shared-event-containers.test.ts` 与本票来源套件联合 15 测试通过，确认三类容器及既有上下文警告展示兼容。
 - 包 typecheck、变更 TypeScript 文件 oxlint、格式化与 `git diff --check` 通过。
 
 本票只改变瞬时来源元数据与诊断展示，不改变编译语义、Native Saved Shape、输入基线或验证决策；Compile Contract Version 保留 `/42`。最终构建后 CLI 验证由 07 完成。
