@@ -1,6 +1,6 @@
 import { nativeAssetEvents } from "./asset-uses.js";
 import { CapturedAssetData, collectAssetName } from "./asset-dependencies.js";
-import type { AssetOrigin, AssetRelations } from "./asset-dependencies.js";
+import type { AssetDynamicStop, AssetOrigin, AssetRelations } from "./asset-dependencies.js";
 
 function object(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === "object" && !Array.isArray(value);
@@ -68,61 +68,6 @@ export function collectActorEnemyAssets(
   for (const event of nativeAssetEvents(files))
     for (const page of event.pages)
       for (const [index, command] of page.list.entries()) {
-        if (command.code === 129 && command.parameters[1] === 0) {
-          const id = command.parameters[0] as number;
-          const origin: AssetOrigin = {
-            identity: event.identity,
-            nativePath: `${page.nativePath}.list[${index}].parameters[0]`,
-            relatedNativePaths: [],
-            dependencyChain: [],
-            conditions: [],
-          };
-          const actor = data.entry("Actors.json", id, origin, result);
-          if (actor === undefined) continue;
-          collectAssetName(
-            result,
-            actor.characterName,
-            { category: "image", folder: "characters" },
-            {
-              ...origin,
-              dependencyChain: [
-                {
-                  data: "Actors.json",
-                  id,
-                  field: "characterName",
-                  relationship: "Actor initial character image",
-                },
-              ],
-              conditions: [
-                "The added Actor supplies a player or follower image only when effective in the current party.",
-              ],
-              candidate: "Actor initial character image may be replaced by runtime image settings.",
-            },
-            `Actors.json[${id}].characterName`,
-          );
-          collectAssetName(
-            result,
-            actor.battlerName,
-            { category: "image", folder: "sv_actors" },
-            {
-              ...origin,
-              dependencyChain: [
-                {
-                  data: "Actors.json",
-                  id,
-                  field: "battlerName",
-                  relationship: "Actor initial battler image",
-                },
-              ],
-              conditions: [
-                "Actor battler images apply only in side-view battle and while the Actor is an effective battle member.",
-              ],
-              candidate: "Actor initial battler image may be replaced by runtime image settings.",
-            },
-            `Actors.json[${id}].battlerName`,
-          );
-          continue;
-        }
         if (command.code === 336) {
           enemyAssets(
             data,
@@ -187,4 +132,24 @@ export function collectActorEnemyAssets(
         }
       }
   return result;
+}
+
+export function collectDynamicTroopAssetStops(
+  files: ReadonlyMap<string, string>,
+): AssetDynamicStop[] {
+  const stops: AssetDynamicStop[] = [];
+  for (const event of nativeAssetEvents(files))
+    for (const page of event.pages)
+      for (const [index, command] of page.list.entries())
+        if (command.code === 301 && command.parameters[0] !== 0)
+          stops.push({
+            identity: event.identity,
+            nativePath: `${page.nativePath}.list[${index}].parameters[0]`,
+            relatedNativePaths: [],
+            dependencyChain: [],
+            conditions: [],
+            reason:
+              "Troop target is selected at runtime; the Troop/Enemy asset relationship is unchecked.",
+          });
+  return stops;
 }
