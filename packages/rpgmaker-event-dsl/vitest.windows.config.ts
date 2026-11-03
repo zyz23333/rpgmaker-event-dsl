@@ -17,6 +17,7 @@ export default defineConfig({
       "test/asset-image-workspace.test.ts",
       "test/asset-media-workspace.test.ts",
       "test/asset-dependency-workspace.test.ts",
+      "test/asset-selected-field-matrix.test.ts",
       "test/asset-dependency-data.test.ts",
       "test/asset-map-workspace.test.ts",
       "test/map-locations-workspace.test.ts",
