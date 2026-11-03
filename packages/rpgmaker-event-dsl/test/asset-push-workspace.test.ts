@@ -273,7 +273,7 @@ for (const [branch, mode] of [
     },
   );
 for (const mode of ["api", "cli"] as const)
-  it(`AV.W20.generated-roots-and-relations.${mode}.case.expected: Push rebuilds current generated roots and captured direct shared/cyclic relations`, async () => {
+  it(`AV.W20.generated-roots-and-relations.${mode}.case.expected: Push rebuilds current generated roots without Common Event caller expansion`, async () => {
     await withWindowsSandbox(`asset-push-generated-${mode}`, async (sandbox) => {
       const root = sandbox.workspaceRoot;
       await preparePushGraph(sandbox);
@@ -284,27 +284,17 @@ for (const mode of ["api", "cli"] as const)
         actual = await controlledPush(sandbox, { mode, allowDestructive: true });
       expect(actual.exitCode).toBe(1);
       const text = actual.message + actual.stderr;
-      expect(text).toContain("6 problem group(s), 6 problem file(s), 6 affected use(s)");
       expect(text).not.toContain("ObsoletePoster");
       expect(text).not.toContain("Unselected");
       for (const use of [...expected.expectedUses, ...expected.expectedActionUses])
         expect(text).toContain(`${use.identity} ${use.nativePath}`);
       expect((text.match(/  - error /gu) ?? []).length).toBe(6);
-      const callLines = text
-        .split("\n")
-        .filter((line) => /^  - (?:commonEvent:|map:|troop:).* -> commonEvent:/u.test(line));
-      expect(callLines).toHaveLength(8);
-      for (const edge of [...expected.expectedCalls, ...expected.expectedActionCalls])
-        expect(
-          callLines.filter((line) =>
-            line.includes(`${edge.caller} ${edge.nativePath} -> ${edge.target}`),
-          ),
-        ).toHaveLength(1);
+      expect(text).not.toContain("Direct Common Event calls:");
+      expect(text).not.toContain(" -> commonEvent:");
       expect(text).toContain(
         "Skills.json[1].animationId (Forced action Skill animation) -> Animations.json[2].animation1Name (Animation image sheet)",
       );
-      expect(text).toContain("Skills.json[1].effects[0].dataId (Skill Common Event effect)");
-      expect(text).toContain("Skills.json[1].effects[1].dataId (Skill Common Event effect)");
+      expect(text).not.toContain("Skill Common Event effect");
       expect(actual.messages.some((m) => m.kind === "asset-query")).toBe(true);
       expect(actual.messages.filter((m) => m.kind === "asset-content-read-attempt")).toEqual([]);
       expect(await observePush(root)).toEqual(before);
