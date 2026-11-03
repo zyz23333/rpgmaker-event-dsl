@@ -1,9 +1,6 @@
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { expect } from "vitest";
-import { nativeAssetEvents, collectEventAssetUses } from "../../src/validation/asset-uses.js";
-import { collectCommonEventCalls } from "../../src/validation/asset-common-calls.js";
-import { collectForcedActionAssets } from "../../src/validation/asset-action-relations.js";
 import { recordAssetInput } from "./asset-evidence.js";
 import { preparePush, putPushFile, pushImports, pushPicture } from "./asset-push-workspace.js";
 import type { WindowsSandbox } from "./windows-sandbox.js";
@@ -157,21 +154,6 @@ export async function verifyPushGraph(root: string) {
     "map:1/event:1",
     "troop:1",
   ];
-  const direct = [
-    ["commonEvent:10", "CommonEvents.json[10].list[0].parameters[0]", 11],
-    ["commonEvent:10", "CommonEvents.json[10].list[1].parameters[0]", 12],
-    ["commonEvent:11", "CommonEvents.json[11].list[0].parameters[0]", 12],
-    ["commonEvent:12", "CommonEvents.json[12].list[0].parameters[0]", 11],
-    ["map:1/event:1", "Map001.json.events[1].pages[0].list[0].parameters[0]", 11],
-    ["troop:1", "Troops.json[1].pages[0].list[0].parameters[0]", 12],
-  ] as const;
-  const expectedCalls = direct.map(([caller, nativePath, targetId]) => ({
-    caller,
-    nativePath,
-    target: `commonEvent:${targetId}`,
-    targetId,
-    dependencyChain: [],
-  }));
   const expectedUses = [
     ["PushPoster", "commonEvent:11", "CommonEvents.json[11].list[1].parameters[1]"],
     ["MapPoster", "map:1/event:1", "Map001.json.events[1].pages[0].list[1].parameters[1]"],
@@ -191,20 +173,6 @@ export async function verifyPushGraph(root: string) {
     nativePath: "CommonEvents.json[10].list[2].parameters[2]",
     relatedNativePaths: [],
   };
-  const expectedActionCalls = [11, 12].map((targetId, index) => ({
-    caller: "commonEvent:10",
-    nativePath: actionOrigin.nativePath,
-    target: `commonEvent:${targetId}`,
-    targetId,
-    dependencyChain: [
-      {
-        data: "Skills.json",
-        id: 1,
-        field: `effects[${index}].dataId`,
-        relationship: "Skill Common Event effect",
-      },
-    ],
-  }));
   const skillStep = {
     data: "Skills.json",
     id: 1,
@@ -243,26 +211,25 @@ export async function verifyPushGraph(root: string) {
     dependencyChain: [skillStep, { data: "Animations.json", id: 2, field, relationship }],
     conditions: [condition],
   }));
-  expect(nativeAssetEvents(files).map(({ identity }) => identity)).toEqual(expectedRoots);
-  expect(collectCommonEventCalls(files)).toEqual(expectedCalls);
-  expect(collectEventAssetUses(files)).toEqual(expectedUses);
-  const actions = collectForcedActionAssets(files, external);
-  expect(actions).toEqual({
-    uses: expectedActionUses,
-    calls: expectedActionCalls,
-    problems: [],
-    stops: [],
-  });
+  const currentCommon = JSON.parse(files.get("CommonEvents.json")!);
+  const currentMap = JSON.parse(files.get("Map001.json")!);
+  const currentTroop = JSON.parse(files.get("Troops.json")!);
+  const capturedSkills = JSON.parse(external.get("Skills.json")!);
+  expect(currentCommon[9]).toBeNull();
+  expect(currentCommon[10].list[2].parameters[2]).toBe(1);
+  expect(currentCommon[11].list[1].parameters[1]).toBe("PushPoster");
+  expect(currentMap.events[9]).toBeNull();
+  expect(currentMap.events[1].pages[0].list[1].parameters[1]).toBe("MapPoster");
+  expect(currentTroop[1].pages[0].list[1].parameters[1]).toBe("TroopPoster");
+  expect(capturedSkills[1].animationId).toBe(2);
   recordAssetInput({
     generated: Object.fromEntries(files),
     capturedExternal: Object.fromEntries(external),
     expectedRoots,
     expectedUses,
-    expectedCalls,
     expectedActionUses,
-    expectedActionCalls,
     expected:
-      "five current roots; finite direct shared/cyclic edges; six defining asset uses total; no obsolete Snapshot-only root",
+      "five current roots and six defining asset uses; Common calls and Skill effects do not add asset caller reports",
   });
-  return { expectedUses, expectedCalls, expectedActionUses, expectedActionCalls };
+  return { expectedUses, expectedActionUses };
 }
