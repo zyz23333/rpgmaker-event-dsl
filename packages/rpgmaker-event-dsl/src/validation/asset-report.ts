@@ -42,7 +42,6 @@ export function buildAssetReport(
   exceptions: readonly AssetCheckException[],
   hasDynamicStops = false,
 ) {
-  const used = new Set<number>();
   const grouped = new Map<string, AssetFinding>();
   for (const finding of findings) {
     const key = JSON.stringify([
@@ -74,7 +73,6 @@ export function buildAssetReport(
           const baseLevel = assetUseLevel(origin, finding.code);
           const downgrade =
             baseLevel === "error" && eligible.has(finding.code) && exceptionIndex >= 0;
-          if (downgrade) used.add(exceptionIndex);
           return {
             origin,
             baseLevel,
@@ -92,36 +90,9 @@ export function buildAssetReport(
     });
   const incomplete =
     hasDynamicStops || findings.some((finding) => incompleteCodes.has(finding.code));
-  const indeterminateScope =
-    hasDynamicStops ||
-    findings.some((finding) => incompleteCodes.has(finding.code) && finding.target === undefined);
-  const uncheckedTargets = new Set(
-    findings.flatMap((finding) =>
-      incompleteCodes.has(finding.code) && finding.target !== undefined
-        ? [assetTargetKey(finding.target)]
-        : [],
-    ),
-  );
-  const ineffective = indeterminateScope
-    ? []
-    : exceptions.flatMap((entry, index) =>
-        used.has(index) || uncheckedTargets.has(assetTargetKey(entry)) ? [] : [{ index, entry }],
-      );
-  const files = new Set(
-    groups.flatMap((group) => (group.targetPath === undefined ? [] : [group.targetPath])),
-  );
-  const uses = new Set(
-    groups.flatMap((group) =>
-      group.members.map(({ origin }) =>
-        JSON.stringify([origin.identity, origin.nativePath, origin.dependencyChain]),
-      ),
-    ),
-  );
   return {
     groups,
-    ineffective,
     incomplete,
     hasErrors: groups.some((group) => group.level === "error"),
-    statistics: { groups: groups.length, files: files.size, uses: uses.size },
   };
 }
