@@ -1,0 +1,45 @@
+{
+  "id": "AV.D01.ordinary.direct-formal.wrong-type.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:09:12.185Z",
+  "completedAt": "2026-11-02T10:09:12.700Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Diagnostics\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+      "project": {}
+    },
+    {
+      "fact": "wrong-type",
+      "target": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-level-ordinary-direct-formal-wrong-type-L3NE16\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png"
+    },
+    {
+      "independentlyExpected": {
+        "code": "MV-ASSET-PATH-TYPE",
+        "level": "error",
+        "native": "CommonEvents.json[10].list[0].parameters[1]",
+        "chain": ""
+      },
+      "actualApi": {
+        "failure": "Error: compile --check asset check failed:\nerror MV-ASSET-PATH-TYPE: Expected ordinary file. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-level-ordinary-direct-formal-wrong-type-L3NE16\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-level-ordinary-direct-formal-wrong-type-L3NE16\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-level-ordinary-direct-formal-wrong-type-L3NE16\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-level-ordinary-direct-formal-wrong-type-L3NE16/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.",
+        "output": "Error: compile --check asset check failed:\nerror MV-ASSET-PATH-TYPE: Expected ordinary file. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-level-ordinary-direct-formal-wrong-type-L3NE16\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-level-ordinary-direct-formal-wrong-type-L3NE16\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-level-ordinary-direct-formal-wrong-type-L3NE16\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-level-ordinary-direct-formal-wrong-type-L3NE16/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete."
+      }
+    }
+  ],
+  "expected": {
+    "description": "legal ordinary direct-formal uses retain the independently specified base and effective level",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-level-${role}-${representation}-${problem}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst value = fixture(role, representation);\n\t\tawait prepare(root, value.source, value.project);\n\t\tawait fact(root, value, problem);\n\t\tconst before = await state(root);\n\t\tconst result = await check(root);\n\t\tconst code = {\n\t\t\tmissing: \"MV-ASSET-MISSING-FILE\",\n\t\t\t\"name-mismatch\": \"MV-ASSET-NAME-MISMATCH\",\n\t\t\t\"wrong-type\": \"MV-ASSET-PATH-TYPE\"\n\t\t}[problem];\n\t\tconst level = role === \"ordinary\" ? \"error\" : \"warning\";\n\t\t(0,__vite_ssr_import_2__.expect)(Boolean(result.failure)).toBe(role === \"ordinary\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(`${level} ${code}`);\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(`base: ${level}; effective: ${level}`);\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(value.native);\n\t\tif (value.chain) (0,__vite_ssr_import_2__.expect)(result.output).toContain(value.chain.replace(\"Map001.json[1]\", \"Map001.json\"));\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"1 problem group(s), 1 problem file(s), 1 affected use(s)\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"Coverage: complete\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tindependentlyExpected: {\n\t\t\t\tcode,\n\t\t\t\tlevel,\n\t\t\t\tnative: value.native,\n\t\t\t\tchain: value.chain\n\t\t\t},\n\t\t\tactualApi: result\n\t\t});\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

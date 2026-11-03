@@ -1,0 +1,42 @@
+{
+  "id": "AV.F12.type-changes-during-query.injected.case.expected",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:26:02.475Z",
+  "completedAt": "2026-11-02T11:26:04.098Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [
+        "Poster"
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"Poster\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {},
+    {
+      "file": "img/pictures/Poster.png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    },
+    {
+      "operation": "replace enumerated file with directory",
+      "timing": "after native readdir result, before lstat"
+    }
+  ],
+  "expected": {
+    "description": "an enumerated ordinary file becoming a directory is an inconclusive query",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_6__.withWindowsSandbox)(\"asset-file-type-change\", async (sandbox) => {\n\t\tawait prepare(sandbox.workspaceRoot);\n\t\tconst target = await png(sandbox.workspaceRoot);\n\t\tconst before = await localState(sandbox.workspaceRoot);\n\t\tconst child = (0,__vite_ssr_import_7__.startWorkspaceOperation)(sandbox, {\n\t\t\toperation: \"check\",\n\t\t\tboundary: \"asset-after-enumeration\"\n\t\t});\n\t\ttry {\n\t\t\tawait child.waitFor(\"checkpoint\");\n\t\t\tawait (0,__vite_ssr_import_1__.rm)(target);\n\t\t\tawait (0,__vite_ssr_import_1__.mkdir)(target);\n\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\toperation: \"replace enumerated file with directory\",\n\t\t\t\ttiming: \"after native readdir result, before lstat\"\n\t\t\t});\n\t\t\tchild.send(\"release\");\n\t\t\tconst result = await child.waitFor(\"result\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(result.ok).toBe(false);\n\t\t\t(0,__vite_ssr_import_4__.expect)(result.message).toContain(\"MV-ASSET-QUERY-FAILED\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(result.message).toContain(\"Poster.png\");\n\t\t} finally {\n\t\t\tawait child.stop();\n\t\t};\n\t\t(0,__vite_ssr_import_4__.expect)(await localState(sandbox.workspaceRoot)).toEqual(before);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

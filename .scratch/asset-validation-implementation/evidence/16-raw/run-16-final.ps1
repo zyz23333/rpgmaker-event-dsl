@@ -1,0 +1,20 @@
+$ErrorActionPreference = 'Stop'
+$env:PATH = 'M:/Shuen/Codex/tools/node-v22.23.4-win-x64;' + $env:PATH
+$taskHistory = '.scratch/asset-validation-implementation/evidence/16-raw/'
+$taskRuns = @(
+  @{ Name = '16-built-final'; Config = @('--config', 'vitest.windows.config.ts'); Suites = @('test/asset-recovery-workspace.test.ts'); Count = 12; SuiteCount = 1 },
+  @{ Name = '16-compatibility-source'; Config = @(); Suites = @('test/push-recovery.test.ts', 'test/snapshot-binding.test.ts', 'test/workspace-locking.test.ts', 'test/compile-inputs.test.ts', 'test/push-drift.test.ts'); Count = 86; SuiteCount = 5 },
+  @{ Name = '16-compatibility-built'; Config = @('--config', 'vitest.windows.config.ts'); Suites = @('test/push-recovery.test.ts', 'test/snapshot-binding.test.ts', 'test/workspace-locking.test.ts', 'test/compile-inputs.test.ts', 'test/push-drift.test.ts'); Count = 86; SuiteCount = 5 }
+)
+$taskTimeline = @()
+foreach ($taskRun in $taskRuns) {
+  $taskStarted = [DateTime]::UtcNow.ToString('o')
+  $taskArguments = @('--filter', 'rpgmaker-event-dsl', 'exec', 'vitest', 'run') + @($taskRun.Config) + @($taskRun.Suites) + @('--maxWorkers=1', '--reporter=json', ('--outputFile=../../' + $taskHistory + $taskRun.Name + '.json'))
+  & pnpm @taskArguments *> ($taskHistory + $taskRun.Name + '.log')
+  $taskExit = $LASTEXITCODE
+  $taskReport = Get-Content -LiteralPath ($taskHistory + $taskRun.Name + '.json') -Raw | ConvertFrom-Json
+  $taskTimeline += @{ Name = $taskRun.Name; StartedAt = $taskStarted; CompletedAt = [DateTime]::UtcNow.ToString('o'); ExitCode = $taskExit; Arguments = @($taskRun.Config) + @($taskRun.Suites) + @('--maxWorkers=1', '--reporter=json'); Passed = $taskReport.numPassedTests; Failed = $taskReport.numFailedTests; FilteredNotPassing = $taskReport.numPendingTests }
+  $taskTimeline | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath ($taskHistory + '16-final-run-timeline.json') -Encoding utf8
+  if ($taskExit -ne 0 -or $taskReport.numPassedTests -ne $taskRun.Count -or $taskReport.numTotalTests -ne $taskRun.Count -or $taskReport.numFailedTests -ne 0 -or $taskReport.numPendingTests -ne 0 -or $taskReport.testResults.Count -ne $taskRun.SuiteCount) { throw ('Incomplete actual final run: ' + $taskRun.Name) }
+  Write-Output ($taskRun.Name + ': ' + $taskReport.numPassedTests + '/' + $taskReport.numTotalTests + ' actual passes, zero filtered')
+}

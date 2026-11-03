@@ -1,0 +1,747 @@
+{
+  "created": "2026-11-02T01:18:06.986Z",
+  "environment": {
+    "mv": "1.6.1",
+    "platform": "win32",
+    "architecture": "ia32",
+    "release": "10.0.19045",
+    "versions": {
+      "http_parser": "2.7.0",
+      "node": "9.7.1",
+      "v8": "6.5.254.31",
+      "uv": "1.19.2",
+      "zlib": "1.2.11",
+      "ares": "1.13.0",
+      "modules": "59",
+      "nghttp2": "1.29.0",
+      "napi": "2",
+      "openssl": "1.0.2n",
+      "icu": "60.1",
+      "unicode": "10.0",
+      "cldr": "32.0",
+      "tz": "2017c",
+      "nw": "0.29.0",
+      "node-webkit": "0.29.0",
+      "nw-commit-id": "40ba6a3-15b9f14-1b41b42-41dc8a9",
+      "nw-flavor": "normal",
+      "chromium": "65.0.3325.146"
+    },
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+  },
+  "method": "Real MV 1.6.1 ImageManager, AudioManager/WebAudio and Game_Interpreter movie operations in NW.js; wrappers record arguments and delegate unchanged.",
+  "requests": [
+    {
+      "caseId": "AV.N01.image-png.native-run.case.observed",
+      "kind": "ImageManager.loadNormalBitmap",
+      "requested": "img/pictures/image-png.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image-png.png"
+    },
+    {
+      "caseId": "AV.N01.image-png.native-run.case.observed",
+      "kind": "Bitmap._requestImage",
+      "requested": "img/pictures/image-png.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image-png.png"
+    },
+    {
+      "caseId": "AV.N01.audio-ogg.native-run.case.observed",
+      "kind": "XMLHttpRequest.open",
+      "requested": "audio/se/audio-ogg.ogg",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/audio/se/audio-ogg.ogg"
+    },
+    {
+      "caseId": "AV.N01.movie-webm.native-run.case.observed",
+      "kind": "Graphics._playVideo",
+      "requested": "movies/movie-webm.webm",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/movies/movie-webm.webm"
+    },
+    {
+      "caseId": "AV.N02.chinese.native-run.case.observed",
+      "kind": "ImageManager.loadNormalBitmap",
+      "requested": "img/pictures/%E4%B8%AD%E6%96%87%E5%9B%BE%E7%89%87.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/%E4%B8%AD%E6%96%87%E5%9B%BE%E7%89%87.png"
+    },
+    {
+      "caseId": "AV.N02.chinese.native-run.case.observed",
+      "kind": "Bitmap._requestImage",
+      "requested": "img/pictures/中文图片.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/%E4%B8%AD%E6%96%87%E5%9B%BE%E7%89%87.png"
+    },
+    {
+      "caseId": "AV.N02.chinese.native-run.case.observed",
+      "kind": "XMLHttpRequest.open",
+      "requested": "audio/se/%E4%B8%AD%E6%96%87%E9%9F%B3%E9%A2%91.ogg",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/audio/se/%E4%B8%AD%E6%96%87%E9%9F%B3%E9%A2%91.ogg"
+    },
+    {
+      "caseId": "AV.N02.chinese.native-run.case.observed",
+      "kind": "Graphics._playVideo",
+      "requested": "movies/中文影片.webm",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/movies/%E4%B8%AD%E6%96%87%E5%BD%B1%E7%89%87.webm"
+    },
+    {
+      "caseId": "AV.N02.space.native-run.case.observed",
+      "kind": "ImageManager.loadNormalBitmap",
+      "requested": "img/pictures/image%20with%20space.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%20with%20space.png"
+    },
+    {
+      "caseId": "AV.N02.space.native-run.case.observed",
+      "kind": "Bitmap._requestImage",
+      "requested": "img/pictures/image with space.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%20with%20space.png"
+    },
+    {
+      "caseId": "AV.N02.space.native-run.case.observed",
+      "kind": "XMLHttpRequest.open",
+      "requested": "audio/se/audio%20with%20space.ogg",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/audio/se/audio%20with%20space.ogg"
+    },
+    {
+      "caseId": "AV.N02.space.native-run.case.observed",
+      "kind": "Graphics._playVideo",
+      "requested": "movies/movie with space.webm",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/movies/movie%20with%20space.webm"
+    },
+    {
+      "caseId": "AV.N02.image-percent.native-run.case.observed",
+      "kind": "ImageManager.loadNormalBitmap",
+      "requested": "img/pictures/literal%2520image.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%2520image.png"
+    },
+    {
+      "caseId": "AV.N02.image-percent.native-run.case.observed",
+      "kind": "Bitmap._requestImage",
+      "requested": "img/pictures/literal%20image.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%20image.png"
+    },
+    {
+      "caseId": "AV.N02.image-percent.native-run.case.observed",
+      "kind": "ImageManager.loadNormalBitmap",
+      "requested": "img/pictures/image%25percent.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%25percent.png"
+    },
+    {
+      "caseId": "AV.N02.image-percent.native-run.case.observed",
+      "kind": "Bitmap._requestImage",
+      "requested": "img/pictures/image%percent.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%percent.png"
+    },
+    {
+      "caseId": "AV.N02.image-hash.native-run.case.observed",
+      "kind": "ImageManager.loadNormalBitmap",
+      "requested": "img/pictures/image%23hash.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%23hash.png"
+    },
+    {
+      "caseId": "AV.N02.image-hash.native-run.case.observed",
+      "kind": "Bitmap._requestImage",
+      "requested": "img/pictures/image#hash.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image#hash.png"
+    },
+    {
+      "caseId": "AV.N02.audio-percent.native-run.case.observed",
+      "kind": "XMLHttpRequest.open",
+      "requested": "audio/se/literal%2520audio.ogg",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/audio/se/literal%2520audio.ogg"
+    },
+    {
+      "caseId": "AV.N02.audio-percent.native-run.case.observed",
+      "kind": "XMLHttpRequest.open",
+      "requested": "audio/se/audio%25percent.ogg",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/audio/se/audio%25percent.ogg"
+    },
+    {
+      "caseId": "AV.N02.audio-hash.native-run.case.observed",
+      "kind": "XMLHttpRequest.open",
+      "requested": "audio/se/audio%23hash.ogg",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/audio/se/audio%23hash.ogg"
+    },
+    {
+      "caseId": "counterexample.native-path.literal%20image",
+      "kind": "ImageManager.loadNormalBitmap",
+      "requested": "img/pictures/literal%2520image.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%2520image.png"
+    },
+    {
+      "caseId": "counterexample.native-path.literal%20image",
+      "kind": "Bitmap._requestImage",
+      "requested": "img/pictures/literal%20image.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%20image.png"
+    },
+    {
+      "caseId": "counterexample.native-path.image#hash",
+      "kind": "ImageManager.loadNormalBitmap",
+      "requested": "img/pictures/image%23hash.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%23hash.png"
+    },
+    {
+      "caseId": "counterexample.native-path.image#hash",
+      "kind": "Bitmap._requestImage",
+      "requested": "img/pictures/image#hash.png",
+      "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image#hash.png"
+    }
+  ],
+  "events": [
+    {
+      "caseId": "AV.N01.image-png.native-run.case.observed",
+      "kind": "native-image-load",
+      "src": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image-png.png",
+      "width": 16
+    },
+    {
+      "caseId": "AV.N02.chinese.native-run.case.observed",
+      "kind": "native-image-load",
+      "src": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/%E4%B8%AD%E6%96%87%E5%9B%BE%E7%89%87.png",
+      "width": 16
+    },
+    {
+      "caseId": "AV.N02.space.native-run.case.observed",
+      "kind": "native-image-load",
+      "src": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%20with%20space.png",
+      "width": 16
+    },
+    {
+      "caseId": "AV.N02.image-percent.native-run.case.observed",
+      "kind": "native-image-error",
+      "src": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%20image.png",
+      "width": 0
+    },
+    {
+      "caseId": "AV.N02.image-percent.native-run.case.observed",
+      "kind": "native-image-load",
+      "src": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%percent.png",
+      "width": 16
+    },
+    {
+      "caseId": "AV.N02.image-hash.native-run.case.observed",
+      "kind": "native-image-error",
+      "src": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image#hash.png",
+      "width": 0
+    },
+    {
+      "caseId": "counterexample.native-path.literal%20image",
+      "kind": "native-image-load",
+      "src": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%20image.png",
+      "width": 16
+    },
+    {
+      "caseId": "counterexample.native-path.image#hash",
+      "kind": "native-image-load",
+      "src": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image#hash.png",
+      "width": 16
+    }
+  ],
+  "cases": [
+    {
+      "id": "AV.N01.image-png.native-run.case.observed",
+      "category": "image",
+      "savedName": "image-png",
+      "disk": {
+        "relative": "img/pictures/image-png.png",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\image-png.png",
+        "bytes": 101,
+        "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N01.image-png.native-run.case.observed",
+          "kind": "ImageManager.loadNormalBitmap",
+          "requested": "img/pictures/image-png.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image-png.png"
+        },
+        {
+          "caseId": "AV.N01.image-png.native-run.case.observed",
+          "kind": "Bitmap._requestImage",
+          "requested": "img/pictures/image-png.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image-png.png"
+        }
+      ],
+      "actual": {
+        "width": 16,
+        "height": 16,
+        "pixel": "#fd0000",
+        "nativeImageSrc": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image-png.png"
+      },
+      "status": "observed"
+    },
+    {
+      "id": "AV.N01.audio-ogg.native-run.case.observed",
+      "category": "audio",
+      "savedName": "audio-ogg",
+      "disk": {
+        "relative": "audio/se/audio-ogg.ogg",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\audio\\se\\audio-ogg.ogg",
+        "bytes": 3916,
+        "sha256": "e6c23e8fbdddeb612695a874d79db974770b3191a45aec90e255817453248b25",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N01.audio-ogg.native-run.case.observed",
+          "kind": "XMLHttpRequest.open",
+          "requested": "audio/se/audio-ogg.ogg",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/audio/se/audio-ogg.ogg"
+        }
+      ],
+      "actual": {
+        "durationSeconds": 0.22202083333333333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "nativeAudioUrl": "audio/se/audio-ogg.ogg"
+      },
+      "status": "observed"
+    },
+    {
+      "id": "AV.N01.movie-webm.native-run.case.observed",
+      "category": "movie",
+      "savedName": "movie-webm",
+      "disk": {
+        "relative": "movies/movie-webm.webm",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\movies\\movie-webm.webm",
+        "bytes": 652,
+        "sha256": "6eb7cdb7373d84a6440877f05832326618c94937b742f6c1541162d59776776f",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N01.movie-webm.native-run.case.observed",
+          "kind": "Graphics._playVideo",
+          "requested": "movies/movie-webm.webm",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/movies/movie-webm.webm"
+        }
+      ],
+      "actual": {
+        "width": 16,
+        "height": 16,
+        "durationSeconds": 0.2,
+        "nativeVideoSrc": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/movies/movie-webm.webm"
+      },
+      "status": "observed"
+    },
+    {
+      "id": "AV.N02.chinese.native-run.case.observed",
+      "category": "image",
+      "savedName": "中文图片",
+      "disk": {
+        "relative": "img/pictures/中文图片.png",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\中文图片.png",
+        "bytes": 101,
+        "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N02.chinese.native-run.case.observed",
+          "kind": "ImageManager.loadNormalBitmap",
+          "requested": "img/pictures/%E4%B8%AD%E6%96%87%E5%9B%BE%E7%89%87.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/%E4%B8%AD%E6%96%87%E5%9B%BE%E7%89%87.png"
+        },
+        {
+          "caseId": "AV.N02.chinese.native-run.case.observed",
+          "kind": "Bitmap._requestImage",
+          "requested": "img/pictures/中文图片.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/%E4%B8%AD%E6%96%87%E5%9B%BE%E7%89%87.png"
+        }
+      ],
+      "actual": {
+        "width": 16,
+        "height": 16,
+        "pixel": "#fd0000",
+        "nativeImageSrc": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/%E4%B8%AD%E6%96%87%E5%9B%BE%E7%89%87.png"
+      },
+      "status": "observed"
+    },
+    {
+      "id": "AV.N02.chinese.native-run.case.observed",
+      "category": "audio",
+      "savedName": "中文音频",
+      "disk": {
+        "relative": "audio/se/中文音频.ogg",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\audio\\se\\中文音频.ogg",
+        "bytes": 3916,
+        "sha256": "9e32f562bbbc0de5fa649f1647ed3ac2debfdf21c773080b2885dbd121dbda8d",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N02.chinese.native-run.case.observed",
+          "kind": "XMLHttpRequest.open",
+          "requested": "audio/se/%E4%B8%AD%E6%96%87%E9%9F%B3%E9%A2%91.ogg",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/audio/se/%E4%B8%AD%E6%96%87%E9%9F%B3%E9%A2%91.ogg"
+        }
+      ],
+      "actual": {
+        "durationSeconds": 0.22202083333333333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "nativeAudioUrl": "audio/se/%E4%B8%AD%E6%96%87%E9%9F%B3%E9%A2%91.ogg"
+      },
+      "status": "observed"
+    },
+    {
+      "id": "AV.N02.chinese.native-run.case.observed",
+      "category": "movie",
+      "savedName": "中文影片",
+      "disk": {
+        "relative": "movies/中文影片.webm",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\movies\\中文影片.webm",
+        "bytes": 652,
+        "sha256": "df25a97ed9ae29d61d60367f6f3283613a7cd02e812a797437f50d6117c3b553",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N02.chinese.native-run.case.observed",
+          "kind": "Graphics._playVideo",
+          "requested": "movies/中文影片.webm",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/movies/%E4%B8%AD%E6%96%87%E5%BD%B1%E7%89%87.webm"
+        }
+      ],
+      "actual": {
+        "width": 16,
+        "height": 16,
+        "durationSeconds": 0.2,
+        "nativeVideoSrc": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/movies/%E4%B8%AD%E6%96%87%E5%BD%B1%E7%89%87.webm"
+      },
+      "status": "observed"
+    },
+    {
+      "id": "AV.N02.space.native-run.case.observed",
+      "category": "image",
+      "savedName": "image with space",
+      "disk": {
+        "relative": "img/pictures/image with space.png",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\image with space.png",
+        "bytes": 101,
+        "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N02.space.native-run.case.observed",
+          "kind": "ImageManager.loadNormalBitmap",
+          "requested": "img/pictures/image%20with%20space.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%20with%20space.png"
+        },
+        {
+          "caseId": "AV.N02.space.native-run.case.observed",
+          "kind": "Bitmap._requestImage",
+          "requested": "img/pictures/image with space.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%20with%20space.png"
+        }
+      ],
+      "actual": {
+        "width": 16,
+        "height": 16,
+        "pixel": "#fd0000",
+        "nativeImageSrc": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%20with%20space.png"
+      },
+      "status": "observed"
+    },
+    {
+      "id": "AV.N02.space.native-run.case.observed",
+      "category": "audio",
+      "savedName": "audio with space",
+      "disk": {
+        "relative": "audio/se/audio with space.ogg",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\audio\\se\\audio with space.ogg",
+        "bytes": 3916,
+        "sha256": "3841960bc0b28ddfa6b28c2252364e3cbf576ba059bb096f6a5b62fa43e83589",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N02.space.native-run.case.observed",
+          "kind": "XMLHttpRequest.open",
+          "requested": "audio/se/audio%20with%20space.ogg",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/audio/se/audio%20with%20space.ogg"
+        }
+      ],
+      "actual": {
+        "durationSeconds": 0.22202083333333333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "nativeAudioUrl": "audio/se/audio%20with%20space.ogg"
+      },
+      "status": "observed"
+    },
+    {
+      "id": "AV.N02.space.native-run.case.observed",
+      "category": "movie",
+      "savedName": "movie with space",
+      "disk": {
+        "relative": "movies/movie with space.webm",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\movies\\movie with space.webm",
+        "bytes": 652,
+        "sha256": "23d05ed0da50ca8d14b3597965be55fc553efc5d0ab0c294a277f37ea632bfe9",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N02.space.native-run.case.observed",
+          "kind": "Graphics._playVideo",
+          "requested": "movies/movie with space.webm",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/movies/movie%20with%20space.webm"
+        }
+      ],
+      "actual": {
+        "width": 16,
+        "height": 16,
+        "durationSeconds": 0.2,
+        "nativeVideoSrc": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/movies/movie%20with%20space.webm"
+      },
+      "status": "observed"
+    },
+    {
+      "id": "AV.N02.image-percent.native-run.case.observed",
+      "category": "image",
+      "savedName": "literal%20image",
+      "disk": {
+        "relative": "img/pictures/literal%20image.png",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\literal%20image.png",
+        "bytes": 101,
+        "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N02.image-percent.native-run.case.observed",
+          "kind": "ImageManager.loadNormalBitmap",
+          "requested": "img/pictures/literal%2520image.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%2520image.png"
+        },
+        {
+          "caseId": "AV.N02.image-percent.native-run.case.observed",
+          "kind": "Bitmap._requestImage",
+          "requested": "img/pictures/literal%20image.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%20image.png"
+        }
+      ],
+      "error": "Error: Native Image error for chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%20image.png\n    at Image.<anonymous> (chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/native-media.js:65:16)",
+      "status": "failed"
+    },
+    {
+      "id": "AV.N02.image-percent.native-run.case.observed",
+      "category": "image",
+      "savedName": "image%percent",
+      "disk": {
+        "relative": "img/pictures/image%percent.png",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\image%percent.png",
+        "bytes": 101,
+        "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N02.image-percent.native-run.case.observed",
+          "kind": "ImageManager.loadNormalBitmap",
+          "requested": "img/pictures/image%25percent.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%25percent.png"
+        },
+        {
+          "caseId": "AV.N02.image-percent.native-run.case.observed",
+          "kind": "Bitmap._requestImage",
+          "requested": "img/pictures/image%percent.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%percent.png"
+        }
+      ],
+      "actual": {
+        "width": 16,
+        "height": 16,
+        "pixel": "#fd0000",
+        "nativeImageSrc": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%percent.png"
+      },
+      "status": "observed"
+    },
+    {
+      "id": "AV.N02.image-hash.native-run.case.observed",
+      "category": "image",
+      "savedName": "image#hash",
+      "disk": {
+        "relative": "img/pictures/image#hash.png",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\image#hash.png",
+        "bytes": 101,
+        "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N02.image-hash.native-run.case.observed",
+          "kind": "ImageManager.loadNormalBitmap",
+          "requested": "img/pictures/image%23hash.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%23hash.png"
+        },
+        {
+          "caseId": "AV.N02.image-hash.native-run.case.observed",
+          "kind": "Bitmap._requestImage",
+          "requested": "img/pictures/image#hash.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image#hash.png"
+        }
+      ],
+      "error": "Error: Native Image error for chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image#hash.png\n    at Image.<anonymous> (chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/native-media.js:65:16)",
+      "status": "failed"
+    },
+    {
+      "id": "AV.N02.audio-percent.native-run.case.observed",
+      "category": "audio",
+      "savedName": "literal%20audio",
+      "disk": {
+        "relative": "audio/se/literal%20audio.ogg",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\audio\\se\\literal%20audio.ogg",
+        "bytes": 3916,
+        "sha256": "3fe37bc09f538f5d129b9332cfaae5c7dc6d135f9aaf51b932a016f67fb7e7e4",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N02.audio-percent.native-run.case.observed",
+          "kind": "XMLHttpRequest.open",
+          "requested": "audio/se/literal%2520audio.ogg",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/audio/se/literal%2520audio.ogg"
+        }
+      ],
+      "actual": {
+        "durationSeconds": 0.22202083333333333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "nativeAudioUrl": "audio/se/literal%2520audio.ogg"
+      },
+      "status": "observed"
+    },
+    {
+      "id": "AV.N02.audio-percent.native-run.case.observed",
+      "category": "audio",
+      "savedName": "audio%percent",
+      "disk": {
+        "relative": "audio/se/audio%percent.ogg",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\audio\\se\\audio%percent.ogg",
+        "bytes": 3916,
+        "sha256": "61ffc8ecedc1fa9e0f53d271403c0aae7c2701c357d690568c69e0dc321dcca6",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N02.audio-percent.native-run.case.observed",
+          "kind": "XMLHttpRequest.open",
+          "requested": "audio/se/audio%25percent.ogg",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/audio/se/audio%25percent.ogg"
+        }
+      ],
+      "actual": {
+        "durationSeconds": 0.22202083333333333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "nativeAudioUrl": "audio/se/audio%25percent.ogg"
+      },
+      "status": "observed"
+    },
+    {
+      "id": "AV.N02.audio-hash.native-run.case.observed",
+      "category": "audio",
+      "savedName": "audio#hash",
+      "disk": {
+        "relative": "audio/se/audio#hash.ogg",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\audio\\se\\audio#hash.ogg",
+        "bytes": 3916,
+        "sha256": "a1bbd1a676f04515b286a8f08636f75681e9aef3f45c5e6e18dbcf6815921ae0",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "AV.N02.audio-hash.native-run.case.observed",
+          "kind": "XMLHttpRequest.open",
+          "requested": "audio/se/audio%23hash.ogg",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/audio/se/audio%23hash.ogg"
+        }
+      ],
+      "actual": {
+        "durationSeconds": 0.22202083333333333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "nativeAudioUrl": "audio/se/audio%23hash.ogg"
+      },
+      "status": "observed"
+    }
+  ],
+  "counterexamples": [
+    {
+      "savedName": "literal%20image",
+      "originalExactFileRetained": {
+        "relative": "img/pictures/literal%20image.png",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\literal%20image.png",
+        "bytes": 101,
+        "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "ordinaryFile": true
+      },
+      "alternativeAbsentBefore": true,
+      "addedAlternative": {
+        "relative": "img/pictures/literal image.png",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\literal image.png",
+        "bytes": 99,
+        "sha256": "c57d632e3d98397f65cf47be7dee1e05aeb4e52434c23e496ab85e9212bcb042",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "counterexample.native-path.literal%20image",
+          "kind": "ImageManager.loadNormalBitmap",
+          "requested": "img/pictures/literal%2520image.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%2520image.png"
+        },
+        {
+          "caseId": "counterexample.native-path.literal%20image",
+          "kind": "Bitmap._requestImage",
+          "requested": "img/pictures/literal%20image.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%20image.png"
+        }
+      ],
+      "actual": {
+        "width": 16,
+        "height": 16,
+        "pixel": "#007f00",
+        "nativeImageSrc": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/literal%20image.png"
+      },
+      "conclusion": "Adding only the URL-interpreted alternative makes the unchanged native operation load its green pixels; original exact-named red file remained present."
+    },
+    {
+      "savedName": "image#hash",
+      "originalExactFileRetained": {
+        "relative": "img/pictures/image#hash.png",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\image#hash.png",
+        "bytes": 101,
+        "sha256": "1b2bbf246184130848230202b2aad630691442c709f7ff015eb25b8639a5e5e1",
+        "ordinaryFile": true
+      },
+      "alternativeAbsentBefore": true,
+      "addedAlternative": {
+        "relative": "img/pictures/image",
+        "absolute": "M:\\Shuen\\Codex\\asset-validation-notes\\native-media-run-10\\img\\pictures\\image",
+        "bytes": 99,
+        "sha256": "c57d632e3d98397f65cf47be7dee1e05aeb4e52434c23e496ab85e9212bcb042",
+        "ordinaryFile": true
+      },
+      "requests": [
+        {
+          "caseId": "counterexample.native-path.image#hash",
+          "kind": "ImageManager.loadNormalBitmap",
+          "requested": "img/pictures/image%23hash.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image%23hash.png"
+        },
+        {
+          "caseId": "counterexample.native-path.image#hash",
+          "kind": "Bitmap._requestImage",
+          "requested": "img/pictures/image#hash.png",
+          "absoluteUrl": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image#hash.png"
+        }
+      ],
+      "actual": {
+        "width": 16,
+        "height": 16,
+        "pixel": "#007f00",
+        "nativeImageSrc": "chrome-extension://iaoahdchcniogkacchmhcjbhpnclhhpc/img/pictures/image#hash.png"
+      },
+      "conclusion": "Adding only the URL-interpreted alternative makes the unchanged native operation load its green pixels; original exact-named red file remained present."
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 1,
+  "title": "Ticket12 D05 incomplete local test-budget repair",
+  "status": "passed",
+  "recordedAt": "2026-11-02T13:52:48.599Z",
+  "worktree": "M:\\Shuen\\Codex\\asset-validation-12-exceptions",
+  "branch": "codex/asset-validation-12-exceptions",
+  "originalWholeSourceFrozenRevision": "af748ee5067f41096a296a79f81b078415096606",
+  "repairBaseRevision": "0b5195c4095e9b21b8e345541c4ae7859bc2d66a",
+  "codeAndTestExecutionFrozenRevision": "154ad2cd30cf07d254ab17a819e4181ae2a95b79",
+  "change": {
+    "helper": "Optional timeout?: number is forwarded to Vitest; omitted/undefined retains configured default.",
+    "registration": "Only existing D05 incomplete supplies 30000ms; repaired/unused/warning-only retain default 10000ms.",
+    "productPolicyContractInputsAssertionsFixturesIdsAndActualBoundariesUnchanged": true
+  },
+  "originalRed": {
+    "runner": {
+      "command": "pnpm check",
+      "exitCode": 1,
+      "files": {
+        "passed": 102,
+        "failed": 1,
+        "total": 103
+      },
+      "tests": {
+        "passed": 3408,
+        "failed": 1,
+        "total": 3409
+      },
+      "onlyFailure": "AV.D05.incomplete.native.case.expected",
+      "error": "Error: Test timed out in 10000ms.",
+      "runnerDurationMs": 10037
+    },
+    "eventualHelperCompletion": {
+      "status": "passed",
+      "startedAt": "2026-11-02T13:26:57.389Z",
+      "completedAt": "2026-11-02T13:27:08.936Z",
+      "durationMs": 11547,
+      "actual": "All independent assertions passed.",
+      "inputObjects": 20,
+      "assertionsSourceSha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+      "interpretation": "The helper completed after Vitest timed out. This is not a runner pass and does not change the original failed whole-source result."
+    },
+    "interpretation": "Original pnpm check remains failed; eventual helper completion is not substituted for the runner result."
+  },
+  "boundedVerification": {
+    "environment": {
+      "platform": "win32",
+      "node": "v22.23.4",
+      "execPath": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+      "architecture": "x64",
+      "osRelease": "10.0.19045",
+      "temp": "C:\\Users\\Shuen\\AppData\\Local\\Temp",
+      "tmp": "C:\\Users\\Shuen\\AppData\\Local\\Temp",
+      "effectiveTempDirectory": "C:\\Users\\Shuen\\AppData\\Local\\Temp",
+      "pnpmVersion": "10.33.0",
+      "entry": "source (default; MV_CLI_ENTRY absent)",
+      "maxWorkers": "2 (unchanged vitest.config.ts; no command override)",
+      "globalTestTimeout": "10000 (unchanged vitest.config.ts)",
+      "localIncompleteTimeout": 30000,
+      "entryOrTempOrWorkerOrGlobalTimeoutOverrides": []
+    },
+    "sourceRunner": {
+      "command": "pnpm --filter rpgmaker-event-dsl test test/asset-diagnostics-workspace.test.ts -t ^AV[.]D05[.] --reporter=json --outputFile=M:\\Shuen\\Codex\\asset-validation-12-exceptions\\.scratch\\asset-validation-implementation\\evidence\\12-d05-budget-repair\\raw\\green\\source-d05-runner.json",
+      "startedAt": "2026-11-02T13:49:58.128Z",
+      "completedAt": "2026-11-02T13:50:21.872Z",
+      "exitCode": 0,
+      "totalRegistered": 99,
+      "passed": 4,
+      "failed": 0,
+      "filtered": 95,
+      "filteredArePasses": false,
+      "fullDiagnosticSuiteExecuted": false,
+      "fullRepositorySourceExecuted": false,
+      "builtExecuted": false
+    },
+    "checks": [
+      {
+        "command": "pnpm typecheck",
+        "exitCode": 0,
+        "durationMs": 16137,
+        "log": {
+          "file": "raw/green/01-typecheck.log",
+          "bytes": 261,
+          "sha256": "3b3d4f9169d877575292fb45a2a6f2898027cacbb0ba6873615475a731efb118"
+        }
+      },
+      {
+        "command": "pnpm lint",
+        "exitCode": 0,
+        "durationMs": 913,
+        "log": {
+          "file": "raw/green/02-lint.log",
+          "bytes": 101,
+          "sha256": "8d9b16561fe6e67c14e58afc021ca282cf056cc873b30d0ea449834b6ee9882f"
+        }
+      },
+      {
+        "command": "pnpm format:check",
+        "exitCode": 0,
+        "durationMs": 1520,
+        "log": {
+          "file": "raw/green/03-format-check.log",
+          "bytes": 387,
+          "sha256": "808cb847987309728783ebbd2ffb262eb916bce5be20d7a675f435846c50fe4b"
+        }
+      }
+    ]
+  },
+  "freshReceipts": [
+    {
+      "id": "AV.D05.repaired.native.case.expected",
+      "file": "raw/green/current-source-receipts/AV.D05.repaired.native.case.expected.source.json",
+      "bytes": 4219,
+      "sha256": "d6bd2b991753f93515a0a31bd277be7b625fbef97d3bc369764294e9a14b1b7a",
+      "runnerStatus": "passed",
+      "runnerDurationMs": 1074.3002000000006,
+      "startedAt": "2026-11-02T13:50:06.263Z",
+      "completedAt": "2026-11-02T13:50:07.291Z",
+      "helperDurationMs": 1028,
+      "inputObjects": 4
+    },
+    {
+      "id": "AV.D05.unused.native.case.expected",
+      "file": "raw/green/current-source-receipts/AV.D05.unused.native.case.expected.source.json",
+      "bytes": 4022,
+      "sha256": "ef0f8d41cbc3259d1531b45b1f4181ce0e44c95ad30ffe16b2a92b82d28a125b",
+      "runnerStatus": "passed",
+      "runnerDurationMs": 483.0542999999998,
+      "startedAt": "2026-11-02T13:50:07.337Z",
+      "completedAt": "2026-11-02T13:50:07.819Z",
+      "helperDurationMs": 482,
+      "inputObjects": 4
+    },
+    {
+      "id": "AV.D05.warning-only.native.case.expected",
+      "file": "raw/green/current-source-receipts/AV.D05.warning-only.native.case.expected.source.json",
+      "bytes": 5591,
+      "sha256": "c17ae609a11b911f9f79b5d900212189ff10b6b36ef2f31f0a7a884b5bb1c019",
+      "runnerStatus": "passed",
+      "runnerDurationMs": 485.28380000000016,
+      "startedAt": "2026-11-02T13:50:07.820Z",
+      "completedAt": "2026-11-02T13:50:08.304Z",
+      "helperDurationMs": 484,
+      "inputObjects": 4
+    },
+    {
+      "id": "AV.D05.incomplete.native.case.expected",
+      "file": "raw/green/current-source-receipts/AV.D05.incomplete.native.case.expected.source.json",
+      "bytes": 33221,
+      "sha256": "34ec273d080afd8da6de1abc9e83b58392585b063771e43b3b1906c3f6f751b2",
+      "runnerStatus": "passed",
+      "runnerDurationMs": 13478.5886,
+      "startedAt": "2026-11-02T13:50:08.305Z",
+      "completedAt": "2026-11-02T13:50:21.783Z",
+      "helperDurationMs": 13478,
+      "inputObjects": 20
+    }
+  ],
+  "incompleteActualChildResults": [
+    {
+      "sibling": "repaired",
+      "mode": "api",
+      "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+      "arguments": [
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-12-exceptions/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+        "M:\\Shuen\\Codex\\asset-validation-12-exceptions\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+      ],
+      "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-f3UWlO\\最小 Workspace with spaces",
+      "exitCode": 1,
+      "signal": null,
+      "startedAt": "2026-11-02T13:50:08.865Z",
+      "completedAt": "2026-11-02T13:50:12.924Z",
+      "expectedDiagnosticsVerified": true,
+      "fullResult": "raw/green/current-source-receipts/AV.D05.incomplete.native.case.expected.source.json"
+    },
+    {
+      "sibling": "repaired",
+      "mode": "cli",
+      "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+      "arguments": [
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-12-exceptions/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-12-exceptions/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+        "M:\\Shuen\\Codex\\asset-validation-12-exceptions\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+        "compile",
+        "--check"
+      ],
+      "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-repaired-f3UWlO\\最小 Workspace with spaces",
+      "exitCode": 1,
+      "signal": null,
+      "startedAt": "2026-11-02T13:50:12.924Z",
+      "completedAt": "2026-11-02T13:50:15.171Z",
+      "expectedDiagnosticsVerified": true,
+      "fullResult": "raw/green/current-source-receipts/AV.D05.incomplete.native.case.expected.source.json"
+    },
+    {
+      "sibling": "unused",
+      "mode": "api",
+      "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+      "arguments": [
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-12-exceptions/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+        "M:\\Shuen\\Codex\\asset-validation-12-exceptions\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+      ],
+      "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-mom10Z\\最小 Workspace with spaces",
+      "exitCode": 1,
+      "signal": null,
+      "startedAt": "2026-11-02T13:50:15.226Z",
+      "completedAt": "2026-11-02T13:50:16.944Z",
+      "expectedDiagnosticsVerified": true,
+      "fullResult": "raw/green/current-source-receipts/AV.D05.incomplete.native.case.expected.source.json"
+    },
+    {
+      "sibling": "unused",
+      "mode": "cli",
+      "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+      "arguments": [
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-12-exceptions/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-12-exceptions/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+        "M:\\Shuen\\Codex\\asset-validation-12-exceptions\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+        "compile",
+        "--check"
+      ],
+      "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-unused-mom10Z\\最小 Workspace with spaces",
+      "exitCode": 1,
+      "signal": null,
+      "startedAt": "2026-11-02T13:50:16.944Z",
+      "completedAt": "2026-11-02T13:50:18.562Z",
+      "expectedDiagnosticsVerified": true,
+      "fullResult": "raw/green/current-source-receipts/AV.D05.incomplete.native.case.expected.source.json"
+    },
+    {
+      "sibling": "warning-only",
+      "mode": "api",
+      "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+      "arguments": [
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-12-exceptions/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+        "M:\\Shuen\\Codex\\asset-validation-12-exceptions\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+      ],
+      "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-IxOxgF\\最小 Workspace with spaces",
+      "exitCode": 1,
+      "signal": null,
+      "startedAt": "2026-11-02T13:50:18.621Z",
+      "completedAt": "2026-11-02T13:50:20.182Z",
+      "expectedDiagnosticsVerified": true,
+      "fullResult": "raw/green/current-source-receipts/AV.D05.incomplete.native.case.expected.source.json"
+    },
+    {
+      "sibling": "warning-only",
+      "mode": "cli",
+      "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+      "arguments": [
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-12-exceptions/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+        "--import",
+        "file:///M:/Shuen/Codex/asset-validation-12-exceptions/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+        "M:\\Shuen\\Codex\\asset-validation-12-exceptions\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+        "compile",
+        "--check"
+      ],
+      "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-related-incomplete-warning-only-IxOxgF\\最小 Workspace with spaces",
+      "exitCode": 1,
+      "signal": null,
+      "startedAt": "2026-11-02T13:50:20.182Z",
+      "completedAt": "2026-11-02T13:50:21.768Z",
+      "expectedDiagnosticsVerified": true,
+      "fullResult": "raw/green/current-source-receipts/AV.D05.incomplete.native.case.expected.source.json"
+    }
+  ],
+  "preservation": {
+    "diagnosticCallbackCount": 64,
+    "allDiagnosticCallbacksAstEqual": true,
+    "fullDiagnosticAstEqualAfterTimeoutProjection": true,
+    "wholeHelperAstEqualAfterOptionalTimeoutProjection": true,
+    "helperAsyncCallbackAndFinallyEqual": true,
+    "siblingWorkloadByteIdentical": true,
+    "runtimeIncompleteAssertionCallbackAstEqualToAf": true,
+    "runtimeIncompleteInputObjectsBefore": 20,
+    "runtimeIncompleteInputObjectsAfter": 20,
+    "literalInputsEquivalent": true,
+    "literalInputComparison": "Exact source/project/policy/fact values and order; fact.target compares the unchanged relative suffix beneath each independently created Game root. Original and current raw receipts are never rewritten.",
+    "actualChildBoundaries": 6,
+    "originalTicket12HistoricalFilesPreserved": 31,
+    "codeTestConfigFrozenFilesUnchangedAfterExecution": true,
+    "original12OutcomePreserved": true
+  },
+  "scope": {
+    "ticket12": "resolved after the bounded green result is recorded",
+    "ticket17": "claimed; full final acceptance remains independently owned",
+    "contract": "mv-1.6.1/40 unchanged",
+    "noAdditionalProductInvocationsForEvidenceOnlyMerge": true
+  },
+  "evidence": {
+    "originalRedAndBaseline": "red-and-baseline.json",
+    "preservationAudit": "ast-preservation-audit.json",
+    "actualCommands": "raw/green/command-history.json",
+    "actualSourceRunner": "raw/green/source-d05-runner.json",
+    "rawFiles": [
+      {
+        "file": "raw/af-whole-source/01-pnpm-check.log",
+        "bytes": 3541,
+        "sha256": "2dd29c82d9929d84c713d9812d1130ac31cf67342f2753e24cfdb2e7ab96fd72"
+      },
+      {
+        "file": "raw/af-whole-source/command-history.json",
+        "bytes": 938285,
+        "sha256": "de2a7c1c0f426e807dc0bdc3a9eb88990ca55ac3625a51c109ec050de48345ea"
+      },
+      {
+        "file": "raw/af-whole-source/current-source-receipts/AV.D05.incomplete.native.case.expected.source.json",
+        "bytes": 33221,
+        "sha256": "0f3710cf4adc4973eb5dd5c9c64bc622978abf0c7edb590041ff73d661382d75"
+      },
+      {
+        "file": "raw/before/packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+        "bytes": 55150,
+        "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5"
+      },
+      {
+        "file": "raw/before/packages/rpgmaker-event-dsl/test/support/asset-evidence.ts",
+        "bytes": 2856,
+        "sha256": "427516c552d3e163e9dc67bd674c9fd9c2a571b976d2109558bfce84642c630a"
+      },
+      {
+        "file": "raw/green/01-typecheck.log",
+        "bytes": 261,
+        "sha256": "3b3d4f9169d877575292fb45a2a6f2898027cacbb0ba6873615475a731efb118"
+      },
+      {
+        "file": "raw/green/02-lint.log",
+        "bytes": 101,
+        "sha256": "8d9b16561fe6e67c14e58afc021ca282cf056cc873b30d0ea449834b6ee9882f"
+      },
+      {
+        "file": "raw/green/03-format-check.log",
+        "bytes": 387,
+        "sha256": "808cb847987309728783ebbd2ffb262eb916bce5be20d7a675f435846c50fe4b"
+      },
+      {
+        "file": "raw/green/04-source-d05.log",
+        "bytes": 550,
+        "sha256": "473ca04593979d4ec21e1b54df40fbee5a47c635aaab83ca32f28c67e2c02cf6"
+      },
+      {
+        "file": "raw/green/command-history.json",
+        "bytes": 5415,
+        "sha256": "5e5859d09566defeda846dd166b4c4587203a82f3d67e569b0a7c8c54f933d99"
+      },
+      {
+        "file": "raw/green/current-source-receipts/AV.D05.incomplete.native.case.expected.source.json",
+        "bytes": 33221,
+        "sha256": "34ec273d080afd8da6de1abc9e83b58392585b063771e43b3b1906c3f6f751b2"
+      },
+      {
+        "file": "raw/green/current-source-receipts/AV.D05.repaired.native.case.expected.source.json",
+        "bytes": 4219,
+        "sha256": "d6bd2b991753f93515a0a31bd277be7b625fbef97d3bc369764294e9a14b1b7a"
+      },
+      {
+        "file": "raw/green/current-source-receipts/AV.D05.unused.native.case.expected.source.json",
+        "bytes": 4022,
+        "sha256": "ef0f8d41cbc3259d1531b45b1f4181ce0e44c95ad30ffe16b2a92b82d28a125b"
+      },
+      {
+        "file": "raw/green/current-source-receipts/AV.D05.warning-only.native.case.expected.source.json",
+        "bytes": 5591,
+        "sha256": "c17ae609a11b911f9f79b5d900212189ff10b6b36ef2f31f0a7a884b5bb1c019"
+      },
+      {
+        "file": "raw/green/source-d05-runner.json",
+        "bytes": 40210,
+        "sha256": "b2de562f30bb768bd5a75251a2b7465c0ba3e33b4c495945be1961eecee298ae"
+      },
+      {
+        "file": "raw/installed-vitest/default-timeout-path.js.txt",
+        "bytes": 917,
+        "sha256": "96297ca93d129dce3f77a90ef7d397731f7386b8c2352407ef872ae648b2a88e"
+      }
+    ]
+  },
+  "administrativeNotes": [
+    "Evidence preparation initially hit Node execFileSync default maxBuffer while reading existing 12 acceptance JSON. The buffer was increased and already archived originals were hash-checked, without rewriting them. No product/test invocation occurred in this preparation failure.",
+    "The AST audit initially included SourceFile.text (whole formatted source) as a scalar, incorrectly treating formatter trivia as semantic AST. SourceFile.text was excluded; all actual node kinds, child order and identifier/literal text remain compared. No business or test change resulted."
+  ]
+}

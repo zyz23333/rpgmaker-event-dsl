@@ -169,8 +169,15 @@ preserves negative zero, and remains saved while its loop is disabled or its ima
 is None. Use the exact
 `battlebacks1`, `battlebacks2` and `parallaxes` folders for each image slot; an empty
 Asset Reference name is invalid. Tilesets must exist in the Snapshot and have no
-None value. Asset filenames are preserved without scanning local image files;
-a valid reference does not guarantee that MV can load its images.
+None value. Compile and Check validate selected event assets against exact local
+ordinary files while preserving their saved names; file existence does not
+guarantee that MV can decode or display the images. Change Tileset checks all nine
+named sheets. Fixed Transfer Player destinations check their captured Map's
+Tileset sheets, parallax and saved BGM/BGS, retaining autoplay conditions and
+warning for confirmed file problems in audio whose autoplay is off. A Map Event
+Page tile checks only its selected initial-host B–E sheet as a conditional
+candidate; runtime tileset changes may replace that choice. Variable transfer
+destinations report their unchecked dynamic boundary without guessing a Map.
 
 System access commands each require an explicit Boolean `enabled`:
 
@@ -472,7 +479,8 @@ Workspace config uses source discovery instead of per-file target bindings:
   "scriptEnabled": false,
   "sourceRoot": "src",
   "sourceInclude": ["**/*.events.ts", "**/*.dsl.ts"],
-  "sourceExclude": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]
+  "sourceExclude": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
+  "assetCheckExceptions": []
 }
 ```
 
@@ -585,7 +593,8 @@ Background is `window`/`dim`/`transparent`, and position is `top`/`middle`/`bott
 Face `image` is a `faces` image Asset Reference or `null` for None; its independent
 integer `index` is required, accepts 0–2,147,483,647 and rejects negative zero.
 Non-None indices at least 8 warn about the official two-row layout while preserving
-the saved value. Asset files and dimensions are unchecked; None retains its index.
+the saved value. Workspace Compile/Check/Push check supported event asset files;
+image dimensions remain unchecked. None retains its index.
 Number input requires digits 1–8. Item selection requires `regular`, `key`, `hiddenA`
 or `hiddenB`; its variable is the result destination and must resolve to an existing
 System Variable Slot. Scrolling speed is an integer 1–8 and `noFastForward` is an
@@ -621,9 +630,10 @@ even when empty or inactive. See the [movement parameter reference](packages/rpg
 for every instruction and accepted range.
 
 Project data references use helpers such as `switchRef(...)`, `variableRef(...)`,
-`actorRef(...)`, `skillRef(...)`, and `tilesetRef(...)`. Asset parameters use no-scan
-Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
-compile to MV filename stems without checking the filesystem or resolving database IDs.
+`actorRef(...)`, `skillRef(...)`, and `tilesetRef(...)`. Asset parameters use
+Asset References: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
+compile to preserved MV filename stems rather than database IDs. Workspace
+validation checks the supported Event Asset Uses against exact ordinary files.
 
 Actor HP/MP/TP, State and Recover All helpers use explicit Actor Runtime Selectors;
 resource quantities use a constant or variable operand, and HP requires its saved
@@ -888,6 +898,12 @@ or Project Drift checks.
 
 ## Picture commands
 
+Image names containing `%` or `#`, including `%20`, are outside the asset file
+check's support. Ordinary uses error; conditional candidates or explicitly inactive
+saved settings warn and remain unchecked. Asset Check Exceptions cannot waive this
+boundary. The helpers preserve the original saved values; file checks never decode
+or repair them. Audio keeps literal `%` and `#` support; movies exclude both.
+
 Picture commands use explicit complete display settings. `showPicture` requires a
 `pictures` image Asset Reference or `image: null`; `movePicture` has no image field.
 Both require top-level `origin: "upperLeft" | "center"`, direct integer coordinates
@@ -919,7 +935,11 @@ stopSe();
 All four fields are required. `volume` is an integer from 0 to 100, `pitch` from
 50 to 150, and `pan` from -100 to 100. Values between the editor's arrow steps
 are valid; numeric negative zero is preserved in volume and pan. An Audio Asset
-Reference has a nonempty exact filename stem and does not scan the project.
+Reference has a nonempty exact filename stem. Compile and Compile Check require
+the exact ordinary `audio/<folder>/<saved name>.ogg` file under Project Root;
+alternative M4A or encrypted suffixes do not satisfy that path. Literal `%` and
+`#` remain part of audio filenames. File metadata is checked without decoding
+audio, and None needs no file.
 Use `bgm` for `playBgm`, `changeBattleBgm` and `changeVehicleBgm`; `bgs` for
 `playBgs`; `me` for `playMe`, `changeVictoryMe` and `changeDefeatMe`; and `se` for
 `playSe`. `changeVehicleBgm` also requires `vehicle: "boat"`, `"ship"` or

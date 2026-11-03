@@ -1,4 +1,4 @@
-import { readFile, readdir, rename, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { expect, it as test } from "vitest";
 import { recordEvidence } from "./support/mv-evidence.js";
@@ -7,6 +7,7 @@ import { createMinimalProject, withWindowsSandbox } from "./support/windows-sand
 import { blankEvent, blankPage } from "./support/map-event-fixtures.js";
 import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/definitions.js";
 import { getWorkspaceStatePaths } from "../src/workspace/state.js";
+import { createAssetTest, recordAssetInput } from "./support/asset-evidence.js";
 
 const {
   initWorkspace,
@@ -22,14 +23,43 @@ const discovery = {
   sourceExclude: [],
 };
 type SavedCommand = { code: number; indent: number; parameters: unknown[] };
-const commands: SavedCommand[] = JSON.parse(
+const originalCommands: SavedCommand[] = JSON.parse(
   await readFile(
     new URL("./fixtures/mv-evidence/audio-command-cases.json", import.meta.url),
     "utf8",
   ),
 );
+const commands = structuredClone(originalCommands);
+// Keep the original control-character name as a saved-data fixture below; this
+// separate successful workflow uses an explicitly supported editing filename.
+(commands[37]!.parameters[0] as { name: string }).name = "Plain SE";
+const assetIt = createAssetTest({ ownerTicket: "05", testSource: import.meta.url });
+assetIt(
+  "AV.C11.saved-audio-control-characters.native.A11-p0-name.expected: historical audio name decompiles exactly and is rejected without publication",
+  async () => {
+    await withWindowsSandbox("asset-audio-original-name", async ({ workspaceRoot }) => {
+      const original = await prepare(workspaceRoot, originalCommands);
+      recordAssetInput({
+        fixture: "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/audio-command-cases.json",
+        project: original,
+        expectedOriginalName: " \r\n ",
+      });
+      expect((originalCommands[37]!.parameters[0] as { name: string }).name).toBe(" \r\n ");
+      await decompileWorkspace({ workspaceRoot });
+      expect(
+        await readFile(join(workspaceRoot, "src/decompiled/common-events.events.ts"), "utf8"),
+      ).toContain('name: " \\r\\n "');
+      const before = await state(workspaceRoot);
+      for (const check of [true, false])
+        await expect(compileWorkspace({ workspaceRoot, check })).rejects.toThrow(
+          "MV-ASSET-UNSUPPORTED-NAME",
+        );
+      expect(await state(workspaceRoot)).toEqual(before);
+    });
+  },
+);
 
-function it(name: string, body: () => Promise<void>) {
+function it(name: string, body: () => Promise<void>, timeout = 30_000) {
   test(
     name,
     async () => {
@@ -55,7 +85,7 @@ function it(name: string, body: () => Promise<void>) {
         });
       }
     },
-    30_000,
+    timeout,
   );
 }
 
@@ -65,12 +95,22 @@ function savedJson(value: unknown): string {
   ).replaceAll('"__AUDIO_SIGNED_ZERO__"', "-0");
 }
 
-async function prepare(workspaceRoot: string) {
+async function prepare(workspaceRoot: string, list: SavedCommand[] = commands) {
   const fixture = await createMinimalProject(workspaceRoot);
+  for (const [folder, names] of [
+    ["bgm", ["Battle", "Boat", "Ship", "Airship", "Theme"]],
+    ["bgs", ["Rain"]],
+    ["me", ["Victory", "Defeat", "Fanfare"]],
+    ["se", ["Plain SE"]],
+  ] as const) {
+    await mkdir(join(workspaceRoot, "Game/audio", folder), { recursive: true });
+    for (const name of names)
+      await writeFile(join(workspaceRoot, "Game/audio", folder, `${name}.ogg`), "");
+  }
   const files: Record<string, unknown> = structuredClone(fixture.projectFiles);
   files["CommonEvents.json"] = [
     null,
-    { id: 1, name: "Audio Common", trigger: 0, switchId: 1, list: commands },
+    { id: 1, name: "Audio Common", trigger: 0, switchId: 1, list },
   ];
   files["MapInfos.json"] = [null, { id: 1, name: "Audio Map" }];
   files["Tilesets.json"] = [null, { id: 1, name: "Field" }];
@@ -84,7 +124,7 @@ async function prepare(workspaceRoot: string) {
       {
         ...structuredClone(blankEvent),
         name: "Audio Event",
-        pages: [{ ...structuredClone(blankPage), list: commands }],
+        pages: [{ ...structuredClone(blankPage), list }],
       },
       null,
     ],
@@ -113,7 +153,7 @@ async function prepare(workspaceRoot: string) {
             turnValid: false,
           },
           span: 0,
-          list: commands,
+          list,
         },
       ],
     },
@@ -341,7 +381,7 @@ for (let offset = 0; offset < malformedAudioSources.length; offset += 8)
         expect(await state(workspaceRoot)).toStrictEqual(before);
       }
     });
-  });
+  }, 60_000);
 
 it("MV-S6-AUDIO-003: refuses late malformed saved audio records before Decompile publication and preserves every existing business file", async () => {
   const audio = { name: "", volume: 1, pitch: 51, pan: 1 };

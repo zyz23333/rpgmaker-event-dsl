@@ -30,3 +30,52 @@
 
 # Ticket52 preserves exact game-evidence bindings, archived tools, and original logs.
 /.scratch/complete-mv-events-implementation/evidence/52-final-games/** -text -whitespace
+
+# Preserve N01/N02's original counterexamples, input bytes, samples and probes.
+/.scratch/asset-validation-implementation/evidence/01-native-media/native-results.json -text -whitespace
+/.scratch/asset-validation-implementation/evidence/01-native-media/input-manifest.json -text -whitespace
+/.scratch/asset-validation-implementation/evidence/01-native-media/nw.log -text -whitespace
+/.scratch/asset-validation-implementation/evidence/01-native-media/samples/** -text -whitespace
+/.scratch/asset-validation-implementation/probes/native-media/** -text -whitespace
+
+# Preserve ticket03's original pending receipts and policy-closure raw captures.
+/.scratch/asset-validation-implementation/evidence/03-file-observation-acceptance.json -text -whitespace
+/.scratch/asset-validation-implementation/evidence/03-image-policy/** -text -whitespace
+
+# Preserve N03's original native evidence and probe hashes, including raw log spaces.
+/.scratch/asset-validation-implementation/evidence/06-native-animation/** -text -whitespace
+/.scratch/asset-validation-implementation/probes/native-animation/** -text -whitespace
+
+# Preserve N04's original native logs, fixtures and probe hashes byte-for-byte.
+/.scratch/asset-validation-implementation/evidence/07-native-maps/** -text -whitespace
+/.scratch/asset-validation-implementation/probes/native-maps/** -text -whitespace
+# Keep original ticket07 red/green and verification runner reports unchanged.
+/.scratch/asset-validation-implementation/evidence/07-run-history/** -text -whitespace
+# Preserve original N05/N06 native evidence and probe bytes, including NW log spaces.
+/.scratch/asset-validation-implementation/evidence/08-native-battlers/** -text -whitespace
+/.scratch/asset-validation-implementation/probes/native-battlers/** -text -whitespace
+# Fixed independent pre-policy evidence must retain its original bytes.
+packages/rpgmaker-event-dsl/test/fixtures/asset-legacy-policy-evidence.json -text
+/.scratch/asset-validation-implementation/evidence/12-run-history/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+# Keep ticket13's raw runner log whitespace while retaining the recorded LF Git bytes.
+/.scratch/asset-validation-implementation/evidence/13-run-history/*.log -whitespace
+# Retain ticket14 raw log spaces; exact original CRLF bytes are archived separately.
+/.scratch/asset-validation-implementation/evidence/14-run-history/*.log -whitespace
+# Keep ticket15 original failed and successful runner/receipt bytes unchanged.
+/.scratch/asset-validation-implementation/evidence/15-raw/** -text -whitespace
+# Preserve reopened ticket03's Windows name probe and red/green evidence bytes.
+/.scratch/asset-validation-implementation/evidence/03-device-space/** -text -whitespace
+
+# Preserve ticket16's CURRENT40 compatibility-red and narrow rerun evidence bytes.
+/.scratch/asset-validation-implementation/evidence/16-current-contract40/** -text -whitespace
+
+# Preserve17's narrow legacy regression repair originals and runner evidence bytes.
+/.scratch/asset-validation-implementation/evidence/17-regression-repair/raw/** -text -whitespace
+# Keep ticket16's original failed and successful execution bytes unchanged.
+/.scratch/asset-validation-implementation/evidence/16-raw/** -text -whitespace
+# Keep ticket17 actual command logs, receipts, and canceled attempts byte-identical.
+/.scratch/asset-validation-implementation/evidence/17-raw/** -text -whitespace
+# Preserve ticket09's original failure and grouping-compatibility execution bytes.
+/.scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/** -text -whitespace
+# Preserve ticket12's original D05 timeout, baseline, runner and receipt bytes.
+/.scratch/asset-validation-implementation/evidence/12-d05-budget-repair/raw/** -text -whitespace

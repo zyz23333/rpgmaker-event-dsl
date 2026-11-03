@@ -1,0 +1,22 @@
+{
+  "executionFreeze": "c5f7ead75ba78680b92ad81924ba8cb884d2b751",
+  "runner": "MV-S6-SCREEN-002 failed; full error pending",
+  "helperStatusDoesNotOverrideRunnerFailure": true,
+  "receipts": [
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S6-SCREEN-002-2026-11-02T12-08-37-022Z-1a1500d7-58ee-4ac8-940b-8715f1841511.json",
+      "originalIgnoredPath": "test-results/mv-evidence/MV-S6-SCREEN-002-2026-11-02T12-08-37-022Z-1a1500d7-58ee-4ac8-940b-8715f1841511.json",
+      "bytes": 59427,
+      "sha256": "417ad05935c06d9010c3f023207fd16f054d85471695aa11cc86cd6bbbe81dc7",
+      "status": "passed",
+      "startedAt": "2026-11-02T12:08:03.452Z",
+      "completedAt": "2026-11-02T12:08:37.022Z",
+      "difference": null,
+      "actualKeys": [
+        "entry",
+        "assertionsCompleted"
+      ]
+    }
+  ],
+  "noTestRepeatOrMutation": true
+}

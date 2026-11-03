@@ -1,0 +1,28 @@
+{
+  "executionFreeze": "c5f7ead75ba78680b92ad81924ba8cb884d2b751",
+  "runnerObservation": {
+    "file": "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+    "requirement": "MV-S6-PICTURE-007",
+    "suiteTests": 64,
+    "suiteFailed": 1,
+    "reportedDurationMs": 10592,
+    "wholeErrorAndSummary": "awaiting natural pnpm check completion; no cause inferred"
+  },
+  "helperReceipt": {
+    "originalIgnoredPath": "test-results/mv-evidence/MV-S6-PICTURE-007-2026-11-02T11-53-18-923Z-615bd559-7458-4e5c-803f-6cb32c964077.json",
+    "preservedPath": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/MV-S6-PICTURE-007.source-helper-receipt.json",
+    "bytes": 59429,
+    "sha256": "654699f1ee26ae79e64fbee65668d9b528e5b386ed7c12795d36d5a1a99ef09b",
+    "status": "passed",
+    "actual": {
+      "assertionsCompleted": true
+    },
+    "meaning": "Original helper record is retained as written. It is distinct from Vitest runner failure and cannot establish a runner pass."
+  },
+  "sandboxObservation": {
+    "prefix": "picture-map-troop-carriers-",
+    "currentTimeWindowMatchFound": false,
+    "oldUnrelatedSandboxNotClaimed": true
+  },
+  "noTestRepeatOrMutation": true
+}

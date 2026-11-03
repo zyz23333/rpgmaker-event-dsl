@@ -1,4 +1,4 @@
-import { readFile, readdir, rename, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { expect, it as test } from "vitest";
 import { recordEvidence } from "./support/mv-evidence.js";
@@ -76,7 +76,34 @@ async function prepare(workspaceRoot: string) {
     "States.json",
   ])
     files[file] = [null, { id: 1, name: "Saved reference" }];
+  files["Animations.json"] = [
+    null,
+    {
+      id: 1,
+      name: "Saved reference",
+      animation1Name: "BattleAnimation",
+      animation2Name: "",
+      timings: [],
+    },
+  ];
+  files["Skills.json"] = [null, { id: 1, name: "Saved reference", animationId: 1, effects: [] }];
+  files["Enemies.json"] = [null, { id: 1, name: "Saved reference", battlerName: "BattleEnemy" }];
+  (files["System.json"] as Record<string, unknown>).optSideView = false;
+  await mkdir(join(workspaceRoot, "Game/img/enemies"), { recursive: true });
+  await writeFile(join(workspaceRoot, "Game/img/enemies/BattleEnemy.png"), "");
+  await mkdir(join(workspaceRoot, "Game/img/animations"), { recursive: true });
+  await writeFile(join(workspaceRoot, "Game/img/animations/BattleAnimation.png"), "");
   (files["System.json"] as { variables: string[] }).variables = ["", ""];
+  Object.assign(files["System.json"] as object, {
+    gameoverMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    title1Name: "",
+    title2Name: "",
+    titleBgm: { name: "", volume: 90, pitch: 100, pan: 0 },
+    battleBgm: { name: "", volume: 90, pitch: 100, pan: 0 },
+    victoryMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    defeatMe: { name: "", volume: 90, pitch: 100, pan: 0 },
+    sounds: Array.from({ length: 8 }, () => ({ name: "", volume: 90, pitch: 100, pan: 0 })),
+  });
   files["CommonEvents.json"] = [
     null,
     { id: 1, name: "Battle Common", trigger: 0, switchId: 1, list: commands },
@@ -87,6 +114,9 @@ async function prepare(workspaceRoot: string) {
     width: 17,
     height: 13,
     tilesetId: 1,
+    specifyBattleback: false,
+    battleback1Name: "",
+    battleback2Name: "",
     external: { retain: [null, "", 9] },
     encounterList: [],
     events: [

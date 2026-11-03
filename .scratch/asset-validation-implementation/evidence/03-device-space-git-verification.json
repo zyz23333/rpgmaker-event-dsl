@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ticket": "03",
+  "status": "passed",
+  "verifiedAt": "2026-11-02T10:49:00.672Z",
+  "implementationRevision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+  "compileContractVersion": "mv-1.6.1/40",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "worktree": "M:\\Shuen\\Codex\\asset-validation-03-files"
+  },
+  "mainEvidence": {
+    "path": ".scratch/asset-validation-implementation/evidence/03-device-space-acceptance.json",
+    "bytes": 2446680,
+    "sha256": "2ce90c91c04d534baace5ba2f31492d5ea916336417000d90278eef80a68ebb1",
+    "gitBlob": "b991df29c237bd77716bbce9772c7c2005ce5c8c"
+  },
+  "checked": {
+    "originalRawDiskAndIndexBytes": 395,
+    "frozenGitInputs": 23,
+    "builtArtifacts": 15,
+    "currentArchivedReceipts": 364,
+    "embeddedSupplementaryReceipts": 14,
+    "localLinks": 26,
+    "originalLedgerPassed": 332,
+    "originalLedgerPending": 6,
+    "independentFamilies": 97,
+    "independentObligations": 1209
+  },
+  "filtering": "File suites source/built 178/178 with zero filtering. Targeted media source/built each 4 passed, 78 filtered. Historical focused filters excluded from passing totals.",
+  "validation": "All raw sizes, SHA-256 values and Git index blobs equal original disk bytes. Frozen Git inputs equal their recorded objects and current disk; build hashes, all364 receipt manifests,14 embedded supplementary objects and local links agree. Original332 passed plus6 pending ledger and97-family/1209-obligation plan bytes remain unchanged."
+}

@@ -47,8 +47,10 @@ For dialogue use `showText({ lines, face: { image, index }, background, position
 Every field is required. Background is window/dim/transparent; position is
 top/middle/bottom. Use a `faces` `imageAsset(...)` or `null` for None, and preserve
 the independent index even for None. Index accepts 0–2,147,483,647 and rejects
-negative zero. A non-None index at least 8 warns about the official two-row layout;
-image files and dimensions are unchecked. Each line is one physical record:
+negative zero. A non-None index at least 8 warns about the official two-row layout.
+The helper preserves the saved name, index and message settings. Workspace asset
+checks validate the selected file under the shared asset-file rules; image
+dimensions, layout and decoding remain unchecked. Each line is one physical record:
 keep CR, whitespace and trailing empty strings, and never embed LF. Show Text
 requires 1–4 lines; author multiple calls when more are needed. Use
 `showScrollingText({ lines, speed, noFastForward })` with at least one line,
@@ -261,8 +263,10 @@ None; retain power, duration and wait when inactive. Battle execution skips the
 weather effect and its wait and produces a contextual warning. Common Events
 inherit their eventual caller's context. Give `playMovie` an explicit movies
 Asset Reference or `null` for None. Movie None continues without a video wait.
-Use `movieAsset({ name: "Ending" })` for a nonempty filename stem; check the
-actual movie in the game because asset references do not scan files or codecs.
+Use `movieAsset({ name: "Ending" })` for a nonempty filename stem. Compile and
+Check require the exact ordinary `movies/Ending.webm` file under Project Root;
+MP4 cannot substitute. Movie `%` and `#` names are unsupported. Check the actual
+movie in the game because file metadata does not validate playback or codecs.
 
 For audio playback and system settings, supply all four `audio` fields: `asset`
 is an Audio Asset Reference or explicit `null`, `volume` is integer 0..100,
@@ -270,7 +274,9 @@ is an Audio Asset Reference or explicit `null`, `volume` is integer 0..100,
 fields with None, including negative zero in volume/pan and values between the
 editor's arrow steps. Use the exact nonempty filename stem and matching folder:
 `bgm` for BGM/battle/vehicle, `bgs` for BGS, `me` for ME/victory/defeat, and `se`
-for SE. Give `changeVehicleBgm` boat, ship or airship explicitly. BGM/BGS None
+for SE. Compile and Check require exact ordinary `audio/<folder>/<name>.ogg`
+files; literal `%` and `#` remain in audio names. None needs no file. Give
+`changeVehicleBgm` boat, ship or airship explicitly. BGM/BGS None
 stops its stream; ME None stops ME and may restore BGM; SE None leaves active SE
 playing. Use `stopSe()` to stop SE, and `saveBgm()` / `replayBgm()` to retain and
 restore BGM playback position. These three helpers accept no arguments. Give
@@ -284,9 +290,12 @@ both independent fields: `battleback1` uses `battlebacks1`, `battleback2` uses
 fields: an image in `parallaxes` or `null`, Boolean `loopX` and `loopY`, and integer
 `sx` and `sy` in −32..32. Preserve negative zero in both speed slots. Keep saved
 speeds when a loop is disabled or the image is None. Preserve filenames exactly;
-use `null` for None and nonempty Asset Reference
-names for actual files. Check intentional missing assets in the game: the Workspace
-does not scan asset files or infer that a valid Tileset reference guarantees loading.
+use `null` for None and nonempty Asset Reference names for actual files. The helpers
+preserve references and saved settings. Workspace asset checks follow the selected
+Animation and Tileset relationships in captured standard data under the shared
+asset-file rules: both Animation image sheets, every timing SE and all named
+Tileset slots. File existence and a valid Tileset reference do not guarantee
+layout, decoding, loading or runtime use.
 
 Use `script(...)` and `scriptInput(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough. The Gate also checks Conditional Branch script conditions, Control Variables script operands, Set Movement Route script subcommands and mirrors, and saved Page routes in every movement mode. Empty and unreachable scripts still count. With the Gate closed, Decompile warns while generating source; Check and Compile reject current declarations containing scripts. Remove the actual scripts or enable the Gate deliberately before compiling.
 

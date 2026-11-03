@@ -1,0 +1,51 @@
+{
+  "id": "AV.C06.saved-audio-controls.formal.case.expected",
+  "ownerTicket": "05",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:24:34.037Z",
+  "completedAt": "2026-11-02T13:24:34.795Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,audioAsset,movieAsset,rawDslCommand,changeBattleBgm,changeVictoryMe,changeDefeatMe,changeVehicleBgm,playBgm,playBgs,playMe,playSe,playMovie,setMovementRoute} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Media\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[playSe({audio:{asset:null,volume:-0,pitch:73,pan:-0}})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Media"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "description": "None preserves signed zero and nondefault pitch independently",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+    "sha256": "843bbe0a812fb252cf1a6bfdc3709898389388f42d0a2bafaec2b031b1c1ba65",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-audio-signed-controls\", async ({ workspaceRoot: root }) => {\n\t\tawait prepare(root, source(\"playSe({audio:{asset:null,volume:-0,pitch:73,pan:-0}})\"));\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst actual = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)(actual.uses).toEqual([]);\n\t\t(0,__vite_ssr_import_2__.expect)(actual.page.list[0].parameters[0]).toEqual({\n\t\t\tname: \"\",\n\t\t\tvolume: -0,\n\t\t\tpitch: 73,\n\t\t\tpan: -0\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(Object.is(actual.page.list[0].parameters[0].volume, -0)).toBe(true);\n\t\t(0,__vite_ssr_import_2__.expect)(Object.is(actual.page.list[0].parameters[0].pan, -0)).toBe(true);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

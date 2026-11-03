@@ -1,0 +1,34 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/asset-validation-14-push/packages/rpgmaker-event-dsl
+
+stderr | test/asset-push-workspace.test.ts > AV.W07.no-diff-data-drift.api.case.expected: full standard data drift rejects before the asset pass
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-notrun-red-workspaces\asset-push-no-diff-drift-bDf8eP
+
+ ❯ test/asset-push-workspace.test.ts (17 tests | 1 failed | 16 skipped) 1661ms
+   × AV.W07.no-diff-data-drift.api.case.expected: full standard data drift rejects before the asset pass 1660ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/asset-push-workspace.test.ts > AV.W07.no-diff-data-drift.api.case.expected: full standard data drift rejects before the asset pass
+AssertionError: expected 'Project Drift detected before push fo…' to contain 'push asset check not run'
+
+Expected: "push asset check not run"
+Received: "Project Drift detected before push for Actors.json. Run pull first."
+
+ ❯ test/asset-push-workspace.test.ts:69:246
+
+ ❯ withWindowsSandbox test/support/windows-sandbox.ts:56:5
+ ❯ test/asset-push-workspace.test.ts:67:3
+ ❯ test/support/asset-evidence.ts:25:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 16 skipped (17)
+   Start at  15:25:27
+   Duration  3.80s (transform 696ms, setup 0ms, import 1.99s, tests 1.66s, environment 0ms)
+
+undefined
+M:\Shuen\Codex\asset-validation-14-push\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run test/asset-push-workspace.test.ts --maxWorkers=1 -t no-diff-data-drift

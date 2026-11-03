@@ -1,0 +1,84 @@
+{
+  "id": "AV.F06.image-candidate.input.case.expected",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:37:44.215Z",
+  "completedAt": "2026-11-02T10:37:50.640Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [],
+      "source": "import {commonEvent,changePartyMember,actorRef} from \"rpgmaker-event-dsl\";export const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[changePartyMember({actor:actorRef({id:1}),operation:\"add\",initialize:false})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {
+      "projectOverrides": {
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor",
+            "characterName": "Candidate%20#Image",
+            "battlerName": "Candidate%20#Image"
+          }
+        ]
+      }
+    },
+    {
+      "actualCli": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-03-files/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-03-files/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-candidate-VTB4Ae\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T10:37:45.057Z",
+        "completedAt": "2026-11-02T10:37:47.516Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check warning:\nwarning MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-candidate-VTB4Ae\\最小 Workspace with spaces\\Game; required extension: .png\n  image/characters \"Candidate%20#Image\"; 1 use(s)\n  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[0]; chain: Actors.json[1].characterName (Actor initial character image); conditions: The added Actor supplies a player or follower image only when effective in the current party.; candidate: Actor initial character image may be replaced by runtime image settings.; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-image-candidate-VTB4Ae/最小 Workspace with spaces/src/files.events.ts (line 1, column 151); base: warning; effective: warning\nwarning MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-candidate-VTB4Ae\\最小 Workspace with spaces\\Game; required extension: .png\n  image/sv_actors \"Candidate%20#Image\"; 1 use(s)\n  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[0]; chain: Actors.json[1].battlerName (Actor initial battler image); conditions: Actor battler images apply only in side-view battle and while the Actor is an effective battle member.; candidate: Actor initial battler image may be replaced by runtime image settings.; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-image-candidate-VTB4Ae/最小 Workspace with spaces/src/files.events.ts (line 1, column 151); base: warning; effective: warning\n2 problem group(s), 0 problem file(s), 2 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\n",
+        "ipcMessages": []
+      },
+      "guard": "no image lookup, even without any img directory"
+    },
+    {
+      "actualCompileCli": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-03-files/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-03-files\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-candidate-VTB4Ae\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T10:37:48.304Z",
+        "completedAt": "2026-11-02T10:37:50.625Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile asset check warning:\nwarning MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-candidate-VTB4Ae\\最小 Workspace with spaces\\Game; required extension: .png\n  image/characters \"Candidate%20#Image\"; 1 use(s)\n  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[0]; chain: Actors.json[1].characterName (Actor initial character image); conditions: The added Actor supplies a player or follower image only when effective in the current party.; candidate: Actor initial character image may be replaced by runtime image settings.; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-image-candidate-VTB4Ae/最小 Workspace with spaces/src/files.events.ts (line 1, column 151); base: warning; effective: warning\nwarning MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-image-candidate-VTB4Ae\\最小 Workspace with spaces\\Game; required extension: .png\n  image/sv_actors \"Candidate%20#Image\"; 1 use(s)\n  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[0]; chain: Actors.json[1].battlerName (Actor initial battler image); conditions: Actor battler images apply only in side-view battle and while the Actor is an effective battle member.; candidate: Actor initial battler image may be replaced by runtime image settings.; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-image-candidate-VTB4Ae/最小 Workspace with spaces/src/files.events.ts (line 1, column 151); base: warning; effective: warning\n2 problem group(s), 0 problem file(s), 2 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\n"
+      }
+    }
+  ],
+  "expected": {
+    "description": "unsupported saved image names warn with unchecked coverage and preserve their candidate or inactive origin",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_6__.withWindowsSandbox)(`asset-image-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst authored = branch === \"candidate\" ? `import {commonEvent,changePartyMember,actorRef} from \"rpgmaker-event-dsl\";export const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[changePartyMember({actor:actorRef({id:1}),operation:\"add\",initialize:false})]});` : `import {mapEvent,imageAsset} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"Files\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[],movement:{type:\"fixed\",route:{commands:[{kind:\"changeImage\",character:imageAsset({folder:\"characters\",name:${JSON.stringify(name)}}),characterIndex:7}]}}}]});`;\n\t\tconst projectFiles = branch === \"candidate\" ? { \"Actors.json\": [null, {\n\t\t\tid: 1,\n\t\t\tname: \"Actor\",\n\t\t\tcharacterName: name,\n\t\t\tbattlerName: name\n\t\t}] } : {\n\t\t\t\"MapInfos.json\": [null, {\n\t\t\t\tid: 1,\n\t\t\t\tname: \"Files\"\n\t\t\t}],\n\t\t\t\"Map001.json\": {\n\t\t\t\twidth: 1,\n\t\t\t\theight: 1,\n\t\t\t\ttilesetId: 1,\n\t\t\t\tevents: []\n\t\t\t},\n\t\t\t\"Tilesets.json\": [null, {\n\t\t\t\tid: 1,\n\t\t\t\tname: \"Tiles\"\n\t\t\t}]\n\t\t};\n\t\tawait prepare(root, [], {\n\t\t\tsource: authored,\n\t\t\tprojectFiles\n\t\t});\n\t\tconst before = await localState(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_4__.expect)(await localState(root)).toEqual(before);\n\t\tconst child = (0,__vite_ssr_import_7__.startWorkspaceOperation)(sandbox, {\n\t\t\toperation: \"check\",\n\t\t\tmode: \"cli\",\n\t\t\tboundary: \"asset-link-guard\",\n\t\t\tassetPath: \"img\"\n\t\t});\n\t\ttry {\n\t\t\t(0,__vite_ssr_import_4__.expect)((await child.ended).exitCode).toBe(0);\n\t\t\t(0,__vite_ssr_import_4__.expect)(child.messages.some((message) => message.kind === \"asset-link-follow-attempt\")).toBe(false);\n\t\t\tconst cli = sandbox.processes.at(-1);\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(\"warning MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(JSON.stringify(name));\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(\"this use is unchecked\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(branch === \"candidate\" ? \"candidate: Actor initial\" : \"inactive: Autonomous Movement is fixed\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).not.toContain(\"error MV-ASSET\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).not.toContain(\"; target:\");\n\t\t\tif (branch === \"candidate\") {\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(\"image/characters\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(\"image/sv_actors\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(\"Actors.json[1].characterName\");\n\t\t\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(\"Actors.json[1].battlerName\");\n\t\t\t} else (0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(\"Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]\");\n\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\tactualCli: cli,\n\t\t\t\tguard: \"no image lookup, even without any img directory\"\n\t\t\t});\n\t\t} finally {\n\t\t\tawait child.stop();\n\t\t};\n\t\t(0,__vite_ssr_import_4__.expect)(await localState(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst cli = await (0,__vite_ssr_import_6__.runCli)(sandbox, [\"compile\"]);\n\t\t(0,__vite_ssr_import_4__.expect)(cli.stderr).toContain(\"warning MV-ASSET-UNSUPPORTED-NAME\");\n\t\t(0,__vite_ssr_import_5__.recordAssetInput)({ actualCompileCli: cli });\n\t\tif (branch === \"inactive\") {\n\t\t\tconst map = JSON.parse(await (0,__vite_ssr_import_1__.readFile)((0,__vite_ssr_import_2__.join)(root, \".rpgmaker-event-dsl/generated-project-data/Map001.json\"), \"utf8\"));\n\t\t\t(0,__vite_ssr_import_4__.expect)(map.events[1].pages[0].moveRoute.list[0].parameters[0]).toBe(name);\n\t\t} else {\n\t\t\tconst actors = JSON.parse(await (0,__vite_ssr_import_1__.readFile)((0,__vite_ssr_import_2__.join)(root, \".rpgmaker-event-dsl/project-data-snapshot/Actors.json\"), \"utf8\"));\n\t\t\t(0,__vite_ssr_import_4__.expect)(actors[1].characterName).toBe(name);\n\t\t\t(0,__vite_ssr_import_4__.expect)(actors[1].battlerName).toBe(name);\n\t\t};\n\t\t(0,__vite_ssr_import_4__.expect)(await (0,__vite_ssr_import_1__.readdir)((0,__vite_ssr_import_2__.join)(root, \"Game\"))).not.toContain(\"img\");\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

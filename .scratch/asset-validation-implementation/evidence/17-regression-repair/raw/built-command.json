@@ -1,0 +1,26 @@
+{
+  "entry": "built",
+  "command": "pnpm",
+  "arguments": [
+    "--filter",
+    "rpgmaker-event-dsl",
+    "exec",
+    "vitest",
+    "run",
+    "--config",
+    "../../.scratch/asset-validation-implementation/evidence/17-regression-repair/raw/built.config.ts",
+    "-t",
+    "^(?:MV-S6-PICTURE-007:|MV-S3-INPUT-003:|MV-S6-AUDIO-002:|MV-S6-MOVEMENT-003:|MV-S6-SCREEN-002:|keeps an explicit old /23 contract stale until a normal current /40 Compile$)",
+    "--reporter=json",
+    "--outputFile=../../.scratch/asset-validation-implementation/evidence/17-regression-repair/raw/built-runner.json"
+  ],
+  "startedAt": "2026-11-02T12:33:11.4046813Z",
+  "completedAt": "2026-11-02T12:35:09.0946145Z",
+  "exitCode": 0,
+  "head": "14ef1dddaecc8df069a07277f449013b0cdb475c",
+  "node": "v22.23.4",
+  "TEMP": "C:\\Users\\Shuen\\AppData\\Local\\Temp",
+  "TMP": "C:\\Users\\Shuen\\AppData\\Local\\Temp",
+  "workerOverride": null,
+  "globalEntryOverride": null
+}

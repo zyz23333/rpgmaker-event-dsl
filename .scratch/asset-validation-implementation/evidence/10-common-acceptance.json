@@ -1,0 +1,2316 @@
+{
+  "ownerTicket": "10",
+  "baseRevision": "3eb12b8d3755f07ea998548a1101be6e802d0d29",
+  "sourceFiles": [
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-common-calls.ts",
+      "sha256": "4852d9d44bb7cce74bda3c3fe5ed5d196c829339897352c67759b3e48b3c937a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/asset-call-context.ts",
+      "sha256": "f6e830a94272bd52b3379c048c61670e318f1a9db47fe52d603f97847f5eed24"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/asset-check.ts",
+      "sha256": "c70cb5d303b65b7e91abb1ff22b54488cb597333105d0a8425879887a1459bf4"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+      "sha256": "f920f4e724e5d779624539dd76e37875866d87a7f416d735a6a81111a2960ac7"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+      "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/vitest.windows.config.ts",
+      "sha256": "a5561af7fd9183220454c08ad1ef1f9c1ec02fe6f332c2d8d029c7d5e03d2ccf"
+    }
+  ],
+  "results": [
+    {
+      "id": "AV.B15.call-common.formal.called-picture.missing",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:45.149Z",
+      "completedAt": "2026-11-02T01:39:46.089Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "reports the defining use and its direct caller through actual CLI",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-common-formal-missing\", async (sandbox) => {\n\t\tawait prepare(sandbox.workspaceRoot, common(10, call(11)) + common(11, picture));\n\t\tconst before = await state(sandbox.workspaceRoot);\n\t\tconst result = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(result.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"1 use(s)\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(sandbox.workspaceRoot)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.B15.call-common.formal.called-picture.missing",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:27.090Z",
+      "completedAt": "2026-11-02T01:38:28.464Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "reports the defining use and its direct caller through actual CLI",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-common-formal-missing\", async (sandbox) => {\n\t\tawait prepare(sandbox.workspaceRoot, common(10, call(11)) + common(11, picture));\n\t\tconst before = await state(sandbox.workspaceRoot);\n\t\tconst result = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(result.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"1 use(s)\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(sandbox.workspaceRoot)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.B15.call-common.formal.called-picture.present",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:40.465Z",
+      "completedAt": "2026-11-02T01:39:42.151Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "current definitions and direct calls retain independent literal origins",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${representation}-${outcome}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, representation === \"formal\" ? call(11) : rawCall(11)) + common(11, representation === \"formal\" ? picture : rawPicture));\n\t\tif (outcome === \"present\") await (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tif (outcome === \"missing\") {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"1 use(s)\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"-> commonEvent:11\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t} else {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([expectedCalledUse]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project).toEqual(before.project);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).source).toEqual(before.source);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.B15.call-common.formal.called-picture.present",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:20.495Z",
+      "completedAt": "2026-11-02T01:38:22.964Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "current definitions and direct calls retain independent literal origins",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${representation}-${outcome}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, representation === \"formal\" ? call(11) : rawCall(11)) + common(11, representation === \"formal\" ? picture : rawPicture));\n\t\tif (outcome === \"present\") await (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tif (outcome === \"missing\") {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"1 use(s)\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"-> commonEvent:11\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t} else {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([expectedCalledUse]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project).toEqual(before.project);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).source).toEqual(before.source);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.B15.call-common.raw.called-picture.missing",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:43.685Z",
+      "completedAt": "2026-11-02T01:39:45.148Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[rawDslCommand({code:117,indent:0,parameters:[11]})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"CalledPoster\",0,0,0,0,100,100,255,0]})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "current definitions and direct calls retain independent literal origins",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${representation}-${outcome}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, representation === \"formal\" ? call(11) : rawCall(11)) + common(11, representation === \"formal\" ? picture : rawPicture));\n\t\tif (outcome === \"present\") await (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tif (outcome === \"missing\") {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"1 use(s)\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"-> commonEvent:11\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t} else {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([expectedCalledUse]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project).toEqual(before.project);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).source).toEqual(before.source);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.B15.call-common.raw.called-picture.missing",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:25.086Z",
+      "completedAt": "2026-11-02T01:38:27.089Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[rawDslCommand({code:117,indent:0,parameters:[11]})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"CalledPoster\",0,0,0,0,100,100,255,0]})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "current definitions and direct calls retain independent literal origins",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${representation}-${outcome}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, representation === \"formal\" ? call(11) : rawCall(11)) + common(11, representation === \"formal\" ? picture : rawPicture));\n\t\tif (outcome === \"present\") await (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tif (outcome === \"missing\") {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"1 use(s)\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"-> commonEvent:11\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t} else {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([expectedCalledUse]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project).toEqual(before.project);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).source).toEqual(before.source);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.B15.call-common.raw.called-picture.present",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:42.152Z",
+      "completedAt": "2026-11-02T01:39:43.684Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[rawDslCommand({code:117,indent:0,parameters:[11]})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"CalledPoster\",0,0,0,0,100,100,255,0]})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "current definitions and direct calls retain independent literal origins",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${representation}-${outcome}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, representation === \"formal\" ? call(11) : rawCall(11)) + common(11, representation === \"formal\" ? picture : rawPicture));\n\t\tif (outcome === \"present\") await (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tif (outcome === \"missing\") {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"1 use(s)\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"-> commonEvent:11\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t} else {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([expectedCalledUse]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project).toEqual(before.project);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).source).toEqual(before.source);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.B15.call-common.raw.called-picture.present",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:22.964Z",
+      "completedAt": "2026-11-02T01:38:25.086Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[rawDslCommand({code:117,indent:0,parameters:[11]})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"CalledPoster\",0,0,0,0,100,100,255,0]})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "current definitions and direct calls retain independent literal origins",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${representation}-${outcome}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, representation === \"formal\" ? call(11) : rawCall(11)) + common(11, representation === \"formal\" ? picture : rawPicture));\n\t\tif (outcome === \"present\") await (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tif (outcome === \"missing\") {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"1 use(s)\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"-> commonEvent:11\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t} else {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([expectedCalledUse]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project).toEqual(before.project);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).source).toEqual(before.source);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C02.removed-common-call.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:40:04.598Z",
+      "completedAt": "2026-11-02T01:40:06.309Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[]});\n",
+          "project": {
+            "CommonEvents.json": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              {
+                "id": 10,
+                "name": "Old caller",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 117,
+                    "indent": 0,
+                    "parameters": [
+                      12
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              },
+              {
+                "id": 11,
+                "name": "Obsolete picture",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "OldPoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              },
+              {
+                "id": 12,
+                "name": "Obsolete picture",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "OldPoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              }
+            ]
+          },
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "obsolete Snapshot definitions and caller positions cannot reenter the current graph",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst oldCommon = Array.from({ length: 13 }, () => null);\n\t\toldCommon[10] = {\n\t\t\tid: 10,\n\t\t\tname: \"Old caller\",\n\t\t\ttrigger: 0,\n\t\t\tswitchId: 1,\n\t\t\tlist: [{\n\t\t\t\tcode: 117,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [12]\n\t\t\t}, {\n\t\t\t\tcode: 0,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: []\n\t\t\t}]\n\t\t};\n\t\tfor (const id of [11, 12]) oldCommon[id] = {\n\t\t\tid,\n\t\t\tname: \"Obsolete picture\",\n\t\t\ttrigger: 0,\n\t\t\tswitchId: 1,\n\t\t\tlist: [{\n\t\t\t\tcode: 231,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [\n\t\t\t\t\t1,\n\t\t\t\t\t\"OldPoster\",\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t100,\n\t\t\t\t\t100,\n\t\t\t\t\t255,\n\t\t\t\t\t0\n\t\t\t\t]\n\t\t\t}, {\n\t\t\t\tcode: 0,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: []\n\t\t\t}]\n\t\t};\n\t\tawait prepare(root, branch === \"removed-common-call\" ? common(10, \"\") : common(10, call(11)) + common(11, picture), { \"CommonEvents.json\": oldCommon });\n\t\tif (branch === \"replaced-common-call\") await (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(branch === \"removed-common-call\" ? [] : [expectedCall]);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual(branch === \"removed-common-call\" ? [] : [expectedCalledUse]);\n\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(files.get(\"CommonEvents.json\"))[12]).toBeNull();\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project).toEqual(before.project);\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C02.removed-common-call.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:52.918Z",
+      "completedAt": "2026-11-02T01:38:55.348Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[]});\n",
+          "project": {
+            "CommonEvents.json": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              {
+                "id": 10,
+                "name": "Old caller",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 117,
+                    "indent": 0,
+                    "parameters": [
+                      12
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              },
+              {
+                "id": 11,
+                "name": "Obsolete picture",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "OldPoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              },
+              {
+                "id": 12,
+                "name": "Obsolete picture",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "OldPoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              }
+            ]
+          },
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "obsolete Snapshot definitions and caller positions cannot reenter the current graph",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst oldCommon = Array.from({ length: 13 }, () => null);\n\t\toldCommon[10] = {\n\t\t\tid: 10,\n\t\t\tname: \"Old caller\",\n\t\t\ttrigger: 0,\n\t\t\tswitchId: 1,\n\t\t\tlist: [{\n\t\t\t\tcode: 117,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [12]\n\t\t\t}, {\n\t\t\t\tcode: 0,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: []\n\t\t\t}]\n\t\t};\n\t\tfor (const id of [11, 12]) oldCommon[id] = {\n\t\t\tid,\n\t\t\tname: \"Obsolete picture\",\n\t\t\ttrigger: 0,\n\t\t\tswitchId: 1,\n\t\t\tlist: [{\n\t\t\t\tcode: 231,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [\n\t\t\t\t\t1,\n\t\t\t\t\t\"OldPoster\",\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t100,\n\t\t\t\t\t100,\n\t\t\t\t\t255,\n\t\t\t\t\t0\n\t\t\t\t]\n\t\t\t}, {\n\t\t\t\tcode: 0,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: []\n\t\t\t}]\n\t\t};\n\t\tawait prepare(root, branch === \"removed-common-call\" ? common(10, \"\") : common(10, call(11)) + common(11, picture), { \"CommonEvents.json\": oldCommon });\n\t\tif (branch === \"replaced-common-call\") await (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(branch === \"removed-common-call\" ? [] : [expectedCall]);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual(branch === \"removed-common-call\" ? [] : [expectedCalledUse]);\n\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(files.get(\"CommonEvents.json\"))[12]).toBeNull();\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project).toEqual(before.project);\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C02.replaced-common-call.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:40:06.310Z",
+      "completedAt": "2026-11-02T01:40:08.319Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {
+            "CommonEvents.json": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              {
+                "id": 10,
+                "name": "Old caller",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 117,
+                    "indent": 0,
+                    "parameters": [
+                      12
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              },
+              {
+                "id": 11,
+                "name": "Obsolete picture",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "OldPoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              },
+              {
+                "id": 12,
+                "name": "Obsolete picture",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "OldPoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              }
+            ]
+          },
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "obsolete Snapshot definitions and caller positions cannot reenter the current graph",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst oldCommon = Array.from({ length: 13 }, () => null);\n\t\toldCommon[10] = {\n\t\t\tid: 10,\n\t\t\tname: \"Old caller\",\n\t\t\ttrigger: 0,\n\t\t\tswitchId: 1,\n\t\t\tlist: [{\n\t\t\t\tcode: 117,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [12]\n\t\t\t}, {\n\t\t\t\tcode: 0,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: []\n\t\t\t}]\n\t\t};\n\t\tfor (const id of [11, 12]) oldCommon[id] = {\n\t\t\tid,\n\t\t\tname: \"Obsolete picture\",\n\t\t\ttrigger: 0,\n\t\t\tswitchId: 1,\n\t\t\tlist: [{\n\t\t\t\tcode: 231,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [\n\t\t\t\t\t1,\n\t\t\t\t\t\"OldPoster\",\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t100,\n\t\t\t\t\t100,\n\t\t\t\t\t255,\n\t\t\t\t\t0\n\t\t\t\t]\n\t\t\t}, {\n\t\t\t\tcode: 0,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: []\n\t\t\t}]\n\t\t};\n\t\tawait prepare(root, branch === \"removed-common-call\" ? common(10, \"\") : common(10, call(11)) + common(11, picture), { \"CommonEvents.json\": oldCommon });\n\t\tif (branch === \"replaced-common-call\") await (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(branch === \"removed-common-call\" ? [] : [expectedCall]);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual(branch === \"removed-common-call\" ? [] : [expectedCalledUse]);\n\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(files.get(\"CommonEvents.json\"))[12]).toBeNull();\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project).toEqual(before.project);\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C02.replaced-common-call.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:55.349Z",
+      "completedAt": "2026-11-02T01:38:57.762Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {
+            "CommonEvents.json": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              {
+                "id": 10,
+                "name": "Old caller",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 117,
+                    "indent": 0,
+                    "parameters": [
+                      12
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              },
+              {
+                "id": 11,
+                "name": "Obsolete picture",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "OldPoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              },
+              {
+                "id": 12,
+                "name": "Obsolete picture",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "OldPoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              }
+            ]
+          },
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "obsolete Snapshot definitions and caller positions cannot reenter the current graph",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst oldCommon = Array.from({ length: 13 }, () => null);\n\t\toldCommon[10] = {\n\t\t\tid: 10,\n\t\t\tname: \"Old caller\",\n\t\t\ttrigger: 0,\n\t\t\tswitchId: 1,\n\t\t\tlist: [{\n\t\t\t\tcode: 117,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [12]\n\t\t\t}, {\n\t\t\t\tcode: 0,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: []\n\t\t\t}]\n\t\t};\n\t\tfor (const id of [11, 12]) oldCommon[id] = {\n\t\t\tid,\n\t\t\tname: \"Obsolete picture\",\n\t\t\ttrigger: 0,\n\t\t\tswitchId: 1,\n\t\t\tlist: [{\n\t\t\t\tcode: 231,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [\n\t\t\t\t\t1,\n\t\t\t\t\t\"OldPoster\",\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t100,\n\t\t\t\t\t100,\n\t\t\t\t\t255,\n\t\t\t\t\t0\n\t\t\t\t]\n\t\t\t}, {\n\t\t\t\tcode: 0,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: []\n\t\t\t}]\n\t\t};\n\t\tawait prepare(root, branch === \"removed-common-call\" ? common(10, \"\") : common(10, call(11)) + common(11, picture), { \"CommonEvents.json\": oldCommon });\n\t\tif (branch === \"replaced-common-call\") await (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(branch === \"removed-common-call\" ? [] : [expectedCall]);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual(branch === \"removed-common-call\" ? [] : [expectedCalledUse]);\n\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(files.get(\"CommonEvents.json\"))[12]).toBeNull();\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project).toEqual(before.project);\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C04.common-independent-root.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:55.093Z",
+      "completedAt": "2026-11-02T01:39:56.495Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\nexport const map=mapEvent({mapId:1,id:1,name:\"Map caller\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[loop({body:{commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]}})]}]});export const troop=troopEvent({troopId:1,pages:[{commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]}]});",
+          "project": {
+            "MapInfos.json": [
+              null,
+              {
+                "id": 1,
+                "name": "Calling map"
+              }
+            ],
+            "Map001.json": {
+              "width": 1,
+              "height": 1,
+              "tilesetId": 1,
+              "events": []
+            },
+            "Tilesets.json": [
+              null,
+              {
+                "id": 1,
+                "name": "Calling tiles"
+              }
+            ],
+            "Troops.json": [
+              null,
+              {
+                "id": 1,
+                "name": "Calling troop",
+                "members": [],
+                "pages": []
+              }
+            ]
+          },
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "keeps all caller positions and each actual defining picture once",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst source = common(10, `${call(11)},${call(11)}`) + common(11, picture) + (branch === \"common-independent-root\" ? common(12, picture) : \"\") + `export const map=mapEvent({mapId:1,id:1,name:\"Map caller\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[loop({body:{commands:[${call(11)}]}})]}]});` + `export const troop=troopEvent({troopId:1,pages:[{commands:[${call(11)}]}]});`;\n\t\tawait prepare(root, source, {\n\t\t\t...mapProject,\n\t\t\t...troopProject\n\t\t});\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([\n\t\t\texpectedCall,\n\t\t\t{\n\t\t\t\t...expectedCall,\n\t\t\t\tnativePath: \"CommonEvents.json[10].list[1].parameters[0]\"\n\t\t\t},\n\t\t\t{\n\t\t\t\tcaller: \"map:1/event:1\",\n\t\t\t\tnativePath: \"Map001.json.events[1].pages[0].list[1].parameters[0]\",\n\t\t\t\ttarget: \"commonEvent:11\",\n\t\t\t\ttargetId: 11,\n\t\t\t\tdependencyChain: []\n\t\t\t},\n\t\t\t{\n\t\t\t\tcaller: \"troop:1\",\n\t\t\t\tnativePath: \"Troops.json[1].pages[0].list[0].parameters[0]\",\n\t\t\t\ttarget: \"commonEvent:11\",\n\t\t\t\ttargetId: 11,\n\t\t\t\tdependencyChain: []\n\t\t\t}\n\t\t]);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual(branch === \"two-callers\" ? [expectedCalledUse] : [expectedCalledUse, {\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: \"commonEvent:12\",\n\t\t\tnativePath: \"CommonEvents.json[12].list[0].parameters[1]\"\n\t\t}]);\n\t\tconst before = await state(root);\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C04.common-independent-root.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:39.994Z",
+      "completedAt": "2026-11-02T01:38:41.894Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\nexport const map=mapEvent({mapId:1,id:1,name:\"Map caller\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[loop({body:{commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]}})]}]});export const troop=troopEvent({troopId:1,pages:[{commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]}]});",
+          "project": {
+            "MapInfos.json": [
+              null,
+              {
+                "id": 1,
+                "name": "Calling map"
+              }
+            ],
+            "Map001.json": {
+              "width": 1,
+              "height": 1,
+              "tilesetId": 1,
+              "events": []
+            },
+            "Tilesets.json": [
+              null,
+              {
+                "id": 1,
+                "name": "Calling tiles"
+              }
+            ],
+            "Troops.json": [
+              null,
+              {
+                "id": 1,
+                "name": "Calling troop",
+                "members": [],
+                "pages": []
+              }
+            ]
+          },
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "keeps all caller positions and each actual defining picture once",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst source = common(10, `${call(11)},${call(11)}`) + common(11, picture) + (branch === \"common-independent-root\" ? common(12, picture) : \"\") + `export const map=mapEvent({mapId:1,id:1,name:\"Map caller\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[loop({body:{commands:[${call(11)}]}})]}]});` + `export const troop=troopEvent({troopId:1,pages:[{commands:[${call(11)}]}]});`;\n\t\tawait prepare(root, source, {\n\t\t\t...mapProject,\n\t\t\t...troopProject\n\t\t});\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([\n\t\t\texpectedCall,\n\t\t\t{\n\t\t\t\t...expectedCall,\n\t\t\t\tnativePath: \"CommonEvents.json[10].list[1].parameters[0]\"\n\t\t\t},\n\t\t\t{\n\t\t\t\tcaller: \"map:1/event:1\",\n\t\t\t\tnativePath: \"Map001.json.events[1].pages[0].list[1].parameters[0]\",\n\t\t\t\ttarget: \"commonEvent:11\",\n\t\t\t\ttargetId: 11,\n\t\t\t\tdependencyChain: []\n\t\t\t},\n\t\t\t{\n\t\t\t\tcaller: \"troop:1\",\n\t\t\t\tnativePath: \"Troops.json[1].pages[0].list[0].parameters[0]\",\n\t\t\t\ttarget: \"commonEvent:11\",\n\t\t\t\ttargetId: 11,\n\t\t\t\tdependencyChain: []\n\t\t\t}\n\t\t]);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual(branch === \"two-callers\" ? [expectedCalledUse] : [expectedCalledUse, {\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: \"commonEvent:12\",\n\t\t\tnativePath: \"CommonEvents.json[12].list[0].parameters[1]\"\n\t\t}]);\n\t\tconst before = await state(root);\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C04.two-callers.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:53.583Z",
+      "completedAt": "2026-11-02T01:39:55.092Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\nexport const map=mapEvent({mapId:1,id:1,name:\"Map caller\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[loop({body:{commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]}})]}]});export const troop=troopEvent({troopId:1,pages:[{commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]}]});",
+          "project": {
+            "MapInfos.json": [
+              null,
+              {
+                "id": 1,
+                "name": "Calling map"
+              }
+            ],
+            "Map001.json": {
+              "width": 1,
+              "height": 1,
+              "tilesetId": 1,
+              "events": []
+            },
+            "Tilesets.json": [
+              null,
+              {
+                "id": 1,
+                "name": "Calling tiles"
+              }
+            ],
+            "Troops.json": [
+              null,
+              {
+                "id": 1,
+                "name": "Calling troop",
+                "members": [],
+                "pages": []
+              }
+            ]
+          },
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "keeps all caller positions and each actual defining picture once",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst source = common(10, `${call(11)},${call(11)}`) + common(11, picture) + (branch === \"common-independent-root\" ? common(12, picture) : \"\") + `export const map=mapEvent({mapId:1,id:1,name:\"Map caller\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[loop({body:{commands:[${call(11)}]}})]}]});` + `export const troop=troopEvent({troopId:1,pages:[{commands:[${call(11)}]}]});`;\n\t\tawait prepare(root, source, {\n\t\t\t...mapProject,\n\t\t\t...troopProject\n\t\t});\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([\n\t\t\texpectedCall,\n\t\t\t{\n\t\t\t\t...expectedCall,\n\t\t\t\tnativePath: \"CommonEvents.json[10].list[1].parameters[0]\"\n\t\t\t},\n\t\t\t{\n\t\t\t\tcaller: \"map:1/event:1\",\n\t\t\t\tnativePath: \"Map001.json.events[1].pages[0].list[1].parameters[0]\",\n\t\t\t\ttarget: \"commonEvent:11\",\n\t\t\t\ttargetId: 11,\n\t\t\t\tdependencyChain: []\n\t\t\t},\n\t\t\t{\n\t\t\t\tcaller: \"troop:1\",\n\t\t\t\tnativePath: \"Troops.json[1].pages[0].list[0].parameters[0]\",\n\t\t\t\ttarget: \"commonEvent:11\",\n\t\t\t\ttargetId: 11,\n\t\t\t\tdependencyChain: []\n\t\t\t}\n\t\t]);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual(branch === \"two-callers\" ? [expectedCalledUse] : [expectedCalledUse, {\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: \"commonEvent:12\",\n\t\t\tnativePath: \"CommonEvents.json[12].list[0].parameters[1]\"\n\t\t}]);\n\t\tconst before = await state(root);\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C04.two-callers.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:38.112Z",
+      "completedAt": "2026-11-02T01:38:39.992Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\nexport const map=mapEvent({mapId:1,id:1,name:\"Map caller\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[loop({body:{commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]}})]}]});export const troop=troopEvent({troopId:1,pages:[{commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]}]});",
+          "project": {
+            "MapInfos.json": [
+              null,
+              {
+                "id": 1,
+                "name": "Calling map"
+              }
+            ],
+            "Map001.json": {
+              "width": 1,
+              "height": 1,
+              "tilesetId": 1,
+              "events": []
+            },
+            "Tilesets.json": [
+              null,
+              {
+                "id": 1,
+                "name": "Calling tiles"
+              }
+            ],
+            "Troops.json": [
+              null,
+              {
+                "id": 1,
+                "name": "Calling troop",
+                "members": [],
+                "pages": []
+              }
+            ]
+          },
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "keeps all caller positions and each actual defining picture once",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst source = common(10, `${call(11)},${call(11)}`) + common(11, picture) + (branch === \"common-independent-root\" ? common(12, picture) : \"\") + `export const map=mapEvent({mapId:1,id:1,name:\"Map caller\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[loop({body:{commands:[${call(11)}]}})]}]});` + `export const troop=troopEvent({troopId:1,pages:[{commands:[${call(11)}]}]});`;\n\t\tawait prepare(root, source, {\n\t\t\t...mapProject,\n\t\t\t...troopProject\n\t\t});\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([\n\t\t\texpectedCall,\n\t\t\t{\n\t\t\t\t...expectedCall,\n\t\t\t\tnativePath: \"CommonEvents.json[10].list[1].parameters[0]\"\n\t\t\t},\n\t\t\t{\n\t\t\t\tcaller: \"map:1/event:1\",\n\t\t\t\tnativePath: \"Map001.json.events[1].pages[0].list[1].parameters[0]\",\n\t\t\t\ttarget: \"commonEvent:11\",\n\t\t\t\ttargetId: 11,\n\t\t\t\tdependencyChain: []\n\t\t\t},\n\t\t\t{\n\t\t\t\tcaller: \"troop:1\",\n\t\t\t\tnativePath: \"Troops.json[1].pages[0].list[0].parameters[0]\",\n\t\t\t\ttarget: \"commonEvent:11\",\n\t\t\t\ttargetId: 11,\n\t\t\t\tdependencyChain: []\n\t\t\t}\n\t\t]);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual(branch === \"two-callers\" ? [expectedCalledUse] : [expectedCalledUse, {\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: \"commonEvent:12\",\n\t\t\tnativePath: \"CommonEvents.json[12].list[0].parameters[1]\"\n\t\t}]);\n\t\tconst before = await state(root);\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C05.long-acyclic.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:49.346Z",
+      "completedAt": "2026-11-02T01:39:51.449Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "graph": {
+            "branch": "long-acyclic",
+            "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:12})})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})})]});\nexport const event13=commonEvent({id:13,name:\"Event 13\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event14=commonEvent({id:14,name:\"Event 14\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event15=commonEvent({id:15,name:\"Event 15\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:16})})]});\nexport const event16=commonEvent({id:16,name:\"Event 16\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:17})})]});\nexport const event17=commonEvent({id:17,name:\"Event 17\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:18})})]});\nexport const event18=commonEvent({id:18,name:\"Event 18\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:19})})]});\nexport const event19=commonEvent({id:19,name:\"Event 19\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:20})})]});\nexport const event20=commonEvent({id:20,name:\"Event 20\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:21})})]});\nexport const event21=commonEvent({id:21,name:\"Event 21\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:22})})]});\nexport const event22=commonEvent({id:22,name:\"Event 22\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+            "identities": [
+              "commonEvent:10",
+              "commonEvent:11",
+              "commonEvent:12",
+              "commonEvent:13",
+              "commonEvent:14",
+              "commonEvent:15",
+              "commonEvent:16",
+              "commonEvent:17",
+              "commonEvent:18",
+              "commonEvent:19",
+              "commonEvent:20",
+              "commonEvent:21",
+              "commonEvent:22"
+            ],
+            "useIdentity": "commonEvent:22",
+            "usePath": "CommonEvents.json[22].list[0].parameters[1]",
+            "edges": [
+              [
+                "commonEvent:10",
+                "CommonEvents.json[10].list[0].parameters[0]",
+                "commonEvent:11",
+                11
+              ],
+              [
+                "commonEvent:11",
+                "CommonEvents.json[11].list[0].parameters[0]",
+                "commonEvent:12",
+                12
+              ],
+              [
+                "commonEvent:12",
+                "CommonEvents.json[12].list[0].parameters[0]",
+                "commonEvent:13",
+                13
+              ],
+              [
+                "commonEvent:13",
+                "CommonEvents.json[13].list[0].parameters[0]",
+                "commonEvent:14",
+                14
+              ],
+              [
+                "commonEvent:14",
+                "CommonEvents.json[14].list[0].parameters[0]",
+                "commonEvent:15",
+                15
+              ],
+              [
+                "commonEvent:15",
+                "CommonEvents.json[15].list[0].parameters[0]",
+                "commonEvent:16",
+                16
+              ],
+              [
+                "commonEvent:16",
+                "CommonEvents.json[16].list[0].parameters[0]",
+                "commonEvent:17",
+                17
+              ],
+              [
+                "commonEvent:17",
+                "CommonEvents.json[17].list[0].parameters[0]",
+                "commonEvent:18",
+                18
+              ],
+              [
+                "commonEvent:18",
+                "CommonEvents.json[18].list[0].parameters[0]",
+                "commonEvent:19",
+                19
+              ],
+              [
+                "commonEvent:19",
+                "CommonEvents.json[19].list[0].parameters[0]",
+                "commonEvent:20",
+                20
+              ],
+              [
+                "commonEvent:20",
+                "CommonEvents.json[20].list[0].parameters[0]",
+                "commonEvent:21",
+                21
+              ],
+              [
+                "commonEvent:21",
+                "CommonEvents.json[21].list[0].parameters[0]",
+                "commonEvent:22",
+                22
+              ]
+            ]
+          },
+          "expectedUseCount": 1,
+          "recursion": "none; definitions independent"
+        },
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:12})})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})})]});\nexport const event13=commonEvent({id:13,name:\"Event 13\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event14=commonEvent({id:14,name:\"Event 14\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event15=commonEvent({id:15,name:\"Event 15\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:16})})]});\nexport const event16=commonEvent({id:16,name:\"Event 16\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:17})})]});\nexport const event17=commonEvent({id:17,name:\"Event 17\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:18})})]});\nexport const event18=commonEvent({id:18,name:\"Event 18\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:19})})]});\nexport const event19=commonEvent({id:19,name:\"Event 19\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:20})})]});\nexport const event20=commonEvent({id:20,name:\"Event 20\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:21})})]});\nexport const event21=commonEvent({id:21,name:\"Event 21\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:22})})]});\nexport const event22=commonEvent({id:22,name:\"Event 22\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "retains every finite direct edge without multiplying defining asset uses",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${graph.branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tgraph,\n\t\t\texpectedUseCount: 1,\n\t\t\trecursion: \"none; definitions independent\"\n\t\t});\n\t\tawait prepare(root, graph.source);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.nativeAssetEvents)(files).map(({ identity }) => identity)).toEqual(graph.identities);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(graph.edges.map(([caller, nativePath, target, targetId]) => ({\n\t\t\tcaller,\n\t\t\tnativePath,\n\t\t\ttarget,\n\t\t\ttargetId,\n\t\t\tdependencyChain: []\n\t\t})));\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([{\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: graph.useIdentity,\n\t\t\tnativePath: graph.usePath\n\t\t}]);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"same name new bytes\");\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\tconst source = (0,__vite_ssr_import_1__.join)(root, \"src/calls.events.ts\");\n\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)(source, \"utf8\")).toBe(imports + graph.source);\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project[\"img/pictures/CalledPoster.png\"]).toBe(Buffer.from(\"same name new bytes\").toString(\"base64\"));\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C05.long-acyclic.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:33.320Z",
+      "completedAt": "2026-11-02T01:38:35.786Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "graph": {
+            "branch": "long-acyclic",
+            "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:12})})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})})]});\nexport const event13=commonEvent({id:13,name:\"Event 13\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event14=commonEvent({id:14,name:\"Event 14\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event15=commonEvent({id:15,name:\"Event 15\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:16})})]});\nexport const event16=commonEvent({id:16,name:\"Event 16\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:17})})]});\nexport const event17=commonEvent({id:17,name:\"Event 17\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:18})})]});\nexport const event18=commonEvent({id:18,name:\"Event 18\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:19})})]});\nexport const event19=commonEvent({id:19,name:\"Event 19\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:20})})]});\nexport const event20=commonEvent({id:20,name:\"Event 20\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:21})})]});\nexport const event21=commonEvent({id:21,name:\"Event 21\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:22})})]});\nexport const event22=commonEvent({id:22,name:\"Event 22\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+            "identities": [
+              "commonEvent:10",
+              "commonEvent:11",
+              "commonEvent:12",
+              "commonEvent:13",
+              "commonEvent:14",
+              "commonEvent:15",
+              "commonEvent:16",
+              "commonEvent:17",
+              "commonEvent:18",
+              "commonEvent:19",
+              "commonEvent:20",
+              "commonEvent:21",
+              "commonEvent:22"
+            ],
+            "useIdentity": "commonEvent:22",
+            "usePath": "CommonEvents.json[22].list[0].parameters[1]",
+            "edges": [
+              [
+                "commonEvent:10",
+                "CommonEvents.json[10].list[0].parameters[0]",
+                "commonEvent:11",
+                11
+              ],
+              [
+                "commonEvent:11",
+                "CommonEvents.json[11].list[0].parameters[0]",
+                "commonEvent:12",
+                12
+              ],
+              [
+                "commonEvent:12",
+                "CommonEvents.json[12].list[0].parameters[0]",
+                "commonEvent:13",
+                13
+              ],
+              [
+                "commonEvent:13",
+                "CommonEvents.json[13].list[0].parameters[0]",
+                "commonEvent:14",
+                14
+              ],
+              [
+                "commonEvent:14",
+                "CommonEvents.json[14].list[0].parameters[0]",
+                "commonEvent:15",
+                15
+              ],
+              [
+                "commonEvent:15",
+                "CommonEvents.json[15].list[0].parameters[0]",
+                "commonEvent:16",
+                16
+              ],
+              [
+                "commonEvent:16",
+                "CommonEvents.json[16].list[0].parameters[0]",
+                "commonEvent:17",
+                17
+              ],
+              [
+                "commonEvent:17",
+                "CommonEvents.json[17].list[0].parameters[0]",
+                "commonEvent:18",
+                18
+              ],
+              [
+                "commonEvent:18",
+                "CommonEvents.json[18].list[0].parameters[0]",
+                "commonEvent:19",
+                19
+              ],
+              [
+                "commonEvent:19",
+                "CommonEvents.json[19].list[0].parameters[0]",
+                "commonEvent:20",
+                20
+              ],
+              [
+                "commonEvent:20",
+                "CommonEvents.json[20].list[0].parameters[0]",
+                "commonEvent:21",
+                21
+              ],
+              [
+                "commonEvent:21",
+                "CommonEvents.json[21].list[0].parameters[0]",
+                "commonEvent:22",
+                22
+              ]
+            ]
+          },
+          "expectedUseCount": 1,
+          "recursion": "none; definitions independent"
+        },
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:12})})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})})]});\nexport const event13=commonEvent({id:13,name:\"Event 13\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event14=commonEvent({id:14,name:\"Event 14\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event15=commonEvent({id:15,name:\"Event 15\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:16})})]});\nexport const event16=commonEvent({id:16,name:\"Event 16\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:17})})]});\nexport const event17=commonEvent({id:17,name:\"Event 17\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:18})})]});\nexport const event18=commonEvent({id:18,name:\"Event 18\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:19})})]});\nexport const event19=commonEvent({id:19,name:\"Event 19\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:20})})]});\nexport const event20=commonEvent({id:20,name:\"Event 20\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:21})})]});\nexport const event21=commonEvent({id:21,name:\"Event 21\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:22})})]});\nexport const event22=commonEvent({id:22,name:\"Event 22\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "retains every finite direct edge without multiplying defining asset uses",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${graph.branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tgraph,\n\t\t\texpectedUseCount: 1,\n\t\t\trecursion: \"none; definitions independent\"\n\t\t});\n\t\tawait prepare(root, graph.source);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.nativeAssetEvents)(files).map(({ identity }) => identity)).toEqual(graph.identities);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(graph.edges.map(([caller, nativePath, target, targetId]) => ({\n\t\t\tcaller,\n\t\t\tnativePath,\n\t\t\ttarget,\n\t\t\ttargetId,\n\t\t\tdependencyChain: []\n\t\t})));\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([{\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: graph.useIdentity,\n\t\t\tnativePath: graph.usePath\n\t\t}]);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"same name new bytes\");\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\tconst source = (0,__vite_ssr_import_1__.join)(root, \"src/calls.events.ts\");\n\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)(source, \"utf8\")).toBe(imports + graph.source);\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project[\"img/pictures/CalledPoster.png\"]).toBe(Buffer.from(\"same name new bytes\").toString(\"base64\"));\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C05.mutual-cycle.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:47.596Z",
+      "completedAt": "2026-11-02T01:39:49.344Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "graph": {
+            "branch": "mutual-cycle",
+            "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:10})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+            "identities": [
+              "commonEvent:10",
+              "commonEvent:11"
+            ],
+            "useIdentity": "commonEvent:11",
+            "usePath": "CommonEvents.json[11].list[1].parameters[1]",
+            "edges": [
+              [
+                "commonEvent:10",
+                "CommonEvents.json[10].list[0].parameters[0]",
+                "commonEvent:11",
+                11
+              ],
+              [
+                "commonEvent:11",
+                "CommonEvents.json[11].list[0].parameters[0]",
+                "commonEvent:10",
+                10
+              ]
+            ]
+          },
+          "expectedUseCount": 1,
+          "recursion": "none; definitions independent"
+        },
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:10})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "retains every finite direct edge without multiplying defining asset uses",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${graph.branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tgraph,\n\t\t\texpectedUseCount: 1,\n\t\t\trecursion: \"none; definitions independent\"\n\t\t});\n\t\tawait prepare(root, graph.source);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.nativeAssetEvents)(files).map(({ identity }) => identity)).toEqual(graph.identities);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(graph.edges.map(([caller, nativePath, target, targetId]) => ({\n\t\t\tcaller,\n\t\t\tnativePath,\n\t\t\ttarget,\n\t\t\ttargetId,\n\t\t\tdependencyChain: []\n\t\t})));\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([{\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: graph.useIdentity,\n\t\t\tnativePath: graph.usePath\n\t\t}]);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"same name new bytes\");\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\tconst source = (0,__vite_ssr_import_1__.join)(root, \"src/calls.events.ts\");\n\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)(source, \"utf8\")).toBe(imports + graph.source);\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project[\"img/pictures/CalledPoster.png\"]).toBe(Buffer.from(\"same name new bytes\").toString(\"base64\"));\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C05.mutual-cycle.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:30.985Z",
+      "completedAt": "2026-11-02T01:38:33.319Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "graph": {
+            "branch": "mutual-cycle",
+            "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:10})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+            "identities": [
+              "commonEvent:10",
+              "commonEvent:11"
+            ],
+            "useIdentity": "commonEvent:11",
+            "usePath": "CommonEvents.json[11].list[1].parameters[1]",
+            "edges": [
+              [
+                "commonEvent:10",
+                "CommonEvents.json[10].list[0].parameters[0]",
+                "commonEvent:11",
+                11
+              ],
+              [
+                "commonEvent:11",
+                "CommonEvents.json[11].list[0].parameters[0]",
+                "commonEvent:10",
+                10
+              ]
+            ]
+          },
+          "expectedUseCount": 1,
+          "recursion": "none; definitions independent"
+        },
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:10})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "retains every finite direct edge without multiplying defining asset uses",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${graph.branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tgraph,\n\t\t\texpectedUseCount: 1,\n\t\t\trecursion: \"none; definitions independent\"\n\t\t});\n\t\tawait prepare(root, graph.source);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.nativeAssetEvents)(files).map(({ identity }) => identity)).toEqual(graph.identities);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(graph.edges.map(([caller, nativePath, target, targetId]) => ({\n\t\t\tcaller,\n\t\t\tnativePath,\n\t\t\ttarget,\n\t\t\ttargetId,\n\t\t\tdependencyChain: []\n\t\t})));\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([{\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: graph.useIdentity,\n\t\t\tnativePath: graph.usePath\n\t\t}]);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"same name new bytes\");\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\tconst source = (0,__vite_ssr_import_1__.join)(root, \"src/calls.events.ts\");\n\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)(source, \"utf8\")).toBe(imports + graph.source);\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project[\"img/pictures/CalledPoster.png\"]).toBe(Buffer.from(\"same name new bytes\").toString(\"base64\"));\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C05.self-cycle.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:46.091Z",
+      "completedAt": "2026-11-02T01:39:47.595Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "graph": {
+            "branch": "self-cycle",
+            "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:10})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+            "identities": [
+              "commonEvent:10"
+            ],
+            "useIdentity": "commonEvent:10",
+            "usePath": "CommonEvents.json[10].list[1].parameters[1]",
+            "edges": [
+              [
+                "commonEvent:10",
+                "CommonEvents.json[10].list[0].parameters[0]",
+                "commonEvent:10",
+                10
+              ]
+            ]
+          },
+          "expectedUseCount": 1,
+          "recursion": "none; definitions independent"
+        },
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:10})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "retains every finite direct edge without multiplying defining asset uses",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${graph.branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tgraph,\n\t\t\texpectedUseCount: 1,\n\t\t\trecursion: \"none; definitions independent\"\n\t\t});\n\t\tawait prepare(root, graph.source);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.nativeAssetEvents)(files).map(({ identity }) => identity)).toEqual(graph.identities);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(graph.edges.map(([caller, nativePath, target, targetId]) => ({\n\t\t\tcaller,\n\t\t\tnativePath,\n\t\t\ttarget,\n\t\t\ttargetId,\n\t\t\tdependencyChain: []\n\t\t})));\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([{\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: graph.useIdentity,\n\t\t\tnativePath: graph.usePath\n\t\t}]);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"same name new bytes\");\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\tconst source = (0,__vite_ssr_import_1__.join)(root, \"src/calls.events.ts\");\n\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)(source, \"utf8\")).toBe(imports + graph.source);\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project[\"img/pictures/CalledPoster.png\"]).toBe(Buffer.from(\"same name new bytes\").toString(\"base64\"));\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C05.self-cycle.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:28.465Z",
+      "completedAt": "2026-11-02T01:38:30.985Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "graph": {
+            "branch": "self-cycle",
+            "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:10})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+            "identities": [
+              "commonEvent:10"
+            ],
+            "useIdentity": "commonEvent:10",
+            "usePath": "CommonEvents.json[10].list[1].parameters[1]",
+            "edges": [
+              [
+                "commonEvent:10",
+                "CommonEvents.json[10].list[0].parameters[0]",
+                "commonEvent:10",
+                10
+              ]
+            ]
+          },
+          "expectedUseCount": 1,
+          "recursion": "none; definitions independent"
+        },
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:10})}),showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "retains every finite direct edge without multiplying defining asset uses",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${graph.branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tgraph,\n\t\t\texpectedUseCount: 1,\n\t\t\trecursion: \"none; definitions independent\"\n\t\t});\n\t\tawait prepare(root, graph.source);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.nativeAssetEvents)(files).map(({ identity }) => identity)).toEqual(graph.identities);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(graph.edges.map(([caller, nativePath, target, targetId]) => ({\n\t\t\tcaller,\n\t\t\tnativePath,\n\t\t\ttarget,\n\t\t\ttargetId,\n\t\t\tdependencyChain: []\n\t\t})));\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([{\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: graph.useIdentity,\n\t\t\tnativePath: graph.usePath\n\t\t}]);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"same name new bytes\");\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\tconst source = (0,__vite_ssr_import_1__.join)(root, \"src/calls.events.ts\");\n\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)(source, \"utf8\")).toBe(imports + graph.source);\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project[\"img/pictures/CalledPoster.png\"]).toBe(Buffer.from(\"same name new bytes\").toString(\"base64\"));\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C05.shared-dag.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:51.450Z",
+      "completedAt": "2026-11-02T01:39:53.582Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "graph": {
+            "branch": "shared-dag",
+            "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:12})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event13=commonEvent({id:13,name:\"Event 13\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event14=commonEvent({id:14,name:\"Event 14\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event15=commonEvent({id:15,name:\"Event 15\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+            "identities": [
+              "commonEvent:10",
+              "commonEvent:11",
+              "commonEvent:12",
+              "commonEvent:13",
+              "commonEvent:14",
+              "commonEvent:15"
+            ],
+            "useIdentity": "commonEvent:15",
+            "usePath": "CommonEvents.json[15].list[0].parameters[1]",
+            "edges": [
+              [
+                "commonEvent:10",
+                "CommonEvents.json[10].list[0].parameters[0]",
+                "commonEvent:11",
+                11
+              ],
+              [
+                "commonEvent:10",
+                "CommonEvents.json[10].list[1].parameters[0]",
+                "commonEvent:12",
+                12
+              ],
+              [
+                "commonEvent:11",
+                "CommonEvents.json[11].list[0].parameters[0]",
+                "commonEvent:13",
+                13
+              ],
+              [
+                "commonEvent:11",
+                "CommonEvents.json[11].list[1].parameters[0]",
+                "commonEvent:14",
+                14
+              ],
+              [
+                "commonEvent:12",
+                "CommonEvents.json[12].list[0].parameters[0]",
+                "commonEvent:13",
+                13
+              ],
+              [
+                "commonEvent:12",
+                "CommonEvents.json[12].list[1].parameters[0]",
+                "commonEvent:14",
+                14
+              ],
+              [
+                "commonEvent:13",
+                "CommonEvents.json[13].list[0].parameters[0]",
+                "commonEvent:15",
+                15
+              ],
+              [
+                "commonEvent:14",
+                "CommonEvents.json[14].list[0].parameters[0]",
+                "commonEvent:15",
+                15
+              ]
+            ]
+          },
+          "expectedUseCount": 1,
+          "recursion": "none; definitions independent"
+        },
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:12})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event13=commonEvent({id:13,name:\"Event 13\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event14=commonEvent({id:14,name:\"Event 14\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event15=commonEvent({id:15,name:\"Event 15\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "retains every finite direct edge without multiplying defining asset uses",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${graph.branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tgraph,\n\t\t\texpectedUseCount: 1,\n\t\t\trecursion: \"none; definitions independent\"\n\t\t});\n\t\tawait prepare(root, graph.source);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.nativeAssetEvents)(files).map(({ identity }) => identity)).toEqual(graph.identities);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(graph.edges.map(([caller, nativePath, target, targetId]) => ({\n\t\t\tcaller,\n\t\t\tnativePath,\n\t\t\ttarget,\n\t\t\ttargetId,\n\t\t\tdependencyChain: []\n\t\t})));\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([{\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: graph.useIdentity,\n\t\t\tnativePath: graph.usePath\n\t\t}]);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"same name new bytes\");\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\tconst source = (0,__vite_ssr_import_1__.join)(root, \"src/calls.events.ts\");\n\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)(source, \"utf8\")).toBe(imports + graph.source);\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project[\"img/pictures/CalledPoster.png\"]).toBe(Buffer.from(\"same name new bytes\").toString(\"base64\"));\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C05.shared-dag.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:35.787Z",
+      "completedAt": "2026-11-02T01:38:38.111Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "graph": {
+            "branch": "shared-dag",
+            "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:12})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event13=commonEvent({id:13,name:\"Event 13\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event14=commonEvent({id:14,name:\"Event 14\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event15=commonEvent({id:15,name:\"Event 15\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+            "identities": [
+              "commonEvent:10",
+              "commonEvent:11",
+              "commonEvent:12",
+              "commonEvent:13",
+              "commonEvent:14",
+              "commonEvent:15"
+            ],
+            "useIdentity": "commonEvent:15",
+            "usePath": "CommonEvents.json[15].list[0].parameters[1]",
+            "edges": [
+              [
+                "commonEvent:10",
+                "CommonEvents.json[10].list[0].parameters[0]",
+                "commonEvent:11",
+                11
+              ],
+              [
+                "commonEvent:10",
+                "CommonEvents.json[10].list[1].parameters[0]",
+                "commonEvent:12",
+                12
+              ],
+              [
+                "commonEvent:11",
+                "CommonEvents.json[11].list[0].parameters[0]",
+                "commonEvent:13",
+                13
+              ],
+              [
+                "commonEvent:11",
+                "CommonEvents.json[11].list[1].parameters[0]",
+                "commonEvent:14",
+                14
+              ],
+              [
+                "commonEvent:12",
+                "CommonEvents.json[12].list[0].parameters[0]",
+                "commonEvent:13",
+                13
+              ],
+              [
+                "commonEvent:12",
+                "CommonEvents.json[12].list[1].parameters[0]",
+                "commonEvent:14",
+                14
+              ],
+              [
+                "commonEvent:13",
+                "CommonEvents.json[13].list[0].parameters[0]",
+                "commonEvent:15",
+                15
+              ],
+              [
+                "commonEvent:14",
+                "CommonEvents.json[14].list[0].parameters[0]",
+                "commonEvent:15",
+                15
+              ]
+            ]
+          },
+          "expectedUseCount": 1,
+          "recursion": "none; definitions independent"
+        },
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:12})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event13=commonEvent({id:13,name:\"Event 13\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event14=commonEvent({id:14,name:\"Event 14\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event15=commonEvent({id:15,name:\"Event 15\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "retains every finite direct edge without multiplying defining asset uses",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${graph.branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tgraph,\n\t\t\texpectedUseCount: 1,\n\t\t\trecursion: \"none; definitions independent\"\n\t\t});\n\t\tawait prepare(root, graph.source);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.nativeAssetEvents)(files).map(({ identity }) => identity)).toEqual(graph.identities);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(graph.edges.map(([caller, nativePath, target, targetId]) => ({\n\t\t\tcaller,\n\t\t\tnativePath,\n\t\t\ttarget,\n\t\t\ttargetId,\n\t\t\tdependencyChain: []\n\t\t})));\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([{\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: graph.useIdentity,\n\t\t\tnativePath: graph.usePath\n\t\t}]);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"same name new bytes\");\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\tconst source = (0,__vite_ssr_import_1__.join)(root, \"src/calls.events.ts\");\n\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)(source, \"utf8\")).toBe(imports + graph.source);\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project[\"img/pictures/CalledPoster.png\"]).toBe(Buffer.from(\"same name new bytes\").toString(\"base64\"));\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C06.none-indirect.formal.B15-call-common-called-picture.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:56.496Z",
+      "completedAt": "2026-11-02T01:39:57.857Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:null,origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:-73,scaleY:117,opacity:41,blendMode:\"normal\"})]});\n",
+          "project": {
+            "System.json": {
+              "switches": [
+                ""
+              ],
+              "variables": [
+                ""
+              ],
+              "hasEncryptedImages": "unrelated"
+            }
+          },
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "legal None keeps the direct call and saved numeric values without querying an asset",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-common-none\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, call(11)) + common(11, \"showPicture({pictureId:1,image:null,origin:\\\"upperLeft\\\",position:{kind:\\\"direct\\\",x:0,y:0},scaleX:-73,scaleY:117,opacity:41,blendMode:\\\"normal\\\"})\"), { \"System.json\": {\n\t\t\tswitches: [\"\"],\n\t\t\tvariables: [\"\"],\n\t\t\thasEncryptedImages: \"unrelated\"\n\t\t} });\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([]);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(files.get(\"CommonEvents.json\"))[11].list[0].parameters).toEqual([\n\t\t\t1,\n\t\t\t\"\",\n\t\t\t0,\n\t\t\t0,\n\t\t\t0,\n\t\t\t0,\n\t\t\t-73,\n\t\t\t117,\n\t\t\t41,\n\t\t\t0\n\t\t]);\n\t\tconst before = await state(root);\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C06.none-indirect.formal.B15-call-common-called-picture.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:41.895Z",
+      "completedAt": "2026-11-02T01:38:43.787Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:null,origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:-73,scaleY:117,opacity:41,blendMode:\"normal\"})]});\n",
+          "project": {
+            "System.json": {
+              "switches": [
+                ""
+              ],
+              "variables": [
+                ""
+              ],
+              "hasEncryptedImages": "unrelated"
+            }
+          },
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "legal None keeps the direct call and saved numeric values without querying an asset",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-common-none\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, call(11)) + common(11, \"showPicture({pictureId:1,image:null,origin:\\\"upperLeft\\\",position:{kind:\\\"direct\\\",x:0,y:0},scaleX:-73,scaleY:117,opacity:41,blendMode:\\\"normal\\\"})\"), { \"System.json\": {\n\t\t\tswitches: [\"\"],\n\t\t\tvariables: [\"\"],\n\t\t\thasEncryptedImages: \"unrelated\"\n\t\t} });\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([]);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(files.get(\"CommonEvents.json\"))[11].list[0].parameters).toEqual([\n\t\t\t1,\n\t\t\t\"\",\n\t\t\t0,\n\t\t\t0,\n\t\t\t0,\n\t\t\t0,\n\t\t\t-73,\n\t\t\t117,\n\t\t\t41,\n\t\t\t0\n\t\t]);\n\t\tconst before = await state(root);\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C07.field-empty.formal.B15-call-common-called-picture.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:40:01.013Z",
+      "completedAt": "2026-11-02T01:40:01.477Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:null,origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "distinguishes necessary saved fields, legal absence and a missing file",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, call(11)) + common(11, command));\n\t\tconst before = await state(root);\n\t\tif (failureCode === undefined) {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t} else {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(failureCode);\n\t\t\t\tif (failureCode !== \"MV-ASSET-MISSING-FILE\") (0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\telse (0,__vite_ssr_import_2__.expect)(failure).toContain(\"-> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(failureCode);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C07.field-empty.formal.B15-call-common-called-picture.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:47.855Z",
+      "completedAt": "2026-11-02T01:38:48.418Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:null,origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "distinguishes necessary saved fields, legal absence and a missing file",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, call(11)) + common(11, command));\n\t\tconst before = await state(root);\n\t\tif (failureCode === undefined) {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t} else {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(failureCode);\n\t\t\t\tif (failureCode !== \"MV-ASSET-MISSING-FILE\") (0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\telse (0,__vite_ssr_import_2__.expect)(failure).toContain(\"-> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(failureCode);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C07.field-missing.formal.B15-call-common-called-picture.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:57.859Z",
+      "completedAt": "2026-11-02T01:39:59.434Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:{kind:\"asset\",category:\"image\",folder:\"pictures\"} as never,origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "distinguishes necessary saved fields, legal absence and a missing file",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, call(11)) + common(11, command));\n\t\tconst before = await state(root);\n\t\tif (failureCode === undefined) {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t} else {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(failureCode);\n\t\t\t\tif (failureCode !== \"MV-ASSET-MISSING-FILE\") (0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\telse (0,__vite_ssr_import_2__.expect)(failure).toContain(\"-> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(failureCode);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C07.field-missing.formal.B15-call-common-called-picture.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:43.788Z",
+      "completedAt": "2026-11-02T01:38:45.813Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:{kind:\"asset\",category:\"image\",folder:\"pictures\"} as never,origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "distinguishes necessary saved fields, legal absence and a missing file",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, call(11)) + common(11, command));\n\t\tconst before = await state(root);\n\t\tif (failureCode === undefined) {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t} else {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(failureCode);\n\t\t\t\tif (failureCode !== \"MV-ASSET-MISSING-FILE\") (0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\telse (0,__vite_ssr_import_2__.expect)(failure).toContain(\"-> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(failureCode);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C07.field-wrong-type.formal.B15-call-common-called-picture.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:59.435Z",
+      "completedAt": "2026-11-02T01:40:01.012Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:{kind:\"asset\",category:\"image\",folder:\"pictures\",name:7} as never,origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "distinguishes necessary saved fields, legal absence and a missing file",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, call(11)) + common(11, command));\n\t\tconst before = await state(root);\n\t\tif (failureCode === undefined) {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t} else {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(failureCode);\n\t\t\t\tif (failureCode !== \"MV-ASSET-MISSING-FILE\") (0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\telse (0,__vite_ssr_import_2__.expect)(failure).toContain(\"-> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(failureCode);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C07.field-wrong-type.formal.B15-call-common-called-picture.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:45.814Z",
+      "completedAt": "2026-11-02T01:38:47.854Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:{kind:\"asset\",category:\"image\",folder:\"pictures\",name:7} as never,origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "distinguishes necessary saved fields, legal absence and a missing file",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, call(11)) + common(11, command));\n\t\tconst before = await state(root);\n\t\tif (failureCode === undefined) {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t} else {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(failureCode);\n\t\t\t\tif (failureCode !== \"MV-ASSET-MISSING-FILE\") (0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\telse (0,__vite_ssr_import_2__.expect)(failure).toContain(\"-> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(failureCode);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C07.file-missing.formal.B15-call-common-called-picture.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:40:01.480Z",
+      "completedAt": "2026-11-02T01:40:03.106Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "distinguishes necessary saved fields, legal absence and a missing file",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, call(11)) + common(11, command));\n\t\tconst before = await state(root);\n\t\tif (failureCode === undefined) {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t} else {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(failureCode);\n\t\t\t\tif (failureCode !== \"MV-ASSET-MISSING-FILE\") (0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\telse (0,__vite_ssr_import_2__.expect)(failure).toContain(\"-> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(failureCode);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C07.file-missing.formal.B15-call-common-called-picture.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:48.419Z",
+      "completedAt": "2026-11-02T01:38:50.697Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "distinguishes necessary saved fields, legal absence and a missing file",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, call(11)) + common(11, command));\n\t\tconst before = await state(root);\n\t\tif (failureCode === undefined) {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t} else {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(failureCode);\n\t\t\t\tif (failureCode !== \"MV-ASSET-MISSING-FILE\") (0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\telse (0,__vite_ssr_import_2__.expect)(failure).toContain(\"-> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(failureCode);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t}\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C07.target-missing.formal.B15-call-common-called-picture.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:40:03.107Z",
+      "completedAt": "2026-11-02T01:40:04.597Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:12})})]});\n",
+          "project": {
+            "CommonEvents.json": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              {
+                "id": 12,
+                "name": "Snapshot only",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "OldPoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              }
+            ]
+          },
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "a Snapshot-only Common Event cannot satisfy a current call or masquerade as a missing file",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-common-target-missing\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst snapshotCommon = Array.from({ length: 13 }, () => null);\n\t\tsnapshotCommon[12] = {\n\t\t\tid: 12,\n\t\t\tname: \"Snapshot only\",\n\t\t\ttrigger: 0,\n\t\t\tswitchId: 1,\n\t\t\tlist: [{\n\t\t\t\tcode: 231,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [\n\t\t\t\t\t1,\n\t\t\t\t\t\"OldPoster\",\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t100,\n\t\t\t\t\t100,\n\t\t\t\t\t255,\n\t\t\t\t\t0\n\t\t\t\t]\n\t\t\t}, {\n\t\t\t\tcode: 0,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: []\n\t\t\t}]\n\t\t};\n\t\tawait prepare(root, common(10, call(12)), { \"CommonEvents.json\": snapshotCommon });\n\t\tconst before = await state(root);\n\t\tfor (const check of [true, false]) {\n\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck\n\t\t\t}).then(() => \"\", String);\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-E117-REFERENCE\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t};\n\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"MV-E117-REFERENCE\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.C07.target-missing.formal.B15-call-common-called-picture.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:50.698Z",
+      "completedAt": "2026-11-02T01:38:52.917Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:12})})]});\n",
+          "project": {
+            "CommonEvents.json": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              {
+                "id": 12,
+                "name": "Snapshot only",
+                "trigger": 0,
+                "switchId": 1,
+                "list": [
+                  {
+                    "code": 231,
+                    "indent": 0,
+                    "parameters": [
+                      1,
+                      "OldPoster",
+                      0,
+                      0,
+                      0,
+                      0,
+                      100,
+                      100,
+                      255,
+                      0
+                    ]
+                  },
+                  {
+                    "code": 0,
+                    "indent": 0,
+                    "parameters": []
+                  }
+                ]
+              }
+            ]
+          },
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "a Snapshot-only Common Event cannot satisfy a current call or masquerade as a missing file",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-common-target-missing\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst snapshotCommon = Array.from({ length: 13 }, () => null);\n\t\tsnapshotCommon[12] = {\n\t\t\tid: 12,\n\t\t\tname: \"Snapshot only\",\n\t\t\ttrigger: 0,\n\t\t\tswitchId: 1,\n\t\t\tlist: [{\n\t\t\t\tcode: 231,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [\n\t\t\t\t\t1,\n\t\t\t\t\t\"OldPoster\",\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t0,\n\t\t\t\t\t100,\n\t\t\t\t\t100,\n\t\t\t\t\t255,\n\t\t\t\t\t0\n\t\t\t\t]\n\t\t\t}, {\n\t\t\t\tcode: 0,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: []\n\t\t\t}]\n\t\t};\n\t\tawait prepare(root, common(10, call(12)), { \"CommonEvents.json\": snapshotCommon });\n\t\tconst before = await state(root);\n\t\tfor (const check of [true, false]) {\n\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck\n\t\t\t}).then(() => \"\", String);\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-E117-REFERENCE\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t};\n\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"MV-E117-REFERENCE\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.D09.common-definition.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:40:08.320Z",
+      "completedAt": "2026-11-02T01:40:09.368Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "CLI exposes defining asset fields and finite direct callers without fabricated source coordinates",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-call-location-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, branch === \"shared-callers\" ? `${call(11)},${call(11)}` : call(11)) + common(11, picture));\n\t\tconst before = await state(root);\n\t\tconst result = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(result.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"compile asset check failed\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"image/pictures \\\"CalledPoster\\\"; 1 use(s)\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"Project Root:\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"required extension: .png\");\n\t\tif (branch === \"shared-callers\") (0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toMatch(/calls\\.events\\.ts:\\d+:\\d+/u);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toContain(\"MV-ASSET-DYNAMIC-STOP\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.D09.common-definition.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:57.763Z",
+      "completedAt": "2026-11-02T01:38:59.114Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "CLI exposes defining asset fields and finite direct callers without fabricated source coordinates",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-call-location-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, branch === \"shared-callers\" ? `${call(11)},${call(11)}` : call(11)) + common(11, picture));\n\t\tconst before = await state(root);\n\t\tconst result = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(result.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"compile asset check failed\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"image/pictures \\\"CalledPoster\\\"; 1 use(s)\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"Project Root:\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"required extension: .png\");\n\t\tif (branch === \"shared-callers\") (0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toMatch(/calls\\.events\\.ts:\\d+:\\d+/u);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toContain(\"MV-ASSET-DYNAMIC-STOP\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.D09.shared-callers.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:40:09.369Z",
+      "completedAt": "2026-11-02T01:40:10.416Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "CLI exposes defining asset fields and finite direct callers without fabricated source coordinates",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-call-location-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, branch === \"shared-callers\" ? `${call(11)},${call(11)}` : call(11)) + common(11, picture));\n\t\tconst before = await state(root);\n\t\tconst result = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(result.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"compile asset check failed\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"image/pictures \\\"CalledPoster\\\"; 1 use(s)\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"Project Root:\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"required extension: .png\");\n\t\tif (branch === \"shared-callers\") (0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toMatch(/calls\\.events\\.ts:\\d+:\\d+/u);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toContain(\"MV-ASSET-DYNAMIC-STOP\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.D09.shared-callers.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:38:59.115Z",
+      "completedAt": "2026-11-02T01:39:00.443Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "CLI exposes defining asset fields and finite direct callers without fabricated source coordinates",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-call-location-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, branch === \"shared-callers\" ? `${call(11)},${call(11)}` : call(11)) + common(11, picture));\n\t\tconst before = await state(root);\n\t\tconst result = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(result.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"compile asset check failed\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"image/pictures \\\"CalledPoster\\\"; 1 use(s)\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"Project Root:\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"required extension: .png\");\n\t\tif (branch === \"shared-callers\") (0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toMatch(/calls\\.events\\.ts:\\d+:\\d+/u);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toContain(\"MV-ASSET-DYNAMIC-STOP\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.D09.unknown-source.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:40:10.418Z",
+      "completedAt": "2026-11-02T01:40:11.465Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "built",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "CLI exposes defining asset fields and finite direct callers without fabricated source coordinates",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-call-location-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, branch === \"shared-callers\" ? `${call(11)},${call(11)}` : call(11)) + common(11, picture));\n\t\tconst before = await state(root);\n\t\tconst result = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(result.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"compile asset check failed\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"image/pictures \\\"CalledPoster\\\"; 1 use(s)\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"Project Root:\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"required extension: .png\");\n\t\tif (branch === \"shared-callers\") (0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toMatch(/calls\\.events\\.ts:\\d+:\\d+/u);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toContain(\"MV-ASSET-DYNAMIC-STOP\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    },
+    {
+      "id": "AV.D09.unknown-source.formal.case.expected",
+      "ownerTicket": "10",
+      "status": "passed",
+      "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "startedAt": "2026-11-02T01:39:00.444Z",
+      "completedAt": "2026-11-02T01:39:01.747Z",
+      "environment": {
+        "platform": "win32",
+        "node": "v22.23.4",
+        "architecture": "x64",
+        "osRelease": "10.0.19045"
+      },
+      "entry": "source",
+      "input": [
+        {
+          "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+          "project": {},
+          "target": "Game/img/pictures/CalledPoster.png"
+        }
+      ],
+      "expected": {
+        "description": "CLI exposes defining asset fields and finite direct callers without fabricated source coordinates",
+        "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+        "sha256": "23fd7950726e66b66fd8d8011404b2f6a165173eaf870e98af08075c25dbdb57",
+        "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-call-location-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, branch === \"shared-callers\" ? `${call(11)},${call(11)}` : call(11)) + common(11, picture));\n\t\tconst before = await state(root);\n\t\tconst result = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(result.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"compile asset check failed\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"image/pictures \\\"CalledPoster\\\"; 1 use(s)\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:11 CommonEvents.json[11].list[0].parameters[1]\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"Project Root:\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"required extension: .png\");\n\t\tif (branch === \"shared-callers\") (0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toMatch(/calls\\.events\\.ts:\\d+:\\d+/u);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toContain(\"MV-ASSET-DYNAMIC-STOP\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+      },
+      "actual": "All independent assertions passed.",
+      "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+    }
+  ]
+}

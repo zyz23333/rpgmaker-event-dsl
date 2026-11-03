@@ -427,7 +427,9 @@ it.each(["push-after-install", "push-generated-capture", "push-snapshot-candidat
         child.send("release");
         const result = await child.waitFor("result");
         expect(result.ok).toBe(false);
-        expect(result.message).toMatch(/generated data (integrity|changed)/iu);
+        if (boundary === "push-after-install")
+          expect(result.message).toContain("Generated Project Data integrity check failed");
+        else expect(result.message).toMatch(/generated data (integrity|changed)/iu);
         await child.ended;
         const expected =
           boundary === "push-after-install"

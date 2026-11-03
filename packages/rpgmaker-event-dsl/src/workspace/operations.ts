@@ -67,6 +67,8 @@ import {
   publishDecompileCandidate,
 } from "./decompile-publication.js";
 import { assertCandidateDiscoverable } from "./source-discovery.js";
+import { checkEventAssets } from "./asset-check.js";
+import { createAssetProvenance } from "./asset-provenance.js";
 
 export async function cloneWorkspace(options: WorkspaceCommandOptions): Promise<void> {
   await withWorkspaceOperationLock(options.workspaceRoot, "clone", () =>
@@ -220,95 +222,79 @@ export async function compileWorkspace(options: CompileWorkspaceOptions): Promis
 }
 
 async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promise<void> {
-  const workspace = await loadWorkspace(options.workspaceRoot);
-  const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
-  const commandName = options.check ? "compile --check" : "compile";
+  let assetCheckStarted = false;
+  try {
+    const workspace = await loadWorkspace(options.workspaceRoot);
+    const statePaths = getWorkspaceStatePaths(workspace.workspaceRoot);
+    const commandName = options.check ? "compile --check" : "compile";
 
-  await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName });
-  const manifest = await assertProjectDataSnapshotExists(
-    statePaths,
-    commandName,
-    workspace.projectRootBinding,
-  );
-  const definitionInput = await loadDiscoveredDefinitionInput(workspace.workspaceRoot, {
-    sourceRoot: workspace.config.sourceRoot,
-    sourceInclude: workspace.config.sourceInclude,
-    sourceExclude: workspace.config.sourceExclude,
-  });
-
-  const snapshot = await captureCompileSnapshot(statePaths, manifest.snapshotFiles);
-  const snapshotInput = await loadSnapshotValidationInput(snapshot.statePaths);
-  const graph = buildStagedDataGraph({
-    declarations: definitionInput.declarations,
-    snapshotReferences: snapshotInput.references,
-    snapshotMaps: snapshotInput.maps,
-    snapshotTroops: snapshotInput.troops,
-    snapshotTilesets: snapshotInput.tilesets,
-    ...("equipmentTypes" in snapshotInput
-      ? { snapshotEquipmentTypes: snapshotInput.equipmentTypes }
-      : {}),
-  });
-  const validation = validateStagedDataGraph(graph, {
-    scriptEnabled: workspace.config.scriptEnabled,
-  });
-
-  const errors = validation.issues.filter((issue) => issue.level === "error");
-  for (const issue of validation.issues.filter((issue) => issue.level === "warning"))
-    console.error(issue.message);
-  if (errors.length > 0) {
-    throw new Error(
-      [`${commandName} validation failed:`, ...errors.map((issue) => `- ${issue.message}`)].join(
-        "\n",
-      ),
-    );
-  }
-
-  const candidate = await buildCompileOutput({
-    declarations: definitionInput.declarations,
-    resolver: graph.resolver,
-    statePaths: snapshot.statePaths,
-    scriptEnabled: workspace.config.scriptEnabled,
-  });
-  if (options.check) {
-    await assertCompileInputsUnchanged(
-      workspace,
-      definitionInput.files,
-      definitionInput.capture,
-      snapshot.hashes,
+    await assertNoPendingInterruptedPushForNonPush({ statePaths, commandName });
+    const manifest = await assertProjectDataSnapshotExists(
+      statePaths,
       commandName,
+      workspace.projectRootBinding,
     );
-    return;
-  }
+    const definitionInput = await loadDiscoveredDefinitionInput(workspace.workspaceRoot, {
+      sourceRoot: workspace.config.sourceRoot,
+      sourceInclude: workspace.config.sourceInclude,
+      sourceExclude: workspace.config.sourceExclude,
+    });
 
-  const snapshotFiles = snapshot.hashes;
-  const output = await publishCompileOutput(snapshot.statePaths, candidate, () =>
-    assertCompileInputsUnchanged(
-      workspace,
-      definitionInput.files,
-      definitionInput.capture,
-      snapshot.hashes,
+    const snapshot = await captureCompileSnapshot(statePaths, manifest.snapshotFiles);
+    const snapshotInput = await loadSnapshotValidationInput(snapshot.statePaths);
+    const graph = buildStagedDataGraph({
+      declarations: definitionInput.declarations,
+      snapshotReferences: snapshotInput.references,
+      snapshotMaps: snapshotInput.maps,
+      snapshotTroops: snapshotInput.troops,
+      snapshotTilesets: snapshotInput.tilesets,
+      ...("equipmentTypes" in snapshotInput
+        ? { snapshotEquipmentTypes: snapshotInput.equipmentTypes }
+        : {}),
+    });
+    const validation = validateStagedDataGraph(graph, {
+      scriptEnabled: workspace.config.scriptEnabled,
+    });
+
+    const errors = validation.issues.filter((issue) => issue.level === "error");
+    for (const issue of validation.issues.filter((issue) => issue.level === "warning"))
+      console.error(issue.message);
+    if (errors.length > 0) {
+      throw new Error(
+        [`${commandName} validation failed:`, ...errors.map((issue) => `- ${issue.message}`)].join(
+          "\n",
+        ),
+      );
+    }
+
+    const candidate = await buildCompileOutput({
+      declarations: definitionInput.declarations,
+      resolver: graph.resolver,
+      statePaths: snapshot.statePaths,
+      scriptEnabled: workspace.config.scriptEnabled,
+    });
+    assetCheckStarted = true;
+    await checkEventAssets({
+      projectRoot: workspace.projectRoot,
+      files: candidate.files,
+      externalData: snapshot.statePaths.snapshotContents!,
       commandName,
-    ),
-  );
-  const compileBaseline = await buildCompileBaseline({
-    projectRootBinding: workspace.projectRootBinding,
-    config: workspace.config,
-    snapshotFiles,
-    sourceFiles: definitionInput.files,
-    sourceFileHashes: definitionInput.sourceFileHashes,
-    typeInputs: definitionInput.capture.inputs(),
-    workspaceRoot: workspace.workspaceRoot,
-  });
+      exceptions: workspace.config.assetCheckExceptions,
+      locations: createAssetProvenance(definitionInput.declarations, graph.resolver),
+    });
+    if (options.check) {
+      await assertCompileInputsUnchanged(
+        workspace,
+        definitionInput.files,
+        definitionInput.capture,
+        snapshot.hashes,
+        commandName,
+      );
+      return;
+    }
 
-  await writeSyncManifest(
-    statePaths.syncManifestPath,
-    {
-      ...manifest,
-      compileBaseline,
-      generatedFiles: output.generatedFiles,
-      snapshotFiles,
-    },
-    () =>
+    const snapshotFiles = snapshot.hashes;
+    const output = await publishCompileOutput(snapshot.statePaths, candidate, () =>
       assertCompileInputsUnchanged(
         workspace,
         definitionInput.files,
@@ -316,7 +302,42 @@ async function compileWorkspaceUnlocked(options: CompileWorkspaceOptions): Promi
         snapshot.hashes,
         commandName,
       ),
-  );
+    );
+    const compileBaseline = await buildCompileBaseline({
+      projectRootBinding: workspace.projectRootBinding,
+      config: workspace.config,
+      snapshotFiles,
+      sourceFiles: definitionInput.files,
+      sourceFileHashes: definitionInput.sourceFileHashes,
+      typeInputs: definitionInput.capture.inputs(),
+      workspaceRoot: workspace.workspaceRoot,
+    });
+
+    await writeSyncManifest(
+      statePaths.syncManifestPath,
+      {
+        ...manifest,
+        compileBaseline,
+        generatedFiles: output.generatedFiles,
+        snapshotFiles,
+      },
+      () =>
+        assertCompileInputsUnchanged(
+          workspace,
+          definitionInput.files,
+          definitionInput.capture,
+          snapshot.hashes,
+          commandName,
+        ),
+    );
+  } catch (error) {
+    if (!assetCheckStarted)
+      throw new Error(
+        `${error instanceof Error ? error.message : String(error)}\ncompile asset check not run: earlier compile input or validation failure left no trusted complete candidate.`,
+        { cause: error },
+      );
+    throw error;
+  }
 }
 
 export async function isGeneratedProjectDataFresh(

@@ -1,0 +1,62 @@
+{
+  "id": "AV.C01.map-pages.formal.case.expected",
+  "ownerTicket": "02",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:49:46.847Z",
+  "completedAt": "2026-11-02T11:49:48.631Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import { mapEvent,commonEvent,troopEvent,showPicture,imageAsset,rawDslCommand,loop,showChoices,conditional,script,pluginCommand } from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Two pages\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]},{conditions:{},trigger:\"action\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Asset map"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Asset tiles"
+          }
+        ]
+      },
+      "target": {
+        "category": "image",
+        "folder": "pictures",
+        "name": "Poster",
+        "extension": ".png"
+      },
+      "gates": "one complete native candidate validation followed by one live asset pass; no publication on errors"
+    },
+    {
+      "fileOperation": "create ordinary zero-byte Game/img/pictures/Poster.png",
+      "timing": "before the operation's asset gate"
+    }
+  ],
+  "expected": {
+    "description": "every saved occurrence remains an independent root-local use",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-picture-workspace.test.ts",
+    "sha256": "1c1a708c2ab685eb467f4ebd3eafd39d509a9682bd41a40cb1448fa217fb46e5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-root-${branch}`, async ({ workspaceRoot: root }) => {\n\t\tawait prepare(root, {\n\t\t\tsource,\n\t\t\tproject\n\t\t});\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures\"), { recursive: true });\n\t\tconst failure = await compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t}).then(() => \"\", String);\n\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(`${positions.length} use(s)`);\n\t\tfor (const position of positions) (0,__vite_ssr_import_2__.expect)(failure).toContain(position);\n\t\tawait materialize(root);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst identity = branch === \"map-pages\" ? \"map:1/event:1\" : branch === \"troop-pages\" ? \"troop:1\" : \"commonEvent:10\";\n\t\t(0,__vite_ssr_import_2__.expect)(await publishedUses(root)).toEqual(positions.map((nativePath) => ({\n\t\t\tcategory: \"image\",\n\t\t\tfolder: \"pictures\",\n\t\t\tname: \"Poster\",\n\t\t\tidentity,\n\t\t\tnativePath,\n\t\t\trelatedNativePaths: [],\n\t\t\tdependencyChain: [],\n\t\t\tconditions: []\n\t\t})));\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

@@ -1,0 +1,134 @@
+{
+  "id": "AV.B09.tile-c.page.selected-slot.present",
+  "ownerTicket": "07",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:36:25.561Z",
+  "completedAt": "2026-11-02T11:36:27.809Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {mapEvent,transferPlayer,mapRef,rawDslCommand,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";export const event=mapEvent({mapId:1,id:1,name:\"Map assets\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[],image:{tileId:256,pattern:1}}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Host"
+          },
+          {
+            "id": 2,
+            "name": "Transfer"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Map002.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 2,
+          "parallaxName": "TransferSky",
+          "autoplayBgm": true,
+          "autoplayBgs": true,
+          "bgm": {
+            "name": "TransferBgm",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "bgs": {
+            "name": "TransferBgs",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "battleback1Name": "ExcludedBack1",
+          "battleback2Name": "ExcludedBack2",
+          "events": [],
+          "custom": {
+            "untouched": true
+          }
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Map tiles",
+            "tilesetNames": [
+              "Transfer0",
+              "Transfer1",
+              "Transfer2",
+              "Transfer3",
+              "Transfer4",
+              "Transfer5",
+              "Transfer6",
+              "Transfer7",
+              "Transfer8"
+            ],
+            "custom": {
+              "untouched": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Map tiles",
+            "tilesetNames": [
+              "Transfer0",
+              "Transfer1",
+              "Transfer2",
+              "Transfer3",
+              "Transfer4",
+              "Transfer5",
+              "Transfer6",
+              "Transfer7",
+              "Transfer8"
+            ],
+            "custom": {
+              "untouched": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-page-tile-c-present-NsDkhV\\最小 Workspace with spaces\\Game\\img\\tilesets\\Transfer6.png"
+    },
+    {
+      "cliResult": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-page-tile-c-present-NsDkhV\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T11:36:26.051Z",
+        "completedAt": "2026-11-02T11:36:27.292Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": ""
+      }
+    }
+  ],
+  "expected": {
+    "description": "page tile selects only one initial host sheet and a missing candidate warns without changing saved values",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-map-workspace.test.ts",
+    "sha256": "57756a93e3b4949db852ed777c4805229f65e1e5194ac060f1de25a762444ccd",
+    "assertions": "async () => {\n\t\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-page-${field.branch}-${outcome}`, async (sandbox) => {\n\t\t\tconst root = sandbox.workspaceRoot;\n\t\t\tawait prepare(root, source(\"\", `,image:{tileId:${field.tileId},pattern:1}`));\n\t\t\tif (outcome === \"present\") await media(root, fields[field.slot]);\n\t\t\telse await (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/img/tilesets\"), { recursive: true });\n\t\t\tconst before = await state(root);\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ cliResult: cli });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(0);\n\t\t\tif (outcome === \"missing\") {\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"warning MV-ASSET-MISSING-FILE\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(`Tilesets.json[1].tilesetNames[${field.slot}]`);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"candidate:\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"initial Tileset\");\n\t\t\t} else (0,__vite_ssr_import_2__.expect)(cli.stderr).not.toContain(\"MV-ASSET-\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst actual = await observed(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)(actual.relations).toEqual({\n\t\t\t\tuses: pageExpected(field),\n\t\t\t\tproblems: [],\n\t\t\t\tstops: []\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(actual.files)).toEqual([]);\n\t\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(actual.files.get(\"Map001.json\")).events[1].pages[0].image).toEqual({\n\t\t\t\tcharacterName: \"\",\n\t\t\t\tcharacterIndex: 0,\n\t\t\t\ttileId: field.tileId,\n\t\t\t\tdirection: 2,\n\t\t\t\tpattern: 1\n\t\t\t});\n\t\t});\n\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

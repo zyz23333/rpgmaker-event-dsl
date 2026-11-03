@@ -71,7 +71,18 @@ round trip. Use `null` for None; a named Audio Asset Reference requires a nonemp
 exact filename stem and the matching folder. BGM playback, battle BGM and vehicle
 BGM use `bgm`; BGS uses `bgs`; ME playback, victory ME and defeat ME use `me`; SE
 uses `se`. Vehicle BGM requires boat, ship or airship. Values are explicit and do
-not inherit current project audio settings or require an asset file scan.
+not inherit current project audio settings.
+
+Compile and `compile --check` require each current named audio file at its exact
+`audio/<folder>/<saved name>.ogg` path under Project Root. M4A and encrypted editing
+suffixes cannot substitute for OGG. Literal `%` and `#` remain part of audio names.
+Formal and recognized raw commands use the same rules; a route 44 and its 505
+mirror are one logical use with both native positions. Saved SE in a fixed, random
+or approach Autonomous Movement route remains checked with its inactive warning
+policy. Only used audio makes `System.json.hasEncryptedAudio` relevant; true means
+ordinary editing files cannot be checked, and a present non-Boolean value is invalid.
+None omits the file lookup while retaining its independent controls. Checks observe
+file metadata without decoding audio or modifying the media tree.
 
 BGM/BGS None stops its stream in MV. ME None first stops ME and may restore BGM.
 SE None leaves existing SE playing; use `stopSe()` to stop them. None retains the
@@ -157,8 +168,9 @@ None and big-character names (`$`, `!$`, `$!`) preserve nonzero indexes, directi
 and pattern. Selecting an image never changes priority. A nonzero tile uses the
 actual Snapshot Map's `tilesetId` and corresponding Tilesets entry, with B/C/D/E
 bands 1..255 / 256..511 / 512..767 / 768..1023. A missing required context errors;
-an empty selected group warns and preserves the tile. Assets are filename stems,
-with no image-file or dimension scan.
+an empty selected group warns and preserves the tile. Assets are filename stems.
+Compile and Check inspect exact ordinary-file existence for the selected initial
+sheet as a conditional candidate; image dimensions remain unchecked.
 
 Every saved route is validated, including fixed/random/approach pages, and route
 scripts require the Script Command Gate even when empty or inactive. Decompile
@@ -193,8 +205,10 @@ Show Text has 1–4 lines, Comment 1–6, and Scrolling Text at least one. Autho
 multiple Show Text calls for longer dialogue. Background is window/dim/transparent;
 position is top/middle/bottom. Face image is a `faces` Asset Reference or None
 (`null`), with an independent required index 0–2,147,483,647 excluding negative zero.
-Non-None indices at least 8 warn about the official two-row layout; image files and
-dimensions are unchecked. None preserves its saved index without that warning.
+Non-None indices at least 8 warn about the official two-row layout. Selected face
+files are checked for exact ordinary-file existence under the shared asset rules
+below; image dimensions, layout and decoding remain unchecked. None preserves its
+saved index without that warning.
 Digits and scrolling speed are integers 1–8; `noFastForward` is an explicit Boolean.
 Select Item types are regular/key/hiddenA/hiddenB, and its variable is the result
 destination, resolved using final System capacity. Valid message records are
@@ -911,8 +925,12 @@ context remains unknown until it is called.
 
 Movie requires a movies Asset Reference or explicit `null`. None emits the
 empty native filename and continues without a video wait. `movieAsset` takes
-only a nonempty filename stem, such as `"Ending"`; asset files are not scanned,
-and a valid reference does not guarantee a playable file or codec.
+only a nonempty filename stem, such as `"Ending"`. Compile and `compile --check`
+require the exact `movies/<saved name>.webm` ordinary file under Project Root;
+MP4 cannot substitute. Movie names containing `%` or `#` are unsupported and
+remain unchecked with an error for ordinary uses. Image and audio encryption
+flags do not apply to movies. Existence checking does not guarantee a playable
+file or codec.
 
 ## Picture commands
 
@@ -939,7 +957,7 @@ tintPicture({
 
 Picture IDs 1..100 select runtime slots, including unshown slots. Show's `image`
 is a `pictures` Asset Reference or explicit `null`; None retains a complete Picture.
-`erasePicture({ pictureId })` erases it. Asset files and dimensions are not scanned.
+`erasePicture({ pictureId })` erases it. Image dimensions are not scanned.
 Show and Move require top-level `origin` (`upperLeft` or `center`), `position`,
 `scaleX`, `scaleY`, `opacity` and named `blendMode` (`normal`, `additive`, `multiply`,
 `screen`). Direct coordinates are integers −9999..9999; variables mode uses two
@@ -948,6 +966,176 @@ flips; opacity is integer 0..255. Numeric saved zero retains its sign.
 Move has no image field and requires duration 1..999 and explicit Boolean `wait`.
 Rotate speed is integer −90..90, including zero to stop. Tint requires named RGB
 integers −255..255, gray 0..255, duration 1..999 and explicit Boolean `wait`.
+
+Compile and `compile --check` check current event image files before publishing or
+returning. This includes page character images, Show Text faces, Show Picture,
+both Change Battleback layers, Change Parallax, Change Actor Images, Change Vehicle
+Image and Change Image in both movement route containers. Each supported saved name is used
+exactly as written, with `.png` appended in its native `img` folder in the bound
+Project Root. Image names containing `%` or `#`, including text such as `%20`, are
+unsupported and are rejected before file lookup; names are never URL-decoded or
+repaired. Ordinary uses error, while conditional candidates or explicitly inactive
+saved settings warn with unchecked coverage. Asset Check Exceptions cannot waive
+unsupported names. Audio retains literal `%` and `#` support; movies exclude both.
+The helpers still preserve these saved values. An existing suffix is retained,
+and every directory, filename and extension must have the exact case.
+Formal commands and recognized raw records use
+the same rules in every current Map Event, Common Event and Troop Event, including
+nested branches and uncalled Common Events. A 205 route and its 505 mirror are one
+logical use, with both native positions retained; independent commands remain
+independent uses.
+
+Show Animation and Show Battle Animation follow the selected Snapshot Animation's
+two image names in `img/animations` and every timing SE name in `audio/se`.
+Change Tileset follows every named `tilesetNames` slot in `img/tilesets`, including
+slots unused by the current map. Repeated names keep each slot's own origin.
+Diagnostics show the defining event, selected database entry and complete field
+chain. Image preloading and timing SE execution have separate conditions; these
+saved dependencies do not guarantee that an animation frame will execute.
+
+Force Action follows its fixed Snapshot Skill. A positive `animationId` selects
+that Animation's image sheets and timing SE; zero closes only the animation path.
+Actor default attacks retain Animation 1 as a conditional candidate for having no
+current weapon, alongside an explicit unchecked stop for runtime weapon choices.
+Initial Actor equipment does not stand in for current weapons. Enemy default
+attacks select `System.sounds[9].name` in `audio/se`, without inventing an Animation.
+Missing unarmed candidate files warn; malformed necessary Skill, Animation or
+sound fields remain errors.
+
+Fixed Transfer Player destinations follow their captured `MapNNN.json` to all
+named Tileset sheets, its `parallaxName` in `img/parallaxes`, and saved BGM/BGS in
+`audio/bgm` and `audio/bgs`. Diagnostics retain possible runtime configuration
+overrides and each audio's autoplay condition. Saved audio remains checked when
+autoplay is false; confirmed file problems warn with the inactive reason.
+Variable destinations report `MV-ASSET-DYNAMIC-STOP` with their native origin and
+unchecked reason. Transfer does not discover target-map events or battlebacks.
+
+A Map Event Page tile selects one B–E sheet from its host Map's initial captured
+Tileset. The check retains this conditional candidate because a runtime Tileset
+change may override it. Confirmed file problems warn. Map rendering can request
+the whole Tileset separately; those additional sheets do not become dependencies
+of the page tile. Its saved character image remains an independently checked
+inactive setting.
+
+Game Over follows `System.gameoverMe.name`; Return to Title follows both saved
+title images and `titleBgm.name`. Battle Processing checks the saved System battle
+BGM, victory ME and defeat ME as defaults that runtime settings may replace, plus
+`sounds[7].name` with its map-launch condition. A Map Event's battle command also
+checks its host Map's two saved battle backgrounds as conditional candidates.
+Disabled `specifyBattleback` retains those names and their inactive reason. Common
+and Troop Events do not infer a caller Map. Dynamic Troop selectors report their
+unchecked enemy relationship while known System and host Map relationships
+continue. Hardcoded GameOver/title UI, terrain-derived backgrounds and System
+Battle Test backgrounds are outside this selected relationship coverage.
+
+Fixed Battle Processing follows every Troop member's Enemy battler image,
+including hidden and repeated members. Enemy Transform follows the saved new
+Enemy even when its runtime target may be absent. `System.optSideView` selects
+exactly `img/enemies` or `img/sv_enemies`; a non-boolean required mode is an input
+error. A Troop Event's identity alone does not select its host members' images,
+and Enemy AI skills are outside these relationships.
+
+Adding an Actor retains its saved initial character and side-view battler names
+as conditional candidates. Current runtime image settings may replace them;
+player/follower participation, side-view battle and effective battle membership
+remain explicit conditions. Missing candidate files warn, while damaged required
+names still block. This relationship excludes face images, initial equipment,
+party removal/reordering and HP side effects.
+
+Only selected necessary fields are interpreted. Empty native names mean None;
+missing or invalid necessary names produce `MV-ASSET-INVALID-DATA` while safe
+independent fields continue checking. External data comes from the same captured
+Snapshot as compilation. Newer live database fields and unrelated entries do not
+replace that view or become asset roots, and external fields stay read-only.
+
+Each Common Event's assets belong to its own definition. Asset failures also list
+the direct Common Event call sites with their defining events, native positions
+and target IDs. Repeated, cyclic and shared calls retain each saved call site;
+they do not multiply the called definition's asset-use count or produce a separate
+cycle warning. Removed Snapshot events are excluded from the current call graph.
+Every saved Common Event effect of a selected Skill retains its own direct call
+site and Skill/effect field chain, including repeated effects targeting the same
+event. Its target must be a current Common Event definition. Animation errors or
+runtime weapon stops leave safe effect relationships in scope; Common Event
+assets continue to belong only to their defining event.
+
+The check observes ordinary-file metadata only: empty files pass, and no image
+decoding or layout guarantee is made. None needs no file. Missing directories or
+files, wrong types, unsupported Windows names, links below the resolved Project
+Root and image encryption block these ordinary uses with an `MV-ASSET-` diagnostic
+and every defining native position. It preserves saved names; Decompilation can
+still expose an unsupported name so it can be repaired. Check leaves generated
+data, the Snapshot and synchronization metadata unchanged. Asset observations are
+transient and do not enter Compile Baseline.
+
+Compile and Check make one asset-check pass after validating the complete candidate.
+Check preserves initial, fresh and stale output authority on success, warnings and
+failure. Compile checks before publishing generated data; it retains its existing
+source, type-dependency, configuration, Snapshot and binding consistency checks at
+publication and Manifest commit. Deleting media after the asset pass does not add
+another scan or prevent otherwise valid publication. Each new command queries
+current files, so a later Check can fail even while generated data remains fresh.
+Media content, size, timestamps, identity and unrelated entries do not become
+compilation inputs. Clone, Pull, Decompilation and Diff add no asset-file gate.
+
+Saved Autonomous Movement images remain checked when the movement type is fixed,
+random or approach. A tile page's saved character name also remains checked.
+Confirmed file problems in these explicitly inactive settings warn; unsupported
+names, links and encryption warn with unchecked coverage. Invalid necessary data
+and failed metadata queries remain errors. A shared filename keeps every origin
+and its own level, and its strongest level determines whether the command fails.
+Page conditions and branch reachability do not reduce ordinary image errors.
+None omits the file lookup while retaining independent image indices, and script
+strings do not create guessed image references or bypass the Script Command Gate.
+
+File matching preserves Chinese text, spaces, dots and `$`/`!` prefixes. A stem
+ending in a space or dot keeps it before the appended extension.
+Reserved Windows device names also cover ASCII spaces before the first dot,
+including `NUL .png`. Saved names keep their original spelling. Unicode
+normalization, alternative formats and a `www` resource tree do not substitute
+for the exact target. Existing Project Root aliases keep their binding semantics;
+symlinks and junctions below that root are refused, while ordinary hard links pass.
+If enumeration or metadata cannot complete, or their observed entry types disagree
+within the same query, the diagnostic is `MV-ASSET-QUERY-FAILED`. Such an inconclusive
+query is distinct from an observed missing file, and safe independent checks continue.
+
+An optional Workspace Config `assetCheckExceptions` array can retain a temporary
+authoring gap with a reason. New workspaces write `[]`; omitting the field has the
+same live policy. Every entry contains exactly `category`, `folder`, `name` and
+`reason`, for example:
+
+```json
+{
+  "category": "image",
+  "folder": "pictures",
+  "name": "Chapter 2 Poster",
+  "reason": "Final artwork is being commissioned."
+}
+```
+
+Category and folder must be a supported asset namespace. Name matching preserves
+case, spaces, suffixes and literal encoding; the reason must contain non-whitespace
+text. Duplicate exact keys and extra fields fail configuration validation. Only
+confirmed missing paths, name mismatches and wrong types can downgrade an ordinary
+error to warning. Unsupported names, links, encrypted modes, required fields,
+query failures, fixed references, structure checks and the Script Command Gate keep
+their own policy. Images and movies containing `%` or `#` remain unsupported even
+if an exception accurately names them. Audio retains its literal-name support.
+
+Compile and Check display each finding's stable code, every native origin, event-local
+dependency chain, conditions, base/effective levels and the reason for an actual
+exception downgrade. Reliable captured authored locations add a DSL path and
+one-based source line/column; otherwise native positions remain available. Direct
+Common Event calls stay separate and do not multiply uses. Reports count problem
+groups, distinct legal problem files and affected uses independently. A complete
+check warns at an exception that downgraded no error; incomplete coverage does not
+pretend that an exception's effect was determined. Early validation failures say
+that asset checking did not run. Any effective error fails the command; warning
+and informational reports can succeed with an explicit unchecked-coverage result.
+
+The exact exception policy is part of Compile Baseline. After changing it, run a
+successful Compile before Push; Check cannot refresh previously generated output.
+Live file observations and source-coordinate correspondence remain transient.
 
 ## Enemies and battle control
 
@@ -1040,6 +1228,21 @@ battle warns that execution may stall.
 
 ## Push safety
 
+Push rebuilds asset uses from verified Generated Project Data and its complete
+captured Snapshot, including direct Common Event calls and selected Skill effects.
+It does not reevaluate Definition Source or rely on an earlier asset report. One
+current-file check runs after staging and before pending state or the first
+replacement. A data-identical Push also checks current assets. An asset error at
+this gate leaves no new pending state or replacement; repairing media permits a
+retry while the existing Compile Baseline remains current. Source, validation
+dependencies, configuration, exceptions, Snapshot, generated bytes and target
+binding must still match before the first replacement, no-write completion, and
+normal bookkeeping after all replacements. A postwrite input conflict keeps the
+installed data and original pending evidence without refreshing synchronization
+metadata. No further asset-file check runs after replacements: media changes alone
+permit normal bookkeeping, and the next Push checks those current facts even when
+data has no differences. Media never enters the Snapshot or pending backups.
+
 Push checks raw bytes across all 14 standard database files and every map registered
 by the captured Snapshot's MapInfos, including when Diff has no changes. Plugin files
 and unregistered maps stay outside this set. Diff compares parsed values and ignores
@@ -1070,6 +1273,15 @@ is retired as one directory rename; a later cleanup failure may leave retired ev
 without invalidating the recorded synchronization. Recovery preserves the original
 source, dependency, configuration and contract basis, including missing fields.
 Ordinary Freshness and full Project Drift checks then run before any new write.
+
+Missing media does not prevent recording data writes that are already complete.
+Recovery can finish and clear pending even when the following no-diff Push fails
+its current asset check; that failure does not recreate pending. An all-old attempt
+can likewise be abandoned before the ordinary checks decide whether to start a new
+Push. Recovery retains an older configuration's omitted policy fields and its
+original contract, source, dependency and target basis. A changed current policy or
+stale contract can still prohibit new writes after recovery; completing bookkeeping
+does not certify current assets or upgrade old generated output.
 
 ## License
 

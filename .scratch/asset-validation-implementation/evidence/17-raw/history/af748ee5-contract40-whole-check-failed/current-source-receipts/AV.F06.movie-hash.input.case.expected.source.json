@@ -1,0 +1,74 @@
+{
+  "id": "AV.F06.movie-hash.input.case.expected",
+  "ownerTicket": "05",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:24:55.677Z",
+  "completedAt": "2026-11-02T13:24:57.717Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,audioAsset,movieAsset,rawDslCommand,changeBattleBgm,changeVictoryMe,changeDefeatMe,changeVehicleBgm,playBgm,playBgs,playMe,playSe,playMovie,setMovementRoute} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Media\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[playMovie({movie:movieAsset({name:\"Movie#Literal\"})})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Media"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ]
+      }
+    },
+    {
+      "queryGuard": "test process refuses OS traversal of Game/movies",
+      "result": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-name-movie-hash-fOVGQV\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:24:55.759Z",
+        "completedAt": "2026-11-02T13:24:57.696Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile --check asset check failed:\r\nerror MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-name-movie-hash-fOVGQV\\最小 Workspace with spaces\\Game; required extension: .webm\r\n  movie/movies \"Movie#Literal\"; 1 use(s)\r\n  - error map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0]; DSL: pages[0].commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-media-name-movie-hash-fOVGQV/最小 Workspace with spaces/src/media.events.ts (line 2, column 113); base: error; effective: error\r\n1 problem group(s), 0 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n",
+        "ipcMessages": []
+      }
+    }
+  ],
+  "expected": {
+    "description": "unsupported movie names are explicit and never traverse a media target",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+    "sha256": "843bbe0a812fb252cf1a6bfdc3709898389388f42d0a2bafaec2b031b1c1ba65",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-media-name-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot, vector = {\n\t\t\tfamily: \"F06\",\n\t\t\tcode: 261,\n\t\t\tfolder: \"movies\",\n\t\t\tparameter: 0,\n\t\t\thelper: \"playMovie\",\n\t\t\tmovie: true\n\t\t};\n\t\tawait prepare(root, source(expression(vector, name)));\n\t\tconst before = await state(root);\n\t\tconst child = (0,__vite_ssr_import_5__.startWorkspaceOperation)(sandbox, {\n\t\t\toperation: \"check\",\n\t\t\tmode: \"cli\",\n\t\t\tboundary: \"asset-link-guard\",\n\t\t\tassetPath: \"movies\"\n\t\t});\n\t\ttry {\n\t\t\t(0,__vite_ssr_import_2__.expect)((await child.ended).exitCode).toBe(1);\n\t\t\tconst result = sandbox.processes.at(-1);\n\t\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\t\tqueryGuard: \"test process refuses OS traversal of Game/movies\",\n\t\t\t\tresult\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(JSON.stringify(name));\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).not.toContain(\"; target:\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(child.messages.some((message) => message.kind === \"asset-link-follow-attempt\")).toBe(false);\n\t\t} finally {\n\t\t\tawait child.stop();\n\t\t};\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

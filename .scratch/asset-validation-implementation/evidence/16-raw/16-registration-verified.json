@@ -1,0 +1,73 @@
+{
+  "status": "static-registration-only-not-execution",
+  "source": "M:\\Shuen\\Codex\\asset-validation-16-recovery\\packages\\rpgmaker-event-dsl\\test\\asset-recovery-workspace.test.ts",
+  "sourceSha256": "6b9f56c923b3840195fd96cf7c37c2a331029404d11ca39b1ea85e7c835e0eb2",
+  "declarations": [
+    {
+      "name": "AV.W15.all-generated-missing-asset.${mode}.case.expected",
+      "line": 36
+    },
+    {
+      "name": "AV.W18.pending-non-push.api.case.expected",
+      "line": 77
+    },
+    {
+      "name": "AV.W18.concurrent-workspace.api.case.expected",
+      "line": 120
+    },
+    {
+      "name": "AV.W16.changed-current-config.api.case.expected",
+      "line": 217
+    },
+    {
+      "name": "AV.W16.stale-original-basis.api.case.expected",
+      "line": 263
+    },
+    {
+      "name": "AV.W15.unknown.api.case.expected",
+      "line": 307
+    },
+    {
+      "name": "AV.W15.missing.api.case.expected",
+      "line": 342
+    },
+    {
+      "name": "AV.W15.mixed.api.case.expected",
+      "line": 362
+    },
+    {
+      "name": "AV.W15.all-snapshot.api.case.expected",
+      "line": 378
+    },
+    {
+      "name": "AV.W18.pending-rebind.api.case.expected",
+      "line": 435
+    },
+    {
+      "name": "AV.W19.recovery.api.case.expected",
+      "line": 482
+    }
+  ],
+  "ids": [
+    "AV.W15.all-generated-missing-asset.api.case.expected",
+    "AV.W15.all-generated-missing-asset.cli.case.expected",
+    "AV.W15.all-snapshot.api.case.expected",
+    "AV.W15.missing.api.case.expected",
+    "AV.W15.mixed.api.case.expected",
+    "AV.W15.unknown.api.case.expected",
+    "AV.W16.changed-current-config.api.case.expected",
+    "AV.W16.stale-original-basis.api.case.expected",
+    "AV.W18.concurrent-workspace.api.case.expected",
+    "AV.W18.pending-non-push.api.case.expected",
+    "AV.W18.pending-rebind.api.case.expected",
+    "AV.W19.recovery.api.case.expected"
+  ],
+  "originalPlan": {
+    "path": "M:/Shuen/Codex/asset-validation-notes/planned-acceptance-ids-12-16.json",
+    "sha256": "c9c9a5739ccc2e666ae1fdafc77273c311d0fb44b96e5525519fc53672ba113c"
+  },
+  "finalPlan": {
+    "path": "M:/Shuen/Codex/asset-validation-notes/final-canonical-id-plan.json",
+    "sha256": "869c6752eedb1997e0ccbca5e3bce81c74122ce68f4600c970822ce37b9841b6"
+  }
+}

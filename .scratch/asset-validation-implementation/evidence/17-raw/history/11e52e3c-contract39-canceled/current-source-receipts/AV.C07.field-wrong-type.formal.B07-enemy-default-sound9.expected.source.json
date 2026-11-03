@@ -1,0 +1,303 @@
+{
+  "id": "AV.C07.field-wrong-type.formal.B07-enemy-default-sound9.expected",
+  "ownerTicket": "11",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:16:29.491Z",
+  "completedAt": "2026-11-02T10:16:31.636Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-problem-field-wrong-type-B07-enemy-default-sound9-chCMCY\\最小 Workspace with spaces",
+      "source": "export const event1=commonEvent({id:1,name:\"Action 1\",trigger:\"none\",commands:[forceAction({subject:{kind:\"runtimeSelector\",scope:\"battler\",target:\"enemy\",index:0},skill:skillRef({id:2}),target:{kind:\"random\"}})]});",
+      "projectOverrides": {
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor",
+            "equips": [
+              99
+            ],
+            "unknown": {
+              "keep": true
+            }
+          }
+        ],
+        "Animations.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Animation 1",
+            "animation1Name": "UnarmedFirst",
+            "animation2Name": "UnarmedSecond",
+            "animation1Hue": 123,
+            "animation2Hue": 234,
+            "timings": [
+              {
+                "frame": 0,
+                "se": {
+                  "name": "UnarmedSound0",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 17
+              },
+              {
+                "frame": 7,
+                "se": {
+                  "name": "UnarmedSound1",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 23
+              }
+            ],
+            "unknown": {
+              "keep": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Animation 2",
+            "animation1Name": "SkillFirst",
+            "animation2Name": "SkillSecond",
+            "animation1Hue": 123,
+            "animation2Hue": 234,
+            "timings": [
+              {
+                "frame": 0,
+                "se": {
+                  "name": "SkillSound0",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 17
+              },
+              {
+                "frame": 7,
+                "se": {
+                  "name": "SkillSound1",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 23
+              }
+            ],
+            "unknown": {
+              "keep": true
+            }
+          }
+        ],
+        "Skills.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Selected",
+            "animationId": 2,
+            "effects": [],
+            "unknown": {
+              "keep": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Default",
+            "animationId": -1,
+            "effects": [],
+            "unknown": {
+              "keep": true
+            }
+          },
+          {
+            "id": 3,
+            "name": "No animation",
+            "animationId": 0,
+            "effects": [],
+            "unknown": {
+              "keep": true
+            }
+          }
+        ],
+        "System.json": {
+          "switches": [
+            ""
+          ],
+          "variables": [
+            ""
+          ],
+          "sounds": [
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": 17,
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            }
+          ],
+          "unknown": {
+            "keep": true
+          }
+        }
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-problem-field-wrong-type-B07-enemy-default-sound9-chCMCY\\最小 Workspace with spaces\\Game\\audio\\se\\EnemyAttack.ogg"
+    }
+  ],
+  "expected": {
+    "description": "necessary references and fields remain errors while legal None and candidate file facts stay distinct",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-action-workspace.test.ts",
+    "sha256": "75f35bca8636f6e53f7452cdd225351c1044b482f2711c75a74ab2f355dec20f",
+    "assertions": "async () => {\n\t\t\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-action-problem-${branch}-${suffix}`, async (sandbox) => {\n\t\t\t\tconst root = sandbox.workspaceRoot, all = selectedUses(field.family), selected = all[field.index];\n\t\t\t\tlet overrides = field.family === \"B16\" ? { \"Skills.json\": effectSkills() } : {};\n\t\t\t\tlet authored = sourceFor(field.family);\n\t\t\t\tif (branch === \"target-missing\") {\n\t\t\t\t\tif (field.family === \"B05\") authored = common(1, force(99));\n\t\t\t\t\telse if (field.family === \"B06\") overrides = { \"Animations.json\": [\n\t\t\t\t\t\tnull,\n\t\t\t\t\t\tnull,\n\t\t\t\t\t\tanimation(2)\n\t\t\t\t\t] };\n\t\t\t\t\telse authored = sourceFor(field.family, \"formal\", undefined, field.id);\n\t\t\t\t} else if (field.family === \"B16\" && branch.startsWith(\"field-\")) {\n\t\t\t\t\tconst bad = branch === \"field-empty\" ? nonePicture : `showPicture({pictureId:1,image:{kind:\"asset\",category:\"image\",folder:\"pictures\"${branch === \"field-wrong-type\" ? \",name:17\" : \"\"}} as never,origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})`;\n\t\t\t\t\tauthored = sourceFor(field.family, \"formal\", {\n\t\t\t\t\t\tindex: field.index,\n\t\t\t\t\t\tcommand: bad\n\t\t\t\t\t});\n\t\t\t\t} else if (branch.startsWith(\"field-\")) overrides = changed(field, branch === \"field-empty\" ? \"\" : 17, branch === \"field-missing\");\n\t\t\t\tawait prepare(root, authored, overrides);\n\t\t\t\tfor (const [index, use] of all.entries()) if (branch !== \"file-missing\" || index !== field.index) await media(root, use.category, use.folder, use.name);\n\t\t\t\tif (field.family === \"B16\") for (const use of animationExpected(false)) await media(root, use.category, use.folder, use.name);\n\t\t\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game\", selected.category === \"image\" ? \"img\" : \"audio\", selected.folder), { recursive: true });\n\t\t\t\tconst before = await state(root), success = branch === \"field-empty\" || branch === \"file-missing\" && field.family === \"B06\";\n\t\t\t\tconst code = branch === \"target-missing\" && field.family === \"B05\" ? \"MV-E339-REFERENCE\" : field.family === \"B16\" && [\"field-missing\", \"field-wrong-type\"].includes(branch) ? \"MV-E231-INPUT\" : branch === \"file-missing\" ? \"MV-ASSET-MISSING-FILE\" : \"MV-ASSET-INVALID-DATA\";\n\t\t\t\tfor (const check of [true, false]) {\n\t\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\t\tcheck\n\t\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t\tif (success) {\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toBe(\"\");\n\t\t\t\t\t\tif (check) (0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t\t} else {\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(code);\n\t\t\t\t\t\tif (branch !== \"target-missing\" && code !== \"MV-E231-INPUT\") (0,__vite_ssr_import_2__.expect)(failure).toContain(leafPath(field));\n\t\t\t\t\t\tif (code !== \"MV-ASSET-MISSING-FILE\") (0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t\t}\n\t\t\t\t};\n\t\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(success ? 0 : 1);\n\t\t\t\tif (!success) {\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(code);\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t};\n\t\t\t\tif (branch === \"file-missing\" && field.family === \"B06\") (0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"warning MV-ASSET-MISSING-FILE\");\n\t\t\t\tif (field.family !== \"B16\" && branch !== \"target-missing\") {\n\t\t\t\t\tconst actual = synthetic(field, overrides), expected = expectedRelations(field.family);\n\t\t\t\t\tif ([\n\t\t\t\t\t\t\"field-empty\",\n\t\t\t\t\t\t\"field-missing\",\n\t\t\t\t\t\t\"field-wrong-type\"\n\t\t\t\t\t].includes(branch)) {\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.uses).toEqual(all.filter((_, index) => index !== field.index));\n\t\t\t\t\t\tif (branch === \"field-empty\") (0,__vite_ssr_import_2__.expect)(actual.problems).toEqual([]);\n\t\t\t\t\t\telse {\n\t\t\t\t\t\t\tconst { category: _category, folder: _folder, name: _name, ...origin } = selected;\n\t\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.problems).toEqual([{\n\t\t\t\t\t\t\t\t...origin,\n\t\t\t\t\t\t\t\tdataPath: leafPath(field),\n\t\t\t\t\t\t\t\treason: \"Necessary asset name must be a string; this relationship is unchecked.\"\n\t\t\t\t\t\t\t}]);\n\t\t\t\t\t\t};\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.calls).toEqual(expected.calls);\n\t\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.stops).toEqual(expected.stops);\n\t\t\t\t\t} else (0,__vite_ssr_import_2__.expect)(actual).toEqual(expected);\n\t\t\t\t};\n\t\t\t\tif (success) {\n\t\t\t\t\tconst actual = await observed(root);\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(actual.relations).toEqual({\n\t\t\t\t\t\t...expectedRelations(field.family),\n\t\t\t\t\t\tuses: field.family === \"B16\" ? animationExpected(false) : branch === \"field-empty\" ? all.filter((_, index) => index !== field.index) : all\n\t\t\t\t\t});\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(actual.files)).toEqual(field.family === \"B16\" ? all.filter((_, index) => index !== field.index) : []);\n\t\t\t\t}\n\t\t\t});\n\t\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

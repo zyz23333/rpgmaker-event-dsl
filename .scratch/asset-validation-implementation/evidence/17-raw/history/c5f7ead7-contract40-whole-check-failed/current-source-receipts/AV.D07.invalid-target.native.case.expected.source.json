@@ -1,0 +1,35 @@
+{
+  "id": "AV.D07.invalid-target.native.case.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:26:08.812Z",
+  "completedAt": "2026-11-02T11:26:09.288Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Diagnostics\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Unsafe#Name\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"}),rawDslCommand({code:231,indent:0,parameters:[1,\"Unsafe#Name\",0,0,0,0,100,100,255,0]})]});\nexport const event11=commonEvent({id:11,name:\"Diagnostics\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Unsafe#Name\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+      "project": {}
+    },
+    {
+      "actualApi": {
+        "failure": "Error: compile --check asset check failed:\nerror MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-common-failure-invalid-target-yzF0vR\\最小 Workspace with spaces\\Game; required extension: .png\n  image/pictures \"Unsafe#Name\"; 3 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-common-failure-invalid-target-yzF0vR/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: error; effective: error\n  - error commonEvent:10 CommonEvents.json[10].list[1].parameters[1]; DSL: commands[1]; base: error; effective: error\n  - error commonEvent:11 CommonEvents.json[11].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-common-failure-invalid-target-yzF0vR/最小 Workspace with spaces/src/diagnostics.events.ts (line 3, column 85); base: error; effective: error\n1 problem group(s), 0 problem file(s), 3 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.",
+        "output": "Error: compile --check asset check failed:\nerror MV-ASSET-UNSUPPORTED-NAME: Saved name is outside supported Windows single-component names; this use is unchecked. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-common-failure-invalid-target-yzF0vR\\最小 Workspace with spaces\\Game; required extension: .png\n  image/pictures \"Unsafe#Name\"; 3 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-common-failure-invalid-target-yzF0vR/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: error; effective: error\n  - error commonEvent:10 CommonEvents.json[10].list[1].parameters[1]; DSL: commands[1]; base: error; effective: error\n  - error commonEvent:11 CommonEvents.json[11].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-common-failure-invalid-target-yzF0vR/最小 Workspace with spaces/src/diagnostics.events.ts (line 3, column 85); base: error; effective: error\n1 problem group(s), 0 problem file(s), 3 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked."
+      }
+    }
+  ],
+  "expected": {
+    "description": "a common failed basis retains every known origin without fabricating legal targets for unchecked names or fields",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-failure-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst name = branch === \"invalid-target\" ? \"Unsafe#Name\" : \"Poster\";\n\t\tconst authored = imports + common(`${picture(name)},${picture(name, true)}`) + common(picture(branch === \"invalid-target\" ? name : \"Second\"), 11);\n\t\tawait prepare(root, authored);\n\t\tif (branch === \"shared-field-failure\") {\n\t\t\tconst path = (0,__vite_ssr_import_1__.join)(root, \"Game/data/System.json\");\n\t\t\tconst system = JSON.parse(await (0,__vite_ssr_import_0__.readFile)(path, \"utf8\"));\n\t\t\tawait (0,__vite_ssr_import_0__.writeFile)(path, JSON.stringify({\n\t\t\t\t...system,\n\t\t\t\thasEncryptedImages: \"damaged\"\n\t\t\t}));\n\t\t\tawait api.pullWorkspace({ workspaceRoot: root });\n\t\t};\n\t\tconst before = await state(root);\n\t\tconst result = await check(root);\n\t\tconst code = {\n\t\t\t\"shared-directory-failure\": \"MV-ASSET-MISSING-DIRECTORY\",\n\t\t\t\"shared-field-failure\": \"MV-ASSET-INVALID-DATA\",\n\t\t\t\"invalid-target\": \"MV-ASSET-UNSUPPORTED-NAME\"\n\t\t}[branch];\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toContain(`error ${code}`);\n\t\tfor (const position of [\n\t\t\t\"CommonEvents.json[10].list[0].parameters[1]\",\n\t\t\t\"CommonEvents.json[10].list[1].parameters[1]\",\n\t\t\t\"CommonEvents.json[11].list[0].parameters[1]\"\n\t\t]) (0,__vite_ssr_import_2__.expect)(result.failure).toContain(position);\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toContain(\"3 affected use(s)\");\n\t\tif (branch !== \"shared-directory-failure\") {\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toContain(\"0 problem file(s)\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.failure).not.toContain(\"; target:\");\n\t\t};\n\t\tif (branch === \"shared-field-failure\") (0,__vite_ssr_import_2__.expect)(result.failure).toContain(\"System.json.hasEncryptedImages\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ actualApi: result });\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

@@ -1,0 +1,13 @@
+Original source runner exited0 and passed22 tests, with115 filtered.
+The subsequent PowerShell helper-copy step failed:
+Expected twenty-one fresh legacy helper receipts; got0
+at run-targeted.ps1:26.
+The original21 JSONs remained in the worktree. This was evidence collection,
+not a test failure. Timestamp parsing/copy was repaired separately, without
+rerunning source or changing the code/test/configuration freeze14ef1ddd.
+
+The first separate UTC capture retry then asserted a slash-only entry path
+against Movement's Windows backslash CLI path and stopped during copying.
+The receipt itself remained passed. The capture/aggregate path comparison
+was corrected to normalize separator spelling; original JSON bytes remain
+untouched. Only evidence copying was retried, not tests or product commands.

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ticket": "16",
+  "kind": "current-contract-fixture-compatibility",
+  "status": "passed",
+  "verifiedAt": "2026-11-02T11:04:53.330Z",
+  "implementationRevision": "0fb8b677c1c8679a334cae034b6823a776ace789",
+  "baseIntegration": "f79bacb496b18f59562663b7fc9e9d10e86c747f",
+  "compileContractVersion": "mv-1.6.1/40",
+  "mainEvidence": {
+    "path": ".scratch/asset-validation-implementation/evidence/16-current-contract40-acceptance.json",
+    "bytes": 3335571,
+    "sha256": "14ac63868336c04d4b3cca807478733051ee4dce7d606a0cf8270baf21467394",
+    "gitBlob": "88958b67d55b5bd4bda7072a7b31e1d13d2b35b3"
+  },
+  "checked": {
+    "newRawDiskAndIndexBytes": 23,
+    "originalHistoryDiskAndIndexBytes": 105,
+    "originalRaw": 100,
+    "originalFinalReceipts": 24,
+    "frozenGitInputs": 20,
+    "builtArtifacts": 15,
+    "currentReceipts": 3,
+    "localLinks": 24
+  },
+  "scope": "Current-fixture compatibility only: one original39-vs-actual40 expectation failure, then source/built each one actual pass and eleven filtered. No product changes, contract bump, new tests/IDs, historical rewrite or broad rerun.",
+  "validation": "All original and new raw sizes/SHA-256/index Git blobs match disk. All20 frozen Git inputs,15 built hashes and3 complete receipt objects match. Only two CURRENT literals differ from originalf03 test bytes; complete product source tree equals integration base; original100 raw and24 receipt history preserved. Local links resolve.",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "worktree": "M:\\Shuen\\Codex\\asset-validation-16-recovery"
+  }
+}

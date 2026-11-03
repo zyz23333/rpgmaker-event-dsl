@@ -1,0 +1,33 @@
+{
+  "id": "AV.F07.control-character.input.case-U001A.expected",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:26:58.153Z",
+  "completedAt": "2026-11-02T11:26:58.714Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [
+        "Bad\u001aName"
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"Bad\\u001aName\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {}
+  ],
+  "expected": {
+    "description": "unsupported names retain the original input without a fabricated file target",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\t\tawait (0,__vite_ssr_import_6__.withWindowsSandbox)(`asset-unsupported-${branch}`, async (sandbox) => {\n\t\t\tawait prepare(sandbox.workspaceRoot, [name]);\n\t\t\tconst before = await localState(sandbox.workspaceRoot);\n\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\tworkspaceRoot: sandbox.workspaceRoot,\n\t\t\t\tcheck: true\n\t\t\t}).then(() => \"\", String);\n\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(JSON.stringify(name));\n\t\t\t(0,__vite_ssr_import_4__.expect)(failure).toContain(\"CommonEvents.json[10].list[0].parameters[1]\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"; target:\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(await localState(sandbox.workspaceRoot)).toEqual(before);\n\t\t\tif (branch === \"slash\") {\n\t\t\t\tconst child = (0,__vite_ssr_import_7__.startWorkspaceOperation)(sandbox, {\n\t\t\t\t\toperation: \"check\",\n\t\t\t\t\tmode: \"cli\",\n\t\t\t\t\tboundary: \"asset-link-guard\",\n\t\t\t\t\tassetPath: \"img\"\n\t\t\t\t});\n\t\t\t\ttry {\n\t\t\t\t\t(0,__vite_ssr_import_4__.expect)((await child.ended).exitCode).toBe(1);\n\t\t\t\t\t(0,__vite_ssr_import_4__.expect)(child.messages.some((message) => message.kind === \"asset-link-follow-attempt\")).toBe(false);\n\t\t\t\t\t(0,__vite_ssr_import_4__.expect)(sandbox.processes.at(-1).stderr).toContain(\"MV-ASSET-UNSUPPORTED-NAME\");\n\t\t\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\t\t\tactualCli: sandbox.processes.at(-1),\n\t\t\t\t\t\tguard: \"no descent into any image category for unsupported slash name\"\n\t\t\t\t\t});\n\t\t\t\t} finally {\n\t\t\t\t\tawait child.stop();\n\t\t\t\t}\n\t\t\t}\n\t\t});\n\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

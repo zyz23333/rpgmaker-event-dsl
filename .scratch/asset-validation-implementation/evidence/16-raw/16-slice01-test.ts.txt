@@ -1,0 +1,56 @@
+import { expect } from "vitest";
+import { createAssetTest, recordAssetInput } from "./support/asset-evidence.js";
+import { observePush, controlledPush } from "./support/asset-push-workspace.js";
+import { withWindowsSandbox } from "./support/windows-sandbox.js";
+import {
+  assertFrozenPending,
+  deleteRecoveryMedia,
+  expectedCompletedState,
+  interruptRecovery,
+  parsedManifest,
+  prepareRecovery,
+  recoveryAffected,
+} from "./support/asset-recovery-workspace.js";
+
+const it = createAssetTest({ ownerTicket: "16", testSource: import.meta.url });
+
+it("AV.W15.all-generated-missing-asset.api.case.expected: real interrupted data writes complete bookkeeping before the current no-diff asset error and never recreate pending", async () => {
+  await withWindowsSandbox("asset-recovery-all-generated-api", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    const { before, original } = await prepareRecovery(sandbox);
+    await interruptRecovery(sandbox);
+    const interrupted = await observePush(root);
+    assertFrozenPending(interrupted, before, original);
+    for (const name of recoveryAffected)
+      expect(interrupted.project![`data/${name}`]).toBe(
+        before.state![`generated-project-data/${name}`],
+      );
+    expect(interrupted.state!["project-data-snapshot/CommonEvents.json"]).toBe(
+      before.state!["generated-project-data/CommonEvents.json"],
+    );
+    expect(interrupted.state!["project-data-snapshot/System.json"]).toBe(
+      before.state!["project-data-snapshot/System.json"],
+    );
+    expect(parsedManifest(interrupted)).toEqual(original);
+    await deleteRecoveryMedia(root);
+    const recoveryInput = await observePush(root);
+    const actual = await controlledPush(sandbox, {});
+    expect(actual.exitCode).toBe(1);
+    expect(actual.message + actual.stderr).toContain("MV-ASSET-MISSING-FILE");
+    expect(actual.message + actual.stderr).not.toContain("Interrupted Push");
+    expect(actual.messages.some((message) => message.kind === "asset-query")).toBe(true);
+    expect(
+      actual.messages.filter((message) => message.kind === "asset-content-read-attempt"),
+    ).toEqual([]);
+    const expected = expectedCompletedState(recoveryInput, before, original);
+    expect(await observePush(root)).toEqual(expected);
+    expect(expected.state["pending-push/"]).toBeUndefined();
+    recordAssetInput({
+      recoveryInput,
+      actual,
+      after: await observePush(root),
+      expected:
+        "Data recovery completed exactly; subsequent fresh no-diff Push fails missing current media, with no new pending or data writes.",
+    });
+  });
+});

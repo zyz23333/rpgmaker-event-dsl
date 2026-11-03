@@ -114,6 +114,7 @@ describe("initWorkspace", () => {
     expect(result.projectRoot).toBe(projectRoot);
     expect(result.dataDirectory).toBe(dataDirectory);
     expect(result.config).toEqual({
+      assetCheckExceptions: [],
       projectRoot: "../MyGame-init",
       scriptEnabled: false,
       sourceRoot: defaultSourceRoot,

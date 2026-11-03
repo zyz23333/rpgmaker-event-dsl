@@ -1,0 +1,105 @@
+[
+  {
+    "label": "source-final-serial",
+    "entry": "source",
+    "files": [
+      "test/asset-push-workspace.test.ts"
+    ],
+    "pattern": "",
+    "startedAt": "2026-11-02T07:44:47.6079159Z",
+    "completedAt": "2026-11-02T07:45:52.3750255Z",
+    "exitCode": 0
+  },
+  {
+    "label": "built-final-serial",
+    "entry": "built",
+    "files": [
+      "test/asset-push-workspace.test.ts"
+    ],
+    "pattern": "",
+    "startedAt": "2026-11-02T07:45:52.4030752Z",
+    "completedAt": "2026-11-02T07:46:43.6914808Z",
+    "exitCode": 0
+  },
+  {
+    "label": "source-support-serial",
+    "entry": "source",
+    "files": [
+      "test/asset-workflow-workspace.test.ts"
+    ],
+    "pattern": "AV.W12.next-command-fresh",
+    "startedAt": "2026-11-02T07:46:43.6990592Z",
+    "completedAt": "2026-11-02T07:46:49.7595117Z",
+    "exitCode": 0
+  },
+  {
+    "label": "built-support-serial",
+    "entry": "built",
+    "files": [
+      "test/asset-workflow-workspace.test.ts"
+    ],
+    "pattern": "AV.W12.next-command-fresh",
+    "startedAt": "2026-11-02T07:46:49.7667867Z",
+    "completedAt": "2026-11-02T07:46:54.0910427Z",
+    "exitCode": 0
+  },
+  {
+    "label": "source-compatibility",
+    "entry": "source",
+    "files": [
+      "test/compile-inputs.test.ts",
+      "test/compile-publication.test.ts",
+      "test/snapshot-binding.test.ts",
+      "test/workspace-locking.test.ts",
+      "test/decompile-publication.test.ts",
+      "test/push-drift.test.ts",
+      "test/push-recovery.test.ts",
+      "test/asset-file-workspace.test.ts",
+      "test/final-review-workspace.test.ts",
+      "test/workspace.test.ts",
+      "test/windows-baseline.test.ts",
+      "test/asset-diagnostics-workspace.test.ts",
+      "test/asset-workflow-workspace.test.ts"
+    ],
+    "pattern": "",
+    "startedAt": "2026-11-02T07:46:54.1001007Z",
+    "completedAt": "2026-11-02T08:00:56.5696964Z",
+    "exitCode": 1
+  },
+  {
+    "label": "source-capability-repair",
+    "entry": "source",
+    "files": [
+      "test/asset-file-workspace.test.ts"
+    ],
+    "pattern": "AV.F03.(exact-plus-case-variant|multiple-case-variants)",
+    "workspaceOutput": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-ticket14-source-capability-repair",
+    "startedAt": "2026-11-02T08:03:13.2209070Z",
+    "completedAt": "2026-11-02T08:03:16.9343162Z",
+    "exitCode": 0
+  },
+  {
+    "label": "built-compatibility",
+    "entry": "built",
+    "files": [
+      "test/compile-inputs.test.ts",
+      "test/compile-publication.test.ts",
+      "test/snapshot-binding.test.ts",
+      "test/workspace-locking.test.ts",
+      "test/decompile-publication.test.ts",
+      "test/push-drift.test.ts",
+      "test/push-recovery.test.ts",
+      "test/asset-file-workspace.test.ts",
+      "test/final-review-workspace.test.ts",
+      "test/workspace.test.ts",
+      "test/windows-baseline.test.ts",
+      "test/asset-diagnostics-workspace.test.ts",
+      "test/asset-workflow-workspace.test.ts"
+    ],
+    "pattern": "",
+    "workspaceOutput": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-ticket14-built-compatibility",
+    "startedAt": "2026-11-02T08:03:16.9500556Z",
+    "completedAt": "2026-11-02T08:13:58.6929894Z",
+    "exitCode": 0
+  }
+]

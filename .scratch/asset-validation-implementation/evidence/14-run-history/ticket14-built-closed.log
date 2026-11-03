@@ -1,0 +1,241 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/asset-validation-14-push/packages/rpgmaker-event-dsl
+
+stderr | test/asset-push-workspace.test.ts > AV.W20.generated-roots-and-relations.api.case.expected: Push rebuilds current generated roots and captured direct shared/cyclic relations
+Map event "Current map" uses occupied coordinate (0, 0) on map 1.
+compile warning commonEvent:10: MV-E339-CONTEXT at list[2].parameters: Force Action requires battle execution; the Common Event caller is unknown.
+
+stderr | test/asset-push-workspace.test.ts > AV.W20.generated-roots-and-relations.api.case.expected: Push rebuilds current generated roots and captured direct shared/cyclic relations
+compile asset check info:
+Direct Common Event calls:
+  - commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-api-Ye9yIS/最小 Workspace with spaces/src/push.events.ts (line 3, column 82)
+  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:12; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-api-Ye9yIS/最小 Workspace with spaces/src/push.events.ts (line 3, column 137)
+  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:11; chain: Skills.json[1].effects[0].dataId (Skill Common Event effect); DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-api-Ye9yIS/最小 Workspace with spaces/src/push.events.ts (line 3, column 192)
+  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:12; chain: Skills.json[1].effects[1].dataId (Skill Common Event effect); DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-api-Ye9yIS/最小 Workspace with spaces/src/push.events.ts (line 3, column 192)
+  - commonEvent:11 CommonEvents.json[11].list[0].parameters[0] -> commonEvent:12; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-api-Ye9yIS/最小 Workspace with spaces/src/push.events.ts (line 4, column 82)
+  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:11; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-api-Ye9yIS/最小 Workspace with spaces/src/push.events.ts (line 5, column 82)
+  - map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0] -> commonEvent:11; DSL: pages[0].commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-api-Ye9yIS/最小 Workspace with spaces/src/push.events.ts (line 6, column 117)
+  - troop:1 Troops.json[1].pages[0].list[0].parameters[0] -> commonEvent:12; DSL: pages[0].commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-api-Ye9yIS/最小 Workspace with spaces/src/push.events.ts (line 7, column 60)
+
+stderr | test/asset-push-workspace.test.ts > AV.W20.generated-roots-and-relations.api.case.expected: Push rebuilds current generated roots and captured direct shared/cyclic relations
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-generated-api-Ye9yIS
+
+stderr | test/asset-push-workspace.test.ts > AV.W20.generated-roots-and-relations.cli.case.expected: Push rebuilds current generated roots and captured direct shared/cyclic relations
+Map event "Current map" uses occupied coordinate (0, 0) on map 1.
+compile warning commonEvent:10: MV-E339-CONTEXT at list[2].parameters: Force Action requires battle execution; the Common Event caller is unknown.
+
+stderr | test/asset-push-workspace.test.ts > AV.W20.generated-roots-and-relations.cli.case.expected: Push rebuilds current generated roots and captured direct shared/cyclic relations
+compile asset check info:
+Direct Common Event calls:
+  - commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-cli-sVdBRd/最小 Workspace with spaces/src/push.events.ts (line 3, column 82)
+  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:12; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-cli-sVdBRd/最小 Workspace with spaces/src/push.events.ts (line 3, column 137)
+  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:11; chain: Skills.json[1].effects[0].dataId (Skill Common Event effect); DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-cli-sVdBRd/最小 Workspace with spaces/src/push.events.ts (line 3, column 192)
+  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:12; chain: Skills.json[1].effects[1].dataId (Skill Common Event effect); DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-cli-sVdBRd/最小 Workspace with spaces/src/push.events.ts (line 3, column 192)
+  - commonEvent:11 CommonEvents.json[11].list[0].parameters[0] -> commonEvent:12; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-cli-sVdBRd/最小 Workspace with spaces/src/push.events.ts (line 4, column 82)
+  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:11; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-cli-sVdBRd/最小 Workspace with spaces/src/push.events.ts (line 5, column 82)
+  - map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0] -> commonEvent:11; DSL: pages[0].commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-cli-sVdBRd/最小 Workspace with spaces/src/push.events.ts (line 6, column 117)
+  - troop:1 Troops.json[1].pages[0].list[0].parameters[0] -> commonEvent:12; DSL: pages[0].commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-generated-cli-sVdBRd/最小 Workspace with spaces/src/push.events.ts (line 7, column 60)
+
+stderr | test/asset-push-workspace.test.ts > AV.W20.generated-roots-and-relations.cli.case.expected: Push rebuilds current generated roots and captured direct shared/cyclic relations
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-generated-cli-sVdBRd
+
+stderr | test/asset-push-workspace.test.ts > AV.W19.push-failure.api.case.expected: a prewrite indirect asset error preserves every project and state byte
+Map event "Current map" uses occupied coordinate (0, 0) on map 1.
+compile warning commonEvent:10: MV-E339-CONTEXT at list[2].parameters: Force Action requires battle execution; the Common Event caller is unknown.
+
+stderr | test/asset-push-workspace.test.ts > AV.W19.push-failure.api.case.expected: a prewrite indirect asset error preserves every project and state byte
+compile asset check info:
+Direct Common Event calls:
+  - commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-failure-FLVdmJ/最小 Workspace with spaces/src/push.events.ts (line 3, column 82)
+  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:12; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-failure-FLVdmJ/最小 Workspace with spaces/src/push.events.ts (line 3, column 137)
+  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:11; chain: Skills.json[1].effects[0].dataId (Skill Common Event effect); DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-failure-FLVdmJ/最小 Workspace with spaces/src/push.events.ts (line 3, column 192)
+  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:12; chain: Skills.json[1].effects[1].dataId (Skill Common Event effect); DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-failure-FLVdmJ/最小 Workspace with spaces/src/push.events.ts (line 3, column 192)
+  - commonEvent:11 CommonEvents.json[11].list[0].parameters[0] -> commonEvent:12; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-failure-FLVdmJ/最小 Workspace with spaces/src/push.events.ts (line 4, column 82)
+  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:11; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-failure-FLVdmJ/最小 Workspace with spaces/src/push.events.ts (line 5, column 82)
+  - map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0] -> commonEvent:11; DSL: pages[0].commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-failure-FLVdmJ/最小 Workspace with spaces/src/push.events.ts (line 6, column 117)
+  - troop:1 Troops.json[1].pages[0].list[0].parameters[0] -> commonEvent:12; DSL: pages[0].commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-failure-FLVdmJ/最小 Workspace with spaces/src/push.events.ts (line 7, column 60)
+
+stderr | test/asset-push-workspace.test.ts > AV.W19.push-failure.api.case.expected: a prewrite indirect asset error preserves every project and state byte
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-media-failure-FLVdmJ
+
+stderr | test/asset-push-workspace.test.ts > AV.W19.push-success.api.case.expected: successful Push changes only affected owned data and normal bookkeeping
+Map event "Current map" uses occupied coordinate (0, 0) on map 1.
+compile warning commonEvent:10: MV-E339-CONTEXT at list[2].parameters: Force Action requires battle execution; the Common Event caller is unknown.
+
+stderr | test/asset-push-workspace.test.ts > AV.W19.push-success.api.case.expected: successful Push changes only affected owned data and normal bookkeeping
+compile asset check info:
+Direct Common Event calls:
+  - commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-success-pwvLr2/最小 Workspace with spaces/src/push.events.ts (line 3, column 82)
+  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:12; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-success-pwvLr2/最小 Workspace with spaces/src/push.events.ts (line 3, column 137)
+  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:11; chain: Skills.json[1].effects[0].dataId (Skill Common Event effect); DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-success-pwvLr2/最小 Workspace with spaces/src/push.events.ts (line 3, column 192)
+  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:12; chain: Skills.json[1].effects[1].dataId (Skill Common Event effect); DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-success-pwvLr2/最小 Workspace with spaces/src/push.events.ts (line 3, column 192)
+  - commonEvent:11 CommonEvents.json[11].list[0].parameters[0] -> commonEvent:12; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-success-pwvLr2/最小 Workspace with spaces/src/push.events.ts (line 4, column 82)
+  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:11; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-success-pwvLr2/最小 Workspace with spaces/src/push.events.ts (line 5, column 82)
+  - map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0] -> commonEvent:11; DSL: pages[0].commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-success-pwvLr2/最小 Workspace with spaces/src/push.events.ts (line 6, column 117)
+  - troop:1 Troops.json[1].pages[0].list[0].parameters[0] -> commonEvent:12; DSL: pages[0].commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-media-success-pwvLr2/最小 Workspace with spaces/src/push.events.ts (line 7, column 60)
+
+stderr | test/asset-push-workspace.test.ts > AV.W19.push-success.api.case.expected: successful Push changes only affected owned data and normal bookkeeping
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-media-success-pwvLr2
+
+stderr | test/asset-push-workspace.test.ts > AV.C13.push-success.formal.case.expected: successful Push changes only affected owned data and normal bookkeeping
+Map event "Current map" uses occupied coordinate (0, 0) on map 1.
+compile warning commonEvent:10: MV-E339-CONTEXT at list[2].parameters: Force Action requires battle execution; the Common Event caller is unknown.
+
+stderr | test/asset-push-workspace.test.ts > AV.C13.push-success.formal.case.expected: successful Push changes only affected owned data and normal bookkeeping
+compile asset check info:
+Direct Common Event calls:
+  - commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-owned-boundary-XCapcR/最小 Workspace with spaces/src/push.events.ts (line 3, column 82)
+  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:12; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-owned-boundary-XCapcR/最小 Workspace with spaces/src/push.events.ts (line 3, column 137)
+  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:11; chain: Skills.json[1].effects[0].dataId (Skill Common Event effect); DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-owned-boundary-XCapcR/最小 Workspace with spaces/src/push.events.ts (line 3, column 192)
+  - commonEvent:10 CommonEvents.json[10].list[2].parameters[2] -> commonEvent:12; chain: Skills.json[1].effects[1].dataId (Skill Common Event effect); DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-owned-boundary-XCapcR/最小 Workspace with spaces/src/push.events.ts (line 3, column 192)
+  - commonEvent:11 CommonEvents.json[11].list[0].parameters[0] -> commonEvent:12; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-owned-boundary-XCapcR/最小 Workspace with spaces/src/push.events.ts (line 4, column 82)
+  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:11; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-owned-boundary-XCapcR/最小 Workspace with spaces/src/push.events.ts (line 5, column 82)
+  - map:1/event:1 Map001.json.events[1].pages[0].list[0].parameters[0] -> commonEvent:11; DSL: pages[0].commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-owned-boundary-XCapcR/最小 Workspace with spaces/src/push.events.ts (line 6, column 117)
+  - troop:1 Troops.json[1].pages[0].list[0].parameters[0] -> commonEvent:12; DSL: pages[0].commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-owned-boundary-XCapcR/最小 Workspace with spaces/src/push.events.ts (line 7, column 60)
+
+stderr | test/asset-push-workspace.test.ts > AV.C13.push-success.formal.case.expected: successful Push changes only affected owned data and normal bookkeeping
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-owned-boundary-XCapcR
+
+stderr | test/asset-push-workspace.test.ts > AV.W20.no-historical-report.api.case.expected: each new Push queries media afresh despite a recorded successful Compile
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-no-history-eiTIdX
+
+stderr | test/asset-push-workspace.test.ts > AV.W20.no-dsl-reevaluation.api.case.expected: the actual evaluator observer hits Compile, stays explicitly zero through Push, and hits unchanged-source Check again
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-no-evaluation-iYWdia
+
+stderr | test/asset-push-workspace.test.ts > Push prerequisite freshness failure reports the asset check was not run
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-notrun-freshness-Bs6MHO
+
+stderr | test/asset-push-workspace.test.ts > Push prerequisite integrity failure reports the asset check was not run
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-notrun-integrity-CsUYMu
+
+stderr | test/asset-push-workspace.test.ts > Push prerequisite invalid-exception failure reports the asset check was not run
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-notrun-invalid-exception-pxwZlU
+
+stderr | test/asset-push-workspace.test.ts > AV.W11.presence.api.push-gate.expected: the sole staged asset gate uses current file facts
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-presence-EP24pj
+
+stderr | test/asset-push-workspace.test.ts > AV.W11.case-match.api.push-gate.expected: the sole staged asset gate uses current file facts
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-case-match-31nHWO
+
+stderr | test/asset-push-workspace.test.ts > AV.W11.path-type.api.push-gate.expected: the sole staged asset gate uses current file facts
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-path-type-34W83m
+
+stderr | test/asset-push-workspace.test.ts > AV.W11.path-link.api.push-gate.expected: the sole staged asset gate uses current file facts
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-path-link-uRsWcJ
+
+stderr | test/asset-push-workspace.test.ts > AV.W11.queryability.api.push-gate.expected: the sole staged asset gate uses current file facts
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-queryability-ycbk59
+
+stderr | test/asset-push-workspace.test.ts > AV.W11.failure-location.api.push-gate.expected: the sole staged asset gate uses current file facts
+compile asset check warning:
+warning MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-failure-location-Uqy6BM\最小 Workspace with spaces\Game; required extension: .png; target: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-failure-location-Uqy6BM\最小 Workspace with spaces\Game\img\pictures\PushPoster.png; failed at: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-failure-location-Uqy6BM\最小 Workspace with spaces\Game\img\pictures\PushPoster.png
+  image/pictures "PushPoster"; 1 use(s)
+  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-current-failure-location-Uqy6BM/最小 Workspace with spaces/src/push.events.ts (line 3, column 85); base: error; effective: warning; exception reason: optional test image
+1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.
+
+stderr | test/asset-push-workspace.test.ts > AV.W11.failure-location.api.push-gate.expected: the sole staged asset gate uses current file facts
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-failure-location-Uqy6BM
+
+stderr | test/asset-push-workspace.test.ts > AV.W11.improvement.api.push-gate.expected: the sole staged asset gate uses current file facts
+compile asset check warning:
+warning MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-improvement-RA2g3k\最小 Workspace with spaces\Game; required extension: .png; target: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-improvement-RA2g3k\最小 Workspace with spaces\Game\img\pictures\PushPoster.png; failed at: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-improvement-RA2g3k\最小 Workspace with spaces\Game\img\pictures\PushPoster.png
+  image/pictures "PushPoster"; 1 use(s)
+  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed-workspaces/asset-push-current-improvement-RA2g3k/最小 Workspace with spaces/src/push.events.ts (line 3, column 85); base: error; effective: warning; exception reason: optional test image
+1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.
+
+stderr | test/asset-push-workspace.test.ts > AV.W11.improvement.api.push-gate.expected: the sole staged asset gate uses current file facts
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-current-improvement-RA2g3k
+
+stderr | test/asset-push-workspace.test.ts > AV.W08.delete-diff-push-repair.api.case.expected: current missing media blocks Push and a repair permits retry without Compile
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-retry-BfhSf3
+
+stderr | test/asset-push-workspace.test.ts > AV.W05.error-after-staging.api.case.expected: a missing current asset after staging leaves no pending or replacements
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-stage-api-ruVubb
+
+stderr | test/asset-push-workspace.test.ts > AV.W05.error-after-staging.cli.case.expected: a missing current asset after staging leaves no pending or replacements
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-stage-cli-VoEDTy
+
+stderr | test/asset-push-workspace.test.ts > AV.W05.repair-after-staging.api.case.expected: a file repaired before the single staged gate permits normal Push
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-stage-repair-VtEQ8i
+
+stderr | test/asset-push-workspace.test.ts > AV.W07.no-diff-asset-error.api.case.expected: synchronized data still checks current media and creates no pending on asset error
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-no-diff-api-NShfxq
+
+stderr | test/asset-push-workspace.test.ts > AV.W07.no-diff-asset-error.cli.case.expected: synchronized data still checks current media and creates no pending on asset error
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-no-diff-cli-omoYSm
+
+stderr | test/asset-push-workspace.test.ts > AV.W07.no-diff-data-drift.api.case.expected: full standard data drift rejects before the asset pass
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-no-diff-drift-D3ruU2
+
+stderr | test/asset-push-workspace.test.ts > AV.W08.delete-diff-push-repair.cli.case.expected: actual CLI queries the repaired current file without requiring Compile
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-cli-retry-1Xfb4n
+
+stderr | test/asset-push-workspace.test.ts > AV.W13.source.cli.prewrite.expected: actual CLI retains the changed source and stops before replacement
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-source-cli-YdP7Xs
+
+stderr | test/asset-push-workspace.test.ts > no-write completion retains input guards after the sole asset pass
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-no-diff-input-stSZO7
+
+stderr | test/asset-push-workspace.test.ts > AV.W13.validation-dependency.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-input-validation-dependency-rtX52E
+
+stderr | test/asset-push-workspace.test.ts > AV.W13.config.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-input-config-w3HfOJ
+
+stderr | test/asset-push-workspace.test.ts > AV.W13.exception.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-input-exception-dsxegL
+
+stderr | test/asset-push-workspace.test.ts > AV.W13.snapshot.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-input-snapshot-up1YMe
+
+stderr | test/asset-push-workspace.test.ts > AV.W13.generated.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-input-generated-ddOhBF
+
+stderr | test/asset-push-workspace.test.ts > AV.W13.binding.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-input-binding-K44lJH
+
+stderr | test/asset-push-workspace.test.ts > AV.W13.source.api.prewrite.expected: source changes after pending installation stop all data replacement
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-closed-workspaces\asset-push-source-CFRdc0
+
+ ✓ test/asset-push-workspace.test.ts (34 tests) 55088ms
+   ✓ AV.W20.generated-roots-and-relations.api.case.expected: Push rebuilds current generated roots and captured direct shared/cyclic relations  2345ms
+   ✓ AV.W20.generated-roots-and-relations.cli.case.expected: Push rebuilds current generated roots and captured direct shared/cyclic relations  2042ms
+   ✓ AV.W19.push-failure.api.case.expected: a prewrite indirect asset error preserves every project and state byte  1099ms
+   ✓ AV.W19.push-success.api.case.expected: successful Push changes only affected owned data and normal bookkeeping  1133ms
+   ✓ AV.C13.push-success.formal.case.expected: successful Push changes only affected owned data and normal bookkeeping  1190ms
+   ✓ AV.W20.no-historical-report.api.case.expected: each new Push queries media afresh despite a recorded successful Compile  2920ms
+   ✓ AV.W20.no-dsl-reevaluation.api.case.expected: the actual evaluator observer hits Compile, stays explicitly zero through Push, and hits unchanged-source Check again  2439ms
+   ✓ Push prerequisite freshness failure reports the asset check was not run  1712ms
+   ✓ Push prerequisite integrity failure reports the asset check was not run  1578ms
+   ✓ Push prerequisite invalid-exception failure reports the asset check was not run  1721ms
+   ✓ AV.W11.presence.api.push-gate.expected: the sole staged asset gate uses current file facts  1571ms
+   ✓ AV.W11.case-match.api.push-gate.expected: the sole staged asset gate uses current file facts  1700ms
+   ✓ AV.W11.path-type.api.push-gate.expected: the sole staged asset gate uses current file facts  1522ms
+   ✓ AV.W11.path-link.api.push-gate.expected: the sole staged asset gate uses current file facts  1547ms
+   ✓ AV.W11.queryability.api.push-gate.expected: the sole staged asset gate uses current file facts  1575ms
+   ✓ AV.W11.failure-location.api.push-gate.expected: the sole staged asset gate uses current file facts  1653ms
+   ✓ AV.W11.improvement.api.push-gate.expected: the sole staged asset gate uses current file facts  1669ms
+   ✓ AV.W08.delete-diff-push-repair.api.case.expected: current missing media blocks Push and a repair permits retry without Compile  1094ms
+   ✓ AV.W05.error-after-staging.api.case.expected: a missing current asset after staging leaves no pending or replacements  1468ms
+   ✓ AV.W05.error-after-staging.cli.case.expected: a missing current asset after staging leaves no pending or replacements  1326ms
+   ✓ AV.W05.repair-after-staging.api.case.expected: a file repaired before the single staged gate permits normal Push  1435ms
+   ✓ AV.W07.no-diff-asset-error.api.case.expected: synchronized data still checks current media and creates no pending on asset error  1517ms
+   ✓ AV.W07.no-diff-asset-error.cli.case.expected: synchronized data still checks current media and creates no pending on asset error  1541ms
+   ✓ AV.W07.no-diff-data-drift.api.case.expected: full standard data drift rejects before the asset pass  1528ms
+   ✓ AV.W08.delete-diff-push-repair.cli.case.expected: actual CLI queries the repaired current file without requiring Compile  2965ms
+   ✓ AV.W13.source.cli.prewrite.expected: actual CLI retains the changed source and stops before replacement  1455ms
+   ✓ no-write completion retains input guards after the sole asset pass  1449ms
+   ✓ AV.W13.validation-dependency.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement  1309ms
+   ✓ AV.W13.config.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement  1327ms
+   ✓ AV.W13.exception.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement  1334ms
+   ✓ AV.W13.snapshot.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement  1469ms
+   ✓ AV.W13.generated.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement  1497ms
+   ✓ AV.W13.binding.api.prewrite.expected: changed captured inputs or write authority stop before the first replacement  1567ms
+   ✓ AV.W13.source.api.prewrite.expected: source changes after pending installation stop all data replacement  1383ms
+
+ Test Files  1 passed (1)
+      Tests  34 passed (34)
+   Start at  15:42:16
+   Duration  56.12s (transform 379ms, setup 0ms, import 841ms, tests 55.09s, environment 0ms)
+
+JSON report written to M:/Shuen/Codex/asset-validation-notes/ticket14-built-closed.json

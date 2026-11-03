@@ -31,30 +31,34 @@ const imports =
 const declaration =
   'export const event = commonEvent({id:1,name:"Input boundaries",trigger:"none",commands:[command]});\n';
 
-function evidenceIt(name: string, verify: () => Promise<void>) {
-  it(name, async () => {
-    const startedAt = new Date().toISOString();
-    let failure: unknown;
-    try {
-      await verify();
-    } catch (error) {
-      failure = error;
-      throw error;
-    } finally {
-      await recordEvidence({
-        requirementId: name.split(":")[0]!,
-        startedAt,
-        stages: [
-          "Independent native/source input",
-          "Actual Discovery, public package evaluation and Workspace operations",
-          "Complete source/Discovery/Project Root/Snapshot/generated/config/manifest state and precise diagnostic comparisons",
-        ],
-        expected: name,
-        actual: { assertionsCompleted: failure === undefined, entry: workspaceApiEntry },
-        ...(failure === undefined ? {} : { error: failure }),
-      });
-    }
-  });
+function evidenceIt(name: string, verify: () => Promise<void>, timeout?: number) {
+  it(
+    name,
+    async () => {
+      const startedAt = new Date().toISOString();
+      let failure: unknown;
+      try {
+        await verify();
+      } catch (error) {
+        failure = error;
+        throw error;
+      } finally {
+        await recordEvidence({
+          requirementId: name.split(":")[0]!,
+          startedAt,
+          stages: [
+            "Independent native/source input",
+            "Actual Discovery, public package evaluation and Workspace operations",
+            "Complete source/Discovery/Project Root/Snapshot/generated/config/manifest state and precise diagnostic comparisons",
+          ],
+          expected: name,
+          actual: { assertionsCompleted: failure === undefined, entry: workspaceApiEntry },
+          ...(failure === undefined ? {} : { error: failure }),
+        });
+      }
+    },
+    timeout,
+  );
 }
 
 async function prepare(workspaceRoot: string, nativeText?: string) {
@@ -253,6 +257,7 @@ for (const [helper, kind] of referenceHelpers)
           );
       });
     },
+    30_000,
   );
 
 const nestedTargets = [

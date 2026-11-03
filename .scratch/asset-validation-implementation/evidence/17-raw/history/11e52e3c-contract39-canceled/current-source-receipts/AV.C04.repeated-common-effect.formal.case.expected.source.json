@@ -1,0 +1,331 @@
+{
+  "id": "AV.C04.repeated-common-effect.formal.case.expected",
+  "ownerTicket": "11",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:17:03.068Z",
+  "completedAt": "2026-11-02T10:17:05.322Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-repeated-effects-XS4e9G\\最小 Workspace with spaces",
+      "source": "export const event1=commonEvent({id:1,name:\"Action 1\",trigger:\"none\",commands:[forceAction({subject:{kind:\"runtimeSelector\",scope:\"battler\",target:\"actor\",actor:actorRef({id:1})},skill:skillRef({id:1}),target:{kind:\"random\"}})]});export const event10=commonEvent({id:10,name:\"Action 10\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"EffectFirst\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+      "projectOverrides": {
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor",
+            "equips": [
+              99
+            ],
+            "unknown": {
+              "keep": true
+            }
+          }
+        ],
+        "Animations.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Animation 1",
+            "animation1Name": "UnarmedFirst",
+            "animation2Name": "UnarmedSecond",
+            "animation1Hue": 123,
+            "animation2Hue": 234,
+            "timings": [
+              {
+                "frame": 0,
+                "se": {
+                  "name": "UnarmedSound0",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 17
+              },
+              {
+                "frame": 7,
+                "se": {
+                  "name": "UnarmedSound1",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 23
+              }
+            ],
+            "unknown": {
+              "keep": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Animation 2",
+            "animation1Name": "SkillFirst",
+            "animation2Name": "SkillSecond",
+            "animation1Hue": 123,
+            "animation2Hue": 234,
+            "timings": [
+              {
+                "frame": 0,
+                "se": {
+                  "name": "SkillSound0",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 17
+              },
+              {
+                "frame": 7,
+                "se": {
+                  "name": "SkillSound1",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 23
+              }
+            ],
+            "unknown": {
+              "keep": true
+            }
+          }
+        ],
+        "Skills.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Selected",
+            "animationId": 2,
+            "effects": [
+              {
+                "code": 44,
+                "dataId": 10,
+                "value1": 17,
+                "value2": 23
+              },
+              {
+                "code": 44,
+                "dataId": 10,
+                "value1": 31,
+                "value2": 47
+              }
+            ],
+            "unknown": {
+              "keep": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Default",
+            "animationId": -1,
+            "effects": [],
+            "unknown": {
+              "keep": true
+            }
+          },
+          {
+            "id": 3,
+            "name": "No animation",
+            "animationId": 0,
+            "effects": [],
+            "unknown": {
+              "keep": true
+            }
+          }
+        ],
+        "System.json": {
+          "gameTitle": "Synthetic evidence context",
+          "switches": [
+            "",
+            "Saved switch"
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          },
+          "sounds": [
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "EnemyAttack",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-repeated-effects-XS4e9G\\最小 Workspace with spaces\\Game\\img\\animations\\SkillFirst.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-repeated-effects-XS4e9G\\最小 Workspace with spaces\\Game\\img\\animations\\SkillSecond.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-repeated-effects-XS4e9G\\最小 Workspace with spaces\\Game\\audio\\se\\SkillSound0.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-repeated-effects-XS4e9G\\最小 Workspace with spaces\\Game\\audio\\se\\SkillSound1.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-repeated-effects-XS4e9G\\最小 Workspace with spaces\\Game\\img\\pictures\\EffectFirst.png"
+    }
+  ],
+  "expected": {
+    "description": "repeated effects retain separate direct positions and only one defining picture use",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-action-workspace.test.ts",
+    "sha256": "75f35bca8636f6e53f7452cdd225351c1044b482f2711c75a74ab2f355dec20f",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-action-repeated-effects\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(1, force()) + common(10, picture(\"EffectFirst\")), { \"Skills.json\": effectSkills(2, true) });\n\t\tfor (const use of animationExpected(false)) await media(root, use.category, use.folder, use.name);\n\t\tawait media(root, \"image\", \"pictures\", \"EffectFirst\");\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst actual = await observed(root);\n\t\t(0,__vite_ssr_import_2__.expect)(actual.relations).toEqual({\n\t\t\tuses: animationExpected(false),\n\t\t\tproblems: [],\n\t\t\tstops: [],\n\t\t\tcalls: effectCalls(true)\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(actual.files)).toEqual([pictureExpected()[0]]);\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "AV.D09.reliable-source.native.case.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:25:46.954Z",
+  "completedAt": "2026-11-02T11:25:47.456Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Source\",trigger:\"none\",commands:[\n  showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})\n]});\n",
+      "project": {}
+    },
+    {
+      "authored": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Source\",trigger:\"none\",commands:[\n  showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})\n]});\n",
+      "independentlyExpectedSource": {
+        "line": 3,
+        "column": 3,
+        "dslPath": "commands[0]"
+      },
+      "actualApi": {
+        "failure": "Error: compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-reliable-source-gBU84A\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-reliable-source-gBU84A\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-reliable-source-gBU84A\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-reliable-source-gBU84A/最小 Workspace with spaces/src/diagnostics.events.ts (line 3, column 3); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.",
+        "output": "Error: compile --check asset check failed:\nerror MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-reliable-source-gBU84A\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-reliable-source-gBU84A\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-reliable-source-gBU84A\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\n  image/pictures \"Poster\"; 1 use(s)\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-reliable-source-gBU84A/最小 Workspace with spaces/src/diagnostics.events.ts (line 3, column 3); base: error; effective: error\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete."
+      }
+    }
+  ],
+  "expected": {
+    "description": "a captured formal command exposes its reliable authored object path and one-based source coordinate alongside native origin",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-reliable-source\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst authored = `${imports}export const event=commonEvent({id:10,name:\"Source\",trigger:\"none\",commands:[\\n  ${picture()}\\n]});\\n`;\n\t\tawait prepare(root, authored);\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures\"), { recursive: true });\n\t\tconst result = await check(root);\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toContain(\"CommonEvents.json[10].list[0].parameters[1]\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toContain(\"DSL: commands[0]\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.failure).toContain(\"diagnostics.events.ts (line 3, column 3)\");\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tauthored,\n\t\t\tindependentlyExpectedSource: {\n\t\t\t\tline: 3,\n\t\t\t\tcolumn: 3,\n\t\t\t\tdslPath: \"commands[0]\"\n\t\t\t},\n\t\t\tactualApi: result\n\t\t});\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

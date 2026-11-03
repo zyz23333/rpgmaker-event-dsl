@@ -1,0 +1,71 @@
+{
+  "id": "AV.A13.base.formal.p1.present",
+  "ownerTicket": "04",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:38:06.311Z",
+  "completedAt": "2026-11-02T11:38:07.866Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,showText,imageAsset,audioAsset,rawDslCommand,changeBattleBack,changeParallax,changeActorImages,changeVehicleImage,actorRef,setMovementRoute,scriptInput} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Images\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[changeBattleBack({battleback1:imageAsset({folder:\"battlebacks1\",name:\"Back1\"}),battleback2:imageAsset({folder:\"battlebacks2\",name:\"Back2\"})})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Images"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ],
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        {
+          "path": "Game/img/battlebacks1/Back1.png",
+          "ordinaryZeroByte": true
+        },
+        {
+          "path": "Game/img/battlebacks2/Back2.png",
+          "ordinaryZeroByte": true
+        }
+      ],
+      "timing": "before the asset gate"
+    }
+  ],
+  "expected": {
+    "description": "each direct image field keeps its complete native origin",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-image-workspace.test.ts",
+    "sha256": "da8b9e1d60d42f4bcf94a25b55e25aa210aa3e915f5dc22b81763b53b7a0fd21",
+    "assertions": "async () => {\n\t\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-${vector.family}-${representation}-${field.token}-${outcome}`, async ({ workspaceRoot: root }) => {\n\t\t\tconst raw = [{\n\t\t\t\tcode: vector.code,\n\t\t\t\tparameters: vector.parameters\n\t\t\t}, ...vector.continuation ?? []].map((record) => `rawDslCommand(${JSON.stringify(record)})`).join(\",\");\n\t\t\tawait prepare(root, source(representation === \"formal\" ? vector.formal : raw));\n\t\t\tawait materialize(root, vector.fields);\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await uses(root)).toEqual(vector.fields.map(expectedUse));\n\t\t\t(0,__vite_ssr_import_2__.expect)((await page(root)).list[0].parameters).toEqual(vector.parameters);\n\t\t\tif (outcome === \"missing\") {\n\t\t\t\tawait (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, \"Game/img\", field.folder, `${field.name}.png`));\n\t\t\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\t\t\tremovedFile: `Game/img/${field.folder}/${field.name}.png`,\n\t\t\t\t\ttiming: \"before Check and Compile gates; after successful publication\"\n\t\t\t\t});\n\t\t\t};\n\t\t\tconst before = await state(root);\n\t\t\tif (outcome === \"missing\") {\n\t\t\t\tfor (const check of [true, false]) {\n\t\t\t\t\tconst failure = await compileWorkspace({\n\t\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\t\tcheck\n\t\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(expectedUse(field).nativePath);\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(JSON.stringify(field.name));\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t}\n\t\t\t} else {\n\t\t\t\tawait compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck: true\n\t\t\t\t});\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\tawait compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck: false\n\t\t\t\t});\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await uses(root)).toEqual(vector.fields.map(expectedUse));\n\t\t\t}\n\t\t});\n\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

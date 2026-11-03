@@ -1,0 +1,55 @@
+
+> rpgmaker-event-dsl-workspace@0.0.0 check M:\Shuen\Codex\asset-validation-17-acceptance
+> pnpm typecheck && pnpm lint && pnpm format:check && pnpm test
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 typecheck M:\Shuen\Codex\asset-validation-17-acceptance
+> pnpm -r typecheck
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl typecheck$ tsc -p tsconfig.json --noEmit
+packages/rpgmaker-event-dsl typecheck: Done
+
+> rpgmaker-event-dsl-workspace@0.0.0 lint M:\Shuen\Codex\asset-validation-17-acceptance
+> oxlint .
+
+
+> rpgmaker-event-dsl-workspace@0.0.0 format:check M:\Shuen\Codex\asset-validation-17-acceptance
+> oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl
+
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 555ms on 339 files using 20 threads.
+
+> rpgmaker-event-dsl-workspace@0.0.0 test M:\Shuen\Codex\asset-validation-17-acceptance
+> pnpm -r test
+
+Scope: 2 of 3 workspace projects
+packages/rpgmaker-event-dsl test$ vitest run
+packages/rpgmaker-event-dsl test:  RUN  v4.1.9 M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl
+packages/rpgmaker-event-dsl test:  ❯ test/asset-diagnostics-workspace.test.ts (99 tests | 1 failed) 120296ms
+packages/rpgmaker-event-dsl test:    × AV.D05.incomplete.native.case.expected: ineffective exceptions are located only when complete relevant checking establishes that no error was downgraded 10037ms
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+packages/rpgmaker-event-dsl test:  FAIL  test/asset-diagnostics-workspace.test.ts > AV.D05.incomplete.native.case.expected: ineffective exceptions are located only when complete relevant checking establishes that no error was downgraded
+packages/rpgmaker-event-dsl test: Error: Test timed out in 10000ms.
+packages/rpgmaker-event-dsl test: If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+packages/rpgmaker-event-dsl test:  ❯ test/support/asset-evidence.ts:19:5
+packages/rpgmaker-event-dsl test:      17| export function createAssetTest(options: { ownerTicket: string; testSo…
+packages/rpgmaker-event-dsl test:      18|   return (name: string, verify: () => Promise<void>): void => {
+packages/rpgmaker-event-dsl test:      19|     it(name, async () => {
+packages/rpgmaker-event-dsl test:        |     ^
+packages/rpgmaker-event-dsl test:      20|       const id = name.slice(0, name.indexOf(":"));
+packages/rpgmaker-event-dsl test:      21|       const startedAt = new Date().toISOString();
+packages/rpgmaker-event-dsl test:  ❯ test/asset-diagnostics-workspace.test.ts:561:3
+packages/rpgmaker-event-dsl test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+packages/rpgmaker-event-dsl test:  Test Files  1 failed | 102 passed (103)
+packages/rpgmaker-event-dsl test:       Tests  1 failed | 3408 passed (3409)
+packages/rpgmaker-event-dsl test:    Start at  20:56:21
+packages/rpgmaker-event-dsl test:    Duration  2380.17s (transform 3.21s, setup 0ms, import 44.98s, tests 4698.07s, environment 8ms)
+packages/rpgmaker-event-dsl test: Failed
+M:\Shuen\Codex\asset-validation-17-acceptance\packages\rpgmaker-event-dsl:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  rpgmaker-event-dsl@0.1.2 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.

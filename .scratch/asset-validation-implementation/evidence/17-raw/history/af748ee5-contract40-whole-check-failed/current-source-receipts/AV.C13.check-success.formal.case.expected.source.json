@@ -1,0 +1,417 @@
+{
+  "id": "AV.C13.check-success.formal.case.expected",
+  "ownerTicket": "13",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:25:45.267Z",
+  "completedAt": "2026-11-02T13:25:47.313Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import type { WorkflowInput } from \"../types/workflow-input.js\";\nimport {commonEvent,mapEvent,showPicture,imageAsset,callCommonEvent,commonEventRef,showAnimation,animationRef,changeTileset,tilesetRef} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Workflow\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[showAnimation({target:{kind:\"runtimeSelector\",scope:\"character\",target:\"player\"},animation:animationRef({id:1}),wait:false}),changeTileset({tileset:tilesetRef({id:1})})]}]});",
+      "project": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Map"
+          }
+        ],
+        "Map001.json": {
+          "id": 1,
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": [
+            null
+          ],
+          "custom": {
+            "keep": [
+              "opaque",
+              null
+            ]
+          }
+        },
+        "Animations.json": [
+          null,
+          {
+            "id": 1,
+            "name": "External Animation",
+            "animation1Name": "OriginalFirst",
+            "animation2Name": "",
+            "timings": [],
+            "custom": {
+              "keep": [
+                "animation",
+                null,
+                7
+              ]
+            }
+          }
+        ],
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "External Tileset",
+            "tilesetNames": [
+              "OriginalTile",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            "custom": {
+              "keep": [
+                "tileset",
+                null,
+                9
+              ]
+            }
+          }
+        ],
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Unrelated Actor Original",
+            "characterName": "UnselectedCharacter",
+            "battlerName": "UnselectedBattler",
+            "custom": {
+              "unknown": [
+                null,
+                "kept"
+              ]
+            }
+          }
+        ]
+      },
+      "defaultDirectFixtureOrigin": "CommonEvents.json[10].list[0].parameters[1] (directSource only; overrides have their own literal assertions)",
+      "policy": "one current pass; no media input persistence"
+    },
+    {
+      "operation": {
+        "operation": "check"
+      },
+      "actual": {
+        "exit": {
+          "exitCode": 0,
+          "signal": null
+        },
+        "result": {
+          "kind": "result",
+          "ok": true
+        },
+        "text": "",
+        "messages": [
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img\\animations"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img\\animations\\OriginalFirst.png"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img\\tilesets"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img\\tilesets"
+          },
+          {
+            "kind": "asset-query",
+            "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img\\tilesets\\OriginalTile.png"
+          },
+          {
+            "kind": "result",
+            "ok": true
+          }
+        ],
+        "process": {
+          "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+          "arguments": [
+            "--import",
+            "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+            "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\test\\support\\workspace-operation-child.mjs"
+          ],
+          "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces",
+          "startedAt": "2026-11-02T13:25:45.361Z",
+          "completedAt": "2026-11-02T13:25:47.259Z",
+          "exitCode": 0,
+          "signal": null,
+          "stdout": "",
+          "stderr": "",
+          "ipcMessages": [
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img\\animations"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img\\animations"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img\\animations\\OriginalFirst.png"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img\\tilesets"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img\\tilesets"
+            },
+            {
+              "kind": "asset-query",
+              "path": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-workflow-readonly-success-VKg0FM\\最小 Workspace with spaces\\Game\\img\\tilesets\\OriginalTile.png"
+            },
+            {
+              "kind": "result",
+              "ok": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "outcome": "success",
+      "externalProject": {
+        "Animations.json": [
+          null,
+          {
+            "id": 1,
+            "name": "External Animation",
+            "animation1Name": "OriginalFirst",
+            "animation2Name": "",
+            "timings": [],
+            "custom": {
+              "keep": [
+                "animation",
+                null,
+                7
+              ]
+            }
+          }
+        ],
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "External Tileset",
+            "tilesetNames": [
+              "OriginalTile",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            "custom": {
+              "keep": [
+                "tileset",
+                null,
+                9
+              ]
+            }
+          }
+        ],
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Unrelated Actor Original",
+            "characterName": "UnselectedCharacter",
+            "battlerName": "UnselectedBattler",
+            "custom": {
+              "unknown": [
+                null,
+                "kept"
+              ]
+            }
+          }
+        ]
+      },
+      "before": {
+        "config": "{\n  \"projectRoot\": \"./Game\",\n  \"scriptEnabled\": false,\n  \"sourceRoot\": \"src\",\n  \"sourceInclude\": [\n    \"**/*.events.ts\",\n    \"**/*.dsl.ts\"\n  ],\n  \"sourceExclude\": [\n    \"**/*.test.ts\",\n    \"**/*.spec.ts\",\n    \"**/*.d.ts\"\n  ],\n  \"assetCheckExceptions\": []\n}\n",
+        "source": {
+          "workflow.events.ts": "aW1wb3J0IHR5cGUgeyBXb3JrZmxvd0lucHV0IH0gZnJvbSAiLi4vdHlwZXMvd29ya2Zsb3ctaW5wdXQuanMiOwppbXBvcnQge2NvbW1vbkV2ZW50LG1hcEV2ZW50LHNob3dQaWN0dXJlLGltYWdlQXNzZXQsY2FsbENvbW1vbkV2ZW50LGNvbW1vbkV2ZW50UmVmLHNob3dBbmltYXRpb24sYW5pbWF0aW9uUmVmLGNoYW5nZVRpbGVzZXQsdGlsZXNldFJlZn0gZnJvbSAicnBnbWFrZXItZXZlbnQtZHNsIjsKZXhwb3J0IGNvbnN0IGV2ZW50PW1hcEV2ZW50KHttYXBJZDoxLGlkOjEsbmFtZToiV29ya2Zsb3ciLHg6MCx5OjAscGFnZXM6W3tjb25kaXRpb25zOnt9LHRyaWdnZXI6ImFjdGlvbiIsY29tbWFuZHM6W3Nob3dBbmltYXRpb24oe3RhcmdldDp7a2luZDoicnVudGltZVNlbGVjdG9yIixzY29wZToiY2hhcmFjdGVyIix0YXJnZXQ6InBsYXllciJ9LGFuaW1hdGlvbjphbmltYXRpb25SZWYoe2lkOjF9KSx3YWl0OmZhbHNlfSksY2hhbmdlVGlsZXNldCh7dGlsZXNldDp0aWxlc2V0UmVmKHtpZDoxfSl9KV19XX0pOw=="
+        },
+        "dependencies": "{\"name\":\"rpgmaker-event-dsl\",\"type\":\"module\",\"exports\":{\".\":{\"types\":\"./src/index.ts\"}}}",
+        "authoredTypes": {
+          "workflow-input.ts": "ZXhwb3J0IHR5cGUgV29ya2Zsb3dJbnB1dCA9IHsgcmVhZG9ubHkgd29ya2Zsb3c6ICJhc3NldCB2YWxpZGF0aW9uIiB9Owo="
+        },
+        "publicTypes": "export const runtimeBaseline = {\n  language: \"typescript-strict\",\n  moduleSystem: \"esm-nodenext\",\n  packageManager: \"pnpm\",\n  runtime: \"node-22-lts\",\n} as const;\n\nexport * from \"./authoring/index.js\";\n\nexport type RuntimeBaseline = typeof runtimeBaseline;\n",
+        "package": "{\"type\":\"module\"}\n",
+        "project": {
+          "audio/": "directory",
+          "audio/se/": "directory",
+          "data/": "directory",
+          "data/Actors.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlVucmVsYXRlZCBBY3RvciBPcmlnaW5hbCIsImNoYXJhY3Rlck5hbWUiOiJVbnNlbGVjdGVkQ2hhcmFjdGVyIiwiYmF0dGxlck5hbWUiOiJVbnNlbGVjdGVkQmF0dGxlciIsImN1c3RvbSI6eyJ1bmtub3duIjpbbnVsbCwia2VwdCJdfX1d",
+          "data/Animations.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV4dGVybmFsIEFuaW1hdGlvbiIsImFuaW1hdGlvbjFOYW1lIjoiT3JpZ2luYWxGaXJzdCIsImFuaW1hdGlvbjJOYW1lIjoiIiwidGltaW5ncyI6W10sImN1c3RvbSI6eyJrZWVwIjpbImFuaW1hdGlvbiIsbnVsbCw3XX19XQ==",
+          "data/Armors.json": "W251bGxd",
+          "data/Classes.json": "W251bGxd",
+          "data/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+          "data/Enemies.json": "W251bGxd",
+          "data/Items.json": "W251bGxd",
+          "data/Map001.json": "eyJpZCI6MSwid2lkdGgiOjEsImhlaWdodCI6MSwidGlsZXNldElkIjoxLCJldmVudHMiOltudWxsXSwiY3VzdG9tIjp7ImtlZXAiOlsib3BhcXVlIixudWxsXX19",
+          "data/MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6Ik1hcCJ9XQ==",
+          "data/Skills.json": "W251bGxd",
+          "data/States.json": "W251bGxd",
+          "data/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX19",
+          "data/Tilesets.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV4dGVybmFsIFRpbGVzZXQiLCJ0aWxlc2V0TmFtZXMiOlsiT3JpZ2luYWxUaWxlIiwiIiwiIiwiIiwiIiwiIiwiIiwiIiwiIl0sImN1c3RvbSI6eyJrZWVwIjpbInRpbGVzZXQiLG51bGwsOV19fV0=",
+          "data/Troops.json": "W251bGxd",
+          "data/Weapons.json": "W251bGxd",
+          "Game.rpgproject": "UlBHTVYgMS42LjEK",
+          "img/": "directory",
+          "img/animations/": "directory",
+          "img/animations/OriginalFirst.png": "aW1hZ2UgYnl0ZXM=",
+          "img/characters/": "directory",
+          "img/pictures/": "directory",
+          "img/tilesets/": "directory",
+          "img/tilesets/OriginalTile.png": "dGlsZXNldCBieXRlcw==",
+          "movies/": "directory"
+        },
+        "state": {
+          "project-data-snapshot/": "directory",
+          "project-data-snapshot/Actors.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlVucmVsYXRlZCBBY3RvciBPcmlnaW5hbCIsImNoYXJhY3Rlck5hbWUiOiJVbnNlbGVjdGVkQ2hhcmFjdGVyIiwiYmF0dGxlck5hbWUiOiJVbnNlbGVjdGVkQmF0dGxlciIsImN1c3RvbSI6eyJ1bmtub3duIjpbbnVsbCwia2VwdCJdfX1d",
+          "project-data-snapshot/Animations.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV4dGVybmFsIEFuaW1hdGlvbiIsImFuaW1hdGlvbjFOYW1lIjoiT3JpZ2luYWxGaXJzdCIsImFuaW1hdGlvbjJOYW1lIjoiIiwidGltaW5ncyI6W10sImN1c3RvbSI6eyJrZWVwIjpbImFuaW1hdGlvbiIsbnVsbCw3XX19XQ==",
+          "project-data-snapshot/Armors.json": "W251bGxd",
+          "project-data-snapshot/Classes.json": "W251bGxd",
+          "project-data-snapshot/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+          "project-data-snapshot/Enemies.json": "W251bGxd",
+          "project-data-snapshot/Items.json": "W251bGxd",
+          "project-data-snapshot/Map001.json": "eyJpZCI6MSwid2lkdGgiOjEsImhlaWdodCI6MSwidGlsZXNldElkIjoxLCJldmVudHMiOltudWxsXSwiY3VzdG9tIjp7ImtlZXAiOlsib3BhcXVlIixudWxsXX19",
+          "project-data-snapshot/MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6Ik1hcCJ9XQ==",
+          "project-data-snapshot/Skills.json": "W251bGxd",
+          "project-data-snapshot/States.json": "W251bGxd",
+          "project-data-snapshot/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX19",
+          "project-data-snapshot/Tilesets.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV4dGVybmFsIFRpbGVzZXQiLCJ0aWxlc2V0TmFtZXMiOlsiT3JpZ2luYWxUaWxlIiwiIiwiIiwiIiwiIiwiIiwiIiwiIiwiIl0sImN1c3RvbSI6eyJrZWVwIjpbInRpbGVzZXQiLG51bGwsOV19fV0=",
+          "project-data-snapshot/Troops.json": "W251bGxd",
+          "project-data-snapshot/Weapons.json": "W251bGxd",
+          "sync-manifest.json": "ewogICJ2ZXJzaW9uIjoxLAogICJwcm9qZWN0Um9vdEJpbmRpbmciOiJjOlxcdXNlcnNcXHNodWVuXFxhcHBkYXRhXFxsb2NhbFxcdGVtcFxccnBnbWFrZXItZXZlbnQtZHNsLXdpbmRvd3NcXGFzc2V0LXdvcmtmbG93LXJlYWRvbmx5LXN1Y2Nlc3MtdmtnMGZtXFzmnIDlsI8gd29ya3NwYWNlIHdpdGggc3BhY2VzXFxnYW1lIiwKICAic25hcHNob3RGaWxlcyI6WwogICAgewogICAgICAiaGFzaCI6IjVjODY5M2ZhYjA4MjY4NWI5NTllMmQ2YTM0ZGM2OGNkMGZiOGQ2OGJhZTI0MzJkMTZmMWUyZDE3NGE4MTA3OTgiLAogICAgICAicmVsYXRpdmVQYXRoIjoiQWN0b3JzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6Ijc2YjQ3YjJiMGRlNzMxMGFjYmM2NjE5OWJjZDUxMzlkOTcyNjM0ZGJmMWYyMWM3ZTRjOWVjYzEzMGY5ZDgyMzciLAogICAgICAicmVsYXRpdmVQYXRoIjoiQW5pbWF0aW9ucy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IkFybW9ycy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IkNsYXNzZXMuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiNzhkZGUwYjk0M2RiOWM5MTljZGZkMGMwMzcxOGM2MjYzZTMwOGM0NWI5NjU2MTQ0N2M2ZWZkMjBkYzZlYjIwMyIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJDb21tb25FdmVudHMuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiMWQ4ZmM2Y2ViMWY5NGM2MzI2ZDZkNTQ4M2QyNThmY2IyZTE3OWU5ODY5MzI1YjI0NWQxMDVjMjIxOWJmNjlmZCIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJFbmVtaWVzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiSXRlbXMuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiNGI5NjJiNGQzNWMxNWMxZDdlMWRlMjMzNzZlOGJmYzgwZDFlOTZhYWFmMTQ5NDdlODZjZTc4MWM0ZGMwNDdlNSIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJNYXAwMDEuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiNjU3OWU1ODM5ZGJhNzkxMTJhNWQ4NDhlZDZkNjUxNGY4NjNkOGNiNDI1ZGU0MjNiNmE3ODFmZDVhZTBkNjgxNiIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJNYXBJbmZvcy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlNraWxscy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlN0YXRlcy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIzMzRlM2MwMTA3NDc0OWUyMTBhMmQ5Yjk1MTg1YWVjNThjNzA4M2M0MWM1MTMxYWRlNWNiMDUwNzFkYjIzNjA2IiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlN5c3RlbS5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiI0YTkyZjlhYWQwNDNkODNmOWFjNDUxMTgxNmQ2M2YyNTA2MmYzMDc1ZTc1MzMyM2Q0MzU5MTQ2MWU5YTYwZTNhIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlRpbGVzZXRzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiVHJvb3BzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiV2VhcG9ucy5qc29uIgogICAgfQogIF0KfQo="
+        }
+      },
+      "after": {
+        "config": "{\n  \"projectRoot\": \"./Game\",\n  \"scriptEnabled\": false,\n  \"sourceRoot\": \"src\",\n  \"sourceInclude\": [\n    \"**/*.events.ts\",\n    \"**/*.dsl.ts\"\n  ],\n  \"sourceExclude\": [\n    \"**/*.test.ts\",\n    \"**/*.spec.ts\",\n    \"**/*.d.ts\"\n  ],\n  \"assetCheckExceptions\": []\n}\n",
+        "source": {
+          "workflow.events.ts": "aW1wb3J0IHR5cGUgeyBXb3JrZmxvd0lucHV0IH0gZnJvbSAiLi4vdHlwZXMvd29ya2Zsb3ctaW5wdXQuanMiOwppbXBvcnQge2NvbW1vbkV2ZW50LG1hcEV2ZW50LHNob3dQaWN0dXJlLGltYWdlQXNzZXQsY2FsbENvbW1vbkV2ZW50LGNvbW1vbkV2ZW50UmVmLHNob3dBbmltYXRpb24sYW5pbWF0aW9uUmVmLGNoYW5nZVRpbGVzZXQsdGlsZXNldFJlZn0gZnJvbSAicnBnbWFrZXItZXZlbnQtZHNsIjsKZXhwb3J0IGNvbnN0IGV2ZW50PW1hcEV2ZW50KHttYXBJZDoxLGlkOjEsbmFtZToiV29ya2Zsb3ciLHg6MCx5OjAscGFnZXM6W3tjb25kaXRpb25zOnt9LHRyaWdnZXI6ImFjdGlvbiIsY29tbWFuZHM6W3Nob3dBbmltYXRpb24oe3RhcmdldDp7a2luZDoicnVudGltZVNlbGVjdG9yIixzY29wZToiY2hhcmFjdGVyIix0YXJnZXQ6InBsYXllciJ9LGFuaW1hdGlvbjphbmltYXRpb25SZWYoe2lkOjF9KSx3YWl0OmZhbHNlfSksY2hhbmdlVGlsZXNldCh7dGlsZXNldDp0aWxlc2V0UmVmKHtpZDoxfSl9KV19XX0pOw=="
+        },
+        "dependencies": "{\"name\":\"rpgmaker-event-dsl\",\"type\":\"module\",\"exports\":{\".\":{\"types\":\"./src/index.ts\"}}}",
+        "authoredTypes": {
+          "workflow-input.ts": "ZXhwb3J0IHR5cGUgV29ya2Zsb3dJbnB1dCA9IHsgcmVhZG9ubHkgd29ya2Zsb3c6ICJhc3NldCB2YWxpZGF0aW9uIiB9Owo="
+        },
+        "publicTypes": "export const runtimeBaseline = {\n  language: \"typescript-strict\",\n  moduleSystem: \"esm-nodenext\",\n  packageManager: \"pnpm\",\n  runtime: \"node-22-lts\",\n} as const;\n\nexport * from \"./authoring/index.js\";\n\nexport type RuntimeBaseline = typeof runtimeBaseline;\n",
+        "package": "{\"type\":\"module\"}\n",
+        "project": {
+          "audio/": "directory",
+          "audio/se/": "directory",
+          "data/": "directory",
+          "data/Actors.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlVucmVsYXRlZCBBY3RvciBPcmlnaW5hbCIsImNoYXJhY3Rlck5hbWUiOiJVbnNlbGVjdGVkQ2hhcmFjdGVyIiwiYmF0dGxlck5hbWUiOiJVbnNlbGVjdGVkQmF0dGxlciIsImN1c3RvbSI6eyJ1bmtub3duIjpbbnVsbCwia2VwdCJdfX1d",
+          "data/Animations.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV4dGVybmFsIEFuaW1hdGlvbiIsImFuaW1hdGlvbjFOYW1lIjoiT3JpZ2luYWxGaXJzdCIsImFuaW1hdGlvbjJOYW1lIjoiIiwidGltaW5ncyI6W10sImN1c3RvbSI6eyJrZWVwIjpbImFuaW1hdGlvbiIsbnVsbCw3XX19XQ==",
+          "data/Armors.json": "W251bGxd",
+          "data/Classes.json": "W251bGxd",
+          "data/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+          "data/Enemies.json": "W251bGxd",
+          "data/Items.json": "W251bGxd",
+          "data/Map001.json": "eyJpZCI6MSwid2lkdGgiOjEsImhlaWdodCI6MSwidGlsZXNldElkIjoxLCJldmVudHMiOltudWxsXSwiY3VzdG9tIjp7ImtlZXAiOlsib3BhcXVlIixudWxsXX19",
+          "data/MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6Ik1hcCJ9XQ==",
+          "data/Skills.json": "W251bGxd",
+          "data/States.json": "W251bGxd",
+          "data/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX19",
+          "data/Tilesets.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV4dGVybmFsIFRpbGVzZXQiLCJ0aWxlc2V0TmFtZXMiOlsiT3JpZ2luYWxUaWxlIiwiIiwiIiwiIiwiIiwiIiwiIiwiIiwiIl0sImN1c3RvbSI6eyJrZWVwIjpbInRpbGVzZXQiLG51bGwsOV19fV0=",
+          "data/Troops.json": "W251bGxd",
+          "data/Weapons.json": "W251bGxd",
+          "Game.rpgproject": "UlBHTVYgMS42LjEK",
+          "img/": "directory",
+          "img/animations/": "directory",
+          "img/animations/OriginalFirst.png": "aW1hZ2UgYnl0ZXM=",
+          "img/characters/": "directory",
+          "img/pictures/": "directory",
+          "img/tilesets/": "directory",
+          "img/tilesets/OriginalTile.png": "dGlsZXNldCBieXRlcw==",
+          "movies/": "directory"
+        },
+        "state": {
+          "project-data-snapshot/": "directory",
+          "project-data-snapshot/Actors.json": "W251bGwseyJpZCI6MSwibmFtZSI6IlVucmVsYXRlZCBBY3RvciBPcmlnaW5hbCIsImNoYXJhY3Rlck5hbWUiOiJVbnNlbGVjdGVkQ2hhcmFjdGVyIiwiYmF0dGxlck5hbWUiOiJVbnNlbGVjdGVkQmF0dGxlciIsImN1c3RvbSI6eyJ1bmtub3duIjpbbnVsbCwia2VwdCJdfX1d",
+          "project-data-snapshot/Animations.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV4dGVybmFsIEFuaW1hdGlvbiIsImFuaW1hdGlvbjFOYW1lIjoiT3JpZ2luYWxGaXJzdCIsImFuaW1hdGlvbjJOYW1lIjoiIiwidGltaW5ncyI6W10sImN1c3RvbSI6eyJrZWVwIjpbImFuaW1hdGlvbiIsbnVsbCw3XX19XQ==",
+          "project-data-snapshot/Armors.json": "W251bGxd",
+          "project-data-snapshot/Classes.json": "W251bGxd",
+          "project-data-snapshot/CommonEvents.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV2aWRlbmNlIENvbW1vbiBFdmVudCIsInRyaWdnZXIiOjAsInN3aXRjaElkIjoxLCJsaXN0IjpbeyJjb2RlIjoxMDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiLDAsMSwwXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTeW50aGV0aWMgQ1JccmtlcHQiXX0seyJjb2RlIjo0MDEsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjoxMDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyJTZWxmLWF1dGhvcmVkIGZpeHR1cmUiXX0seyJjb2RlIjo0MDgsImluZGVudCI6MCwicGFyYW1ldGVycyI6WyIiXX0seyJjb2RlIjowLCJpbmRlbnQiOjAsInBhcmFtZXRlcnMiOltdfV19XQ==",
+          "project-data-snapshot/Enemies.json": "W251bGxd",
+          "project-data-snapshot/Items.json": "W251bGxd",
+          "project-data-snapshot/Map001.json": "eyJpZCI6MSwid2lkdGgiOjEsImhlaWdodCI6MSwidGlsZXNldElkIjoxLCJldmVudHMiOltudWxsXSwiY3VzdG9tIjp7ImtlZXAiOlsib3BhcXVlIixudWxsXX19",
+          "project-data-snapshot/MapInfos.json": "W251bGwseyJpZCI6MSwibmFtZSI6Ik1hcCJ9XQ==",
+          "project-data-snapshot/Skills.json": "W251bGxd",
+          "project-data-snapshot/States.json": "W251bGxd",
+          "project-data-snapshot/System.json": "eyJnYW1lVGl0bGUiOiJTeW50aGV0aWMgZXZpZGVuY2UgY29udGV4dCIsInN3aXRjaGVzIjpbIiIsIlNhdmVkIHN3aXRjaCJdLCJ2YXJpYWJsZXMiOlsiIl0sImZpeHR1cmVPcmlnaW4iOnsicmV0YWluZWROdWxsIjpudWxsLCJyZXRhaW5lZEFycmF5IjpbXX19",
+          "project-data-snapshot/Tilesets.json": "W251bGwseyJpZCI6MSwibmFtZSI6IkV4dGVybmFsIFRpbGVzZXQiLCJ0aWxlc2V0TmFtZXMiOlsiT3JpZ2luYWxUaWxlIiwiIiwiIiwiIiwiIiwiIiwiIiwiIiwiIl0sImN1c3RvbSI6eyJrZWVwIjpbInRpbGVzZXQiLG51bGwsOV19fV0=",
+          "project-data-snapshot/Troops.json": "W251bGxd",
+          "project-data-snapshot/Weapons.json": "W251bGxd",
+          "sync-manifest.json": "ewogICJ2ZXJzaW9uIjoxLAogICJwcm9qZWN0Um9vdEJpbmRpbmciOiJjOlxcdXNlcnNcXHNodWVuXFxhcHBkYXRhXFxsb2NhbFxcdGVtcFxccnBnbWFrZXItZXZlbnQtZHNsLXdpbmRvd3NcXGFzc2V0LXdvcmtmbG93LXJlYWRvbmx5LXN1Y2Nlc3MtdmtnMGZtXFzmnIDlsI8gd29ya3NwYWNlIHdpdGggc3BhY2VzXFxnYW1lIiwKICAic25hcHNob3RGaWxlcyI6WwogICAgewogICAgICAiaGFzaCI6IjVjODY5M2ZhYjA4MjY4NWI5NTllMmQ2YTM0ZGM2OGNkMGZiOGQ2OGJhZTI0MzJkMTZmMWUyZDE3NGE4MTA3OTgiLAogICAgICAicmVsYXRpdmVQYXRoIjoiQWN0b3JzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6Ijc2YjQ3YjJiMGRlNzMxMGFjYmM2NjE5OWJjZDUxMzlkOTcyNjM0ZGJmMWYyMWM3ZTRjOWVjYzEzMGY5ZDgyMzciLAogICAgICAicmVsYXRpdmVQYXRoIjoiQW5pbWF0aW9ucy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IkFybW9ycy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IkNsYXNzZXMuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiNzhkZGUwYjk0M2RiOWM5MTljZGZkMGMwMzcxOGM2MjYzZTMwOGM0NWI5NjU2MTQ0N2M2ZWZkMjBkYzZlYjIwMyIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJDb21tb25FdmVudHMuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiMWQ4ZmM2Y2ViMWY5NGM2MzI2ZDZkNTQ4M2QyNThmY2IyZTE3OWU5ODY5MzI1YjI0NWQxMDVjMjIxOWJmNjlmZCIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJFbmVtaWVzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiSXRlbXMuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiNGI5NjJiNGQzNWMxNWMxZDdlMWRlMjMzNzZlOGJmYzgwZDFlOTZhYWFmMTQ5NDdlODZjZTc4MWM0ZGMwNDdlNSIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJNYXAwMDEuanNvbiIKICAgIH0sCiAgICB7CiAgICAgICJoYXNoIjoiNjU3OWU1ODM5ZGJhNzkxMTJhNWQ4NDhlZDZkNjUxNGY4NjNkOGNiNDI1ZGU0MjNiNmE3ODFmZDVhZTBkNjgxNiIsCiAgICAgICJyZWxhdGl2ZVBhdGgiOiJNYXBJbmZvcy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlNraWxscy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIxZDhmYzZjZWIxZjk0YzYzMjZkNmQ1NDgzZDI1OGZjYjJlMTc5ZTk4NjkzMjViMjQ1ZDEwNWMyMjE5YmY2OWZkIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlN0YXRlcy5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiIzMzRlM2MwMTA3NDc0OWUyMTBhMmQ5Yjk1MTg1YWVjNThjNzA4M2M0MWM1MTMxYWRlNWNiMDUwNzFkYjIzNjA2IiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlN5c3RlbS5qc29uIgogICAgfSwKICAgIHsKICAgICAgImhhc2giOiI0YTkyZjlhYWQwNDNkODNmOWFjNDUxMTgxNmQ2M2YyNTA2MmYzMDc1ZTc1MzMyM2Q0MzU5MTQ2MWU5YTYwZTNhIiwKICAgICAgInJlbGF0aXZlUGF0aCI6IlRpbGVzZXRzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiVHJvb3BzLmpzb24iCiAgICB9LAogICAgewogICAgICAiaGFzaCI6IjFkOGZjNmNlYjFmOTRjNjMyNmQ2ZDU0ODNkMjU4ZmNiMmUxNzllOTg2OTMyNWIyNDVkMTA1YzIyMTliZjY5ZmQiLAogICAgICAicmVsYXRpdmVQYXRoIjoiV2VhcG9ucy5qc29uIgogICAgfQogIF0KfQo="
+        }
+      },
+      "expected": "all carriers and named external fields exactly retained; no media destination added"
+    }
+  ],
+  "expected": {
+    "description": "Check preserves external necessary fields original names unknown fields and media bytes without copies or backups",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-workflow-workspace.test.ts",
+    "sha256": "674ecaa8bf740225e8fa3615ba3dbdf107807fdd5dc660f3b89f90ddf3f8767a",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-workflow-readonly-${outcome}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepareOwnership(sandbox);\n\t\tif (outcome === \"failure\") await (0,__vite_ssr_import_0__.rm)((0,__vite_ssr_import_1__.join)(root, relationMedia(\"animation\", \"OriginalFirst\")));\n\t\tconst before = await observe(root);\n\t\tconst result = await operation(sandbox, { operation: \"check\" });\n\t\t(0,__vite_ssr_import_2__.expect)(result.exit.exitCode).toBe(outcome === \"success\" ? 0 : 1);\n\t\tif (outcome === \"failure\") {\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.text).toContain(\"\\\"OriginalFirst\\\"\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.text).toContain(\"Animations.json[1].animation1Name\");\n\t\t};\n\t\t(0,__vite_ssr_import_2__.expect)(await observe(root)).toEqual(before);\n\t\tfor (const [file, value] of Object.entries(externalProject)) {\n\t\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(await (0,__vite_ssr_import_0__.readFile)((0,__vite_ssr_import_1__.join)(root, \"Game/data\", file), \"utf8\"))).toEqual(value);\n\t\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(await (0,__vite_ssr_import_0__.readFile)((0,__vite_ssr_import_1__.join)(root, \".rpgmaker-event-dsl/project-data-snapshot\", file), \"utf8\"))).toEqual(value);\n\t\t};\n\t\t(0,__vite_ssr_import_2__.expect)(before.state?.[\"generated-project-data/\"]).toBeUndefined();\n\t\t(0,__vite_ssr_import_2__.expect)(Object.keys(before.state ?? {}).filter((key) => /\\.(png|ogg|webm)$/u.test(key) || key.includes(\"backup\"))).toEqual([]);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\toutcome,\n\t\t\texternalProject,\n\t\t\tbefore,\n\t\t\tafter: await observe(root),\n\t\t\texpected: \"all carriers and named external fields exactly retained; no media destination added\"\n\t\t});\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

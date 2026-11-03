@@ -1,0 +1,320 @@
+{
+  "base": "29f19dfd3ed943df2e0c9ae2b7c446ada248d501",
+  "implementationRevision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+  "f07OriginalFragment": {
+    "marker": "function unsupportedNameCase(",
+    "sha256": "21b202d79f5ce591d1b99d72381301cc7c7809c5ff2d11bacdc6ab4833e4f216",
+    "bytes": 3168,
+    "unchanged": true,
+    "meaning": "Original F07 callbacks, IDs, transcribed inputs and assertions are byte-identical; supplementary tests precede this fragment."
+  },
+  "originalLedger": {
+    "path": ".scratch/asset-validation-implementation/evidence/03-file-observation-acceptance.json",
+    "bytes": 1169434,
+    "sha256": "a8652ef3feda52e3677af8d8d52f9fd3fbbedbbf4a1dacfea453af802e14d071",
+    "passed": 332,
+    "pending": 6,
+    "unchanged": true
+  },
+  "independentPlan": {
+    "path": "M:/Shuen/Codex/asset-validation-notes/final-canonical-id-plan.json",
+    "sha256": "869c6752eedb1997e0ccbca5e3bce81c74122ce68f4600c970822ce37b9841b6",
+    "counts": {
+      "families": 97,
+      "independentSemanticObligations": 1209,
+      "automated": 1195,
+      "native": 14,
+      "sourceBuiltIsReceiptAxis": true,
+      "exactAuthorityTokenIds": 1084,
+      "planEncodedF07SuffixIdsRequiringOneToOneSpellingMap": 125,
+      "perGroup": {
+        "A": 86,
+        "B": 244,
+        "C": 449,
+        "F": 201,
+        "D": 99,
+        "W": 116,
+        "N": 14
+      },
+      "perFamily": {
+        "A01": 2,
+        "A02": 4,
+        "A03": 4,
+        "A04": 4,
+        "A05": 4,
+        "A06": 4,
+        "A07": 4,
+        "A08": 4,
+        "A09": 4,
+        "A10": 4,
+        "A11": 4,
+        "A12": 4,
+        "A13": 8,
+        "A14": 4,
+        "A15": 12,
+        "A16": 4,
+        "A17": 6,
+        "A18": 6,
+        "B01": 32,
+        "B02": 36,
+        "B03": 16,
+        "B04": 8,
+        "B05": 16,
+        "B06": 16,
+        "B07": 4,
+        "B08": 48,
+        "B09": 8,
+        "B10": 8,
+        "B11": 4,
+        "B12": 12,
+        "B13": 16,
+        "B14": 8,
+        "B15": 4,
+        "B16": 8,
+        "C01": 5,
+        "C02": 3,
+        "C03": 6,
+        "C04": 5,
+        "C05": 6,
+        "C06": 90,
+        "C07": 304,
+        "C08": 9,
+        "C09": 2,
+        "C10": 4,
+        "C11": 5,
+        "C12": 7,
+        "C13": 3,
+        "F01": 6,
+        "F02": 6,
+        "F03": 6,
+        "F04": 8,
+        "F05": 2,
+        "F06": 7,
+        "F07": 130,
+        "F08": 4,
+        "F09": 7,
+        "F10": 3,
+        "F11": 3,
+        "F12": 2,
+        "F13": 12,
+        "F14": 5,
+        "D01": 27,
+        "D02": 27,
+        "D03": 8,
+        "D04": 9,
+        "D05": 4,
+        "D06": 3,
+        "D07": 3,
+        "D08": 4,
+        "D09": 7,
+        "D10": 7,
+        "W01": 18,
+        "W02": 5,
+        "W03": 3,
+        "W04": 3,
+        "W05": 3,
+        "W06": 3,
+        "W07": 3,
+        "W08": 2,
+        "W09": 3,
+        "W10": 5,
+        "W11": 21,
+        "W12": 2,
+        "W13": 16,
+        "W14": 5,
+        "W15": 6,
+        "W16": 2,
+        "W17": 4,
+        "W18": 3,
+        "W19": 5,
+        "W20": 4,
+        "N01": 3,
+        "N02": 4,
+        "N03": 2,
+        "N04": 2,
+        "N05": 2,
+        "N06": 1
+      }
+    },
+    "unchanged": true
+  },
+  "probes": [
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/03-device-space/device-name-space-probe.ps1",
+      "sourcePath": "M:/Shuen/Codex/asset-validation-notes/device-name-space-probe.ps1",
+      "bytes": 1547,
+      "sha256": "46fa1219a1bed98ff6d6f1da18db190d2618419afca0afca49e12a227f995979",
+      "gitBlob": "fe6818c3b983dd6a8f8d23eab5220bca38b2c951"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/03-device-space/device-name-space-probe.json",
+      "sourcePath": "M:/Shuen/Codex/asset-validation-notes/device-name-space-probe.json",
+      "bytes": 5084,
+      "sha256": "89608ad96c7fc58b25db12f057db76bf1163a3495a8b7052c28921281a65edbc",
+      "gitBlob": "6d817fa81a7f0fc312627a267078135f1de20624"
+    }
+  ],
+  "gitInputs": [
+    {
+      "path": ".gitattributes",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 5002,
+      "sha256": "e6b6810e61fa025c8c174ad3fc4fe821602c1b03f9fa82b5ea26f3e4692a110e",
+      "gitBlob": "b963c0ee73eede5defb2235c68a242acb0419bd8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/README.md",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 73228,
+      "sha256": "910dc37ccbb537c306d1b49a8d8fb7b2f03540ba0683de0dfd4c1bd56b0ed7e6",
+      "gitBlob": "8b17671fcb722af15974ba248f5b1dc154326146"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/asset-files.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 4397,
+      "sha256": "c829c5e98d3da59623766c0ac6e509972377452a8e053a9626655e9fcb7d1d14",
+      "gitBlob": "425b5018c011bf417859c042c0d72007fd574821"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 5834,
+      "sha256": "03b593507b5092a2c1a73cbd03df60d3625eac5f601e7f8d13891dcf8d94fa9a",
+      "gitBlob": "01313b4013f3d7934a9a21e14fb12626bfd099f9"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/asset-check.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 7402,
+      "sha256": "2fbf2c206b3dc19a37dbf8b3891f08bc4fc3e90ce8d971e60059a05ee808540b",
+      "gitBlob": "4fa93a1beab644ffb96c8d7a6ce4fc9be32d2e4a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/config.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 5649,
+      "sha256": "de09ca8f9af85694e990dd524d2050ff18e3bd41126306b978216a289cd2d59b",
+      "gitBlob": "e6e5879e0a490d0715ce2ac03611eb9dc18f9f15"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/operations.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 23346,
+      "sha256": "3f603d9b4dcf241e2971c34f2dc77406d474f67aaa9ec86068b757d4af4e8bb4",
+      "gitBlob": "0ff8722335013abc76437fecd995459dc71b4c3c"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-report.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 4275,
+      "sha256": "1dc3d068f95133e24b3c3f53efbf87a74fb02129dc60cc51ac72a3eb4e84fc37",
+      "gitBlob": "4b563e6458d4b0aacc194ea11f033abea478113f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-policy.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 546,
+      "sha256": "07728785f78f6bcde0a27dd4b4ca708d1edd2b240f2f11684648387819cbd1f1",
+      "gitBlob": "d1db070d9f037bdd46be518291f29f9f6a2f4e8e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-exceptions.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 1243,
+      "sha256": "a791523054810880a9bd2c7ffca444c1e8a08750f5a30186e29c2431cc6303e3",
+      "gitBlob": "8fd4cf5c6d1e32ac8686ae4c8db9bc5572009cfb"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-uses.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 9504,
+      "sha256": "f264bd65ddd95705c2d29e5677648801ab6bec992e91b1155777ea9bd2a8c9d7",
+      "gitBlob": "2e27c5be89f6445909f8b5fc869b65bc3cf1fd05"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 50078,
+      "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+      "gitBlob": "e3f90f2bab64968068ea988a38b6c58d6f075ac2"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 27801,
+      "sha256": "843bbe0a812fb252cf1a6bfdc3709898389388f42d0a2bafaec2b031b1c1ba65",
+      "gitBlob": "2b25a65ed44344e7f2a2373e7229c1ae75150793"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/asset-evidence.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 2856,
+      "sha256": "427516c552d3e163e9dc67bd674c9fd9c2a571b976d2109558bfce84642c630a",
+      "gitBlob": "955d06cd2d628a14dacd30851f02c02d664e0aa0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 5919,
+      "sha256": "ebbb2cd2bd9559ca432c83774132a9a2fd1f6270828d044675f7002912273c71",
+      "gitBlob": "0ecea85b555b460395389ca7b82b88e495f50638"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 14255,
+      "sha256": "4b29837d04e759ed913b16364c4e827499df5490552c5d778ea95dc5223bc7ef",
+      "gitBlob": "ecc03887fb98de93d090c8ad55225cceea92bd59"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-process.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 7093,
+      "sha256": "d06b30f566992604bd963a688fbe1cf69fecbc1021bfb75280f4be3dbfecee9c",
+      "gitBlob": "843de9f2f8a02d5c1587e7ac0fa26ef9f9b81663"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/vitest.windows.config.ts",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 2056,
+      "sha256": "924fd57a514afb4410b18160b3c61043fc9629ccd3a80db5954faa0be52fb5ea",
+      "gitBlob": "d0a5b5265944d2867527da4579825ce2c40aaa47"
+    },
+    {
+      "path": ".scratch/asset-validation/asset-validation-spec.md",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 48120,
+      "sha256": "00d0d85abcda6d3141549616afb8aa410f993f2bb51e82ef7d8467e56b76d82f",
+      "gitBlob": "cfdb540d39aec0969cd67933f5e9fdbcb5f0631c"
+    },
+    {
+      "path": ".scratch/asset-validation/acceptance-matrix.md",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 28893,
+      "sha256": "fddf586c2212a998bad5a32ec105691e05a879a52ea6d8cb07b16a1aa841b0ba",
+      "gitBlob": "03be7c3706d152c3c35207d23c99789cb65faec7"
+    },
+    {
+      "path": ".scratch/asset-validation/implementation-acceptance-cases.md",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 29676,
+      "sha256": "4e8a591f5c4d157e5876b6058d4c7ed6d4f440da584b58a23add2f205477a25f",
+      "gitBlob": "f749ef7755b6f3ab1c0a72c08e0e4711ca573765"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/03-file-observation-acceptance.json",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 1169434,
+      "sha256": "a8652ef3feda52e3677af8d8d52f9fd3fbbedbbf4a1dacfea453af802e14d071",
+      "gitBlob": "55c401cb6ffc036f33bd9fac3049b3cca2a6bd41"
+    },
+    {
+      "path": ".scratch/asset-validation-implementation/evidence/03-image-policy-acceptance.json",
+      "revision": "15b893b3c36df545eafa4d0e621bd0df7986f1a2",
+      "bytes": 246781,
+      "sha256": "ccdad7b4e08266aa8e9986801d6e8f148ab02a36dfb00c8538fe2e36bdb182ad",
+      "gitBlob": "c2146102d0ef0bf2764e3d1a506551546d1d9254"
+    }
+  ]
+}

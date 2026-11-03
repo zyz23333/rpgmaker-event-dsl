@@ -32,6 +32,7 @@ source discovery:
 - `sourceRoot`: `src`
 - `sourceInclude`: `["**/*.events.ts", "**/*.dsl.ts"]`
 - `sourceExclude`: `["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]`
+- `assetCheckExceptions`: `[]`; exact reasoned authoring exceptions belong to the compilation policy.
 
 Create a local live config from the template, then set `projectRoot` to your RPG Maker MV
 project:
@@ -55,8 +56,20 @@ Set Movement Route script subcommand. Keep `scriptEnabled` disabled in workspace
 should reject JavaScript-bearing event commands during compilation.
 
 The example also uses Asset References such as `audioAsset(...)`, `imageAsset(...)`, and
-`movieAsset(...)`. These are opaque filename-stem references; they do not scan or validate
-asset files on disk.
+`movieAsset(...)`. Their helpers preserve the exact filename stem. Compile and Check
+validate the current event's supported native file relationships under your Project Root.
+For the direct media examples, supply ordinary `audio/bgm/Battle1.ogg`,
+`audio/bgm/Theme6.ogg`, `audio/se/Cursor2.ogg` and `movies/Intro.webm` files with exact
+names and case. M4A, MP4 and encrypted suffixes do not replace these editing files.
+None needs no file; its independently saved numeric controls remain unchanged.
+
+The Force Action example selects Snapshot Skill 1. A positive saved animation ID
+requires that Animation's two named PNG sheets and timing OGG effects. A default
+Actor attack retains Animation 1 as an unarmed candidate and reports that current
+weapon animations are unknown; initial equipment does not resolve them. Keep a
+current Common Event declaration for every saved Common Event effect of the
+selected Skill. All effect positions remain checked even when animation ID is
+zero, and each target event's assets stay at its own definition.
 
 The example is a private pnpm package that installs `rpgmaker-event-dsl` from npm. Run
 `pnpm install` in this directory after copying the example or changing package metadata.

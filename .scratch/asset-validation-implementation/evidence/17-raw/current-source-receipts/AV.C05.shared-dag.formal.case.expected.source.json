@@ -1,0 +1,223 @@
+{
+  "id": "AV.C05.shared-dag.formal.case.expected",
+  "ownerTicket": "10,11",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:30:39.021Z",
+  "completedAt": "2026-11-02T13:30:42.875Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "graph": {
+        "branch": "shared-dag",
+        "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:12})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event13=commonEvent({id:13,name:\"Event 13\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event14=commonEvent({id:14,name:\"Event 14\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event15=commonEvent({id:15,name:\"Event 15\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+        "identities": [
+          "commonEvent:10",
+          "commonEvent:11",
+          "commonEvent:12",
+          "commonEvent:13",
+          "commonEvent:14",
+          "commonEvent:15"
+        ],
+        "useIdentity": "commonEvent:15",
+        "usePath": "CommonEvents.json[15].list[0].parameters[1]",
+        "edges": [
+          [
+            "commonEvent:10",
+            "CommonEvents.json[10].list[0].parameters[0]",
+            "commonEvent:11",
+            11
+          ],
+          [
+            "commonEvent:10",
+            "CommonEvents.json[10].list[1].parameters[0]",
+            "commonEvent:12",
+            12
+          ],
+          [
+            "commonEvent:11",
+            "CommonEvents.json[11].list[0].parameters[0]",
+            "commonEvent:13",
+            13
+          ],
+          [
+            "commonEvent:11",
+            "CommonEvents.json[11].list[1].parameters[0]",
+            "commonEvent:14",
+            14
+          ],
+          [
+            "commonEvent:12",
+            "CommonEvents.json[12].list[0].parameters[0]",
+            "commonEvent:13",
+            13
+          ],
+          [
+            "commonEvent:12",
+            "CommonEvents.json[12].list[1].parameters[0]",
+            "commonEvent:14",
+            14
+          ],
+          [
+            "commonEvent:13",
+            "CommonEvents.json[13].list[0].parameters[0]",
+            "commonEvent:15",
+            15
+          ],
+          [
+            "commonEvent:14",
+            "CommonEvents.json[14].list[0].parameters[0]",
+            "commonEvent:15",
+            15
+          ]
+        ]
+      },
+      "expectedUseCount": 1,
+      "recursion": "none; definitions independent"
+    },
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-common-shared-dag-5gF2JV\\最小 Workspace with spaces",
+      "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})}),callCommonEvent({commonEvent:commonEventRef({id:12})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event12=commonEvent({id:12,name:\"Event 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});\nexport const event13=commonEvent({id:13,name:\"Event 13\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event14=commonEvent({id:14,name:\"Event 14\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});\nexport const event15=commonEvent({id:15,name:\"Event 15\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+      "project": {},
+      "target": "Game/img/pictures/CalledPoster.png"
+    },
+    {
+      "graph": {
+        "source": "export const event10=commonEvent({id:10,name:\"Action graph 10\",trigger:\"none\",commands:[forceAction({subject:{kind:\"runtimeSelector\",scope:\"battler\",target:\"actor\",actor:actorRef({id:1})},skill:skillRef({id:1}),target:{kind:\"random\"}})]});export const event11=commonEvent({id:11,name:\"Action graph 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});export const event12=commonEvent({id:12,name:\"Action graph 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});export const event13=commonEvent({id:13,name:\"Action graph 13\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});export const event14=commonEvent({id:14,name:\"Action graph 14\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});export const event15=commonEvent({id:15,name:\"Action graph 15\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"EffectGraphPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+        "targets": [
+          11,
+          12
+        ],
+        "identities": [
+          "commonEvent:10",
+          "commonEvent:11",
+          "commonEvent:12",
+          "commonEvent:13",
+          "commonEvent:14",
+          "commonEvent:15"
+        ],
+        "useId": 15,
+        "pictureIndex": 0,
+        "direct": [
+          [
+            11,
+            0,
+            13
+          ],
+          [
+            11,
+            1,
+            14
+          ],
+          [
+            12,
+            0,
+            13
+          ],
+          [
+            12,
+            1,
+            14
+          ],
+          [
+            13,
+            0,
+            15
+          ],
+          [
+            14,
+            0,
+            15
+          ]
+        ]
+      },
+      "expectedCalls": [
+        {
+          "caller": "commonEvent:10",
+          "nativePath": "CommonEvents.json[10].list[0].parameters[2]",
+          "target": "commonEvent:11",
+          "targetId": 11,
+          "dependencyChain": [
+            {
+              "data": "Skills.json",
+              "id": 1,
+              "field": "effects[0].dataId",
+              "relationship": "Skill Common Event effect"
+            }
+          ]
+        },
+        {
+          "caller": "commonEvent:10",
+          "nativePath": "CommonEvents.json[10].list[0].parameters[2]",
+          "target": "commonEvent:12",
+          "targetId": 12,
+          "dependencyChain": [
+            {
+              "data": "Skills.json",
+              "id": 1,
+              "field": "effects[1].dataId",
+              "relationship": "Skill Common Event effect"
+            }
+          ]
+        }
+      ],
+      "expectedUse": {
+        "category": "image",
+        "folder": "pictures",
+        "name": "EffectGraphPoster",
+        "identity": "commonEvent:15",
+        "nativePath": "CommonEvents.json[15].list[0].parameters[1]",
+        "relatedNativePaths": [],
+        "dependencyChain": [],
+        "conditions": []
+      },
+      "expectedUseCount": 1,
+      "traversal": "finite direct effects and117 only, no caller paths"
+    },
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-graph-shared-dag-CAiq55\\最小 Workspace with spaces",
+      "source": "import {commonEvent,forceAction,actorRef,skillRef,callCommonEvent,commonEventRef,showPicture,imageAsset} from \"rpgmaker-event-dsl\";export const event10=commonEvent({id:10,name:\"Action graph 10\",trigger:\"none\",commands:[forceAction({subject:{kind:\"runtimeSelector\",scope:\"battler\",target:\"actor\",actor:actorRef({id:1})},skill:skillRef({id:1}),target:{kind:\"random\"}})]});export const event11=commonEvent({id:11,name:\"Action graph 11\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});export const event12=commonEvent({id:12,name:\"Action graph 12\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:13})}),callCommonEvent({commonEvent:commonEventRef({id:14})})]});export const event13=commonEvent({id:13,name:\"Action graph 13\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});export const event14=commonEvent({id:14,name:\"Action graph 14\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:15})})]});export const event15=commonEvent({id:15,name:\"Action graph 15\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"EffectGraphPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+      "project": {
+        "Skills.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Zero animation with all effects",
+            "animationId": 0,
+            "effects": [
+              {
+                "code": 44,
+                "dataId": 11,
+                "value1": 17,
+                "value2": 23
+              },
+              {
+                "code": 44,
+                "dataId": 12,
+                "value1": 17,
+                "value2": 23
+              }
+            ]
+          }
+        ],
+        "Animations.json": [
+          null
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "description": "retains every finite direct edge without multiplying defining asset uses",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+    "sha256": "80b0b5db6eed13962acdb76da24df7ead3e1617143e33eb18a4f7ad53cffe94c",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${graph.branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({\n\t\t\tgraph,\n\t\t\texpectedUseCount: 1,\n\t\t\trecursion: \"none; definitions independent\"\n\t\t});\n\t\tawait prepare(root, graph.source);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"\");\n\t\tconst before = await state(root);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait api.compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst files = await published(root);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.nativeAssetEvents)(files).map(({ identity }) => identity)).toEqual(graph.identities);\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual(graph.edges.map(([caller, nativePath, target, targetId]) => ({\n\t\t\tcaller,\n\t\t\tnativePath,\n\t\t\ttarget,\n\t\t\ttargetId,\n\t\t\tdependencyChain: []\n\t\t})));\n\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([{\n\t\t\t...expectedCalledUse,\n\t\t\tidentity: graph.useIdentity,\n\t\t\tnativePath: graph.usePath\n\t\t}]);\n\t\tawait (0,__vite_ssr_import_0__.writeFile)((0,__vite_ssr_import_1__.join)(root, \"Game/img/pictures/CalledPoster.png\"), \"same name new bytes\");\n\t\tawait (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\tconst source = (0,__vite_ssr_import_1__.join)(root, \"src/calls.events.ts\");\n\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)(source, \"utf8\")).toBe(imports + graph.source);\n\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project[\"img/pictures/CalledPoster.png\"]).toBe(Buffer.from(\"same name new bytes\").toString(\"base64\"));\n\t});\n\tawait (0,__vite_ssr_import_9__.verifyForcedActionGraph)(graph.branch);\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

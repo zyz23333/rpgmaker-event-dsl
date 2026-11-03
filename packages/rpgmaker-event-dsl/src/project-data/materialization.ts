@@ -176,6 +176,7 @@ export async function buildCompileBaseline(input: CompileBaselineInput): Promise
     left.relativePath.localeCompare(right.relativePath),
   );
   const config = {
+    assetCheckExceptions: input.config.assetCheckExceptions.map((entry) => ({ ...entry })),
     scriptEnabled: input.config.scriptEnabled,
     sourceExclude: [...input.config.sourceExclude],
     sourceInclude: [...input.config.sourceInclude],

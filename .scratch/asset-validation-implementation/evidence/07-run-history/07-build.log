@@ -1,0 +1,28 @@
+
+> rpgmaker-event-dsl@0.1.2 build M:\Shuen\Codex\asset-validation-07-maps\packages\rpgmaker-event-dsl
+> tsdown
+
+ℹ tsdown v0.22.3 powered by rolldown v1.1.3
+ℹ config file: M:\Shuen\Codex\asset-validation-07-maps\packages\rpgmaker-event-dsl\tsdown.config.ts 
+ℹ entry: src/cli.ts, src/index.ts, src/workspace-api.ts
+ℹ target: node22
+ℹ tsconfig: tsconfig.json
+ℹ Build start
+ℹ Granting execute permission to dist\cli.mjs
+ℹ dist\index.mjs                      5.03 kB │ gzip:   1.75 kB
+ℹ dist\cli.mjs                        3.22 kB │ gzip:   1.15 kB
+ℹ dist\workspace-api.mjs              0.42 kB │ gzip:   0.19 kB
+ℹ dist\operations-Dydg3Mrn.mjs.map  868.04 kB │ gzip: 168.12 kB
+ℹ dist\operations-Dydg3Mrn.mjs      419.60 kB │ gzip:  85.98 kB
+ℹ dist\authoring-BPj5f60w.mjs.map   406.64 kB │ gzip:  79.72 kB
+ℹ dist\authoring-BPj5f60w.mjs       195.97 kB │ gzip:  41.89 kB
+ℹ dist\index.d.mts.map               25.74 kB │ gzip:   4.39 kB
+ℹ dist\cli.mjs.map                    5.73 kB │ gzip:   1.85 kB
+ℹ dist\workspace-api.d.mts.map        1.04 kB │ gzip:   0.40 kB
+ℹ dist\index.mjs.map                  0.45 kB │ gzip:   0.30 kB
+ℹ dist\cli.d.mts.map                  0.16 kB │ gzip:   0.14 kB
+ℹ dist\index.d.mts                   53.80 kB │ gzip:   9.31 kB
+ℹ dist\workspace-api.d.mts            2.27 kB │ gzip:   0.61 kB
+ℹ dist\cli.d.mts                      0.30 kB │ gzip:   0.22 kB
+ℹ 15 files, total: 1.99 MB
+✔ Build complete in 1430ms

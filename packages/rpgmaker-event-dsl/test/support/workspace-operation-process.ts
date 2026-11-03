@@ -34,6 +34,15 @@ export function startWorkspaceOperation(
       | "snapshot-capture"
       | "snapshot-manifest-failure"
       | "input-validation"
+      | "asset-after-enumeration"
+      | "asset-enumeration-denied"
+      | "asset-metadata-denied"
+      | "asset-io-failure"
+      | "asset-media-read-denied"
+      | "asset-link-guard"
+      | "asset-before-pass"
+      | "asset-after-check-pass"
+      | "asset-no-media-query"
       | "compile-manifest"
       | "generated-write-failure"
       | "generated-installation-failure"
@@ -44,6 +53,7 @@ export function startWorkspaceOperation(
       | "decompile-move-unavailable"
       | "push-prewrite"
       | "push-after-install"
+      | "push-after-install-cleanup"
       | "push-before-install"
       | "push-before-capture"
       | "push-capture-restore"
@@ -61,6 +71,11 @@ export function startWorkspaceOperation(
     failInstall?: boolean;
     captureFile?: string;
     barrier?: boolean;
+    assetPath?: string;
+    assetFault?: "enumeration";
+    observeAssets?: boolean;
+    assetProjectRoots?: string[];
+    allowDestructive?: boolean;
   },
 ) {
   const helperUrl = new URL("./workspace-operation-child.mjs", import.meta.url);
@@ -68,6 +83,7 @@ export function startWorkspaceOperation(
   const mode = input.mode ?? "api";
   const startedAt = new Date().toISOString();
   const commands = input.operation === "check" ? ["compile", "--check"] : [input.operation];
+  if (input.operation === "push" && input.allowDestructive) commands.push("--allow-destructive");
   const arguments_ = [
     "--import",
     import.meta.resolve("tsx"),
@@ -84,6 +100,12 @@ export function startWorkspaceOperation(
         mode,
         workspaceRoot: sandbox.workspaceRoot,
         apiEntry: workspaceApiEntry,
+        projectRoot: resolve(sandbox.workspaceRoot, "Game"),
+        assetPath: resolve(
+          sandbox.workspaceRoot,
+          "Game",
+          input.assetPath ?? "img/pictures/Poster.png",
+        ),
         configPath: resolve(sandbox.workspaceRoot, "rpgmaker-event-dsl.config.json"),
         snapshotPath: resolve(
           sandbox.workspaceRoot,

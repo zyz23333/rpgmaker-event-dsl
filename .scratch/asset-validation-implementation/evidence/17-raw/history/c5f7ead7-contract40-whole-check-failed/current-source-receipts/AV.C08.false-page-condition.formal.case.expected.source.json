@@ -1,0 +1,58 @@
+{
+  "id": "AV.C08.false-page-condition.formal.case.expected",
+  "ownerTicket": "02",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:49:58.399Z",
+  "completedAt": "2026-11-02T11:49:59.327Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import { mapEvent,commonEvent,troopEvent,showPicture,imageAsset,rawDslCommand,loop,showChoices,conditional,script,pluginCommand } from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Disabled\",x:0,y:0,pages:[{conditions:{selfSwitch:{enabled:true,value:\"A\"}},trigger:\"action\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"Poster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Asset map"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Asset tiles"
+          }
+        ]
+      },
+      "target": {
+        "category": "image",
+        "folder": "pictures",
+        "name": "Poster",
+        "extension": ".png"
+      },
+      "gates": "one complete native candidate validation followed by one live asset pass; no publication on errors"
+    }
+  ],
+  "expected": {
+    "description": "saved page activation never downgrades ordinary picture errors",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-picture-workspace.test.ts",
+    "sha256": "1c1a708c2ab685eb467f4ebd3eafd39d509a9682bd41a40cb1448fa217fb46e5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-false-condition\", async ({ workspaceRoot: root }) => {\n\t\tawait prepare(root, {\n\t\t\tsource: `${imports}export const event=mapEvent({mapId:1,id:1,name:\"Disabled\",x:0,y:0,pages:[{conditions:{selfSwitch:{enabled:true,value:\"A\"}},trigger:\"action\",commands:[${picture}]}]});`,\n\t\t\tproject: mapProject\n\t\t});\n\t\tawait (0,__vite_ssr_import_2__.expect)(compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: true\n\t\t})).rejects.toThrow(\"MV-ASSET-MISSING-DIRECTORY\");\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

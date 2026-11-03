@@ -1,0 +1,31 @@
+{
+  "id": "AV.C07.file-missing.formal.B15-call-common-called-picture.expected",
+  "ownerTicket": "10",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:49:01.580Z",
+  "completedAt": "2026-11-02T11:49:04.781Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-common-file-missing-haUvSd\\最小 Workspace with spaces",
+      "source": "export const event10=commonEvent({id:10,name:\"Event 10\",trigger:\"none\",commands:[callCommonEvent({commonEvent:commonEventRef({id:11})})]});\nexport const event11=commonEvent({id:11,name:\"Event 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"CalledPoster\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});\n",
+      "project": {},
+      "target": "Game/img/pictures/CalledPoster.png"
+    }
+  ],
+  "expected": {
+    "description": "distinguishes necessary saved fields, legal absence and a missing file",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-common-workspace.test.ts",
+    "sha256": "80b0b5db6eed13962acdb76da24df7ead3e1617143e33eb18a4f7ad53cffe94c",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-common-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, common(10, call(11)) + common(11, command));\n\t\tconst before = await state(root);\n\t\tif (failureCode === undefined) {\n\t\t\tawait api.compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\tconst files = await published(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(files)).toEqual([]);\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_7__.collectCommonEventCalls)(files)).toEqual([expectedCall]);\n\t\t} else {\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(failureCode);\n\t\t\t\tif (failureCode !== \"MV-ASSET-MISSING-FILE\") (0,__vite_ssr_import_2__.expect)(failure).not.toContain(\"MV-ASSET-MISSING\");\n\t\t\t\telse (0,__vite_ssr_import_2__.expect)(failure).toContain(\"-> commonEvent:11\");\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(failureCode);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t}\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

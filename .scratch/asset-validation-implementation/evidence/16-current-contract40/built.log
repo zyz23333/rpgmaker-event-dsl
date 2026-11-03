@@ -1,0 +1,5 @@
+
+> rpgmaker-event-dsl@0.1.2 test:windows-baseline M:\Shuen\Codex\asset-validation-16-recovery\packages\rpgmaker-event-dsl
+> vitest run --config vitest.windows.config.ts "--maxWorkers=1" "test/asset-recovery-workspace.test.ts" "-t" "^AV[.]W16[.]changed-current-config[.]api[.]case[.]expected:" "--reporter=json" "--outputFile=../../.scratch/asset-validation-implementation/evidence/16-current-contract40/built-runner.json"
+
+JSON report written to M:/Shuen/Codex/asset-validation-16-recovery/.scratch/asset-validation-implementation/evidence/16-current-contract40/built-runner.json

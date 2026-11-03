@@ -1,0 +1,311 @@
+{
+  "createdAt": "2026-11-02T08:16:42.904Z",
+  "scope": "Original red/failure/final runner logs, exact original text bytes, failed sandbox input/state, and validation records. Filtered tests never count as passing.",
+  "files": [
+    {
+      "name": "14-execution-inputs.json",
+      "bytes": 3477,
+      "sha256": "2ac2331b530beddb6492401dd378c5b92c3a691803ab96a2db5d60339ac77dfd"
+    },
+    {
+      "name": "14-failed-attempt-inputs.json",
+      "bytes": 2020251,
+      "sha256": "85741d2b9f35c4b967ee837380b298a478a97be67264ecf2ab1b83d96edf4fe2"
+    },
+    {
+      "name": "14-independent-plan.json",
+      "bytes": 45910,
+      "sha256": "4c1048ed9c047ce0ad8402573896a470e6cbe409136fe32030bddc2a92e9a41d"
+    },
+    {
+      "name": "14-local-links.json",
+      "bytes": 3873,
+      "sha256": "389276380c3ac8670d837a4c778a894043b44c3982a4794a643bbb3193a35e6f"
+    },
+    {
+      "name": "14-original-text-bytes.json",
+      "bytes": 893334,
+      "sha256": "d9468c7c2b56688bdd3f4545289d158216cd1322ec06103ab1ace5238a7af36e"
+    },
+    {
+      "name": "build-14-acceptance.mjs",
+      "bytes": 14398,
+      "sha256": "b135cec9d13aa3b72662eed6dc8589a0c619589874826f0ea1d1d69052b662a2"
+    },
+    {
+      "name": "run-ticket14-compatibility-repair.ps1",
+      "bytes": 2206,
+      "sha256": "ca221b624090232bde7c60e6320f444b4d11a6be42093eafffc520695e41b233"
+    },
+    {
+      "name": "run-ticket14-final.ps1",
+      "bytes": 2477,
+      "sha256": "c8ce1d955a4dd5e5a13039b1d50db22d7e439142da151210670c92d7bd207e17"
+    },
+    {
+      "name": "ticket14-build-final.log",
+      "bytes": 2509,
+      "sha256": "e7ff8477a2e7a1641e1f8a2a7efc72c16e1a61e6748936e8495464acb6a4132d"
+    },
+    {
+      "name": "ticket14-build.log",
+      "bytes": 2452,
+      "sha256": "fa61c3fe97c927e61f04f39d8c72c1655023ff428b2e4265fa0cf217d7739bf4"
+    },
+    {
+      "name": "ticket14-built-closed.json",
+      "bytes": 12646,
+      "sha256": "8785d6a5325531295876c338779c73503797a954057958b63e5629a9c83a5183"
+    },
+    {
+      "name": "ticket14-built-closed.log",
+      "bytes": 32295,
+      "sha256": "dbfaa77fddd3ddb71ff3241da37f85865995d0408da4d7df43c6b4895034d6d9"
+    },
+    {
+      "name": "ticket14-built-compatibility.json",
+      "bytes": 180295,
+      "sha256": "c110b95a495538025a77c5b3d3661bb5d23f1d712ad602dd82625a85ac061360"
+    },
+    {
+      "name": "ticket14-built-compatibility.log",
+      "bytes": 210097,
+      "sha256": "4b35e2bb27408c4db9dc2ddba67e379e8a929e23a9b6d9e5657559b08d8f144c"
+    },
+    {
+      "name": "ticket14-built-final-serial.json",
+      "bytes": 12650,
+      "sha256": "0cdde6bbb0f32d0e8e7bd168cb9952064e0b788e17dfa9b320a03fb182b6da00"
+    },
+    {
+      "name": "ticket14-built-final-serial.log",
+      "bytes": 32792,
+      "sha256": "9b67b34e4777818130df91c6b108ca6a7acb92716b7867221b328230af5df507"
+    },
+    {
+      "name": "ticket14-built-support-receipt.json",
+      "bytes": 27452,
+      "sha256": "f47d59d7b099d8d2f28ad916bbea1c57f0dbe1847ed5513162d38a1d9cf7c2f0"
+    },
+    {
+      "name": "ticket14-built-support-serial.json",
+      "bytes": 23188,
+      "sha256": "8b9da884e10a45469dccd553b98b710a443d4acd28097b53b3c8a2f429f0442b"
+    },
+    {
+      "name": "ticket14-built-support-serial.log",
+      "bytes": 2475,
+      "sha256": "dd63dd19c12c8fecc4f90adde4e022eaa1a403cc7c1f902e0cf2e82147eefa56"
+    },
+    {
+      "name": "ticket14-case-capability-probe.json",
+      "bytes": 502,
+      "sha256": "dac2c121befcb484521469941acc12439e176277abfd9f42c09755473f5497ed"
+    },
+    {
+      "name": "ticket14-cli-report-green.log",
+      "bytes": 266,
+      "sha256": "b1d11852488600708900e1dbeabab0a323104ff161b237f87bfbd05171de2f63"
+    },
+    {
+      "name": "ticket14-cli-report-red.log",
+      "bytes": 5098,
+      "sha256": "4b50c47bfe66bf359f68e9f83700173f80d042487b80600350663f1094dc2860"
+    },
+    {
+      "name": "ticket14-config-green.log",
+      "bytes": 263,
+      "sha256": "24e495374f6da9731b6239bdf99016bb1322dbcf253a79c58e329dddbb0f0782"
+    },
+    {
+      "name": "ticket14-config-red.log",
+      "bytes": 1930,
+      "sha256": "5de9bde0a448e8ebe1689eba20c41c7d9f7062fa77981488ed35a34470d23bc7"
+    },
+    {
+      "name": "ticket14-current-green.log",
+      "bytes": 268,
+      "sha256": "aab77febbe40011ef5aca6cb0f87e71f41c15f9b43b6286cf0d0b691c121177c"
+    },
+    {
+      "name": "ticket14-evaluation-probe.log",
+      "bytes": 265,
+      "sha256": "c6b23cecb8f51f580c57ab30577bfc410bdc885584877a0378db32c4d78fc583"
+    },
+    {
+      "name": "ticket14-format-final.log",
+      "bytes": 381,
+      "sha256": "99c4e27c2c8cfe40978bbfe0e03aede5d44ea5f9dbed4c148a488a0a618abb02"
+    },
+    {
+      "name": "ticket14-format.log",
+      "bytes": 381,
+      "sha256": "af373e4cb352eed15ca70ef21a8bb17c60cce52fa14570aafc713bad1c447194"
+    },
+    {
+      "name": "ticket14-generated-red.log",
+      "bytes": 3338,
+      "sha256": "0001781ce1d732965be12be905eb90b6d9c2d14b9c0f92a45797b26c9d518d16"
+    },
+    {
+      "name": "ticket14-graph-probe.log",
+      "bytes": 4741,
+      "sha256": "6bd463c8ffa89a333e4f11ca1936f3f9a13491c277760c492b783359122a9458"
+    },
+    {
+      "name": "ticket14-input-green.log",
+      "bytes": 253,
+      "sha256": "8c8c28332acad50468293ad7195d69b69c1e18dffef8d9a27189e7ec4e6feaae"
+    },
+    {
+      "name": "ticket14-lint-final.log",
+      "bytes": 95,
+      "sha256": "3932d34286fabfc22c5a56282e602741e3211451a33012fe79b299570f4e9482"
+    },
+    {
+      "name": "ticket14-lint.log",
+      "bytes": 95,
+      "sha256": "3932d34286fabfc22c5a56282e602741e3211451a33012fe79b299570f4e9482"
+    },
+    {
+      "name": "ticket14-no-diff-input-green.log",
+      "bytes": 263,
+      "sha256": "a96bca59cf561517cef5a69ed3b98085240d1b3480bf660dc7385e11d5a06e42"
+    },
+    {
+      "name": "ticket14-no-diff-input-red.log",
+      "bytes": 1408,
+      "sha256": "9ae879a1615866e3da3e21d879cdfa10f723956f78e957630f469c7fc6e86aa9"
+    },
+    {
+      "name": "ticket14-notrun-green.log",
+      "bytes": 265,
+      "sha256": "898a75ede2638af7be4c0e8ed96922d34164f349895fa9a7ea519a3f030af6da"
+    },
+    {
+      "name": "ticket14-notrun-red.log",
+      "bytes": 1685,
+      "sha256": "eb3349bd79c628fd678d494b2eee12130a94422d101f04a6de20ce7d5af3e10d"
+    },
+    {
+      "name": "ticket14-retry-green.log",
+      "bytes": 251,
+      "sha256": "8b4dbdb3649633a054876c0c11d04d4cbbc0e6e09e61e27e3b590c08213c3907"
+    },
+    {
+      "name": "ticket14-retry-red.log",
+      "bytes": 2238,
+      "sha256": "5c2c70c2ea512ada77f0671cc447541989f3d1c5c9c0001a71a491cd5f097edb"
+    },
+    {
+      "name": "ticket14-retry-red2.log",
+      "bytes": 2112,
+      "sha256": "9f1498a7bbb5411ef2a3fd19d598d0ce8ae23524f1731babdaaefca406960005"
+    },
+    {
+      "name": "ticket14-serial-final-runs.json",
+      "bytes": 3205,
+      "sha256": "38525f74f6d97d06e505142ac22b877bf36a89e1f1aabd1866ed1e1a6b2fa7e3"
+    },
+    {
+      "name": "ticket14-source-capability-repair.json",
+      "bytes": 61050,
+      "sha256": "8c279fe7d6f077acfc3f8dc6a8b16f32d80a3901fbc5912b4165f34e208fd06f"
+    },
+    {
+      "name": "ticket14-source-capability-repair.log",
+      "bytes": 1349,
+      "sha256": "e0a1fa714d8c2cc433e64c9ad774e80e15c0458f09fe83ae271663f610ea1612"
+    },
+    {
+      "name": "ticket14-source-closed.json",
+      "bytes": 12644,
+      "sha256": "1e2374abf4a9d816d725d385c30ee92cd3cec93051b182e303b221370ba5f72d"
+    },
+    {
+      "name": "ticket14-source-closed.log",
+      "bytes": 32378,
+      "sha256": "47e8cf5f1cd16e761b82037f30343b970a443f2208a02a6176a7306fdb94dd5b"
+    },
+    {
+      "name": "ticket14-source-compatibility.json",
+      "bytes": 181549,
+      "sha256": "9592168141ac8b245944565fd75185a143a9ddee6598c8206edbddb2f0142674"
+    },
+    {
+      "name": "ticket14-source-compatibility.log",
+      "bytes": 238216,
+      "sha256": "33ba834ef8c2c132b33edddc779545559894e8d53fc242bfe003afb3d1fab8e7"
+    },
+    {
+      "name": "ticket14-source-final-serial.json",
+      "bytes": 12664,
+      "sha256": "555f7e7b0dc406ae2ccf9144d7f8b80d82fc4041cacdf3a071fe671b778c92b4"
+    },
+    {
+      "name": "ticket14-source-final-serial.log",
+      "bytes": 32876,
+      "sha256": "1351ba3885b2d8e139ab5585617d993f20d67d7db3f2e59801225cfc44ec6a7d"
+    },
+    {
+      "name": "ticket14-source-final.log",
+      "bytes": 255,
+      "sha256": "a4ba122217e2a94ad736405ab2b142693923b29dc3ccb298b10cf9a0106c6360"
+    },
+    {
+      "name": "ticket14-source-green.log",
+      "bytes": 251,
+      "sha256": "1b7671a185c41bef3b3caa176c9cfb4c50d96cb4063640c5394abc331ec19cc0"
+    },
+    {
+      "name": "ticket14-source-red.log",
+      "bytes": 1896,
+      "sha256": "a2c43d6a188ca6d0e864c5c6888d79fa71ac8f67e74a6c866f156676456b1e29"
+    },
+    {
+      "name": "ticket14-source-support-receipt.json",
+      "bytes": 27517,
+      "sha256": "5eb5b971dee913fce3fc2df2d0f9f364e2504d3becdbe2fdf395481a816190c6"
+    },
+    {
+      "name": "ticket14-source-support-serial.json",
+      "bytes": 23196,
+      "sha256": "f27d1b8b045a7ca8522b1131e4a8892c90d721b05ffaf668836eaa6661d2daac"
+    },
+    {
+      "name": "ticket14-source-support-serial.log",
+      "bytes": 2481,
+      "sha256": "08bfeb689e350e701d82e8ffe7b1b645bb7100fff54ff24f1ad1c03221da20cb"
+    },
+    {
+      "name": "ticket14-source-support.log",
+      "bytes": 265,
+      "sha256": "7d331a60bba9055e417d36bb1157b57b75706d1591fc38a02c532d80a0fe87c1"
+    },
+    {
+      "name": "ticket14-source-verified.json",
+      "bytes": 12654,
+      "sha256": "299a4e6c7a53c6e850d4a8a3a29863284970eee757aa89aba4bd5851d38b5623"
+    },
+    {
+      "name": "ticket14-source-verified.log",
+      "bytes": 32544,
+      "sha256": "f9ec0daf78d51aed1fd27ef5acbedab973e690320502cdc32dd723046c2b4812"
+    },
+    {
+      "name": "ticket14-stage-green.log",
+      "bytes": 267,
+      "sha256": "91765286415c3d1a7e1308df6e9344cb818606aab6e30b6c17f7ef54fee00746"
+    },
+    {
+      "name": "ticket14-typecheck-final.log",
+      "bytes": 255,
+      "sha256": "ae17ffc3cef47b739b42081fbae651ff6120a757408e38a7427e2d61cd6bc076"
+    },
+    {
+      "name": "ticket14-typecheck.log",
+      "bytes": 255,
+      "sha256": "ae17ffc3cef47b739b42081fbae651ff6120a757408e38a7427e2d61cd6bc076"
+    }
+  ]
+}

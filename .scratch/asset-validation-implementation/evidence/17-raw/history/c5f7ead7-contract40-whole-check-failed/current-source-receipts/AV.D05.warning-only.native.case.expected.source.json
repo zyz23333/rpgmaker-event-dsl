@@ -1,0 +1,59 @@
+{
+  "id": "AV.D05.warning-only.native.case.expected",
+  "ownerTicket": "12",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:25:56.668Z",
+  "completedAt": "2026-11-02T11:25:57.203Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from \"rpgmaker-event-dsl\";\nexport const event10=commonEvent({id:10,name:\"Diagnostics\",trigger:\"none\",commands:[changePartyMember({actor:actorRef({id:1}),operation:\"add\",initialize:false})]});\n",
+      "project": {
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor",
+            "characterName": "Poster",
+            "battlerName": ""
+          }
+        ]
+      }
+    },
+    {
+      "fact": "missing",
+      "target": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-ineffective-warning-only-koI77D\\最小 Workspace with spaces\\Game\\img\\characters\\Poster.png"
+    },
+    {
+      "assetCheckExceptions": [
+        {
+          "category": "image",
+          "folder": "characters",
+          "name": "Poster",
+          "reason": "Temporary authoring gap"
+        }
+      ]
+    },
+    {
+      "actualApi": {
+        "failure": "",
+        "output": "compile --check asset check warning:\nwarning MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-ineffective-warning-only-koI77D\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-ineffective-warning-only-koI77D\\最小 Workspace with spaces\\Game\\img\\characters\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-ineffective-warning-only-koI77D\\最小 Workspace with spaces\\Game\\img\\characters\\Poster.png\n  image/characters \"Poster\"; 1 use(s)\n  - warning commonEvent:10 CommonEvents.json[10].list[0].parameters[0]; chain: Actors.json[1].characterName (Actor initial character image); conditions: The added Actor supplies a player or follower image only when effective in the current party.; candidate: Actor initial character image may be replaced by runtime image settings.; DSL: commands[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-ineffective-warning-only-koI77D/最小 Workspace with spaces/src/diagnostics.events.ts (line 2, column 85); base: warning; effective: warning; exception reason: Temporary authoring gap\nwarning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[0] image/characters \"Poster\" downgraded no error; reason: Temporary authoring gap\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.\n"
+      }
+    }
+  ],
+  "expected": {
+    "description": "ineffective exceptions are located only when complete relevant checking establishes that no error was downgraded",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+    "sha256": "ca2a861f1e5e15bf0928b994c9ebfff5e3a31ea4be169f5259f90de067ea3ca5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-ineffective-${branch}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tconst value = fixture(branch === \"warning-only\" ? \"candidate\" : \"ordinary\", branch === \"incomplete\" ? \"indirect-formal\" : \"direct-formal\", branch === \"incomplete\" ? 42 : \"Poster\");\n\t\tawait prepare(root, branch === \"unused\" ? imports + common(\"\") : value.source, value.project);\n\t\tif (branch !== \"incomplete\") await fact(root, value, branch === \"repaired\" ? \"present\" : \"missing\");\n\t\tawait configuration(root, [{\n\t\t\tcategory: value.category,\n\t\t\tfolder: value.folder,\n\t\t\tname: \"Poster\",\n\t\t\treason: \"Temporary authoring gap\"\n\t\t}]);\n\t\tconst before = await state(root);\n\t\tconst result = await check(root);\n\t\t(0,__vite_ssr_import_2__.expect)(Boolean(result.failure)).toBe(branch === \"incomplete\");\n\t\tif (branch === \"incomplete\") {\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"MV-ASSET-INVALID-DATA\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.output).not.toContain(\"MV-ASSET-INEFFECTIVE-EXCEPTION\");\n\t\t} else {\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"warning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[0]\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"Temporary authoring gap\");\n\t\t};\n\t\tif (branch === \"warning-only\") {\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"base: warning; effective: warning\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(result.output).toContain(\"exception reason: Temporary authoring gap\");\n\t\t};\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ actualApi: result });\n\t});\n\tif (branch === \"incomplete\") await independentlyDeterminableExceptions();\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

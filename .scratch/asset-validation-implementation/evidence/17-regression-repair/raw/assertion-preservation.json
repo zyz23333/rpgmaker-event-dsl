@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "base": "f30d64d635eddc832879e1536bb72f89e82ad015",
+  "productTree": "720405289482a547eec60ab71e30abd3bb9839f4",
+  "unchangedScopes": [
+    "packages/rpgmaker-event-dsl/src",
+    "packages/rpgmaker-event-dsl/test/fixtures",
+    "packages/rpgmaker-event-dsl/test/support",
+    "packages/rpgmaker-event-dsl/vitest.config.ts",
+    "packages/rpgmaker-event-dsl/vitest.windows.config.ts",
+    "package.json",
+    "pnpm-lock.yaml"
+  ],
+  "defaultMaxWorkers": 2,
+  "globalTimeoutUnchanged": 10000,
+  "globalEntryOverride": null,
+  "files": [
+    {
+      "path": "packages/rpgmaker-event-dsl/test/pictures-workspace.test.ts",
+      "originalSha256": "324456baadebd095f982be918c47f09a3e28710a19b8632344d96df0198b482e",
+      "currentSha256": "da2524c2b76b5ce85a9f2c5575cd5534c4adcdb20549c0af5cc788b44f4558a1",
+      "arrowCallbacksPreserved": 25,
+      "literalArraysPreserved": 37,
+      "stringInputsAndDiagnosticsPreserved": 194,
+      "onlyAllowedCurrentLiteralsNormalized": false
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/control-input-workspace.test.ts",
+      "originalSha256": "9e23657df67bfccc7989c9ceb9d54896f0890e189ef94c9a3b858f4902ad5dad",
+      "currentSha256": "5c75a9059512a791440b57318715c794a72ec0e7b833286f82a5fefab0380ccd",
+      "arrowCallbacksPreserved": 18,
+      "literalArraysPreserved": 42,
+      "stringInputsAndDiagnosticsPreserved": 155,
+      "onlyAllowedCurrentLiteralsNormalized": false
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/audio-commands-workspace.test.ts",
+      "originalSha256": "b4df888f12a4919950c3f14f3cd85d1bf58d6d28dcd7c2f5817b14d40e04ff71",
+      "currentSha256": "fe1f3e3249a70fafbb1b50ef57036942f03fa7d9243ff8ff4437b3a26a66addb",
+      "arrowCallbacksPreserved": 21,
+      "literalArraysPreserved": 91,
+      "stringInputsAndDiagnosticsPreserved": 211,
+      "onlyAllowedCurrentLiteralsNormalized": false
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/movement-instructions-workspace.test.ts",
+      "originalSha256": "046613aac11548467b703a93f788f0b4e8b27b6c729fef76a16d6d131d83cc01",
+      "currentSha256": "439b6b31ae377e57cc3decdfbaa47f9cefcff25485127fce115076bf4ab28608",
+      "arrowCallbacksPreserved": 25,
+      "literalArraysPreserved": 46,
+      "stringInputsAndDiagnosticsPreserved": 146,
+      "onlyAllowedCurrentLiteralsNormalized": false
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/screen-effects-workspace.test.ts",
+      "originalSha256": "90561cc2bf45a55ae190c6efec3f77995453251cdea6d55c54cbaca732b646fb",
+      "currentSha256": "917399b1505ca012bd37370727f63b58f780181d7de53450b69f94e37d215ceb",
+      "arrowCallbacksPreserved": 20,
+      "literalArraysPreserved": 59,
+      "stringInputsAndDiagnosticsPreserved": 150,
+      "onlyAllowedCurrentLiteralsNormalized": false
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/final-review-workspace.test.ts",
+      "originalSha256": "8ed6e2d1c6239f081213320b84448c6719301ca8f6c2560bba9f2c7f14ae0888",
+      "currentSha256": "ad8f83da0565705a79b3072eb69d5455deff6517d5385abae3196912446109a2",
+      "arrowCallbacksPreserved": 13,
+      "literalArraysPreserved": 20,
+      "stringInputsAndDiagnosticsPreserved": 80,
+      "onlyAllowedCurrentLiteralsNormalized": true
+    }
+  ],
+  "canonicalIdsAdded": 0,
+  "fixtureChanges": 0,
+  "businessCallbackAstAndLiteralArraysUnchanged": true,
+  "allowed": "Only local timeout plumbing/arguments plus final-review CURRENT title,sandbox label and expectation38->40. Original23 and every stale/fresh/Check-no-upgrade assertion preserved."
+}

@@ -1,0 +1,334 @@
+{
+  "id": "AV.B16.skill-common-effects.formal.effect1-picture.missing",
+  "ownerTicket": "11",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:09:39.256Z",
+  "completedAt": "2026-11-02T13:09:41.927Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-B16.skill-common-effects.formal.effect1-picture.missing-MIhLK3\\最小 Workspace with spaces",
+      "source": "export const event1=commonEvent({id:1,name:\"Action 1\",trigger:\"none\",commands:[forceAction({subject:{kind:\"runtimeSelector\",scope:\"battler\",target:\"actor\",actor:actorRef({id:1})},skill:skillRef({id:1}),target:{kind:\"random\"}})]});export const event10=commonEvent({id:10,name:\"Action 10\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"EffectFirst\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});export const event11=commonEvent({id:11,name:\"Action 11\",trigger:\"none\",commands:[showPicture({pictureId:1,image:imageAsset({folder:\"pictures\",name:\"EffectSecond\"}),origin:\"upperLeft\",position:{kind:\"direct\",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:\"normal\"})]});",
+      "projectOverrides": {
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor",
+            "equips": [
+              99
+            ],
+            "unknown": {
+              "keep": true
+            }
+          }
+        ],
+        "Animations.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Animation 1",
+            "animation1Name": "UnarmedFirst",
+            "animation2Name": "UnarmedSecond",
+            "animation1Hue": 123,
+            "animation2Hue": 234,
+            "timings": [
+              {
+                "frame": 0,
+                "se": {
+                  "name": "UnarmedSound0",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 17
+              },
+              {
+                "frame": 7,
+                "se": {
+                  "name": "UnarmedSound1",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 23
+              }
+            ],
+            "unknown": {
+              "keep": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Animation 2",
+            "animation1Name": "SkillFirst",
+            "animation2Name": "SkillSecond",
+            "animation1Hue": 123,
+            "animation2Hue": 234,
+            "timings": [
+              {
+                "frame": 0,
+                "se": {
+                  "name": "SkillSound0",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 17
+              },
+              {
+                "frame": 7,
+                "se": {
+                  "name": "SkillSound1",
+                  "volume": 17,
+                  "pitch": 73,
+                  "pan": -41
+                },
+                "unknown": 23
+              }
+            ],
+            "unknown": {
+              "keep": true
+            }
+          }
+        ],
+        "Skills.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Selected",
+            "animationId": 2,
+            "effects": [
+              {
+                "code": 44,
+                "dataId": 10,
+                "value1": 17,
+                "value2": 23
+              },
+              {
+                "code": 44,
+                "dataId": 11,
+                "value1": 31,
+                "value2": 47
+              }
+            ],
+            "unknown": {
+              "keep": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Default",
+            "animationId": -1,
+            "effects": [],
+            "unknown": {
+              "keep": true
+            }
+          },
+          {
+            "id": 3,
+            "name": "No animation",
+            "animationId": 0,
+            "effects": [],
+            "unknown": {
+              "keep": true
+            }
+          }
+        ],
+        "System.json": {
+          "gameTitle": "Synthetic evidence context",
+          "switches": [
+            "",
+            "Saved switch"
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          },
+          "sounds": [
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "EnemyAttack",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-B16.skill-common-effects.formal.effect1-picture.missing-MIhLK3\\最小 Workspace with spaces\\Game\\img\\pictures\\EffectFirst.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-B16.skill-common-effects.formal.effect1-picture.missing-MIhLK3\\最小 Workspace with spaces\\Game\\img\\animations\\SkillFirst.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-B16.skill-common-effects.formal.effect1-picture.missing-MIhLK3\\最小 Workspace with spaces\\Game\\img\\animations\\SkillSecond.png"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-B16.skill-common-effects.formal.effect1-picture.missing-MIhLK3\\最小 Workspace with spaces\\Game\\audio\\se\\SkillSound0.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-B16.skill-common-effects.formal.effect1-picture.missing-MIhLK3\\最小 Workspace with spaces\\Game\\audio\\se\\SkillSound1.ogg"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-action-B16.skill-common-effects.formal.effect1-picture.missing-MIhLK3\\最小 Workspace with spaces\\Game\\img\\pictures\\EffectSecond.png"
+    }
+  ],
+  "expected": {
+    "description": "fixed Skill assets retain complete literal origin, conditions, candidate policy and every effect call",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-action-workspace.test.ts",
+    "sha256": "75f35bca8636f6e53f7452cdd225351c1044b482f2711c75a74ab2f355dec20f",
+    "assertions": "async () => {\n\t\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-action-${id}`, async (sandbox) => {\n\t\t\tconst root = sandbox.workspaceRoot, expected = selectedUses(field.family), target = expected[field.index];\n\t\t\tawait prepare(root, sourceFor(field.family, representation), field.family === \"B16\" ? { \"Skills.json\": effectSkills() } : {});\n\t\t\tfor (const [index, use] of expected.entries()) if (outcome !== \"missing\" || index !== field.index) await media(root, use.category, use.folder, use.name);\n\t\t\tif (field.family === \"B16\") for (const use of animationExpected(false)) await media(root, use.category, use.folder, use.name);\n\t\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game\", target.category === \"image\" ? \"img\" : \"audio\", target.folder), { recursive: true });\n\t\t\tconst before = await state(root), candidate = field.family === \"B06\";\n\t\t\tfor (const check of [true, false]) {\n\t\t\t\tconst failure = await api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck\n\t\t\t\t}).then(() => \"\", String);\n\t\t\t\tif (outcome === \"missing\" && !candidate) {\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"error MV-ASSET-MISSING-FILE\");\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(leafPath(field));\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t} else {\n\t\t\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toBe(\"\");\n\t\t\t\t\tif (check) (0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\t}\n\t\t\t};\n\t\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(outcome === \"missing\" && !candidate ? 1 : 0);\n\t\t\tif (outcome === \"missing\") {\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(`${candidate ? \"warning\" : \"error\"} MV-ASSET-MISSING-FILE`);\n\t\t\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(leafPath(field));\n\t\t\t\tif (field.family === \"B16\") for (const index of [0, 1]) (0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(`Skills.json[1].effects[${index}].dataId`);\n\t\t\t\telse (0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(target.conditions.at(-1));\n\t\t\t\tif (candidate) (0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(unarmedCandidate);\n\t\t\t\tif (!candidate) (0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\t\tawait media(root, target.category, target.folder, target.name);\n\t\t\t\tawait api.compileWorkspace({\n\t\t\t\t\tworkspaceRoot: root,\n\t\t\t\t\tcheck: false\n\t\t\t\t});\n\t\t\t};\n\t\t\tconst actual = await observed(root);\n\t\t\t(0,__vite_ssr_import_2__.expect)(actual.relations).toEqual(expectedRelations(field.family));\n\t\t\t(0,__vite_ssr_import_2__.expect)((0,__vite_ssr_import_8__.collectEventAssetUses)(actual.files)).toEqual(field.family === \"B16\" ? pictureExpected() : []);\n\t\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(actual.files.get(\"CommonEvents.json\"))[1].list[0]).toEqual({\n\t\t\t\tcode: 339,\n\t\t\t\tindent: 0,\n\t\t\t\tparameters: [\n\t\t\t\t\tfield.family === \"B07\" ? 0 : 1,\n\t\t\t\t\tfield.family === \"B07\" ? 0 : 1,\n\t\t\t\t\tfield.family === \"B06\" || field.family === \"B07\" ? 2 : 1,\n\t\t\t\t\t-1\n\t\t\t\t]\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(JSON.parse(actual.external.get(\"Skills.json\"))).toEqual(field.family === \"B16\" ? effectSkills() : skills());\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).project).toEqual({\n\t\t\t\t...before.project,\n\t\t\t\t...outcome === \"missing\" ? { [`${target.category === \"image\" ? \"img\" : \"audio\"}/${target.folder}/${target.name}.${target.category === \"image\" ? \"png\" : \"ogg\"}`]: \"\" } : {}\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).source).toEqual(before.source);\n\t\t\t(0,__vite_ssr_import_2__.expect)((await state(root)).snapshot).toEqual(before.snapshot);\n\t\t});\n\t}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

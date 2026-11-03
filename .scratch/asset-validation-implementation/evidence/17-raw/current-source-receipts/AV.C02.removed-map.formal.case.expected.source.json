@@ -1,0 +1,136 @@
+{
+  "id": "AV.C02.removed-map.formal.case.expected",
+  "ownerTicket": "02",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:33:25.377Z",
+  "completedAt": "2026-11-02T13:33:25.680Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import { mapEvent,commonEvent,troopEvent,showPicture,imageAsset,rawDslCommand,loop,showChoices,conditional,script,pluginCommand } from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Uncalled\",trigger:\"none\",commands:[]});\n",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Asset map"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": [
+            null,
+            {
+              "id": 1,
+              "name": "Complete blank",
+              "note": "  <tag: x>\r\n\n<tag:y>\rtrailing\n",
+              "x": 0,
+              "y": 0,
+              "pages": [
+                {
+                  "conditions": {
+                    "actorId": 1,
+                    "actorValid": false,
+                    "itemId": 1,
+                    "itemValid": false,
+                    "selfSwitchCh": "A",
+                    "selfSwitchValid": false,
+                    "switch1Id": 1,
+                    "switch1Valid": false,
+                    "switch2Id": 1,
+                    "switch2Valid": false,
+                    "variableId": 1,
+                    "variableValid": false,
+                    "variableValue": 0
+                  },
+                  "directionFix": false,
+                  "image": {
+                    "characterIndex": 0,
+                    "characterName": "",
+                    "direction": 2,
+                    "pattern": 0,
+                    "tileId": 0
+                  },
+                  "list": [
+                    {
+                      "code": 231,
+                      "indent": 0,
+                      "parameters": [
+                        1,
+                        "Old map image",
+                        0,
+                        0,
+                        0,
+                        0,
+                        100,
+                        100,
+                        255,
+                        0
+                      ]
+                    },
+                    {
+                      "code": 0,
+                      "indent": 0,
+                      "parameters": []
+                    }
+                  ],
+                  "moveFrequency": 3,
+                  "moveRoute": {
+                    "list": [
+                      {
+                        "code": 0,
+                        "parameters": []
+                      }
+                    ],
+                    "repeat": true,
+                    "skippable": false,
+                    "wait": false
+                  },
+                  "moveSpeed": 3,
+                  "moveType": 0,
+                  "priorityType": 0,
+                  "stepAnime": false,
+                  "through": false,
+                  "trigger": 0,
+                  "walkAnime": true
+                }
+              ]
+            }
+          ]
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Asset tiles"
+          }
+        ]
+      },
+      "target": {
+        "category": "image",
+        "folder": "pictures",
+        "name": "Poster",
+        "extension": ".png"
+      },
+      "gates": "one complete native candidate validation followed by one live asset pass; no publication on errors"
+    }
+  ],
+  "expected": {
+    "description": "old map pages cannot restore removed asset roots",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-picture-workspace.test.ts",
+    "sha256": "1c1a708c2ab685eb467f4ebd3eafd39d509a9682bd41a40cb1448fa217fb46e5",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-removed-map\", async ({ workspaceRoot: root }) => {\n\t\tconst oldEvent = structuredClone((0,__vite_ssr_import_8__.blankEvent));\n\t\toldEvent.pages[0].list = [{\n\t\t\tcode: 231,\n\t\t\tindent: 0,\n\t\t\tparameters: [\n\t\t\t\t1,\n\t\t\t\t\"Old map image\",\n\t\t\t\t0,\n\t\t\t\t0,\n\t\t\t\t0,\n\t\t\t\t0,\n\t\t\t\t100,\n\t\t\t\t100,\n\t\t\t\t255,\n\t\t\t\t0\n\t\t\t]\n\t\t}, {\n\t\t\tcode: 0,\n\t\t\tindent: 0,\n\t\t\tparameters: []\n\t\t}];\n\t\tawait prepare(root, {\n\t\t\tsource: commonSource(\"\"),\n\t\t\tproject: {\n\t\t\t\t...mapProject,\n\t\t\t\t\"Map001.json\": {\n\t\t\t\t\t...mapProject[\"Map001.json\"],\n\t\t\t\t\tevents: [null, oldEvent]\n\t\t\t\t}\n\t\t\t}\n\t\t});\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await publishedUses(root)).toEqual([]);\n\t\tconst map = JSON.parse(await (0,__vite_ssr_import_0__.readFile)((0,__vite_ssr_import_1__.join)((0,__vite_ssr_import_6__.getWorkspaceStatePaths)(root).generatedProjectDataDirectory, \"Map001.json\"), \"utf8\"));\n\t\t(0,__vite_ssr_import_2__.expect)(map.events).toEqual([null, null]);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

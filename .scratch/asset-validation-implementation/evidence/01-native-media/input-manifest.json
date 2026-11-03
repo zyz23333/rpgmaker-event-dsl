@@ -1,0 +1,181 @@
+{
+  "runtime": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\rmmv-local-runtime-1.6.1",
+  "nw": "F:\\Shuen\\RPG\\rpgmaker-event-dsl\\references\\RPGMV\\nwjs-win\\Game.exe",
+  "ffmpeg": "M:\\Shuen\\Codex\\tools\\media-python\\imageio_ffmpeg\\binaries\\ffmpeg-win-x86_64-v7.1.exe",
+  "generatorNode": "v22.23.4",
+  "runtimeHashes": {
+    "rpg_core.js": "9ad9914cc421af6d054c3f01b022b7383863b047ec3f6f76aa897e6cfbf864c6",
+    "rpg_managers.js": "b3d5c746cf52234bdd34af746dbf3caecf96bb3477cc6d24121c4a1a11241114",
+    "rpg_objects.js": "2d43dd9d8974c88a1b82ffa493d6d8a02c4ce1d0dfc8f05e6c0ab731e3f0573e"
+  },
+  "generated": [
+    {
+      "relative": "img/pictures/image-png.png",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "color=c=red:s=16x16:d=0.2",
+        "-frames:v",
+        "1"
+      ]
+    },
+    {
+      "relative": "img/pictures/中文图片.png",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "color=c=red:s=16x16:d=0.2",
+        "-frames:v",
+        "1"
+      ]
+    },
+    {
+      "relative": "img/pictures/image with space.png",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "color=c=red:s=16x16:d=0.2",
+        "-frames:v",
+        "1"
+      ]
+    },
+    {
+      "relative": "img/pictures/literal%20image.png",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "color=c=red:s=16x16:d=0.2",
+        "-frames:v",
+        "1"
+      ]
+    },
+    {
+      "relative": "img/pictures/image%percent.png",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "color=c=red:s=16x16:d=0.2",
+        "-frames:v",
+        "1"
+      ]
+    },
+    {
+      "relative": "img/pictures/image#hash.png",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "color=c=red:s=16x16:d=0.2",
+        "-frames:v",
+        "1"
+      ]
+    },
+    {
+      "relative": "audio/se/audio-ogg.ogg",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "sine=frequency=440:duration=0.2",
+        "-c:a",
+        "libvorbis"
+      ]
+    },
+    {
+      "relative": "audio/se/中文音频.ogg",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "sine=frequency=440:duration=0.2",
+        "-c:a",
+        "libvorbis"
+      ]
+    },
+    {
+      "relative": "audio/se/audio with space.ogg",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "sine=frequency=440:duration=0.2",
+        "-c:a",
+        "libvorbis"
+      ]
+    },
+    {
+      "relative": "audio/se/literal%20audio.ogg",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "sine=frequency=440:duration=0.2",
+        "-c:a",
+        "libvorbis"
+      ]
+    },
+    {
+      "relative": "audio/se/audio%percent.ogg",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "sine=frequency=440:duration=0.2",
+        "-c:a",
+        "libvorbis"
+      ]
+    },
+    {
+      "relative": "audio/se/audio#hash.ogg",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "sine=frequency=440:duration=0.2",
+        "-c:a",
+        "libvorbis"
+      ]
+    },
+    {
+      "relative": "movies/movie-webm.webm",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "color=c=blue:s=16x16:d=0.2",
+        "-c:v",
+        "libvpx",
+        "-an"
+      ]
+    },
+    {
+      "relative": "movies/中文影片.webm",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "color=c=blue:s=16x16:d=0.2",
+        "-c:v",
+        "libvpx",
+        "-an"
+      ]
+    },
+    {
+      "relative": "movies/movie with space.webm",
+      "generator": [
+        "-f",
+        "lavfi",
+        "-i",
+        "color=c=blue:s=16x16:d=0.2",
+        "-c:v",
+        "libvpx",
+        "-an"
+      ]
+    }
+  ]
+}

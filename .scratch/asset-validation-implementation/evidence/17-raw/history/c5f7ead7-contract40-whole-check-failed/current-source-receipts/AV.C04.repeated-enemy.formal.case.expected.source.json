@@ -1,0 +1,285 @@
+{
+  "id": "AV.C04.repeated-enemy.formal.case.expected",
+  "ownerTicket": "08",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:47:49.617Z",
+  "completedAt": "2026-11-02T11:47:53.185Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "source": "import {commonEvent,battleProcessing,troopRef,enemyTransform,enemyRef,changePartyMember,actorRef,rawDslCommand,setVehicleLocation,troopEvent,changeHp,mapRef,comment} from \"rpgmaker-event-dsl\";export const event=commonEvent({id:1,name:\"Battlers\",trigger:\"none\",commands:[battleProcessing({troop:{kind:\"fixed\",troop:troopRef({id:1})}})]});",
+      "projectOverrides": {
+        "Troops.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Troop",
+            "members": [
+              {
+                "enemyId": 1,
+                "x": 100,
+                "y": 200,
+                "hidden": false
+              },
+              {
+                "enemyId": 1,
+                "x": 300,
+                "y": 400,
+                "hidden": true
+              }
+            ],
+            "pages": []
+          }
+        ],
+        "Enemies.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Enemy 1",
+            "battlerName": "VisibleEnemy",
+            "battlerHue": 123,
+            "actions": [
+              {
+                "skillId": 1
+              }
+            ],
+            "custom": {
+              "keep": true
+            }
+          },
+          {
+            "id": 2,
+            "name": "Enemy 2",
+            "battlerName": "HiddenEnemy",
+            "battlerHue": 123,
+            "actions": [
+              {
+                "skillId": 1
+              }
+            ],
+            "custom": {
+              "keep": true
+            }
+          }
+        ],
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor",
+            "characterName": "InitialCharacter",
+            "characterIndex": 7,
+            "battlerName": "InitialBattler",
+            "faceName": "ExcludedFace",
+            "equips": [
+              1
+            ],
+            "custom": {
+              "keep": true
+            }
+          }
+        ],
+        "System.json": {
+          "gameTitle": "Synthetic evidence context",
+          "switches": [
+            "",
+            "Saved switch"
+          ],
+          "variables": [
+            ""
+          ],
+          "fixtureOrigin": {
+            "retainedNull": null,
+            "retainedArray": []
+          },
+          "optSideView": false,
+          "battleBgm": {
+            "name": "",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "victoryMe": {
+            "name": "",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "defeatMe": {
+            "name": "",
+            "volume": 17,
+            "pitch": 73,
+            "pan": -41
+          },
+          "sounds": [
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            },
+            {
+              "name": "",
+              "volume": 17,
+              "pitch": 73,
+              "pan": -41
+            }
+          ]
+        }
+      }
+    },
+    {
+      "workspaceRoot": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-repeated-enemy-u2Ti2Y\\最小 Workspace with spaces"
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-repeated-enemy-u2Ti2Y\\最小 Workspace with spaces\\Game\\img\\enemies\\VisibleEnemy.png"
+    }
+  ],
+  "expected": {
+    "description": "repeated Enemy members retain both member chains and one grouped target",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-battler-workspace.test.ts",
+    "sha256": "1dad6a66ee3934961665960b33b4b83bc38df1ca327f3d7f832865b9303e0606",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(\"asset-repeated-enemy\", async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot, selected = troop();\n\t\tselected.members[1].enemyId = 1;\n\t\tawait prepare(root, source(fixed), { \"Troops.json\": [null, selected] });\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ workspaceRoot: root });\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/img/enemies\"), { recursive: true });\n\t\tconst before = await state(root);\n\t\tfor (const check of [true, false]) {\n\t\t\tconst failure = await compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck\n\t\t\t}).then(() => \"\", String);\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"2 use(s)\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"Troops.json[1].members[0].enemyId\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(failure).toContain(\"Troops.json[1].members[1].enemyId\");\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t};\n\t\tconst cli = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"], { allowFailure: true });\n\t\t(0,__vite_ssr_import_2__.expect)(cli.exitCode).toBe(1);\n\t\t(0,__vite_ssr_import_2__.expect)(cli.stderr).toContain(\"2 use(s)\");\n\t\tawait media(root, \"enemies\", \"VisibleEnemy\");\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\tconst expected = expectedUses(\"B03\", \"front\");\n\t\texpected[1] = {\n\t\t\t...expected[1],\n\t\t\tname: \"VisibleEnemy\",\n\t\t\tdependencyChain: [{\n\t\t\t\tdata: \"Troops.json\",\n\t\t\t\tid: 1,\n\t\t\t\tfield: \"members[1].enemyId\",\n\t\t\t\trelationship: \"Troop member Enemy\"\n\t\t\t}, {\n\t\t\t\tdata: \"Enemies.json\",\n\t\t\t\tid: 1,\n\t\t\t\tfield: \"battlerName\",\n\t\t\t\trelationship: \"Enemy battler image\"\n\t\t\t}]\n\t\t};\n\t\t(0,__vite_ssr_import_2__.expect)((await observed(root)).relations).toEqual({\n\t\t\tuses: expected,\n\t\t\tproblems: []\n\t\t});\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

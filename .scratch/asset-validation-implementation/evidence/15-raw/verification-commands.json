@@ -1,0 +1,48 @@
+[
+  {
+    "name": "build",
+    "command": "pnpm",
+    "arguments": [
+      "build"
+    ],
+    "startedAt": "2026-11-02T08:45:59.1868586Z",
+    "completedAt": "2026-11-02T08:46:05.3423422Z",
+    "exitCode": 0
+  },
+  {
+    "name": "final-built",
+    "command": "pnpm",
+    "arguments": [
+      "--filter",
+      "rpgmaker-event-dsl",
+      "test:windows-baseline",
+      "--maxWorkers=1",
+      "test/asset-push-workspace.test.ts",
+      "--reporter=json",
+      "--outputFile=../../test-results/15-final-built.json"
+    ],
+    "startedAt": "2026-11-02T08:46:05.3926693Z",
+    "completedAt": "2026-11-02T08:47:17.6742137Z",
+    "exitCode": 0
+  },
+  {
+    "name": "regression-source",
+    "command": "pnpm",
+    "arguments": [
+      "--filter",
+      "rpgmaker-event-dsl",
+      "test",
+      "--maxWorkers=1",
+      "test/push-drift.test.ts",
+      "test/push-recovery.test.ts",
+      "test/snapshot-binding.test.ts",
+      "test/workspace-locking.test.ts",
+      "test/compile-inputs.test.ts",
+      "--reporter=json",
+      "--outputFile=../../test-results/15-regression-source.json"
+    ],
+    "startedAt": "2026-11-02T08:47:17.7072222Z",
+    "completedAt": "2026-11-02T08:52:17.7795328Z",
+    "exitCode": 1
+  }
+]

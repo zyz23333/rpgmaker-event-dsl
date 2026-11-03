@@ -1,4 +1,4 @@
-import { readFile, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { expect, it } from "vitest";
 import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/definitions.js";
@@ -34,33 +34,43 @@ const display =
   'pictureId:1,origin:"upperLeft",position:{kind:"direct",x:0,y:0},scaleX:100,scaleY:100,opacity:255,blendMode:"normal"';
 const sourcePath = (root: string) => join(root, "src/decompiled/common-events.events.ts");
 
-function evidenceIt(id: string, name: string, verify: () => Promise<void>) {
-  it(`${id}: ${name}`, async () => {
-    const startedAt = new Date().toISOString();
-    let failure: unknown;
-    try {
-      await verify();
-    } catch (error) {
-      failure = error;
-      throw error;
-    } finally {
-      await recordEvidence({
-        requirementId: id,
-        startedAt,
-        stages: [
-          "Independent native literals and source",
-          "Actual Discovery, public package evaluation, Workspace Check/Compile/Diff/Push",
-          "Complete source/Discovery/Project Root/Snapshot/generated/config/descriptor/manifest comparisons",
-        ],
-        expected: name,
-        actual: { assertionsCompleted: failure === undefined, entry: workspaceApiEntry },
-        ...(failure === undefined ? {} : { error: failure }),
-      });
-    }
-  });
+function evidenceIt(id: string, name: string, verify: () => Promise<void>, timeout?: number) {
+  it(
+    `${id}: ${name}`,
+    async () => {
+      const startedAt = new Date().toISOString();
+      let failure: unknown;
+      try {
+        await verify();
+      } catch (error) {
+        failure = error;
+        throw error;
+      } finally {
+        await recordEvidence({
+          requirementId: id,
+          startedAt,
+          stages: [
+            "Independent native literals and source",
+            "Actual Discovery, public package evaluation, Workspace Check/Compile/Diff/Push",
+            "Complete source/Discovery/Project Root/Snapshot/generated/config/descriptor/manifest comparisons",
+          ],
+          expected: name,
+          actual: { assertionsCompleted: failure === undefined, entry: workspaceApiEntry },
+          ...(failure === undefined ? {} : { error: failure }),
+        });
+      }
+    },
+    timeout,
+  );
 }
 
-function commonText(records: string[] = fixture.commonRecords): string {
+// The historical literal keeps its CR name below to verify takeover. Successful file
+// checking uses a separately named Windows file without changing the domain's saved values.
+function commonText(
+  records: string[] = fixture.commonRecords.map((record: string) =>
+    record.replace("CR\\rname", "Line picture"),
+  ),
+): string {
   return `[null,{"id":1,"name":"Picture matrix","trigger":0,"switchId":1,"list":[${records.join(",")}]}]`;
 }
 async function prepare(
@@ -74,9 +84,28 @@ async function prepare(
       join(root, "Game/data", name),
       name === "CommonEvents.json" ? nativeText : JSON.stringify(value),
     );
+  await mkdir(join(root, "Game/img/pictures"), { recursive: true });
+  for (const name of ["Wide picture", "Line picture", "Unscanned picture"])
+    await writeFile(join(root, "Game/img/pictures", `${name}.png`), "");
   await initWorkspace({ workspaceRoot: root, projectRoot: "./Game" });
   await cloneWorkspace({ workspaceRoot: root });
 }
+
+it("retains the original CR picture name in Decompiled Source while the file gate rejects it without publication", async () => {
+  await withWindowsSandbox("picture-cr-file-policy", async ({ workspaceRoot: root }) => {
+    await prepare(root, commonText(fixture.commonRecords));
+    await decompileWorkspace({ workspaceRoot: root });
+    const source = await readFile(sourcePath(root), "utf8");
+    expect(source).toContain('name: "CR\\rname"');
+    const before = await state(root);
+    for (const check of [true, false]) {
+      await expect(compileWorkspace({ workspaceRoot: root, check })).rejects.toThrow(
+        "MV-ASSET-UNSUPPORTED-NAME",
+      );
+      expect(await state(root)).toEqual(before);
+    }
+  });
+});
 async function directory(path: string): Promise<Record<string, string> | null> {
   try {
     const output: Record<string, string> = {};
@@ -275,6 +304,7 @@ evidenceIt(
       await assertFiles(root, expected, carriers);
     });
   },
+  30_000,
 );
 for (const [helper, valid] of helpers)
   for (const form of ["input", "{...input}", "input as never", "direct"])

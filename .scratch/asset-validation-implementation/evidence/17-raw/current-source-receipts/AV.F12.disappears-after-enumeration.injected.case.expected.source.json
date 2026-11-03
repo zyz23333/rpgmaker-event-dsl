@@ -1,0 +1,68 @@
+{
+  "id": "AV.F12.disappears-after-enumeration.injected.case.expected",
+  "ownerTicket": "03",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:18:49.064Z",
+  "completedAt": "2026-11-02T13:18:50.329Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "names": [
+        "Poster"
+      ],
+      "source": "import {commonEvent,rawDslCommand} from \"rpgmaker-event-dsl\";\nexport const event=commonEvent({id:10,name:\"Files\",trigger:\"none\",commands:[rawDslCommand({code:231,indent:0,parameters:[1,\"Poster\",0,0,0,0,100,100,255,0]})]});",
+      "contract": "exact selected PNG metadata in the bound Project Root"
+    },
+    {},
+    {
+      "file": "img/pictures/Poster.png",
+      "contents": "ordinary zero-byte file",
+      "timing": "before asset gate"
+    },
+    {
+      "operation": "remove actual file",
+      "timing": "after readdir before lstat; no artificial missing-file result"
+    },
+    {
+      "actualCli": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-file-disappears-ycPZHK\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T13:18:49.104Z",
+        "completedAt": "2026-11-02T13:18:50.322Z",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "",
+        "stderr": "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131\r\n    throw new Error(`${input.commandName} asset check failed:\\n${errors.join(\"\\n\")}`);\r\n          ^\r\n\r\nError: compile asset check failed:\r\nerror MV-ASSET-QUERY-FAILED: ENOENT: no such file or directory, lstat 'C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-file-disappears-ycPZHK\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png' Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-file-disappears-ycPZHK\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-file-disappears-ycPZHK\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-file-disappears-ycPZHK\\最小 Workspace with spaces\\Game\\img\\pictures\\Poster.png\r\n  image/pictures \"Poster\"; 1 use(s)\r\n  - error commonEvent:10 CommonEvents.json[10].list[0].parameters[1]; DSL: commands[0]; base: error; effective: error\r\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: incomplete; named relationships or file checks remain unchecked.\r\n    at checkEventAssets (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\asset-check.ts:131:11)\r\n    at async compileWorkspaceUnlocked (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:277:5)\r\n    at async withWorkspaceOperationLock (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operation-lock.ts:45:12)\r\n    at async compileWorkspace (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\workspace\\operations.ts:217:3)\r\n    at async Command.<anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:67:7)\r\n    at async Command.parseAsync (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\node_modules\\.pnpm\\commander@14.0.3\\node_modules\\commander\\lib\\command.js:1122:5)\r\n    at async runCli (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:110:3)\r\n    at async <anonymous> (M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts:122:3)\r\n\r\nNode.js v22.23.4\r\n",
+        "ipcMessages": [
+          {
+            "kind": "checkpoint",
+            "pid": 4312
+          }
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "description": "an observed entry disappearing is not a confirmed missing file",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-file-workspace.test.ts",
+    "sha256": "61cbdd643880adf3d124748862751b96fdaf2a86fefb5e451b99b8457255449b",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_6__.withWindowsSandbox)(\"asset-file-disappears\", async (sandbox) => {\n\t\tawait prepare(sandbox.workspaceRoot);\n\t\tconst target = await png(sandbox.workspaceRoot);\n\t\tconst before = await localState(sandbox.workspaceRoot);\n\t\tconst child = (0,__vite_ssr_import_7__.startWorkspaceOperation)(sandbox, {\n\t\t\toperation: \"compile\",\n\t\t\tmode: \"cli\",\n\t\t\tboundary: \"asset-after-enumeration\"\n\t\t});\n\t\ttry {\n\t\t\tawait child.waitFor(\"checkpoint\");\n\t\t\tawait (0,__vite_ssr_import_1__.rm)(target);\n\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({\n\t\t\t\toperation: \"remove actual file\",\n\t\t\t\ttiming: \"after readdir before lstat; no artificial missing-file result\"\n\t\t\t});\n\t\t\tchild.send(\"release\");\n\t\t\t(0,__vite_ssr_import_4__.expect)((await child.ended).exitCode).toBe(1);\n\t\t\tconst process = sandbox.processes.at(-1);\n\t\t\t(0,__vite_ssr_import_4__.expect)(process.stderr).toContain(\"MV-ASSET-QUERY-FAILED\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(process.stderr).not.toContain(\"MV-ASSET-MISSING-FILE\");\n\t\t\t(0,__vite_ssr_import_4__.expect)(process.stderr).toContain(target);\n\t\t\t(0,__vite_ssr_import_5__.recordAssetInput)({ actualCli: process });\n\t\t} finally {\n\t\t\tawait child.stop();\n\t\t};\n\t\t(0,__vite_ssr_import_4__.expect)(await localState(sandbox.workspaceRoot)).toEqual(before);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

@@ -1,0 +1,42 @@
+{
+  "revision": "126b1980014e5c9a4c9bd877505e04a30f097759",
+  "contract": "mv-1.6.1/39",
+  "files": [
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+      "sha256": "8154b5c910c5600ec63c07c3b7d69d17692705b9f49b11455d7a0bf0bfa92aa1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/asset-check.ts",
+      "sha256": "2fbf2c206b3dc19a37dbf8b3891f08bc4fc3e90ce8d971e60059a05ee808540b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-report.ts",
+      "sha256": "1dc3d068f95133e24b3c3f53efbf87a74fb02129dc60cc51ac72a3eb4e84fc37"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-system-relations.ts",
+      "sha256": "af667516e688bdce4baac26106866cd214edd5f49925e89d7e2a8bffedcde68b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-dependencies.ts",
+      "sha256": "2cf47594e7124150e41529a2afcaeae2ad71e6bdac5ca31050cc61c8ebe9c07a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts",
+      "sha256": "ebbb2cd2bd9559ca432c83774132a9a2fd1f6270828d044675f7002912273c71"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-process.ts",
+      "sha256": "d06b30f566992604bd963a688fbe1cf69fecbc1021bfb75280f4be3dbfecee9c"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/support/workspace-operation-child.mjs",
+      "sha256": "4b29837d04e759ed913b16364c4e827499df5490552c5d778ea95dc5223bc7ef"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "sha256": "5c02c51a1460d192644983035fe10a36737dcbe2a220cb2e4b2e0a81404007d1"
+    }
+  ]
+}

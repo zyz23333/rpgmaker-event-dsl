@@ -1,0 +1,56 @@
+{
+  "id": "AV.F01.me.filesystem.case.expected",
+  "ownerTicket": "05",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T13:24:44.001Z",
+  "completedAt": "2026-11-02T13:24:44.979Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,audioAsset,movieAsset,rawDslCommand,changeBattleBgm,changeVictoryMe,changeDefeatMe,changeVehicleBgm,playBgm,playBgs,playMe,playSe,playMovie,setMovementRoute} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Media\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[playMe({audio:{asset:audioAsset({folder:\"me\",name:\"Exact-me\"}),volume:17,pitch:73,pan:-41}})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Media"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ]
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-media-exact-me-pklJzy\\最小 Workspace with spaces\\Game\\audio\\me\\Exact-me.ogg",
+      "extension": ".ogg",
+      "timing": "before the asset gate"
+    }
+  ],
+  "expected": {
+    "description": "exact zero-byte media files pass in their native namespace",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+    "sha256": "843bbe0a812fb252cf1a6bfdc3709898389388f42d0a2bafaec2b031b1c1ba65",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-media-exact-${vector.folder}`, async ({ workspaceRoot: root }) => {\n\t\tconst name = `Exact-${vector.folder}`;\n\t\tawait prepare(root, source(expression(vector, name)));\n\t\tconst path = await mediaFile(root, vector.folder, name);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)((await published(root)).uses).toEqual([expectedUse(vector, name)]);\n\t\t(0,__vite_ssr_import_2__.expect)(await (0,__vite_ssr_import_0__.readFile)(path)).toHaveLength(0);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

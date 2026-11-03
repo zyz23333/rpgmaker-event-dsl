@@ -1,0 +1,234 @@
+{
+  "executionFreeze": "c5f7ead75ba78680b92ad81924ba8cb884d2b751",
+  "source": "C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/final-review-contract-38-M5hhgB",
+  "destination": ".scratch/asset-validation-implementation/evidence/17-raw/current-legacy-regression-evidence/final-review-contract-38-M5hhgB",
+  "scope": "original sandbox business files and process-results; runtime node_modules excluded without following links",
+  "files": [
+    {
+      "relativePath": "process-results.json",
+      "bytes": 435,
+      "sha256": "60cfeed7f887a9f98b800a75c0863f604be7aa3c4926157932fa8c853324c207"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/generated-project-data/CommonEvents.json",
+      "bytes": 793,
+      "sha256": "77e42b8f8eb0545dd717529c6b7ba467bc54115536a76205f31cea97d02aa48d"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/generated-project-data/Map001.json",
+      "bytes": 1530,
+      "sha256": "b1b6c7cc4980e74d800652b0022a25dbfaebe57c0a3cab3fa97428ec2e1afe68"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/generated-project-data/System.json",
+      "bytes": 195,
+      "sha256": "885a4070c7aa732e7ffc24745e3816c26ea49ab10a0e4284e10cdf70ee64d32d"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/generated-project-data/Troops.json",
+      "bytes": 11,
+      "sha256": "18bd149d9224d50af331c7fdea3f59db808cc46380e01398b96b14f52ac68e6b"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/operation.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/Actors.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/Animations.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/Armors.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/Classes.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/CommonEvents.json",
+      "bytes": 373,
+      "sha256": "78dde0b943db9c919cdfd0c03718c6263e308c45b96561447c6efd20dc6eb203"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/Enemies.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/Items.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/Map001.json",
+      "bytes": 799,
+      "sha256": "d1246500ef5b7ac7623fc0419d0771add859d1ba20c956f29d7d24c35467b006"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/MapInfos.json",
+      "bytes": 28,
+      "sha256": "6579e5839dba79112a5d848ed6d6514f863d8cb425de423b6a781fd5ae0d6816"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/Skills.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/States.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/System.json",
+      "bytes": 147,
+      "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/Tilesets.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/Troops.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/project-data-snapshot/Weapons.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/.rpgmaker-event-dsl/sync-manifest.json",
+      "bytes": 136417,
+      "sha256": "f8601c0fdbcd56d44297f513cd53c4d2841515cc8951f56c36467edd48e69b93"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/Actors.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/Animations.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/Armors.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/Classes.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/CommonEvents.json",
+      "bytes": 373,
+      "sha256": "78dde0b943db9c919cdfd0c03718c6263e308c45b96561447c6efd20dc6eb203"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/Enemies.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/Items.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/Map001.json",
+      "bytes": 799,
+      "sha256": "d1246500ef5b7ac7623fc0419d0771add859d1ba20c956f29d7d24c35467b006"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/MapInfos.json",
+      "bytes": 28,
+      "sha256": "6579e5839dba79112a5d848ed6d6514f863d8cb425de423b6a781fd5ae0d6816"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/Skills.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/States.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/System.json",
+      "bytes": 147,
+      "sha256": "334e3c01074749e210a2d9b95185aec58c7083c41c5131ade5cb05071db23606"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/Tilesets.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/Troops.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/data/Weapons.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/Game/Game.rpgproject",
+      "bytes": 12,
+      "sha256": "57cbf55c6b4ae30d7352fef0dcdd5913235059b42b4b66f40e8a6bbc48de6db2"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/rpgmaker-event-dsl.config.json",
+      "bytes": 257,
+      "sha256": "0d6d4f16518a781c3f7746338cafc8533b21018f3ed91ad1c36f980b523cec58"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/src/decompiled/common-events.events.ts",
+      "bytes": 392,
+      "sha256": "36c7931074d2b2fce088f79b37062fed2d5ff43c6b733e5fc20e960866a4e2fd"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/src/decompiled/maps/Map001.events.ts",
+      "bytes": 281,
+      "sha256": "a9e4ecb28e76175afacbce6303218d9c0aab557fa1aae960adb293c8d48bac4b"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/src/decompiled/system.dsl.ts",
+      "bytes": 168,
+      "sha256": "002613305591198815978828f485fc61b7ef109dd6a9f59c18e4a2722139552a"
+    },
+    {
+      "relativePath": "最小 Workspace with spaces/src/decompiled/troop-events.events.ts",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    }
+  ],
+  "skipped": [
+    {
+      "relativePath": "最小 Workspace with spaces/node_modules",
+      "reason": "runtime dependency surface; not followed or copied"
+    }
+  ]
+}

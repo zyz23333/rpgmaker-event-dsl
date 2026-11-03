@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "kind": "composite-validation-source-base; not-whole-check-success",
+  "executionFreeze": "af748ee5067f41096a296a79f81b078415096606",
+  "compileContractVersion": "mv-1.6.1/40",
+  "userInstruction": "完整跑一次耗时太长了，尽量减少全量运行",
+  "policy": "Preserve af full-check exit1. Reuse only its actual passed set after product/input/assertion identity audit; repair the failed and directly affected source subset and run the as-yet-unexecuted built responsibility. No third full-source run authorized by this plan.",
+  "originalRunner": {
+    "log": ".scratch/asset-validation-implementation/evidence/17-raw/history/af748ee5-contract40-whole-check-failed/01-pnpm-check.log",
+    "commandHistory": ".scratch/asset-validation-implementation/evidence/17-raw/history/af748ee5-contract40-whole-check-failed/command-history.json",
+    "exitCode": 1,
+    "files": {
+      "total": 103,
+      "passed": 102,
+      "failed": 1
+    },
+    "tests": {
+      "total": 3409,
+      "passed": 3408,
+      "failed": 1
+    },
+    "skipped": 0,
+    "filtered": 0,
+    "durationSeconds": 2380.17
+  },
+  "inferenceMethod": "The original complete runner reports3409 tests/3408 passed/one explicitly named failure and no skips or filters. The same frozen protected inputs produce3409 collected registrations across103 files. Each registration except the uniquely matched explicit failure is therefore classified as passed by set subtraction. These are inferred per-name passes, not observed per-name pass log lines. Collection itself does not execute callbacks or prove a pass.",
+  "collection": {
+    "path": ".scratch/asset-validation-implementation/evidence/17-raw/history/af748ee5-contract40-whole-check-failed/current-source-collection/registrations.json",
+    "command": ".scratch/asset-validation-implementation/evidence/17-raw/history/af748ee5-contract40-whole-check-failed/current-source-collection/command.json",
+    "callbackExecution": false
+  },
+  "counts": {
+    "collectedIdentities": 3409,
+    "inferredPassed": 3408,
+    "explicitlyFailed": 1,
+    "actualAssetHelperReceipts": 1241,
+    "canonicalHelpers": 1195,
+    "supplementaryHelpers": 46,
+    "acceptedPassedCanonicalSource": 1194,
+    "acceptedPassedSupplementarySource": 46,
+    "excludedRunnerFailedCanonicalSource": 1
+  },
+  "failures": [
+    {
+      "file": "packages/rpgmaker-event-dsl/test/asset-diagnostics-workspace.test.ts",
+      "name": "AV.D05.incomplete.native.case.expected: ineffective exceptions are located only when complete relevant checking establishes that no error was downgraded"
+    }
+  ],
+  "commandsNotStarted": [
+    "pnpm build (formal second build)",
+    "pnpm --filter rpgmaker-event-dsl test:windows-baseline"
+  ],
+  "legacyHelpersPreserved": 896,
+  "wholeCheckPassed": false,
+  "finalCompositeCoverageComplete": false,
+  "maintainerApproval": null,
+  "ticket17Status": "claimed",
+  "immutableFullIndex": ".scratch/asset-validation-implementation/evidence/17-raw/history/af748ee5-contract40-whole-check-failed/source-case-identities.json",
+  "disposition": ".scratch/asset-validation-implementation/evidence/17-raw/history/af748ee5-contract40-whole-check-failed/disposition.json",
+  "immutableArchiveFiles": 2152,
+  "immutableArchiveBytes": 270257664
+}

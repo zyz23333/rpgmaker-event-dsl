@@ -1,0 +1,23 @@
+
+ RUN  v4.1.9 M:/Shuen/Codex/asset-validation-14-push/packages/rpgmaker-event-dsl
+
+stderr | test/asset-workflow-workspace.test.ts > AV.W12.next-command-fresh.api.case.expected: shared and cyclic definitions retain two uses and four finite direct call sites without historical success caching
+compile asset check info:
+Direct Common Event calls:
+  - commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-support-serial-workspaces/asset-workflow-graph-next-command-fresh-ktuwYa/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 266)
+  - commonEvent:10 CommonEvents.json[10].list[2].parameters[0] -> commonEvent:11; DSL: commands[2]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-support-serial-workspaces/asset-workflow-graph-next-command-fresh-ktuwYa/最小 Workspace with spaces/src/workflow.events.ts (line 3, column 321)
+  - commonEvent:11 CommonEvents.json[11].list[1].parameters[0] -> commonEvent:12; DSL: commands[1]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-support-serial-workspaces/asset-workflow-graph-next-command-fresh-ktuwYa/最小 Workspace with spaces/src/workflow.events.ts (line 4, column 266)
+  - commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:10; DSL: commands[0]; source: M:/Shuen/Codex/asset-validation-notes/ticket14-built-support-serial-workspaces/asset-workflow-graph-next-command-fresh-ktuwYa/最小 Workspace with spaces/src/workflow.events.ts (line 5, column 82)
+
+stderr | test/asset-workflow-workspace.test.ts > AV.W12.next-command-fresh.api.case.expected: shared and cyclic definitions retain two uses and four finite direct call sites without historical success caching
+Windows verification sandbox retained: M:\Shuen\Codex\asset-validation-notes\ticket14-built-support-serial-workspaces\asset-workflow-graph-next-command-fresh-ktuwYa
+
+ ✓ test/asset-workflow-workspace.test.ts (65 tests | 64 skipped) 2752ms
+   ✓ AV.W12.next-command-fresh.api.case.expected: shared and cyclic definitions retain two uses and four finite direct call sites without historical success caching  2751ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 64 skipped (65)
+   Start at  15:46:50
+   Duration  3.69s (transform 354ms, setup 0ms, import 767ms, tests 2.75s, environment 0ms)
+
+JSON report written to M:/Shuen/Codex/asset-validation-notes/ticket14-built-support-serial.json

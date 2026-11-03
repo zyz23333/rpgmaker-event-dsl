@@ -1,0 +1,66 @@
+{
+  "id": "AV.F13.audio-null.input.case.expected",
+  "ownerTicket": "05",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T11:43:07.873Z",
+  "completedAt": "2026-11-02T11:43:08.721Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,audioAsset,movieAsset,rawDslCommand,changeBattleBgm,changeVictoryMe,changeDefeatMe,changeVehicleBgm,playBgm,playBgs,playMe,playSe,playMovie,setMovementRoute} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Media\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[playBgm({audio:{asset:audioAsset({folder:\"bgm\",name:\"Flag\"}),volume:17,pitch:73,pan:-41}})]}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Media"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ],
+        "System.json": {
+          "switches": [
+            ""
+          ],
+          "variables": [
+            ""
+          ],
+          "hasEncryptedImages": null,
+          "hasEncryptedAudio": null
+        }
+      }
+    },
+    {
+      "ordinaryZeroByteFile": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-audio-null-ZIj6uJ\\最小 Workspace with spaces\\Game\\audio\\bgm\\Flag.ogg",
+      "extension": ".ogg",
+      "timing": "before the asset gate"
+    }
+  ],
+  "expected": {
+    "description": "only the used audio encryption mode is interpreted",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-media-workspace.test.ts",
+    "sha256": "843bbe0a812fb252cf1a6bfdc3709898389388f42d0a2bafaec2b031b1c1ba65",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-${branch}`, async ({ workspaceRoot: root }) => {\n\t\tconst vector = {\n\t\t\tfamily: \"F13\",\n\t\t\tcode: 241,\n\t\t\tfolder: \"bgm\",\n\t\t\tparameter: 0,\n\t\t\thelper: \"playBgm\"\n\t\t};\n\t\tawait prepare(root, source(expression(vector, \"Flag\")), { \"System.json\": {\n\t\t\tswitches: [\"\"],\n\t\t\tvariables: [\"\"],\n\t\t\thasEncryptedImages: null,\n\t\t\t...flag === undefined ? {} : { hasEncryptedAudio: flag }\n\t\t} });\n\t\tawait mediaFile(root, \"bgm\", \"Flag\");\n\t\tconst before = await state(root);\n\t\tif (expected) for (const check of [true, false]) {\n\t\t\tawait (0,__vite_ssr_import_2__.expect)(compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck\n\t\t\t})).rejects.toThrow(expected);\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t}\n\t\telse {\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: true\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\t\tawait compileWorkspace({\n\t\t\t\tworkspaceRoot: root,\n\t\t\t\tcheck: false\n\t\t\t});\n\t\t\t(0,__vite_ssr_import_2__.expect)((await published(root)).uses).toEqual([expectedUse(vector, \"Flag\")]);\n\t\t}\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

@@ -1,0 +1,142 @@
+{
+  "localLinksChecked": 34,
+  "errors": [],
+  "targets": [
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "../../../asset-validation/asset-validation-spec.md"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "../09-system-acceptance.md"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "../09-system-acceptance.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/original-17-failed-receipt.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/original-badexpect-asset-system-workspace.test.ts.txt"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/original-17-failed-process-results.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/diagnostic-original-contract39.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/diagnostic-product-inputs.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/attempt-01-crlf-capture-original.ts"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/attempt-01-crlf-diagnostic-original-contract39.log"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/attempt-01-crlf-diagnostic-original-contract39.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/attempt-01-crlf-process-results.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/build-contract40.log"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/contract40-freeze.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/focused-source-receipt.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/focused-built-receipt.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/run-09-grouping.ps1"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/focused-source.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/focused-built.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/verification.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/expected-and-registration.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/verify-09-grouping.mjs"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/acceptance.md",
+      "target": "raw/manifest.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md",
+      "target": "../../asset-validation/asset-validation-spec.md"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md",
+      "target": "../ticket-breakdown-draft.md#comments"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md",
+      "target": "06-animation-and-tileset-dependencies.md"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md",
+      "target": "../../asset-validation/asset-validation-spec.md"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md",
+      "target": "../../asset-validation/acceptance-matrix.md"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md",
+      "target": "../../asset-validation/implementation-acceptance-cases.md"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md",
+      "target": "../ticket-breakdown-draft.md"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md",
+      "target": "../tickets.md"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md",
+      "target": "../evidence/09-system-acceptance.md"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md",
+      "target": "../evidence/09-system-acceptance.json"
+    },
+    {
+      "file": ".scratch/asset-validation-implementation/issues/09-system-and-battle-defaults.md",
+      "target": "../evidence/09-grouping-compatibility/acceptance.md"
+    }
+  ]
+}

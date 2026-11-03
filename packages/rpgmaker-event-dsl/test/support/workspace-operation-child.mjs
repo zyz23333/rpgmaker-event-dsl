@@ -1,7 +1,8 @@
 import fs from "node:fs/promises";
+import fsSync from "node:fs";
 import childProcess from "node:child_process";
 import { syncBuiltinESMExports } from "node:module";
-import { resolve } from "node:path";
+import { basename, dirname, resolve, sep } from "node:path";
 
 // T1 system-boundary control: pause one real filesystem operation in a real child.
 // Product modules have no test flags or orchestration API.
@@ -12,29 +13,159 @@ const writeFile = fs.writeFile;
 const link = fs.link;
 const rm = fs.rm;
 const mkdtemp = fs.mkdtemp;
+const readdir = fs.readdir;
+const lstat = fs.lstat;
+const realpath = fs.realpath;
+const open = fs.open;
+const openSync = fsSync.openSync;
+const readFileSync = fsSync.readFileSync;
 const spawn = childProcess.spawn;
 const reached = new Set();
 let inputReads = 0;
+let snapshotCaptured = false;
+let assetPassEntered = false;
+function mediaPath(path) {
+  const absolute = resolve(String(path));
+  return [options.projectRoot ?? options.workspaceRoot, ...(options.assetProjectRoots ?? [])].some(
+    (projectRoot) =>
+      ["img", "audio", "movies"].some((folder) => {
+        const root = resolve(projectRoot, folder);
+        return absolute === root || absolute.startsWith(root + sep);
+      }),
+  );
+}
+function observeMediaQuery(path) {
+  if (!options.observeAssets || !mediaPath(path)) return;
+  process.send({ kind: "asset-query", path: resolve(String(path)) });
+  if (options.boundary === "asset-no-media-query")
+    throw controlledAssetError("EACCES", "unexpected media query", path);
+}
 async function checkpoint(kind = "checkpoint") {
   if (reached.has(kind)) return;
   reached.add(kind);
   process.send({ kind, pid: process.pid });
   await new Promise((release) => {
-    process.on("message", (message) => {
-      if (message === "release") release();
+    function receive(message) {
+      if (message === "release") {
+        process.off("message", receive);
+        release();
+      }
       if (message === "crash") {
         queueMicrotask(() => {
           throw new Error("Controlled abrupt Workspace owner crash");
         });
       }
-    });
+    }
+    process.on("message", receive);
   });
 }
+function controlledAssetError(code, action, path) {
+  return Object.assign(new Error(`Controlled asset ${action}: ${String(path)}`), { code });
+}
+function guardAssetRead(path) {
+  if (options.observeAssets && mediaPath(path)) {
+    process.send({ kind: "asset-content-read-attempt", path: resolve(String(path)) });
+    throw controlledAssetError("EACCES", "content read forbidden", path);
+  }
+  if (
+    options.boundary === "asset-media-read-denied" &&
+    resolve(String(path)) === options.assetPath
+  ) {
+    process.send({ kind: "asset-content-read-attempt" });
+    throw controlledAssetError("EACCES", "content read denied", path);
+  }
+}
+function guardAssetLink(path, allowLinkMetadata = false) {
+  const absolute = resolve(String(path));
+  if (
+    options.boundary === "asset-link-guard" &&
+    (absolute.startsWith(options.assetPath + sep) ||
+      (!allowLinkMetadata && absolute === options.assetPath))
+  ) {
+    process.send({ kind: "asset-link-follow-attempt", path: absolute });
+    throw controlledAssetError("EACCES", "link descent forbidden", path);
+  }
+}
+fs.readdir = async function (path, ...args) {
+  observeMediaQuery(path);
+  if (options.assetFault === "enumeration" && resolve(String(path)) === dirname(options.assetPath))
+    throw controlledAssetError("EACCES", "workflow enumeration denied", path);
+  guardAssetLink(path);
+  if (
+    options.boundary === "asset-enumeration-denied" &&
+    resolve(String(path)) === options.assetPath &&
+    !reached.has("asset-fault")
+  ) {
+    reached.add("asset-fault");
+    throw controlledAssetError("EACCES", "enumeration denied", path);
+  }
+  const entries = await readdir(path, ...args);
+  if (
+    options.boundary === "asset-after-enumeration" &&
+    resolve(String(path)) === dirname(options.assetPath) &&
+    entries.some(
+      (entry) => (typeof entry === "string" ? entry : entry.name) === basename(options.assetPath),
+    )
+  )
+    await checkpoint();
+  return entries;
+};
+fs.lstat = async function (path, ...args) {
+  observeMediaQuery(path);
+  guardAssetLink(path, true);
+  if (resolve(String(path)) === options.assetPath) {
+    if (options.boundary === "asset-metadata-denied")
+      throw controlledAssetError("EACCES", "metadata denied", path);
+    if (options.boundary === "asset-io-failure")
+      throw controlledAssetError("EIO", "metadata I/O failure", path);
+  }
+  return lstat(path, ...args);
+};
+fs.realpath = async function (path, ...args) {
+  if (
+    snapshotCaptured &&
+    !assetPassEntered &&
+    resolve(String(path)) === options.projectRoot &&
+    ["asset-before-pass", "asset-after-check-pass"].includes(options.boundary)
+  ) {
+    if (options.boundary === "asset-before-pass") await checkpoint();
+    assetPassEntered = true;
+    process.send({ kind: "asset-pass-entered" });
+  }
+  observeMediaQuery(path);
+  guardAssetLink(path);
+  return realpath(path, ...args);
+};
+fs.open = async function (path, ...args) {
+  guardAssetRead(path);
+  guardAssetLink(path);
+  return open(path, ...args);
+};
+fsSync.openSync = function (path, ...args) {
+  guardAssetRead(path);
+  guardAssetLink(path);
+  return openSync(path, ...args);
+};
+fsSync.readFileSync = function (path, ...args) {
+  guardAssetRead(path);
+  guardAssetLink(path);
+  return readFileSync(path, ...args);
+};
 fs.readFile = async function (path, ...args) {
+  guardAssetRead(path);
+  guardAssetLink(path);
   if (options.boundary === "config" && resolve(String(path)) === options.configPath) {
     await checkpoint();
   }
+  if (
+    options.boundary === "asset-after-check-pass" &&
+    assetPassEntered &&
+    resolve(String(path)) === resolve(options.snapshotPath, "MapInfos.json")
+  )
+    await checkpoint();
   const content = await readFile(path, ...args);
+  if (resolve(String(path)) === resolve(options.snapshotPath, "MapInfos.json"))
+    snapshotCaptured = true;
   if (
     options.boundary === "push-pending-capture" &&
     resolve(String(path)) === resolve(options.pendingPath, "pending-push.json")
@@ -203,7 +334,14 @@ fs.rm = async function (path, ...args) {
     await rm(resolve(String(path), "operation/backup/CommonEvents.json"));
     throw new Error("Controlled partial retired cleanup failure");
   }
-  return rm(path, ...args);
+  const result = await rm(path, ...args);
+  if (
+    options.boundary === "push-after-install-cleanup" &&
+    String(path).includes("push-staging.tmp-") &&
+    String(path).replaceAll("\\", "/").endsWith(`/original/${options.captureFile}`)
+  )
+    await checkpoint();
+  return result;
 };
 childProcess.spawn = function (...args) {
   if (
@@ -252,7 +390,8 @@ if (options.mode === "api") {
     const operationOptions = { workspaceRoot: options.workspaceRoot };
     if (options.operation === "compile") operationOptions.check = false;
     if (options.operation === "check") operationOptions.check = true;
-    if (options.operation === "push") operationOptions.allowDestructive = false;
+    if (options.operation === "push")
+      operationOptions.allowDestructive = options.allowDestructive ?? false;
     const names = {
       clone: "cloneWorkspace",
       pull: "pullWorkspace",

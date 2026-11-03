@@ -1,0 +1,129 @@
+{
+  "id": "AV.C08.route-random.formal.case.expected",
+  "ownerTicket": "04,05",
+  "status": "passed",
+  "contract": ".scratch/asset-validation/implementation-acceptance-cases.md",
+  "startedAt": "2026-11-02T10:23:11.634Z",
+  "completedAt": "2026-11-02T10:23:15.710Z",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.23.4",
+    "architecture": "x64",
+    "osRelease": "10.0.19045"
+  },
+  "entry": "source",
+  "input": [
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,showText,imageAsset,audioAsset,rawDslCommand,changeBattleBack,changeParallax,changeActorImages,changeVehicleImage,actorRef,setMovementRoute,scriptInput} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Images\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[],movement:{type:\"random\",route:{commands:[{kind:\"changeImage\",character:imageAsset({folder:\"characters\",name:\"Route\"}),characterIndex:7}]}}}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Images"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ],
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor"
+          }
+        ]
+      }
+    },
+    {
+      "cliResult": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-warning-random-uBoiIq\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T10:23:11.699Z",
+        "completedAt": "2026-11-02T10:23:13.159Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check warning:\nwarning MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-warning-random-uBoiIq\\最小 Workspace with spaces\\Game; required extension: .png; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-warning-random-uBoiIq\\最小 Workspace with spaces\\Game\\img\\characters\\Route.png; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-warning-random-uBoiIq\\最小 Workspace with spaces\\Game\\img\\characters\\Route.png\n  image/characters \"Route\"; 1 use(s)\n  - warning map:1/event:1 Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]; inactive: Autonomous Movement is random; the saved route is inactive.; DSL: pages[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-warning-random-uBoiIq/最小 Workspace with spaces/src/assets.events.ts (line 2, column 72); base: warning; effective: warning\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.\n"
+      }
+    },
+    {
+      "baseFixture": "packages/rpgmaker-event-dsl/test/fixtures/mv-evidence/common-event-project.json",
+      "source": "import {mapEvent,showText,imageAsset,audioAsset,rawDslCommand,changeBattleBack,changeParallax,changeActorImages,changeVehicleImage,actorRef,setMovementRoute,scriptInput} from \"rpgmaker-event-dsl\";\nexport const event=mapEvent({mapId:1,id:1,name:\"Images\",x:0,y:0,pages:[{conditions:{},trigger:\"action\",commands:[],movement:{type:\"random\",route:{commands:[{kind:\"playSe\",audio:{asset:audioAsset({folder:\"se\",name:\"RouteSE\"}),volume:17,pitch:73,pan:-41}}]}}}]});",
+      "projectOverrides": {
+        "MapInfos.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Images"
+          }
+        ],
+        "Map001.json": {
+          "width": 1,
+          "height": 1,
+          "tilesetId": 1,
+          "events": []
+        },
+        "Tilesets.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Tiles"
+          }
+        ],
+        "Actors.json": [
+          null,
+          {
+            "id": 1,
+            "name": "Actor"
+          }
+        ]
+      }
+    },
+    {
+      "cliResult": {
+        "command": "M:\\Shuen\\Codex\\tools\\node-v22.23.4-win-x64\\node.exe",
+        "arguments": [
+          "--import",
+          "file:///M:/Shuen/Codex/asset-validation-17-acceptance/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/loader.mjs",
+          "M:\\Shuen\\Codex\\asset-validation-17-acceptance\\packages\\rpgmaker-event-dsl\\src\\cli.ts",
+          "compile",
+          "--check"
+        ],
+        "cwd": "C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-warning-se-random-gXTwWO\\最小 Workspace with spaces",
+        "startedAt": "2026-11-02T10:23:13.747Z",
+        "completedAt": "2026-11-02T10:23:15.130Z",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "compile --check asset check warning:\nwarning MV-ASSET-MISSING-FILE: Required exact directory entry is absent. Project Root: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-warning-se-random-gXTwWO\\最小 Workspace with spaces\\Game; required extension: .ogg; target: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-warning-se-random-gXTwWO\\最小 Workspace with spaces\\Game\\audio\\se\\RouteSE.ogg; failed at: C:\\Users\\Shuen\\AppData\\Local\\Temp\\rpgmaker-event-dsl-windows\\asset-warning-se-random-gXTwWO\\最小 Workspace with spaces\\Game\\audio\\se\\RouteSE.ogg\n  audio/se \"RouteSE\"; 1 use(s)\n  - warning map:1/event:1 Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0].name; inactive: Autonomous Movement is random; the saved route is inactive.; DSL: pages[0]; source: C:/Users/Shuen/AppData/Local/Temp/rpgmaker-event-dsl-windows/asset-warning-se-random-gXTwWO/最小 Workspace with spaces/src/assets.events.ts (line 2, column 72); base: warning; effective: warning\n1 problem group(s), 1 problem file(s), 1 affected use(s). Coverage: complete.\n"
+      }
+    }
+  ],
+  "expected": {
+    "description": "inactive saved image and SE routes report warnings through the actual CLI",
+    "assertionsSource": "packages/rpgmaker-event-dsl/test/asset-image-workspace.test.ts",
+    "sha256": "da8b9e1d60d42f4bcf94a25b55e25aa210aa3e915f5dc22b81763b53b7a0fd21",
+    "assertions": "async () => {\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-warning-${type}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, source(\"\", `,movement:{type:\"${type}\",route:{commands:[{kind:\"changeImage\",character:${image(\"characters\", \"Route\")},characterIndex:7}]}}`));\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/img/characters\"), { recursive: true });\n\t\tconst before = await state(root);\n\t\tconst result = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ cliResult: result });\n\t\t(0,__vite_ssr_import_2__.expect)(result.exitCode).toBe(0);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"asset check warning\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"warning MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(`Autonomous Movement is ${type}; the saved route is inactive.`);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(autonomousUse.nativePath);\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await uses(root)).toEqual([{\n\t\t\t...autonomousUse,\n\t\t\tinactive: `Autonomous Movement is ${type}; the saved route is inactive.`\n\t\t}]);\n\t});\n\tawait (0,__vite_ssr_import_4__.withWindowsSandbox)(`asset-warning-se-${type}`, async (sandbox) => {\n\t\tconst root = sandbox.workspaceRoot;\n\t\tawait prepare(root, source(\"\", `,movement:{type:\"${type}\",route:{commands:[{kind:\"playSe\",audio:{asset:audioAsset({folder:\"se\",name:\"RouteSE\"}),volume:17,pitch:73,pan:-41}}]}}`));\n\t\tawait (0,__vite_ssr_import_0__.mkdir)((0,__vite_ssr_import_1__.join)(root, \"Game/audio/se\"), { recursive: true });\n\t\tconst before = await state(root);\n\t\tconst result = await (0,__vite_ssr_import_4__.runCli)(sandbox, [\"compile\", \"--check\"]);\n\t\t(0,__vite_ssr_import_3__.recordAssetInput)({ cliResult: result });\n\t\t(0,__vite_ssr_import_2__.expect)(result.exitCode).toBe(0);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"asset check warning\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"warning MV-ASSET-MISSING-FILE\");\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(`Autonomous Movement is ${type}; the saved route is inactive.`);\n\t\t(0,__vite_ssr_import_2__.expect)(result.stderr).toContain(\"Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0].name\");\n\t\t(0,__vite_ssr_import_2__.expect)(await state(root)).toEqual(before);\n\t\tawait compileWorkspace({\n\t\t\tworkspaceRoot: root,\n\t\t\tcheck: false\n\t\t});\n\t\t(0,__vite_ssr_import_2__.expect)(await uses(root)).toEqual([{\n\t\t\tcategory: \"audio\",\n\t\t\tfolder: \"se\",\n\t\t\tname: \"RouteSE\",\n\t\t\tidentity: \"map:1/event:1\",\n\t\t\tnativePath: \"Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0].name\",\n\t\t\trelatedNativePaths: [],\n\t\t\tdependencyChain: [],\n\t\t\tconditions: [],\n\t\t\tinactive: `Autonomous Movement is ${type}; the saved route is inactive.`\n\t\t}]);\n\t});\n}"
+  },
+  "actual": "All independent assertions passed.",
+  "nativeExecution": "not-applicable; synthetic Workspace/API and actual CLI test"
+}

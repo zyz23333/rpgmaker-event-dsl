@@ -1,0 +1,880 @@
+{
+  "head": "832c74d37e02fd99b6aedcb21d5a6759a3522182",
+  "integrationBase": "f79bacb496b18f59562663b7fc9e9d10e86c747f",
+  "contract": "mv-1.6.1/40",
+  "buildLog": ".scratch/asset-validation-implementation/evidence/09-grouping-compatibility/raw/build-contract40.log",
+  "canonicalTest": {
+    "path": "packages/rpgmaker-event-dsl/test/asset-system-workspace.test.ts",
+    "bytes": 42176,
+    "sha256": "86934f80311612ea09e08259af880c9b2de50bfe6f9f47a50f4fa3555cba7e91"
+  },
+  "sources": [
+    {
+      "path": "packages/rpgmaker-event-dsl/src/authoring/declarations.ts",
+      "bytes": 2804,
+      "sha256": "40ba9976a339ea7a4bb132c7c1683a0b96cf42b9b76ebff11698906a65078c83"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/authoring/index.ts",
+      "bytes": 7396,
+      "sha256": "a34c0182000d628b8ce2b4d3f16ad3f84f8bc596b91a1f142c871d770f1d33ea"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/authoring/references.ts",
+      "bytes": 4634,
+      "sha256": "6c87a9ecf038bbb4751d76f72f4b4ca403adff894836c43d50779c5ba7652d6b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/authoring/shared.ts",
+      "bytes": 980,
+      "sha256": "3865ac8c4b3768c96038a323a02cf30c33edd9f330544bd6cd2b204d2841408e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/cli.ts",
+      "bytes": 3770,
+      "sha256": "34c6e77e91a45126b1a2c5b15621f79241a98bab081924d2fbd535c5996fd4b0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/actor/authoring.ts",
+      "bytes": 6774,
+      "sha256": "2195babfd4a27c64dce3cfaa7fff9a0e08737e15e37fe6ecdd6a9b42487d508e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/actor/compile.ts",
+      "bytes": 888,
+      "sha256": "d1b9e9a9f170db18e1a33ca14440d0e53ab8b20aabf76db8475eace550e84674"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/actor/decompile.ts",
+      "bytes": 9942,
+      "sha256": "3c1265434966498b7a3a9d9cf40ec81b6eb5723b2e9596e0c2f1e1cca25cd8a2"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/actor/equipment-validation.ts",
+      "bytes": 2880,
+      "sha256": "3cac92c08b9a10c35d1e7480cb9ea3b8b53e381d6b46231ea2c3660d64f08c80"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/actor/native-validation.ts",
+      "bytes": 2585,
+      "sha256": "0d126996f0eb421473d60c343c3c3a12d1fc5b4ced81555f8acc1ec5c1e378c0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/actor/presentation-diagnostics.ts",
+      "bytes": 3279,
+      "sha256": "cf7e41f3334d57064593f12a86ee49b50a49196805b1cfe02e94f0cac8db0462"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/actor/presentation-native.ts",
+      "bytes": 1898,
+      "sha256": "c1e76037484d41719f8606f28b783750315f28a588c4e7a51d5455906b9070f2"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/actor/presentation-validation.ts",
+      "bytes": 4545,
+      "sha256": "634e4760ccf114a6a62f3e6b0810719cb6d2932bec8b47d94c297890c6cc6c04"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/actor/validation.ts",
+      "bytes": 7159,
+      "sha256": "84f4f8134cf3579afb935cd7ba0ca00dc3206a3ee17a8532c6b1a6278e64ded5"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/audio/authoring.ts",
+      "bytes": 3515,
+      "sha256": "4c1481015adf47e2bf5e421ee896fbede79d181b38412723dcf49fad534a3c75"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/audio/decompile.ts",
+      "bytes": 2789,
+      "sha256": "8917831db5d0ba0881e673f62b4b33f66d080a0d069c5cd8a724211f15a1a64b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/audio/validation.ts",
+      "bytes": 7379,
+      "sha256": "06080f5a243f70163c73d9318bdb36fc11fa42bb27ee865e2ec24c3a55381ec8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/battle/authoring.ts",
+      "bytes": 832,
+      "sha256": "4ab32b1e281ae98be72e7c43373f29df42fbf9d2fce1a2fc20a2289ca9f35383"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/battle/decompile.ts",
+      "bytes": 6180,
+      "sha256": "ae7e52ebc6337ed71a3ff4dde8db54db657a41fd24e7cc94c111834d3afe47e7"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/battle/native-validation.ts",
+      "bytes": 1153,
+      "sha256": "1a47139a75859cf12a81e88bf20b06f25305d8964cf73cbef4b663fcd878d300"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/battle/shop-native.ts",
+      "bytes": 1787,
+      "sha256": "114c8f837f0fe213de38fc81cdd76ba4d835f270e0ee9bae3e5afad413feed8e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/battle/shop-validation.ts",
+      "bytes": 3318,
+      "sha256": "47683b39e9cdb7537ed82471c137ae2ed8daa3206c751254d1ef3f636b06108e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/battle/validation.ts",
+      "bytes": 3299,
+      "sha256": "74e0b368a43d84d52dd7561d92ce9b7e798958eb795f7392d70dd289165308f6"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/enemy/authoring.ts",
+      "bytes": 2571,
+      "sha256": "f464c3c65d2512c73b1f453a62972a22d851575054f037e298881ee815cc8f65"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/enemy/compile.ts",
+      "bytes": 495,
+      "sha256": "6eb78d46b655559c0879f876c6e29327153f8ff29e5c0b1b50b008cdcef9b286"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/enemy/decompile.ts",
+      "bytes": 5509,
+      "sha256": "bc52174367cca4c94656f27e865a40c51c97042d76a0b7d6847d721c738c0741"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/enemy/native-validation.ts",
+      "bytes": 3163,
+      "sha256": "11828e4b1c9a5439e9d575ea03048a026c7a9c356529bfacbf22ca2054b711ee"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/enemy/validation.ts",
+      "bytes": 6785,
+      "sha256": "15f387cbfa831e18ac26d13e661589c1abc8b8d0c2356070fa353fb7b0ff8258"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/flow/authoring.ts",
+      "bytes": 2895,
+      "sha256": "11b95698f557cbf9963fa80d6f37bdd092086bc90b7b0405006bbe8c9998a451"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/flow/conditional-context.ts",
+      "bytes": 5451,
+      "sha256": "1979b80f2a01fce6947c05138d873e8575e0a6ce3c9535e87f91c15bdd74ba37"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/flow/conditional-validation.ts",
+      "bytes": 16556,
+      "sha256": "82162073c7cf09170389e5beb230389fe5bf1e9d53ca5d15c0a34a377dd36af3"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/flow/decompile.ts",
+      "bytes": 15476,
+      "sha256": "7e60a9d19e3d99a0c83b28fcd71beaabaa296470678d0f70f5856104d1e2ce8d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/flow/diagnostics.ts",
+      "bytes": 3058,
+      "sha256": "03b9c4fb7135ccde3ca8c1cde46c1658753b9fb89427b26d6e5f1464886d0dc4"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/flow/native.ts",
+      "bytes": 1355,
+      "sha256": "58e6d320857df6d37c3ed1194b4dd4cd8a7f141ea38b300743a12834a47b136a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/flow/validation.ts",
+      "bytes": 4198,
+      "sha256": "830ec023f4969eef909e35d19164a960c0697fcaa34144f2b91203eadb3d45a6"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/map/authoring.ts",
+      "bytes": 2357,
+      "sha256": "002f487dab5377652892fd30de03e1abbd582de5d443424232fefc3e92cc556c"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/map/compile.ts",
+      "bytes": 1156,
+      "sha256": "23104b634c94473a13c4a8087e33a32df025b0edc8df950171af4135e9a35085"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/map/decompile.ts",
+      "bytes": 3367,
+      "sha256": "f781c768bce17ce2b549afc5b9ff4276a5c06d63ffa894bcb3900717d5586cdd"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/map/location-context.ts",
+      "bytes": 4257,
+      "sha256": "21ced3f5bbcb9649757ca9e545f04323ac296279e8f974d7cb4c9f032ddcf6ef"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/map/location-validation.ts",
+      "bytes": 5621,
+      "sha256": "fa3e141599025b6c96b7d1b80549272b922af88f420998a60af5dc996567c883"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/map/native-validation.ts",
+      "bytes": 1931,
+      "sha256": "0bcd6f8adc582170080ec760e2d9e94c7a6c76420592c6e1dcfbaf5e374b677b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/map/validation.ts",
+      "bytes": 4378,
+      "sha256": "0e30bf9ac24c999fc26bfb5171d776b8a94bf9d4ec8f1958ab13cd158f0b252e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/message/authoring.ts",
+      "bytes": 1684,
+      "sha256": "11d070d5db0e0633c94eed9ee12137e00d6589ee27f7b1c67176e2c23266c21b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/message/choices-validation.ts",
+      "bytes": 4608,
+      "sha256": "94e3de3bece2843fac28fa1e6e29edb6950d7a0ad5c5d24926dbd66c944202dc"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/message/compile.ts",
+      "bytes": 577,
+      "sha256": "7d6f7b40e0655c6e237a80aee6a9e0b0cb40949f77f5a380ff8394aba4485337"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/message/decompile.ts",
+      "bytes": 8835,
+      "sha256": "68ad31d87166385b947016e2f25d03b1b0cdaab2968b3f4ff9ee93d8bdc121a9"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/message/native-validation.ts",
+      "bytes": 1158,
+      "sha256": "0c4f0b946fc9cc967e6f98e32b46e230ee409703f0b25832f5557e8ea7e0d5fc"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/message/validation.ts",
+      "bytes": 7630,
+      "sha256": "5c022a41db2fe07e6f1a84381cfd40ea0407f487b23b18d2836a05a7b41cfeec"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/access-native-validation.ts",
+      "bytes": 1417,
+      "sha256": "8408624a53422f607bade1ae87774c7f867ea288536773018c46713ad986e8c6"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/access-validation.ts",
+      "bytes": 1734,
+      "sha256": "c2d43dea8d4632268a91524796a023434571190fe7141af04324e5b678b1525a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/authoring.ts",
+      "bytes": 5417,
+      "sha256": "cb62f34c1e974488bd2f802e75b3454e48b41358c261634ec8d8f04694bc0a3c"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/character-codes.ts",
+      "bytes": 80,
+      "sha256": "434110fef7998edc170eb2612433ec902346978d4699fcb92e24545f8b3758cc"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/character-native.ts",
+      "bytes": 1781,
+      "sha256": "6d8fa79a0575520552c2ff473722a5c8a01ba74263ed60c26a830fdacfd27e0f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/character-validation.ts",
+      "bytes": 5364,
+      "sha256": "cce2087d843589ae7616d03eae333f0ca61d14974ead3378f789af4f797b8cff"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/compile.ts",
+      "bytes": 7334,
+      "sha256": "859c85840d2f1a0ab0d4ae9c33008944d6ad7f5f5bfbfee82b60a8a54a91d0d7"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/decompile.ts",
+      "bytes": 19279,
+      "sha256": "80d4871e39c77b44128e05d50661a75f90e2b32aa5e9ed32fdfd3167ed9dbcd8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/page.ts",
+      "bytes": 3659,
+      "sha256": "9a74e9c8694d295e60a6d801a383dd52341d6ffb833c05d0127dcc89cc3c1743"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/types.ts",
+      "bytes": 226,
+      "sha256": "de4a2cb691fc6a8697ba91a2a831eaf17e1c15e541da4a2893f902f30a3a01b8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/movement/validation.ts",
+      "bytes": 19109,
+      "sha256": "f49a357955d176c5930ca59d5d13e2c80d4b3cad1215364cf3df158817015e6d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/authoring.ts",
+      "bytes": 3527,
+      "sha256": "ed86808add59b452b87b0633cbab2b69e65c4a61f7075c9d9042edc20bb9716f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/compile.ts",
+      "bytes": 1924,
+      "sha256": "0bca9a58a72fad39cc6f00f49817f0859ef10602d9c1beffc987ef640f7d1728"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/decompile.ts",
+      "bytes": 9119,
+      "sha256": "fa11fe9dcacdb5c665775d84ec9832afbbad76af9be257b4f9fa230a91fa28bd"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/picture-inputs.ts",
+      "bytes": 4761,
+      "sha256": "30769f3c12d183cc869496689f2d43c069c300d62a546269a04e029ffce8a7a6"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/picture-native.ts",
+      "bytes": 3042,
+      "sha256": "28c85fb6ded4a554190e862677de178a97e7fd0059c000b9e308a04ff4df9787"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/picture-references.ts",
+      "bytes": 1110,
+      "sha256": "dfb2c4941a1a13e83d704e07dffe72a29ca811bdc41459ef9a8055a91f25560f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/screen/validation.ts",
+      "bytes": 8138,
+      "sha256": "7ab61657f4a88daa3a3b53df9607f0654b74fe2965e169b9eedd0d1d5c808cff"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/system/authoring.ts",
+      "bytes": 893,
+      "sha256": "6d4a17bab814fd4a46cf6421124f99ed93b58a6f9829366de8fd3793f9f17215"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/system/decompile.ts",
+      "bytes": 2083,
+      "sha256": "1314d29615be71c1fda8d61aba2558250f76fe0b924d488324fa3e708e5ff464"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/system/validation.ts",
+      "bytes": 800,
+      "sha256": "97384ff0e88f23f940f71702d1b11404e89f9aaae8dbbae143022044f56b28e1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/authoring.ts",
+      "bytes": 4766,
+      "sha256": "884cc9435313fdb5de319e0045c5552664fe2de4a69ed928e4d787474f3d41b0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/compile.ts",
+      "bytes": 6105,
+      "sha256": "29438e00f3dbe9538c219cd10ae3f16096e1c86004aebe37e1eec81fb65b4070"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/control-variables.ts",
+      "bytes": 6612,
+      "sha256": "cceefb113402b43980767a9a03c3473f207a0ceb4918d5e082b80fd654212c82"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/decompile.ts",
+      "bytes": 10997,
+      "sha256": "670ef791e0560fcc36b5dcc46f63e7d9590469344c850ab9ff541696f5811624"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/diagnostics.ts",
+      "bytes": 4792,
+      "sha256": "9a50270d196d151bd63c89db9ffe6ad4846e58da489dea7937d70ed5a98c8bfa"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/inventory-native.ts",
+      "bytes": 1703,
+      "sha256": "18171a831072ff8c0d53ba16e9a9572695206bc147d4f2c74252da82b7f905a2"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/inventory-validation.ts",
+      "bytes": 4504,
+      "sha256": "4b7c88f3c9eb267d40054adc149a77442f7e8bb6e25aaac69ccc09750a0ec743"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/native-control-variables.ts",
+      "bytes": 2565,
+      "sha256": "853ae5bdd03063ec5197183c2240ec242dd79e55a5f6dde21b477df4f0fca507"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/switch-inputs.ts",
+      "bytes": 985,
+      "sha256": "b4caf49e7f3ca450f4b7b802df2d54c650103cf174dbef64b755d3d8beb5f2a7"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/commands/variables/validation.ts",
+      "bytes": 5091,
+      "sha256": "dc6cf45a6d444369445037b465cac0f1651e06be341c69b493d2a658048036ca"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/dispatch.ts",
+      "bytes": 42109,
+      "sha256": "36f7b22a26ab52d2b987de447b201ac75ad7e1163f355c52ee881177df9e563e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/events.ts",
+      "bytes": 4248,
+      "sha256": "f5ab237240ed7e698a6b386135b8c5a41d05ee52fc99a1ef62bce44fdc1abfd2"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/shared/branches.ts",
+      "bytes": 3170,
+      "sha256": "be95da737f08b8600c57425eb25ff48e828c826387505809d32c1ed74fb57355"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/shared/conditions.ts",
+      "bytes": 4374,
+      "sha256": "b544928635c0b0bc2c3c8b48b5a26028927939f7c20111f612676c803ffda103"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/shared/media.ts",
+      "bytes": 1275,
+      "sha256": "39aff228f198f726c9d8cfffa9d0bebf03d465a4b0fe952511af77d08e04f751"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/shared/targets.ts",
+      "bytes": 1004,
+      "sha256": "d9f81f92d0184dd273a2aa5acfa5e63450ae0a1cb5e8dba49d93d1c885487f7d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/compiler/types.ts",
+      "bytes": 548,
+      "sha256": "b81ac88b5778268997bce55af43dc0953b5cee48625180f58733cfdde6ae91a1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/decompiler/core.ts",
+      "bytes": 14087,
+      "sha256": "9a6ba843e2baddcd7c66891a9e4e01614e75e6ad82734b17fd2f1f82c2642f98"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/decompiler/dispatch.ts",
+      "bytes": 25072,
+      "sha256": "cc935dc518ac8f076c5754161e221555e8a870c8919bdc4d9563db74796d52d0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/decompiler/map-page.ts",
+      "bytes": 2479,
+      "sha256": "02bb18435816012730128a498e8515995a18c07e14a88b6e1329f5ba8dddecf8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/decompiler/project.ts",
+      "bytes": 21534,
+      "sha256": "00e250dc406ed4acd100af05b9143daa0f18b18ddb7ad68fce06599c4a495633"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/decompiler/types.ts",
+      "bytes": 1310,
+      "sha256": "01dc14767746b1067ddc101f6acd5ea23247b6557a59e0c0cb467dd1f3903aa3"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/domain/battle-page-defaults.ts",
+      "bytes": 502,
+      "sha256": "4a6d7b43e65b2316987b846253c93504f85ac8e341901d3e47236c99de91027b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/domain/command.ts",
+      "bytes": 20691,
+      "sha256": "9483d54160fd8e564d2043008dc743c1782696e1f4fb097c47b8e68e4f7b658c"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/domain/declarations.ts",
+      "bytes": 3536,
+      "sha256": "b0b1dd048040394dd8ef95fe080046a6b1541d44194d490dfa0ede891dd6a781"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/domain/references.ts",
+      "bytes": 11874,
+      "sha256": "2c65c1c88185d85f908a94f5641e4f80c4d4774b60a0adab7e138cb3aed4361b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/domain/types.ts",
+      "bytes": 4457,
+      "sha256": "f5de302ec2e8b34ec7401fe55c84c26210c06520f65c8aa844c49416e399399f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/index.ts",
+      "bytes": 256,
+      "sha256": "cac51b3cd154629880f6b30aaf8b54a8f1aecee91bb26182ebfd7ccdb3c90157"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/map-event/native.ts",
+      "bytes": 5593,
+      "sha256": "6e73154d35b91b7778d358771027be563273edbc046d4324df762bb2c43ce146"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/map-event/page.ts",
+      "bytes": 2336,
+      "sha256": "9251557930e667e258c6259c58e787cdeccd22e96dc5f0225947a98d35d275ed"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/map-event/validation.ts",
+      "bytes": 9019,
+      "sha256": "00f5e0f8c6edb6008bc05a71ec55c3d0b923f7db5ef6ab2ab51076846adf70d7"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/project-data/json-values.ts",
+      "bytes": 3273,
+      "sha256": "7d9f2a485a689dc159327f859a8cae48307b88294bea78aa2a81452813730af8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/project-data/map-event-diff.ts",
+      "bytes": 1939,
+      "sha256": "0803f6e322a697b2774c958deb2114210bef94749e25fde012f3ed3fe43ffe2a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/project-data/materialization.ts",
+      "bytes": 12865,
+      "sha256": "4bdb0ba0a81c2d3d6258f55ce8b326693b1b58cd4096f491a940b8a90e7d64b8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/project-data/project.ts",
+      "bytes": 7573,
+      "sha256": "1176a155e53c9f4383e03bbe3a3f7e13565a96d5eb47b3ac6fc58002ae91cd74"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/project-data/structured-diff.ts",
+      "bytes": 16147,
+      "sha256": "4af2dfd1fb0e57c2d440b64a90fdbdfd1e88f02fffe6ff33c6f12eac64ff8590"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/project-data/writer.ts",
+      "bytes": 1226,
+      "sha256": "d9ebfc5636d430eb7c94ecca75c4a40127e592e92bcd303cc73ed59cde674c80"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-action-relations.ts",
+      "bytes": 6698,
+      "sha256": "8972f881b2a694ed4151de280277c6d5dbab4ba680144193b62a82edc7fd6f50"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-actor-enemy-relations.ts",
+      "bytes": 6978,
+      "sha256": "fb0a1ea6a586e66cb65b83173cac011c37ea12c78cb3857f6c8df3c1631b7f09"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-common-calls.ts",
+      "bytes": 992,
+      "sha256": "4852d9d44bb7cce74bda3c3fe5ed5d196c829339897352c67759b3e48b3c937a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-dependencies.ts",
+      "bytes": 7396,
+      "sha256": "2cf47594e7124150e41529a2afcaeae2ad71e6bdac5ca31050cc61c8ebe9c07a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-exceptions.ts",
+      "bytes": 1243,
+      "sha256": "a791523054810880a9bd2c7ffca444c1e8a08750f5a30186e29c2431cc6303e3"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-map-relations.ts",
+      "bytes": 6947,
+      "sha256": "3cf34e0925e2f0f58f9b360bb8627f67eb09fd5752c4c05e138ed8e79422512d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-policy.ts",
+      "bytes": 546,
+      "sha256": "07728785f78f6bcde0a27dd4b4ca708d1edd2b240f2f11684648387819cbd1f1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-report.ts",
+      "bytes": 4275,
+      "sha256": "1dc3d068f95133e24b3c3f53efbf87a74fb02129dc60cc51ac72a3eb4e84fc37"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-system-relations.ts",
+      "bytes": 7105,
+      "sha256": "af667516e688bdce4baac26106866cd214edd5f49925e89d7e2a8bffedcde68b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/asset-uses.ts",
+      "bytes": 9504,
+      "sha256": "f264bd65ddd95705c2d29e5677648801ab6bec992e91b1155777ea9bd2a8c9d7"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/battle-pages.ts",
+      "bytes": 12248,
+      "sha256": "9a809e500e22c57ed6d141b0704f3122674f7d06f9cd65e2d6b8936e1b44e68b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/command-errors.ts",
+      "bytes": 1124,
+      "sha256": "d3da622a5d9616fd54f83415ec3782c45f54f95a3285d3525f1ddcf71f7deb9a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/command-structure.ts",
+      "bytes": 14483,
+      "sha256": "835d3326049edb777378d1a600c02dd2419f6c3dd61ed6e1eae5f759f0c1266e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/commands.ts",
+      "bytes": 24796,
+      "sha256": "fa4ef8da6bd9933f3b2ae6a0886ff71d03e799f2c6500f7f2e2632edffb9b553"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/common-events.ts",
+      "bytes": 2749,
+      "sha256": "dd331ebf8a13c720464cc96843ba4a8b69a2b6196ee740791ad7a4788ad89e34"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/compile-output.ts",
+      "bytes": 4958,
+      "sha256": "88adbe4a20aa0f2cb65c378b1f4d685ea3b86bd9e293c174912a1acca38f240d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/compiled-commands.ts",
+      "bytes": 9942,
+      "sha256": "51d8418586ccc1b609290e74a01d2a334c585159830ea15343a327acebdce7f1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/declarations.ts",
+      "bytes": 683,
+      "sha256": "d7428305b08f45f2203aa37ffb5b3a1c3506730870a01171574cc10f0624f671"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/dsl-command-inputs.ts",
+      "bytes": 4738,
+      "sha256": "434d83d5a364d99504b148f7c629ef68c12b9134ba3a19bd55ff37cdf1c235d0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/identities.ts",
+      "bytes": 7738,
+      "sha256": "48bc8b5d877affea519bccb8e594f4b6988d80dd9190815a2211b69ec4be093a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/inspection.ts",
+      "bytes": 1319,
+      "sha256": "10a9923ffca925eb65ea7254a1d940c6580a3a60f3b7a14a4862cf08d11453e1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/map-character-context.ts",
+      "bytes": 3854,
+      "sha256": "440ae32d2ced95feb8283a086cbd1bb322a41527b1b2d4df07f5d145192b72ad"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/native-battle-context.ts",
+      "bytes": 5462,
+      "sha256": "3b75992d3ed3053ba8c44f06c8f1ee530ebc0dad1274e67303a4c6273a2e3703"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/native-command-inputs.ts",
+      "bytes": 10460,
+      "sha256": "14a8b2d685ca3195c5b81d126da22437baf9c686de030d88bbee2c59669b3e81"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/native-context-references.ts",
+      "bytes": 1038,
+      "sha256": "7ddd26656a02361bf2ea5c7ecfc10ca8a32d5d0a22a37ba36cabb168ce2c680d"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/native-parameters.ts",
+      "bytes": 11479,
+      "sha256": "c00d6ff42bd22bff51e9598d77873b1539e10ed06c167944f733cd3f76f22b90"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/native-references.ts",
+      "bytes": 6925,
+      "sha256": "adf867369fccb7c891f6c5fbbdeb01b8199a37d1dd5836eeaba81a7fcb57c1ca"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/reference-inputs.ts",
+      "bytes": 915,
+      "sha256": "5c86286d87d13b3574afd60650db56b647ea62ea19529a8c0bd57bd1dd49bf4f"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/references.ts",
+      "bytes": 5551,
+      "sha256": "01c968b0619bcaf4a1251a4e00932657823229362a7d722148d274cf37c23dfd"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/shared.ts",
+      "bytes": 831,
+      "sha256": "6ad13ecbedcc6cf7fb3565ffcdfd919f8fadad1430eccbbcfd845af7e927af14"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/snapshot.ts",
+      "bytes": 1693,
+      "sha256": "b29956e100eb586e389ed69bd7d9b6603452b6a7f8371aa895e53193628ed4cd"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/staged-graph.ts",
+      "bytes": 7995,
+      "sha256": "24d9c025cedff9041b31ba5cfd428fe69c591db39869a0a8a8752c3958e5f384"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/validation/types.ts",
+      "bytes": 4016,
+      "sha256": "c029add9797abd5e761e65baf304ca89a4dd6723ccd990d2d7cb0d5197103cb2"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace-api.ts",
+      "bytes": 541,
+      "sha256": "735839d077b0137449ff29baf7bdd094a34973b5a8b757502948b7e744f911d2"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/asset-call-context.ts",
+      "bytes": 1078,
+      "sha256": "662c1f582d41705c1254f63d6272eee9b94f7be67589e54413e31ab20f25c74b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/asset-check.ts",
+      "bytes": 7402,
+      "sha256": "2fbf2c206b3dc19a37dbf8b3891f08bc4fc3e90ce8d971e60059a05ee808540b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/asset-files.ts",
+      "bytes": 4397,
+      "sha256": "c829c5e98d3da59623766c0ac6e509972377452a8e053a9626655e9fcb7d1d14"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/asset-provenance.ts",
+      "bytes": 3554,
+      "sha256": "9b102c53e58607b008967458e9ece359449189316ada183db2cd5011ebdd3066"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/checks.ts",
+      "bytes": 2663,
+      "sha256": "dd02c917b0ed530fcbb8d3458802d5d230def90388d6bf488e849f2934688692"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/config.ts",
+      "bytes": 5649,
+      "sha256": "de09ca8f9af85694e990dd524d2050ff18e3bd41126306b978216a289cd2d59b"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/decompile-publication.ts",
+      "bytes": 10415,
+      "sha256": "e70dcce23f98167dc53e908b3242a0a61a5fd1f7f92b2df6f700e91433faf185"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/definition-identities.ts",
+      "bytes": 9217,
+      "sha256": "f9048d155cc06fa5770e6b26cae9fac58255dc1668b0a416fbb4578149db3b41"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/definitions.ts",
+      "bytes": 19150,
+      "sha256": "6f9a6c016cb7e1476e937fc64706bf751b703b8dd94ba7f8d97f826570ef09a3"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/guards.ts",
+      "bytes": 246,
+      "sha256": "cec835079aba4c1c61d4a28f224fd7ac7617063568b05156a84cc08896e0ed89"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/operation-lock.ts",
+      "bytes": 2010,
+      "sha256": "c39e910339321f63786bec52cf40fa5e9c114a259f8bbc0dc7842b29660866cd"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/operations.ts",
+      "bytes": 23346,
+      "sha256": "3f603d9b4dcf241e2971c34f2dc77406d474f67aaa9ec86068b757d4af4e8bb4"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/push-recovery.ts",
+      "bytes": 15257,
+      "sha256": "4eb0a680285f3e7532891cff2aedc3433f067fb36ccf8d4c63b3975b66c97a76"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/push.ts",
+      "bytes": 17138,
+      "sha256": "6af0deac82f866d16c22492dc9cfce116567e4106c58749838793a1ba7d78fa9"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/source-discovery.ts",
+      "bytes": 3729,
+      "sha256": "aeec16adb3208ea5d89666c051064e3251defd8ef8bae48ac6fa12bebc7b98e0"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/state.ts",
+      "bytes": 14443,
+      "sha256": "8c6906c090f6704c7edc44d51b7f0d0481ca14dbc600f05fa44f2c32280db8bd"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/type-inputs.ts",
+      "bytes": 5834,
+      "sha256": "03b593507b5092a2c1a73cbd03df60d3625eac5f601e7f8d13891dcf8d94fa9a"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/src/workspace/types.ts",
+      "bytes": 355,
+      "sha256": "f046ebe39de38d590d78bb0aa00f5c3f03a117f972f9aec6f49fa5f7275023fb"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/authoring-DNu_IGeg.mjs",
+      "bytes": 196020,
+      "sha256": "7acde68a1b6185d8934c997a74d5c2eb8def7bcd35c7768e33925fb1499edc16"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/authoring-DNu_IGeg.mjs.map",
+      "bytes": 406638,
+      "sha256": "707a0aca02e8cc5a59238c932b1b09a9128a1e8e32cbb4f0d6855adf7ab88b3e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/cli.d.mts",
+      "bytes": 298,
+      "sha256": "cefb66e3dc24a9aedd33a470f14a74ec299555774d99b46d289e4e9c038844ee"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/cli.d.mts.map",
+      "bytes": 163,
+      "sha256": "22557d7c51ecef56164889db606842f37b1990c0000a26606fb11a174f8f498c"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/cli.mjs",
+      "bytes": 3223,
+      "sha256": "b37f7ddba1400804ff424d3a5049941804516ac0ee4394fcb81bb84459f19254"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/cli.mjs.map",
+      "bytes": 5726,
+      "sha256": "19e9c618ab4b8a4bbc2a2deac71bbb31af8b34e87c785c118331c938709a46e8"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/index.d.mts",
+      "bytes": 53797,
+      "sha256": "84df6738b61413bd007bfbfbea0faa0bd8163ce9bb35bab50858ac485efb3e47"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/index.d.mts.map",
+      "bytes": 25740,
+      "sha256": "2b63bd6ced0bcaf8cc28d2064bc32aa9c3c79fb727179d076c25f1e84aefb938"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/index.mjs",
+      "bytes": 5028,
+      "sha256": "0b702d06ea324bca207ce837e5c190916bfcc04f0eb7f74c59bb48cea25f8e85"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/index.mjs.map",
+      "bytes": 452,
+      "sha256": "b900bd4abafb2c4d101efd5e7157d9534f1fef055f0b76f83de71f2d08578e36"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/operations-D_79zrOU.mjs",
+      "bytes": 448008,
+      "sha256": "ac37a1402bb30b236d47dbfdd1be16f50e0a36a7a2236c40296471ed16ff74a1"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/operations-D_79zrOU.mjs.map",
+      "bytes": 925045,
+      "sha256": "f92cc45f64871818bc8a527cc305cdedacfcb985e84ab2cc8fdda5fb2f179ea5"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/workspace-api.d.mts",
+      "bytes": 3297,
+      "sha256": "5ff206f7141c860cbe5cb17906a2b4ce5badfa30ed2099f6125cf6fcccebd3fb"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/workspace-api.d.mts.map",
+      "bytes": 1079,
+      "sha256": "812bfd9013eaaaa0811c31ddbedd237a6b2b9f04689903f2706c192e3f75065e"
+    },
+    {
+      "path": "packages/rpgmaker-event-dsl/dist/workspace-api.mjs",
+      "bytes": 416,
+      "sha256": "72977e463de05a55654c92a96e5b5e988fcb6bc16ca3d217b7c253143c43c28f"
+    }
+  ]
+}

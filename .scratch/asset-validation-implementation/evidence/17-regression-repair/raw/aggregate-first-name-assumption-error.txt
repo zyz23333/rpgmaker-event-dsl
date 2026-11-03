@@ -1,0 +1,7 @@
+The first aggregate failed its helper-name set comparison because Picture007's
+original helper stores expected as the description without the requirement ID.
+The authoritative runner passed22; all21 helpers per entry remained passed.
+The aggregate matcher now combines Picture's unchanged requirementId and
+expected fields. Movement keeps its independently mapped generic description.
+Only the evidence aggregate was corrected and rerun; no tests were repeated,
+and no original source, runner, receipt or test input was changed.

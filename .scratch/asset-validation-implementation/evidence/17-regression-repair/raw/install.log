@@ -1,0 +1,30 @@
+Scope: all 3 workspace projects
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +86
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 86, reused 0, downloaded 0, added 0
+Progress: resolved 86, reused 13, downloaded 0, added 0
+Progress: resolved 86, reused 36, downloaded 0, added 0
+Progress: resolved 86, reused 69, downloaded 0, added 3
+Progress: resolved 86, reused 85, downloaded 0, added 63
+Progress: resolved 86, reused 85, downloaded 0, added 64
+Progress: resolved 86, reused 86, downloaded 0, added 64
+Progress: resolved 86, reused 86, downloaded 0, added 65
+Progress: resolved 86, reused 86, downloaded 0, added 85
+Progress: resolved 86, reused 86, downloaded 0, added 86
+Progress: resolved 86, reused 86, downloaded 0, added 86, done
+
+devDependencies:
++ oxfmt 0.56.0
++ oxlint 1.71.0
++ typescript 5.9.3
+
+╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: esbuild@0.28.1.                                     │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Done in 16.8s using pnpm v10.33.0
