@@ -141,3 +141,5 @@ User Stories: 26, 27, 29, 30
 - 正常 Compile 对未调用函数的静态结果检查现在遍历数组及展开，拒绝嵌套的已知函数、DSL helper 和完整 Event Definition。公开 Check 反例先复现错误成功，再通过修复；原有合法命令数组、组合和调用限制保持通过。
 - 因正常验证规则变化，Compile Contract Version 从 `/43` 更新为 `mv-1.6.1/44`。旧/缺失契约定向测试增加 `/43`，1/1 通过，确认 Check 不恢复旧产物新鲜度。
 - 实际 Windows x64 / Node 22.19.0、Corepack pnpm 10.33.0：`author-functions-workspace`、`decompile-publication`、`definitions` 合计 60/60 通过；包 typecheck、变更 TypeScript 的 oxlint、格式与差异检查通过。构建后 CLI 的最终集成复验由父流程在合并后执行。
+
+2026-11-03 — 最终集成交付核对补充：父流程在无 dist 的 Windows 集成检出上确认，首次 frozen install → build 后，sample 的 `pnpm --filter shared-authoring-example exec rpgmaker-event-dsl --help` 尚不能找到命令；构建后再次 frozen install 即刷新本地可执行链接，同一命令成功。Sample README 已明确列出 install → build → install，并解释第二次安装的用途。此文档修正基于 `9c92973750fde1619607e32ad73557756b2a8b0b`，不改变产品代码或契约 `/44`；未重复源码测试或构建。
