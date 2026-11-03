@@ -4,17 +4,13 @@ import { observeAssetFile } from "./asset-files.js";
 import { buildAssetReport, type AssetFinding } from "../validation/asset-report.js";
 import type { AssetCheckException } from "../validation/asset-exceptions.js";
 import { collectAnimationAndTilesetAssets } from "../validation/asset-dependencies.js";
-import type { AssetOrigin } from "../validation/asset-dependencies.js";
 import { collectSystemAssets } from "../validation/asset-system-relations.js";
 import {
   collectActorEnemyAssets,
   collectDynamicTroopAssetStops,
 } from "../validation/asset-actor-enemy-relations.js";
-import { renderAuthoredAssetLocation, type AuthoredAssetLocation } from "./asset-provenance.js";
-
-function renderOrigin(use: AssetOrigin): string {
-  return `${use.identity} ${use.nativePath}${use.relatedNativePaths.length ? `; related: ${use.relatedNativePaths.join(", ")}` : ""}${use.dependencyChain.length ? `; chain: ${use.dependencyChain.map((step) => `${step.data}${step.id === undefined ? "" : `[${step.id}]`}.${step.field} (${step.relationship})`).join(" -> ")}` : ""}${use.conditions.length ? `; conditions: ${use.conditions.join(" ")}` : ""}${use.inactive ? `; inactive: ${use.inactive}` : ""}`;
-}
+import type { AuthoredAssetLocation } from "./asset-provenance.js";
+import { presentAssetCheck } from "./asset-check-presentation.js";
 
 /** Live metadata is transient and deliberately absent from Compile Baseline. */
 export async function checkEventAssets(input: {
@@ -96,25 +92,10 @@ export async function checkEventAssets(input: {
         uses: group,
       });
   }
-  const origin = (value: AssetOrigin) =>
-    renderOrigin(value) + renderAuthoredAssetLocation(value.nativePath, input.locations);
   const report = buildAssetReport(findings, input.exceptions ?? [], stops.length > 0);
-  const groupParts = report.groups.map(
-    (group) =>
-      `${group.level} ${group.code}: ${group.reason} Project Root: ${input.projectRoot}${group.extension === undefined ? "" : `; required extension: ${group.extension}`}${group.targetPath === undefined ? "" : `; target: ${group.targetPath}`}${group.failurePath === undefined ? "" : `; failed at: ${group.failurePath}`}\n${group.target === undefined ? "" : `  ${group.target.category}/${group.target.folder} ${JSON.stringify(group.target.name)}; ${group.members.length} use(s)\n`}${group.members.map((member) => `  - ${member.effectiveLevel} ${origin(member.origin)}; base: ${member.baseLevel}; effective: ${member.effectiveLevel}${member.exceptionReason === undefined ? "" : `; exception reason: ${member.exceptionReason}`}`).join("\n")}`,
-  );
-  const errors = groupParts.filter((_, index) => report.groups[index]!.level === "error");
-  const parts = groupParts.filter((_, index) => report.groups[index]!.level === "warning");
-  parts.push(
-    ...stops.map((stop) => `info MV-ASSET-DYNAMIC-STOP: ${stop.reason}\n  - ${origin(stop)}`),
-  );
-  const summary = `Coverage: ${report.incomplete ? "incomplete; named relationships or file checks remain unchecked" : "complete"}.`;
-  const finalParts = report.hasErrors ? errors : parts;
-  if (groupParts.length || stops.length) finalParts.push(summary);
-  if (parts.length)
-    console.error(
-      `${input.commandName} asset check ${report.groups.some((group) => group.level === "warning") ? "warning" : "info"}:\n${parts.join("\n")}`,
-    );
-  if (report.hasErrors)
-    throw new Error(`${input.commandName} asset check failed:\n${errors.join("\n")}`);
+  presentAssetCheck(report, stops, {
+    commandName: input.commandName,
+    projectRoot: input.projectRoot,
+    ...(input.locations === undefined ? {} : { locations: input.locations }),
+  });
 }

@@ -581,12 +581,6 @@ const graphUses = [
   "commonEvent:10 CommonEvents.json[10].list[0].parameters[1]",
   "commonEvent:11 CommonEvents.json[11].list[0].parameters[1]",
 ];
-const graphEdges = [
-  "commonEvent:10 CommonEvents.json[10].list[1].parameters[0] -> commonEvent:11",
-  "commonEvent:10 CommonEvents.json[10].list[2].parameters[0] -> commonEvent:11",
-  "commonEvent:11 CommonEvents.json[11].list[1].parameters[0] -> commonEvent:12",
-  "commonEvent:12 CommonEvents.json[12].list[0].parameters[0] -> commonEvent:10",
-];
 function expectGraphFailure(text: string) {
   expect(text).toContain('image/pictures "Poster"; 2 use(s)');
   const uses = text.split("\n").filter((line) => line.startsWith("  - error commonEvent:"));
@@ -595,20 +589,14 @@ function expectGraphFailure(text: string) {
     expect(line).not.toContain("; chain:");
     expect(line).not.toContain("; conditions:");
     expect(line).not.toContain("; related:");
-    expect(line).not.toContain("; candidate:");
     expect(line).not.toContain("; inactive:");
   }
   for (const use of graphUses) expect(uses.filter((line) => line.includes(use))).toHaveLength(1);
-  const edges = text
-    .split("\n")
-    .filter((line) => /^  - commonEvent:\d+ .* -> commonEvent:/u.test(line));
-  expect(edges).toHaveLength(4);
-  for (const edge of graphEdges)
-    expect(edges.filter((line) => line.includes(edge))).toHaveLength(1);
-  expect(text).not.toContain("cycle error");
+  expect(text).not.toContain(" -> commonEvent:");
+  expect(text).not.toContain("CommonEvents.json[12].list[0].parameters[0]");
 }
 for (const branch of ["same-pass-reuse", "next-command-fresh"] as const)
-  it(`AV.W12.${branch}.api.case.expected: shared and cyclic definitions retain two uses and four finite direct call sites without historical success caching`, async () => {
+  it(`AV.W12.${branch}.api.case.expected: cyclic Common Events report independent asset uses and each command checks current file facts`, async () => {
     await withWindowsSandbox(`asset-workflow-graph-${branch}`, async (sandbox) => {
       const root = sandbox.workspaceRoot;
       await prepare(sandbox, { source: graphSource });
@@ -639,9 +627,8 @@ for (const branch of ["same-pass-reuse", "next-command-fresh"] as const)
       recordAssetInput({
         graphSource,
         expectedUses: graphUses,
-        expectedDirectEdges: graphEdges,
         expected:
-          "finite graph; same-target observation reuse allowed, exact syscall counts unconstrained",
+          "independent Common Event roots; no caller propagation; same-target observation reuse allowed within one check, and later commands query current facts",
       });
     });
   });
