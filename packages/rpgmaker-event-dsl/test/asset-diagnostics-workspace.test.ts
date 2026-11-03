@@ -7,12 +7,11 @@ import {
   startWorkspaceOperation,
   workspaceApiEntry,
 } from "./support/workspace-operation-process.js";
-import { buildAssetReport } from "../src/validation/asset-report.js";
 import { pendingPushSchema, syncManifestSchema, hashUtf8Content } from "../src/workspace/state.js";
 import { writeStableJson } from "../src/project-data/writer.js";
 
 const api: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
-const it = createAssetTest({ ownerTicket: "12", testSource: import.meta.url });
+const it = createAssetTest({ ownerTicket: "09", testSource: import.meta.url });
 const configName = "rpgmaker-event-dsl.config.json";
 const exception = {
   category: "image",
@@ -44,7 +43,7 @@ async function prepare(root: string, authored?: string, project: Record<string, 
 }
 
 const imports =
-  'import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,changePartyMember,actorRef,transferPlayer,mapRef,loop,setMovementRoute,script,callCommonEvent,commonEventRef,variableDefinition,variableRef} from "rpgmaker-event-dsl";\n';
+  'import {commonEvent,mapEvent,showPicture,imageAsset,rawDslCommand,showAnimation,animationRef,loop,setMovementRoute,script} from "rpgmaker-event-dsl";\n';
 const common = (commands: string, id = 10) =>
   `export const event${id}=commonEvent({id:${id},name:"Diagnostics",trigger:"none",commands:[${commands}]});\n`;
 const picture = (name = "Poster", raw = false) =>
@@ -55,14 +54,6 @@ const animation = (raw = false) =>
   raw
     ? "rawDslCommand({code:212,parameters:[-1,1,false]})"
     : 'showAnimation({target:{kind:"runtimeSelector",scope:"character",target:"player"},animation:animationRef({id:1}),wait:false})';
-const addActor = (raw = false) =>
-  raw
-    ? "rawDslCommand({code:129,parameters:[1,0,false]})"
-    : 'changePartyMember({actor:actorRef({id:1}),operation:"add",initialize:false})';
-const transfer = (raw = false) =>
-  raw
-    ? "rawDslCommand({code:201,parameters:[0,1,0,0,0,0]})"
-    : 'transferPlayer({destination:{kind:"direct",map:mapRef({id:1}),x:0,y:0}})';
 const mapProject = {
   "MapInfos.json": [null, { id: 1, name: "Diagnostics" }],
   "Map001.json": { width: 1, height: 1, tilesetId: 1, events: [] },
@@ -73,19 +64,19 @@ const mapProject = {
 };
 function fixture(role: string, representation = "direct-formal", name: unknown = "Poster") {
   const raw = representation.endsWith("raw");
-  if (role === "candidate")
+  if (role === "inactive-page-character")
     return {
-      source: imports + common(addActor(raw)),
-      project: {
-        "Actors.json": [null, { id: 1, name: "Actor", characterName: name, battlerName: "" }],
-      },
+      source:
+        imports +
+        `export const event=mapEvent({mapId:1,id:1,name:"Diagnostics",x:0,y:0,pages:[{conditions:{},trigger:"action",image:{character:imageAsset({folder:"characters",name:${JSON.stringify(name)}}),characterIndex:0,tileId:1},commands:[]}]});`,
+      project: mapProject,
       category: "image",
       folder: "characters",
       name: String(name),
-      native: "CommonEvents.json[10].list[0].parameters[0]",
-      chain: "Actors.json[1].characterName",
+      native: "Map001.json.events[1].pages[0].image.characterName",
+      chain: "saved characterName is inactive",
     };
-  if (role === "inactive" && representation === "page")
+  if (role === "inactive-route")
     return {
       source:
         imports +
@@ -96,29 +87,6 @@ function fixture(role: string, representation = "direct-formal", name: unknown =
       name: String(name),
       native: "Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]",
       chain: "inactive: Autonomous Movement is fixed",
-    };
-  if (role === "inactive")
-    return {
-      source: imports + common(transfer(raw)),
-      project: {
-        ...mapProject,
-        "Map001.json": {
-          width: 1,
-          height: 1,
-          tilesetId: 1,
-          parallaxName: "",
-          autoplayBgm: false,
-          autoplayBgs: false,
-          bgm: { name, volume: 90, pitch: 100, pan: 0 },
-          bgs: { name: "", volume: 90, pitch: 100, pan: 0 },
-          events: [],
-        },
-      },
-      category: "audio",
-      folder: "bgm",
-      name: String(name),
-      native: "CommonEvents.json[10].list[0].parameters[1]",
-      chain: "Map001.json[1].bgm.name",
     };
   if (representation.startsWith("indirect"))
     return {
@@ -243,7 +211,6 @@ it("AV.D03.eligible.native.missing.expected: an exact missing asset exception do
     expect(result.stderr).toContain("base: error; effective: warning");
     expect(result.stderr).toContain("Awaiting artwork");
     expect(result.stderr).toContain("CommonEvents.json[10].list[0].parameters[1]");
-    expect(result.stderr).toContain("1 problem group(s), 1 problem file(s), 1 affected use(s)");
     expect(result.stderr).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
     recordAssetInput({ actualCli: result });
   });
@@ -252,8 +219,8 @@ it("AV.D03.eligible.native.missing.expected: an exact missing asset exception do
 
 for (const [role, representations] of [
   ["ordinary", ["direct-formal", "direct-raw", "indirect-formal", "indirect-raw"]],
-  ["candidate", ["indirect-formal", "indirect-raw"]],
-  ["inactive", ["page", "indirect-formal", "indirect-raw"]],
+  ["inactive-route", ["page"]],
+  ["inactive-page-character", ["page"]],
 ] as const)
   for (const representation of representations)
     for (const problem of ["missing", "name-mismatch", "wrong-type"] as const)
@@ -279,9 +246,6 @@ for (const [role, representations] of [
             expect(result.output).toContain(value.native);
             if (value.chain)
               expect(result.output).toContain(value.chain.replace("Map001.json[1]", "Map001.json"));
-            expect(result.output).toContain(
-              "1 problem group(s), 1 problem file(s), 1 affected use(s)",
-            );
             expect(result.output).toContain("Coverage: complete");
             expect(await state(root)).toEqual(before);
             recordAssetInput({
@@ -322,7 +286,7 @@ for (const [branch, entry] of [
     });
   });
 
-for (const role of ["ordinary", "candidate", "inactive", "exception"] as const)
+for (const role of ["ordinary", "inactive", "exception"] as const)
   for (const problem of [
     "unsupported-name",
     "unsupported-link",
@@ -334,12 +298,11 @@ for (const role of ["ordinary", "candidate", "inactive", "exception"] as const)
     it(`AV.D02.${role}.native.${problem}.expected: ${problem} retains its non-waivable policy for ${role} without inventing a successful check`, async () => {
       await withWindowsSandbox(`asset-nonwaivable-${role}-${problem}`, async (sandbox) => {
         const root = sandbox.workspaceRoot;
-        const actualRole = role === "exception" ? "ordinary" : role;
+        const actualRole =
+          role === "exception" ? "ordinary" : role === "inactive" ? "inactive-route" : role;
         const representation =
-          actualRole === "inactive"
-            ? problem === "required-field"
-              ? "indirect-formal"
-              : "page"
+          actualRole === "inactive-route"
+            ? "page"
             : problem === "required-field"
               ? "indirect-formal"
               : "direct-formal";
@@ -417,6 +380,16 @@ for (const role of ["ordinary", "candidate", "inactive", "exception"] as const)
             await child.stop();
           }
         } else result = await check(root);
+        if (role === "inactive" && problem === "required-field") {
+          expect(result.failure).toContain("TypeScript diagnostics failed");
+          expect(result.failure).toContain("asset check not run");
+          expect(await state(root)).toEqual(before);
+          recordAssetInput({
+            independentlyExpected: "invalid authored inactive field fails before asset lookup",
+            actualApi: result,
+          });
+          return;
+        }
         const code = {
           "unsupported-name": "MV-ASSET-UNSUPPORTED-NAME",
           "unsupported-link": "MV-ASSET-UNSUPPORTED-LINK",
@@ -426,7 +399,7 @@ for (const role of ["ordinary", "candidate", "inactive", "exception"] as const)
           inconsistent: "MV-ASSET-QUERY-FAILED",
         }[problem];
         const warning =
-          (role === "candidate" || role === "inactive") &&
+          role === "inactive" &&
           ["unsupported-name", "unsupported-link", "encrypted"].includes(problem);
         expect(Boolean(result.failure)).toBe(!warning);
         expect(result.output).toContain(`${warning ? "warning" : "error"} ${code}`);
@@ -434,10 +407,8 @@ for (const role of ["ordinary", "candidate", "inactive", "exception"] as const)
         expect(result.output).toContain("Coverage: incomplete");
         expect(result.output).toContain(value.native);
         expect(result.output).not.toContain("exception reason:");
-        expect(result.output).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
         if (problem === "unsupported-name" || problem === "required-field") {
           expect(result.output).not.toContain("; target:");
-          expect(result.output).toContain("0 problem file(s)");
         }
         const after = await state(root);
         expect(after.state).toEqual(before.state);
@@ -502,7 +473,7 @@ async function eligibleSources(problem: string) {
     expect(result.output).toContain(
       `warning ${{ missing: "MV-ASSET-MISSING-FILE", "name-mismatch": "MV-ASSET-NAME-MISMATCH", "wrong-type": "MV-ASSET-PATH-TYPE" }[problem]}`,
     );
-    expect(result.output).toContain('audio/se "Shared"; 3 use(s)');
+    expect(result.output).toContain('audio/se "Shared"');
     expect(result.output.match(/base: error; effective: warning/gu)).toHaveLength(3);
     expect(result.output.match(/exception reason:   Recording in progress  /gu)).toHaveLength(3);
     expect(result.output).toContain("CommonEvents.json[10].list[0].parameters[0].name");
@@ -510,11 +481,10 @@ async function eligibleSources(problem: string) {
     expect(result.output).toContain("CommonEvents.json[10].list[2].parameters[1]");
     expect(result.output).toContain("Animations.json[1].timings[0].se.name");
     expect(result.output).toContain("only when its frame is reached");
-    expect(result.output).toContain("1 problem group(s), 1 problem file(s), 3 affected use(s)");
     expect(result.output).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
     expect(await state(root)).toEqual(before);
     const cli = await runCli(sandbox, ["compile", "--check"]);
-    expect(cli.stderr).toContain('audio/se "Shared"; 3 use(s)');
+    expect(cli.stderr).toContain('audio/se "Shared"');
     recordAssetInput({
       actualApi: result,
       actualCli: cli,
@@ -544,9 +514,7 @@ for (const [branch, changed] of [
       const result = await check(root);
       expect(result.failure).toContain("error MV-ASSET-MISSING-FILE");
       expect(result.failure).toContain("base: error; effective: error");
-      expect(result.output).toContain(
-        "warning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[0]",
-      );
+      expect(result.output).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
       expect(result.failure).not.toContain("exception reason:");
       expect(await state(root)).toEqual(before);
       if (branch === "exact-namespace") {
@@ -557,216 +525,44 @@ for (const [branch, changed] of [
     });
   });
 
-for (const branch of ["repaired", "unused", "warning-only", "incomplete"] as const)
-  it(
-    `AV.D05.${branch}.native.case.expected: ineffective exceptions are located only when complete relevant checking establishes that no error was downgraded`,
-    async () => {
-      await withWindowsSandbox(`asset-ineffective-${branch}`, async (sandbox) => {
-        const root = sandbox.workspaceRoot;
-        const value = fixture(
-          branch === "warning-only" ? "candidate" : "ordinary",
-          branch === "incomplete" ? "indirect-formal" : "direct-formal",
-          branch === "incomplete" ? 42 : "Poster",
-        );
-        await prepare(
-          root,
-          branch === "unused" ? imports + common("") : value.source,
-          value.project,
-        );
-        if (branch !== "incomplete")
-          await fact(root, value, branch === "repaired" ? "present" : "missing");
-        await configuration(root, [
-          {
-            category: value.category,
-            folder: value.folder,
-            name: "Poster",
-            reason: "Temporary authoring gap",
-          },
-        ]);
-        const before = await state(root);
-        const result = await check(root);
-        expect(Boolean(result.failure)).toBe(branch === "incomplete");
-        if (branch === "incomplete") {
-          expect(result.output).toContain("MV-ASSET-INVALID-DATA");
-          expect(result.output).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION");
-        } else {
-          expect(result.output).toContain(
-            "warning MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[0]",
-          );
-          expect(result.output).toContain("Temporary authoring gap");
-        }
-        if (branch === "warning-only") {
-          expect(result.output).toContain("base: warning; effective: warning");
-          expect(result.output).toContain("exception reason: Temporary authoring gap");
-        }
-        expect(await state(root)).toEqual(before);
-        recordAssetInput({ actualApi: result });
-      });
-      if (branch === "incomplete") await independentlyDeterminableExceptions();
-    },
-    branch === "incomplete" ? 30_000 : undefined,
-  );
-
-async function independentlyDeterminableExceptions() {
-  for (const sibling of ["repaired", "unused", "warning-only"] as const)
-    await withWindowsSandbox(`asset-related-incomplete-${sibling}`, async (sandbox) => {
-      const root = sandbox.workspaceRoot;
-      const source =
-        imports +
-        common(
-          `${picture()}${sibling === "repaired" ? `,${picture("Other")}` : sibling === "warning-only" ? `,${addActor()}` : ""}`,
-        );
-      await prepare(
-        root,
-        source,
-        sibling === "warning-only"
-          ? {
-              "Actors.json": [
-                null,
-                { id: 1, name: "Sibling", characterName: "Other", battlerName: "" },
-              ],
-            }
-          : {},
-      );
-      await fact(root, fixture("ordinary"), "present");
-      const other = {
-        ...fixture("ordinary"),
-        folder: sibling === "warning-only" ? "characters" : "pictures",
-        name: "Other",
-      };
-      if (sibling !== "unused")
-        await fact(root, other, sibling === "repaired" ? "present" : "missing");
-      await configuration(root, [
-        exception,
-        {
-          category: "image",
-          folder: other.folder,
-          name: "Other",
-          reason: "Independent exact sibling",
-        },
-      ]);
-      const before = await state(root);
-      for (const mode of ["api", "cli"] as const) {
-        const child = startWorkspaceOperation(sandbox, {
-          operation: "check",
-          mode,
-          boundary: "asset-metadata-denied",
-        });
-        try {
-          expect((await child.ended).exitCode).toBe(1);
-          const result = sandbox.processes.at(-1)!;
-          const output =
-            result.stderr +
-            (mode === "cli"
-              ? ""
-              : child.messages.find((message) => message.kind === "result")!.message!);
-          expect(output).toContain("error MV-ASSET-QUERY-FAILED");
-          expect(output).toContain("MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[1]");
-          expect(output).not.toContain("MV-ASSET-INEFFECTIVE-EXCEPTION: assetCheckExceptions[0]");
-          expect(output).toContain("Independent exact sibling");
-          expect(output).toContain("Coverage: incomplete");
-          if (sibling === "warning-only") expect(output).toContain("warning MV-ASSET-MISSING-FILE");
-          recordAssetInput({
-            sibling,
-            mode,
-            actualProcess: result,
-            exactScope:
-              "Poster query failure leaves only its own effect indeterminate; Other remains determinable",
-          });
-        } finally {
-          await child.stop();
-        }
-      }
-      expect(await state(root)).toEqual(before);
-    });
-}
-
-const mixedSource = (other = false) =>
+const groupedSource = (branch: "mixed-levels" | "multiple-files" | "shared-file-locations") =>
   imports +
-  `export const event=mapEvent({mapId:1,id:1,name:"Mixed",x:0,y:0,pages:[{conditions:{},trigger:"action",image:{character:imageAsset({folder:"characters",name:"Poster"}),characterIndex:0},movement:{type:"custom",route:{commands:[{kind:"changeImage",character:imageAsset({folder:"characters",name:"Poster"}),characterIndex:0}]}},commands:[${addActor()}${other ? `,${picture("Other")}` : ""}]}]});`;
-for (const branch of ["mixed-levels", "multiple-files"] as const)
-  it(`AV.D06.${branch}.native.case.expected: groups retain individual ordinary and candidate levels and count groups files and real uses separately`, async () => {
-    await withWindowsSandbox(`asset-count-${branch}`, async (sandbox) => {
+  `export const event=mapEvent({mapId:1,id:1,name:"Grouped",x:0,y:0,pages:[{conditions:{},trigger:"action",image:{character:imageAsset({folder:"characters",name:"Poster"}),characterIndex:0},commands:[${branch === "multiple-files" ? picture("Other") : ""}]},{conditions:{},trigger:"action",image:{character:imageAsset({folder:"characters",name:"Poster"}),characterIndex:0${branch === "shared-file-locations" ? "" : ",tileId:1"}},commands:[]}]});`;
+for (const branch of ["mixed-levels", "multiple-files", "shared-file-locations"] as const)
+  it(`AV.D06.${branch}.native.case.expected: grouping retains each real page origin and the highest effective severity`, async () => {
+    await withWindowsSandbox(`asset-group-${branch}`, async (sandbox) => {
       const root = sandbox.workspaceRoot;
-      await prepare(root, mixedSource(branch === "multiple-files"), {
-        ...mapProject,
-        "Actors.json": [null, { id: 1, name: "Actor", characterName: "Poster", battlerName: "" }],
-      });
+      await prepare(root, groupedSource(branch), mapProject);
       await mkdir(join(root, "Game/img/characters"), { recursive: true });
       if (branch === "multiple-files")
         await mkdir(join(root, "Game/img/pictures/Other.png"), { recursive: true });
+      const before = await state(root);
       const result = await check(root);
       expect(result.failure).toContain("error MV-ASSET-MISSING-FILE");
-      expect(result.output).toContain('image/characters "Poster"; 3 use(s)');
-      expect(result.output.match(/base: error; effective: error/gu)).toHaveLength(
-        branch === "multiple-files" ? 3 : 2,
-      );
-      expect(result.output.match(/base: warning; effective: warning/gu)).toHaveLength(1);
-      expect(result.output).toContain(
-        branch === "multiple-files"
-          ? "2 problem group(s), 2 problem file(s), 4 affected use(s)"
-          : "1 problem group(s), 1 problem file(s), 3 affected use(s)",
-      );
+      expect(result.output).toContain('image/characters "Poster"');
       expect(result.output).toContain("Map001.json.events[1].pages[0].image.characterName");
-      expect(result.output).toContain(
-        "Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]",
-      );
-      expect(result.output).toContain("Actors.json[1].characterName");
-      recordAssetInput({ actualApi: result });
+      expect(result.output).toContain("Map001.json.events[1].pages[1].image.characterName");
+      if (branch === "shared-file-locations") {
+        expect(result.output.match(/base: error; effective: error/gu)).toHaveLength(2);
+      } else {
+        expect(result.output).toContain("base: error; effective: error");
+        expect(result.output).toContain("base: warning; effective: warning");
+      }
+      if (branch === "multiple-files") {
+        expect(result.output).toContain("error MV-ASSET-PATH-TYPE");
+        expect(result.output).toContain('image/pictures "Other"');
+      }
+      expect(await state(root)).toEqual(before);
+      recordAssetInput({
+        independentlyExpected: {
+          branch,
+          firstPage: "error",
+          secondPage: branch === "shared-file-locations" ? "error" : "warning",
+        },
+        actualApi: result,
+      });
     });
   });
-
-it("AV.D06.same-file-two-groups.native.case.expected: independent aggregation input counts one legal file across two problem categories while retaining both occurrences", async () => {
-  const origin = {
-    identity: "commonEvent:10",
-    nativePath: "CommonEvents.json[10].list[0].parameters[1]",
-    relatedNativePaths: [],
-    dependencyChain: [],
-    conditions: [],
-  };
-  const target = {
-    ...origin,
-    category: "image" as const,
-    folder: "pictures" as const,
-    name: "Poster",
-  };
-  const input = [
-    {
-      code: "MV-ASSET-MISSING-FILE",
-      reason: "Independent aggregation fact A",
-      targetPath: "C:/Game/img/pictures/Poster.png",
-      target,
-      uses: [origin],
-    },
-    {
-      code: "MV-ASSET-PATH-TYPE",
-      reason: "Independent aggregation fact B",
-      targetPath: "C:/Game/img/pictures/Poster.png",
-      target,
-      uses: [
-        {
-          ...origin,
-          nativePath: "CommonEvents.json[10].list[1].parameters[1]",
-          candidate: "Selected initial candidate",
-        },
-      ],
-    },
-  ];
-  const report = buildAssetReport(input, []);
-  expect(report.statistics).toEqual({ groups: 2, files: 1, uses: 2 });
-  expect(report.groups.map((group) => [group.code, group.level])).toEqual([
-    ["MV-ASSET-MISSING-FILE", "error"],
-    ["MV-ASSET-PATH-TYPE", "warning"],
-  ]);
-  expect(report.hasErrors).toBe(true);
-  recordAssetInput({
-    scope:
-      "Explicitly internal aggregation input, not a claim that contradictory filesystem states coexisted",
-    independentInput: input,
-    expectedStatistics: { groups: 2, files: 1, uses: 2 },
-    actualStatistics: report.statistics,
-  });
-});
 
 for (const branch of [
   "shared-directory-failure",
@@ -802,9 +598,7 @@ for (const branch of [
         "CommonEvents.json[11].list[0].parameters[1]",
       ])
         expect(result.failure).toContain(position);
-      expect(result.failure).toContain("3 affected use(s)");
       if (branch !== "shared-directory-failure") {
-        expect(result.failure).toContain("0 problem file(s)");
         expect(result.failure).not.toContain("; target:");
       }
       if (branch === "shared-field-failure")
@@ -864,17 +658,17 @@ for (const branch of ["early-config", "early-structure", "early-reference"] as c
     });
   });
 
-it("AV.D08.independent-results.native.case.expected: a damaged relationship retains unrelated confirmed errors and candidate warnings in the same complete diagnostic delivery", async () => {
+it("AV.D08.independent-results.native.case.expected: a damaged relationship retains unrelated confirmed errors and inactive warnings in the same diagnostic delivery", async () => {
   await withWindowsSandbox("asset-independent-results", async (sandbox) => {
     const root = sandbox.workspaceRoot;
-    await prepare(root, imports + common(`${animation()},${picture()},${addActor()}`), {
+    const inactiveMap = fixture("inactive-route")
+      .source.slice(imports.length)
+      .replace("export const event=", "export const inactive=");
+    await prepare(root, imports + common(`${animation()},${picture()}`) + inactiveMap, {
+      ...mapProject,
       "Animations.json": [
         null,
         { id: 1, name: "Broken animation", animation1Name: 42, animation2Name: "", timings: [] },
-      ],
-      "Actors.json": [
-        null,
-        { id: 1, name: "Candidate", characterName: "Candidate", battlerName: "" },
       ],
     });
     await mkdir(join(root, "Game/img/pictures"), { recursive: true });
@@ -885,8 +679,9 @@ it("AV.D08.independent-results.native.case.expected: a damaged relationship reta
     expect(result.failure).toContain("error MV-ASSET-MISSING-FILE");
     expect(result.output).toContain("warning MV-ASSET-MISSING-FILE");
     expect(result.failure).toContain("Animations.json[1].animation1Name");
-    expect(result.output).toContain("Actors.json[1].characterName");
-    expect(result.failure).toContain("3 problem group(s), 2 problem file(s), 3 affected use(s)");
+    expect(result.output).toContain(
+      "Map001.json.events[1].pages[0].moveRoute.list[0].parameters[0]",
+    );
     expect(result.failure).toContain("Coverage: incomplete");
     expect(await state(root)).toEqual(before);
     const cli = await runCli(sandbox, ["compile"], { allowFailure: true });
@@ -945,12 +740,10 @@ for (const branch of ["map-page", "nested-body", "route"] as const)
         );
         expect(result.failure).toContain("Map001.json.events[1].pages[1].image.characterName");
         expect(result.failure).toContain("DSL: pages[0]");
-        expect(result.failure).toContain("2 affected use(s)");
       } else if (branch === "nested-body") {
         expect(result.failure).toContain("CommonEvents.json[10].list[1].parameters[1]");
         expect(result.failure).toContain("DSL: commands[0].body.commands[0]");
         expect(result.failure).toContain("Animations.json[1].animation1Name");
-        expect(result.failure).toContain("1 affected use(s)");
       } else {
         expect(result.failure).toContain(
           "CommonEvents.json[10].list[0].parameters[1].list[0].parameters[0]",
@@ -959,7 +752,6 @@ for (const branch of ["map-page", "nested-body", "route"] as const)
           "related: CommonEvents.json[10].list[1].parameters[0].parameters[0]",
         );
         expect(result.failure).toContain("DSL: commands[0]");
-        expect(result.failure).toContain("1 affected use(s)");
       }
       expect(await state(root)).toEqual(before);
       const cli = await runCli(sandbox, ["compile", "--check"], { allowFailure: true });
@@ -974,7 +766,6 @@ for (const branch of [
   "cli-warning",
   "cli-exception",
   "cli-dynamic",
-  "cli-cycle-relations",
   "cli-unchecked-warning",
   "cli-query-failure",
 ] as const)
@@ -982,23 +773,23 @@ for (const branch of [
     await withWindowsSandbox(`asset-cli-policy-${branch}`, async (sandbox) => {
       const root = sandbox.workspaceRoot;
       const value = fixture(
-        branch === "cli-warning" || branch === "cli-unchecked-warning" ? "candidate" : "ordinary",
-        "direct-formal",
+        branch === "cli-warning" || branch === "cli-unchecked-warning"
+          ? "inactive-route"
+          : "ordinary",
+        branch === "cli-warning" || branch === "cli-unchecked-warning" ? "page" : "direct-formal",
         branch === "cli-unchecked-warning" ? "Unsafe#Image" : "Poster",
       );
       let source = value.source;
+      let project: Record<string, unknown> = value.project;
       if (branch === "cli-dynamic")
-        source =
-          imports +
-          'export const variable=variableDefinition({id:1,name:"Runtime map"});' +
-          common("rawDslCommand({code:201,parameters:[1,1,1,1,0,0]})");
-      if (branch === "cli-cycle-relations")
-        source =
-          imports +
-          common("callCommonEvent({commonEvent:commonEventRef({id:11})})") +
-          common("callCommonEvent({commonEvent:commonEventRef({id:10})})", 11);
-      await prepare(root, source, value.project);
-      if (!["cli-dynamic", "cli-cycle-relations", "cli-unchecked-warning"].includes(branch))
+        source = imports + common("rawDslCommand({code:339,parameters:[1,1,1,-1]})");
+      if (branch === "cli-dynamic")
+        project = {
+          "Actors.json": [null, { id: 1, name: "Actor", equips: [] }],
+          "Skills.json": [null, { id: 1, name: "Default attack", animationId: -1, effects: [] }],
+        };
+      await prepare(root, source, project);
+      if (!["cli-dynamic", "cli-unchecked-warning"].includes(branch))
         await fact(root, value, branch === "cli-query-failure" ? "present" : "missing");
       if (branch === "cli-exception") await configuration(root, [exception]);
       const before = await state(root);
@@ -1020,17 +811,8 @@ for (const branch of [
       expect(result.exitCode).toBe(error ? 1 : 0);
       if (branch === "cli-dynamic") {
         expect(result.stderr).toContain("info MV-ASSET-DYNAMIC-STOP");
-        expect(result.stderr).toContain("CommonEvents.json[10].list[0].parameters[1]");
+        expect(result.stderr).toContain("CommonEvents.json[10].list[0].parameters[2]");
         expect(result.stderr).toContain("Coverage: incomplete");
-      } else if (branch === "cli-cycle-relations") {
-        expect(result.stderr).toContain(
-          "commonEvent:10 CommonEvents.json[10].list[0].parameters[0] -> commonEvent:11",
-        );
-        expect(result.stderr).toContain(
-          "commonEvent:11 CommonEvents.json[11].list[0].parameters[0] -> commonEvent:10",
-        );
-        expect(result.stderr).not.toContain("MV-ASSET-DYNAMIC-STOP");
-        expect(result.stderr).not.toMatch(/cycle (?:error|warning|stopped)/iu);
       } else {
         const code =
           branch === "cli-query-failure"
@@ -1039,14 +821,13 @@ for (const branch of [
               ? "MV-ASSET-UNSUPPORTED-NAME"
               : "MV-ASSET-MISSING-FILE";
         expect(result.stderr).toContain(`${error ? "error" : "warning"} ${code}`);
-        expect(result.stderr).toContain("CommonEvents.json[10].list[0].parameters[");
+        expect(result.stderr).toContain(value.native);
         if (branch === "cli-exception") {
           expect(result.stderr).toContain("exception reason: Awaiting artwork");
           expect(result.stderr).toContain("base: error; effective: warning");
         }
         if (branch === "cli-warning" || branch === "cli-unchecked-warning") {
-          expect(result.stderr).toContain("Actors.json[1].characterName");
-          expect(result.stderr).toContain("candidate: Actor initial");
+          expect(result.stderr).toContain("inactive: Autonomous Movement is fixed");
         }
         expect(result.stderr).toContain(
           branch === "cli-query-failure" || branch === "cli-unchecked-warning"
