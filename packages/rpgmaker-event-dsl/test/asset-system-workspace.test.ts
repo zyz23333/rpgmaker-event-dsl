@@ -8,7 +8,7 @@ import { workspaceApiEntry } from "./support/workspace-operation-process.js";
 const api: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 const it = createAssetTest({ ownerTicket: "08", testSource: import.meta.url });
 const imports =
-  'import {mapEvent,gameOver,returnToTitleScreen,battleProcessing,troopRef,rawDslCommand} from "rpgmaker-event-dsl";';
+  'import {mapEvent,troopEvent,gameOver,returnToTitleScreen,battleProcessing,troopRef,rawDslCommand} from "rpgmaker-event-dsl";';
 const source = (command: string) =>
   `${imports}export const event=mapEvent({mapId:1,id:1,name:"System",x:0,y:0,pages:[{conditions:{},trigger:"action",commands:[${command}]}]});`;
 const audio = (name: string) => ({ name, volume: 21, pitch: 71, pan: -31 });
@@ -75,6 +75,7 @@ async function prepare(
   root: string,
   authored: string,
   systemOverride: Record<string, unknown> = {},
+  projectOverride: Record<string, unknown> = {},
 ) {
   const fixture = await createMinimalProject(root);
   const project = {
@@ -90,6 +91,7 @@ async function prepare(
       events: [],
     },
     "Troops.json": [null, { id: 1, name: "Selected troop", members: [], pages: [] }],
+    ...projectOverride,
   };
   for (const [file, data] of Object.entries(project))
     await writeFile(join(root, "Game/data", file), JSON.stringify(data));
@@ -147,22 +149,96 @@ for (const representation of ["formal", "raw"] as const)
         );
       });
 
-it("AV.C12.battle-default-audio.formal.case.expected: Battle Processing does not check default System audio or host Map backgrounds", async () => {
+it("AV.C12.battle-default-audio.formal.case.expected: Battle Processing does not check default System audio", async () => {
   await withWindowsSandbox("asset-battle-default-scope", async (sandbox) => {
     const root = sandbox.workspaceRoot;
-    await prepare(root, source('battleProcessing({troop:{kind:"fixed",troop:troopRef({id:1})}})'), {
-      battleBgm: ["malformed but unrelated"],
-      victoryMe: 17,
-      defeatMe: null,
-      sounds: "unrelated",
-    });
+    await prepare(
+      root,
+      source('battleProcessing({troop:{kind:"fixed",troop:troopRef({id:1})}})'),
+      {
+        battleBgm: ["malformed but unrelated"],
+        victoryMe: 17,
+        defeatMe: null,
+        sounds: "unrelated",
+      },
+      {
+        "Map001.json": { width: 1, height: 1, tilesetId: 1, specifyBattleback: false, events: [] },
+      },
+    );
     const checked = await runCli(sandbox, ["compile", "--check"]);
     expect(checked.exitCode).toBe(0);
     expect(checked.stderr).not.toContain("MV-ASSET-");
   });
 });
 
-it("AV.C07.field-wrong-type.formal.title1.expected: a selected System field still requires a name", async () => {
+it("AV.C12.battle-map-background.formal.case.expected: Battle Processing does not check host Map battleback names", async () => {
+  await withWindowsSandbox("asset-host-battleback-scope", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(root, source('battleProcessing({troop:{kind:"fixed",troop:troopRef({id:1})}})'), {
+      battleBgm: audio(""),
+      victoryMe: audio(""),
+      defeatMe: audio(""),
+      sounds: [],
+    });
+    const checked = await runCli(sandbox, ["compile", "--check"]);
+    expect(checked.exitCode).toBe(0);
+    expect(checked.stderr).not.toContain("ExcludedBackOne");
+    expect(checked.stderr).not.toContain("ExcludedBackTwo");
+    expect(checked.stderr).not.toContain("MV-ASSET-");
+  });
+});
+
+it("AV.C12.terrain-background.formal.case.expected: an unspecified battleback does not lead to terrain-derived asset checks", async () => {
+  await withWindowsSandbox("asset-terrain-background-scope", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(
+      root,
+      source('battleProcessing({troop:{kind:"fixed",troop:troopRef({id:1})}})'),
+      { battleBgm: audio(""), victoryMe: audio(""), defeatMe: audio(""), sounds: [] },
+      {
+        "Map001.json": {
+          width: 1,
+          height: 1,
+          tilesetId: 1,
+          specifyBattleback: false,
+          battleback1Name: "",
+          battleback2Name: "",
+          events: [],
+        },
+      },
+    );
+    const checked = await runCli(sandbox, ["compile", "--check"]);
+    expect(checked.exitCode).toBe(0);
+    expect(checked.stderr).not.toContain("MV-ASSET-");
+  });
+});
+
+it("AV.C12.battle-test-background.formal.case.expected: a Troop Event root does not select battle-test backgrounds", async () => {
+  await withWindowsSandbox("asset-battle-test-background-scope", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(
+      root,
+      `${imports}export const troop=troopEvent({troopId:1,pages:[{commands:[]}]});`,
+    );
+    const checked = await runCli(sandbox, ["compile", "--check"]);
+    expect(checked.exitCode).toBe(0);
+    expect(checked.stderr).not.toContain("MV-ASSET-");
+  });
+});
+
+it("AV.C12.hardcoded-system.formal.case.expected: Game Over does not require a hardcoded system picture", async () => {
+  await withWindowsSandbox("asset-hardcoded-game-over-scope", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(root, source("gameOver()"));
+    await put(root, fields[0]!);
+    const checked = await runCli(sandbox, ["compile", "--check"]);
+    expect(checked.exitCode).toBe(0);
+    expect(checked.stderr).not.toContain("img/system/GameOver");
+    expect(checked.stderr).not.toContain("MV-ASSET-");
+  });
+});
+
+it("AV.SUPPLEMENT.C07.title1-wrong-type: a selected System field still requires a name", async () => {
   await withWindowsSandbox("asset-title-field-required", async (sandbox) => {
     const root = sandbox.workspaceRoot;
     await prepare(root, source("returnToTitleScreen()"), { title1Name: 17 });

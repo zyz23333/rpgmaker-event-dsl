@@ -49,10 +49,15 @@ const fields = [
   },
 ] as const;
 
-async function prepare(root: string, authored: string, effects: unknown = []) {
+async function prepare(
+  root: string,
+  authored: string,
+  effects: unknown = [],
+  actorEquips: unknown = [99],
+) {
   const fixture = await createMinimalProject(root);
   const project = {
-    "Actors.json": [null, { id: 1, name: "Actor", equips: [99] }],
+    "Actors.json": [null, { id: 1, name: "Actor", equips: actorEquips }],
     "Animations.json": [
       null,
       {
@@ -140,7 +145,7 @@ for (const representation of ["formal", "raw"] as const)
         );
       });
 
-it("AV.C05.default-attack.formal.case.expected: default attack is an unchecked local relationship", async () => {
+it("AV.C12.actor-default-attack.formal.case.expected: Actor default attack does not inspect fallback Animation", async () => {
   await withWindowsSandbox("asset-skill-default-scope", async (sandbox) => {
     const root = sandbox.workspaceRoot;
     await prepare(root, common(1, force(2)));
@@ -150,6 +155,19 @@ it("AV.C05.default-attack.formal.case.expected: default attack is an unchecked l
     expect(result.stderr).toContain("Skills.json[2].animationId");
     expect(result.stderr).not.toContain("UnarmedFirst");
     expect(result.stderr).not.toContain("EnemyAttack");
+    expect(result.stderr).not.toContain("candidate:");
+  });
+});
+
+it("AV.C12.initial-equipment.formal.case.expected: saved Actor equipment cannot resolve a runtime default attack", async () => {
+  await withWindowsSandbox("asset-initial-equipment-scope", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(root, common(1, force(2)), [], [1]);
+    const result = await runCli(sandbox, ["compile", "--check"]);
+    expect(result.exitCode).toBe(0);
+    expect(result.stderr).toContain("MV-ASSET-DYNAMIC-STOP");
+    expect(result.stderr).not.toContain("UnarmedFirst");
+    expect(result.stderr).not.toContain("Weapons.json");
     expect(result.stderr).not.toContain("candidate:");
   });
 });
@@ -202,6 +220,28 @@ it("AV.C12.skill-effect.formal.case.expected: Skill Common Event effects do not 
     expect(result.exitCode).toBe(1);
     expect(result.stderr).toContain("commonEvent:10 CommonEvents.json[10].list[0].parameters[1]");
     expect(result.stderr).not.toContain("effects[0].dataId");
+    expect(result.stderr).not.toContain(" -> commonEvent:");
+  });
+});
+
+it("AV.C04.repeated-common-effect.formal.case.expected: repeated Skill effects do not duplicate a Common Event asset use", async () => {
+  await withWindowsSandbox("asset-repeated-common-effect", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(root, common(1, force()) + common(10, picture), [
+      { code: 44, dataId: 10, value1: 17, value2: 23 },
+      { code: 44, dataId: 10, value1: 31, value2: 47 },
+    ]);
+    for (const field of fields) await put(root, field);
+    await mkdir(join(root, "Game/img/pictures"), { recursive: true });
+    const result = await runCli(sandbox, ["compile", "--check"], { allowFailure: true });
+    expect(result.exitCode).toBe(1);
+    expect(result.stderr).toContain("MV-ASSET-MISSING-FILE");
+    expect(
+      result.stderr.match(
+        /^\s*- error commonEvent:10 CommonEvents\.json\[10\]\.list\[0\]\.parameters\[1\]/gmu,
+      ),
+    ).toHaveLength(1);
+    expect(result.stderr).not.toContain("Skill Common Event effect");
     expect(result.stderr).not.toContain(" -> commonEvent:");
   });
 });

@@ -29,7 +29,27 @@ async function prepare(root: string, authored: string, overrides: Record<string,
       autoplayBgs: true,
       bgm: { name: "MissingBgm", volume: 20, pitch: 80, pan: 0 },
       bgs: { name: "MissingBgs", volume: 20, pitch: 80, pan: 0 },
-      events: [],
+      events: [
+        null,
+        {
+          id: 1,
+          name: "Target-only event",
+          x: 0,
+          y: 0,
+          pages: [
+            {
+              list: [
+                {
+                  code: 231,
+                  indent: 0,
+                  parameters: [1, "MissingTargetPicture", 0, 0, 0, 0, 100, 100, 255, 0],
+                },
+                { code: 0, indent: 0, parameters: [] },
+              ],
+            },
+          ],
+        },
+      ],
     },
     "Tilesets.json": [
       null,
@@ -47,13 +67,14 @@ async function prepare(root: string, authored: string, overrides: Record<string,
 }
 
 for (const representation of ["formal", "raw"] as const)
-  it(`AV.C12.transfer-initial-assets.${representation}.case.expected: a fixed Transfer retains its Map reference without checking destination assets`, async () => {
+  it(`AV.C12.${representation === "formal" ? "transfer-network" : "transfer-initial-assets"}.${representation}.case.expected: a fixed Transfer retains its Map reference without checking destination assets`, async () => {
     await withWindowsSandbox(`asset-transfer-scope-${representation}`, async (sandbox) => {
       const root = sandbox.workspaceRoot;
       await prepare(root, source(transfer(representation === "raw")));
       const checked = await runCli(sandbox, ["compile", "--check"]);
       expect(checked.exitCode).toBe(0);
       expect(checked.stderr).not.toContain("MV-ASSET-");
+      expect(checked.stderr).not.toContain("MissingTargetPicture");
       await api.compileWorkspace({ workspaceRoot: root, check: false });
       const generated = JSON.parse(
         await readFile(
