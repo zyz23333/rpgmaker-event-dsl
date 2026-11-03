@@ -12,7 +12,16 @@ specifiers resolve to their TypeScript implementations. `introduction.ts` is a
 transitive dependency reached through `rewards.ts`.
 
 Use this checkout's package to try the feature before publishing it. At the repository
-root, run `pnpm install --frozen-lockfile` and `pnpm --filter rpgmaker-event-dsl build`.
+root, run:
+
+```sh
+pnpm install --frozen-lockfile
+pnpm --filter rpgmaker-event-dsl build
+pnpm install --frozen-lockfile
+```
+
+The second install refreshes the local executable links after the build creates the
+CLI, so `pnpm exec` can find it in a fresh checkout, including on Windows.
 The sample's `workspace:*` dependency selects that package. From this sample directory,
 initialize against a disposable MV project:
 
