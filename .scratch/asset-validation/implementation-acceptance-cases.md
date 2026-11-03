@@ -98,7 +98,7 @@ C06／C07 的到达字段映射固定来自上方 A／B 表，并在完整标识
 | F03 | top-directory-case,category-directory-case,stem-case,extension-case,exact-plus-case-variant,multiple-case-variants | filesystem；每一级准确匹配；无准确项名称不符，有准确项通过；并存能力不足保留未执行 |
 | F04 | chinese,space,whitespace-only,dot,dollar,bang,trailing-space-stem,trailing-dot-stem | filesystem；原值追加后缀，非空空白不当 None；不修复名字 |
 | F05 | double-extension,unicode-distinct | filesystem；已有后缀仍追加；规范等价字符串不替代准确项 |
-| F06 | image-percent,image-hash,audio-percent,audio-hash,literal-percent20,movie-percent,movie-hash | 前五为 filesystem，后二为 input；不 URL 解码；影片禁止形式不查询 |
+| F06 | image-percent,image-hash,audio-percent,audio-hash,literal-percent20,movie-percent,movie-hash | image-percent、image-hash、literal-percent20（图片）及两个 movie 分支为 input：不支持且查询前拒绝；两个 audio 分支为 filesystem：按原名字面查询，不 URL 解码 |
 | F07 | slash,backslash,absolute,drive-relative,parent-traversal,forbidden-character,control-character,device-name,device-name-extension,device-name-case | input；不支持名称、不穿越查询；forbidden-character 子字段逐一枚举普通 Windows 禁止字符，control-character 为 U+0000–U+001F，device 三支按决策票首方保留设备名清单逐项构造，不用单个 NUL 代表全集 |
 | F08 | missing-category,missing-file,directory-is-file,file-is-directory | filesystem；分别辨认原因与具体位置 |
 | F09 | root-alias,top-symlink,category-junction,file-symlink,link-in-root,link-outside-root,dangling-link | filesystem；root-alias 沿既有规则；根以下拒绝且目标不可被访问，目标位置与存在性不改变拒绝 |
@@ -161,12 +161,12 @@ W11 的变化发生在唯一素材门槛的查询开始前，不构造并不存�
 
 ## N. 原生必验：5 个有效族
 
-表示固定 `native-run`，字段为 `case`，结果为 `observed`。所有项要求版本、输入、请求／文件定位和证据；当前全部未执行。真实有效自制媒体用于观察，不能把自动化空文件拿来判断原生解码行为。
+表示固定 `native-run`，字段为 `case`，结果为 `observed`。所有项要求版本、输入、请求／文件定位和证据。N01／N02 的当前支持域已有[实际运行与政策对账](../asset-validation-implementation/evidence/01-native-media/policy-resolution-2026-11-02.md)；N03–N05 的旧分支证据须由最终票按现行范围核对，不能据旧票号自动宣布通过。真实有效自制媒体用于观察，不能把自动化空文件拿来判断原生解码行为。
 
 | 族 | 确定分支 token | 必须记录的事实 |
 | --- | --- | --- |
 | N01 | image-png,audio-ogg,movie-webm | 代表性原生目录、追加扩展名与磁盘定位；不从播放结果推导全面保证 |
-| N02 | chinese,space,image-percent,image-hash,audio-percent,audio-hash | 支持范围内原始名称到请求及实际文件的映射，区分 URL 编码与文件名 |
+| N02 | chinese,space,audio-percent,audio-hash | 支持范围内原始名称到请求及实际文件的映射，区分 URL 编码与文件名；audio-percent 包含看似编码的 `%20` 样本；历史图片分支保留原失败／成功事实，不属当前通过义务 |
 | N03 | animation-images,animation-timing-se | 双图与逐时机 SE 消费来源及条件，区分预加载与实际帧播放 |
 | N04 | change-tileset | 整组非空图片的消费来源与文件定位；区分地图绘制附带请求；旧 page-tile 分支延后 |
 | N05 | enemy-front,enemy-side | 同一 Enemy 在两种模式的原生目录选择 |
