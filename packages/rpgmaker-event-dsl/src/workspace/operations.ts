@@ -1,5 +1,5 @@
 import { stat } from "node:fs/promises";
-import { relative } from "node:path";
+import { relative, resolve } from "node:path";
 
 import {
   discoverDefinitionFiles,
@@ -399,7 +399,9 @@ async function loadDiscoveredDefinitionInput(
   const capture = new TypeInputCapture(workspaceRoot);
 
   for (const file of files) {
-    declarations.push(...(await loadDefinitionFile(file, capture)));
+    declarations.push(
+      ...(await loadDefinitionFile(file, capture, resolve(workspaceRoot, discovery.sourceRoot))),
+    );
     sourceFileHashes.push({
       hash: capture.fileHash(file),
       relativePath: relative(workspaceRoot, file).split(/[/\\]/u).join("/"),

@@ -7,43 +7,78 @@ import type { DslOwnedDeclaration } from "../domain/declarations.js";
 import { collectDslOwnedDeclarations } from "../validation/declarations.js";
 import { TypeInputCapture } from "./type-inputs.js";
 import { rememberCapturedLocation } from "./asset-provenance.js";
+import { resolveLocalValueModule } from "./source-modules.js";
 
 export { discoverDefinitionFiles, type DefinitionSourceDiscovery } from "./source-discovery.js";
+
+const dslHelpers: ReadonlySet<unknown> = new Set(
+  Object.values(dsl).filter((value) => typeof value === "function"),
+);
 
 type EvaluationScope = {
   bindings: Map<string, unknown>;
   sourceFile: ts.SourceFile;
+  importModule?: (statement: ts.ImportDeclaration) => Record<string, unknown>;
 };
 
 export async function loadDefinitionFile(
   filePath: string,
   capture = new TypeInputCapture(),
+  sourceRoot = dirname(filePath),
 ): Promise<DslOwnedDeclaration[]> {
-  const sourceText = capture.readFile(filePath);
-  if (sourceText === undefined) throw new Error(`Definition Source is missing: ${filePath}`);
-  const sourceFile = ts.createSourceFile(
-    filePath,
-    sourceText,
-    ts.ScriptTarget.ES2023,
-    true,
-    ts.ScriptKind.TS,
-  );
+  const modules = new Map<string, Record<string, unknown>>();
+  const loading: { key: string; path: string }[] = [];
+  const loadModule = (path: string): Record<string, unknown> => {
+    const key = normalizePath(capture.realpath(path));
+    const cached = modules.get(key);
+    if (cached) return cached;
+    const cycle = loading.findIndex((entry) => entry.key === key);
+    if (cycle !== -1) {
+      throw new Error(
+        `Value-module cycle: ${[...loading.slice(cycle).map((entry) => entry.path), path].join(" -> ")}`,
+      );
+    }
+    const sourceText = capture.readFile(path);
+    if (sourceText === undefined) throw new Error(`Definition Source is missing: ${path}`);
+    const sourceFile = ts.createSourceFile(
+      path,
+      sourceText,
+      ts.ScriptTarget.ES2023,
+      true,
+      ts.ScriptKind.TS,
+    );
 
-  const diagnostics = collectDiagnostics(filePath, sourceFile, capture);
-  if (diagnostics.length > 0) {
-    throw new Error(formatDiagnostics(filePath, diagnostics));
-  }
-
-  try {
-    const moduleExports = evaluateModule(sourceFile);
-    return collectDslOwnedDeclarations(moduleExports);
-  } catch (error) {
-    if (error instanceof Error) {
-      throw new Error(formatSourceError(filePath, error.message));
+    const diagnostics = collectDiagnostics(path, sourceFile, capture);
+    if (diagnostics.length > 0) {
+      throw new Error(formatDiagnostics(path, diagnostics));
     }
 
-    throw error;
-  }
+    loading.push({ key, path });
+    try {
+      const exports = evaluateModule(sourceFile, (statement) =>
+        loadModule(
+          resolveLocalValueModule(
+            getModuleSpecifier(statement),
+            sourceFile.fileName,
+            capture,
+            sourceRoot,
+          ),
+        ),
+      );
+      modules.set(key, exports);
+      return exports;
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(formatSourceError(path, error.message));
+      }
+
+      throw error;
+    } finally {
+      loading.pop();
+    }
+  };
+
+  return collectDslOwnedDeclarations(loadModule(filePath));
 }
 
 /** Immutable candidate bytes at final filenames; all other reads remain captured real inputs. */
@@ -189,96 +224,136 @@ function collectDiagnostics(
   ];
 }
 
-function evaluateModule(sourceFile: ts.SourceFile): Record<string, unknown> {
+function evaluateModule(
+  sourceFile: ts.SourceFile,
+  importModule?: EvaluationScope["importModule"],
+): Record<string, unknown> {
   const scope: EvaluationScope = {
     bindings: new Map<string, unknown>(),
     sourceFile,
+    ...(importModule === undefined ? {} : { importModule }),
   };
   const exports: Record<string, unknown> = Object.create(null) as Record<string, unknown>;
+  const namedExports: ts.ExportSpecifier[] = [];
 
   for (const statement of sourceFile.statements) {
-    if (ts.isEmptyStatement(statement)) {
-      continue;
-    }
-
-    if (ts.isImportDeclaration(statement)) {
-      registerImport(statement, scope);
-      continue;
-    }
-
-    if (ts.isExportAssignment(statement)) {
-      throw new Error("Default export is not allowed for Event Definitions.");
-    }
-
-    if (ts.isExportDeclaration(statement)) {
-      if (statement.moduleSpecifier !== undefined) {
-        throw new Error("Re-exporting from other modules is not allowed for Event Definitions.");
+    try {
+      if (ts.isEmptyStatement(statement)) {
+        continue;
       }
 
-      if (statement.exportClause === undefined || !ts.isNamedExports(statement.exportClause)) {
-        throw new Error("Only named exports are allowed for Event Definitions.");
+      if (ts.isImportDeclaration(statement)) {
+        registerImport(statement, scope);
+        continue;
       }
 
-      for (const specifier of statement.exportClause.elements) {
-        const exportedName = specifier.name.text;
-        const localName = specifier.propertyName?.text ?? exportedName;
+      if (ts.isExportAssignment(statement)) {
+        throw new Error("Default export is not allowed for Event Definitions.");
+      }
 
-        if (!scope.bindings.has(localName)) {
-          throw new Error(`Exported binding "${localName}" was not declared in the file.`);
+      if (ts.isExportDeclaration(statement)) {
+        if (statement.isTypeOnly) continue;
+        if (statement.moduleSpecifier !== undefined) {
+          throw new Error("Re-exporting from other modules is not allowed for Event Definitions.");
         }
 
-        exports[exportedName] = scope.bindings.get(localName);
-      }
-
-      continue;
-    }
-
-    if (ts.isVariableStatement(statement)) {
-      if ((statement.declarationList.flags & ts.NodeFlags.Const) === 0) {
-        throw new Error("Only const bindings are allowed for Event Definitions.");
-      }
-
-      for (const declaration of statement.declarationList.declarations) {
-        if (!ts.isIdentifier(declaration.name)) {
-          throw new Error("Only simple named bindings are supported for Event Definitions.");
+        if (statement.exportClause === undefined || !ts.isNamedExports(statement.exportClause)) {
+          throw new Error("Only named exports are allowed for Event Definitions.");
         }
 
-        if (declaration.initializer === undefined) {
-          throw new Error(
-            `Event Definition binding "${declaration.name.text}" must have an initializer.`,
-          );
+        for (const specifier of statement.exportClause.elements) {
+          if (specifier.isTypeOnly) continue;
+          namedExports.push(specifier);
         }
 
-        const value = evaluateExpression(declaration.initializer, scope);
-        scope.bindings.set(declaration.name.text, value);
-
-        if (
-          statement.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword)
-        ) {
-          exports[declaration.name.text] = value;
-        }
+        continue;
       }
-      continue;
-    }
 
-    if (isIgnorableStatement(statement)) {
-      continue;
-    }
+      if (ts.isVariableStatement(statement)) {
+        if ((statement.declarationList.flags & ts.NodeFlags.Const) === 0) {
+          throw new Error("Only const bindings are allowed for Event Definitions.");
+        }
 
-    throw new Error(`Unsupported Event Definition statement: ${ts.SyntaxKind[statement.kind]}`);
+        for (const declaration of statement.declarationList.declarations) {
+          if (!ts.isIdentifier(declaration.name)) {
+            throw new Error("Only simple named bindings are supported for Event Definitions.");
+          }
+
+          if (declaration.initializer === undefined) {
+            throw new Error(
+              `Event Definition binding "${declaration.name.text}" must have an initializer.`,
+            );
+          }
+
+          const value = evaluateExpression(declaration.initializer, scope);
+          scope.bindings.set(declaration.name.text, value);
+
+          if (
+            statement.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword)
+          ) {
+            exports[declaration.name.text] = value;
+          }
+        }
+        continue;
+      }
+
+      if (isIgnorableStatement(statement)) {
+        continue;
+      }
+
+      throw new Error(`Unsupported Event Definition statement: ${ts.SyntaxKind[statement.kind]}`);
+    } catch (error) {
+      const position = sourceFile.getLineAndCharacterOfPosition(statement.getStart(sourceFile));
+      throw new Error(
+        `${sourceFile.fileName}:${position.line + 1}:${position.character + 1} ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
   }
 
+  for (const specifier of namedExports) {
+    const name = specifier.propertyName?.text ?? specifier.name.text;
+    if (!scope.bindings.has(name)) {
+      throw new Error(`Exported binding "${name}" was not declared in the file.`);
+    }
+    exports[specifier.name.text] = scope.bindings.get(name);
+  }
   return exports;
 }
 
 function registerImport(statement: ts.ImportDeclaration, scope: EvaluationScope): void {
-  if (statement.importClause?.isTypeOnly === true) {
+  const namedBindings = statement.importClause?.namedBindings;
+  if (
+    statement.importClause?.isTypeOnly === true ||
+    (statement.importClause?.name === undefined &&
+      namedBindings &&
+      ts.isNamedImports(namedBindings) &&
+      namedBindings.elements.length > 0 &&
+      namedBindings.elements.every((element) => element.isTypeOnly))
+  ) {
     return;
   }
 
   const moduleSpecifier = getModuleSpecifier(statement);
   if (moduleSpecifier !== "rpgmaker-event-dsl") {
-    throw new Error(`Unsupported import source: ${moduleSpecifier}`);
+    const clause = statement.importClause;
+    if (
+      !scope.importModule ||
+      clause?.name ||
+      !clause?.namedBindings ||
+      !ts.isNamedImports(clause.namedBindings)
+    ) {
+      throw new Error(`Only named local value imports are supported: ${moduleSpecifier}`);
+    }
+    const exports = scope.importModule(statement);
+    for (const element of clause.namedBindings.elements) {
+      if (element.isTypeOnly) continue;
+      const name = element.propertyName?.text ?? element.name.text;
+      if (!Object.hasOwn(exports, name)) {
+        throw new Error(`Module ${moduleSpecifier} has no named export ${name}.`);
+      }
+      scope.bindings.set(element.name.text, exports[name]);
+    }
+    return;
   }
 
   if (statement.importClause === undefined) {
@@ -447,7 +522,7 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
 
   if (ts.isCallExpression(node)) {
     const callee = evaluateCallee(node.expression, scope);
-    if (typeof callee !== "function") {
+    if (typeof callee !== "function" || !dslHelpers.has(callee)) {
       throw new Error("Only DSL helper calls are allowed in Event Definitions.");
     }
 
