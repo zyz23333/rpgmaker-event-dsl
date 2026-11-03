@@ -33,3 +33,4 @@ User Stories: 25, 28, 29
 - 新增 decompile-shared-identities.test.ts 22 项，连同 decompile-publication.test.ts 的 33 项共 55 项通过。原有发布、隔离、I/O 失败与重试保护保持通过；新增 Decompile→Compile 案例按独立字面预期核对保存的 CR、空行与终止记录。
 - 实际 Windows x64 / Node 22.19.0，经显式 Corepack pnpm 10.33.0：上述 Vitest 套件、包 typecheck、变更 TypeScript 文件 oxlint 通过；已格式化变更文件。
 - 本票只改变 Decompile 现有身份读取及其输入/发布检查，不改变 Compile 的 DSL 类型、验证或生成语义，因此沿用实际集成 Compile Contract Version mv-1.6.1/42。构建后 CLI 整体验收仍由 07 负责；无真实 MV 编辑器或游戏执行声明。
+- 合入实际集成提交 `75e86c99cf008c369306bf9cbb2453e3119ac4ac`（含 03/05）后再次验收：`decompile-shared-identities.test.ts`、`decompile-publication.test.ts`、`shared-call-diagnostics.test.ts` 合计 64/64 通过；typecheck、变更 TypeScript 的 oxlint、六个变更文件的 oxfmt --check 及 git diff --check 通过。合并没有冲突，保留 05 的正常验证诊断展示与独立的有限身份分析。
