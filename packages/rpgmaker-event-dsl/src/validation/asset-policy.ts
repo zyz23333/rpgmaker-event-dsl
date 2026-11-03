@@ -11,8 +11,5 @@ const conditionalFileProblems = new Set([
 ]);
 
 export function assetUseLevel(use: AssetOrigin, code: string): "error" | "warning" {
-  return (use.inactive !== undefined || use.candidate !== undefined) &&
-    conditionalFileProblems.has(code)
-    ? "warning"
-    : "error";
+  return use.inactive !== undefined && conditionalFileProblems.has(code) ? "warning" : "error";
 }

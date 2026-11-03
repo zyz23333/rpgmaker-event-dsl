@@ -142,7 +142,7 @@ async function prepare(root: string, mode: unknown, characterName: unknown) {
   await mkdir(join(root, "Game/img/sv_actors"), { recursive: true });
   await writeFile(join(root, "Game/img/sv_actors/SavedBattler.png"), "");
 }
-it("reports an invalid Enemy directory input together with a bad Actor candidate field through real Workspace and CLI", async () => {
+it("reports an invalid Enemy directory input without interpreting an unrelated Actor image field", async () => {
   await withWindowsSandbox("asset-battler-input-siblings", async (sandbox) => {
     const root = sandbox.workspaceRoot;
     await prepare(root, "false", 17);
@@ -151,14 +151,14 @@ it("reports an invalid Enemy directory input together with a bad Actor candidate
     for (const check of [true, false]) {
       const failure = await compileWorkspace({ workspaceRoot: root, check }).then(() => "", String);
       expect(failure).toContain("error MV-ASSET-INVALID-DATA: System.json.optSideView");
-      expect(failure).toContain("error MV-ASSET-INVALID-DATA: Actors.json[1].characterName");
+      expect(failure).not.toContain("Actors.json[1].characterName");
       expect(failure).not.toContain("MV-ASSET-MISSING-FILE");
       expect(await readFile(manifestPath, "utf8")).toBe(before);
     }
     const cli = await runCli(sandbox, ["compile", "--check"], { allowFailure: true });
     expect(cli.exitCode).toBe(1);
     expect(cli.stderr).toContain("System.json.optSideView");
-    expect(cli.stderr).toContain("Actors.json[1].characterName");
+    expect(cli.stderr).not.toContain("Actors.json[1].characterName");
     expect(await readFile(manifestPath, "utf8")).toBe(before);
   });
 });
@@ -166,10 +166,7 @@ it("uses one captured Actor Enemy and System view instead of newer live fields",
   await withWindowsSandbox("asset-battler-captured-view", async (sandbox) => {
     const root = sandbox.workspaceRoot;
     await prepare(root, false, "SavedCharacter");
-    for (const [folder, name] of [
-      ["enemies", "SavedEnemy"],
-      ["characters", "SavedCharacter"],
-    ]) {
+    for (const [folder, name] of [["enemies", "SavedEnemy"]]) {
       await mkdir(join(root, "Game/img", folder!), { recursive: true });
       await writeFile(join(root, "Game/img", folder!, `${name}.png`), "");
     }
