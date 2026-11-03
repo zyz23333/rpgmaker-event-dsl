@@ -1,6 +1,6 @@
 # 02: 显示图片在 Compile／Check 中完成最小检查路径
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: None
 Created: 2026-11-02
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -11,19 +11,19 @@ History: [旧 02](../history/2026-10-24/issues/02-picture-compile-check.md)、[�
 
 ## Acceptance criteria
 
-- [ ] 从已验证原生保存状态收集当前事件根，覆盖页、嵌套体与未调用公共事件；排除旧快照移除根和空白 Troop Event Reset。
-- [ ] 建立准确 PNG 的元数据检查及缺目录、缺文件、错误类型、相关加密标志诊断；非法路径和根以下链接在查询前拒绝，03 完成特殊形态和失败细分。
-- [ ] 正常文件可通过，普通缺失在发布前阻止本次输出；Check 保持只读，CLI 显示稳定标识及全部已知定义位置。
-- [ ] 公共事件始终独立检查；共享调用、自调用与互调不复制素材来源，不收集调用图，不生成循环诊断。既有固定引用与结构校验不变。
-- [ ] 合法 None 和独立保存值保留；未知脚本、插件、raw 负载与插件素材声明不增加猜测扫描。
+- [x] 从已验证原生保存状态收集当前事件根，覆盖页、嵌套体与未调用公共事件；排除旧快照移除根和空白 Troop Event Reset。
+- [x] 建立准确 PNG 的元数据检查及缺目录、缺文件、错误类型、相关加密标志诊断；非法路径和根以下链接在查询前拒绝，03 完成特殊形态和失败细分。
+- [x] 正常文件可通过，普通缺失在发布前阻止本次输出；Check 保持只读，CLI 显示稳定标识及全部已知定义位置。
+- [x] 公共事件始终独立检查；共享调用、自调用与互调不复制素材来源，不收集调用图，不生成循环诊断。既有固定引用与结构校验不变。
+- [x] 合法 None 和独立保存值保留；未知脚本、插件、raw 负载与插件素材声明不增加猜测扫描。
 
 ### 共通要求（限本票范围）
 
-- [ ] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
-- [ ] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
-- [ ] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
-- [ ] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
+- [x] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
+- [x] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
+- [x] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
+- [x] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
+- [x] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
 
 ## Acceptance ownership
 
@@ -51,9 +51,15 @@ None（可立即开始）。
 
 仅在直接依赖均 resolved 后领取；ready-for-agent 表示范围明确，不代表已解除依赖。各票完成只代表其保留范围，首版最终验收由 14 汇总。
 
+## Outcome
+
+当前 Map／Common／Troop 根、嵌套和已识别 raw Show Picture 均进入 Compile／Check 的文件检查；公共事件各按定义独立检查，不展开 caller 图。
+
 ## Verification
 
-按现行验收索引执行本票分支及指定 CLI 路径，记录适用检查、构建、Windows 验证和实际结果。当前均待实施／执行；不能将失败或缺口留给最终汇总票后关闭本票。
+A07、C01／C02 及本票 C／F 分支见[最终 ID 回执](../evidence/14-current-acceptance/id-receipts.json)；源码和构建后入口均随[冻结运行](../evidence/14-current-acceptance/README.md)通过，包含 Check 只读与 CLI 来源断言。
+
+最终公共门槛在冻结提交 `403b39aa` 的 Windows 10 / Node.js 22.23.0 环境执行：`pnpm check` 退出 0（105 文件、3064 测试通过），`pnpm build` 退出 0，`pnpm --filter rpgmaker-event-dsl test:windows-baseline` 退出 0（44 文件、1494 测试通过）。三份原始日志见[当前技术验收回执](../evidence/14-current-acceptance/README.md)。
 
 ## Sources
 

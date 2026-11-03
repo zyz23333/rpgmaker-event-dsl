@@ -1,0 +1,13 @@
+
+> rpgmaker-event-dsl@0.1.2 test:windows-baseline M:\Shuen\Codex\asset-validation-current\packages\rpgmaker-event-dsl
+> vitest run --config vitest.windows.config.ts
+
+
+ RUN  v4.1.9 M:/Shuen/Codex/asset-validation-current/packages/rpgmaker-event-dsl
+
+
+ Test Files  44 passed (44)
+      Tests  1494 passed (1494)
+   Start at  14:13:46
+   Duration  1208.72s (transform 2.24s, setup 0ms, import 20.03s, tests 2389.85s, environment 3ms)
+

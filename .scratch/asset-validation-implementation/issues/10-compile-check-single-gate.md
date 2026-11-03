@@ -1,6 +1,6 @@
 # 10: Compile／Check 的单次素材检查与发布保护
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 09
 Created: 2026-11-02
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -11,19 +11,19 @@ History: [旧 13](../history/2026-10-24/issues/13-compile-check-consistency.md)
 
 ## Acceptance criteria
 
-- [ ] Check 的 initial／fresh／stale 与成功／error／warning 组合均只读；普通素材 error 不发布本次输出。
-- [ ] 门槛前删图或补图按当前事实判断；检查后到返回／Manifest 提交前仅改变素材不再查询、不使发布失败。发布 I/O 或编译输入变化仍按原无效状态边界处理。
-- [ ] 验证同次查询复用、下一命令查当前事实及不累积历史来源；内容、大小、时间、文件身份和无关目录项变化不触发比较。
-- [ ] 动画／图块未 Pull 改名时使用一致快照，Pull 后重新编译；配置、规则、绑定和类型依赖保持既有新鲜度要求。
-- [ ] Clone／Pull／Decompilation／Diff 不扫描素材；检查不改写外部数据、素材或保存名称。
+- [x] Check 的 initial／fresh／stale 与成功／error／warning 组合均只读；普通素材 error 不发布本次输出。
+- [x] 门槛前删图或补图按当前事实判断；检查后到返回／Manifest 提交前仅改变素材不再查询、不使发布失败。发布 I/O 或编译输入变化仍按原无效状态边界处理。
+- [x] 验证同次查询复用、下一命令查当前事实及不累积历史来源；内容、大小、时间、文件身份和无关目录项变化不触发比较。
+- [x] 动画／图块未 Pull 改名时使用一致快照，Pull 后重新编译；配置、规则、绑定和类型依赖保持既有新鲜度要求。
+- [x] Clone／Pull／Decompilation／Diff 不扫描素材；检查不改写外部数据、素材或保存名称。
 
 ### 共通要求（限本票范围）
 
-- [ ] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
-- [ ] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
-- [ ] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
-- [ ] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
+- [x] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
+- [x] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
+- [x] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
+- [x] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
+- [x] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
 
 ## Acceptance ownership
 
@@ -51,9 +51,15 @@ History: [旧 13](../history/2026-10-24/issues/13-compile-check-consistency.md)
 
 仅在直接依赖均 resolved 后领取；ready-for-agent 表示范围明确，不代表已解除依赖。各票完成只代表其保留范围，首版最终验收由 14 汇总。
 
+## Outcome
+
+Check 在返回前、Compile 在发布前各完成一次当前素材检查；输入保护、Check 只读和下一命令重新观察文件事实均保留。
+
 ## Verification
 
-按现行验收索引执行本票分支及指定 CLI 路径，记录适用检查、构建、Windows 验证和实际结果。当前均待实施／执行；不能将失败或缺口留给最终汇总票后关闭本票。
+C03／C13、W01–W04／W09–W12／W14／W17 及 Compile W19 的真实检查点、状态和 CLI 断言见[ID 回执](../evidence/14-current-acceptance/id-receipts.json)，随[冻结运行](../evidence/14-current-acceptance/README.md)通过。
+
+最终公共门槛在冻结提交 `403b39aa` 的 Windows 10 / Node.js 22.23.0 环境执行：`pnpm check` 退出 0（105 文件、3064 测试通过），`pnpm build` 退出 0，`pnpm --filter rpgmaker-event-dsl test:windows-baseline` 退出 0（44 文件、1494 测试通过）。三份原始日志见[当前技术验收回执](../evidence/14-current-acceptance/README.md)。
 
 ## Sources
 

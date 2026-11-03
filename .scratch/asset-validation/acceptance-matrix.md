@@ -2,7 +2,7 @@
 
 本文件展开[验收决定](issues/06-asset-validation-acceptance.md#answer)及[实施规格](asset-validation-spec.md)的当前首版范围。2026-11-02 用户要求再次简化，以下现行预期取代旧版本；历史确认不恢复已延后范围。
 
-**当前有效 86 个用例族全部待实施／执行；另有 11 个旧族延后，没有任何一行表示产品验收已通过。** 旧 ID 保留便于追溯。首版只以有效族及其保留分支验收，延后范围另列。
+**当前有效 86 个用例族的技术验收已在冻结提交 `403b39aa` 完成；维护者最终审阅仍待完成。** [当前回执](../asset-validation-implementation/evidence/14-current-acceptance/README.md)记录实际 Windows / Node.js 22 源码与构建后运行、逐 ID 清单及保留原生证据对账。另有 11 个旧族延后，旧 ID 保留便于追溯；首版只以有效族及其保留分支验收。
 
 ## 使用约定与最小项目
 
@@ -13,7 +13,7 @@
 - 每个素材字段默认使用可区分的原始名称。基本变体是所有必要文件准确存在，再只删除一个指定文件；重复来源用例才刻意共享名称。空名称和错误字段另外构造，避免同时缺条目、缺文件而遮蔽预期。
 - 自动化预期手写或从独立契约数据声明，不调用被测实现来计算期望集合、路径、级别或状态。DSL 编译可作为被测操作，不能作为预期生成器；正式与 raw 分别比对预期。
 - 自动化负责人为实施方，环境为 Windows / Node.js 22；标为“真实文件”的项目确实操作临时文件树；标为“注入”的项目记录注入边界。原生组由实施方准备并尽可能执行，确需人工时由维护者执行留证。产品验收最终由维护者审阅报告确认。
-- 下列有效项的当前执行状态统一为“计划，未执行”；延后项不进入本版执行清单。环境受限的未来回执须单独记为未执行并说明原因，不可计为通过。标准数据、素材、输出与同步状态的比较使用各用例独立预期，不能只凭退出码判断。
+- 下列有效项的现行执行结果见[逐 ID 回执](../asset-validation-implementation/evidence/14-current-acceptance/id-receipts.json)及[完整运行日志](../asset-validation-implementation/evidence/14-current-acceptance/README.md)；保留分支无失败或 skip。延后项不进入本版执行清单。今后若环境受限，回执须单独记为未执行并说明原因，不可计为通过。标准数据、素材、输出与同步状态的比较仍须使用各用例独立预期，不能只凭退出码判断。
 
 ## A. 直接字段：覆盖契约第二节
 
@@ -152,21 +152,21 @@
 
 N06 与 N04 页图块分支延后。不把已排除的部署加密、子路径、影片 `%`／`#`、picker 行为列为本版全面实测责任。必验未执行或支持范围内证据冲突未解决，阻止宣布产品验收完成；不阻止以明确待执行项交接实施规格。
 
-## 已有依据、待执行责任与完成门槛
+## 依据、当前证据与完成门槛
 
 | 证据／任务 | 当前状态及证明范围 | 后续责任 |
 | --- | --- | --- |
 | [原生文件定位研究](research/native-asset-file-resolution.md)及覆盖票首方函数出处 | 已有静态依据；不证明 Windows 宿主完整运行 | 实施方据此编写独立预期，完成 N 组及必要反例核对 |
 | [部署筛选研究](research/native-unused-assets-scope.md)及[重放回执](evidence/native-deployment-filter-replay.json) | 既有 12/12 原函数受控重放；不是完整部署／加载，也不是事件素材检查 | 只作为范围差异背景，不用其全库集合生成本功能预期 |
 | 文件存在性票的 500 文件查询微测 | 既有 Node v24 实验，无媒体读取、无影片样本；不是产品验收或性能承诺 | 不据此声称 Node.js 22 性能达标，不新增未经选择的耗时阈值 |
-| [Windows sandbox](../../packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts)、[发布测试](../../packages/rpgmaker-event-dsl/test/compile-publication.test.ts)、[Push 测试](../../packages/rpgmaker-event-dsl/test/push-drift.test.ts)、[恢复测试](../../packages/rpgmaker-event-dsl/test/push-recovery.test.ts) | 已有代码／测试定义；本次只读核对，未执行；无新增素材功能验收结果 | 实施方补 fixture、检查点及上述素材用例，执行并留证 |
-| A／B／C／F／D／W 当前有效验收项 | 计划，未实施／执行 | 实施方在 Windows / Node.js 22 验证；特殊能力受限项保留未执行并在合适环境补验 |
-| N01–N05 保留分支 | N01／N02 有真实运行及当前支持域对账；N03–N05 的既有证据待最终票按现行范围复核 | 实施方完成当前范围证据核对；确需人工由维护者执行并留证 |
-| 仓库检查、构建、含素材用例的构建后 CLI 验证 | 计划，未执行 | 实施方执行并提供实际回执、版本／环境和失败原因；维护者审阅 |
+| [Windows sandbox](../../packages/rpgmaker-event-dsl/test/support/windows-sandbox.ts)、[发布测试](../../packages/rpgmaker-event-dsl/test/compile-publication.test.ts)、[Push 测试](../../packages/rpgmaker-event-dsl/test/push-drift.test.ts)、[恢复测试](../../packages/rpgmaker-event-dsl/test/push-recovery.test.ts) | 当前源码与构建后 Windows 测试均已运行通过；具体结果见[当前回执](../asset-validation-implementation/evidence/14-current-acceptance/README.md) | 维护者审阅最终回执和公开说明 |
+| A／B／C／F／D／W 当前有效验收项 | 81 个自动化有效族的有限 ID 均登记；源码 3064/3064、构建后 1494/1494 测试通过，无 skip | 维护者核对[逐 ID 回执](../asset-validation-implementation/evidence/14-current-acceptance/id-receipts.json) |
+| N01–N05 保留分支 | 12 个当前原生 ID 有历史 MV 1.6.1 真实运行证据，并与最终代码／政策[逐项对账](../asset-validation-implementation/evidence/14-current-acceptance/native-reconciliation.md)；不是重新运行 | 维护者确认现有证据足以支撑当前保留范围 |
+| 仓库检查、构建、含素材用例的构建后 CLI 验证 | 冻结提交 `403b39aa` 的三项命令均退出 0；原始日志见[当前回执](../asset-validation-implementation/evidence/14-current-acceptance/README.md) | 维护者最终审阅确认 |
 
-用户已授权本次简化；当前首版范围没有未决产品政策，已满足实施规格交接条件。后续规格将用例族展开为具体 fixtures／测试、实施任务及相应代码接口，保留独立预期、证据类型、责任和未执行状态。
+用户已授权本次简化；当前首版范围没有未决产品政策。现行用例族已展开为具体 fixtures／测试并取得技术验收结果，独立预期、证据类型和责任仍以本表、索引及[当前回执](../asset-validation-implementation/evidence/14-current-acceptance/README.md)为准。第 14 票和父规格仍待维护者最终确认。
 
-实施顺序为：独立预期与 fixture／尽早核对原生疑点 → 分别验证依赖、文件与诊断 → Compile／Check → Push 写前门槛／data 恢复及输入一致性边界 → Compile Contract Version、说明、构建后 CLI 及完整验收。首版在保留范围完成后可独立交付，延后族及撤销分支不属于本版完成条件。当前仓库命令为 `pnpm check`、`pnpm build`、`pnpm --filter rpgmaker-event-dsl test:windows-baseline`；与当前首版必验和反例结果一起交由维护者确认。
+实施顺序为：独立预期与 fixture／尽早核对原生疑点 → 分别验证依赖、文件与诊断 → Compile／Check → Push 写前门槛／data 恢复及输入一致性边界 → Compile Contract Version、说明、构建后 CLI 及完整验收。首版在保留范围完成后可独立交付，延后族及撤销分支不属于本版完成条件。当前仓库命令 `pnpm check`、`pnpm build`、`pnpm --filter rpgmaker-event-dsl test:windows-baseline` 已在冻结提交通过；实际回执交由维护者确认。
 
 反例按验收票 Q8 分流：修实现并加回归；或重开被事实推翻的决策／ADR 并追踪下游；或记录范围扩展提议。当前首版范围中任何未解决的契约反例、必验未执行或证据矛盾均须明确保留，不能靠改预期、放宽断言或新增例外宣称产品通过。稳定 warning、有效例外和信息停止按政策允许，不要求报告清零。
 

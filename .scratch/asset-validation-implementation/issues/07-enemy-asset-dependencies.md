@@ -1,6 +1,6 @@
 # 07: 固定敌群与敌人变身素材的检查
 
-Status: ready-for-agent
+Status: resolved
 Blocked by: 06
 Created: 2026-11-02
 Parent: [事件素材文件存在性检查实施规格](../../asset-validation/asset-validation-spec.md)
@@ -11,18 +11,18 @@ History: [旧 08](../history/2026-10-24/issues/08-enemy-and-actor-candidates.md)
 
 ## Acceptance criteria
 
-- [ ] 覆盖 B03／B04，hidden 成员仍检查，重复成员保留各自路径；System.optSideView 只选择对应敌人目录。
-- [ ] 动态敌群目标保留位置及未检查原因，不推导战斗默认音频或背景；必要字段错误与素材缺失分开。
-- [ ] 加入 Actor、修改 HP、载具位置、无关 Actor、敌人 AI 和仅有 Troop Event 宿主身份均不扩大素材范围；Actor 初始图像不作为候选检查。
-- [ ] 完成 N05 前视／侧视目录的实际原生观察及正式／raw、字段变体的自动化。
+- [x] 覆盖 B03／B04，hidden 成员仍检查，重复成员保留各自路径；System.optSideView 只选择对应敌人目录。
+- [x] 动态敌群目标保留位置及未检查原因，不推导战斗默认音频或背景；必要字段错误与素材缺失分开。
+- [x] 加入 Actor、修改 HP、载具位置、无关 Actor、敌人 AI 和仅有 Troop Event 宿主身份均不扩大素材范围；Actor 初始图像不作为候选检查。
+- [x] 完成 N05 前视／侧视目录的实际原生观察及正式／raw、字段变体的自动化。
 
 ### 共通要求（限本票范围）
 
-- [ ] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
-- [ ] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
-- [ ] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
-- [ ] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
-- [ ] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
+- [x] 按本票责任表完成现行索引的有限子用例，正式／已识别 raw 各自对照独立预期，不用被测实现计算期望。
+- [x] 在 Windows / Node.js 22 的真实临时 Workspace 中，经指定 API／实际 CLI 验证诊断与允许的状态变化；内部语义测试只作补充，故障注入留在测试子进程接口。
+- [x] 仅解释已选关系必要字段，保留 None、保存值、外部字段及所有权；实时素材不进持久基线、快照、备份或写入，素材政策仍属于编译依据。
+- [x] 保留现有公共 API／CLI，不增加测试开关、全局跳过或通用扫描框架；在本票内补 fixture、适用说明及构建后 CLI 场景，协调 Compile Contract Version。
+- [x] 记录完整用例 ID、独立预期、实际结果、环境和证据；未执行／环境受限不计通过。只有本票保留范围完成并记录 outcome 与验证后才改为 resolved。
 
 ## Acceptance ownership
 
@@ -47,9 +47,15 @@ History: [旧 08](../history/2026-10-24/issues/08-enemy-and-actor-candidates.md)
 
 仅在直接依赖均 resolved 后领取；ready-for-agent 表示范围明确，不代表已解除依赖。各票完成只代表其保留范围，首版最终验收由 14 汇总。
 
+## Outcome
+
+固定 Troop 的全部成员及 Enemy Transform 通过 Enemy.battlerName 选择前／侧视目录；动态目标停止且不推断延后 Actor／默认攻击素材。
+
 ## Verification
 
-按现行验收索引执行本票分支及指定 CLI 路径，记录适用检查、构建、Windows 验证和实际结果。当前均待实施／执行；不能将失败或缺口留给最终汇总票后关闭本票。
+B03／B04 与本票 C04–C07／C09／C10／C12 分支见[ID 回执](../evidence/14-current-acceptance/id-receipts.json)，源码与构建后运行通过。N05 前／侧视 2 项来自历史真实运行并完成[原生对账](../evidence/14-current-acceptance/native-reconciliation.md)。
+
+最终公共门槛在冻结提交 `403b39aa` 的 Windows 10 / Node.js 22.23.0 环境执行：`pnpm check` 退出 0（105 文件、3064 测试通过），`pnpm build` 退出 0，`pnpm --filter rpgmaker-event-dsl test:windows-baseline` 退出 0（44 文件、1494 测试通过）。三份原始日志见[当前技术验收回执](../evidence/14-current-acceptance/README.md)。
 
 ## Sources
 

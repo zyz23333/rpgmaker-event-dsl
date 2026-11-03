@@ -7,7 +7,7 @@ Acceptance: [已接受的验收矩阵](acceptance-matrix.md) · [实施验收用
 
 2026-11-02 按用户“进行简化”的要求再次收缩首版；2026-11-03 根据 MV 1.6.1 图片特殊名称反例与用户确认，图片名含 `%`／`#` 统一列为不支持，音频继续支持。现行规则以本规格及同步修订的 Answer／ADR、验收矩阵为准；此前 Comments 是历史。首版只验收当前保留范围，延后能力不阻塞交付。
 
-本规格承接六张已 resolved 的决策票、ADR 0016–0019 及已确认的验收交接。它规定首版实现和完成标准；产品功能、自动化用例与原生必验项仍待实施／执行。`ready-for-agent` 表示规格可以交给实施方，不表示功能已完成。
+本规格承接六张已 resolved 的决策票、ADR 0016–0019 及已确认的验收交接。它规定首版实现和完成标准。保留范围的实现、自动化及 N01–N05 原生证据已取得[当前技术验收回执](../asset-validation-implementation/evidence/14-current-acceptance/README.md)；维护者公开说明审阅和最终确认仍待完成，因此本规格及第 14 票尚未 resolved。
 
 ## Problem Statement
 
@@ -278,6 +278,12 @@ CLI 测试核对稳定标识、关键定位／链／原因、完整性和退出�
 Windows / Node.js 22 下完成仓库检查、构建、含素材场景的构建后 CLI 验证，当前命令为 `pnpm check`、`pnpm build`、`pnpm --filter rpgmaker-event-dsl test:windows-baseline`。同时提供当前首版范围的自动化覆盖和 N01–N05 的实际证据，没有未解决的契约反例、必验未执行项或证据矛盾，由维护者审阅确认。若脚本重组，仍保留相同验证责任。符合政策的 warning、有效例外与信息停止无需清零。
 
 实现违约时修实现并补独立回归。支持范围内新首方／运行证据推翻既有定位或消费关系时，保留最小复现并重开相应决定／ADR，追踪诊断、工作流与验收影响。原生支持更宽或已排除关系只进入范围扩展提议。不能靠修改预期、放宽断言或添加例外消除反例。
+
+## 当前技术验收状态
+
+2026-11-03 在冻结提交 `403b39aa` 的 Windows 10 / Node.js 22.23.0 环境，`pnpm check` 退出 0（105 文件、3064 测试通过），`pnpm build` 退出 0，`pnpm --filter rpgmaker-event-dsl test:windows-baseline` 退出 0（44 文件、1494 测试通过）。源码与构建后清单各有相同的 895 个互不重复 `AV.` ID，当前 81 个自动化有效族的有限 ID 均已覆盖；N01–N05 的 12 个保留原生 ID 由历史 MV 1.6.1 真实运行证据支持，并与冻结代码／政策完成对账，没有把历史失败改判通过。原始日志、逐 ID 回执和原生对账见[当前技术验收回执](../asset-validation-implementation/evidence/14-current-acceptance/README.md)。
+
+上述是技术验收结果，不代替维护者审阅公开说明及确认最终交付。第 14 票保持 `claimed`，本规格保持未 resolved；11 个延后族不计为本次通过或 skip。
 
 ## Out of Scope
 
