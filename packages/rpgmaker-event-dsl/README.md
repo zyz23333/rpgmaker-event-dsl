@@ -440,6 +440,22 @@ expression subset, including transitive imports and named aliases. Discovery sti
 selects declaration entries rather than restricting which local dependencies can be
 imported. Imported module exports are not recursively collected as events.
 
+Named function declarations and const arrow functions can compose these values using
+zero parameters or one typed options object. Named parameter properties and shallow
+destructuring/renaming are supported. An arrow expression or a block containing named
+const declarations followed by one return can call DSL helpers and other supported
+functions. Calls use lexical bindings and independent locals. Return constants,
+configuration, references, a DSL Command or a command array; explicitly spread arrays
+to compose their order. Function exports are helper values, not event declarations.
+
+The [parameterized reward example](https://github.com/zyz23333/rpgmaker-event-dsl#parameterized-command-functions)
+shows two different option sets and nested composition. Function bodies are checked
+even when unused. Defaults, rest, nested destructuring, this, mutable state, general
+control flow/calculation, interpolated templates, host methods, async/generators,
+classes, higher-order functions and Event Definition factories are unsupported.
+Recursive calls report their function chain. Parameter type errors and constructor
+failures retain source locations; functions never execute event JavaScript.
+
 Local default/namespace imports, direct re-exports, value-module cycles and host-module
 execution are unsupported. Changing a shared dependency invalidates old generated
 data and requires another Compile before Diff/Push. Event JavaScript remains stored

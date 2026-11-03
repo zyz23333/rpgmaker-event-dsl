@@ -277,7 +277,7 @@ import { name } from "../shared/host.js";
 export const event = commonEvent({ id: 1, name, trigger: "none", commands: [] });`,
     );
     await expect(api.compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
-      /Only DSL helper calls are allowed/iu,
+      /Only DSL helper calls or supported author functions are allowed/iu,
     );
   });
 }, 30_000);
