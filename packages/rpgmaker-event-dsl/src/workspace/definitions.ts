@@ -6,7 +6,11 @@ import * as dsl from "../authoring/index.js";
 import { isDslOwnedDeclaration, type DslOwnedDeclaration } from "../domain/declarations.js";
 import { collectDslOwnedDeclarations } from "../validation/declarations.js";
 import { TypeInputCapture } from "./type-inputs.js";
-import { rememberCapturedLocation } from "./asset-provenance.js";
+import {
+  captureSourceUse,
+  rememberCapturedLocation,
+  type SourceLocation,
+} from "./source-provenance.js";
 import { resolveLocalValueModule } from "./source-modules.js";
 
 export { discoverDefinitionFiles, type DefinitionSourceDiscovery } from "./source-discovery.js";
@@ -123,11 +127,22 @@ function createAuthorFunction(
   return token;
 }
 
+class SourceEvaluationError extends Error {}
+
 function sourceError(node: ts.Node, scope: EvaluationScope, message: string): Error {
   const position = scope.sourceFile.getLineAndCharacterOfPosition(node.getStart(scope.sourceFile));
-  return new Error(
+  return new SourceEvaluationError(
     `${scope.sourceFile.fileName}:${position.line + 1}:${position.character + 1} ${message}`,
   );
+}
+
+function sourceLocation(node: ts.Node, scope: EvaluationScope): SourceLocation {
+  const position = scope.sourceFile.getLineAndCharacterOfPosition(node.getStart(scope.sourceFile));
+  return {
+    file: scope.sourceFile.fileName,
+    line: position.line + 1,
+    column: position.character + 1,
+  };
 }
 
 function validateAuthorExpression(node: ts.Expression, scope: EvaluationScope): void {
@@ -843,6 +858,15 @@ function registerImport(statement: ts.ImportDeclaration, scope: EvaluationScope)
 }
 
 function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknown {
+  try {
+    return evaluateExpressionValue(node, scope);
+  } catch (error) {
+    if (error instanceof SourceEvaluationError) throw error;
+    throw sourceError(node, scope, error instanceof Error ? error.message : String(error));
+  }
+}
+
+function evaluateExpressionValue(node: ts.Expression, scope: EvaluationScope): unknown {
   if (ts.isParenthesizedExpression(node)) {
     return evaluateExpression(node.expression, scope);
   }
@@ -865,7 +889,11 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
     }
 
     try {
-      return lookupBinding(node.text, scope);
+      return captureSourceUse(
+        lookupBinding(node.text, scope),
+        { location: sourceLocation(node, scope) },
+        (value) => authorFunctions.has(value),
+      );
     } catch (error) {
       throw sourceError(node, scope, error instanceof Error ? error.message : String(error));
     }
@@ -997,14 +1025,16 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
         `${definition}${error instanceof Error ? error.message : String(error)}`,
       );
     }
-    const position = scope.sourceFile.getLineAndCharacterOfPosition(
-      node.getStart(scope.sourceFile),
-    );
-    rememberCapturedLocation(result, {
-      file: scope.sourceFile.fileName,
-      line: position.line + 1,
-      column: position.character + 1,
-    });
+    if (author)
+      return captureSourceUse(
+        result,
+        {
+          location: sourceLocation(node, scope),
+          call: { name: author.name, definition: sourceLocation(author.node, author.closure) },
+        },
+        (value) => authorFunctions.has(value),
+      );
+    rememberCapturedLocation(result, sourceLocation(node, scope));
     return result;
   }
 

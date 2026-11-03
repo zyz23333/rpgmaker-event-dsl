@@ -3,18 +3,12 @@ import type { CommandOrigins } from "../compiler/types.js";
 import type { DslOwnedDeclaration } from "../domain/declarations.js";
 import type { DslCommand } from "../domain/types.js";
 import type { ReferenceResolver } from "../validation/types.js";
+import { capturedSource, renderCapturedSource, type CapturedSource } from "./source-provenance.js";
 
 export type AuthoredAssetLocation = {
   dslPath: string;
-  source?: { file: string; line: number; column: number };
+  origin?: CapturedSource;
 };
-const capturedLocations = new WeakMap<object, { file: string; line: number; column: number }>();
-export function rememberCapturedLocation(
-  value: unknown,
-  location: { file: string; line: number; column: number },
-): void {
-  if (value !== null && typeof value === "object") capturedLocations.set(value, location);
-}
 function atPath(value: unknown, path: string): unknown {
   for (const segment of path.replaceAll(/\[(\d+)\]/gu, ".$1").split(".")) {
     if (value === null || typeof value !== "object") return undefined;
@@ -41,13 +35,13 @@ export function createAssetProvenance(
       const origin = origins.get(command);
       if (origin === undefined) return;
       const node = atPath(authored, origin.path);
-      const source =
+      const originSource =
         origin.kind === "rawDslCommand" || node === null || typeof node !== "object"
           ? undefined
-          : capturedLocations.get(node);
+          : capturedSource(node);
       locations.set(`${nativeBase}.list[${index}]`, {
         dslPath: origin.path,
-        ...(source === undefined ? {} : { source }),
+        ...(originSource === undefined ? {} : { origin: originSource }),
       });
     });
   }
@@ -62,8 +56,8 @@ export function createAssetProvenance(
       declaration.pages.forEach((page, index) => {
         const native = `${root}.pages[${index}]`;
         const path = `pages[${index}]`;
-        const source = capturedLocations.get(page);
-        locations.set(native, { dslPath: path, ...(source === undefined ? {} : { source }) });
+        const origin = capturedSource(page);
+        locations.set(native, { dslPath: path, ...(origin === undefined ? {} : { origin }) });
         commands(page.commands, native, declaration, `${path}.commands`);
       });
     }
@@ -79,8 +73,7 @@ export function renderAuthoredAssetLocation(
   let path = nativePath;
   while (path !== "") {
     const match = locations.get(path);
-    if (match !== undefined)
-      return `; DSL: ${match.dslPath}${match.source === undefined ? "" : `; source: ${match.source.file} (line ${match.source.line}, column ${match.source.column})`}`;
+    if (match !== undefined) return `; DSL: ${match.dslPath}${renderCapturedSource(match.origin)}`;
     const separator = path.lastIndexOf(".");
     if (separator < 0) return "";
     path = path.slice(0, separator);
