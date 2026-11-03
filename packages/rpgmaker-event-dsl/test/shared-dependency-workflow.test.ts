@@ -216,7 +216,7 @@ it("keeps shared output with a missing or old Compile Contract Version stale aft
     await prepare(sandbox);
     const manifestPath = join(sandbox.workspaceRoot, ".rpgmaker-event-dsl/sync-manifest.json");
     const original = await readFile(manifestPath, "utf8");
-    for (const version of [undefined, "mv-1.6.1/40", "mv-1.6.1/42"]) {
+    for (const version of [undefined, "mv-1.6.1/40", "mv-1.6.1/42", "mv-1.6.1/43"]) {
       const manifest = JSON.parse(original);
       if (version === undefined) delete manifest.compileBaseline.compileContractVersion;
       else manifest.compileBaseline.compileContractVersion = version;

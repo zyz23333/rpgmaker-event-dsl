@@ -132,3 +132,12 @@ User Stories: 26, 27, 29, 30
 - `MV_CLI_ENTRY=built` 下 `shared-authoring-cli`：1/1 通过；每个成功命令退出 0，stale Diff/Push 与两种文档错误退出 1，核对真实诊断、两个独立预期的保存列表、Project Root/产物保护及重新 Push 结果。最后一轮让 sample 源码在 Init/Decompile 前就存在，与文档步骤一致。
 - 离线 frozen-lockfile 安装、包 typecheck、变更源/测试/sample 的 oxlint、格式检查与 `git diff --check` 通过。
 - 交付前再次同步 `codex/shared-authoring-modules`：Already up to date，当前集成 `559622caa0c51560a439b504328355a5787d31e1` 是本分支祖先。无第一版未完成项；最终集成两轴评审由父流程执行，未把该后续评审或真实 MV 游戏运行写成通过。
+
+## Comments
+
+2026-11-03 — 最终 Standards/Spec 评审的两项独立 P2 已修复（两轴重复的模块 TDZ 计一次）。修复分支从实际集成 `cdbee50b76f36e4ef718765f37fa0f20fd6fd133` 快进后实施。
+
+- Decompile 的函数调用及延迟字段保留其模块初始化边界；直接和传递共享身份在 const 初始化前读取时明确拒绝，原源码、Snapshot/元数据和项目数据保持不变，不发布候选目录。模块初始化后的本地/导入函数与箭头仍成功，无关命令仍不求值。公开直接/传递反例先复现错误发布，再通过修复；`decompile-shared-identities` 31/31 通过。
+- 正常 Compile 对未调用函数的静态结果检查现在遍历数组及展开，拒绝嵌套的已知函数、DSL helper 和完整 Event Definition。公开 Check 反例先复现错误成功，再通过修复；原有合法命令数组、组合和调用限制保持通过。
+- 因正常验证规则变化，Compile Contract Version 从 `/43` 更新为 `mv-1.6.1/44`。旧/缺失契约定向测试增加 `/43`，1/1 通过，确认 Check 不恢复旧产物新鲜度。
+- 实际 Windows x64 / Node 22.19.0、Corepack pnpm 10.33.0：`author-functions-workspace`、`decompile-publication`、`definitions` 合计 60/60 通过；包 typecheck、变更 TypeScript 的 oxlint、格式与差异检查通过。构建后 CLI 的最终集成复验由父流程在合并后执行。
