@@ -10,11 +10,18 @@ type ObjectValue = {
   fromAuthor?: true;
 };
 type HelperValue = { helper: string };
-type Lookup = (name: string) => Value;
+// Deferred fields retain the module boundary at which their expression was evaluated.
+// Imported functions use their own completed module unless called during its initialization.
+type Initialization = { source: ts.SourceFile; before: number };
+type Lookup = (name: string, initialization?: Initialization) => Value;
 type AuthorValue = {
   author: true;
   name: string;
-  invoke: (args: (() => Value)[], calls: readonly AuthorValue[]) => Value;
+  invoke: (
+    args: (() => Value)[],
+    calls: readonly AuthorValue[],
+    initialization?: Initialization,
+  ) => Value;
 };
 const missing = Symbol("absent own identity field");
 type Value =
@@ -91,6 +98,7 @@ function identityModule(
     ts.ScriptKind.TS,
   );
   const bindings = new Map<string, ts.Expression | Value | (() => Value)>();
+  const initializers = new Map<string, number>();
   const exported = new Map<string, string>();
   const helper = (name: string): HelperValue => {
     if (typeof (dsl as Record<string, unknown>)[name] !== "function")
@@ -156,6 +164,7 @@ function identityModule(
         const name = (declaration.name as ts.Identifier).text;
         if (bindings.has(name)) fail(`Duplicate binding ${name}.`);
         bindings.set(name, declaration.initializer!);
+        initializers.set(name, declaration.initializer!.pos);
         if (statement.modifiers?.some((item) => item.kind === ts.SyntaxKind.ExportKeyword))
           exported.set(name, name);
       }
@@ -194,8 +203,15 @@ function identityModule(
       active.delete(key);
     }
   };
-  const binding = (name: string): Value => {
+  const binding: Lookup = (name, initialization) => {
     if (name === "undefined" && !bindings.has(name)) return undefined;
+    const position = initializers.get(name);
+    if (
+      initialization?.source === source &&
+      position !== undefined &&
+      position >= initialization.before
+    )
+      return fail(`Identity module binding ${name} is read before initialization.`);
     if (memo.has(name)) return memo.get(name);
     if (!bindings.has(name) || resolving.has(name))
       return fail(`Unresolved or cyclic binding ${name}.`);
@@ -208,7 +224,13 @@ function identityModule(
       return "helper" in value ? helper(value.helper) : value;
     resolving.add(name);
     try {
-      const result = typeof value === "function" ? value() : expression(value as ts.Expression);
+      const result =
+        typeof value === "function"
+          ? value()
+          : expression(value as ts.Expression, binding, [], {
+              source,
+              before: position!,
+            });
       memo.set(name, result);
       return result;
     } finally {
@@ -235,7 +257,7 @@ function identityModule(
     const author: AuthorValue = {
       author: true,
       name,
-      invoke: (args, calls) => {
+      invoke: (args, calls, initialization) => {
         if (calls.includes(author))
           return fail(
             `Recursive identity function call: ${[...calls, author].map((call) => call.name).join(" -> ")}.`,
@@ -256,7 +278,7 @@ function identityModule(
           (available: ReadonlyMap<string, () => Value>): Lookup =>
           (local) => {
             const readLocal = available.get(local);
-            if (!readLocal) return closure(local);
+            if (!readLocal) return closure(local, initialization);
             if (pending.has(local)) return fail(`Cyclic identity function binding ${local}.`);
             pending.add(local);
             try {
@@ -328,12 +350,12 @@ function identityModule(
                 return fail(`Unsupported const in identity function ${name}.`);
               const initialized = lookupFrom(new Map(locals));
               locals.set(declaration.name.text, () =>
-                expression(declaration.initializer!, initialized, nestedCalls),
+                expression(declaration.initializer!, initialized, nestedCalls, initialization),
               );
             }
           }
-          result = expression(returned.expression, lookup, nestedCalls);
-        } else result = expression(node.body as ts.Expression, lookup, nestedCalls);
+          result = expression(returned.expression, lookup, nestedCalls, initialization);
+        } else result = expression(node.body as ts.Expression, lookup, nestedCalls, initialization);
         if (result && typeof result === "object") {
           if ("author" in result || "helper" in result)
             return fail("Identity functions cannot return functions.");
@@ -348,6 +370,7 @@ function identityModule(
     node: ts.Expression,
     lookup: Lookup = binding,
     calls: readonly AuthorValue[] = [],
+    initialization?: Initialization,
   ): Value => {
     if (
       ts.isParenthesizedExpression(node) ||
@@ -356,15 +379,15 @@ function identityModule(
       ts.isTypeAssertionExpression(node) ||
       ts.isNonNullExpression(node)
     )
-      return expression(node.expression, lookup, calls);
-    if (ts.isIdentifier(node)) return lookup(node.text);
+      return expression(node.expression, lookup, calls, initialization);
+    if (ts.isIdentifier(node)) return lookup(node.text, initialization);
     if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) return node.text;
     if (ts.isNumericLiteral(node)) return Number(node.text);
     if (node.kind === ts.SyntaxKind.NullKeyword) return null;
     if (node.kind === ts.SyntaxKind.TrueKeyword) return true;
     if (node.kind === ts.SyntaxKind.FalseKeyword) return false;
     if (ts.isPrefixUnaryExpression(node) && node.operator === ts.SyntaxKind.MinusToken) {
-      const value = expression(node.operand, lookup, calls);
+      const value = expression(node.operand, lookup, calls, initialization);
       return typeof value === "number" ? -value : fail("Invalid numeric identity.");
     }
     if (ts.isArrayLiteralExpression(node)) return opaque;
@@ -375,15 +398,16 @@ function identityModule(
         field: (key, presence = false) => {
           for (const property of [...node.properties].reverse()) {
             if (ts.isSpreadAssignment(property)) {
-              const spread = expression(property.expression, lookup, calls);
+              const spread = expression(property.expression, lookup, calls, initialization);
               const found = read(spread, key, presence);
               if (found !== missing) return found;
             } else if (propertyName(property.name!) === key) {
               // Declaration classification needs field presence, never the command payload.
               if (presence) return true;
               if (ts.isPropertyAssignment(property))
-                return expression(property.initializer, lookup, calls);
-              if (ts.isShorthandPropertyAssignment(property)) return lookup(property.name.text);
+                return expression(property.initializer, lookup, calls, initialization);
+              if (ts.isShorthandPropertyAssignment(property))
+                return lookup(property.name.text, initialization);
               return fail(`Unsupported identity property ${key}.`);
             }
           }
@@ -391,13 +415,16 @@ function identityModule(
         },
       };
     if (ts.isPropertyAccessExpression(node))
-      return read(expression(node.expression, lookup, calls), node.name.text);
+      return read(expression(node.expression, lookup, calls, initialization), node.name.text);
     if (ts.isCallExpression(node)) {
-      const callee = expression(node.expression, lookup, calls);
+      const callee = expression(node.expression, lookup, calls, initialization);
       if (callee && typeof callee === "object" && "author" in callee)
         return callee.invoke(
-          node.arguments.map((argument) => () => expression(argument, lookup, calls)),
+          node.arguments.map(
+            (argument) => () => expression(argument, lookup, calls, initialization),
+          ),
           calls,
+          initialization,
         );
       if (!callee || typeof callee !== "object" || !("helper" in callee))
         return fail("Only known DSL helpers can determine identity.");
@@ -409,7 +436,11 @@ function identityModule(
             if (key === "kind") return presence ? true : referenceKind;
             if (key !== "id" && key !== "name") return missing;
             if (node.arguments.length !== 1) return fail("Reference requires one input.");
-            return read(expression(node.arguments[0]!, lookup, calls), key, presence);
+            return read(
+              expression(node.arguments[0]!, lookup, calls, initialization),
+              key,
+              presence,
+            );
           },
         };
       }
@@ -420,7 +451,7 @@ function identityModule(
           "Event Definition factories cannot determine Entry Identity; declare it at module scope.",
         );
       if (node.arguments.length !== 1) return fail("Declaration requires one input.");
-      const input = expression(node.arguments[0]!, lookup, calls);
+      const input = expression(node.arguments[0]!, lookup, calls, initialization);
       return {
         object: true,
         field: (key, presence = false) =>

@@ -55,6 +55,74 @@ async function state(workspaceRoot: string) {
   };
 }
 
+it.each(["direct", "transitive"] as const)(
+  "Decompile preserves source and Snapshot when an identity function reads an uninitialized module const (%s)",
+  async (dependency) => {
+    await withWindowsSandbox("decompile-module-initialization", async ({ workspaceRoot }) => {
+      await prepare(workspaceRoot);
+      await writeFile(
+        join(workspaceRoot, "src/shared/ids.ts"),
+        "export const identity = pick(); function pick() { return { id }; } const id = 99;",
+      );
+      if (dependency === "transitive")
+        await writeFile(
+          join(workspaceRoot, "src/shared/config.ts"),
+          `import { identity } from "./ids.js"; export const config = { ...identity };`,
+        );
+      await writeFile(
+        join(workspaceRoot, "src/existing.events.ts"),
+        `import { commonEvent } from "rpgmaker-event-dsl";
+import { ${dependency === "direct" ? "identity" : "config as identity"} } from "./shared/${dependency === "direct" ? "ids" : "config"}.js";
+export const existing = commonEvent({ ...identity, commands: invalidCommands });`,
+      );
+      const before = await state(workspaceRoot);
+      await expect(decompileWorkspace({ workspaceRoot })).rejects.toThrow(
+        /MV-DECOMPILE-IDENTITY.*id.*before initialization/s,
+      );
+      expect(await state(workspaceRoot)).toStrictEqual(before);
+      await expect(lstat(join(workspaceRoot, "src/decompiled"))).rejects.toThrow();
+    });
+  },
+  30_000,
+);
+
+it("Decompile reads identity functions after their module constants initialize while leaving commands lazy", async () => {
+  await withWindowsSandbox("decompile-initialized-function", async ({ workspaceRoot }) => {
+    await prepare(workspaceRoot);
+    await writeFile(
+      join(workspaceRoot, "src/shared/ids.ts"),
+      `export function pick() { return { id, commands: invalidCommands }; }
+export const arrow = () => pick();
+const id = 99;
+export const initialized = arrow();`,
+    );
+    await writeFile(
+      join(workspaceRoot, "src/shared/config.ts"),
+      `import { arrow, initialized } from "./ids.js";
+export const identity = { ...initialized, id: arrow().id };`,
+    );
+    await writeFile(
+      join(workspaceRoot, "src/existing.events.ts"),
+      `import { commonEvent } from "rpgmaker-event-dsl";
+import { identity } from "./shared/config.js";
+import { pick } from "./shared/ids.js";
+export const existing = commonEvent({ ...identity, id: pick().id, commands: invalidCommands });
+function local() { return { id }; }
+const id = 100;
+export const localExisting = commonEvent({ ...local(), commands: invalidCommands });`,
+    );
+    const before = await state(workspaceRoot);
+    await decompileWorkspace({ workspaceRoot });
+    const after = await state(workspaceRoot);
+    expect(after.project).toStrictEqual(before.project);
+    expect(after.metadata).toStrictEqual(before.metadata);
+    expect(after.config).toBe(before.config);
+    for (const [path, contents] of Object.entries(before.source))
+      expect(after.source[path]).toBe(contents);
+    expect(await readdir(join(workspaceRoot, "src/decompiled"))).toHaveLength(3);
+  });
+}, 30_000);
+
 it("Decompile resolves shared undefined bindings and function scopes without reading commands", async () => {
   await withWindowsSandbox("decompile-identity-undefined", async ({ workspaceRoot }) => {
     await prepare(workspaceRoot);
@@ -215,7 +283,11 @@ it.each([
     "export const identity = { id: 99, ...{ id: undefined } };",
     /invalid Entry Identity/,
   ],
-  ["cyclic identity", "export const identity = { id: identity.id };", /Cyclic identity field id/],
+  [
+    "self-referencing identity",
+    "export const identity = { id: identity.id };",
+    /before initialization/,
+  ],
   [
     "cyclic shared binding",
     `import { identity as self } from "./ids.js"; export const identity = self;`,
@@ -231,6 +303,26 @@ it.each([
     "uninitialized function local",
     "const id = 1; function pick() { const chosen = id; const id = 99; return chosen; } export const identity = { id: pick() };",
     /before initialization/,
+  ],
+  [
+    "uninitialized module scalar result",
+    "const chosen = pick(); const id = 99; function pick() { return id; } export const identity = { id: chosen };",
+    /id.*before initialization/,
+  ],
+  [
+    "uninitialized module field call",
+    "export const identity = { id: pick() }; function pick() { return id; } const id = 99;",
+    /id.*before initialization/,
+  ],
+  [
+    "uninitialized module arrow closure",
+    "const pick = () => ({ id }); export const identity = pick(); const id = 99;",
+    /id.*before initialization/,
+  ],
+  [
+    "uninitialized escaped local object",
+    "function pick() { const chosen = { id }; const id = 99; return chosen; } export const identity = pick();",
+    /id.*before initialization/,
   ],
   [
     "uninitialized undefined local",

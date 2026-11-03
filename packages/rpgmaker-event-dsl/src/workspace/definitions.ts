@@ -268,6 +268,16 @@ function validateAuthorCalls(author: AuthorFunction): ReadonlySet<AuthorFunction
         return (target as Record<string, unknown>)[node.name.text];
       }
     }
+    if (ts.isArrayLiteralExpression(node)) {
+      const result: unknown[] = [];
+      for (const element of node.elements) {
+        if (ts.isSpreadElement(element)) {
+          const spread = resolveValue(element.expression);
+          if (Array.isArray(spread)) result.push(...spread);
+        } else result.push(resolveValue(element));
+      }
+      return result;
+    }
     if (ts.isObjectLiteralExpression(node)) {
       const result: Record<string, unknown> = Object.create(null) as Record<string, unknown>;
       for (const property of node.properties) {

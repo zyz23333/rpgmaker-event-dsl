@@ -376,6 +376,47 @@ export const first = commonEvent({ id: 1, name: "First", trigger: "none", comman
   });
 }, 30_000);
 
+it.each([
+  ["function", "function unused() { return [leaf]; }"],
+  ["nested object", "const unused = () => ({ nested: [leaf] });"],
+  ["array spread", "function unused() { const values = [leaf]; return [...values]; }"],
+  ["nested spread", "const unused = () => [{ nested: [...[{ value: leaf }]] }];"],
+  ["DSL helper", "function unused() { return [comment]; }"],
+  ["Event Definition", "function unused() { return [existing]; }"],
+] as const)(
+  "rejects known forbidden values in unused shared function array results (%s)",
+  async (_label, unused) => {
+    await withWindowsSandbox("author-functions-unused-arrays", async ({ workspaceRoot }) => {
+      const paths = await prepare(workspaceRoot);
+      const shared = join(paths.shared, "unused.ts");
+      await writeFile(
+        shared,
+        `import { comment, commonEvent } from "rpgmaker-event-dsl";
+export const label = "Valid event";
+function leaf() { return comment({ lines: ["Valid command"] }); }
+${unused}
+const existing = commonEvent({ id: 2, name: "Existing", trigger: "none", commands: [] });`,
+      );
+      await writeFile(
+        paths.entry,
+        `import { commonEvent } from "rpgmaker-event-dsl";
+import { label } from "../shared/unused.js";
+export const event = commonEvent({ id: 1, name: label, trigger: "none", commands: [] });`,
+      );
+      const protectedPaths = [paths.manifest, paths.project, paths.entry, shared];
+      const before = await Promise.all(protectedPaths.map((file) => readFile(file, "utf8")));
+      await expect(api.compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
+        /unused\.ts:4:\d+.*Author functions cannot return functions or Event Definitions/isu,
+      );
+      expect(await Promise.all(protectedPaths.map((file) => readFile(file, "utf8")))).toEqual(
+        before,
+      );
+      await expect(readFile(paths.generated)).rejects.toThrow();
+    });
+  },
+  30_000,
+);
+
 it("rejects host methods in loaded unused function bodies without invoking them", async () => {
   await withWindowsSandbox("author-functions-host-method", async ({ workspaceRoot }) => {
     const paths = await prepare(workspaceRoot);
