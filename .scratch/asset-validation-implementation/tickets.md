@@ -5,12 +5,12 @@ Updated: 2026-11-03
 Source: [现行实施规格](../asset-validation/asset-validation-spec.md)
 Breakdown: [已确认拆分与验收责任](ticket-breakdown-draft.md)
 
-用户审阅简化后的 14 票建议并要求重新编号，现已按依赖顺序发布为连续的 01–14。当前有效任务仅为下表及 issues 目录中的 14 个文件；旧 17 票和原发布记录在 [历史目录](history/2026-10-24/README.md)。01–13 已记录本票结果与验证并 resolved；14 的[技术验收回执](evidence/14-current-acceptance/README.md)已形成，维护者公开说明审阅和最终确认仍待完成。
+用户审阅简化后的 14 票建议并要求重新编号，现已按依赖顺序发布为连续的 01–14。当前有效任务仅为下表及 issues 目录中的 14 个文件；旧 17 票和原发布记录在 [历史目录](history/2026-10-24/README.md)。01–14 均已记录结果与验证并 resolved；维护者已审阅[首版验收回执](evidence/14-current-acceptance/README.md)和公开说明，确认交付。
 
 ## 领取规则
 
 - Blocked by 的直接依赖全部 resolved 才能开始；ready-for-agent 表示任务明确，不等于解除依赖。
-- 01–13 的当前范围已完成；14 处于 claimed，等待维护者审阅与最终确认。
+- 01–14 的当前首版范围均已完成；维护者最终确认见[第 14 票](issues/14-integrated-acceptance.md)。
 - 每票承担自己的测试、fixture、说明和证据。14 汇总当前 86 个有效族及 N01–N05 的保留分支，11 个延后族不进入首版门槛。
 - Compile／Check／Push 各一次素材检查，写后素材变化不妨碍正常 data 记账；旧票中的多次素材复查、调用链展开及初始候选要求不再生效。
 - 原生观察发现的契约反例必须按现行规格处理，不能以静态资料或环境 skip 代替必验结果。
@@ -32,11 +32,11 @@ Breakdown: [已确认拆分与验收责任](ticket-breakdown-draft.md)
 | 11 | [Push 写前及无差异路径的素材检查](issues/11-push-generated-asset-preflight.md) | [10](issues/10-compile-check-single-gate.md) | resolved |
 | 12 | [Push 写后记账与输入一致性保护](issues/12-push-postwrite-consistency.md) | [11](issues/11-push-generated-asset-preflight.md) | resolved |
 | 13 | [Interrupted Push 恢复与当前素材条件分离](issues/13-recovery-and-current-asset-policy.md) | [11](issues/11-push-generated-asset-preflight.md) | resolved |
-| 14 | [首版集成验收与使用说明核对](issues/14-integrated-acceptance.md) | [01](issues/01-native-media-locations.md)、[07](issues/07-enemy-asset-dependencies.md)、[08](issues/08-game-over-and-title-assets.md)、[12](issues/12-push-postwrite-consistency.md)、[13](issues/13-recovery-and-current-asset-policy.md) | claimed |
+| 14 | [首版集成验收与使用说明核对](issues/14-integrated-acceptance.md) | [01](issues/01-native-media-locations.md)、[07](issues/07-enemy-asset-dependencies.md)、[08](issues/08-game-over-and-title-assets.md)、[12](issues/12-push-postwrite-consistency.md)、[13](issues/13-recovery-and-current-asset-policy.md) | resolved |
 
 ## 依赖与验收
 
-02 → 03／04、04 → 05 → 06、06 → 07／08、03／06 → 09 → 10 → 11 → 12／13 的依赖已由各票 resolved 满足。14 的直接依赖 01、07、08、12、13 均 resolved；维护者最终确认仍待完成。
+02 → 03／04、04 → 05 → 06、06 → 07／08、03／06 → 09 → 10 → 11 → 12／13 的依赖已由各票 resolved 满足。14 的直接依赖 01、07、08、12、13 均 resolved；维护者最终确认已完成。
 
 N01／N02 由 01 负责；N03 与 N04 的 Change Tileset 分支由 06 负责；N05 由 07 负责。精确分支分配见[责任表](ticket-breakdown-draft.md#验收责任分配)，规范预期仍取自[子用例索引](../asset-validation/implementation-acceptance-cases.md)。
 
@@ -66,4 +66,4 @@ N01／N02 由 01 负责；N03 与 N04 的 Change Tileset 分支由 06 负责；N
 
 - 2026-10-24：原 17 票经用户确认后发布；原文见历史目录。
 - 2026-11-02：用户在审阅收缩为 14 票的建议后要求“重新编号吧”。据此连续编号、同步直接依赖与 86 族责任，并保留旧票历史；未修改父规格或执行产品实现。
-- 2026-11-03：冻结提交 `403b39aa` 的当前技术验收及原始运行日志见[第 14 票证据](evidence/14-current-acceptance/README.md)。01–13 的本票责任已记录并关闭；14 和父规格仍待维护者确认。
+- 2026-11-03：冻结提交 `403b39aa` 的当前技术验收及原始运行日志见[第 14 票证据](evidence/14-current-acceptance/README.md)。维护者随后确认首版验收并关闭；01–14 与父规格均已 resolved。

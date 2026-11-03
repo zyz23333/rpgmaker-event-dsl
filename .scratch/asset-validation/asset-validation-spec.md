@@ -1,13 +1,13 @@
 # 事件素材文件存在性检查实施规格
 
-Status: ready-for-agent
+Status: resolved
 Created: 2026-10-24
 Source: [事件素材引用检查的决策地图](map.md)
 Acceptance: [已接受的验收矩阵](acceptance-matrix.md) · [实施验收用例索引](implementation-acceptance-cases.md)
 
 2026-11-02 按用户“进行简化”的要求再次收缩首版；2026-11-03 根据 MV 1.6.1 图片特殊名称反例与用户确认，图片名含 `%`／`#` 统一列为不支持，音频继续支持。现行规则以本规格及同步修订的 Answer／ADR、验收矩阵为准；此前 Comments 是历史。首版只验收当前保留范围，延后能力不阻塞交付。
 
-本规格承接六张已 resolved 的决策票、ADR 0016–0019 及已确认的验收交接。它规定首版实现和完成标准。保留范围的实现、自动化及 N01–N05 原生证据已取得[当前技术验收回执](../asset-validation-implementation/evidence/14-current-acceptance/README.md)；维护者公开说明审阅和最终确认仍待完成，因此本规格及第 14 票尚未 resolved。
+本规格承接六张已 resolved 的决策票、ADR 0016–0019 及已确认的验收交接。它规定首版实现和完成标准。保留范围的实现、自动化及 N01–N05 原生证据见[首版验收回执](../asset-validation-implementation/evidence/14-current-acceptance/README.md)。维护者已审阅公开说明与回执并确认交付；本规格及第 14 票已 resolved。
 
 ## Problem Statement
 
@@ -279,11 +279,11 @@ Windows / Node.js 22 下完成仓库检查、构建、含素材场景的构建�
 
 实现违约时修实现并补独立回归。支持范围内新首方／运行证据推翻既有定位或消费关系时，保留最小复现并重开相应决定／ADR，追踪诊断、工作流与验收影响。原生支持更宽或已排除关系只进入范围扩展提议。不能靠修改预期、放宽断言或添加例外消除反例。
 
-## 当前技术验收状态
+## 首版验收完成
 
 2026-11-03 在冻结提交 `403b39aa` 的 Windows 10 / Node.js 22.23.0 环境，`pnpm check` 退出 0（105 文件、3064 测试通过），`pnpm build` 退出 0，`pnpm --filter rpgmaker-event-dsl test:windows-baseline` 退出 0（44 文件、1494 测试通过）。源码与构建后清单各有相同的 895 个互不重复 `AV.` ID，当前 81 个自动化有效族的有限 ID 均已覆盖；N01–N05 的 12 个保留原生 ID 由历史 MV 1.6.1 真实运行证据支持，并与冻结代码／政策完成对账，没有把历史失败改判通过。原始日志、逐 ID 回执和原生对账见[当前技术验收回执](../asset-validation-implementation/evidence/14-current-acceptance/README.md)。
 
-上述是技术验收结果，不代替维护者审阅公开说明及确认最终交付。第 14 票保持 `claimed`，本规格保持未 resolved；11 个延后族不计为本次通过或 skip。
+维护者于 2026-11-03 审阅公开说明与验收回执，回复“确认验收并关闭（推荐）”。[第 14 票](../asset-validation-implementation/issues/14-integrated-acceptance.md)与本规格据此 resolved；11 个延后族不计为本次通过或 skip。
 
 ## Out of Scope
 
