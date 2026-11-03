@@ -586,6 +586,12 @@ Use existing free Common Event IDs when adding this example to a project. The he
 calls expand at compilation; an explicit `callCommonEvent(...)` still creates the
 ordinary game runtime Common Event call.
 
+The copyable [Shared Authoring Sample Workspace](example/shared-authoring/README.md)
+adds shared configuration and a transitive command-array dependency, with the complete
+Check → Compile → Diff → Push sequence and a shared-change/recompile exercise. Its
+source is verified through the built CLI. Compile-time options choose the emitted
+commands; game-time chest state still needs pages, switches or `conditional(...)`.
+
 Functions accept zero parameters or one options object. A named parameter supports
 property reads; a shallow object pattern supports named properties and renaming,
 such as `{ gold: amount }`. Parameter and return type annotations are checked in both

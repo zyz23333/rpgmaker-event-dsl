@@ -58,6 +58,10 @@ Turn RPG Maker MV gameplay intent into idiomatic Event DSL source. Use Workspace
 
    Edit Definition Source selected by the Workspace Config. Preserve existing Entry Identity and local source style. Use the MV-aligned DSL helpers for RPG Maker MV 1.6.1 editor command families. Keep continuation commands inside their parent helper, such as text lines in `showText(...)`, choice branches in `showChoices(...)`, battle result branches in `battleProcessing(...)`, shop goods continuations in `shopProcessing(...)`, and route commands in `setMovementRoute(...)`.
 
+   For repeated commands, shared configuration, parameterized rewards or extracting a
+   local helper, read [shared authoring](references/shared-authoring.md) before choosing
+   compile-time source composition or a game-time Common Event call.
+
    Use Project Data Reference helpers for database-backed data and exact filename-stem Asset Reference helpers for assets: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`. Use `label({ name })` and `jumpToLabel({ name })` for exact per-list Label targets. Use `script({ code })` or `scriptInput({ code })` only when the Workspace Script Command Gate allows JavaScript-bearing inputs. Use `pluginCommand({ line })` for a complete MV Plugin Command Line. Read [event patterns](references/event-patterns.md) for Label scope, Script physical records and Plugin whitespace. Use `rawDslCommand(...)` only for confirmed raw MV command shapes that intentionally remain escape hatches.
 
    Completion criterion: each intended RPG Maker MV event command is represented by a supported DSL Command or a justified, explicit escape hatch.

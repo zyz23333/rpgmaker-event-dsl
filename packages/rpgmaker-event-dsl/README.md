@@ -467,6 +467,13 @@ classes, higher-order functions and Event Definition factories are unsupported.
 Recursive calls report their function chain. Parameter type errors and constructor
 failures retain source locations; functions never execute event JavaScript.
 
+The [Shared Authoring Sample Workspace](https://github.com/zyz23333/rpgmaker-event-dsl/tree/HEAD/example/shared-authoring)
+contains complete source and a Check → Compile → Diff → Push exercise, including a
+transitive dependency edit, stale-output rejection and recompilation. Its options are
+compile-time inputs; use event pages or `conditional(...)` for game-time state and
+`callCommonEvent(...)` for a game-time Common Event call. Sharing source does not create
+events, allocate IDs, or automatically extract repeated code.
+
 Reference, context and asset diagnostics retain each event use after shared composition.
 Read `source` as the nearest reliable authored expression, `use` as a shared value
 expansion, and `call NAME` / `defined` as the author call and definition locations.

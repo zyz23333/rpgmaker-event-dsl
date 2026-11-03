@@ -7,6 +7,34 @@ import { createMinimalProject, withWindowsSandbox } from "./support/windows-sand
 
 const api: typeof import("../src/workspace-api.js") = await import(workspaceApiEntry);
 
+it("resolves lexical undefined parameters and const bindings before the global value", async () => {
+  await withWindowsSandbox("author-functions-undefined", async ({ workspaceRoot }) => {
+    const paths = await prepare(workspaceRoot);
+    await writeFile(
+      paths.entry,
+      `import { commonEvent, comment } from "rpgmaker-event-dsl";
+function parameter(undefined: { text: string }) { return undefined.text; }
+const local = () => { const undefined = { text: "Local" }; return undefined.text; };
+const command = () => { const undefined = comment; return undefined({ lines: [local()] }); };
+const settings = () => ({ trigger: "none", switch: undefined } as const);
+export const event = commonEvent({ ...settings(), id: 1, name: parameter({ text: "Parameter" }), commands: [command()] });
+`,
+    );
+    await api.compileWorkspace({ workspaceRoot, check: false });
+    const events = JSON.parse(await readFile(paths.generated, "utf8"));
+    expect(events[1]).toEqual({
+      id: 1,
+      name: "Parameter",
+      trigger: 0,
+      switchId: 1,
+      list: [
+        { code: 108, indent: 0, parameters: ["Local"] },
+        { code: 0, indent: 0, parameters: [] },
+      ],
+    });
+  });
+}, 30_000);
+
 async function prepare(workspaceRoot: string) {
   await createMinimalProject(workspaceRoot);
   await api.initWorkspace({ workspaceRoot, projectRoot: "./Game" });
@@ -135,6 +163,39 @@ it("compiles the documented parameterized reward example through the Workspace A
   });
 }, 30_000);
 
+it("compiles the standalone Agent Event Authoring Skill example", async () => {
+  await withWindowsSandbox("author-functions-skill", async ({ workspaceRoot }) => {
+    const paths = await prepare(workspaceRoot);
+    const guide = await readFile(
+      new URL(
+        "../../../skills/rpgmaker-event-authoring/references/shared-authoring.md",
+        import.meta.url,
+      ),
+      "utf8",
+    );
+    const module = guide.match(/```ts\r?\n\/\/ src\/shared\/rewards\.ts\r?\n([\s\S]*?)```/u)?.[1];
+    const entry = guide.match(/```ts\r?\n\/\/ src\/rewards\.events\.ts\r?\n([\s\S]*?)```/u)?.[1];
+    expect(module).toBeDefined();
+    expect(entry).toBeDefined();
+    await writeFile(join(paths.shared, "rewards.ts"), module!);
+    await writeFile(paths.entry, "export {};\n");
+    await writeFile(join(workspaceRoot, "src/rewards.events.ts"), entry!);
+    await api.compileWorkspace({ workspaceRoot, check: false });
+    const events = JSON.parse(await readFile(paths.generated, "utf8"));
+    expect(events[1]).toEqual({
+      id: 1,
+      name: "Skill reward",
+      trigger: 0,
+      switchId: 1,
+      list: [
+        { code: 125, indent: 0, parameters: [0, 0, 25] },
+        { code: 108, indent: 0, parameters: ["Reward complete"] },
+        { code: 0, indent: 0, parameters: [] },
+      ],
+    });
+  });
+}, 30_000);
+
 it("rejects non-object arguments, higher-order arguments and implicit array flattening", async () => {
   await withWindowsSandbox("author-functions-inputs", async ({ workspaceRoot }) => {
     const paths = await prepare(workspaceRoot);
@@ -234,22 +295,29 @@ function unused(): number { return "wrong"; }`,
   });
 }, 30_000);
 
-it("keeps lexical const initialization errors at the function read location", async () => {
-  await withWindowsSandbox("author-functions-tdz", async ({ workspaceRoot }) => {
-    const paths = await prepare(workspaceRoot);
-    await writeFile(
-      paths.entry,
-      `import { commonEvent, comment } from "rpgmaker-event-dsl";
+it.each(["label", "undefined"])(
+  "keeps lexical %s initialization errors at the function read location",
+  async (name) => {
+    await withWindowsSandbox("author-functions-tdz", async ({ workspaceRoot }) => {
+      const paths = await prepare(workspaceRoot);
+      await writeFile(
+        paths.entry,
+        `import { commonEvent, comment } from "rpgmaker-event-dsl";
 const commands = read();
-const label = "Later";
-function read() { return [comment({ lines: [label] })]; }
+const ${name} = "Later";
+function read() { return [comment({ lines: [${name}] })]; }
 export const event = commonEvent({ id: 1, name: "Safe", trigger: "none", commands });`,
-    );
-    await expect(api.compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
-      /common-events\.events\.ts:4:45 Cannot access binding "label" before initialization/isu,
-    );
-  });
-}, 30_000);
+      );
+      await expect(api.compileWorkspace({ workspaceRoot, check: true })).rejects.toThrow(
+        new RegExp(
+          `common-events\\.events\\.ts:4:45 Cannot access binding "${name}" before initialization`,
+          "isu",
+        ),
+      );
+    });
+  },
+  30_000,
+);
 
 it("checks the complete loaded function syntax subset even when functions are unused", async () => {
   await withWindowsSandbox("author-functions-syntax", async ({ workspaceRoot }) => {

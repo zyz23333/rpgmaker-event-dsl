@@ -1,0 +1,8 @@
+{
+  "name": "shared-authoring-example",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "rpgmaker-event-dsl": "workspace:*"
+  }
+}
