@@ -36,6 +36,8 @@ Assignee: Codex research agent
 - 保留未知：编辑器 picker 的子目录/特殊字符选择能力、目标 Project Root 的大小写设置、宿主对特殊 URL 的实际解析及插件路径改写。没有启动编辑器、NW.js、游戏或媒体加载，没有做图片尺寸、解码或播放检查。存在性事实不等同于运行保证。
 - 这些设计影响已落在当前地图的覆盖、文件匹配、诊断及工作流票范围内；本次未发现需要独立新增票的事实阻塞，也未解决任何设计票。
 
+后续在 Windows / MV 1.6.1 / NW.js 0.29.0 中完成[真实媒体定位观察](../../asset-validation-implementation/evidence/01-native-media/observations.md)。图片 `literal%20image` 与 `image#hash` 未定位到同名字面文件；普通百分号图片和受测音频字面名称的成功也保留。上方“宿主解析未知／未启动运行”的描述是 2026-10-20 静态调查当时的证据状态，不代表当前仍未执行。首版图片 `%`／`#` 支持边界依[文件事实决定](03-asset-file-existence-contract.md#answer)及 ADR 0017；本票事实不自动扩大媒体支持范围。
+
 发布与校验：独立 worktree `C:/Users/Shuen/.codex/worktrees/asset-file-research/rpgmaker-event-dsl`；分支 [`research/mv-asset-file-rules`](https://github.com/zyz23333/rpgmaker-event-dsl/tree/research/mv-asset-file-rules)；提交 [`562103d45555fff5c7832e76509d7a1b43859dcc`](https://github.com/zyz23333/rpgmaker-event-dsl/commit/562103d45555fff5c7832e76509d7a1b43859dcc)。仅研究报告被提交，`git push -u origin research/mv-asset-file-rules` 已成功，并以 `git ls-remote` 核对同一提交；未开 PR、未合并。报告已复制回主 checkout 的同一路径，研究 worktree 干净。报告本地链接检查与 `git diff --cached --check` 通过；这只是研究文档校验，不是产品或原生验收。
 
 ## Comments

@@ -247,7 +247,7 @@ Use `pull` after database changes, then validate again; use explicit IDs for exi
 empty-name targets. Enemy positions and dynamic equipment candidates keep their
 Runtime Selector meaning even when a fixed project target cannot be inferred.
 
-Use Asset Reference helpers for files, not Project Data Reference helpers. `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)` are no-scan filename-stem references; they do not validate that a file exists on disk.
+Use Asset Reference helpers for files, not Project Data Reference helpers. `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)` are no-scan filename-stem references; they do not validate that a file exists on disk. Workspace Compile, Check and Push check selected files; image and movie names containing `%` or `#` are outside first-release file-check support, while audio names keep those characters literally.
 
 For screen effects, use parameterless `fadeoutScreen()`/`fadeinScreen()` and
 `wait({ frames })` with required integer frames 1..999. Give `tintScreen` a
