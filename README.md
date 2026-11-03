@@ -539,6 +539,76 @@ After changing a shared module, run `compile` again before `diff` or `push`; an 
 entry file does not keep the old generated data fresh. `compile --check` validates the
 same composition without publishing data or refreshing its compilation baseline.
 
+### Parameterized command functions
+
+Shared modules and event files can declare named functions or const arrow functions.
+These functions compose DSL values during Compile/Check. A reward helper can accept
+one typed options object, while another helper arranges the resulting commands:
+
+```ts
+// src/shared/rewards.ts
+import { changeGold, comment, type DslCommand } from "rpgmaker-event-dsl";
+
+export function reward(options: { gold: number; text: string }): DslCommand[] {
+  const amount = { kind: "constant", value: options.gold } as const;
+  return [comment({ lines: [options.text] }), changeGold({ operation: "gain", value: amount })];
+}
+
+export const openedChest = ({ gold, text }: { gold: number; text: string }) => [
+  ...reward({ gold, text }),
+  comment({ lines: ["Opened"] }),
+];
+```
+
+Each event keeps its explicit identity and supplies its own parameter values:
+
+```ts
+// src/rewards.events.ts
+import { commonEvent } from "rpgmaker-event-dsl";
+import { openedChest as chest } from "./shared/rewards.js";
+
+export const copper = commonEvent({
+  id: 1,
+  name: "Copper reward",
+  trigger: "none",
+  commands: chest({ gold: 25, text: "Copper chest" }),
+});
+
+export const silver = commonEvent({
+  id: 2,
+  name: "Silver reward",
+  trigger: "none",
+  commands: chest({ gold: 90, text: "Silver chest" }),
+});
+```
+
+Use existing free Common Event IDs when adding this example to a project. The helper
+calls expand at compilation; an explicit `callCommonEvent(...)` still creates the
+ordinary game runtime Common Event call.
+
+Functions accept zero parameters or one options object. A named parameter supports
+property reads; a shallow object pattern supports named properties and renaming,
+such as `{ gold: amount }`. Parameter and return type annotations are checked in both
+Compile and Check, including inside imported modules. Arrow functions may return an
+expression. Block bodies contain only named `const` declarations followed by one
+final `return` expression. Functions use lexical bindings and independent call locals;
+function declarations are available before their source position, while const values
+must be initialized before use.
+
+Functions may return constants, configuration, references, one DSL Command or arrays
+of commands. Arrays keep their nesting: use `...` to arrange fragments in the desired
+order. Functions cannot return other functions or complete Event Definitions, and
+function-valued options are unsupported. Defaults, rest parameters, nested
+destructuring, `this`, assignments, general control flow, arithmetic, interpolated
+templates, host/array methods, async functions, generators and classes are outside
+this subset. Recursive calls fail with the function chain. Loaded function bodies
+are checked even when unused; unimported helper files remain outside Discovery.
+
+Function construction failures identify the shared definition and call locations.
+After editing an implementation, re-run Compile before Diff/Push; Check validates the
+new implementation without making existing output fresh. Event JavaScript inside
+commands remains stored text governed by the existing Script Command Gate.
+
 Keep `scriptEnabled` set to `false` for workspaces that should reject JavaScript-bearing
 event commands. Set it to `true` only when Script Inputs are intentional and reviewed.
 

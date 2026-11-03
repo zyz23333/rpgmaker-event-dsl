@@ -3,7 +3,7 @@ import { basename, dirname, matchesGlob, relative, resolve } from "node:path";
 import * as ts from "typescript";
 
 import * as dsl from "../authoring/index.js";
-import type { DslOwnedDeclaration } from "../domain/declarations.js";
+import { isDslOwnedDeclaration, type DslOwnedDeclaration } from "../domain/declarations.js";
 import { collectDslOwnedDeclarations } from "../validation/declarations.js";
 import { TypeInputCapture } from "./type-inputs.js";
 import { rememberCapturedLocation } from "./asset-provenance.js";
@@ -14,12 +14,416 @@ export { discoverDefinitionFiles, type DefinitionSourceDiscovery } from "./sourc
 const dslHelpers: ReadonlySet<unknown> = new Set(
   Object.values(dsl).filter((value) => typeof value === "function"),
 );
+const declarationHelpers: ReadonlySet<unknown> = new Set([
+  dsl.commonEvent,
+  dsl.mapEvent,
+  dsl.troopEvent,
+  dsl.variableDefinition,
+  dsl.switchDefinition,
+]);
 
 type EvaluationScope = {
   bindings: Map<string, unknown>;
   sourceFile: ts.SourceFile;
+  parent?: EvaluationScope;
+  calls: readonly AuthorFunction[];
   importModule?: (statement: ts.ImportDeclaration) => Record<string, unknown>;
 };
+
+type AuthorFunction = {
+  name: string;
+  node: ts.FunctionDeclaration | ts.ArrowFunction;
+  closure: EvaluationScope;
+};
+
+// Author functions are inert tokens, never executable host functions. Their AST and
+// lexical environment are private and cannot be reached through authored properties.
+const authorFunctions = new WeakMap<object, AuthorFunction>();
+const uninitializedBinding = Symbol("uninitialized binding");
+
+function createAuthorFunction(
+  name: string,
+  node: AuthorFunction["node"],
+  closure: EvaluationScope,
+): object {
+  if (node.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.DefaultKeyword)) {
+    throw sourceError(node, closure, "Default exports are unsupported for author functions.");
+  }
+  if (
+    node.parameters.length > 1 ||
+    node.parameters.some(
+      (parameter) =>
+        (!ts.isIdentifier(parameter.name) && !ts.isObjectBindingPattern(parameter.name)) ||
+        (ts.isIdentifier(parameter.name) && parameter.name.text === "this") ||
+        parameter.initializer ||
+        parameter.dotDotDotToken ||
+        (ts.isObjectBindingPattern(parameter.name) &&
+          parameter.name.elements.some(
+            (element) =>
+              !ts.isIdentifier(element.name) ||
+              element.initializer ||
+              element.dotDotDotToken ||
+              (element.propertyName && !ts.isIdentifier(element.propertyName)),
+          )),
+    ) ||
+    node.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.AsyncKeyword) ||
+    (ts.isFunctionDeclaration(node) && node.asteriskToken) ||
+    !node.body
+  ) {
+    throw sourceError(
+      node,
+      closure,
+      "Author functions require zero parameters or one named options object; defaults, rest, async and generators are unsupported.",
+    );
+  }
+  if (ts.isBlock(node.body)) {
+    for (const [index, statement] of node.body.statements.entries()) {
+      if (
+        index === node.body.statements.length - 1 &&
+        ts.isReturnStatement(statement) &&
+        statement.expression
+      ) {
+        validateAuthorExpression(statement.expression, closure);
+        continue;
+      }
+      if (
+        !ts.isVariableStatement(statement) ||
+        (statement.declarationList.flags & ts.NodeFlags.Const) === 0
+      ) {
+        throw sourceError(
+          statement,
+          closure,
+          "Author function blocks require const declarations followed by one return.",
+        );
+      }
+      for (const declaration of statement.declarationList.declarations) {
+        if (!ts.isIdentifier(declaration.name) || !declaration.initializer) {
+          throw sourceError(
+            declaration,
+            closure,
+            "Author function locals require named const initializers.",
+          );
+        }
+        validateAuthorExpression(declaration.initializer, closure);
+      }
+    }
+    const last = node.body.statements.at(-1);
+    if (!last || !ts.isReturnStatement(last) || !last.expression) {
+      throw sourceError(
+        node.body,
+        closure,
+        "Author function blocks require a final return expression.",
+      );
+    }
+  } else {
+    validateAuthorExpression(node.body, closure);
+  }
+  const token = Object.freeze(Object.create(null) as object);
+  authorFunctions.set(token, { name, node, closure });
+  return token;
+}
+
+function sourceError(node: ts.Node, scope: EvaluationScope, message: string): Error {
+  const position = scope.sourceFile.getLineAndCharacterOfPosition(node.getStart(scope.sourceFile));
+  return new Error(
+    `${scope.sourceFile.fileName}:${position.line + 1}:${position.character + 1} ${message}`,
+  );
+}
+
+function validateAuthorExpression(node: ts.Expression, scope: EvaluationScope): void {
+  const validate = (child: ts.Expression) => validateAuthorExpression(child, scope);
+  if (
+    ts.isParenthesizedExpression(node) ||
+    ts.isAsExpression(node) ||
+    ts.isTypeAssertionExpression(node) ||
+    ts.isSatisfiesExpression(node) ||
+    ts.isNonNullExpression(node)
+  ) {
+    validate(node.expression);
+    return;
+  }
+  if (
+    ts.isIdentifier(node) ||
+    ts.isStringLiteral(node) ||
+    ts.isNoSubstitutionTemplateLiteral(node) ||
+    ts.isNumericLiteral(node) ||
+    node.kind === ts.SyntaxKind.TrueKeyword ||
+    node.kind === ts.SyntaxKind.FalseKeyword ||
+    node.kind === ts.SyntaxKind.NullKeyword
+  )
+    return;
+  if (ts.isPrefixUnaryExpression(node) && node.operator === ts.SyntaxKind.MinusToken) {
+    validate(node.operand);
+    return;
+  }
+  if (ts.isPropertyAccessExpression(node) && !node.questionDotToken) {
+    validate(node.expression);
+    return;
+  }
+  if (ts.isCallExpression(node) && !node.questionDotToken) {
+    if (!ts.isIdentifier(node.expression) && !ts.isPropertyAccessExpression(node.expression)) {
+      throw sourceError(
+        node,
+        scope,
+        "Only identifier or property-access helper calls are allowed.",
+      );
+    }
+    validate(node.expression);
+    node.arguments.forEach(validate);
+    return;
+  }
+  if (ts.isArrayLiteralExpression(node)) {
+    for (const element of node.elements)
+      validate(ts.isSpreadElement(element) ? element.expression : element);
+    return;
+  }
+  if (ts.isObjectLiteralExpression(node)) {
+    for (const property of node.properties) {
+      if (ts.isSpreadAssignment(property)) validate(property.expression);
+      else if (ts.isShorthandPropertyAssignment(property) && !property.objectAssignmentInitializer)
+        validate(property.name);
+      else if (ts.isPropertyAssignment(property)) {
+        try {
+          evaluatePropertyName(property.name);
+        } catch (error) {
+          throw sourceError(property.name, scope, (error as Error).message);
+        }
+        validate(property.initializer);
+      } else
+        throw sourceError(
+          property,
+          scope,
+          "Only object properties and spreads are allowed in author functions.",
+        );
+    }
+    return;
+  }
+  throw sourceError(
+    node,
+    scope,
+    `Unsupported author function expression: ${ts.SyntaxKind[node.kind]}`,
+  );
+}
+
+/** Check unused bodies without executing them. Locals resolve only inert aliases;
+ * parameters and call results never confer permission to invoke a function. */
+function validateAuthorCalls(author: AuthorFunction): ReadonlySet<AuthorFunction> {
+  const called = new Set<AuthorFunction>();
+  const locals = new Map<string, ts.Expression | undefined>();
+  for (const parameter of author.node.parameters) {
+    if (ts.isIdentifier(parameter.name)) locals.set(parameter.name.text, undefined);
+    else if (ts.isObjectBindingPattern(parameter.name)) {
+      for (const element of parameter.name.elements)
+        locals.set((element.name as ts.Identifier).text, undefined);
+    }
+  }
+  const body = author.node.body!;
+  if (ts.isBlock(body)) {
+    for (const statement of body.statements) {
+      if (!ts.isVariableStatement(statement)) continue;
+      for (const declaration of statement.declarationList.declarations) {
+        locals.set((declaration.name as ts.Identifier).text, declaration.initializer);
+      }
+    }
+  }
+  const resolving = new Set<string>();
+  const resolveValue = (node: ts.Expression): unknown => {
+    if (
+      ts.isParenthesizedExpression(node) ||
+      ts.isAsExpression(node) ||
+      ts.isTypeAssertionExpression(node) ||
+      ts.isSatisfiesExpression(node) ||
+      ts.isNonNullExpression(node)
+    )
+      return resolveValue(node.expression);
+    if (ts.isIdentifier(node)) {
+      if (node.text === "undefined") return undefined;
+      if (!locals.has(node.text)) return lookupBinding(node.text, author.closure);
+      const initializer = locals.get(node.text);
+      if (!initializer || resolving.has(node.text)) return undefined;
+      resolving.add(node.text);
+      try {
+        return resolveValue(initializer);
+      } finally {
+        resolving.delete(node.text);
+      }
+    }
+    if (ts.isPropertyAccessExpression(node)) {
+      const target = resolveValue(node.expression);
+      if (target && (typeof target === "object" || typeof target === "function")) {
+        return (target as Record<string, unknown>)[node.name.text];
+      }
+    }
+    if (ts.isObjectLiteralExpression(node)) {
+      const result: Record<string, unknown> = Object.create(null) as Record<string, unknown>;
+      for (const property of node.properties) {
+        if (ts.isPropertyAssignment(property))
+          result[evaluatePropertyName(property.name)] = resolveValue(property.initializer);
+        else if (ts.isShorthandPropertyAssignment(property))
+          result[property.name.text] = resolveValue(property.name);
+        else if (ts.isSpreadAssignment(property)) {
+          const spread = resolveValue(property.expression);
+          if (spread && typeof spread === "object") {
+            for (const [key, value] of Object.entries(spread)) result[key] = value;
+          }
+        }
+      }
+      return result;
+    }
+    return undefined;
+  };
+  const visit = (node: ts.Node): void => {
+    if (ts.isCallExpression(node)) {
+      const value = resolveValue(node.expression);
+      if (declarationHelpers.has(value)) {
+        throw sourceError(
+          node,
+          author.closure,
+          "Author functions cannot return functions or Event Definitions; declare event identities at module scope.",
+        );
+      }
+      if (
+        !dslHelpers.has(value) &&
+        !(value && typeof value === "object" && authorFunctions.has(value))
+      ) {
+        throw sourceError(
+          node,
+          author.closure,
+          "Only DSL helpers or supported author functions may be called; host methods and higher-order calls are unsupported.",
+        );
+      }
+      const target = value && typeof value === "object" ? authorFunctions.get(value) : undefined;
+      if (target) called.add(target);
+    }
+    if (ts.isReturnStatement(node) && node.expression) {
+      assertAuthorResult(resolveValue(node.expression), node.expression, author.closure);
+    }
+    ts.forEachChild(node, visit);
+  };
+  if (!ts.isBlock(body)) assertAuthorResult(resolveValue(body), body, author.closure);
+  visit(body);
+  return called;
+}
+
+function containsForbiddenAuthorValue(value: unknown, declarations: boolean): boolean {
+  if (typeof value === "function") return true;
+  if (!value || typeof value !== "object") return false;
+  if (authorFunctions.has(value)) return true;
+  if (declarations && isDslOwnedDeclaration(value)) return true;
+  return Object.values(value).some((child) => containsForbiddenAuthorValue(child, declarations));
+}
+
+function assertAuthorResult(value: unknown, node: ts.Node, scope: EvaluationScope): void {
+  if (containsForbiddenAuthorValue(value, true)) {
+    throw sourceError(
+      node,
+      scope,
+      "Author functions cannot return functions or Event Definitions.",
+    );
+  }
+}
+
+function lookupBinding(name: string, scope: EvaluationScope): unknown {
+  if (scope.bindings.has(name)) {
+    const value = scope.bindings.get(name);
+    if (value === uninitializedBinding)
+      throw new Error(`Cannot access binding "${name}" before initialization.`);
+    return value;
+  }
+  if (scope.parent) return lookupBinding(name, scope.parent);
+  throw new Error(`Unknown identifier in Event Definition source: ${name}`);
+}
+
+function callAuthorFunction(
+  author: AuthorFunction,
+  args: unknown[],
+  caller: EvaluationScope,
+): unknown {
+  const cycle = caller.calls.indexOf(author);
+  if (cycle !== -1) {
+    throw new Error(
+      `Recursive author function call: ${[...caller.calls.slice(cycle), author].map((entry) => entry.name).join(" -> ")}`,
+    );
+  }
+  const scope: EvaluationScope = {
+    bindings: new Map(),
+    sourceFile: author.closure.sourceFile,
+    parent: author.closure,
+    calls: [...caller.calls, author],
+  };
+  const parameter = author.node.parameters[0];
+  if (args.length !== author.node.parameters.length) {
+    throw new Error(
+      `Author function ${author.name} expects ${author.node.parameters.length} arguments.`,
+    );
+  }
+  if (parameter) {
+    const options = args[0];
+    if (!options || typeof options !== "object" || Array.isArray(options)) {
+      throw new Error(`Author function ${author.name} requires an options object.`);
+    }
+    if (containsForbiddenAuthorValue(options, false)) {
+      throw new Error(
+        `Author function ${author.name} does not accept functions in its options object.`,
+      );
+    }
+    if (ts.isIdentifier(parameter.name)) scope.bindings.set(parameter.name.text, options);
+    else if (ts.isObjectBindingPattern(parameter.name)) {
+      for (const element of parameter.name.elements) {
+        const name = element.name as ts.Identifier;
+        const property = (element.propertyName as ts.Identifier | undefined)?.text ?? name.text;
+        scope.bindings.set(name.text, (options as Record<string, unknown>)[property]);
+      }
+    }
+  }
+  const body = author.node.body!;
+  const evaluateReturn = (expression: ts.Expression): unknown => {
+    const result = evaluateExpression(expression, scope);
+    assertAuthorResult(result, expression, scope);
+    return result;
+  };
+  if (!ts.isBlock(body)) return evaluateReturn(body);
+  declareConstBindings(body.statements, scope);
+  for (const statement of body.statements) {
+    if (ts.isReturnStatement(statement) && statement.expression) {
+      return evaluateReturn(statement.expression);
+    }
+    if (ts.isVariableStatement(statement)) {
+      for (const declaration of statement.declarationList.declarations) {
+        if (!ts.isIdentifier(declaration.name) || !declaration.initializer) {
+          throw new Error("Author function locals require named const initializers.");
+        }
+        scope.bindings.set(
+          declaration.name.text,
+          evaluateExpression(declaration.initializer, scope),
+        );
+      }
+    }
+  }
+  return undefined;
+}
+
+function declareConstBindings(statements: readonly ts.Statement[], scope: EvaluationScope): void {
+  for (const statement of statements) {
+    if (!ts.isVariableStatement(statement)) continue;
+    for (const declaration of statement.declarationList.declarations) {
+      if (ts.isIdentifier(declaration.name))
+        scope.bindings.set(declaration.name.text, uninitializedBinding);
+    }
+  }
+}
+
+function unwrapExpression(node: ts.Expression): ts.Expression {
+  while (
+    ts.isParenthesizedExpression(node) ||
+    ts.isAsExpression(node) ||
+    ts.isTypeAssertionExpression(node) ||
+    ts.isSatisfiesExpression(node) ||
+    ts.isNonNullExpression(node)
+  )
+    node = node.expression;
+  return node;
+}
 
 export async function loadDefinitionFile(
   filePath: string,
@@ -231,10 +635,29 @@ function evaluateModule(
   const scope: EvaluationScope = {
     bindings: new Map<string, unknown>(),
     sourceFile,
+    calls: [],
     ...(importModule === undefined ? {} : { importModule }),
   };
   const exports: Record<string, unknown> = Object.create(null) as Record<string, unknown>;
   const namedExports: ts.ExportSpecifier[] = [];
+
+  declareConstBindings(sourceFile.statements, scope);
+  for (const statement of sourceFile.statements) {
+    if (ts.isImportDeclaration(statement)) {
+      try {
+        registerImport(statement, scope);
+      } catch (error) {
+        throw sourceError(statement, scope, error instanceof Error ? error.message : String(error));
+      }
+    }
+    if (ts.isFunctionDeclaration(statement)) {
+      if (!statement.name) throw sourceError(statement, scope, "Author functions require a name.");
+      scope.bindings.set(
+        statement.name.text,
+        createAuthorFunction(statement.name.text, statement, scope),
+      );
+    }
+  }
 
   for (const statement of sourceFile.statements) {
     try {
@@ -243,7 +666,17 @@ function evaluateModule(
       }
 
       if (ts.isImportDeclaration(statement)) {
-        registerImport(statement, scope);
+        continue;
+      }
+
+      if (ts.isFunctionDeclaration(statement)) {
+        if (!statement.name) throw new Error("Author functions require a name.");
+        const value = lookupBinding(statement.name.text, scope);
+        if (
+          statement.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword)
+        ) {
+          exports[statement.name.text] = value;
+        }
         continue;
       }
 
@@ -285,7 +718,10 @@ function evaluateModule(
             );
           }
 
-          const value = evaluateExpression(declaration.initializer, scope);
+          const initializer = unwrapExpression(declaration.initializer);
+          const value = ts.isArrowFunction(initializer)
+            ? createAuthorFunction(declaration.name.text, initializer, scope)
+            : evaluateExpression(declaration.initializer, scope);
           scope.bindings.set(declaration.name.text, value);
 
           if (
@@ -316,6 +752,23 @@ function evaluateModule(
       throw new Error(`Exported binding "${name}" was not declared in the file.`);
     }
     exports[specifier.name.text] = scope.bindings.get(name);
+  }
+  const checked = new Set<AuthorFunction>();
+  const validateCalls = (author: AuthorFunction, chain: readonly AuthorFunction[]): void => {
+    if (chain.includes(author)) {
+      throw sourceError(
+        author.node,
+        author.closure,
+        `Recursive author function call: ${[...chain, author].map((entry) => entry.name).join(" -> ")}`,
+      );
+    }
+    if (checked.has(author)) return;
+    for (const called of validateAuthorCalls(author)) validateCalls(called, [...chain, author]);
+    checked.add(author);
+  };
+  for (const value of scope.bindings.values()) {
+    const author = value && typeof value === "object" ? authorFunctions.get(value) : undefined;
+    if (author?.closure === scope) validateCalls(author, []);
   }
   return exports;
 }
@@ -411,12 +864,11 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
       return undefined;
     }
 
-    const value = scope.bindings.get(node.text);
-    if (value === undefined && !scope.bindings.has(node.text)) {
-      throw new Error(`Unknown identifier in Event Definition source: ${node.text}`);
+    try {
+      return lookupBinding(node.text, scope);
+    } catch (error) {
+      throw sourceError(node, scope, error instanceof Error ? error.message : String(error));
     }
-
-    return value;
   }
 
   if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) {
@@ -522,12 +974,29 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
 
   if (ts.isCallExpression(node)) {
     const callee = evaluateCallee(node.expression, scope);
-    if (typeof callee !== "function" || !dslHelpers.has(callee)) {
-      throw new Error("Only DSL helper calls are allowed in Event Definitions.");
+    const author = callee && typeof callee === "object" ? authorFunctions.get(callee) : undefined;
+    if (!author && (typeof callee !== "function" || !dslHelpers.has(callee))) {
+      throw new Error(
+        "Only DSL helper calls or supported author functions are allowed in Event Definitions.",
+      );
     }
 
     const args = node.arguments.map((argument) => evaluateExpression(argument, scope));
-    const result = callee(...args);
+    let result: unknown;
+    try {
+      result = author
+        ? callAuthorFunction(author, args, scope)
+        : (callee as (...args: unknown[]) => unknown)(...args);
+    } catch (error) {
+      const definition = author
+        ? `Author function ${author.name} defined at ${sourceError(author.node, author.closure, "").message.trim()}: `
+        : "";
+      throw sourceError(
+        node,
+        scope,
+        `${definition}${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
     const position = scope.sourceFile.getLineAndCharacterOfPosition(
       node.getStart(scope.sourceFile),
     );
@@ -559,12 +1028,7 @@ function evaluateExpression(node: ts.Expression, scope: EvaluationScope): unknow
 
 function evaluateCallee(node: ts.LeftHandSideExpression, scope: EvaluationScope): unknown {
   if (ts.isIdentifier(node)) {
-    const value = scope.bindings.get(node.text);
-    if (value === undefined && !scope.bindings.has(node.text)) {
-      throw new Error(`Unknown DSL helper: ${node.text}`);
-    }
-
-    return value;
+    return lookupBinding(node.text, scope);
   }
 
   if (ts.isPropertyAccessExpression(node)) {

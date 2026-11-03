@@ -119,7 +119,8 @@ export function isDslOwnedDeclaration(value: unknown): value is DslOwnedDeclarat
     typeof value === "object" &&
     "kind" in value &&
     ((value as { kind?: string }).kind === "mapEvent" ||
-      (value as { kind?: string }).kind === "commonEvent" ||
+      ((value as { kind?: string }).kind === "commonEvent" &&
+        ("commands" in value || "trigger" in value)) ||
       (value as { kind?: string }).kind === "troopEvent" ||
       (value as { kind?: string }).kind === "switchDefinition" ||
       (value as { kind?: string }).kind === "variableDefinition")
