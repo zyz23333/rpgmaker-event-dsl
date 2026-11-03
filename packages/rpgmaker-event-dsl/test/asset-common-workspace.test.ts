@@ -24,7 +24,7 @@ async function prepare(root: string, source: string) {
   recordAssetInput({ source, target: "Game/img/pictures/CalledPoster.png" });
 }
 
-it("AV.C01.common-uncalled.formal.case.expected: an uncalled Common Event checks its own picture", async () => {
+it("AV.C04.common-independent-root.formal.case.expected: an uncalled Common Event checks its own picture", async () => {
   await withWindowsSandbox("asset-common-independent", async (sandbox) => {
     const root = sandbox.workspaceRoot;
     await prepare(root, common(10, "") + common(11, picture));
@@ -50,7 +50,10 @@ it("AV.C01.common-uncalled.formal.case.expected: an uncalled Common Event checks
 for (const [branch, definitions] of [
   ["self-cycle", common(11, `${call(11)},${picture}`)],
   ["mutual-cycle", common(10, call(11)) + common(11, `${call(10)},${picture}`)],
-  ["shared-callers", common(10, call(11)) + common(11, picture) + common(12, call(11))],
+  [
+    "shared-callers",
+    common(10, call(11)) + common(11, `${call(10)},${picture}`) + common(12, call(11)),
+  ],
 ] as const)
   it(`AV.C05.${branch}.formal.case.expected: Common Event calls do not expand asset uses`, async () => {
     await withWindowsSandbox(`asset-common-${branch}`, async (sandbox) => {
@@ -71,3 +74,25 @@ for (const [branch, definitions] of [
       expect(passing.stderr).not.toContain("MV-ASSET-");
     });
   });
+
+it("AV.C04.two-callers.formal.case.expected: two call sites do not duplicate a Common Event's defining asset use", async () => {
+  await withWindowsSandbox("asset-common-two-callers", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(root, common(10, call(11)) + common(11, picture) + common(12, call(11)));
+    const result = await runCli(sandbox, ["compile", "--check"], { allowFailure: true });
+    expect(result.exitCode).toBe(1);
+    expect(result.stderr).toContain("MV-ASSET-MISSING-FILE");
+    expect(
+      result.stderr.match(
+        /^\s*- error commonEvent:11 CommonEvents\.json\[11\]\.list\[0\]\.parameters\[1\]/gmu,
+      ),
+    ).toHaveLength(1);
+    expect(result.stderr).not.toContain(" -> commonEvent:");
+    expect(result.stderr).not.toContain("commonEvent:10 CommonEvents.json[10].list");
+    expect(result.stderr).not.toContain("commonEvent:12 CommonEvents.json[12].list");
+    await writeFile(join(root, "Game/img/pictures/CalledPoster.png"), "");
+    const passing = await runCli(sandbox, ["compile", "--check"]);
+    expect(passing.exitCode).toBe(0);
+    expect(passing.stderr).not.toContain("MV-ASSET-");
+  });
+});

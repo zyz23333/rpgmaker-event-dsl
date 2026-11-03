@@ -19,6 +19,20 @@ const imports =
 const source = (command: string) =>
   `${imports}export const event=commonEvent({id:1,name:"Battlers",trigger:"none",commands:[${command}]});`;
 const fixed = 'battleProcessing({troop:{kind:"fixed",troop:troopRef({id:1})}})';
+
+it("AV.C05.dynamic-troop.formal.case.expected: a runtime Troop target stops without guessing Enemy battler files", async () => {
+  await withWindowsSandbox("asset-dynamic-troop-scope", async (sandbox) => {
+    const root = sandbox.workspaceRoot;
+    await prepare(root, source('battleProcessing({troop:{kind:"randomEncounter"}})'));
+    const checked = await runCli(sandbox, ["compile", "--check"]);
+    expect(checked.exitCode).toBe(0);
+    expect(checked.stderr).toContain("info MV-ASSET-DYNAMIC-STOP");
+    expect(checked.stderr).toContain("Troop/Enemy asset relationship is unchecked");
+    expect(checked.stderr).not.toContain("VisibleEnemy");
+    expect(checked.stderr).not.toContain("HiddenEnemy");
+    expect(checked.stderr).not.toContain("MV-ASSET-MISSING");
+  });
+});
 const audio = () => ({ name: "", volume: 17, pitch: 73, pan: -41 });
 const enemy = (id: number, name: string) => ({
   id,
