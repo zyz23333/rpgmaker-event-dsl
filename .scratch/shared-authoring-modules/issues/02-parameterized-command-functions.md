@@ -36,3 +36,4 @@ User Stories: 4, 5, 6, 7, 8, 9, 10, 18, 19, 22, 27
 - 包 `typecheck`、变更 TypeScript 文件 `oxlint`、变更文件 `oxfmt --check` 和 `git diff --check` 通过。
 - 按公开行为逐项红→绿：初始函数不支持、浅解构/提升、未调用二元表达式/宿主方法、递归、函数/事件返回限制、this/default export、const 初始化位置、箭头类型包装、DSL namespace 局部展开等均先见失败再实现。
 - 编译契约相对集成 `/41` 更新为 `mv-1.6.1/42`。未修改 04 票内容。
+- 交付前合并最新集成 `60eaf0b8e0f4cc738d123e27e1c36b92a957636e`，无冲突；再运行 `vitest run test/shared-dependency-workflow.test.ts`，7 项通过。合并只带入 04 测试和记录，集成契约仍为 `/41`，本票 `/42` 保持正确。
