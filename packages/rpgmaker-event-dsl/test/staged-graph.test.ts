@@ -5,7 +5,6 @@ import {
   battleProcessing,
   callCommonEvent,
   changeEnemyHp,
-  changeEquipment,
   enemyRef,
   enemyTransform,
   changeItems,
@@ -28,8 +27,6 @@ import {
   setEventLocation,
   setMovementRoute,
   setVehicleLocation,
-  showAnimation,
-  showBalloonIcon,
   showPicture,
   switchDefinition,
   switchRef,
@@ -118,8 +115,8 @@ describe("validateDslOwnedDeclarations", () => {
               conditions: {
                 variable: {
                   ref: variableRef({ id: 1 }),
-                  operator: "eq" as "ge",
-                  value: variableRef({ id: 2 }) as unknown as number,
+                  enabled: true,
+                  atLeast: variableRef({ id: 2 }) as unknown as number,
                 },
               },
               commands: [],
@@ -133,10 +130,12 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
+    expect(result.issues).toEqual(
       expect.arrayContaining([
-        'Map Event Page variable conditions only support operator "ge".',
-        "Map Event Page variable conditions require a finite numeric value.",
+        expect.objectContaining({
+          code: "MV-MAP-PAGE-INPUT",
+          dslPath: "pages[0].conditions.variable.atLeast",
+        }),
       ]),
     );
   });
@@ -209,7 +208,7 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Caller",
           trigger: "none",
-          commands: [callCommonEvent(commonEventRef({ name: "Missing" }))],
+          commands: [callCommonEvent({ commonEvent: commonEventRef({ name: "Missing" }) })],
         }),
       ],
       { scriptEnabled: false },
@@ -223,17 +222,25 @@ describe("validateDslOwnedDeclarations", () => {
           id: 3,
           name: "Caller",
           trigger: "none",
-          commands: [callCommonEvent(commonEventRef({ name: "Shared" }))],
+          commands: [callCommonEvent({ commonEvent: commonEventRef({ name: "Shared" }) })],
         }),
       ],
       { scriptEnabled: false },
     );
 
-    expect(missingResult.issues.map((issue) => issue.message)).toContain(
-      "Unknown commonEvent reference: Missing",
+    expect(missingResult.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Unknown commonEvent reference: Missing"),
+      }),
     );
-    expect(ambiguousResult.issues.map((issue) => issue.message)).toContain(
-      "Ambiguous commonEvent reference: Shared",
+    expect(ambiguousResult.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Ambiguous commonEvent reference: Shared"),
+      }),
     );
   });
 
@@ -244,14 +251,18 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Caller",
           trigger: "none",
-          commands: [callCommonEvent(commonEventRef({ id: 99 }))],
+          commands: [callCommonEvent({ commonEvent: commonEventRef({ id: 99 }) })],
         }),
       ],
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toContain(
-      "Unknown commonEvent reference id: 99",
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Unknown commonEvent reference id: 99"),
+      }),
     );
   });
 
@@ -263,12 +274,12 @@ describe("validateDslOwnedDeclarations", () => {
           name: "Caller",
           trigger: "none",
           commands: [
-            callCommonEvent(commonEventRef({ name: "Snapshot Common" })),
+            callCommonEvent({ commonEvent: commonEventRef({ name: "Snapshot Common" }) }),
             controlSwitches({ switch: switchRef({ name: "Snapshot Switch" }), value: true }),
             controlVariables({
               variable: variableRef({ name: "Snapshot Variable" }),
               operation: "set",
-              value: 1,
+              value: { kind: "constant", value: 1 },
             }),
           ],
         }),
@@ -285,10 +296,17 @@ describe("validateDslOwnedDeclarations", () => {
 
     expect(result.issues.map((issue) => issue.message)).toEqual(
       expect.arrayContaining([
-        "Unknown commonEvent reference: Snapshot Common",
-        "Unknown switch reference: Snapshot Switch",
-        "Unknown variable reference: Snapshot Variable",
+        expect.stringContaining("Unknown commonEvent reference: Snapshot Common"),
+        "MV-E121-REFERENCE validation common event 1.commands[1].switch: Unknown switch reference: Snapshot Switch",
+        expect.stringContaining("Unknown variable reference: Snapshot Variable"),
       ]),
+    );
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        dslPath: "commands[0].commonEvent",
+        message: expect.stringContaining("Unknown commonEvent reference: Snapshot Common"),
+      }),
     );
   });
 
@@ -302,7 +320,11 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Gate",
           commands: [
-            changeItems({ item: itemRef({ name: "Potion" }), operation: "gain", amount: 1 }),
+            changeItems({
+              item: itemRef({ name: "Potion" }),
+              operation: "gain",
+              amount: { kind: "constant", value: 1 },
+            }),
           ],
         }),
       ],
@@ -325,7 +347,11 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Gate",
           commands: [
-            changeItems({ item: itemRef({ name: "Potion" }), operation: "gain", amount: 1 }),
+            changeItems({
+              item: itemRef({ name: "Potion" }),
+              operation: "gain",
+              amount: { kind: "constant", value: 1 },
+            }),
           ],
         }),
       ],
@@ -340,12 +366,17 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toContain(
-      "Ambiguous item reference: Potion",
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        level: "error",
+        code: "MV-E126-INPUT",
+        dslPath: "pages[0].commands[0].item",
+        actual: '"Ambiguous item reference: Potion"',
+      }),
     );
   });
 
-  it("does not inspect Raw DSL Command parameters as project references", () => {
+  it("checks recognizable native references in Raw DSL Commands", () => {
     const result = validateDslOwnedDeclarations(
       [
         createMapEvent({
@@ -358,7 +389,12 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(result.issues).toEqual([]);
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-E117-REFERENCE",
+        nativePath: "pages[0].list[0].parameters[0]",
+      }),
+    );
   });
 
   it("does not treat random variable operands as variable references", () => {
@@ -411,8 +447,11 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toContain(
-      "Control Variables script operands require explicit config enablement.",
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-SCRIPT-GATE",
+        dslPath: "pages[0].commands[0].value.script.code",
+      }),
     );
   });
 
@@ -461,7 +500,7 @@ describe("validateDslOwnedDeclarations", () => {
               destination: { kind: "direct", map: { kind: "map", id: 1 }, x: 4, y: 5 },
             }),
             setEventLocation({
-              character: { kind: "runtimeSelector", scope: "character", target: "event", id: 99 },
+              target: { kind: "runtimeSelector", scope: "character", target: "event", id: 99 },
               destination: {
                 kind: "variables",
                 x: variableRef({ id: 2 }),
@@ -470,14 +509,16 @@ describe("validateDslOwnedDeclarations", () => {
             }),
             setMovementRoute({
               target: { kind: "runtimeSelector", scope: "character", target: "event", id: 99 },
-              route: [
-                { kind: "switchOn", switch: switchRef({ id: 1 }) },
-                {
-                  kind: "changeImage",
-                  image: imageAsset({ folder: "characters", name: "Actor1" }),
-                  index: 0,
-                },
-              ],
+              route: {
+                commands: [
+                  { kind: "switchOn", switch: switchRef({ id: 1 }) },
+                  {
+                    kind: "changeImage",
+                    character: imageAsset({ folder: "characters", name: "Actor1" }),
+                    characterIndex: 0,
+                  },
+                ],
+              },
             }),
           ],
         }),
@@ -503,7 +544,11 @@ describe("validateDslOwnedDeclarations", () => {
           commands: [
             setMovementRoute({
               target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
-              route: [{ kind: "script", script: scriptInput({ code: "this.moveForward();" }) }],
+              route: {
+                commands: [
+                  { kind: "script", script: scriptInput({ code: "this.moveForward();" }) },
+                ],
+              },
             }),
           ],
         }),
@@ -530,7 +575,7 @@ describe("validateDslOwnedDeclarations", () => {
                 scope: "player",
                 target: "current",
               } as never,
-              route: [{ kind: "switchOff", switch: switchRef({ id: 99 }) }],
+              route: { commands: [{ kind: "switchOff", switch: switchRef({ id: 99 }) }] },
             }),
           ],
         }),
@@ -554,22 +599,32 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Character Commands",
           commands: [
-            showAnimation({
+            {
+              kind: "showAnimation",
               target: {
                 kind: "runtimeSelector",
                 scope: "player",
                 target: "current",
               } as never,
               animation: animationRef({ id: 99 }),
-            }),
-            showBalloonIcon({
+              wait: false,
+            },
+            {
+              kind: "showAnimation",
+              target: { kind: "runtimeSelector", scope: "character", target: "player" },
+              animation: animationRef({ id: 99 }),
+              wait: false,
+            },
+            {
+              kind: "showBalloonIcon",
               target: {
                 kind: "runtimeSelector",
                 scope: "character",
                 target: "event",
               } as never,
               balloon: "question",
-            }),
+              wait: false,
+            },
           ],
         }),
       ],
@@ -578,9 +633,11 @@ describe("validateDslOwnedDeclarations", () => {
 
     expect(result.issues.map((issue) => issue.message)).toEqual(
       expect.arrayContaining([
-        "Show Animation target must use the character runtime selector scope.",
-        "Unknown animation reference id: 99",
-        "Show Balloon Icon target event id must be a positive integer.",
+        expect.stringMatching(/MV-E212-INPUT.*pages\[0\].commands\[0\].target/),
+        expect.stringMatching(
+          /MV-E212-REFERENCE.*Unknown animation reference id: 99.*pages\[0\].commands\[1\].animation/,
+        ),
+        expect.stringMatching(/MV-E213-INPUT.*pages\[0\].commands\[2\].target/),
       ]),
     );
   });
@@ -597,6 +654,11 @@ describe("validateDslOwnedDeclarations", () => {
             showPicture({
               pictureId: 1,
               image: imageAsset({ folder: "pictures", name: "Poster" }),
+              origin: "upperLeft",
+              scaleX: 100,
+              scaleY: 100,
+              opacity: 255,
+              blendMode: "normal",
               position: {
                 kind: "variables",
                 x: variableRef({ id: 1 }),
@@ -605,12 +667,18 @@ describe("validateDslOwnedDeclarations", () => {
             }),
             movePicture({
               pictureId: 1,
+              origin: "upperLeft",
+              scaleX: 100,
+              scaleY: 100,
+              opacity: 255,
+              blendMode: "normal",
               position: {
                 kind: "variables",
                 x: variableRef({ id: 98 }),
                 y: variableRef({ id: 1 }),
               },
               duration: 30,
+              wait: false,
             }),
           ],
         }),
@@ -618,10 +686,18 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
+    expect(result.issues).toEqual(
       expect.arrayContaining([
-        "Unknown variable reference id: 99",
-        "Unknown variable reference id: 98",
+        expect.objectContaining({
+          code: "MV-E231-REFERENCE",
+          dslPath: "pages[0].commands[0].position.y",
+          message: expect.stringContaining("Unknown variable reference id: 99"),
+        }),
+        expect.objectContaining({
+          code: "MV-E232-REFERENCE",
+          dslPath: "pages[0].commands[1].position.x",
+          message: expect.stringContaining("Unknown variable reference id: 98"),
+        }),
       ]),
     );
   });
@@ -636,16 +712,18 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Bad Runtime Selectors",
           commands: [
-            setEventLocation({
-              character: {
+            {
+              kind: "setEventLocation",
+              target: {
                 kind: "runtimeSelector",
                 scope: "player",
                 target: "current",
               } as never,
               destination: { kind: "direct", x: 1, y: 2 },
-            }),
-            setEventLocation({
-              character: {
+            } as never,
+            {
+              kind: "setEventLocation",
+              target: {
                 kind: "runtimeSelector",
                 scope: "character",
                 target: "event",
@@ -655,29 +733,33 @@ describe("validateDslOwnedDeclarations", () => {
                 x: variableRef({ id: 1 }),
                 y: variableRef({ id: 2 }),
               },
-            }),
-            setEventLocation({
-              character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+            } as never,
+            {
+              kind: "setEventLocation",
+              target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
               destination: {
                 kind: "exchange",
-                character: {
+                target: {
                   kind: "runtimeSelector",
                   scope: "character",
                   target: "follower",
                 } as never,
               },
-            }),
+            } as never,
           ],
         }),
       ],
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
+    expect(result.issues).toEqual(
       expect.arrayContaining([
-        "Set Event Location character must use the character runtime selector scope.",
-        "Set Event Location character event id must be a positive integer.",
-        "Set Event Location exchange character target must be player, currentEvent, or event.",
+        expect.objectContaining({ code: "MV-E203", dslPath: "pages[0].commands[0].target" }),
+        expect.objectContaining({ code: "MV-E203", dslPath: "pages[0].commands[1].target.id" }),
+        expect.objectContaining({
+          code: "MV-E203",
+          dslPath: "pages[0].commands[2].destination.target",
+        }),
       ]),
     );
   });
@@ -720,14 +802,7 @@ describe("validateDslOwnedDeclarations", () => {
           mapId: 1,
           id: 1,
           name: "Random Battle",
-          commands: [
-            battleProcessing({
-              troop: {
-                kind: "troop",
-                useRandomEncounter: true,
-              },
-            }),
-          ],
+          commands: [battleProcessing({ troop: { kind: "randomEncounter" } })],
         }),
       ],
       { scriptEnabled: false },
@@ -738,15 +813,20 @@ describe("validateDslOwnedDeclarations", () => {
           mapId: 1,
           id: 1,
           name: "Fixed Battle",
-          commands: [battleProcessing({ troop: troopRef({ id: 99 }) })],
+          commands: [battleProcessing({ troop: { kind: "fixed", troop: troopRef({ id: 99 }) } })],
         }),
       ],
       { scriptEnabled: false },
     );
 
     expect(randomEncounterResult.issues).toEqual([]);
-    expect(missingTroopResult.issues.map((issue) => issue.message)).toContain(
-      "Unknown troop reference id: 99",
+    expect(missingTroopResult.issues).toContainEqual(
+      expect.objectContaining({
+        level: "error",
+        code: "MV-E301-REFERENCE",
+        dslPath: "pages[0].commands[0].troop.troop",
+        message: expect.stringContaining("Unknown troop reference id: 99"),
+      }),
     );
   });
 
@@ -758,11 +838,12 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Invalid Battle Branches",
           commands: [
-            battleProcessing({
-              troop: troopRef({ id: 1 }),
-              escape: [],
-              lose: [],
-            }),
+            {
+              kind: "battleProcessing",
+              troop: { kind: "fixed", troop: troopRef({ id: 1 }) },
+              escape: { commands: [] },
+              lose: { commands: [] },
+            } as never,
           ],
         }),
       ],
@@ -774,11 +855,13 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
-      expect.arrayContaining([
-        "Battle Processing escape branch requires canEscape: true.",
-        "Battle Processing lose branch requires canLose: true.",
-      ]),
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        level: "error",
+        code: "MV-E301",
+        dslPath: "pages[0].commands[0].escape",
+        expected: "body absent when its flag is false",
+      }),
     );
   });
 
@@ -790,11 +873,17 @@ describe("validateDslOwnedDeclarations", () => {
           id: 1,
           name: "Bad Equipment",
           commands: [
-            changeEquipment({
+            {
+              kind: "changeEquipment",
               actor: { kind: "actor", id: 1 },
-              equipmentTypeId: 0,
-              itemId: -1,
-            }),
+              slotIndex: -1,
+              equipment: {
+                kind: "runtimeSelector",
+                scope: "equipment",
+                target: "idForSlot",
+                id: -1,
+              },
+            },
           ],
         }),
       ],
@@ -806,10 +895,13 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
+    expect(result.issues).toEqual(
       expect.arrayContaining([
-        "Change Equipment equipment type id must be a positive integer.",
-        "Change Equipment item id must be a non-negative integer.",
+        expect.objectContaining({
+          level: "error",
+          code: "MV-E319-INPUT",
+          dslPath: "pages[0].commands[0].slotIndex",
+        }),
       ]),
     );
   });
@@ -827,7 +919,7 @@ describe("validateDslOwnedDeclarations", () => {
                 kind: "script",
                 script: scriptInput({ code: "$gameSwitches.value(1)" }),
               },
-              then: [],
+              then: { commands: [] },
             }),
           ],
         }),
@@ -835,8 +927,13 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toContain(
-      "Conditional Branch script conditions require explicit config enablement.",
+    expect(result.issues).toContainEqual(
+      expect.objectContaining({
+        code: "MV-SCRIPT-GATE",
+        identity: "map:1/event:1",
+        nativePath: "pages[0].list[0].parameters[1]",
+        dslPath: "pages[0].commands[0].condition.script.code",
+      }),
     );
   });
 
@@ -854,16 +951,16 @@ describe("validateDslOwnedDeclarations", () => {
                 actor: { kind: "actor", id: 1 },
                 check: { kind: "class", class: classRef({ id: 99 }) },
               },
-              then: [],
+              then: { commands: [] },
             }),
             conditional({
               condition: {
                 kind: "variable",
                 variable: variableRef({ id: 99 }),
                 operator: "eq",
-                value: variableRef({ id: 100 }),
+                value: { kind: "variable", variable: variableRef({ id: 100 }) },
               },
-              then: [],
+              then: { commands: [] },
             }),
           ],
         }),
@@ -876,11 +973,23 @@ describe("validateDslOwnedDeclarations", () => {
       },
     );
 
-    expect(result.issues.map((issue) => issue.message)).toEqual(
+    expect(result.issues).toEqual(
       expect.arrayContaining([
-        "Unknown class reference id: 99",
-        "Unknown variable reference id: 99",
-        "Unknown variable reference id: 100",
+        expect.objectContaining({
+          code: "MV-E111-REFERENCE",
+          dslPath: "pages[0].commands[0].condition.check.class",
+          actual: expect.stringContaining("99"),
+        }),
+        expect.objectContaining({
+          code: "MV-E111-REFERENCE",
+          dslPath: "pages[0].commands[1].condition.variable",
+          actual: expect.stringContaining("99"),
+        }),
+        expect.objectContaining({
+          code: "MV-E111-REFERENCE",
+          dslPath: "pages[0].commands[1].condition.value.variable",
+          actual: expect.stringContaining("100"),
+        }),
       ]),
     );
   });
@@ -899,7 +1008,7 @@ describe("validateDslOwnedDeclarations", () => {
                 actor: { kind: "actor", id: 1 },
                 check: { kind: "class", class: classRef({ name: "Warrior" }) },
               },
-              then: [],
+              then: { commands: [] },
             }),
           ],
         }),
@@ -946,8 +1055,18 @@ describe("validateDslOwnedDeclarations", () => {
     );
 
     expect(validResult.issues).toEqual([]);
-    expect(missingResult.issues.map((issue) => issue.message)).toContain(
-      "Unknown tileset reference id: 99",
+    expect(missingResult.issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          level: "error",
+          code: "MV-E282-REFERENCE",
+          stage: "compile",
+          dslPath: "pages[0].commands[0].tileset",
+          expected: "existing tileset in the Project Data Snapshot",
+          actual: expect.stringContaining("99"),
+          message: expect.stringContaining("Unknown tileset reference id: 99"),
+        }),
+      ]),
     );
   });
 
@@ -966,7 +1085,8 @@ describe("validateDslOwnedDeclarations", () => {
             changeEnemyHp({
               target: { kind: "runtimeSelector", scope: "enemy", target: "all" },
               operation: "lose",
-              value: 5,
+              value: { kind: "constant", value: 5 },
+              allowDeath: false,
             }),
           ],
         }),
@@ -995,9 +1115,18 @@ describe("validateDslOwnedDeclarations", () => {
       { scriptEnabled: false },
     );
 
-    expect(validResult.issues).toEqual([]);
-    expect(invalidResult.issues.map((issue) => issue.message)).toContain(
-      "Unknown enemy reference id: 99",
+    expect(validResult.issues.filter((issue) => issue.level === "error")).toEqual([]);
+    expect(validResult.issues.map((issue) => issue.code)).toEqual([
+      "MV-E336-ENEMY-CONTEXT",
+      "MV-E331-ENEMY-CONTEXT",
+    ]);
+    expect(invalidResult.issues).toContainEqual(
+      expect.objectContaining({
+        level: "error",
+        code: "MV-E336-REFERENCE",
+        dslPath: "pages[0].commands[0].enemy",
+        message: expect.stringContaining("Unknown enemy reference id: 99"),
+      }),
     );
   });
 

@@ -9,6 +9,9 @@ import {
   readPositiveInteger,
 } from "../../decompiler/core.js";
 import { vehicleFromCode } from "../flow/decompile.js";
+import { assertNativeMovementRoute, assertNativeMovementRecord } from "./validation.js";
+import { renderJsonValue } from "../../project-data/json-values.js";
+import { scrollDirections } from "./character-codes.js";
 
 export function renderTransferPlayer(
   command: RawEventCommand,
@@ -17,7 +20,7 @@ export function renderTransferPlayer(
   const direction = command.parameters[4];
   const fadeType = command.parameters[5];
 
-  if (!isDirection(direction) || !isFadeType(fadeType)) {
+  if (!isEventLocationDirection(direction) || !isFadeType(fadeType)) {
     return null;
   }
 
@@ -100,7 +103,7 @@ export function renderSetEventLocation(
     return typeof x !== "number" || typeof y !== "number"
       ? null
       : {
-          expression: `setEventLocation({ character: ${character.expression}, destination: { kind: "direct", x: ${x}, y: ${y} }${renderOptionalEventDirection(direction)} })`,
+          expression: `setEventLocation({ target: ${character.expression}, destination: { kind: "direct", x: ${x}, y: ${y} }${renderOptionalEventDirection(direction)} })`,
           helperNames: ["setEventLocation"],
         };
   }
@@ -111,7 +114,7 @@ export function renderSetEventLocation(
     return xVariableId === null || yVariableId === null
       ? null
       : {
-          expression: `setEventLocation({ character: ${character.expression}, destination: { kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} }) }${renderOptionalEventDirection(direction)} })`,
+          expression: `setEventLocation({ target: ${character.expression}, destination: { kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} }) }${renderOptionalEventDirection(direction)} })`,
           helperNames: ["setEventLocation", "variableRef"],
         };
   }
@@ -121,7 +124,7 @@ export function renderSetEventLocation(
     return exchangeCharacter === null
       ? null
       : {
-          expression: `setEventLocation({ character: ${character.expression}, destination: { kind: "exchange", character: ${exchangeCharacter.expression} }${renderOptionalEventDirection(direction)} })`,
+          expression: `setEventLocation({ target: ${character.expression}, destination: { kind: "exchange", target: ${exchangeCharacter.expression} }${renderOptionalEventDirection(direction)} })`,
           helperNames: ["setEventLocation"],
         };
   }
@@ -135,10 +138,13 @@ export function renderScrollMap(
   const direction = command.parameters[0];
   const distance = command.parameters[1];
   const speed = command.parameters[2];
+  const directionName = Object.entries(scrollDirections).find(
+    ([, code]) => code === direction,
+  )?.[0];
 
   return isDirection(direction) && typeof distance === "number" && typeof speed === "number"
     ? {
-        expression: `scrollMap({ direction: ${direction}, distance: ${distance}, speed: ${speed} })`,
+        expression: `scrollMap({ direction: ${literal(directionName)}, distance: ${literal(distance)}, speed: ${literal(speed)} })`,
         helperNames: ["scrollMap"],
       }
     : null;
@@ -164,28 +170,37 @@ export function renderSetMovementRoute(
     return null;
   }
 
-  const renderedRoute = renderMoveRouteCommands(routeRecord.list);
-  if (renderedRoute === null) {
-    return null;
-  }
-
-  const fields = [
-    `target: ${target.expression}`,
-    `route: [${renderedRoute.expressions.join(", ")}]`,
-  ];
-  if (!routeRecord.repeat) {
-    fields.push("repeat: false");
-  }
-  if (routeRecord.skippable) {
-    fields.push("skippable: true");
-  }
-  if (routeRecord.wait) {
-    fields.push("wait: true");
-  }
+  const renderedRoute = renderMovementRoute(routeRecord);
+  if (renderedRoute === null) return null;
 
   return {
-    expression: `setMovementRoute({ ${fields.join(", ")} })`,
+    expression: `setMovementRoute({ target: ${target.expression}, route: ${renderedRoute.expression} })`,
     helperNames: ["setMovementRoute", ...renderedRoute.helperNames],
+  };
+}
+
+export function renderMovementRoute(
+  route: unknown,
+): { expression: string; helperNames: string[] } | null {
+  assertNativeMovementRoute(route, "moveRoute");
+  const renderedRoute = renderMoveRouteCommands(route.list);
+  if (renderedRoute === null) return null;
+
+  const fields = [`commands: [${renderedRoute.expressions.join(", ")}]`];
+  if (!route.repeat) {
+    fields.push("repeat: false");
+  }
+  if (route.skippable) {
+    fields.push("skippable: true");
+  }
+  if (route.wait) {
+    fields.push("wait: true");
+  }
+  if (renderedRoute.terminator !== undefined) fields.push(renderedRoute.terminator);
+
+  return {
+    expression: `{ ${fields.join(", ")} }`,
+    helperNames: renderedRoute.helperNames,
   };
 }
 
@@ -211,7 +226,7 @@ export function renderShowAnimation(
   return target === null || animationId === null || typeof wait !== "boolean"
     ? null
     : {
-        expression: `showAnimation({ target: ${target.expression}, animation: animationRef({ id: ${animationId} })${wait ? ", wait: true" : ""} })`,
+        expression: `showAnimation({ target: ${target.expression}, animation: animationRef({ id: ${animationId} }), wait: ${wait} })`,
         helperNames: ["animationRef", "showAnimation"],
       };
 }
@@ -226,7 +241,7 @@ export function renderShowBalloonIcon(
   return target === null || balloon === null || typeof wait !== "boolean"
     ? null
     : {
-        expression: `showBalloonIcon({ target: ${target.expression}, balloon: ${balloon}${wait ? ", wait: true" : ""} })`,
+        expression: `showBalloonIcon({ target: ${target.expression}, balloon: ${balloon}, wait: ${wait} })`,
         helperNames: ["showBalloonIcon"],
       };
 }
@@ -245,9 +260,13 @@ export function renderChangePlayerFollowers(
 
 export function renderMoveRouteCommands(
   commands: readonly unknown[],
-): { expressions: string[]; helperNames: string[] } | null {
+): { expressions: string[]; helperNames: string[]; terminator?: string } | null {
   const expressions: string[] = [];
   const helperNames = new Set<string>();
+  assertNativeMovementRoute(
+    { list: commands, repeat: true, skippable: false, wait: false },
+    "moveRoute",
+  );
 
   for (const command of commands) {
     if (!command || typeof command !== "object" || Array.isArray(command)) {
@@ -256,7 +275,10 @@ export function renderMoveRouteCommands(
 
     const record = command as Record<string, unknown>;
     if (record.code === 0) {
-      if (!Array.isArray(record.parameters) || record.parameters.length !== 0) {
+      if (
+        Object.hasOwn(record, "parameters") &&
+        (!Array.isArray(record.parameters) || record.parameters.length !== 0)
+      ) {
         return null;
       }
       continue;
@@ -273,13 +295,38 @@ export function renderMoveRouteCommands(
     }
   }
 
-  return { expressions, helperNames: [...helperNames] };
+  return {
+    expressions,
+    helperNames: [...helperNames],
+    ...(Object.hasOwn(commands.at(-1) as object, "parameters")
+      ? {}
+      : { terminator: 'terminator: { parameters: "absent" }' }),
+  };
 }
 
 export function renderMoveRouteCommand(
   command: Record<string, unknown>,
 ): { expression: string; helperNames: readonly string[] } | null {
-  const parameters = Array.isArray(command.parameters) ? command.parameters : null;
+  assertNativeMovementRecord(command, { nativePath: "moveRoute.list" });
+  const rendered = renderMoveRouteInstruction(command);
+  if (rendered === null) return null;
+  if (command.indent === null || command.indent === 0) {
+    return {
+      ...rendered,
+      expression: `${rendered.expression.slice(0, -2)}, savedShape: { indent: "${command.indent === null ? "null" : "zero"}" } }`,
+    };
+  }
+  return rendered;
+}
+
+function renderMoveRouteInstruction(
+  command: Record<string, unknown>,
+): { expression: string; helperNames: readonly string[] } | null {
+  const parameters = Array.isArray(command.parameters)
+    ? command.parameters
+    : command.parameters === undefined
+      ? []
+      : null;
   if (typeof command.code !== "number" || parameters === null) {
     return null;
   }
@@ -293,13 +340,13 @@ export function renderMoveRouteCommand(
     case 14:
       return typeof parameters[0] === "number" && typeof parameters[1] === "number"
         ? {
-            expression: `{ kind: "jump", x: ${parameters[0]}, y: ${parameters[1]} }`,
+            expression: `{ kind: "jump", x: ${renderJsonValue(parameters[0])}, y: ${renderJsonValue(parameters[1])} }`,
             helperNames: [],
           }
         : null;
     case 15:
       return typeof parameters[0] === "number"
-        ? { expression: `{ kind: "routeWait", frames: ${parameters[0]} }`, helperNames: [] }
+        ? { expression: `{ kind: "wait", frames: ${parameters[0]} }`, helperNames: [] }
         : null;
     case 27:
     case 28: {
@@ -355,18 +402,21 @@ export function renderMoveRouteCommand(
     case 41:
       return typeof parameters[0] === "string" && typeof parameters[1] === "number"
         ? {
-            expression: `{ kind: "changeImage", image: imageAsset({ folder: "characters", name: ${literal(parameters[0])} }), index: ${parameters[1]} }`,
-            helperNames: ["imageAsset"],
+            expression: `{ kind: "changeImage", character: ${parameters[0] === "" ? "null" : `imageAsset({ folder: "characters", name: ${literal(parameters[0])} })`}, characterIndex: ${renderJsonValue(parameters[1])} }`,
+            helperNames: parameters[0] === "" ? [] : ["imageAsset"],
           }
         : null;
     case 42:
       return typeof parameters[0] === "number"
-        ? { expression: `{ kind: "changeOpacity", opacity: ${parameters[0]} }`, helperNames: [] }
+        ? {
+            expression: `{ kind: "changeOpacity", opacity: ${renderJsonValue(parameters[0])} }`,
+            helperNames: [],
+          }
         : null;
     case 43:
       return isBlendMode(parameters[0])
         ? {
-            expression: `{ kind: "changeBlendMode", blendMode: ${parameters[0]} }`,
+            expression: `{ kind: "changeBlendMode", blendMode: ${literal(["normal", "additive", "multiply", "screen"][parameters[0]])} }`,
             helperNames: [],
           }
         : null;
@@ -457,8 +507,8 @@ export function renderMoveRoutePlaySe(
   }
 
   return {
-    expression: `{ kind: "playSe", audio: { asset: audioAsset({ folder: "se", name: ${literal(audio.name)} }), volume: ${audio.volume}, pitch: ${audio.pitch}, pan: ${audio.pan} } }`,
-    helperNames: ["audioAsset"],
+    expression: `{ kind: "playSe", audio: { asset: ${audio.name === "" ? "null" : `audioAsset({ folder: "se", name: ${literal(audio.name)} })`}, volume: ${renderJsonValue(audio.volume)}, pitch: ${renderJsonValue(audio.pitch)}, pan: ${renderJsonValue(audio.pan)} } }`,
+    helperNames: audio.name === "" ? [] : ["audioAsset"],
   };
 }
 
@@ -488,22 +538,24 @@ export function renderCharacterRuntimeSelector(
 }
 
 export function renderOptionalDirectionAndFade(
-  direction: 2 | 4 | 6 | 8,
+  direction: 0 | 2 | 4 | 6 | 8,
   fadeType: 0 | 1 | 2,
 ): string {
   const fields: string[] = [];
-  if (direction !== 2) {
-    fields.push(`direction: ${direction}`);
+  if (direction !== 0) {
+    fields.push(`direction: ${literal({ 2: "down", 4: "left", 6: "right", 8: "up" }[direction])}`);
   }
   if (fadeType !== 0) {
-    fields.push(`fadeType: ${fadeType}`);
+    fields.push(`fade: ${literal({ 1: "white", 2: "none" }[fadeType])}`);
   }
 
   return fields.length === 0 ? "" : `, ${fields.join(", ")}`;
 }
 
 export function renderOptionalEventDirection(direction: 0 | 2 | 4 | 6 | 8): string {
-  return direction === 0 ? "" : `, direction: ${direction}`;
+  return direction === 0
+    ? ""
+    : `, direction: ${literal({ 2: "down", 4: "left", 6: "right", 8: "up" }[direction])}`;
 }
 
 export function balloonIconFromCode(value: unknown): string | null {
@@ -528,9 +580,17 @@ export function balloonIconFromCode(value: unknown): string | null {
       return '"lightBulb"';
     case 10:
       return '"zzz"';
+    case 11:
+      return '"userDefined1"';
+    case 12:
+      return '"userDefined2"';
+    case 13:
+      return '"userDefined3"';
+    case 14:
+      return '"userDefined4"';
+    case 15:
+      return '"userDefined5"';
     default:
-      return typeof value === "number" && Number.isInteger(value) && value > 0
-        ? String(value)
-        : null;
+      return null;
   }
 }

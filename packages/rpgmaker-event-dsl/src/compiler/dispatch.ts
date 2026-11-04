@@ -1,6 +1,59 @@
-import type { CommonEventDefinition, DslCommand, PageConditions } from "../domain/types.js";
+import { assertBattleInput } from "../commands/battle/validation.js";
+import { assertEnemyInput } from "../commands/enemy/validation.js";
+import { compileEnemyResourceValue } from "../commands/enemy/compile.js";
+import type { CommonEventDefinition, DslCommand } from "../domain/types.js";
+import { scrollDirections } from "../commands/movement/character-codes.js";
+import {
+  assertMapCharacterInput,
+  isMapCharacterKind,
+} from "../commands/movement/character-validation.js";
 import type { ReferenceResolver } from "../validation/types.js";
-import type { RawEventCommand } from "./types.js";
+import type { RawEventCommand, CommandOrigins } from "./types.js";
+import { assertControlTimerInput } from "../commands/variables/validation.js";
+
+import { compileShowText } from "../commands/message/compile.js";
+import { resolveMessageVariable } from "../commands/message/validation.js";
+import { assertDslCommandList } from "../validation/dsl-command-inputs.js";
+import { assertShowChoicesInput } from "../commands/message/choices-validation.js";
+import { assertScreenInput } from "../commands/screen/validation.js";
+import { assertSwitchCommandInput } from "../commands/variables/switch-inputs.js";
+import { assertMapAppearanceInput } from "../commands/map/validation.js";
+import { assertPictureInput } from "../commands/screen/picture-inputs.js";
+import { assertPictureReferences } from "../commands/screen/picture-references.js";
+import {
+  assertSystemAccessInput,
+  assertWindowColorInput,
+} from "../commands/movement/access-validation.js";
+import { assertSceneCommandInput } from "../commands/system/validation.js";
+import { assertAudioCommandInput } from "../commands/audio/validation.js";
+import { assertActorPresentationInput } from "../commands/actor/presentation-validation.js";
+import { assertActorResourceInput } from "../commands/actor/validation.js";
+import {
+  compileActorResourceTarget,
+  compileActorResourceValue,
+} from "../commands/actor/compile.js";
+import {
+  assertConditionalCommand,
+  assertConditionalBodyOutput,
+  assertConditionalReferences,
+} from "../commands/flow/conditional-validation.js";
+import { assertDslObject, assertDslTextInput } from "../validation/dsl-command-inputs.js";
+import {
+  locationDirectionToCode,
+  transferFadeToCode,
+  resolveLocationReference,
+} from "../commands/map/compile.js";
+import { assertMapLocationInput } from "../commands/map/location-validation.js";
+import {
+  resolveCommonEventCall,
+  assertLoopCommand,
+  assertParameterlessFlowCommand,
+} from "../commands/flow/validation.js";
+import {
+  assertNativeCommandEnvelope,
+  CommandStructureError,
+  inspectCommandListStructure,
+} from "../validation/command-structure.js";
 import { compileConditionalBranchParameters, vehicleToCode } from "./shared/conditions.js";
 export {
   compileConditionalBranchParameters,
@@ -15,6 +68,7 @@ import {
   compileTone,
   compileColor,
   pictureOriginToCode,
+  pictureBlendToCode,
   compilePicturePosition,
   weatherEffectToCode,
 } from "../commands/screen/compile.js";
@@ -30,7 +84,7 @@ import {
   resolveControlValue,
   compileControlVariablesParameters,
   compileReferenceTargetRange,
-  compileOperateValueParameters,
+  compileQuantityParameters,
 } from "../commands/variables/compile.js";
 export {
   resolveControlValue,
@@ -49,6 +103,7 @@ import {
   compileBattleProcessingParameters,
   compileShopGoodsParameters,
 } from "./shared/branches.js";
+import { assertShopInput } from "../commands/battle/shop-validation.js";
 export {
   compileChoiceBranches,
   compileBattleProcessingParameters,
@@ -56,14 +111,12 @@ export {
   shopGoodsTypeToCode,
 } from "./shared/branches.js";
 import {
-  compileActorCommandTarget,
   enemyTargetToCode,
   battlerTargetTypeToCode,
   battlerTargetIdToCode,
   actorParameterToCode,
 } from "./shared/targets.js";
 export {
-  compileActorCommandTarget,
   enemyTargetToCode,
   battlerTargetTypeToCode,
   battlerTargetIdToCode,
@@ -73,8 +126,12 @@ import {
   characterSelectorToCode,
   compileSetVehicleLocationParameters,
   compileSetEventLocationParameters,
-  compileMoveRouteCommands,
+  compileMovementRoute,
 } from "../commands/movement/compile.js";
+import {
+  assertSetMovementRoute,
+  assertNativeMovementCommandParameters,
+} from "../commands/movement/validation.js";
 export {
   characterSelectorToCode,
   compileSetVehicleLocationParameters,
@@ -93,55 +150,78 @@ export {
   locationInfoTypeToCode,
 } from "./shared/media.js";
 export type { RawEventCommand } from "./types.js";
+import {
+  assertInventoryInput,
+  isInventoryCommandKind,
+} from "../commands/variables/inventory-validation.js";
 
 export function compileNodes(
   nodes: readonly DslCommand[],
   indent: number,
   resolver: ReferenceResolver,
   includeTerminator = true,
+  sourcePath = "commands",
+  origins: CommandOrigins = new Map(),
 ): RawEventCommand[] {
+  assertDslCommandList(nodes, sourcePath);
   const output: RawEventCommand[] = [];
 
-  for (const node of nodes) {
+  for (const [nodeIndex, node] of nodes.entries()) {
+    assertPictureInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    assertAudioCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
+    assertSwitchCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
+    assertMapAppearanceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    assertSystemAccessInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
+    assertWindowColorInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true);
+    assertSceneCommandInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
+    assertEnemyInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    assertActorResourceInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    assertActorPresentationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    if (isInventoryCommandKind(node.kind))
+      assertInventoryInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+
+    if (isMapCharacterKind(node.kind))
+      assertMapCharacterInput(node.kind, node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+    const outputStart = output.length;
     switch (node.kind) {
       case "showText":
-        output.push({
-          code: 101,
-          indent,
-          parameters: [
-            node.face?.image.name ?? "",
-            node.face?.index ?? 0,
-            node.background ?? 0,
-            node.positionType ?? 2,
-          ],
-        });
-        for (const line of node.lines) {
-          output.push({
-            code: 401,
-            indent,
-            parameters: [line],
-          });
-        }
+        output.push(...compileShowText(node, indent));
         break;
       case "inputNumber":
         output.push({
           code: 103,
           indent,
-          parameters: [resolver.resolveReference(node.variable), node.digits],
+          parameters: [
+            resolveMessageVariable(
+              node.variable,
+              103,
+              resolver,
+              `${sourcePath}[${nodeIndex}].variable`,
+            ),
+            node.digits,
+          ],
         });
         break;
       case "selectItem":
         output.push({
           code: 104,
           indent,
-          parameters: [resolver.resolveReference(node.variable), node.itemType ?? 2],
+          parameters: [
+            resolveMessageVariable(
+              node.variable,
+              104,
+              resolver,
+              `${sourcePath}[${nodeIndex}].variable`,
+            ),
+            { regular: 1, key: 2, hiddenA: 3, hiddenB: 4 }[node.itemType],
+          ],
         });
         break;
       case "showScrollingText":
         output.push({
           code: 105,
           indent,
-          parameters: [node.speed ?? 2, node.noFastForward ?? false],
+          parameters: [node.speed, node.noFastForward],
         });
         for (const line of node.lines) {
           output.push({
@@ -151,23 +231,49 @@ export function compileNodes(
           });
         }
         break;
-      case "conditional":
+      case "conditional": {
+        const nodePath = `${sourcePath}[${nodeIndex}]`;
+        assertConditionalCommand(node, nodePath);
+        assertConditionalReferences(node, nodePath, resolver);
         output.push({
           code: 111,
           indent,
           parameters: compileConditionalBranchParameters(node.condition, resolver),
         });
-        output.push(...compileNodes(node.then, indent + 1, resolver, false));
-        if (node.else) {
+        const then = compileNodes(
+          node.then.commands,
+          indent + 1,
+          resolver,
+          false,
+          `${sourcePath}[${nodeIndex}].then.commands`,
+          origins,
+        );
+        assertConditionalBodyOutput(then, node.then, indent + 1, `${nodePath}.then`);
+        output.push(...then);
+        if (node.then.endMarker !== "absent")
+          output.push({ code: 0, indent: indent + 1, parameters: [] });
+        if (node.else !== undefined) {
           output.push({
             code: 411,
             indent,
             parameters: [],
           });
-          output.push(...compileNodes(node.else, indent + 1, resolver, false));
+          const otherwise = compileNodes(
+            node.else.commands,
+            indent + 1,
+            resolver,
+            false,
+            `${sourcePath}[${nodeIndex}].else.commands`,
+            origins,
+          );
+          assertConditionalBodyOutput(otherwise, node.else, indent + 1, `${nodePath}.else`);
+          output.push(...otherwise);
+          if (node.else.endMarker !== "absent")
+            output.push({ code: 0, indent: indent + 1, parameters: [] });
         }
         output.push({ code: 412, indent, parameters: [] });
         break;
+      }
       case "comment":
         output.push({
           code: 108,
@@ -182,36 +288,61 @@ export function compileNodes(
           });
         }
         break;
-      case "loop":
+      case "loop": {
+        assertLoopCommand(node, `${sourcePath}[${nodeIndex}]`);
+        const body = compileNodes(
+          node.body.commands,
+          indent + 1,
+          resolver,
+          false,
+          `${sourcePath}[${nodeIndex}].body.commands`,
+          origins,
+        );
+        if (body.at(-1)?.code === 0 && body.at(-1)?.indent === indent + 1) {
+          throw new CommandStructureError(
+            "MV-BODY-MARKER-CONFLICT",
+            "Raw output contradicts the owning body's declared Body End Marker.",
+            {
+              dslPath: `${sourcePath}[${nodeIndex}].body.endMarker`,
+            },
+          );
+        }
         output.push({
           code: 112,
           indent,
           parameters: [],
         });
-        output.push(...compileNodes(node.body, indent + 1, resolver, false));
+        output.push(...body);
+        if (node.body.endMarker !== "absent")
+          output.push({ code: 0, indent: indent + 1, parameters: [] });
         output.push({
           code: 413,
           indent,
           parameters: [],
         });
         break;
+      }
       case "breakLoop":
+        assertParameterlessFlowCommand(node, `${sourcePath}[${nodeIndex}]`);
         output.push({ code: 113, indent, parameters: [] });
         break;
-      case "exitEvent":
+      case "exitEventProcessing":
+        assertParameterlessFlowCommand(node, `${sourcePath}[${nodeIndex}]`);
         output.push({ code: 115, indent, parameters: [] });
         break;
       case "commonEvent":
         output.push({
           code: 117,
           indent,
-          parameters: [resolver.resolveReference(node.ref)],
+          parameters: [resolveCommonEventCall(node, resolver, `${sourcePath}[${nodeIndex}]`)],
         });
         break;
       case "label":
+        assertDslTextInput(node, "name", `${sourcePath}[${nodeIndex}]`, "label");
         output.push({ code: 118, indent, parameters: [node.name] });
         break;
       case "jumpToLabel":
+        assertDslTextInput(node, "name", `${sourcePath}[${nodeIndex}]`, "jumpToLabel");
         output.push({ code: 119, indent, parameters: [node.name] });
         break;
       case "controlSwitches": {
@@ -227,7 +358,11 @@ export function compileNodes(
         output.push({
           code: 122,
           indent,
-          parameters: compileControlVariablesParameters(node, resolver),
+          parameters: compileControlVariablesParameters(
+            node,
+            resolver,
+            `${sourcePath}[${nodeIndex}]`,
+          ),
         });
         break;
       case "controlSelfSwitch":
@@ -238,17 +373,23 @@ export function compileNodes(
         });
         break;
       case "controlTimer":
+        assertControlTimerInput(node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 124,
           indent,
-          parameters: node.action === "start" ? [0, node.seconds] : [1, 0],
+          parameters:
+            node.action === "start"
+              ? [0, node.seconds]
+              : node.seconds === undefined
+                ? [1]
+                : [1, node.seconds],
         });
         break;
       case "changeGold":
         output.push({
           code: 125,
           indent,
-          parameters: compileOperateValueParameters(node.operation, node.value, resolver),
+          parameters: compileQuantityParameters(node.operation, node.value, resolver),
         });
         break;
       case "changeItems":
@@ -257,7 +398,7 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.item),
-            ...compileOperateValueParameters(node.operation, node.amount, resolver),
+            ...compileQuantityParameters(node.operation, node.amount, resolver),
           ],
         });
         break;
@@ -267,8 +408,8 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.weapon),
-            ...compileOperateValueParameters(node.operation, node.amount, resolver),
-            node.includeEquipment ?? false,
+            ...compileQuantityParameters(node.operation, node.amount, resolver),
+            node.includeEquipment,
           ],
         });
         break;
@@ -278,8 +419,8 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.armor),
-            ...compileOperateValueParameters(node.operation, node.amount, resolver),
-            node.includeEquipment ?? false,
+            ...compileQuantityParameters(node.operation, node.amount, resolver),
+            node.includeEquipment,
           ],
         });
         break;
@@ -290,7 +431,7 @@ export function compileNodes(
           parameters: [
             resolver.resolveReference(node.actor),
             node.operation === "add" ? 0 : 1,
-            node.initialize ?? false,
+            node.initialize,
           ],
         });
         break;
@@ -322,11 +463,11 @@ export function compileNodes(
           parameters: [node.enabled ? 1 : 0],
         });
         break;
-      case "changeEncounterDisable":
+      case "changeEncounter":
         output.push({
           code: 136,
           indent,
-          parameters: [node.disabled ? 0 : 1],
+          parameters: [node.enabled ? 1 : 0],
         });
         break;
       case "changeFormationAccess":
@@ -358,6 +499,7 @@ export function compileNodes(
         });
         break;
       case "wait":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 230,
           indent,
@@ -371,27 +513,51 @@ export function compileNodes(
           parameters: [],
         });
         break;
-      case "battleProcessing":
+      case "battleProcessing": {
+        const path = `${sourcePath}[${nodeIndex}]`;
+        assertBattleInput(node, path, true, resolver);
         output.push({
           code: 301,
           indent,
           parameters: compileBattleProcessingParameters(node, resolver),
         });
-        if (node.win) {
-          output.push({ code: 601, indent, parameters: [] });
-          output.push(...compileNodes(node.win, indent + 1, resolver, false));
+        for (const [field, code] of [
+          ["win", 601],
+          ["escape", 602],
+          ["lose", 603],
+        ] as const) {
+          const body = node[field];
+          if (body === undefined) continue;
+          output.push({ code, indent, parameters: [] });
+          const commands = compileNodes(
+            body.commands,
+            indent + 1,
+            resolver,
+            false,
+            `${path}.${field}.commands`,
+            origins,
+          );
+          if (commands.at(-1)?.code === 0 && commands.at(-1)?.indent === indent + 1)
+            throw new CommandStructureError(
+              "MV-BODY-MARKER-CONFLICT",
+              "Raw output contradicts the owning Battle body's declared Body End Marker.",
+              { dslPath: `${path}.${field}.endMarker` },
+            );
+          output.push(...commands);
+          if (body.endMarker !== "absent")
+            output.push({ code: 0, indent: indent + 1, parameters: [] });
         }
-        if (node.escape) {
-          output.push({ code: 602, indent, parameters: [] });
-          output.push(...compileNodes(node.escape, indent + 1, resolver, false));
-        }
-        if (node.lose) {
-          output.push({ code: 603, indent, parameters: [] });
-          output.push(...compileNodes(node.lose, indent + 1, resolver, false));
-        }
-        output.push({ code: 604, indent, parameters: [] });
+        if (node.canEscape || node.canLose) output.push({ code: 604, indent, parameters: [] });
         break;
+      }
       case "script":
+        assertDslObject(node, ["kind", "script"], `${sourcePath}[${nodeIndex}]`);
+        assertDslTextInput(
+          node.script,
+          "code",
+          `${sourcePath}[${nodeIndex}].script`,
+          "scriptInput",
+        );
         output.push({
           code: 355,
           indent,
@@ -406,28 +572,31 @@ export function compileNodes(
         }
         break;
       case "pluginCommand":
+        assertDslTextInput(node, "line", `${sourcePath}[${nodeIndex}]`, "pluginCommand");
         output.push({
           code: 356,
           indent,
-          parameters: [
-            node.args !== undefined && node.args.length > 0
-              ? `${node.command} ${node.args.join(" ")}`
-              : node.command,
-          ],
+          parameters: [node.line],
         });
         break;
       case "transferPlayer":
+        assertMapLocationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         if (node.destination.kind === "direct") {
           output.push({
             code: 201,
             indent,
             parameters: [
               0,
-              resolver.resolveReference(node.destination.map),
+              resolveLocationReference(
+                node.destination.map,
+                resolver,
+                `${sourcePath}[${nodeIndex}].destination.map`,
+                201,
+              ),
               node.destination.x,
               node.destination.y,
-              node.direction ?? 2,
-              node.fadeType ?? 0,
+              locationDirectionToCode(node.direction),
+              transferFadeToCode(node.fade),
             ],
           });
         } else {
@@ -436,51 +605,78 @@ export function compileNodes(
             indent,
             parameters: [
               1,
-              resolver.resolveReference(node.destination.map),
-              resolver.resolveReference(node.destination.x),
-              resolver.resolveReference(node.destination.y),
-              node.direction ?? 2,
-              node.fadeType ?? 0,
+              resolveLocationReference(
+                node.destination.map,
+                resolver,
+                `${sourcePath}[${nodeIndex}].destination.map`,
+                201,
+              ),
+              resolveLocationReference(
+                node.destination.x,
+                resolver,
+                `${sourcePath}[${nodeIndex}].destination.x`,
+                201,
+              ),
+              resolveLocationReference(
+                node.destination.y,
+                resolver,
+                `${sourcePath}[${nodeIndex}].destination.y`,
+                201,
+              ),
+              locationDirectionToCode(node.direction),
+              transferFadeToCode(node.fade),
             ],
           });
         }
         break;
       case "setVehicleLocation":
+        assertMapLocationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 202,
           indent,
-          parameters: compileSetVehicleLocationParameters(node.vehicle, node.destination, resolver),
+          parameters: compileSetVehicleLocationParameters(
+            node.vehicle,
+            node.destination,
+            resolver,
+            `${sourcePath}[${nodeIndex}]`,
+          ),
         });
         break;
       case "setEventLocation":
+        assertMapLocationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 203,
           indent,
-          parameters: compileSetEventLocationParameters(node, resolver),
+          parameters: compileSetEventLocationParameters(
+            node,
+            resolver,
+            `${sourcePath}[${nodeIndex}]`,
+          ),
         });
         break;
       case "scrollMap":
         output.push({
           code: 204,
           indent,
-          parameters: [node.direction, node.distance, node.speed],
+          parameters: [scrollDirections[node.direction], node.distance, node.speed],
         });
         break;
-      case "setMovementRoute":
+      case "setMovementRoute": {
+        assertSetMovementRoute(node, `${sourcePath}[${nodeIndex}]`);
+        const route = compileMovementRoute(
+          node.route,
+          resolver,
+          `${sourcePath}[${nodeIndex}].route`,
+        );
         output.push({
           code: 205,
           indent,
-          parameters: [
-            characterSelectorToCode(node.target),
-            {
-              list: compileMoveRouteCommands(node.route, resolver),
-              repeat: node.repeat ?? true,
-              skippable: node.skippable ?? false,
-              wait: node.wait ?? false,
-            },
-          ],
+          parameters: [characterSelectorToCode(node.target), route],
         });
+        for (const record of route.list.slice(0, -1))
+          output.push({ code: 505, indent, parameters: [record] });
         break;
+      }
       case "getOnOffVehicle":
         output.push({
           code: 206,
@@ -502,7 +698,7 @@ export function compileNodes(
           parameters: [
             characterSelectorToCode(node.target),
             resolver.resolveReference(node.animation),
-            node.wait ?? false,
+            node.wait,
           ],
         });
         break;
@@ -513,7 +709,7 @@ export function compileNodes(
           parameters: [
             characterSelectorToCode(node.target),
             balloonIconToCode(node.balloon),
-            node.wait ?? false,
+            node.wait,
           ],
         });
         break;
@@ -532,6 +728,7 @@ export function compileNodes(
         });
         break;
       case "fadeoutScreen":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 221,
           indent,
@@ -539,6 +736,7 @@ export function compileNodes(
         });
         break;
       case "fadeinScreen":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 222,
           indent,
@@ -546,49 +744,77 @@ export function compileNodes(
         });
         break;
       case "tintScreen":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 223,
           indent,
-          parameters: [compileTone(node.tone), node.duration, node.wait ?? false],
+          parameters: [compileTone(node.tone), node.duration, node.wait],
         });
         break;
       case "flashScreen":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 224,
           indent,
-          parameters: [compileColor(node.color), node.duration, node.wait ?? false],
+          parameters: [compileColor(node.color), node.duration, node.wait],
         });
         break;
       case "shakeScreen":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 225,
           indent,
-          parameters: [node.power, node.speed, node.duration, node.wait ?? false],
+          parameters: [node.power, node.speed, node.duration, node.wait],
         });
         break;
       case "showChoices":
+        assertShowChoicesInput(node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 102,
           indent,
           parameters: [
-            node.choices,
-            node.cancelBranch === undefined ? (node.cancelType ?? -1) : -2,
-            node.defaultType ?? 0,
-            node.positionType ?? 2,
-            node.background ?? 0,
+            node.choices.map((choice) => choice.text),
+            node.cancel?.kind === "branch"
+              ? -2
+              : node.cancel?.kind === "disabled"
+                ? -1
+                : (node.cancel?.index ?? 1),
+            node.defaultChoice?.kind === "none" ? -1 : (node.defaultChoice?.index ?? 0),
+            { left: 0, center: 1, right: 2 }[node.position ?? "right"],
+            { window: 0, dim: 1, transparent: 2 }[node.background ?? "window"],
           ],
         });
-        output.push(...compileChoiceBranches(node, indent, resolver, compileNodes));
+        output.push(
+          ...compileChoiceBranches(
+            node,
+            indent,
+            resolver,
+            (children, childIndent, childResolver, childTerminator, childPath) =>
+              compileNodes(
+                children,
+                childIndent,
+                childResolver,
+                childTerminator,
+                childPath,
+                origins,
+              ),
+            `${sourcePath}[${nodeIndex}]`,
+          ),
+        );
         output.push({ code: 404, indent, parameters: [] });
         break;
       case "shopProcessing":
+        assertShopInput(node, `${sourcePath}[${nodeIndex}]`, true, resolver);
+        if (node.goods.length === 0) {
+          output.push({ code: 302, indent, parameters: [0, 0, 0, 0, node.purchaseOnly ?? false] });
+        }
         node.goods.forEach((goods, index) => {
           output.push({
             code: index === 0 ? 302 : 605,
             indent,
             parameters:
               index === 0
-                ? [...compileShopGoodsParameters(goods, resolver), node.allowSelling ?? false]
+                ? [...compileShopGoodsParameters(goods, resolver), node.purchaseOnly ?? false]
                 : compileShopGoodsParameters(goods, resolver),
           });
         });
@@ -605,9 +831,9 @@ export function compileNodes(
           code: 311,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
-            node.allowDeath ?? false,
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
+            node.allowDeath,
           ],
         });
         break;
@@ -616,8 +842,8 @@ export function compileNodes(
           code: 312,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;
@@ -626,7 +852,7 @@ export function compileNodes(
           code: 313,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
             node.operation === "add" ? 0 : 1,
             resolver.resolveReference(node.state),
           ],
@@ -636,7 +862,7 @@ export function compileNodes(
         output.push({
           code: 314,
           indent,
-          parameters: compileActorCommandTarget(node.target, resolver),
+          parameters: compileActorResourceTarget(node.target, resolver),
         });
         break;
       case "changeExp":
@@ -644,9 +870,9 @@ export function compileNodes(
           code: 315,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
-            node.showLevelUp ?? false,
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
+            node.showLevelUp,
           ],
         });
         break;
@@ -655,9 +881,9 @@ export function compileNodes(
           code: 316,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
-            node.showLevelUp ?? false,
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
+            node.showLevelUp,
           ],
         });
         break;
@@ -666,9 +892,9 @@ export function compileNodes(
           code: 317,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
             actorParameterToCode(node.parameter),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;
@@ -677,7 +903,7 @@ export function compileNodes(
           code: 318,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
             node.operation === "learn" ? 0 : 1,
             resolver.resolveReference(node.skill),
           ],
@@ -689,8 +915,8 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.actor),
-            node.equipmentTypeId,
-            node.itemId ?? 0,
+            node.slotIndex + 1,
+            node.equipment === null ? 0 : node.equipment.id,
           ],
         });
         break;
@@ -708,7 +934,7 @@ export function compileNodes(
           parameters: [
             resolver.resolveReference(node.actor),
             resolver.resolveReference(node.class),
-            node.keepExp ?? false,
+            node.keepExp,
           ],
         });
         break;
@@ -718,11 +944,11 @@ export function compileNodes(
           indent,
           parameters: [
             resolver.resolveReference(node.actor),
-            node.character.image.name,
+            node.character.image === null ? "" : node.character.image.name,
             node.character.index,
-            node.face.image.name,
+            node.face.image === null ? "" : node.face.image.name,
             node.face.index,
-            node.battler.name,
+            node.battler === null ? "" : node.battler.name,
           ],
         });
         break;
@@ -730,7 +956,11 @@ export function compileNodes(
         output.push({
           code: 323,
           indent,
-          parameters: [vehicleToCode(node.vehicle), node.image.name, node.index],
+          parameters: [
+            vehicleToCode(node.vehicle),
+            node.image === null ? "" : node.image.name,
+            node.index,
+          ],
         });
         break;
       case "changeNickname":
@@ -752,8 +982,8 @@ export function compileNodes(
           code: 326,
           indent,
           parameters: [
-            ...compileActorCommandTarget(node.target, resolver),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileActorResourceTarget(node.target, resolver),
+            ...compileActorResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;
@@ -763,8 +993,8 @@ export function compileNodes(
           indent,
           parameters: [
             enemyTargetToCode(node.target),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
-            node.allowDeath ?? false,
+            ...compileEnemyResourceValue(node.operation, node.value, resolver),
+            node.allowDeath,
           ],
         });
         break;
@@ -774,7 +1004,7 @@ export function compileNodes(
           indent,
           parameters: [
             enemyTargetToCode(node.target),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileEnemyResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;
@@ -807,9 +1037,9 @@ export function compileNodes(
           code: 337,
           indent,
           parameters: [
-            node.target.target === "all" ? 0 : node.target.index,
+            node.target.index,
             resolver.resolveReference(node.animation),
-            node.target.target === "all",
+            node.allEnemies,
           ],
         });
         break;
@@ -819,9 +1049,13 @@ export function compileNodes(
           indent,
           parameters: [
             battlerTargetTypeToCode(node.subject),
-            battlerTargetIdToCode(node.subject),
+            battlerTargetIdToCode(node.subject, resolver),
             resolver.resolveReference(node.skill),
-            node.targetIndex,
+            node.target.kind === "lastTarget"
+              ? -2
+              : node.target.kind === "random"
+                ? -1
+                : node.target.index,
           ],
         });
         break;
@@ -834,7 +1068,7 @@ export function compileNodes(
           indent,
           parameters: [
             enemyTargetToCode(node.target),
-            ...compileOperateValueParameters(node.operation, node.value, resolver),
+            ...compileEnemyResourceValue(node.operation, node.value, resolver),
           ],
         });
         break;
@@ -856,13 +1090,13 @@ export function compileNodes(
           indent,
           parameters: [
             node.pictureId,
-            node.image.name,
-            pictureOriginToCode(node.position.origin),
+            node.image === null ? "" : node.image.name,
+            pictureOriginToCode(node.origin),
             ...compilePicturePosition(node.position, resolver),
-            node.scaleX ?? 100,
-            node.scaleY ?? 100,
-            node.opacity ?? 255,
-            node.blendMode ?? 0,
+            node.scaleX,
+            node.scaleY,
+            node.opacity,
+            pictureBlendToCode(node.blendMode),
           ],
         });
         break;
@@ -873,14 +1107,14 @@ export function compileNodes(
           parameters: [
             node.pictureId,
             0,
-            pictureOriginToCode(node.position.origin),
+            pictureOriginToCode(node.origin),
             ...compilePicturePosition(node.position, resolver),
-            node.scaleX ?? 100,
-            node.scaleY ?? 100,
-            node.opacity ?? 255,
-            node.blendMode ?? 0,
+            node.scaleX,
+            node.scaleY,
+            node.opacity,
+            pictureBlendToCode(node.blendMode),
             node.duration,
-            node.wait ?? false,
+            node.wait,
           ],
         });
         break;
@@ -895,7 +1129,7 @@ export function compileNodes(
         output.push({
           code: 234,
           indent,
-          parameters: [node.pictureId, compileTone(node.tone), node.duration, node.wait ?? false],
+          parameters: [node.pictureId, compileTone(node.tone), node.duration, node.wait],
         });
         break;
       case "erasePicture":
@@ -906,15 +1140,11 @@ export function compileNodes(
         });
         break;
       case "setWeatherEffect":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 236,
           indent,
-          parameters: [
-            weatherEffectToCode(node.weather),
-            node.power,
-            node.duration,
-            node.wait ?? false,
-          ],
+          parameters: [weatherEffectToCode(node.weather), node.power, node.duration, node.wait],
         });
         break;
       case "playBgm":
@@ -938,7 +1168,7 @@ export function compileNodes(
           parameters: [],
         });
         break;
-      case "resumeBgm":
+      case "replayBgm":
         output.push({
           code: 244,
           indent,
@@ -981,10 +1211,11 @@ export function compileNodes(
         });
         break;
       case "playMovie":
+        assertScreenInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 261,
           indent,
-          parameters: [node.movie.name],
+          parameters: [node.movie?.name ?? ""],
         });
         break;
       case "changeMapNameDisplay":
@@ -1005,69 +1236,128 @@ export function compileNodes(
         output.push({
           code: 283,
           indent,
-          parameters: [node.battleback1.name, node.battleback2.name],
+          parameters: [node.battleback1?.name ?? "", node.battleback2?.name ?? ""],
         });
         break;
       case "changeParallax":
         output.push({
           code: 284,
           indent,
-          parameters: [
-            node.image.name,
-            node.loopX ?? false,
-            node.loopY ?? false,
-            node.sx ?? 0,
-            node.sy ?? 0,
-          ],
+          parameters: [node.image?.name ?? "", node.loopX, node.loopY, node.sx, node.sy],
         });
         break;
       case "getLocationInfo":
+        assertMapLocationInput(node.kind, node, `${sourcePath}[${nodeIndex}]`);
         output.push({
           code: 285,
           indent,
           parameters: [
-            resolver.resolveReference(node.variable),
+            resolveLocationReference(
+              node.variable,
+              resolver,
+              `${sourcePath}[${nodeIndex}].variable`,
+              285,
+            ),
             locationInfoTypeToCode(node.info),
-            ...compileLocationInfoPosition(node.location, resolver),
+            ...compileLocationInfoPosition(
+              node.location,
+              resolver,
+              `${sourcePath}[${nodeIndex}].location`,
+            ),
           ],
         });
         break;
       case "rawDslCommand":
+        assertPictureReferences(node.code, node.parameters, resolver, {
+          dslPath: `${sourcePath}[${nodeIndex}]`,
+        });
+        if (node.code === 205 || node.code === 505)
+          assertNativeMovementCommandParameters(node.code, node.parameters, {
+            dslPath: `${sourcePath}[${nodeIndex}]`,
+          });
+        {
+          try {
+            assertNativeCommandEnvelope(
+              {
+                code: node.code,
+                indent: node.indent === undefined ? indent : node.indent,
+                parameters: node.parameters,
+              },
+              output.length,
+            );
+          } catch (error) {
+            if (error instanceof CommandStructureError)
+              throw new CommandStructureError(error.code, error.detail, {
+                ...error.location,
+                dslPath: `${sourcePath}[${nodeIndex}]`,
+              });
+            throw error;
+          }
+        }
         output.push({
           code: node.code,
-          indent: node.indent ?? indent,
+          indent: node.indent === undefined ? indent : node.indent,
           parameters: [...node.parameters],
         });
         break;
+      default:
+        throw new CommandStructureError("MV-DSL-KIND", "Unknown authored command kind.", {
+          dslPath: `${sourcePath}[${nodeIndex}].kind`,
+          expected: "supported command kind",
+          actual: String((node as { kind: unknown }).kind),
+        });
     }
+    if (origins)
+      for (const command of output.slice(outputStart))
+        if (!origins.has(command))
+          origins.set(command, { path: `${sourcePath}[${nodeIndex}]`, kind: node.kind });
   }
 
-  if (includeTerminator) {
+  if (includeTerminator && !(output.at(-1)?.code === 0 && output.at(-1)?.indent === indent)) {
     output.push({ code: 0, indent, parameters: [] });
   }
+  if (includeTerminator && indent === 0)
+    try {
+      inspectCommandListStructure(output, { requireTerminator: true });
+    } catch (error) {
+      if (error instanceof CommandStructureError) {
+        const dslAt = (path: string | undefined) => {
+          if (!path) return undefined;
+          const record = output[Number(/^list\[(\d+)\]/u.exec(path)?.[1])]!;
+          const origin = origins.get(record);
+          if (!origin) return undefined;
+          if (![118, 119, 355, 356, 655].includes(record.code)) return origin.path;
+          return (
+            origin.path +
+            (origin.kind === "rawDslCommand"
+              ? path.replace(/^list\[\d+\]/u, "")
+              : origin.kind === "script"
+                ? ".script.code"
+                : origin.kind === "pluginCommand"
+                  ? ".line"
+                  : ".name")
+          );
+        };
+        const dslPath = dslAt(error.location.nativePath);
+        throw new CommandStructureError(error.code, error.detail, {
+          ...error.location,
+          ...(dslPath ? { dslPath } : {}),
+          ...(error.location.relatedLocations
+            ? {
+                relatedLocations: error.location.relatedLocations.map((related) => {
+                  const source = dslAt(related.nativePath);
+                  return { ...related, ...(source ? { dslPath: source } : {}) };
+                }),
+              }
+            : {}),
+        });
+      }
+      throw error;
+    }
   return output;
 }
 
-export function compileConditions(
-  conditions: PageConditions | undefined,
-  resolver: ReferenceResolver,
-): Record<string, unknown> {
-  return {
-    actorId: conditions?.actor ? resolver.resolveReference(conditions.actor) : 0,
-    actorValid: conditions?.actor !== undefined,
-    itemId: conditions?.item ? resolver.resolveReference(conditions.item) : 0,
-    itemValid: conditions?.item !== undefined,
-    selfSwitchCh: conditions?.selfSwitch ?? "A",
-    selfSwitchValid: conditions?.selfSwitch !== undefined,
-    switch1Id: conditions?.switch1 ? resolver.resolveReference(conditions.switch1) : 0,
-    switch1Valid: conditions?.switch1 !== undefined,
-    switch2Id: conditions?.switch2 ? resolver.resolveReference(conditions.switch2) : 0,
-    switch2Valid: conditions?.switch2 !== undefined,
-    variableId: conditions?.variable ? resolver.resolveReference(conditions.variable.ref) : 0,
-    variableValid: conditions?.variable !== undefined,
-    variableValue: conditions?.variable?.value ?? 0,
-  };
-}
+export { compilePageConditions as compileConditions } from "../map-event/page.js";
 
 export function commonEventTriggerToCode(trigger: CommonEventDefinition["trigger"]): number {
   switch (trigger) {

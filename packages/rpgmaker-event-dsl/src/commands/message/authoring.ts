@@ -1,6 +1,4 @@
 import type {
-  DslCommand,
-  ImageAssetReference,
   InputNumberDslCommand,
   ReferenceValue,
   SelectItemDslCommand,
@@ -8,38 +6,31 @@ import type {
   ShowScrollingTextDslCommand,
   ShowTextDslCommand,
 } from "../../domain/types.js";
+import { assertShowChoicesInput } from "./choices-validation.js";
 
-export function showText(input: {
-  lines: readonly [string, ...string[]];
-  face?: {
-    image: ImageAssetReference;
-    index?: number;
-  };
-  background?: 0 | 1 | 2;
-  positionType?: 0 | 1 | 2;
-}): ShowTextDslCommand {
-  const node: ShowTextDslCommand = {
+import {
+  assertShowText,
+  assertInputNumber,
+  assertSelectItem,
+  assertShowScrollingText,
+} from "./validation.js";
+
+export function showText(input: Omit<ShowTextDslCommand, "kind">): ShowTextDslCommand {
+  assertShowText(input, "showText", false);
+  return {
     kind: "showText",
     lines: input.lines,
+    face: input.face,
+    background: input.background,
+    position: input.position,
   };
-
-  if (input.face !== undefined) {
-    node.face = input.face;
-  }
-  if (input.background !== undefined) {
-    node.background = input.background;
-  }
-  if (input.positionType !== undefined) {
-    node.positionType = input.positionType;
-  }
-
-  return node;
 }
 
 export function inputNumber(input: {
   variable: ReferenceValue<"variable">;
   digits: number;
 }): InputNumberDslCommand {
+  assertInputNumber(input, "inputNumber", false);
   return {
     kind: "inputNumber",
     variable: input.variable,
@@ -47,72 +38,24 @@ export function inputNumber(input: {
   };
 }
 
-export function selectItem(input: {
-  variable: ReferenceValue<"variable">;
-  itemType?: 1 | 2 | 3 | 4;
-}): SelectItemDslCommand {
-  const node: SelectItemDslCommand = {
-    kind: "selectItem",
-    variable: input.variable,
-  };
-
-  if (input.itemType !== undefined) {
-    node.itemType = input.itemType;
-  }
-
-  return node;
+export function selectItem(input: Omit<SelectItemDslCommand, "kind">): SelectItemDslCommand {
+  assertSelectItem(input, "selectItem", false);
+  return { kind: "selectItem", variable: input.variable, itemType: input.itemType };
 }
 
-export function showScrollingText(input: {
-  lines: readonly [string, ...string[]];
-  speed?: number;
-  noFastForward?: boolean;
-}): ShowScrollingTextDslCommand {
-  const node: ShowScrollingTextDslCommand = {
+export function showScrollingText(
+  input: Omit<ShowScrollingTextDslCommand, "kind">,
+): ShowScrollingTextDslCommand {
+  assertShowScrollingText(input, "showScrollingText", false);
+  return {
     kind: "showScrollingText",
     lines: input.lines,
+    speed: input.speed,
+    noFastForward: input.noFastForward,
   };
-
-  if (input.speed !== undefined) {
-    node.speed = input.speed;
-  }
-  if (input.noFastForward !== undefined) {
-    node.noFastForward = input.noFastForward;
-  }
-
-  return node;
 }
 
-export function showChoices(input: {
-  choices: readonly [string, ...string[]];
-  branches: readonly [readonly DslCommand[], ...(readonly DslCommand[][])];
-  cancelType?: number;
-  defaultType?: number;
-  positionType?: 0 | 1 | 2;
-  background?: 0 | 1 | 2;
-  cancelBranch?: readonly DslCommand[];
-}): ShowChoicesDslCommand {
-  const node: ShowChoicesDslCommand = {
-    kind: "showChoices",
-    choices: input.choices,
-    branches: input.branches,
-  };
-
-  if (input.cancelType !== undefined) {
-    node.cancelType = input.cancelType;
-  }
-  if (input.defaultType !== undefined) {
-    node.defaultType = input.defaultType;
-  }
-  if (input.positionType !== undefined) {
-    node.positionType = input.positionType;
-  }
-  if (input.background !== undefined) {
-    node.background = input.background;
-  }
-  if (input.cancelBranch !== undefined) {
-    node.cancelBranch = input.cancelBranch;
-  }
-
-  return node;
+export function showChoices(input: Omit<ShowChoicesDslCommand, "kind">): ShowChoicesDslCommand {
+  assertShowChoicesInput(input, "showChoices", false);
+  return { ...input, kind: "showChoices" };
 }

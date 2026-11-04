@@ -40,6 +40,14 @@ _Avoid_: helper module, generated project data, target mapping
 The Workspace Config behavior that selects DSL source files for workspace-level compilation.
 _Avoid_: definition binding, target mapping, all TypeScript files
 
+**Shared Authoring Module**:
+A local source module that provides reusable Event DSL values or Parameterized Command Functions to Definition Sources or other shared modules. Importing it does not make its exports additional Event Definitions.
+_Avoid_: Common Event, event entry, runtime module, plugin
+
+**Parameterized Command Function**:
+An author-defined function that composes Event DSL values from compile-time options for use within explicitly declared events. Each use contributes commands or configuration to its event rather than creating a game-time function call.
+_Avoid_: Common Event, event factory, runtime function, macro
+
 **Empty Command List**:
 A required `commands` field with no DSL Commands that compiles to only the RPG Maker MV end marker.
 _Avoid_: missing command list, implicit delete
@@ -48,9 +56,49 @@ _Avoid_: missing command list, implicit delete
 An event stored in a `Map###.json` file.
 _Avoid_: common event, event data operation
 
+**Map Event Page**:
+One ordered page of a Map Event, with page conditions, an image, autonomous movement, priority, behavior options, a trigger, and an event command list. Its saved configuration includes settings that are currently inactive.
+_Avoid_: Battle Event Page, Common Event, active command list
+
+**Autonomous Movement**:
+The movement behavior configured by a Map Event Page: fixed, random, approach, or custom, together with its speed, frequency, and saved Movement Route. The saved route remains part of the page when custom movement is not selected.
+_Avoid_: Set Movement Route, forced movement, event command list
+
+**Movement Route**:
+An ordered sequence of RPG Maker MV movement instructions with repeat, skip, and wait settings, shared by Autonomous Movement and the Set Movement Route event command. Its wait setting controls interpreter waiting only when used by Set Movement Route.
+_Avoid_: event command list, Autonomous Movement, character target
+
 **Common Event**:
 A reusable RPG Maker MV event command list stored in `CommonEvents.json`.
 _Avoid_: runtime event, built-in event
+
+**Troop Event**:
+The complete ordered list of Battle Event Pages attached to one RPG Maker MV troop in `Troops.json`. The troop's name and members are external project data rather than part of the Troop Event.
+_Avoid_: Common Event, troop definition, enemy event
+
+**Troop Event Identity**:
+The Entry Identity for a Troop Event, determined by the ID of its containing RPG Maker MV troop. A troop has at most one Troop Event definition, regardless of its display name.
+_Avoid_: battle page ID, troop name, separate battle event ID
+
+**Battle Event Page**:
+One position in a Troop Event's ordered page list, with battle conditions, an execution span, and an event command list, without a separate page identity. Its saved configuration includes condition settings that are currently disabled.
+_Avoid_: Map Event page, Common Event, troop member
+
+**Battle Page Condition Slots**:
+The fixed RPG Maker MV battle page conditions for turn end, turn count, troop member HP, actor HP, and a switch, including each condition's saved settings while disabled. Enabled conditions combine as AND, and a page with no enabled condition does not run.
+_Avoid_: Page Condition Slots, arbitrary predicate, unconditional battle page
+
+**Battle Event Span**:
+The repetition mode of a Battle Event Page: once per battle, once per turn, or repeatedly at eligible battle event checks while its conditions hold.
+_Avoid_: Map Page Trigger, event priority, arbitrary-time callback
+
+**Blank Troop Event**:
+A Troop Event containing exactly one Battle Event Page in its complete native default saved state, with no authored commands. Disabled conditions alone do not make a Troop Event blank if any saved configuration differs from that state.
+_Avoid_: zero-page event, disabled event, missing troop
+
+**Troop Event Reset**:
+A change from a nonblank Troop Event to a Blank Troop Event while retaining its containing troop and external data.
+_Avoid_: troop deletion, Entry Removal, partial page edit
 
 **Event Page List**:
 The required non-empty list of pages for a Map Event definition.
@@ -65,15 +113,35 @@ The activation mode for a Map Event page: action, playerTouch, eventTouch, autor
 _Avoid_: common event trigger
 
 **Page Condition Slots**:
-The fixed RPG Maker MV page condition fields for switches, variable threshold, self switch, item, and actor.
+The fixed RPG Maker MV page condition fields for switches, variable threshold, self switch, item, and actor. Each slot has an activation state and a saved setting that remains part of the Map Event Page when the slot is disabled.
 _Avoid_: boolean expression, arbitrary predicate
 
 **DSL Command**:
 An Event DSL command value inside an Event Definition command list before it is compiled to Raw Event Commands.
 _Avoid_: Event Node, instruction, Raw Event Command
 
+**Child Command Body**:
+An ordered group of event commands belonging to one branch or loop within a parent event command. Each nested body has its own boundary, separate from its parent body and the complete event command list.
+_Avoid_: whole event command list, continuation command, raw block
+
+**Body End Marker**:
+A native saved marker at the end of a Child Command Body, distinct from the parent command's closing record and the complete event command list's final marker.
+_Avoid_: parent closing command, event-list terminator, ordinary DSL Command
+
+**Native Saved Shape**:
+The arrangement and presence of saved fields, parameter slots, and structural records in RPG Maker MV event data, including differences that do not change immediate execution behavior.
+_Avoid_: runtime behavior, JSON text formatting, arbitrary extra data
+
+**Native Saved Value**:
+A value stored for a native RPG Maker MV event setting, including one retained after the available assets, map dimensions, or editor choices change. It is distinct from a value obtained when the event executes.
+_Avoid_: current picker choice, runtime value, normalized value
+
+**Shop Goods Placeholder**:
+A saved structural entry in a Shop Processing goods list with no purchasable item identity. It may appear alongside real goods and repeat while remaining separate from Project Data References.
+_Avoid_: zero-ID item, None item, missing merchandise reference
+
 **Raw DSL Command**:
-A DSL Command that carries raw RPG Maker MV command fields directly as an escape hatch.
+A DSL Command that directly carries one Raw Event Command's code, indentation, and parameters as an escape hatch.
 _Avoid_: Raw Event Command, ordinary DSL helper
 
 **Raw Event Command**:
@@ -104,6 +172,10 @@ _Avoid_: Common Event, Common Event Definition, Common Event command
 A DSL Command that runs an RPG Maker MV plugin command.
 _Avoid_: Plugin Command Input, raw command string, runtime plugin registry
 
+**Plugin Command Line**:
+The complete text of an RPG Maker MV plugin command, including whitespace that affects the command and arguments received by a plugin.
+_Avoid_: normalized command text, argument list, Raw DSL Command
+
 **Plugin Command Registry**:
 An optional lint-time catalog of known plugin commands and parameter shapes.
 _Avoid_: runtime dependency, hard validation source
@@ -113,11 +185,11 @@ A schema-first DSL object that carries JavaScript code for any RPG Maker MV even
 _Avoid_: raw script string, implicit enablement
 
 **Script Command Gate**:
-The Workspace Config setting that must allow Script Input before it can compile to Raw Event Commands that execute JavaScript.
+The Workspace Config permission required to compile recognized native JavaScript-bearing inputs, whether expressed as Script Input or carried by a Raw DSL Command. It does not determine what arbitrary plugin commands or unknown command payloads execute.
 _Avoid_: Script Command Enablement, per-node reason gate, implicit script support
 
 **Project Data Reference**:
-A DSL reference value from an Event Definition to an existing RPG Maker MV project data entry.
+A DSL reference value from an Event Definition that identifies an RPG Maker MV project data entry or an addressable System Variable Slot or System Switch Slot. Disabled Page Condition Slots and disabled actor or switch Battle Page Condition Slots may retain an explicit saved ID without a corresponding target.
 _Avoid_: project reference, raw ID, definition builder
 
 **Project Data Reference Scope**:
@@ -133,24 +205,40 @@ A Project Data Reference that identifies RPG Maker MV data by numeric ID without
 _Avoid_: raw numeric ID, implicit ID
 
 **Asset Reference**:
-A DSL reference value to an RPG Maker MV asset namespace and filename stem that does not resolve through Project Data References.
+A DSL reference value to an RPG Maker MV asset namespace and non-empty filename stem that does not resolve through Project Data References.
 _Avoid_: Project Data Reference, raw asset string, scanned asset entry
 
 **Asset Category Helper**:
 A category-specific helper for creating an Asset Reference with an explicit RPG Maker MV asset namespace.
 _Avoid_: generic assetRef, imgRef, per-folder helper, Project Data Reference helper
 
+**Event Asset Use**:
+An occurrence of a named RPG Maker MV asset in supported event saved state, or reached from an event operation through selected standard project data relationships. Its origin is the defining event and saved field or event-local dependency, independently of filename sharing, inactive configuration or the number of callers of that event.
+_Avoid_: unique asset file, Asset Reference, guaranteed runtime load
+
+**Asset Dependency Chain**:
+The ordered standard project data relationships connecting an operation in the defining event to an indirect Event Asset Use, identifying the intervening entries and asset-bearing field. The chain identifies the local dependency and does not guarantee execution.
+_Avoid_: whole-database asset scan, Project Data Reference, asset ownership
+
+**Asset Check Exception**:
+An explicit Workspace policy for a specific asset namespace and original name that permits eligible file-check findings to remain nonblocking while retaining each affected Event Asset Use and the stated reason.
+_Avoid_: ignored asset, successful file check, global validation bypass
+
 **Runtime Selector**:
-A schema-first DSL value that selects a runtime RPG Maker MV object or slot for an event command, such as the player, current event, troop enemy index, party actor target, vehicle, or picture slot, without resolving through Project Data References.
+A schema-first DSL value that selects an RPG Maker MV object, slot, or equipment candidate using execution-time context. A selector is not itself a Project Data Reference, but a fixed project target within it may be identified by one.
 _Avoid_: Project Data Reference, database entry reference, Asset Reference
 
 **Event Data Store**:
-The RPG Maker MV project data files that contain event entries, including `Map###.json` and `CommonEvents.json`.
+The RPG Maker MV project data files that contain event entries, including `Map###.json`, `CommonEvents.json`, and the battle event pages in `Troops.json`.
 _Avoid_: database, runtime state
 
 **Project Root**:
 The root directory of an RPG Maker MV project, identified by a `.rpgproject` file.
 _Avoid_: workspace root, package root, inferred project directory
+
+**Project Root Binding**:
+The association between a Workspace's captured project data state and the Project Root it belongs to. Generated Project Data and Interrupted Push recovery retain that target association.
+_Avoid_: event target mapping, implicit current project, portable pending push
 
 **Workspace**:
 The user-owned directory that contains Event Definition source files and the local tool configuration for a target RPG Maker MV project.
@@ -225,7 +313,7 @@ A DSL-owned data entry present in a Project Data Snapshot but absent from Compil
 _Avoid_: compile deletion, project drift, unmanaged entry
 
 **Destructive Change**:
-A Push change that removes a Snapshot-Only Owned Entry from a Project Root.
+A Push change that removes a Snapshot-Only Owned Entry from a Project Root or performs a Troop Event Reset.
 _Avoid_: force push, project drift, compile deletion
 
 **Destructive Push**:
@@ -233,7 +321,7 @@ A Push that explicitly allows Destructive Changes while still requiring Generate
 _Avoid_: force push, overwrite, unsafe push
 
 **Entry Removal**:
-The generated representation of a Destructive Change for one DSL-owned data entry.
+The generated representation of removing one Snapshot-Only Owned Entry while preserving the identities of other project data entries.
 _Avoid_: array compaction, entry replacement, project drift
 
 **Diff**:
@@ -257,12 +345,20 @@ The set of RPG Maker MV data domains for which Event DSL is the authoritative so
 _Avoid_: managed project data, partially-owned data, editor-owned event data
 
 **Variable Definition**:
-A DSL-authored RPG Maker MV system variable entry that is part of DSL-Owned Project Data.
+A DSL-authored declaration of a named System Variable Slot that is part of DSL-Owned Project Data.
 _Avoid_: variable reference, runtime variable value, bare numeric ID
 
 **Switch Definition**:
-A DSL-authored RPG Maker MV system switch entry that is part of DSL-Owned Project Data.
+A DSL-authored declaration of a named System Switch Slot that is part of DSL-Owned Project Data.
 _Avoid_: switch reference, runtime switch value, bare numeric ID
+
+**System Variable Slot**:
+A positive-ID RPG Maker MV variable position within the system's variable capacity, whether or not it has a display name.
+_Avoid_: Variable Definition, missing variable, runtime variable value
+
+**System Switch Slot**:
+A positive-ID RPG Maker MV switch position within the system's switch capacity, whether or not it has a display name.
+_Avoid_: Switch Definition, missing switch, runtime switch value
 
 **Entry Identity**:
 The data-domain-scoped RPG Maker MV ID that identifies one DSL-owned data entry.
@@ -284,6 +380,10 @@ _Avoid_: event data store, project snapshot, workspace data state
 The workspace operation that turns a Project Data Snapshot into compilable DSL declarations with explicit Entry Identities, using raw escape hatches when needed.
 _Avoid_: scaffold, clone, pull, compile, perfect round-trip
 
+**Event Semantic Round Trip**:
+Preservation of the saved structure and values of supported RPG Maker MV event data through DSL Decompilation, compilation, and synchronization, allowing only explicitly agreed representation normalization.
+_Avoid_: equivalent runtime behavior, byte-for-byte round-trip, perfect round-trip, command helper coverage
+
 **Decompiled Source**:
 DSL source generated by DSL Decompilation as a non-destructive starting point for taking over DSL-Owned Project Data.
 _Avoid_: handwritten DSL, generated project data, overwrite output
@@ -293,19 +393,23 @@ Workspace metadata that records synchronization file hashes, Generated Freshness
 _Avoid_: generated output, project data file, lockfile, entry identity binding
 
 **Compile Baseline**:
-The current set of inputs that Compile Output depends on, including DSL source inputs, Workspace Config, and the Project Data Snapshot.
+The current set of compilation inputs that Compile Output belongs to, including DSL source inputs and their validation dependencies, Workspace Config, the Project Data Snapshot, the Project Root Binding, and the Compile Contract Version. Asset-check policy belongs to these inputs; live asset-file conditions do not.
 _Avoid_: source hash, snapshot freshness, generated state
 
+**Compile Contract Version**:
+The tool-maintained version of the Event DSL compilation contract that determines generated event data, validation rules, and Compiler Defaults. Generated Project Data belongs to the contract under which it was compiled.
+_Avoid_: package version, RPG Maker engine version, source version
+
 **Generated Freshness**:
-The condition that Generated Project Data was produced from the current Compile Baseline.
-_Avoid_: project drift, entry identity, source ownership
+The condition that Generated Project Data was produced from the current Compile Baseline, independent of whether live asset files currently satisfy the checking policy.
+_Avoid_: project drift, entry identity, source ownership, current asset availability
 
 **Compile Check**:
 A read-only Compile mode that validates discovered DSL source and the Staged Data Graph without writing Generated Project Data.
 _Avoid_: standalone lint, dry-run push, source-only check
 
 **Project-Aware Validation**:
-A validation pass that checks DSL-owned declarations and references against the Staged Data Graph and Project Data Snapshot.
+A validation pass that checks DSL-owned declarations and references against the Staged Data Graph and Project Data Snapshot, and selected Event Asset Uses against the bound Project Root. Standard-data relationships and live asset-file conditions remain distinct inputs.
 _Avoid_: type checking only, best-effort apply
 
 **MV-Style JSON Writer**:
@@ -313,7 +417,7 @@ A stable JSON writer that approximates RPG Maker MV editor output for event data
 _Avoid_: generic pretty print, whitespace-preserving text patch
 
 **Compiler Default**:
-A documented built-in value used to complete MV runtime-required output fields omitted from the TypeScript input schema.
+A documented built-in value or saved shape used when an optional Event DSL field is omitted during authoring. It does not repair missing fields in captured project data.
 _Avoid_: config default, inherited old value
 
 ## Relationships
@@ -334,8 +438,19 @@ _Avoid_: config default, inherited old value
 - Installation guidance for the **Agent Event Authoring Skill** belongs in the project README, not inside the runtime skill instructions.
 - An **Event Definition** contains command lists made of **DSL Commands**.
 - A **Named Event Export** is the module boundary for collecting **Event Definitions**.
-- A **Map Event** contains pages whose command lists are made of **Raw Event Commands**.
+- A **Map Event** contains an ordered list of **Map Event Pages** whose command lists are made of **Raw Event Commands**.
+- A **Map Event Page** configures **Autonomous Movement**, including a saved **Movement Route** regardless of the selected movement type.
+- **Autonomous Movement** and Set Movement Route share **Movement Routes**; the target of Set Movement Route is separate from the route itself.
 - A **Common Event** contains a command list made of **Raw Event Commands**.
+- A **Troop Event** is identified by its **Troop Event Identity** and contains the complete ordered list of **Battle Event Pages** for that troop.
+- A **Battle Event Page** uses **Battle Page Condition Slots** and retains disabled condition settings; the first eligible page in the ordered list is selected when battle events are checked.
+- A **Troop Event** owns its event pages; the containing troop's name and members remain external project data.
+- The **Troop Event** Data Domain is owned as a whole, and every authored **Troop Event Identity** must refer to an existing troop in the **Project Data Snapshot**, including troops with empty names or no members.
+- A **Battle Event Page** has a **Battle Event Span** and a required command list that may be an **Empty Command List**.
+- **Battle Event Pages** have no independent Entry Identities; removing a page preserves the order of the remaining pages.
+- A **Troop Event Reset** replaces the complete event with a **Blank Troop Event**, retaining the containing troop and its external data.
+- A **Troop Event Reset** is a **Destructive Change** whether requested by an explicit blank definition or by omitting the definition; edits that leave a nonblank event are ordinary content changes.
+- Disabled enemy **Battle Page Condition Slots** may retain a nonnegative member position that no longer exists; enabled enemy conditions require a valid position and valid Enemy references throughout that troop's members.
 - Event pages, map events, and common events use the **Schema-First DSL** style with named object fields.
 - An **Empty Command List** is valid for event pages and common events.
 - A map event **Event Page List** must contain at least one page.
@@ -354,22 +469,31 @@ _Avoid_: config default, inherited old value
 - A **Common Event** may be defined by an **Event Definition** and may be run by a **Common Event DSL Command**.
 - A **Plugin DSL Command** does not require a **Plugin Command Registry**.
 - A **Plugin Command Registry** may validate a **Plugin DSL Command** at lint time.
-- **Plugin DSL Command** uses named fields for the command and its arguments.
+- A **Plugin DSL Command** carries one complete **Plugin Command Line**, preserving its whitespace.
+- A **Plugin Command Registry** may interpret a **Plugin Command Line** for linting but does not rewrite it.
 - **Script Input** uses a `code` field for JavaScript-bearing command inputs and requires explicit config enablement.
 - **Script Input** requires the **Script Command Gate** before compilation.
 - A JavaScript-bearing command input may belong to a **Supported Event Command** and still be blocked by the **Script Command Gate**.
-- The **Script Command Gate** applies to **Script Input**, not to **Raw DSL Commands**.
+- The **Script Command Gate** applies to **Script Input** and recognizable native JavaScript-bearing inputs carried by **Raw DSL Commands**.
 - **Project Data References** use `xxxRef` helper names to distinguish references from definitions.
 - **External Project Data References** are resolved from **Project Data Snapshots** and do not imply **DSL-Owned Project Data**.
 - **Explicit ID References** are allowed, while bare numeric IDs are not valid DSL references.
 - **Asset References** are separate from **Project Data References** and do not resolve to RPG Maker MV data entry IDs.
 - **Asset References** use **Asset Category Helpers** rather than a generic asset helper.
-- **Runtime Selectors** do not use **Project Data Reference Scopes** and do not resolve through the **Staged Data Graph**.
+- A native command parameter may explicitly select no asset where that parameter supports it; this absence is distinct from an **Asset Reference**, a missing project target, and an omitted field's **Compiler Default**.
+- Selecting no asset does not discard the command's independently saved settings or imply a universal stop or erase operation.
+- **Runtime Selectors** do not themselves resolve as **Project Data References**; any **Project Data References** they contain still resolve through the **Staged Data Graph**.
+- A **Runtime Selector** describes a runtime selection without guaranteeing that the selected object exists when the command executes.
+- An equipment **Runtime Selector** identifies a candidate according to the actor's equipment slot at execution time, without fixing its database category from the actor's initial state or guaranteeing successful equipment changes.
+- Each **Supported Event Command** accepts only the **Runtime Selector** forms supported by that command's native behavior.
 - Name-based **Project Data References** must resolve to exactly one visible entry in the **Staged Data Graph**.
 - Name-based references to **DSL-Owned Project Data** domains resolve against DSL-owned entries in the **Staged Data Graph**, not by falling back to the **Project Data Snapshot**.
 - Name-based **External Project Data References** resolve against the **Standard Project Data Snapshot**.
-- **Explicit ID References** must resolve to an existing visible entry in the same reference scope as name-based **Project Data References**.
-- **Raw DSL Commands** are not semantically validated for embedded **Project Data References**.
+- **Explicit ID References** must identify an existing target in the corresponding **Project Data Reference Scope**, except for explicit saved IDs in disabled **Page Condition Slots** and disabled actor or switch **Battle Page Condition Slots**.
+- An **Explicit ID Reference** may identify an unnamed **System Variable Slot** or **System Switch Slot** without a corresponding named definition; the slot must remain addressable in **Generated Project Data**.
+- Disabled **Page Condition Slots** and disabled actor or switch **Battle Page Condition Slots** may retain an explicit saved ID without an existing target; name-based references still require unique resolution.
+- A saved **Movement Route** requires reference validation and the **Script Command Gate** even when its **Map Event Page** does not select custom **Autonomous Movement**.
+- Recognizable native parameters and **Project Data References** carried by **Raw DSL Commands** follow the same validation rules as formal commands; unknown command payloads are not interpreted as references.
 - The **Staged Data Graph** resolves names used by **Project Data References** to RPG Maker MV IDs.
 - A **Project Root** must be configured explicitly and must contain a `.rpgproject` file.
 - A **Workspace** contains the local configuration that resolves a **Project Root**.
@@ -400,7 +524,7 @@ _Avoid_: config default, inherited old value
 - A **Project Data Snapshot** may store whole RPG Maker MV data files even when **DSL-Owned Project Data** covers only selected **Data Domains** within those files.
 - **Project Drift** is a mismatch between a **Project Data Snapshot** and the current **Project Root** state.
 - An **Interrupted Push** is not ordinary **Project Drift** because the mismatch may have been produced by an incomplete **Push**.
-- **Push** checks **Project Drift** for **Affected Project Data Files**.
+- **Push** checks **Project Drift** for the complete **Standard Project Data Snapshot** file set, including when no **Affected Project Data File** would be written; checking an external dependency does not make it an **Affected Project Data File** or expand **DSL-Owned Project Data**.
 - **Affected Project Data Files** are derived from differences between **Generated Project Data** and the **Project Data Snapshot**.
 - **Push** writes only **Affected Project Data Files**.
 - **Push** stages **Affected Project Data Files** before replacing Project Root files.
@@ -415,13 +539,13 @@ _Avoid_: config default, inherited old value
 - A **Snapshot-Only Owned Entry** appears when **Compile Output** omits an entry that exists in the **Project Data Snapshot** for a **DSL-Owned Project Data** domain.
 - A **Destructive Change** is only applied by a **Destructive Push**.
 - A **Destructive Push** does not bypass **Generated Freshness** or **Project Drift** checks.
-- **Entry Removal** for event arrays preserves RPG Maker MV IDs by leaving null holes instead of compacting arrays.
+- **Entry Removal** for Map Event and Common Event ID arrays preserves RPG Maker MV IDs by leaving null holes instead of compacting arrays; this does not describe **Battle Event Pages** or a **Troop Event Reset**.
 - **Entry Removal** for variable and switch arrays preserves RPG Maker MV IDs by writing empty strings instead of compacting arrays.
 - **Entry Removal** uses explicit hole values in dense RPG Maker MV ID arrays.
 - **Generated Project Data** does not use sparse arrays for RPG Maker MV ID arrays.
 - A **Variable Definition** represents a `System.json` variable name entry, not a runtime variable value.
 - A **Switch Definition** represents a `System.json` switch name entry, not a runtime switch value.
-- Empty variable and switch name slots are ID-preserving holes, not **Variable Definitions** or **Switch Definitions**.
+- Empty variable and switch names leave unnamed **System Variable Slots** and **System Switch Slots**; those slots remain addressable but are not **Variable Definitions** or **Switch Definitions**.
 - **Diff** compares **Generated Project Data** with a **Project Data Snapshot**.
 - A **Diff** is a **Structured Diff Report**.
 - A **Structured Diff Report** may include **Reconciliation Hints** for raw MV changes that can be represented in DSL.
@@ -446,27 +570,31 @@ _Avoid_: config default, inherited old value
 - **Decompiled Source** is written under the Workspace source root.
 - A **Sync Manifest** records file hashes for **Generated Project Data** and **Project Data Snapshots**.
 - A **Sync Manifest** does not record **Entry Identity** bindings.
-- A **Compile Baseline** includes the current DSL source inputs, **Workspace Config**, and **Project Data Snapshot**.
+- A **Compile Baseline** includes the current DSL source inputs and their validation dependencies, **Workspace Config**, **Project Data Snapshot**, **Project Root Binding**, and **Compile Contract Version**.
+- **Asset Check Exception** policy belongs to the **Compile Baseline**; live asset-file conditions do not.
 - A **Sync Manifest** may record **Compile Baseline** hashes to check **Generated Freshness**.
+- **Generated Freshness** does not establish that current **Event Asset Uses** satisfy the asset-file policy.
 - **Push** requires **Generated Freshness**.
+- **Push** checks current asset-file conditions for the event state in **Generated Project Data** and the corresponding **Project Data Snapshot**.
 - **Diff** requires **Generated Freshness**.
+- **Diff** does not check current asset-file conditions, and **Clone**, **Pull**, and **DSL Decompilation** do not add an asset-file gate.
 - **Compile** with check-only behavior is read-only and does not create **Generated Freshness**.
 - The **Project Root** path in a **Workspace Config** is resolved relative to the **Workspace Root**.
 - The **Workspace Config** uses `projectRoot` for the MV project directory.
 - A **Definition Source** is a TypeScript source file selected by **Definition Source Discovery**.
 - **Definition Source Discovery** is the workspace-level source selection model.
 - **Definition Source Discovery** selects DSL declaration files from the Workspace source root using include and exclude patterns.
-- **Decompiled Source** participates in **Definition Source Discovery** unless moved outside the Workspace source root.
+- At publication, all **Decompiled Source** must participate in the Workspace's configured **Definition Source Discovery**.
 - **Entry Identity** determines the target project data entry for a DSL-owned definition.
 - Non-`init` commands require the current directory to be a **Workspace Root**.
 - **Compile** with check-only behavior is the read-only validation path.
 - **Compile** with check-only behavior does not write **Generated Project Data** or update the **Sync Manifest**.
 - **Project-Aware Validation** runs before **Generated Project Data** is written.
 - **Diff** emits a **Structured Diff Report** grouped by **Data Domain** and **Entry Identity**.
-- Changed `Map###.json`, `CommonEvents.json`, and `System.json` files are written with an **MV-Style JSON Writer** during **Push**.
+- Changed `Map###.json`, `CommonEvents.json`, `Troops.json`, and `System.json` files are written with an **MV-Style JSON Writer** during **Push**.
 - **Compiler Defaults** are built in, documented, and overridable through explicit DSL fields.
 - A map target comes from **Map Event Identity**, not from the file name or CLI target arguments.
-- Map event coordinates must be within map bounds; coordinate occupancy is a validation warning, not an error.
+- A **Map Event**'s initial location must be within its map bounds; coordinate occupancy is a validation warning, not an error. This location is distinct from a **Native Saved Value** used by a command to select a position during execution.
 - Script commands require the **Script Command Gate**.
 
 ## Example Dialogue
@@ -528,12 +656,20 @@ _Avoid_: config default, inherited old value
 - "Snapshot fallback" was rejected for name-based references to **DSL-Owned Project Data** domains; unresolved DSL-owned names fail instead of resolving to snapshot entries.
 - "Plugin command registry" was resolved as optional lint-time metadata, not a runtime requirement.
 - "Plugin Command Input" was rejected because the value is a **DSL Command**; the canonical term is **Plugin DSL Command**.
+- "Separate command and arguments" was replaced by a complete **Plugin Command Line** so significant whitespace remains explicit authored state.
+- "Runtime Selector cannot contain a project reference" was rejected: the selection itself is distinct from a **Project Data Reference**, while a fixed project target inside it may use one.
+- "None is an empty-named asset" was rejected: native absence is a choice of the command parameter, separate from an **Asset Reference**.
+- "Change Equipment always identifies a fixed weapon or armor" was rejected because the equipment slot's category can depend on execution-time actor state.
+- "Event Definition location determines all runtime targets" was rejected because **Common Events** inherit invocation context and native commands can change runtime context.
 - "Script input" was resolved as schema-first object form with a `code` field.
 - "Script command only" was rejected for the **Script Command Gate**; all JavaScript-bearing **Script Inputs** are gated.
+- "Raw DSL Command bypasses the Script Command Gate" was rejected: recognizable native JavaScript-bearing inputs require the same compile permission regardless of their DSL representation; unknown plugin behavior is outside that permission's semantic coverage.
+- "Raw DSL Command bypasses native reference validation" was rejected: recognized native inputs retain their normal validation rules, while unknown command parameters remain uninterpreted.
 - "Command node API" was resolved as function-style helpers with object inputs, not positional builders.
 - "Create ID allocation" was rejected for DSL-owned entries; **Entry Identity** uses explicit RPG Maker MV IDs.
 - "Create and replace name matching" was rejected because **Display Name** is not **Entry Identity**.
-- "Map coordinates" were resolved as bounds-checked errors with coordinate occupancy warnings.
+- "Map coordinates" in the initial-location rule means a **Map Event**'s own placement, not every coordinate stored by an event command.
+- "Current picker choices" were distinguished from **Native Saved Values**: changes to an asset or map can change the available choices while the event retains its earlier setting.
 - "Script command enablement" was rejected as unclear; the canonical term is **Script Command Gate**.
 - "Script command" was resolved as config-gated rather than reason-gated at the command level.
 - "Local data layer" was rejected as too implementation-shaped; **Workspace Data State** is the canonical umbrella term.
@@ -551,6 +687,7 @@ _Avoid_: config default, inherited old value
 - "Scaffold" was rejected because it sounds like workspace initialization; **DSL Decompilation** is the canonical term for generating DSL declarations from a **Project Data Snapshot**.
 - "Overwrite decompilation" was rejected; **Decompiled Source** must be written non-destructively.
 - "System variables" and "system switches" were split into **Variable Definition** and **Switch Definition** as DSL-authored data domains.
+- "Unnamed system slot is a missing target" was rejected: an unnamed **System Variable Slot** or **System Switch Slot** remains addressable by explicit ID while it exists.
 - "Variable initial value" and "switch initial value" were rejected for **Variable Definition** and **Switch Definition** because RPG Maker MV stores runtime values separately from `System.json` name entries.
 - "Manifest-only binding" was rejected for DSL-owned data entries; **Entry Identity** is expressed as a data-domain-scoped RPG Maker MV ID.
 - "Entry identity binding" was rejected as **Sync Manifest** responsibility; **Entry Identity** belongs in DSL source.
@@ -563,3 +700,5 @@ _Avoid_: config default, inherited old value
 - "All TypeScript files" was rejected for **Definition Source Discovery** because ordinary helper modules are not necessarily **Definition Sources**.
 - "Source freshness" was rejected as too narrow; **Generated Freshness** is based on the full **Compile Baseline**, not only DSL source inputs.
 - "Dirty state" was rejected for incomplete Project Root writes; **Interrupted Push** distinguishes tool-created incomplete synchronization from ordinary **Project Drift**.
+- "Generated data is fresh, so its assets are available" was rejected: **Generated Freshness** and current asset-file conditions are separate requirements.
+- "Recovery completed, so assets passed" was rejected: **Interrupted Push** recovery can record completed project-data writes before current asset-file checks succeed.

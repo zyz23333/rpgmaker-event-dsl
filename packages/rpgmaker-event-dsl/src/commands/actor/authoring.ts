@@ -1,6 +1,7 @@
 import type {
-  ActorCommandTarget,
   ActorParameter,
+  ActorResourceOperand,
+  ActorResourceTarget,
   ChangeActorImagesDslCommand,
   ChangeClassDslCommand,
   ChangeEquipmentDslCommand,
@@ -17,37 +18,36 @@ import type {
   ChangeTpDslCommand,
   ChangeVehicleImageDslCommand,
   ImageAssetReference,
-  OperateValueOperand,
+  NameInputProcessingDslCommand,
   RecoverAllDslCommand,
   ReferenceValue,
   VehicleTarget,
 } from "../../domain/types.js";
+import { assertActorPresentationInput } from "./presentation-validation.js";
+import { assertActorResourceInput } from "./validation.js";
 
 export function changeHp(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
-  allowDeath?: boolean;
+  value: ActorResourceOperand;
+  allowDeath: boolean;
 }): ChangeHpDslCommand {
-  const node: ChangeHpDslCommand = {
+  assertActorResourceInput("changeHp", input, "changeHp");
+  return {
     kind: "changeHp",
     target: input.target,
     operation: input.operation,
     value: input.value,
+    allowDeath: input.allowDeath,
   };
-
-  if (input.allowDeath !== undefined) {
-    node.allowDeath = input.allowDeath;
-  }
-
-  return node;
 }
 
 export function changeMp(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
 }): ChangeMpDslCommand {
+  assertActorResourceInput("changeMp", input, "changeMp");
   return {
     kind: "changeMp",
     target: input.target,
@@ -57,10 +57,11 @@ export function changeMp(input: {
 }
 
 export function changeState(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "add" | "remove";
   state: ReferenceValue<"state">;
 }): ChangeStateDslCommand {
+  assertActorResourceInput("changeState", input, "changeState");
   return {
     kind: "changeState",
     target: input.target,
@@ -69,7 +70,8 @@ export function changeState(input: {
   };
 }
 
-export function recoverAll(input: { target: ActorCommandTarget }): RecoverAllDslCommand {
+export function recoverAll(input: { target: ActorResourceTarget }): RecoverAllDslCommand {
+  assertActorResourceInput("recoverAll", input, "recoverAll");
   return {
     kind: "recoverAll",
     target: input.target,
@@ -77,51 +79,44 @@ export function recoverAll(input: { target: ActorCommandTarget }): RecoverAllDsl
 }
 
 export function changeExp(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
-  showLevelUp?: boolean;
+  value: ActorResourceOperand;
+  showLevelUp: boolean;
 }): ChangeExpDslCommand {
-  const node: ChangeExpDslCommand = {
+  assertActorResourceInput("changeExp", input, "changeExp");
+  return {
     kind: "changeExp",
     target: input.target,
     operation: input.operation,
     value: input.value,
+    showLevelUp: input.showLevelUp,
   };
-
-  if (input.showLevelUp !== undefined) {
-    node.showLevelUp = input.showLevelUp;
-  }
-
-  return node;
 }
 
 export function changeLevel(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
-  showLevelUp?: boolean;
+  value: ActorResourceOperand;
+  showLevelUp: boolean;
 }): ChangeLevelDslCommand {
-  const node: ChangeLevelDslCommand = {
+  assertActorResourceInput("changeLevel", input, "changeLevel");
+  return {
     kind: "changeLevel",
     target: input.target,
     operation: input.operation,
     value: input.value,
+    showLevelUp: input.showLevelUp,
   };
-
-  if (input.showLevelUp !== undefined) {
-    node.showLevelUp = input.showLevelUp;
-  }
-
-  return node;
 }
 
 export function changeParameter(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   parameter: ActorParameter;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
 }): ChangeParameterDslCommand {
+  assertActorResourceInput("changeParameter", input, "changeParameter");
   return {
     kind: "changeParameter",
     target: input.target,
@@ -132,10 +127,11 @@ export function changeParameter(input: {
 }
 
 export function changeSkill(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "learn" | "forget";
   skill: ReferenceValue<"skill">;
 }): ChangeSkillDslCommand {
+  assertActorResourceInput("changeSkill", input, "changeSkill");
   return {
     kind: "changeSkill",
     target: input.target,
@@ -146,14 +142,15 @@ export function changeSkill(input: {
 
 export function changeEquipment(input: {
   actor: ReferenceValue<"actor">;
-  equipmentTypeId: number;
-  itemId: number | null;
+  slotIndex: number;
+  equipment: ChangeEquipmentDslCommand["equipment"];
 }): ChangeEquipmentDslCommand {
+  assertActorResourceInput("changeEquipment", input, "changeEquipment");
   return {
     kind: "changeEquipment",
     actor: input.actor,
-    equipmentTypeId: input.equipmentTypeId,
-    itemId: input.itemId,
+    slotIndex: input.slotIndex,
+    equipment: input.equipment,
   };
 }
 
@@ -161,6 +158,7 @@ export function changeName(input: {
   actor: ReferenceValue<"actor">;
   name: string;
 }): ChangeNameDslCommand {
+  assertActorPresentationInput("changeName", input, "changeName");
   return {
     kind: "changeName",
     actor: input.actor,
@@ -171,27 +169,24 @@ export function changeName(input: {
 export function changeClass(input: {
   actor: ReferenceValue<"actor">;
   class: ReferenceValue<"class">;
-  keepExp?: boolean;
+  keepExp: boolean;
 }): ChangeClassDslCommand {
-  const node: ChangeClassDslCommand = {
+  assertActorResourceInput("changeClass", input, "changeClass");
+  return {
     kind: "changeClass",
     actor: input.actor,
     class: input.class,
+    keepExp: input.keepExp,
   };
-
-  if (input.keepExp !== undefined) {
-    node.keepExp = input.keepExp;
-  }
-
-  return node;
 }
 
 export function changeActorImages(input: {
   actor: ReferenceValue<"actor">;
-  character: { image: ImageAssetReference; index: number };
-  face: { image: ImageAssetReference; index: number };
-  battler: ImageAssetReference;
+  character: { image: ImageAssetReference | null; index: number };
+  face: { image: ImageAssetReference | null; index: number };
+  battler: ImageAssetReference | null;
 }): ChangeActorImagesDslCommand {
+  assertActorPresentationInput("changeActorImages", input, "changeActorImages");
   return {
     kind: "changeActorImages",
     actor: input.actor,
@@ -203,9 +198,10 @@ export function changeActorImages(input: {
 
 export function changeVehicleImage(input: {
   vehicle: VehicleTarget;
-  image: ImageAssetReference;
+  image: ImageAssetReference | null;
   index: number;
 }): ChangeVehicleImageDslCommand {
+  assertActorPresentationInput("changeVehicleImage", input, "changeVehicleImage");
   return {
     kind: "changeVehicleImage",
     vehicle: input.vehicle,
@@ -218,6 +214,7 @@ export function changeNickname(input: {
   actor: ReferenceValue<"actor">;
   nickname: string;
 }): ChangeNicknameDslCommand {
+  assertActorPresentationInput("changeNickname", input, "changeNickname");
   return {
     kind: "changeNickname",
     actor: input.actor,
@@ -229,6 +226,7 @@ export function changeProfile(input: {
   actor: ReferenceValue<"actor">;
   profile: string;
 }): ChangeProfileDslCommand {
+  assertActorPresentationInput("changeProfile", input, "changeProfile");
   return {
     kind: "changeProfile",
     actor: input.actor,
@@ -237,14 +235,23 @@ export function changeProfile(input: {
 }
 
 export function changeTp(input: {
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
 }): ChangeTpDslCommand {
+  assertActorResourceInput("changeTp", input, "changeTp");
   return {
     kind: "changeTp",
     target: input.target,
     operation: input.operation,
     value: input.value,
   };
+}
+
+export function nameInputProcessing(input: {
+  actor: ReferenceValue<"actor">;
+  maxCharacters: number;
+}): NameInputProcessingDslCommand {
+  assertActorPresentationInput("nameInputProcessing", input, "nameInputProcessing");
+  return { kind: "nameInputProcessing", actor: input.actor, maxCharacters: input.maxCharacters };
 }

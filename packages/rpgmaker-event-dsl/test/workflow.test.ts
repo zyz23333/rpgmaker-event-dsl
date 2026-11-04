@@ -1,3 +1,4 @@
+import { blankEvent, blankPage } from "./support/map-event-fixtures.js";
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
@@ -19,6 +20,7 @@ import {
   readSyncManifest,
 } from "../src/workspace/state.js";
 import { discoverDefinitionFiles, loadDefinitionFile } from "../src/workspace/definitions.js";
+import { writeStableJson } from "../src/project-data/writer.js";
 
 function createProjectRootFixture(workspaceRoot: string): string {
   return join(workspaceRoot, "Game");
@@ -69,7 +71,16 @@ async function writeProjectFixture(
   await writeFile(join(dataDirectory, "Classes.json"), "[]", "utf8");
   await writeFile(
     join(dataDirectory, "CommonEvents.json"),
-    JSON.stringify([null, { id: 1, name: "Common" }]),
+    JSON.stringify([
+      null,
+      {
+        id: 1,
+        name: "Snapshot Common",
+        trigger: 0,
+        switchId: 1,
+        list: [{ code: 0, indent: 0, parameters: [] }],
+      },
+    ]),
     "utf8",
   );
   await writeFile(join(dataDirectory, "Enemies.json"), "[]", "utf8");
@@ -110,7 +121,11 @@ async function writeProjectFixture(
   if (overrides?.secondMap === true) {
     await writeFile(
       join(dataDirectory, "Map002.json"),
-      JSON.stringify({ id: 2, events: [null, { id: 1, name: "Snapshot Only" }], note: "keep" }),
+      JSON.stringify({
+        id: 2,
+        events: [null, { ...blankEvent, name: "Snapshot Only" }],
+        note: "keep",
+      }),
       "utf8",
     );
   }
@@ -252,6 +267,8 @@ describe("decompile workflow", () => {
     await writeProjectFixture(projectRoot, { secondMap: true });
     await writeWorkspaceConfig(workspaceRoot);
     await writeDslPackageTypes(workspaceRoot);
+    await mkdir(join(workspaceRoot, "src"), { recursive: true });
+    await writeFile(join(workspaceRoot, "package.json"), '{"type":"module"}\n');
     await writeFile(
       join(projectRoot, "data", "Map001.json"),
       JSON.stringify({
@@ -261,11 +278,14 @@ describe("decompile workflow", () => {
           {
             id: 1,
             name: "Gate",
+            note: "",
             x: 4,
             y: 5,
             pages: [
               {
+                ...blankPage,
                 conditions: {
+                  ...blankPage.conditions,
                   switch1Id: 1,
                   switch1Valid: true,
                 },
@@ -278,7 +298,7 @@ describe("decompile workflow", () => {
                   { code: 405, indent: 0, parameters: ["Scrolling"] },
                   { code: 121, indent: 0, parameters: [1, 1, 0] },
                   { code: 122, indent: 0, parameters: [2, 2, 1, 0, 5] },
-                  { code: 250, indent: 0, parameters: [{ name: "Bell", volume: 90 }] },
+                  { code: 999, indent: 0, parameters: [{ name: "Bell", volume: 90 }] },
                   { code: 0, indent: 0, parameters: [] },
                 ],
                 trigger: 0,
@@ -339,26 +359,32 @@ describe("decompile workflow", () => {
     expect(mapSource).toContain("mapId: 1");
     expect(mapSource).toContain("id: 1");
     expect(mapSource).toContain('name: "Gate"');
-    expect(mapSource).toContain('showText({ lines: ["Hello"] })');
+    expect(mapSource).toContain(
+      'showText({ lines: ["Hello"], face: { image: null, index: 0 }, background: "window", position: "bottom" })',
+    );
     expect(mapSource).toContain("inputNumber({ variable: variableRef({ id: 2 }), digits: 4 })");
-    expect(mapSource).toContain("selectItem({ variable: variableRef({ id: 2 }), itemType: 1 })");
+    expect(mapSource).toContain(
+      'selectItem({ variable: variableRef({ id: 2 }), itemType: "regular" })',
+    );
     expect(mapSource).toContain(
       'showScrollingText({ lines: ["Scrolling"], speed: 3, noFastForward: true })',
     );
     expect(mapSource).toContain("controlSwitches({ switch: switchRef({ id: 1 }), value: true })");
     expect(mapSource).toContain(
-      'controlVariables({ variable: variableRef({ id: 2 }), operation: "add", value: 5 })',
+      'controlVariables({ variable: variableRef({ id: 2 }), operation: "add", value: { kind: "constant", value: 5 } })',
     );
     expect(mapSource).not.toContain("controlSwitch(");
     expect(mapSource).not.toContain("controlVariable(");
     expect(mapSource).toContain("rawDslCommand({");
-    expect(mapSource).toContain("code: 250");
+    expect(mapSource).toContain("code: 999");
     expect(secondMapSource).toContain("mapId: 2");
     expect(secondMapSource).toContain("id: 1");
     expect(secondMapSource).toContain('name: "Snapshot Only"');
     expect(commonEventsSource).toContain("id: 1");
     expect(commonEventsSource).toContain('trigger: "parallel"');
-    expect(commonEventsSource).toContain("callCommonEvent(commonEventRef({ id: 1 }))");
+    expect(commonEventsSource).toContain(
+      "callCommonEvent({ commonEvent: commonEventRef({ id: 1 }) })",
+    );
     expect(systemSource).toContain("switchDefinition({");
     expect(systemSource).toContain("id: 1");
     expect(systemSource).toContain('name: "Switch One"');
@@ -377,6 +403,7 @@ describe("decompile workflow", () => {
       join(workspaceRoot, "src", "decompiled", "maps", "Map001.events.ts"),
       join(workspaceRoot, "src", "decompiled", "maps", "Map002.events.ts"),
       join(workspaceRoot, "src", "decompiled", "system.dsl.ts"),
+      join(workspaceRoot, "src", "decompiled", "troop-events.events.ts"),
     ]);
 
     const declarations = (
@@ -406,7 +433,7 @@ describe("decompile workflow", () => {
     );
 
     await expect(decompileWorkspace({ workspaceRoot })).rejects.toThrow(
-      "Decompile output already exists",
+      "Decompile destination already exists",
     );
 
     await expect(
@@ -482,7 +509,7 @@ export const gate = {
     {
       conditions: {},
       trigger: "action",
-      commands: [{ kind: "commonEvent", ref: { kind: "commonEvent", name: "Alarm" } }],
+      commands: [{ kind: "commonEvent", commonEvent: { kind: "commonEvent", name: "Alarm" } }],
     },
   ],
 };
@@ -547,7 +574,7 @@ export const caller = {
     {
       conditions: {},
       trigger: "action",
-      commands: [{ kind: "commonEvent", ref: { kind: "commonEvent", name: "Shared" } }],
+      commands: [{ kind: "commonEvent", commonEvent: { kind: "commonEvent", name: "Shared" } }],
     },
   ],
 };
@@ -572,7 +599,7 @@ export const caller = {
     {
       conditions: {},
       trigger: "action",
-      commands: [{ kind: "commonEvent", ref: { kind: "commonEvent", id: 99 } }],
+      commands: [{ kind: "commonEvent", commonEvent: { kind: "commonEvent", id: 99 } }],
     },
   ],
 };
@@ -630,11 +657,14 @@ export const caller = {
     );
     const statePaths = getWorkspaceStatePaths(workspaceRoot);
     const manifestBefore = await readFile(statePaths.syncManifestPath, "utf8");
+    const stateFilesBefore = (await readdir(statePaths.workspaceStateDirectory)).sort();
 
     await compileWorkspace({ workspaceRoot, check: true });
 
     expect(await readFile(statePaths.syncManifestPath, "utf8")).toBe(manifestBefore);
+    expect((await readdir(statePaths.workspaceStateDirectory)).sort()).toEqual(stateFilesBefore);
     expect((await readdir(statePaths.workspaceStateDirectory)).sort()).toEqual([
+      "operation.lock",
       "project-data-snapshot",
       "sync-manifest.json",
     ]);
@@ -684,7 +714,7 @@ export const alarm = {
   name: "Alarm",
   trigger: "parallel",
   switch: { kind: "switch", id: 1 },
-  commands: [{ kind: "showText", lines: ["Alarm"] }],
+  commands: [{ kind: "showText", lines: ["Alarm"], face: { image: null, index: 0 }, background: "window", position: "bottom" }],
 };
 
 export const gate = {
@@ -698,7 +728,7 @@ export const gate = {
     {
       conditions: {},
       trigger: "action",
-      commands: [{ kind: "commonEvent", ref: { kind: "commonEvent", id: 2 } }],
+      commands: [{ kind: "commonEvent", commonEvent: { kind: "commonEvent", id: 2 } }],
     },
   ],
 };
@@ -796,12 +826,14 @@ export const gate = {
       "CommonEvents.json",
       "Map001.json",
       "System.json",
+      "Troops.json",
     ]);
     expect(manifest?.generatedFiles?.every((entry) => /^[0-9a-f]{64}$/u.test(entry.hash))).toBe(
       true,
     );
     expect(manifest?.compileBaseline?.hash).toMatch(/^[0-9a-f]{64}$/u);
     expect(manifest?.compileBaseline?.config).toEqual({
+      assetCheckExceptions: [],
       scriptEnabled: false,
       sourceExclude: ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"],
       sourceInclude: ["**/*.events.ts", "**/*.dsl.ts"],
@@ -1175,11 +1207,12 @@ describe("push workflow", () => {
     expect(await readFile(statePaths.syncManifestPath, "utf8")).toBe(manifestBefore);
   });
 
-  it("checks Project Drift only for affected Project Data files", async () => {
+  it("checks standard Project Drift beyond affected files while excluding plugin data", async () => {
     const workspaceRoot = await createClonedWorkspaceWithSource(buildCompleteCoverageSource());
     const projectRoot = createProjectRootFixture(workspaceRoot);
 
     await compileWorkspace({ workspaceRoot, check: false });
+    const actorsBefore = await readFile(join(projectRoot, "data", "Actors.json"));
     await writeFile(
       join(projectRoot, "data", "Actors.json"),
       JSON.stringify([null, { id: 1, name: "Edited Hero" }]),
@@ -1191,9 +1224,16 @@ describe("push workflow", () => {
       "utf8",
     );
 
+    await expect(pushWorkspace({ workspaceRoot, allowDestructive: false })).rejects.toThrow(
+      "Project Drift detected before push for Actors.json. Run pull first.",
+    );
+    await writeFile(join(projectRoot, "data", "Actors.json"), actorsBefore);
     await expect(
       pushWorkspace({ workspaceRoot, allowDestructive: false }),
     ).resolves.toBeUndefined();
+    expect(await readFile(join(projectRoot, "data", "PluginData.json"), "utf8")).toBe(
+      JSON.stringify({ edited: true }),
+    );
 
     await writeFile(
       join(workspaceRoot, "src", "events.events.ts"),
@@ -1310,6 +1350,10 @@ describe("push workflow", () => {
     await compileWorkspace({ workspaceRoot, check: false });
     await writePendingPushFixture(workspaceRoot);
     await writeFile(
+      join(projectRoot, "data", "CommonEvents.json"),
+      await readFile(join(statePaths.generatedProjectDataDirectory, "CommonEvents.json")),
+    );
+    await writeFile(
       join(projectRoot, "data", "Map001.json"),
       await readFile(join(statePaths.generatedProjectDataDirectory, "Map001.json"), "utf8"),
       "utf8",
@@ -1349,7 +1393,11 @@ describe("push workflow", () => {
     const statePaths = getWorkspaceStatePaths(workspaceRoot);
 
     await compileWorkspace({ workspaceRoot, check: false });
-    await writePendingPushFixture(workspaceRoot, ["Map001.json", "System.json"]);
+    await writePendingPushFixture(workspaceRoot, [
+      "CommonEvents.json",
+      "Map001.json",
+      "System.json",
+    ]);
     await writeFile(
       join(projectRoot, "data", "Map001.json"),
       await readFile(join(statePaths.generatedProjectDataDirectory, "Map001.json"), "utf8"),
@@ -1361,6 +1409,7 @@ describe("push workflow", () => {
       [
         "Interrupted Push cannot be recovered automatically.",
         "Restore affected Project Root files to either the pending backup state or Generated Project Data, then run push again.",
+        "- CommonEvents.json: snapshot",
         "- Map001.json: generated",
         "- System.json: missing",
       ].join("\n"),
@@ -1402,8 +1451,8 @@ async function writeDslPackageTypes(workspaceRoot: string): Promise<void> {
   await writeFile(
     join(packageRoot, "index.d.ts"),
     `export declare function actorRef(value: { id: number } | { name: string }): unknown;
-export declare function callCommonEvent(value: unknown): unknown;
-export declare function comment(lines: readonly [string, ...string[]]): unknown;
+export declare function callCommonEvent(input: { commonEvent: unknown }): unknown;
+export declare function comment(input: { lines: readonly [string, ...string[]] }): unknown;
 export declare function commonEvent(input: {
   id: number;
   name: string;
@@ -1432,6 +1481,7 @@ export declare function mapEvent(input: {
   name: string;
   x: number;
   y: number;
+  note?: string;
   pages: readonly unknown[];
 }): { kind: "mapEvent"; mapId: number; id: number; name: string; x: number; y: number; pages: readonly unknown[] };
 export declare function page(input: {
@@ -1446,18 +1496,18 @@ export declare function rawDslCommand(input: {
 }): unknown;
 export declare function selectItem(input: {
   variable: unknown;
-  itemType?: 1 | 2 | 3 | 4;
+  itemType: "regular" | "key" | "hiddenA" | "hiddenB";
 }): unknown;
 export declare function showScrollingText(input: {
   lines: readonly [string, ...string[]];
-  speed?: number;
-  noFastForward?: boolean;
+  speed: number;
+  noFastForward: boolean;
 }): unknown;
 export declare function showText(input: {
   lines: readonly [string, ...string[]];
-  face?: { image: unknown; index?: number };
-  background?: 0 | 1 | 2;
-  positionType?: 0 | 1 | 2;
+  face: { image: unknown | null; index: number };
+  background: "window" | "dim" | "transparent";
+  position: "top" | "middle" | "bottom";
 }): unknown;
 export declare function switchDefinition(input: { id: number; name: string }): { kind: "switchDefinition"; id: number; name: string };
 export declare function switchRef(value: { id: number } | { name: string }): unknown;
@@ -1470,7 +1520,7 @@ export declare function variableRef(value: { id: number } | { name: string }): u
 
 async function writePendingPushFixture(
   workspaceRoot: string,
-  affectedFiles: readonly string[] = ["Map001.json"],
+  affectedFiles: readonly string[] = ["CommonEvents.json", "Map001.json"],
 ): Promise<void> {
   const statePaths = getWorkspaceStatePaths(workspaceRoot);
   const entries = [];
@@ -1495,12 +1545,26 @@ async function writePendingPushFixture(
     });
   }
 
+  const originalManifest = (await readSyncManifest(statePaths.syncManifestPath))!;
+  function ordered(value: unknown): unknown {
+    if (Array.isArray(value)) return value.map(ordered);
+    if (value !== null && typeof value === "object")
+      return Object.fromEntries(
+        Object.entries(value)
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([key, item]) => [key, ordered(item)]),
+      );
+    return value;
+  }
   await writeFile(
     statePaths.pendingPushManifestPath,
     JSON.stringify({
+      originalManifest,
+      originalManifestHash: hashUtf8Content(writeStableJson(ordered(originalManifest))),
+      projectRootBinding: originalManifest.projectRootBinding,
       affectedFiles: entries,
       startedAt: "2026-06-30T00:00:00.000Z",
-      version: 1,
+      version: 3,
     }),
     "utf8",
   );

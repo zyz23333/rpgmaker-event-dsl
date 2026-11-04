@@ -1,8 +1,10 @@
+import { assertBattleInput } from "../commands/battle/validation.js";
+import { assertEnemyInput } from "../commands/enemy/validation.js";
 import type {
   ConditionalBranchCondition,
   DslCommand,
   EventPage,
-  MoveRouteCommand,
+  MovementRoute,
   PageConditions,
   ReferenceKind,
   ReferenceValue,
@@ -11,27 +13,195 @@ import type {
 import { isProjectDataReference } from "../domain/references.js";
 import type { ReferenceResolver, ValidationIssue } from "./types.js";
 import { captureReferenceIssue } from "./shared.js";
-import { isReferenceValue } from "./inspection.js";
+import { assertNativeSwitchCommand } from "../commands/variables/validation.js";
+import { assertControlVariablesInput } from "../commands/variables/control-variables.js";
+import { assertPictureInput } from "../commands/screen/picture-inputs.js";
+import { assertPictureReferences } from "../commands/screen/picture-references.js";
+import { assertSwitchCommandInput } from "../commands/variables/switch-inputs.js";
+import { assertNativeContextReferences } from "./native-context-references.js";
+import { resolveCommonEventCall, assertLoopCommand } from "../commands/flow/validation.js";
+import {
+  assertSetMovementRoute,
+  validateNativeMovementRouteInputs,
+} from "../commands/movement/validation.js";
+import { CommandStructureError } from "./command-structure.js";
+import { assertDslCommandList } from "./dsl-command-inputs.js";
+import {
+  assertConditionalCommand,
+  inspectConditionalReferences,
+} from "../commands/flow/conditional-validation.js";
+import { assertShowChoicesInput } from "../commands/message/choices-validation.js";
+import { assertMapAppearanceInput } from "../commands/map/validation.js";
+import {
+  assertSystemAccessInput,
+  assertWindowColorInput,
+} from "../commands/movement/access-validation.js";
+import { assertSceneCommandInput } from "../commands/system/validation.js";
+import { assertActorPresentationInput } from "../commands/actor/presentation-validation.js";
+import { assertActorResourceInput } from "../commands/actor/validation.js";
+import { assertShopInput } from "../commands/battle/shop-validation.js";
+import {
+  assertInventoryInput,
+  isInventoryCommandKind,
+} from "../commands/variables/inventory-validation.js";
+import { assertMapLocationInput } from "../commands/map/location-validation.js";
+
+import {
+  assertMapCharacterInput,
+  isMapCharacterKind,
+} from "../commands/movement/character-validation.js";
+
+import { resolveMessageVariable } from "../commands/message/validation.js";
+
+type CommandValidationOptions = { scriptEnabled: boolean; identity?: string; path?: string };
 
 export function validatePages(
   pages: readonly EventPage[],
   resolver: ReferenceResolver,
-  options: { scriptEnabled: boolean },
+  options: CommandValidationOptions,
   issues: ValidationIssue[],
 ): void {
-  for (const page of pages) {
+  for (const [pageIndex, page] of pages.entries()) {
     validateCondition(page.conditions, resolver, issues);
-    validateNodes(page.commands, resolver, options, issues);
+    validateNodes(
+      page.commands,
+      resolver,
+      { ...options, path: `pages[${pageIndex}].commands` },
+      issues,
+    );
   }
 }
 
 export function validateNodes(
   nodes: readonly DslCommand[],
   resolver: ReferenceResolver,
-  options: { scriptEnabled: boolean },
+  options: CommandValidationOptions,
   issues: ValidationIssue[],
 ): void {
-  for (const node of nodes) {
+  try {
+    assertDslCommandList(nodes, options.path ?? "commands", false);
+  } catch (error) {
+    if (error instanceof CommandStructureError)
+      issues.push(error.issue(options.identity ?? "event", "compile"));
+    else throw error;
+    return;
+  }
+  for (const [nodeIndex, node] of nodes.entries()) {
+    const nodePath = `${options.path ?? "commands"}[${nodeIndex}]`;
+    try {
+      assertMapAppearanceInput(node.kind, node, nodePath, true, resolver);
+      assertSystemAccessInput(node.kind, node, nodePath, true);
+      assertWindowColorInput(node.kind, node, nodePath, true);
+      assertSceneCommandInput(node.kind, node, nodePath);
+      assertPictureInput(node.kind, node, nodePath, true, resolver);
+      assertActorResourceInput(node.kind, node, nodePath, true, resolver);
+      assertActorPresentationInput(node.kind, node, nodePath, true, resolver);
+      if (node.kind === "shopProcessing") assertShopInput(node, nodePath, true, resolver);
+      assertSwitchCommandInput(node.kind, node, nodePath);
+    } catch (error) {
+      if (error instanceof CommandStructureError)
+        issues.push(error.issue(options.identity ?? "event", "compile"));
+      else throw error;
+      continue;
+    }
+    if (isInventoryCommandKind(node.kind)) {
+      try {
+        assertInventoryInput(node.kind, node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+      }
+      continue;
+    }
+    if (isMapCharacterKind(node.kind)) {
+      try {
+        assertMapCharacterInput(node.kind, node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
+    }
+    const childOptions = (field: string): CommandValidationOptions => ({
+      ...options,
+      path: `${nodePath}.${field}`,
+    });
+    try {
+      assertEnemyInput(node.kind, node, nodePath, true, resolver);
+    } catch (error) {
+      if (error instanceof CommandStructureError)
+        issues.push(error.issue(options.identity ?? "event", "compile"));
+      else throw error;
+      continue;
+    }
+    if (node.kind === "conditional") {
+      const identity = (options.identity ?? "event")
+        .replace(/^common event (\d+)$/u, "commonEvent:$1")
+        .replace(/^map (\d+) event (\d+)$/u, "map:$1/event:$2");
+      try {
+        assertConditionalCommand(node, nodePath);
+      } catch (error) {
+        if (error instanceof CommandStructureError) issues.push(error.issue(identity, "compile"));
+        else throw error;
+        continue;
+      }
+      issues.push(
+        ...inspectConditionalReferences(node, nodePath, resolver).map((error) =>
+          error.issue(identity, "compile"),
+        ),
+      );
+    }
+    if (
+      ["transferPlayer", "setVehicleLocation", "setEventLocation", "getLocationInfo"].includes(
+        node.kind,
+      )
+    ) {
+      try {
+        assertMapLocationInput(
+          node.kind as
+            | "transferPlayer"
+            | "setVehicleLocation"
+            | "setEventLocation"
+            | "getLocationInfo",
+          node,
+          nodePath,
+        );
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
+    }
+    if (node.kind === "loop") {
+      try {
+        assertLoopCommand(node, nodePath);
+      } catch {
+        continue;
+      }
+      validateNodes(node.body.commands, resolver, childOptions("body.commands"), issues);
+    }
+    const captureSwitchIssue = (
+      code: string,
+      field: string,
+      action: () => unknown,
+    ): number | undefined => {
+      try {
+        return action() as number | undefined;
+      } catch (error) {
+        issues.push({
+          level: "error",
+          code,
+          stage: "compile",
+          ...(options.identity === undefined ? {} : { identity: options.identity }),
+          dslPath: `${nodePath}.${field}`,
+          message: `${code} validation ${options.identity ?? "event"}.${nodePath}.${field}: ${error instanceof Error ? error.message : String(error)}`,
+        });
+        return undefined;
+      }
+    };
     if (node.kind === "script" && !options.scriptEnabled) {
       issues.push({
         level: "error",
@@ -39,73 +209,110 @@ export function validateNodes(
       });
     }
     if (node.kind === "controlSwitches") {
-      validateReferenceOrRange(node.switch, resolver, issues);
-    }
-    if (node.kind === "controlVariables") {
-      validateReferenceOrRange(node.variable, resolver, issues);
-      if (isVariableReferenceValue(node.value)) {
-        const valueRef = node.value;
-        captureReferenceIssue(() => resolver.resolveReference(valueRef), issues);
+      const value: unknown = node.value;
+      if ("from" in node.switch) {
+        const range = node.switch;
+        const from = captureSwitchIssue("MV-E121-REFERENCE", "switch.from", () =>
+          resolver.resolveReference(range.from),
+        );
+        const to = captureSwitchIssue("MV-E121-REFERENCE", "switch.to", () =>
+          resolver.resolveReference(range.to),
+        );
+        if (from !== undefined && to !== undefined && from > to)
+          captureSwitchIssue("MV-E121-RANGE", "switch", () => {
+            throw new Error(
+              `expected start <= end; received ${from}..${to}. Ranges are not reordered.`,
+            );
+          });
+      } else {
+        captureSwitchIssue("MV-E121-REFERENCE", "switch", () =>
+          resolver.resolveReference(node.switch as ReferenceValue<"switch">),
+        );
       }
-      if (typeof node.value === "object" && node.value !== null && "kind" in node.value) {
-        if (node.value.kind === "script" && !options.scriptEnabled) {
+      if (typeof value !== "boolean")
+        captureSwitchIssue("MV-E121-VALUE", "value", () => {
+          throw new Error(`expected explicit boolean; received ${String(value)}.`);
+        });
+    }
+    if (node.kind === "controlSelfSwitch") {
+      const value: unknown = node.value;
+      if (typeof value !== "boolean")
+        captureSwitchIssue("MV-E123-VALUE", "value", () => {
+          throw new Error(`expected explicit boolean; received ${String(value)}.`);
+        });
+      captureSwitchIssue("MV-E123-LETTER", "selfSwitch", () =>
+        assertNativeSwitchCommand(123, [node.selfSwitch, node.value ? 0 : 1]),
+      );
+    }
+    if (node.kind === "rawDslCommand" && (node.code === 121 || node.code === 123)) {
+      captureSwitchIssue(`MV-E${node.code}-RAW`, "parameters", () =>
+        assertNativeSwitchCommand(node.code, node.parameters, resolver),
+      );
+    }
+    if (node.kind === "rawDslCommand") {
+      try {
+        assertPictureReferences(node.code, node.parameters, resolver, { dslPath: nodePath });
+        assertNativeContextReferences(node.code, node.parameters, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else
           issues.push({
             level: "error",
-            message: "Control Variables script operands require explicit config enablement.",
+            message: `validation ${options.identity ?? "event"}.${nodePath}: ${error instanceof Error ? error.message : String(error)}`,
           });
-        }
-        if (node.value.kind === "gameData") {
-          validateControlVariablesGameDataOperand(node.value, resolver, issues);
-        }
       }
     }
-    if (node.kind === "changeItems") {
-      captureReferenceIssue(() => resolver.resolveReference(node.item), issues);
-      if (isVariableReferenceValue(node.amount)) {
-        const amountRef = node.amount;
-        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
+    if (node.kind === "controlVariables") {
+      try {
+        assertControlVariablesInput(node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
       }
-    }
-    if (node.kind === "changeWeapons") {
-      captureReferenceIssue(() => resolver.resolveReference(node.weapon), issues);
-      if (isVariableReferenceValue(node.amount)) {
-        const amountRef = node.amount;
-        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
-      }
-    }
-    if (node.kind === "changeArmors") {
-      captureReferenceIssue(() => resolver.resolveReference(node.armor), issues);
-      if (isVariableReferenceValue(node.amount)) {
-        const amountRef = node.amount;
-        captureReferenceIssue(() => resolver.resolveReference(amountRef), issues);
-      }
-    }
-    if (node.kind === "changeGold" && isVariableReferenceValue(node.value)) {
-      const valueRef = node.value;
-      captureReferenceIssue(() => resolver.resolveReference(valueRef), issues);
-    }
-    if (node.kind === "changePartyMember") {
-      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
     }
     if (node.kind === "inputNumber" || node.kind === "selectItem") {
-      captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
-    }
-    if (node.kind === "showChoices" && node.branches.length !== node.choices.length) {
-      issues.push({
-        level: "error",
-        message: "Show Choices branches must match the choice count.",
-      });
+      try {
+        resolveMessageVariable(
+          node.variable,
+          node.kind === "inputNumber" ? 103 : 104,
+          resolver,
+          `${nodePath}.variable`,
+        );
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+      }
     }
     if (node.kind === "showChoices") {
-      for (const branch of node.branches) {
-        validateNodes(branch, resolver, options, issues);
+      try {
+        assertShowChoicesInput(node, nodePath);
+      } catch {
+        continue;
       }
-      if (node.cancelBranch) {
-        validateNodes(node.cancelBranch, resolver, options, issues);
+      for (const [branchIndex, branch] of node.choices.entries()) {
+        validateNodes(
+          branch.commands,
+          resolver,
+          childOptions(`choices[${branchIndex}].commands`),
+          issues,
+        );
+      }
+      if (node.cancel?.kind === "branch") {
+        validateNodes(node.cancel.commands, resolver, childOptions("cancel.commands"), issues);
       }
     }
     if (node.kind === "commonEvent") {
-      captureReferenceIssue(() => resolver.resolveReference(node.ref), issues);
+      try {
+        resolveCommonEventCall(node, resolver, nodePath);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
+      }
     }
     if (node.kind === "transferPlayer") {
       validateMapDestination(node.destination, resolver, issues);
@@ -114,104 +321,63 @@ export function validateNodes(
       validateMapDestination(node.destination, resolver, issues);
     }
     if (node.kind === "setEventLocation") {
-      validateCharacterRuntimeSelector(node.character, "Set Event Location character", issues);
+      validateCharacterRuntimeSelector(node.target, "Set Event Location target", issues);
       validateEventLocationDestination(node.destination, resolver, issues);
     }
     if (node.kind === "setMovementRoute") {
+      try {
+        assertSetMovementRoute(node, nodePath);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        continue;
+      }
       validateCharacterRuntimeSelector(node.target, "Set Movement Route target", issues);
-      validateMoveRouteCommands(node.route, resolver, options, issues);
+      validateMoveRouteCommands(node.route, resolver, childOptions("route"), issues);
     }
-    if (node.kind === "showAnimation") {
-      validateCharacterRuntimeSelector(node.target, "Show Animation target", issues);
-      captureReferenceIssue(() => resolver.resolveReference(node.animation), issues);
-    }
-    if (node.kind === "showBalloonIcon") {
-      validateCharacterRuntimeSelector(node.target, "Show Balloon Icon target", issues);
+    if (node.kind === "rawDslCommand" && node.code === 205) {
+      try {
+        validateNativeMovementRouteInputs(
+          node.parameters?.[1],
+          resolver,
+          {
+            ...options,
+            dslPath: `${nodePath}.parameters[1]`,
+            nativePath: `${nodePath}.parameters[1]`,
+          },
+          issues,
+        );
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+      }
     }
     if (node.kind === "showPicture" || node.kind === "movePicture") {
       validateCommandPosition(node.position, resolver, issues);
     }
-    if (node.kind === "battleProcessing" && isReferenceValue(node.troop)) {
-      const troopRef = node.troop;
-      captureReferenceIssue(() => resolver.resolveReference(troopRef), issues);
-    }
-    if (
-      node.kind === "battleProcessing" &&
-      typeof node.troop === "object" &&
-      node.troop.kind === "troop" &&
-      "variable" in node.troop
-    ) {
-      const troopVariable = node.troop.variable;
-      captureReferenceIssue(() => resolver.resolveReference(troopVariable), issues);
-    }
     if (node.kind === "battleProcessing") {
-      if (node.win) {
-        validateNodes(node.win, resolver, options, issues);
+      try {
+        assertBattleInput(node, nodePath, true, resolver);
+      } catch (error) {
+        if (error instanceof CommandStructureError)
+          issues.push(error.issue(options.identity ?? "event", "compile"));
+        else throw error;
+        continue;
       }
-      if (node.escape) {
-        if (node.canEscape !== true) {
-          issues.push({
-            level: "error",
-            message: "Battle Processing escape branch requires canEscape: true.",
-          });
-        }
-        validateNodes(node.escape, resolver, options, issues);
-      }
-      if (node.lose) {
-        if (node.canLose !== true) {
-          issues.push({
-            level: "error",
-            message: "Battle Processing lose branch requires canLose: true.",
-          });
-        }
-        validateNodes(node.lose, resolver, options, issues);
-      }
+      for (const field of ["win", "escape", "lose"] as const)
+        if (node[field] !== undefined)
+          validateNodes(node[field].commands, resolver, childOptions(field + ".commands"), issues);
     }
     if (node.kind === "shopProcessing") {
       for (const goods of node.goods) {
-        captureReferenceIssue(() => resolver.resolveReference(goods.item), issues);
+        if (goods.kind === "placeholder") continue;
+        const reference =
+          goods.kind === "item" ? goods.item : goods.kind === "weapon" ? goods.weapon : goods.armor;
+        captureReferenceIssue(() => resolver.resolveReference(reference), issues);
       }
     }
     if (node.kind === "nameInputProcessing") {
       captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
-    }
-    if (
-      node.kind === "changeHp" ||
-      node.kind === "changeMp" ||
-      node.kind === "recoverAll" ||
-      node.kind === "changeExp" ||
-      node.kind === "changeLevel" ||
-      node.kind === "changeParameter" ||
-      node.kind === "changeSkill" ||
-      node.kind === "changeTp"
-    ) {
-      validateActorCommandTarget(node.target, resolver, `${node.kind} target`, issues);
-    }
-    if (
-      node.kind === "changeHp" ||
-      node.kind === "changeMp" ||
-      node.kind === "changeExp" ||
-      node.kind === "changeLevel" ||
-      node.kind === "changeParameter" ||
-      node.kind === "changeTp"
-    ) {
-      validateOperateValueOperand(node.value, resolver, issues);
-    }
-    if (node.kind === "changeState") {
-      validateActorCommandTarget(node.target, resolver, "Change State target", issues);
-      captureReferenceIssue(() => resolver.resolveReference(node.state), issues);
-    }
-    if (node.kind === "changeSkill") {
-      captureReferenceIssue(() => resolver.resolveReference(node.skill), issues);
-    }
-    if (node.kind === "changeEquipment") {
-      captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
-      validateCommandPositiveInteger(
-        node.equipmentTypeId,
-        "Change Equipment equipment type id",
-        issues,
-      );
-      validateCommandNonNegativeInteger(node.itemId ?? 0, "Change Equipment item id", issues);
     }
     if (node.kind === "changeName") {
       captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
@@ -226,50 +392,19 @@ export function validateNodes(
     if (node.kind === "changeNickname" || node.kind === "changeProfile") {
       captureReferenceIssue(() => resolver.resolveReference(node.actor), issues);
     }
-    if (
-      node.kind === "changeEnemyHp" ||
-      node.kind === "changeEnemyMp" ||
-      node.kind === "enemyRecoverAll" ||
-      node.kind === "enemyAppear" ||
-      node.kind === "enemyTransform" ||
-      node.kind === "showBattleAnimation" ||
-      node.kind === "changeEnemyTp"
-    ) {
-      validateEnemyCommandTarget(node.target, `${node.kind} target`, issues);
-    }
-    if (
-      node.kind === "changeEnemyHp" ||
-      node.kind === "changeEnemyMp" ||
-      node.kind === "changeEnemyTp"
-    ) {
-      validateOperateValueOperand(node.value, resolver, issues);
-    }
-    if (node.kind === "changeEnemyState") {
-      validateEnemyCommandTarget(node.target, "Change Enemy State target", issues);
-      captureReferenceIssue(() => resolver.resolveReference(node.state), issues);
-    }
-    if (node.kind === "enemyTransform") {
-      captureReferenceIssue(() => resolver.resolveReference(node.enemy), issues);
-    }
-    if (node.kind === "showBattleAnimation") {
-      captureReferenceIssue(() => resolver.resolveReference(node.animation), issues);
-    }
-    if (node.kind === "forceAction") {
-      validateBattlerCommandTarget(node.subject, "Force Action subject", issues);
-      captureReferenceIssue(() => resolver.resolveReference(node.skill), issues);
-    }
     if (node.kind === "changeTileset") {
-      captureReferenceIssue(() => resolver.resolveReference(node.tileset), issues);
+      captureSwitchIssue("MV-E282-REFERENCE", "tileset", () =>
+        resolver.resolveReference(node.tileset),
+      );
     }
     if (node.kind === "getLocationInfo") {
       captureReferenceIssue(() => resolver.resolveReference(node.variable), issues);
       validateCommandPosition(node.location, resolver, issues);
     }
     if (node.kind === "conditional") {
-      validateConditionalBranchCondition(node.condition, resolver, options, issues);
-      validateNodes(node.then, resolver, options, issues);
-      if (node.else) {
-        validateNodes(node.else, resolver, options, issues);
+      validateNodes(node.then.commands, resolver, childOptions("then.commands"), issues);
+      if (node.else !== undefined) {
+        validateNodes(node.else.commands, resolver, childOptions("else.commands"), issues);
       }
     }
   }
@@ -287,12 +422,12 @@ export function validateCommandPosition(
 }
 
 export function validateMoveRouteCommands(
-  route: readonly MoveRouteCommand[],
+  route: MovementRoute,
   resolver: ReferenceResolver,
-  options: { scriptEnabled: boolean },
+  options: CommandValidationOptions,
   issues: ValidationIssue[],
 ): void {
-  for (const command of route) {
+  for (const [index, command] of route.commands.entries()) {
     if (command.kind === "switchOn" || command.kind === "switchOff") {
       captureReferenceIssue(() => resolver.resolveReference(command.switch), issues);
     }
@@ -300,6 +435,10 @@ export function validateMoveRouteCommands(
     if (command.kind === "script" && !options.scriptEnabled) {
       issues.push({
         level: "error",
+        code: "MV-MOVEMENT-SCRIPT",
+        stage: "compile",
+        ...(options.identity === undefined ? {} : { identity: options.identity }),
+        dslPath: `${options.path ?? "route"}.commands[${index}].script`,
         message: "Set Movement Route script commands require explicit config enablement.",
       });
     }
@@ -337,7 +476,7 @@ export function validateEventLocationDestination(
 
   if (destination.kind === "exchange") {
     validateCharacterRuntimeSelector(
-      destination.character,
+      destination.target,
       "Set Event Location exchange character",
       issues,
     );
@@ -388,147 +527,6 @@ export function validateCharacterRuntimeSelector(
   });
 }
 
-export function validateActorCommandTarget(
-  selector: RuntimeSelector,
-  resolver: ReferenceResolver,
-  fieldName: string,
-  issues: ValidationIssue[],
-): void {
-  if (selector.scope !== "actor") {
-    issues.push({
-      level: "error",
-      message: `${fieldName} must use the actor runtime selector scope.`,
-    });
-    return;
-  }
-
-  if (selector.target === "entireParty") {
-    return;
-  }
-
-  const actorSelector = selector as RuntimeSelector & {
-    actorId?: unknown;
-    variable?: ReferenceValue<"variable">;
-  };
-  if (selector.target === "actor") {
-    if (
-      typeof actorSelector.actorId !== "number" ||
-      !Number.isInteger(actorSelector.actorId) ||
-      actorSelector.actorId <= 0
-    ) {
-      issues.push({
-        level: "error",
-        message: `${fieldName} actor id must be a positive integer.`,
-      });
-    }
-    return;
-  }
-
-  if (selector.target === "actorFromVariable") {
-    const actorVariable = actorSelector.variable;
-    if (actorVariable === undefined) {
-      issues.push({
-        level: "error",
-        message: `${fieldName} actorFromVariable target requires a variable reference.`,
-      });
-      return;
-    }
-    captureReferenceIssue(() => resolver.resolveReference(actorVariable), issues);
-    return;
-  }
-
-  issues.push({
-    level: "error",
-    message: `${fieldName} target must be entireParty, actor, or actorFromVariable.`,
-  });
-}
-
-export function validateEnemyCommandTarget(
-  selector: RuntimeSelector,
-  fieldName: string,
-  issues: ValidationIssue[],
-): void {
-  if (selector.scope !== "enemy") {
-    issues.push({
-      level: "error",
-      message: `${fieldName} must use the enemy runtime selector scope.`,
-    });
-    return;
-  }
-
-  if (selector.target === "all") {
-    return;
-  }
-
-  const enemySelector = selector as RuntimeSelector & { index?: unknown };
-  if (selector.target === "enemy") {
-    if (
-      typeof enemySelector.index !== "number" ||
-      !Number.isInteger(enemySelector.index) ||
-      enemySelector.index < 0
-    ) {
-      issues.push({
-        level: "error",
-        message: `${fieldName} enemy index must be a zero-based integer.`,
-      });
-    }
-    return;
-  }
-
-  issues.push({
-    level: "error",
-    message: `${fieldName} target must be all or enemy.`,
-  });
-}
-
-export function validateBattlerCommandTarget(
-  selector: RuntimeSelector,
-  fieldName: string,
-  issues: ValidationIssue[],
-): void {
-  if (selector.scope !== "battler") {
-    issues.push({
-      level: "error",
-      message: `${fieldName} must use the battler runtime selector scope.`,
-    });
-    return;
-  }
-
-  const battlerSelector = selector as RuntimeSelector & { actorId?: unknown; index?: unknown };
-  if (selector.target === "enemy") {
-    if (
-      typeof battlerSelector.index !== "number" ||
-      !Number.isInteger(battlerSelector.index) ||
-      battlerSelector.index < 0
-    ) {
-      issues.push({
-        level: "error",
-        message: `${fieldName} enemy index must be a zero-based integer.`,
-      });
-    }
-    return;
-  }
-
-  if (selector.target === "actor") {
-    if (
-      typeof battlerSelector.actorId !== "number" ||
-      !Number.isInteger(battlerSelector.actorId) ||
-      battlerSelector.actorId <= 0
-    ) {
-      issues.push({
-        level: "error",
-        message: `${fieldName} actor id must be a positive integer.`,
-      });
-    }
-    return;
-  }
-
-  issues.push({
-    level: "error",
-    message: `${fieldName} target must be enemy or actor.`,
-  });
-}
-
 export function validateOperateValueOperand(
   operand: number | ReferenceValue<"variable">,
   resolver: ReferenceResolver,
@@ -571,8 +569,22 @@ export function validateReferenceOrRange<TKind extends ReferenceKind>(
   issues: ValidationIssue[],
 ): void {
   if ("from" in value) {
-    captureReferenceIssue(() => resolver.resolveReference(value.from), issues);
-    captureReferenceIssue(() => resolver.resolveReference(value.to), issues);
+    let from: number | undefined;
+    let to: number | undefined;
+    captureReferenceIssue(() => {
+      from = resolver.resolveReference(value.from);
+      return from;
+    }, issues);
+    captureReferenceIssue(() => {
+      to = resolver.resolveReference(value.to);
+      return to;
+    }, issues);
+    if (from !== undefined && to !== undefined && from > to) {
+      issues.push({
+        level: "error",
+        message: `MV-REFERENCE-RANGE range start ${from} exceeds end ${to}; ranges are not reordered.`,
+      });
+    }
     return;
   }
 
@@ -620,8 +632,8 @@ export function validateConditionalBranchCondition(
       break;
     case "variable":
       captureReferenceIssue(() => resolver.resolveReference(condition.variable), issues);
-      if (isVariableReferenceValue(condition.value)) {
-        const valueRef = condition.value;
+      if (condition.value.kind === "variable") {
+        const valueRef = condition.value.variable;
         captureReferenceIssue(() => resolver.resolveReference(valueRef), issues);
       }
       break;
@@ -694,37 +706,15 @@ export function validateCondition(
   resolver: ReferenceResolver,
   issues: ValidationIssue[],
 ): void {
-  if (condition.actor) {
-    const actorRef = condition.actor;
-    captureReferenceIssue(() => resolver.resolveReference(actorRef), issues);
-  }
-  if (condition.item) {
-    const itemRef = condition.item;
-    captureReferenceIssue(() => resolver.resolveReference(itemRef), issues);
-  }
-  if (condition.switch1) {
-    const switchRef = condition.switch1;
-    captureReferenceIssue(() => resolver.resolveReference(switchRef), issues);
-  }
-  if (condition.switch2) {
-    const switchRef = condition.switch2;
-    captureReferenceIssue(() => resolver.resolveReference(switchRef), issues);
-  }
-  if (condition.variable) {
-    const variableCondition = condition.variable;
-    captureReferenceIssue(() => resolver.resolveReference(variableCondition.ref), issues);
-    if (variableCondition.operator !== "ge") {
-      issues.push({
-        level: "error",
-        message: 'Map Event Page variable conditions only support operator "ge".',
-      });
-    }
-    if (typeof variableCondition.value !== "number" || !Number.isFinite(variableCondition.value)) {
-      issues.push({
-        level: "error",
-        message: "Map Event Page variable conditions require a finite numeric value.",
-      });
-    }
+  for (const slot of [
+    condition.actor,
+    condition.item,
+    condition.switch1,
+    condition.switch2,
+    condition.variable,
+  ]) {
+    if (slot && (slot.enabled || !("id" in slot.ref)))
+      captureReferenceIssue(() => resolver.resolveReference(slot.ref), issues);
   }
 }
 

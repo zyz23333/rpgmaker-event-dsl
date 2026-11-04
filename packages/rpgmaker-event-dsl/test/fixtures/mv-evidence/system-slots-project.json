@@ -1,0 +1,47 @@
+{
+  "formatVersion": 1,
+  "sourceKind": "synthetic-support",
+  "provenance": "Self-authored independent E121/E123 saved commands and System slot context; not an editor capture.",
+  "projectFiles": {
+    "Actors.json": [null, { "id": 1, "name": "" }],
+    "Animations.json": [null],
+    "Armors.json": [null],
+    "Classes.json": [null],
+    "CommonEvents.json": [
+      null,
+      {
+        "id": 1,
+        "name": "System slot evidence",
+        "trigger": 0,
+        "switchId": 1,
+        "list": [
+          { "code": 121, "indent": 0, "parameters": [1, 3, 0] },
+          { "code": 121, "indent": 0, "parameters": [2, 2, 1] },
+          { "code": 123, "indent": 0, "parameters": ["A", 0] },
+          { "code": 123, "indent": 0, "parameters": ["A", 1] },
+          { "code": 123, "indent": 0, "parameters": ["B", 0] },
+          { "code": 123, "indent": 0, "parameters": ["B", 1] },
+          { "code": 123, "indent": 0, "parameters": ["C", 0] },
+          { "code": 123, "indent": 0, "parameters": ["C", 1] },
+          { "code": 123, "indent": 0, "parameters": ["D", 0] },
+          { "code": 123, "indent": 0, "parameters": ["D", 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
+        ]
+      }
+    ],
+    "Enemies.json": [null],
+    "Items.json": [null, { "id": 1, "name": "", "carrier": { "keep": true } }],
+    "MapInfos.json": [null],
+    "Skills.json": [null],
+    "States.json": [null],
+    "System.json": {
+      "gameTitle": "Independent System slots",
+      "switches": ["", "Snapshot switch", "", ""],
+      "variables": ["", "Snapshot variable", ""],
+      "carrier": { "keep": [null, ""] }
+    },
+    "Tilesets.json": [null],
+    "Troops.json": [null],
+    "Weapons.json": [null]
+  }
+}

@@ -1,3 +1,5 @@
 # Keep text files consistent across Windows, Linux, and CI.
 * text=auto eol=lf
 
+# Preserve the original bytes of the historical recovery fixture.
+packages/rpgmaker-event-dsl/test/fixtures/asset-legacy-policy-evidence.json -text

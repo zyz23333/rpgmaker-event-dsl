@@ -1,15 +1,19 @@
+import { validateMapEventInputs } from "../map-event/validation.js";
 import type {
   CommonEventDefinition,
   DslOwnedDeclaration,
   MapEventDefinition,
   SwitchDefinition,
   VariableDefinition,
+  TroopEventDefinition,
 } from "../domain/types.js";
 import type {
   CommandInputPrimitiveInspection,
   SnapshotMapValidationEntry,
   SnapshotReferenceInput,
   SnapshotReferenceSource,
+  SnapshotTroopValidationEntry,
+  SnapshotTilesetValidationEntry,
   StagedDataGraph,
   ValidationIssue,
   ValidationResult,
@@ -41,9 +45,6 @@ export {
   validateMapDestination,
   validateEventLocationDestination,
   validateCharacterRuntimeSelector,
-  validateActorCommandTarget,
-  validateEnemyCommandTarget,
-  validateBattlerCommandTarget,
   validateOperateValueOperand,
   validateCommandPositiveInteger,
   validateCommandNonNegativeInteger,
@@ -57,6 +58,8 @@ export {
 import { collectCommandInputPrimitives } from "./inspection.js";
 export { collectCommandInputPrimitives, isReferenceValue } from "./inspection.js";
 import { readObjectReferenceEntries, readSystemNameEntries } from "./snapshot.js";
+import { validateCompiledCommandLists } from "./compiled-commands.js";
+import { validateBattlePages } from "./battle-pages.js";
 export {
   toReferenceEntry,
   readObjectReferenceEntries,
@@ -84,15 +87,26 @@ export function buildStagedDataGraph(input: {
   declarations: readonly DslOwnedDeclaration[];
   snapshotReferences?: SnapshotReferenceInput;
   snapshotMaps?: readonly SnapshotMapValidationEntry[];
+  snapshotTroops?: readonly SnapshotTroopValidationEntry[];
+  snapshotTilesets?: readonly SnapshotTilesetValidationEntry[];
+  snapshotEquipmentTypes?: unknown;
 }): StagedDataGraph {
   const declarations = [...input.declarations];
   const mapEventsByIdentity = new Map<string, MapEventDefinition>();
   const commonEventsById = new Map<number, CommonEventDefinition>();
+  const troopEventsById = new Map<number, TroopEventDefinition>();
   const switchesById = new Map<number, SwitchDefinition>();
   const variablesById = new Map<number, VariableDefinition>();
+  const scopes = buildReferenceScopes({
+    declarations,
+    snapshotReferences: input.snapshotReferences ?? {},
+  });
 
   for (const declaration of declarations) {
     switch (declaration.kind) {
+      case "troopEvent":
+        troopEventsById.set(declaration.troopId, declaration);
+        break;
       case "mapEvent":
         mapEventsByIdentity.set(mapEventIdentityKey(declaration), declaration);
         break;
@@ -108,18 +122,19 @@ export function buildStagedDataGraph(input: {
     }
   }
 
-  const scopes = buildReferenceScopes({
-    declarations,
-    snapshotReferences: input.snapshotReferences ?? {},
-  });
-
   return {
     declarations,
     mapEventsByIdentity,
     commonEventsById,
+    troopEventsById,
     switchesById,
     variablesById,
     ...(input.snapshotMaps === undefined ? {} : { snapshotMaps: input.snapshotMaps }),
+    ...(input.snapshotTroops === undefined ? {} : { snapshotTroops: input.snapshotTroops }),
+    ...(input.snapshotTilesets === undefined ? {} : { snapshotTilesets: input.snapshotTilesets }),
+    ...("snapshotEquipmentTypes" in input
+      ? { snapshotEquipmentTypes: input.snapshotEquipmentTypes }
+      : {}),
     resolver: createReferenceResolver(scopes),
   };
 }
@@ -132,8 +147,18 @@ export function validateStagedDataGraph(
 ): ValidationResult {
   const issues: ValidationIssue[] = [];
 
-  validateDeclarationIdentities(graph.declarations, issues, graph.snapshotMaps);
+  validateMapEventInputs(graph, issues);
+  if (issues.some((issue) => issue.level === "error")) return { issues };
+  validateDeclarationIdentities(
+    graph.declarations,
+    issues,
+    graph.snapshotMaps,
+    graph.snapshotTroops,
+  );
   validateDeclarationReferences(graph.declarations, graph.resolver, options, issues);
+  for (const declaration of graph.declarations)
+    if (declaration.kind === "troopEvent") validateBattlePages(declaration, graph, options, issues);
+  validateCompiledCommandLists(graph, issues, options);
 
   return { issues };
 }
@@ -144,12 +169,14 @@ export function validateDslOwnedDeclarations(
     scriptEnabled: boolean;
     snapshotReferences?: SnapshotReferenceInput;
     snapshotMaps?: readonly SnapshotMapValidationEntry[];
+    snapshotTroops?: readonly SnapshotTroopValidationEntry[];
   },
 ): ValidationResult {
   const graphInput: {
     declarations: readonly DslOwnedDeclaration[];
     snapshotReferences?: SnapshotReferenceInput;
     snapshotMaps?: readonly SnapshotMapValidationEntry[];
+    snapshotTroops?: readonly SnapshotTroopValidationEntry[];
   } = { declarations };
 
   if (input.snapshotReferences !== undefined) {
@@ -158,6 +185,7 @@ export function validateDslOwnedDeclarations(
   if (input.snapshotMaps !== undefined) {
     graphInput.snapshotMaps = input.snapshotMaps;
   }
+  if (input.snapshotTroops !== undefined) graphInput.snapshotTroops = input.snapshotTroops;
 
   return validateStagedDataGraph(buildStagedDataGraph(graphInput), {
     scriptEnabled: input.scriptEnabled,
@@ -181,7 +209,13 @@ export function buildSnapshotReferenceInput(
     tilesets: readObjectReferenceEntries(source.tilesets ?? []),
     troops: readObjectReferenceEntries(source.troops ?? []),
     switches: readSystemNameEntries(source.system ?? {}, "switches"),
+    switchCapacity: Array.isArray(source.system?.switches)
+      ? Math.max(0, source.system.switches.length - 1)
+      : 0,
     variables: readSystemNameEntries(source.system ?? {}, "variables"),
+    variableCapacity: Array.isArray(source.system?.variables)
+      ? Math.max(0, source.system.variables.length - 1)
+      : 0,
     weapons: readObjectReferenceEntries(source.weapons ?? []),
   };
 }

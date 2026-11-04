@@ -8,8 +8,32 @@ minor releases.
 
 ## [Unreleased]
 
+### Added
+
+- Added Troop Event declarations with complete Battle Event Pages and explicit,
+  reviewed nonblank-to-Blank resets.
+- Added event-rooted asset-file validation at Compile, Check and Push boundaries,
+  with exact file matching, origin diagnostics and reasoned `assetCheckExceptions`.
+- Added restricted local Shared Authoring Modules and Parameterized Command Functions,
+  including captured transitive inputs, per-use diagnostics and lazy Decompile identities.
+
+### Fixed
+
+- Accepted native MV maps with `events: []` during decompilation and preserved their
+  empty event arrays through compilation and synchronization. Existing null holes and
+  event IDs remain intact when events are added or removed.
+- Invalidated generated data from earlier compile contracts; run a normal Compile
+  before Diff or Push under the updated contract.
+
 ### Changed
 
+- Separated the short project/package READMEs from setup, authoring, workflow and
+  command reference documentation under `docs/`.
+- Expanded supported native saved-state validation and round trips for event pages and
+  command families, including retained inactive values and structural records.
+- Bound generated data to captured source/dependency, configuration, Snapshot and target
+  inputs; Push checks the complete standard data set for drift and retains interrupted
+  write evidence for recovery.
 - Migrated the implementation to command-family vertical slices with separate domain,
   compiler, decompiler, validation, Workspace, and Project Data ownership.
 - Restricted the package root to Event DSL authoring exports and added the

@@ -1,0 +1,617 @@
+{
+  "provenance": "Independently fixed historical-format schema/hash fixtures. No media facts or current default keys. Not a runtime recovery claim.",
+  "fixtures": [
+    {
+      "kind": "pre-policy",
+      "expectedBaselineHash": "5e62281ef4c20b94d77e77a1479918f32bbbe764b122e9415975f9a4796f8344",
+      "expectedOriginalManifestHash": "976596190c428df4b3c34ba289ea0f0c60a165fb2911360f946440dbc0a905e1",
+      "originalManifest": {
+        "version": 1,
+        "projectRootBinding": "c:\\legacy-game",
+        "compileBaseline": {
+          "compileContractVersion": "mv-1.6.1/35",
+          "typeInputs": [],
+          "projectRootBinding": "c:\\legacy-game",
+          "config": {
+            "scriptEnabled": false,
+            "sourceExclude": ["**/*.test.ts"],
+            "sourceInclude": ["**/*.events.ts"],
+            "sourceRoot": "src"
+          },
+          "snapshotFiles": [
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Actors.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Animations.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Armors.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Classes.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "CommonEvents.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Enemies.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Items.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "MapInfos.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Skills.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "States.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "System.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Tilesets.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Troops.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Weapons.json"
+            }
+          ],
+          "sourceFiles": [
+            {
+              "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "relativePath": "src/legacy.events.ts"
+            }
+          ],
+          "hash": "5e62281ef4c20b94d77e77a1479918f32bbbe764b122e9415975f9a4796f8344"
+        },
+        "generatedFiles": [
+          {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "relativePath": "CommonEvents.json"
+          }
+        ],
+        "snapshotFiles": [
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Actors.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Animations.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Armors.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Classes.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "CommonEvents.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Enemies.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Items.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "MapInfos.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Skills.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "States.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "System.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Tilesets.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Troops.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Weapons.json"
+          }
+        ]
+      },
+      "pending": {
+        "version": 3,
+        "projectRootBinding": "c:\\legacy-game",
+        "originalManifest": {
+          "version": 1,
+          "projectRootBinding": "c:\\legacy-game",
+          "compileBaseline": {
+            "compileContractVersion": "mv-1.6.1/35",
+            "typeInputs": [],
+            "projectRootBinding": "c:\\legacy-game",
+            "config": {
+              "scriptEnabled": false,
+              "sourceExclude": ["**/*.test.ts"],
+              "sourceInclude": ["**/*.events.ts"],
+              "sourceRoot": "src"
+            },
+            "snapshotFiles": [
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Actors.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Animations.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Armors.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Classes.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "CommonEvents.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Enemies.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Items.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "MapInfos.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Skills.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "States.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "System.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Tilesets.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Troops.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Weapons.json"
+              }
+            ],
+            "sourceFiles": [
+              {
+                "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                "relativePath": "src/legacy.events.ts"
+              }
+            ],
+            "hash": "5e62281ef4c20b94d77e77a1479918f32bbbe764b122e9415975f9a4796f8344"
+          },
+          "generatedFiles": [
+            {
+              "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+              "relativePath": "CommonEvents.json"
+            }
+          ],
+          "snapshotFiles": [
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Actors.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Animations.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Armors.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Classes.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "CommonEvents.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Enemies.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Items.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "MapInfos.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Skills.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "States.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "System.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Tilesets.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Troops.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Weapons.json"
+            }
+          ]
+        },
+        "originalManifestHash": "976596190c428df4b3c34ba289ea0f0c60a165fb2911360f946440dbc0a905e1",
+        "affectedFiles": [
+          {
+            "backupHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "backupRelativePath": "CommonEvents.json",
+            "generatedHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "relativePath": "CommonEvents.json",
+            "snapshotHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "startedAt": "2026-10-24T00:00:00.000Z"
+      }
+    },
+    {
+      "kind": "pre-contract",
+      "expectedBaselineHash": "695252a481561b89898cf6d893a0316e96d86dbb6fbd721f3808dc113178689e",
+      "expectedOriginalManifestHash": "6678fffae8723e85a831f4a3443365326854ba69ba30306bc7dba4f4605b55a9",
+      "originalManifest": {
+        "version": 1,
+        "projectRootBinding": "c:\\legacy-game",
+        "compileBaseline": {
+          "projectRootBinding": "c:\\legacy-game",
+          "config": {
+            "scriptEnabled": false,
+            "sourceExclude": ["**/*.test.ts"],
+            "sourceInclude": ["**/*.events.ts"],
+            "sourceRoot": "src"
+          },
+          "snapshotFiles": [
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Actors.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Animations.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Armors.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Classes.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "CommonEvents.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Enemies.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Items.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "MapInfos.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Skills.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "States.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "System.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Tilesets.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Troops.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Weapons.json"
+            }
+          ],
+          "sourceFiles": [
+            {
+              "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "relativePath": "src/legacy.events.ts"
+            }
+          ],
+          "hash": "695252a481561b89898cf6d893a0316e96d86dbb6fbd721f3808dc113178689e"
+        },
+        "generatedFiles": [
+          {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "relativePath": "CommonEvents.json"
+          }
+        ],
+        "snapshotFiles": [
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Actors.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Animations.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Armors.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Classes.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "CommonEvents.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Enemies.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Items.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "MapInfos.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Skills.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "States.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "System.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Tilesets.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Troops.json"
+          },
+          {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "relativePath": "Weapons.json"
+          }
+        ]
+      },
+      "pending": {
+        "version": 3,
+        "projectRootBinding": "c:\\legacy-game",
+        "originalManifest": {
+          "version": 1,
+          "projectRootBinding": "c:\\legacy-game",
+          "compileBaseline": {
+            "projectRootBinding": "c:\\legacy-game",
+            "config": {
+              "scriptEnabled": false,
+              "sourceExclude": ["**/*.test.ts"],
+              "sourceInclude": ["**/*.events.ts"],
+              "sourceRoot": "src"
+            },
+            "snapshotFiles": [
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Actors.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Animations.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Armors.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Classes.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "CommonEvents.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Enemies.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Items.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "MapInfos.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Skills.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "States.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "System.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Tilesets.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Troops.json"
+              },
+              {
+                "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "relativePath": "Weapons.json"
+              }
+            ],
+            "sourceFiles": [
+              {
+                "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                "relativePath": "src/legacy.events.ts"
+              }
+            ],
+            "hash": "695252a481561b89898cf6d893a0316e96d86dbb6fbd721f3808dc113178689e"
+          },
+          "generatedFiles": [
+            {
+              "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+              "relativePath": "CommonEvents.json"
+            }
+          ],
+          "snapshotFiles": [
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Actors.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Animations.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Armors.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Classes.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "CommonEvents.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Enemies.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Items.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "MapInfos.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Skills.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "States.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "System.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Tilesets.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Troops.json"
+            },
+            {
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "relativePath": "Weapons.json"
+            }
+          ]
+        },
+        "originalManifestHash": "6678fffae8723e85a831f4a3443365326854ba69ba30306bc7dba4f4605b55a9",
+        "affectedFiles": [
+          {
+            "backupHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "backupRelativePath": "CommonEvents.json",
+            "generatedHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "relativePath": "CommonEvents.json",
+            "snapshotHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "startedAt": "2026-10-24T00:00:00.000Z"
+      }
+    }
+  ]
+}

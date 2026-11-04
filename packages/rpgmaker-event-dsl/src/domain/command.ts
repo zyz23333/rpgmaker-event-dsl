@@ -1,28 +1,32 @@
 import type {
-  ActorCommandTarget,
   ActorParameter,
+  ActorResourceOperand,
+  ActorResourceTarget,
+  AudioAssetReference,
   AudioPayload,
   BattlerCommandTarget,
   CharacterRuntimeSelector,
   ColorInput,
   CommandPosition,
+  ConstantOperand,
   ConditionalBranchCondition,
-  ControlVariablesGameDataOperand,
-  Direction,
+  CommandOperand,
   EnemyCommandTarget,
+  EquipmentRuntimeSelector,
   EventLocationDestination,
+  EventRuntimeSelector,
   ImageAssetReference,
   LocationInfoType,
+  LocationDirection,
+  TransferFade,
   MapDestination,
   MovieAssetReference,
-  OperateValueOperand,
-  RandomOperand,
   ReferenceRange,
   ReferenceValue,
   ScriptInput,
-  ScriptOperand,
   ToneInput,
   VehicleTarget,
+  VariableOperand,
 } from "./references.js";
 
 export type DslCommand =
@@ -33,7 +37,7 @@ export type DslCommand =
   | ConditionalDslCommand
   | LoopDslCommand
   | BreakLoopDslCommand
-  | ExitEventDslCommand
+  | ExitEventProcessingDslCommand
   | CommonEventDslCommand
   | LabelDslCommand
   | JumpToLabelDslCommand
@@ -54,7 +58,7 @@ export type DslCommand =
   | ChangeVictoryMeDslCommand
   | ChangeSaveAccessDslCommand
   | ChangeMenuAccessDslCommand
-  | ChangeEncounterDisableDslCommand
+  | ChangeEncounterDslCommand
   | ChangeFormationAccessDslCommand
   | ChangeWindowColorDslCommand
   | ChangeDefeatMeDslCommand
@@ -84,7 +88,7 @@ export type DslCommand =
   | PlayBgmDslCommand
   | FadeoutBgmDslCommand
   | SaveBgmDslCommand
-  | ResumeBgmDslCommand
+  | ReplayBgmDslCommand
   | PlayBgsDslCommand
   | FadeoutBgsDslCommand
   | PlayMeDslCommand
@@ -136,12 +140,12 @@ export type DslCommand =
 export type ShowTextDslCommand = {
   kind: "showText";
   lines: readonly [string, ...string[]];
-  face?: {
-    image: ImageAssetReference;
-    index?: number;
+  face: {
+    image: ImageAssetReference | null;
+    index: number;
   };
-  background?: 0 | 1 | 2;
-  positionType?: 0 | 1 | 2;
+  background: "window" | "dim" | "transparent";
+  position: "top" | "middle" | "bottom";
 };
 
 export type InputNumberDslCommand = {
@@ -153,50 +157,59 @@ export type InputNumberDslCommand = {
 export type SelectItemDslCommand = {
   kind: "selectItem";
   variable: ReferenceValue<"variable">;
-  itemType?: 1 | 2 | 3 | 4;
+  itemType: "regular" | "key" | "hiddenA" | "hiddenB";
 };
 
 export type ShowScrollingTextDslCommand = {
   kind: "showScrollingText";
   lines: readonly [string, ...string[]];
-  speed?: number;
-  noFastForward?: boolean;
+  speed: number;
+  noFastForward: boolean;
 };
 
 export type ShowChoicesDslCommand = {
   kind: "showChoices";
-  choices: readonly [string, ...string[]];
-  branches: readonly [readonly DslCommand[], ...(readonly DslCommand[][])];
-  cancelType?: number;
-  defaultType?: number;
-  positionType?: 0 | 1 | 2;
-  background?: 0 | 1 | 2;
-  cancelBranch?: readonly DslCommand[];
+  choices: readonly [
+    ChildCommandBody & { text: string },
+    ...(ChildCommandBody & { text: string })[],
+  ];
+  defaultChoice?: { kind: "none" } | { kind: "choice"; index: number };
+  cancel?:
+    | { kind: "disabled" }
+    | { kind: "choice"; index: number }
+    | (ChildCommandBody & { kind: "branch" });
+  position?: "left" | "center" | "right";
+  background?: "window" | "dim" | "transparent";
 };
 
 export type ConditionalDslCommand = {
   kind: "conditional";
   condition: ConditionalBranchCondition;
-  then: readonly DslCommand[];
-  else?: readonly DslCommand[];
+  then: ChildCommandBody;
+  else?: ChildCommandBody;
+};
+
+export type ChildCommandBody = {
+  commands: readonly DslCommand[];
+  endMarker?: "present" | "absent";
 };
 
 export type LoopDslCommand = {
   kind: "loop";
-  body: readonly DslCommand[];
+  body: ChildCommandBody;
 };
 
 export type BreakLoopDslCommand = {
   kind: "breakLoop";
 };
 
-export type ExitEventDslCommand = {
-  kind: "exitEvent";
+export type ExitEventProcessingDslCommand = {
+  kind: "exitEventProcessing";
 };
 
 export type CommonEventDslCommand = {
   kind: "commonEvent";
-  ref: ReferenceValue<"commonEvent">;
+  commonEvent: ReferenceValue<"commonEvent">;
 };
 
 export type LabelDslCommand = {
@@ -221,15 +234,14 @@ export type ScriptDslCommand = {
 
 export type PluginDslCommand = {
   kind: "pluginCommand";
-  command: string;
-  args?: readonly string[];
+  line: string;
 };
 
 export type TransferPlayerDslCommand = {
   kind: "transferPlayer";
   destination: MapDestination;
-  direction?: Direction;
-  fadeType?: 0 | 1 | 2;
+  direction?: LocationDirection;
+  fade?: TransferFade;
 };
 
 export type ControlSwitchesDslCommand = {
@@ -242,12 +254,7 @@ export type ControlVariablesDslCommand = {
   kind: "controlVariables";
   variable: ReferenceValue<"variable"> | ReferenceRange<"variable">;
   operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
-  value:
-    | number
-    | ReferenceValue<"variable">
-    | RandomOperand
-    | ControlVariablesGameDataOperand
-    | ScriptOperand;
+  value: CommandOperand;
 };
 
 export type ControlSelfSwitchDslCommand = {
@@ -265,52 +272,53 @@ export type ControlTimerDslCommand =
   | {
       kind: "controlTimer";
       action: "stop";
+      seconds?: number;
     };
 
 export type ChangeGoldDslCommand = {
   kind: "changeGold";
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ConstantOperand | VariableOperand;
 };
 
 export type ChangeItemsDslCommand = {
   kind: "changeItems";
   item: ReferenceValue<"item">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
+  amount: ConstantOperand | VariableOperand;
 };
 
 export type ChangeWeaponsDslCommand = {
   kind: "changeWeapons";
   weapon: ReferenceValue<"weapon">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
-  includeEquipment?: boolean;
+  amount: ConstantOperand | VariableOperand;
+  includeEquipment: boolean;
 };
 
 export type ChangeArmorsDslCommand = {
   kind: "changeArmors";
   armor: ReferenceValue<"armor">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
-  includeEquipment?: boolean;
+  amount: ConstantOperand | VariableOperand;
+  includeEquipment: boolean;
 };
 
 export type ChangePartyMemberDslCommand = {
   kind: "changePartyMember";
   actor: ReferenceValue<"actor">;
   operation: "add" | "remove";
-  initialize?: boolean;
+  initialize: boolean;
 };
 
 export type ChangeBattleBgmDslCommand = {
   kind: "changeBattleBgm";
-  audio: AudioPayload;
+  audio: AudioPayload<"bgm">;
 };
 
 export type ChangeVictoryMeDslCommand = {
   kind: "changeVictoryMe";
-  audio: AudioPayload;
+  audio: AudioPayload<"me">;
 };
 
 export type ChangeSaveAccessDslCommand = {
@@ -323,9 +331,9 @@ export type ChangeMenuAccessDslCommand = {
   enabled: boolean;
 };
 
-export type ChangeEncounterDisableDslCommand = {
-  kind: "changeEncounterDisable";
-  disabled: boolean;
+export type ChangeEncounterDslCommand = {
+  kind: "changeEncounter";
+  enabled: boolean;
 };
 
 export type ChangeFormationAccessDslCommand = {
@@ -340,13 +348,13 @@ export type ChangeWindowColorDslCommand = {
 
 export type ChangeDefeatMeDslCommand = {
   kind: "changeDefeatMe";
-  audio: AudioPayload;
+  audio: AudioPayload<"me">;
 };
 
 export type ChangeVehicleBgmDslCommand = {
   kind: "changeVehicleBgm";
   vehicle: VehicleTarget;
-  audio: AudioPayload;
+  audio: AudioPayload<"bgm">;
 };
 
 export type SetVehicleLocationDslCommand = {
@@ -357,19 +365,31 @@ export type SetVehicleLocationDslCommand = {
 
 export type SetEventLocationDslCommand = {
   kind: "setEventLocation";
-  character: CharacterRuntimeSelector;
+  target: EventRuntimeSelector;
   destination: EventLocationDestination;
-  direction?: 0 | Direction;
+  direction?: LocationDirection;
 };
 
 export type ScrollMapDslCommand = {
   kind: "scrollMap";
-  direction: Direction;
+  direction: "down" | "left" | "right" | "up";
   distance: number;
   speed: number;
 };
 
-export type MoveRouteCommand =
+export type MoveRouteCommand = MoveRouteInstruction & {
+  savedShape?: { indent?: "absent" | "null" | "zero" };
+};
+
+export type MovementRoute = {
+  commands: readonly MoveRouteCommand[];
+  repeat?: boolean;
+  skippable?: boolean;
+  wait?: boolean;
+  terminator?: { parameters?: "absent" | "empty" };
+};
+
+type MoveRouteInstruction =
   | { kind: "moveDown" }
   | { kind: "moveLeft" }
   | { kind: "moveRight" }
@@ -384,7 +404,7 @@ export type MoveRouteCommand =
   | { kind: "moveForward" }
   | { kind: "moveBackward" }
   | { kind: "jump"; x: number; y: number }
-  | { kind: "routeWait"; frames: number }
+  | { kind: "wait"; frames: number }
   | { kind: "turnDown" }
   | { kind: "turnLeft" }
   | { kind: "turnRight" }
@@ -405,19 +425,19 @@ export type MoveRouteCommand =
   | { kind: "directionFix"; enabled: boolean }
   | { kind: "through"; enabled: boolean }
   | { kind: "transparent"; enabled: boolean }
-  | { kind: "changeImage"; image: ImageAssetReference; index: number }
+  | { kind: "changeImage"; character: ImageAssetReference | null; characterIndex: number }
   | { kind: "changeOpacity"; opacity: number }
-  | { kind: "changeBlendMode"; blendMode: 0 | 1 | 2 | 3 }
-  | { kind: "playSe"; audio: AudioPayload }
+  | { kind: "changeBlendMode"; blendMode: "normal" | "additive" | "multiply" | "screen" }
+  | {
+      kind: "playSe";
+      audio: { asset: AudioAssetReference | null; volume: number; pitch: number; pan: number };
+    }
   | { kind: "script"; script: ScriptInput };
 
 export type SetMovementRouteDslCommand = {
   kind: "setMovementRoute";
   target: CharacterRuntimeSelector;
-  route: readonly MoveRouteCommand[];
-  repeat?: boolean;
-  skippable?: boolean;
-  wait?: boolean;
+  route: MovementRoute;
 };
 
 export type GetOnOffVehicleDslCommand = {
@@ -433,7 +453,7 @@ export type ShowAnimationDslCommand = {
   kind: "showAnimation";
   target: CharacterRuntimeSelector;
   animation: ReferenceValue<"animation">;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type BalloonIcon =
@@ -446,13 +466,18 @@ export type BalloonIcon =
   | "cobweb"
   | "silence"
   | "lightBulb"
-  | "zzz";
+  | "zzz"
+  | "userDefined1"
+  | "userDefined2"
+  | "userDefined3"
+  | "userDefined4"
+  | "userDefined5";
 
 export type ShowBalloonIconDslCommand = {
   kind: "showBalloonIcon";
   target: CharacterRuntimeSelector;
-  balloon: BalloonIcon | number;
-  wait?: boolean;
+  balloon: BalloonIcon;
+  wait: boolean;
 };
 
 export type ChangePlayerFollowersDslCommand = {
@@ -476,14 +501,14 @@ export type TintScreenDslCommand = {
   kind: "tintScreen";
   tone: ToneInput;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type FlashScreenDslCommand = {
   kind: "flashScreen";
   color: ColorInput;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type ShakeScreenDslCommand = {
@@ -491,7 +516,7 @@ export type ShakeScreenDslCommand = {
   power: number;
   speed: number;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type WaitDslCommand = {
@@ -501,21 +526,20 @@ export type WaitDslCommand = {
 
 export type PictureOrigin = "upperLeft" | "center";
 
-export type PicturePosition = CommandPosition & {
-  origin?: PictureOrigin;
-};
+export type PicturePosition = CommandPosition;
 
 export type PictureDisplayInput = {
-  scaleX?: number;
-  scaleY?: number;
-  opacity?: number;
-  blendMode?: 0 | 1 | 2 | 3;
+  origin: PictureOrigin;
+  scaleX: number;
+  scaleY: number;
+  opacity: number;
+  blendMode: "normal" | "additive" | "multiply" | "screen";
 };
 
 export type ShowPictureDslCommand = {
   kind: "showPicture";
   pictureId: number;
-  image: ImageAssetReference;
+  image: ImageAssetReference | null;
   position: PicturePosition;
 } & PictureDisplayInput;
 
@@ -524,7 +548,7 @@ export type MovePictureDslCommand = {
   pictureId: number;
   position: PicturePosition;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 } & PictureDisplayInput;
 
 export type RotatePictureDslCommand = {
@@ -538,7 +562,7 @@ export type TintPictureDslCommand = {
   pictureId: number;
   tone: ToneInput;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type ErasePictureDslCommand = {
@@ -553,12 +577,12 @@ export type SetWeatherEffectDslCommand = {
   weather: WeatherEffectType;
   power: number;
   duration: number;
-  wait?: boolean;
+  wait: boolean;
 };
 
 export type PlayBgmDslCommand = {
   kind: "playBgm";
-  audio: AudioPayload;
+  audio: AudioPayload<"bgm">;
 };
 
 export type FadeoutBgmDslCommand = {
@@ -570,13 +594,13 @@ export type SaveBgmDslCommand = {
   kind: "saveBgm";
 };
 
-export type ResumeBgmDslCommand = {
-  kind: "resumeBgm";
+export type ReplayBgmDslCommand = {
+  kind: "replayBgm";
 };
 
 export type PlayBgsDslCommand = {
   kind: "playBgs";
-  audio: AudioPayload;
+  audio: AudioPayload<"bgs">;
 };
 
 export type FadeoutBgsDslCommand = {
@@ -586,12 +610,12 @@ export type FadeoutBgsDslCommand = {
 
 export type PlayMeDslCommand = {
   kind: "playMe";
-  audio: AudioPayload;
+  audio: AudioPayload<"me">;
 };
 
 export type PlaySeDslCommand = {
   kind: "playSe";
-  audio: AudioPayload;
+  audio: AudioPayload<"se">;
 };
 
 export type StopSeDslCommand = {
@@ -600,7 +624,7 @@ export type StopSeDslCommand = {
 
 export type PlayMovieDslCommand = {
   kind: "playMovie";
-  movie: MovieAssetReference;
+  movie: MovieAssetReference | null;
 };
 
 export type ChangeMapNameDisplayDslCommand = {
@@ -615,17 +639,17 @@ export type ChangeTilesetDslCommand = {
 
 export type ChangeBattleBackDslCommand = {
   kind: "changeBattleBack";
-  battleback1: ImageAssetReference;
-  battleback2: ImageAssetReference;
+  battleback1: ImageAssetReference | null;
+  battleback2: ImageAssetReference | null;
 };
 
 export type ChangeParallaxDslCommand = {
   kind: "changeParallax";
-  image: ImageAssetReference;
-  loopX?: boolean;
-  loopY?: boolean;
-  sx?: number;
-  sy?: number;
+  image: ImageAssetReference | null;
+  loopX: boolean;
+  loopY: boolean;
+  sx: number;
+  sy: number;
 };
 
 export type GetLocationInfoDslCommand = {
@@ -642,32 +666,26 @@ export type EraseEventDslCommand = {
 export type BattleProcessingDslCommand = {
   kind: "battleProcessing";
   troop:
-    | ReferenceValue<"troop">
-    | {
-        kind: "troop";
-        variable: ReferenceValue<"variable">;
-      }
-    | {
-        kind: "troop";
-        useRandomEncounter: true;
-      };
+    | { kind: "fixed"; troop: ReferenceValue<"troop"> }
+    | { kind: "variable"; variable: ReferenceValue<"variable"> }
+    | { kind: "randomEncounter" };
   canEscape?: boolean;
   canLose?: boolean;
-  win?: readonly DslCommand[];
-  escape?: readonly DslCommand[];
-  lose?: readonly DslCommand[];
+  win?: ChildCommandBody;
+  escape?: ChildCommandBody;
+  lose?: ChildCommandBody;
 };
 
-export type ShopGoods = {
-  kind: "item" | "weapon" | "armor";
-  item: ReferenceValue<"item"> | ReferenceValue<"weapon"> | ReferenceValue<"armor">;
-  price?: number;
-};
+export type ShopGoods =
+  | { kind: "placeholder" }
+  | { kind: "item"; item: ReferenceValue<"item">; price?: number }
+  | { kind: "weapon"; weapon: ReferenceValue<"weapon">; price?: number }
+  | { kind: "armor"; armor: ReferenceValue<"armor">; price?: number };
 
 export type ShopProcessingDslCommand = {
   kind: "shopProcessing";
-  goods: readonly [ShopGoods, ...ShopGoods[]];
-  allowSelling?: boolean;
+  goods: readonly ShopGoods[];
+  purchaseOnly?: boolean;
 };
 
 export type NameInputProcessingDslCommand = {
@@ -678,58 +696,58 @@ export type NameInputProcessingDslCommand = {
 
 export type ChangeHpDslCommand = {
   kind: "changeHp";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
-  allowDeath?: boolean;
+  value: ActorResourceOperand;
+  allowDeath: boolean;
 };
 
 export type ChangeMpDslCommand = {
   kind: "changeMp";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
 };
 
 export type ChangeStateDslCommand = {
   kind: "changeState";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "add" | "remove";
   state: ReferenceValue<"state">;
 };
 
 export type RecoverAllDslCommand = {
   kind: "recoverAll";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
 };
 
 export type ChangeExpDslCommand = {
   kind: "changeExp";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
-  showLevelUp?: boolean;
+  value: ActorResourceOperand;
+  showLevelUp: boolean;
 };
 
 export type ChangeLevelDslCommand = {
   kind: "changeLevel";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
-  showLevelUp?: boolean;
+  value: ActorResourceOperand;
+  showLevelUp: boolean;
 };
 
 export type ChangeParameterDslCommand = {
   kind: "changeParameter";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   parameter: ActorParameter;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
 };
 
 export type ChangeSkillDslCommand = {
   kind: "changeSkill";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "learn" | "forget";
   skill: ReferenceValue<"skill">;
 };
@@ -737,8 +755,8 @@ export type ChangeSkillDslCommand = {
 export type ChangeEquipmentDslCommand = {
   kind: "changeEquipment";
   actor: ReferenceValue<"actor">;
-  equipmentTypeId: number;
-  itemId: number | null;
+  slotIndex: number;
+  equipment: EquipmentRuntimeSelector | null;
 };
 
 export type ChangeNameDslCommand = {
@@ -751,21 +769,21 @@ export type ChangeClassDslCommand = {
   kind: "changeClass";
   actor: ReferenceValue<"actor">;
   class: ReferenceValue<"class">;
-  keepExp?: boolean;
+  keepExp: boolean;
 };
 
 export type ChangeActorImagesDslCommand = {
   kind: "changeActorImages";
   actor: ReferenceValue<"actor">;
-  character: { image: ImageAssetReference; index: number };
-  face: { image: ImageAssetReference; index: number };
-  battler: ImageAssetReference;
+  character: { image: ImageAssetReference | null; index: number };
+  face: { image: ImageAssetReference | null; index: number };
+  battler: ImageAssetReference | null;
 };
 
 export type ChangeVehicleImageDslCommand = {
   kind: "changeVehicleImage";
   vehicle: VehicleTarget;
-  image: ImageAssetReference;
+  image: ImageAssetReference | null;
   index: number;
 };
 
@@ -783,24 +801,24 @@ export type ChangeProfileDslCommand = {
 
 export type ChangeTpDslCommand = {
   kind: "changeTp";
-  target: ActorCommandTarget;
+  target: ActorResourceTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ActorResourceOperand;
 };
 
 export type ChangeEnemyHpDslCommand = {
   kind: "changeEnemyHp";
   target: EnemyCommandTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
-  allowDeath?: boolean;
+  value: ConstantOperand | VariableOperand;
+  allowDeath: boolean;
 };
 
 export type ChangeEnemyMpDslCommand = {
   kind: "changeEnemyMp";
   target: EnemyCommandTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ConstantOperand | VariableOperand;
 };
 
 export type ChangeEnemyStateDslCommand = {
@@ -817,26 +835,27 @@ export type EnemyRecoverAllDslCommand = {
 
 export type EnemyAppearDslCommand = {
   kind: "enemyAppear";
-  target: EnemyCommandTarget;
+  target: Extract<EnemyCommandTarget, { target: "enemy" }>;
 };
 
 export type EnemyTransformDslCommand = {
   kind: "enemyTransform";
-  target: EnemyCommandTarget;
+  target: Extract<EnemyCommandTarget, { target: "enemy" }>;
   enemy: ReferenceValue<"enemy">;
 };
 
 export type ShowBattleAnimationDslCommand = {
   kind: "showBattleAnimation";
-  target: EnemyCommandTarget;
+  target: Extract<EnemyCommandTarget, { target: "enemy" }>;
   animation: ReferenceValue<"animation">;
+  allEnemies: boolean;
 };
 
 export type ForceActionDslCommand = {
   kind: "forceAction";
   subject: BattlerCommandTarget;
   skill: ReferenceValue<"skill">;
-  targetIndex: number;
+  target: { kind: "lastTarget" } | { kind: "random" } | { kind: "index"; index: number };
 };
 
 export type AbortBattleDslCommand = {
@@ -847,7 +866,7 @@ export type ChangeEnemyTpDslCommand = {
   kind: "changeEnemyTp";
   target: EnemyCommandTarget;
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ConstantOperand | VariableOperand;
 };
 
 export type OpenMenuScreenDslCommand = {

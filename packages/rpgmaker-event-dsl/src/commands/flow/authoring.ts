@@ -4,8 +4,7 @@ import type {
   CommonEventDslCommand,
   ConditionalBranchCondition,
   ConditionalDslCommand,
-  DslCommand,
-  ExitEventDslCommand,
+  ExitEventProcessingDslCommand,
   JumpToLabelDslCommand,
   LabelDslCommand,
   LoopDslCommand,
@@ -14,14 +13,20 @@ import type {
   ScriptDslCommand,
   ScriptInput,
 } from "../../domain/types.js";
-import { isScriptInput } from "../../domain/references.js";
 import { scriptInput } from "../../authoring/references.js";
+import { assertCommonEventCall, assertLoopBody } from "./validation.js";
+import { assertConditionalCommand } from "./conditional-validation.js";
+
+import { assertComment } from "../message/validation.js";
+
+import { assertDslObject, assertDslTextInput } from "../../validation/dsl-command-inputs.js";
 
 export function conditional(input: {
   condition: ConditionalBranchCondition;
-  then: readonly DslCommand[];
-  else?: readonly DslCommand[];
+  then: ConditionalDslCommand["then"];
+  else?: ConditionalDslCommand["else"];
 }): ConditionalDslCommand {
+  assertConditionalCommand(input, "conditional", false);
   const node: ConditionalDslCommand = {
     kind: "conditional",
     condition: input.condition,
@@ -35,53 +40,53 @@ export function conditional(input: {
   return node;
 }
 
-export function loop(body: readonly DslCommand[]): LoopDslCommand {
-  return { kind: "loop", body };
+export function loop(input: { body: LoopDslCommand["body"] }): LoopDslCommand {
+  assertDslObject(input, ["body"], "loop");
+  assertLoopBody(input.body, "loop.body");
+  return { kind: "loop", body: input.body };
 }
 
 export function breakLoop(): BreakLoopDslCommand {
   return { kind: "breakLoop" };
 }
 
-export function exitEvent(): ExitEventDslCommand {
-  return { kind: "exitEvent" };
+export function exitEventProcessing(): ExitEventProcessingDslCommand {
+  return { kind: "exitEventProcessing" };
 }
 
-export function callCommonEvent(ref: ReferenceValue<"commonEvent">): CommonEventDslCommand {
-  return { kind: "commonEvent", ref };
+export function callCommonEvent(input: {
+  commonEvent: ReferenceValue<"commonEvent">;
+}): CommonEventDslCommand {
+  assertCommonEventCall(input, "callCommonEvent", false);
+  return { kind: "commonEvent", commonEvent: input.commonEvent };
 }
 
-export function label(name: string): LabelDslCommand {
-  return { kind: "label", name };
+export function label(input: { name: string }): LabelDslCommand {
+  assertDslTextInput(input, "name", "label");
+  return { kind: "label", name: input.name };
 }
 
-export function jumpToLabel(name: string): JumpToLabelDslCommand {
-  return { kind: "jumpToLabel", name };
+export function jumpToLabel(input: { name: string }): JumpToLabelDslCommand {
+  assertDslTextInput(input, "name", "jumpToLabel");
+  return { kind: "jumpToLabel", name: input.name };
 }
 
-export function comment(lines: readonly [string, ...string[]]): CommentDslCommand {
-  return { kind: "comment", lines };
+export function comment(input: Omit<CommentDslCommand, "kind">): CommentDslCommand {
+  assertComment(input, "comment", false);
+  return { kind: "comment", lines: input.lines };
 }
 
 export function script(input: { code: string } | ScriptInput): ScriptDslCommand {
+  assertDslObject(input, ["kind", "code"], "script");
+  const hasKind = Object.hasOwn(input, "kind");
+  assertDslTextInput(input, "code", "script", hasKind ? "scriptInput" : undefined);
   return {
     kind: "script",
-    script: isScriptInput(input) ? input : scriptInput(input),
+    script: hasKind ? (input as ScriptInput) : scriptInput(input),
   };
 }
 
-export function pluginCommand(input: {
-  command: string;
-  args?: readonly string[];
-}): PluginDslCommand {
-  const node: PluginDslCommand = {
-    kind: "pluginCommand",
-    command: input.command,
-  };
-
-  if (input.args !== undefined) {
-    node.args = input.args;
-  }
-
-  return node;
+export function pluginCommand(input: { line: string }): PluginDslCommand {
+  assertDslTextInput(input, "line", "pluginCommand");
+  return { kind: "pluginCommand", line: input.line };
 }

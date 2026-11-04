@@ -36,7 +36,7 @@ export const gate = entry;
 
     const definitions = await loadDefinitionFile(file);
     expect(definitions).toHaveLength(1);
-    expect(definitions[0]?.name).toBe("Gate");
+    expect(definitions[0]?.kind !== "troopEvent" && definitions[0]?.name).toBe("Gate");
   });
 
   it("loads DSL-owned declarations from a TypeScript module", async () => {
@@ -137,10 +137,9 @@ export const count = variableDefinition({
       commands: [
         {
           kind: "showChoices",
-          choices: ["Yes", "No"],
-          branches: [
-            [{ kind: "wait", frames: 10 }],
-            [{ kind: "eraseEvent" }],
+          choices: [
+            {text:"Yes",commands:[{ kind: "wait", frames: 10 }]},
+            {text:"No",commands:[{ kind: "eraseEvent" }]},
           ],
         },
       ],
@@ -165,7 +164,10 @@ export const count = variableDefinition({
     if (choices?.kind !== "showChoices") {
       return;
     }
-    expect(choices.branches).toEqual([[{ kind: "wait", frames: 10 }], [{ kind: "eraseEvent" }]]);
+    expect(choices.choices).toEqual([
+      { text: "Yes", commands: [{ kind: "wait", frames: 10 }] },
+      { text: "No", commands: [{ kind: "eraseEvent" }] },
+    ]);
   });
 
   it("evaluates imported message command helpers", async () => {
@@ -201,11 +203,13 @@ export declare function mapEvent(input: {
   pages: readonly unknown[];
 }): { kind: "mapEvent"; pages: readonly [{ commands: readonly unknown[] }] };
 export declare function page(input: { commands: readonly unknown[] }): unknown;
-export declare function selectItem(input: { variable: unknown; itemType?: 1 | 2 | 3 | 4 }): unknown;
-export declare function showScrollingText(input: { lines: readonly [string, ...string[]]; speed?: number }): unknown;
+export declare function selectItem(input: { variable: unknown; itemType: "regular" | "key" | "hiddenA" | "hiddenB" }): unknown;
+export declare function showScrollingText(input: { lines: readonly [string, ...string[]]; speed: number; noFastForward: boolean }): unknown;
 export declare function showText(input: {
   lines: readonly [string, ...string[]];
-  face?: { image: unknown; index?: number };
+  face: { image: unknown | null; index: number };
+  background: "window" | "dim" | "transparent";
+  position: "top" | "middle" | "bottom";
 }): unknown;
 export declare function variableRef(value: { id: number } | { name: string }): unknown;
 `,
@@ -236,10 +240,10 @@ export const message = mapEvent({
         showText({
           lines: ["Hello"],
           face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 0 },
-        }),
+         background: "window", position: "bottom" }),
         inputNumber({ variable: variableRef({ id: 1 }), digits: 3 }),
-        selectItem({ variable: variableRef({ id: 1 }), itemType: 2 }),
-        showScrollingText({ lines: ["Scroll"], speed: 4 }),
+        selectItem({ variable: variableRef({ id: 1 }), itemType: "key" }),
+        showScrollingText({ lines: ["Scroll"], speed: 4 , noFastForward: false }),
       ],
     }),
   ],

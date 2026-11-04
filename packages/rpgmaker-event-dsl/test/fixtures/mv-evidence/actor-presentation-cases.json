@@ -1,0 +1,25 @@
+{
+  "provenance": "Synthetic support vectors from the accepted actors-battle parameter contract, independently authored; not editor UI captures.",
+  "commands": [
+    { "code": 303, "indent": 0, "parameters": [1, 1] },
+    { "code": 303, "indent": 0, "parameters": [1, 16] },
+    { "code": 320, "indent": 0, "parameters": [1, ""] },
+    { "code": 320, "indent": 0, "parameters": [1, "  名字\r\n尾\\  "] },
+    { "code": 324, "indent": 0, "parameters": [1, "  "] },
+    { "code": 324, "indent": 0, "parameters": [1, "昵称\n\r尾\n"] },
+    { "code": 325, "indent": 0, "parameters": [1, ""] },
+    { "code": 325, "indent": 0, "parameters": [1, "a\n"] },
+    { "code": 325, "indent": 0, "parameters": [1, "a\n\n"] },
+    { "code": 325, "indent": 0, "parameters": [1, "a\r\nb"] },
+    { "code": 322, "indent": 0, "parameters": [1, "", 7, "", 11, ""] },
+    { "code": 322, "indent": 0, "parameters": [1, "$Big", 7, "Face", 0, "Battler"] },
+    { "code": 322, "indent": 0, "parameters": [1, "Character", 0, "Face", 7, ""] },
+    { "code": 322, "indent": 0, "parameters": [1, "", 0, "Face", 8, "Battler"] },
+    { "code": 322, "indent": 0, "parameters": [1, "Character", -0, "Face", 11, ""] },
+    { "code": 322, "indent": 0, "parameters": [1, "", 0, "", 2147483647, "Battler"] },
+    { "code": 323, "indent": 0, "parameters": [0, "", 7] },
+    { "code": 323, "indent": 0, "parameters": [1, "$Big", 7] },
+    { "code": 323, "indent": 0, "parameters": [2, "Vehicle", -0] },
+    { "code": 0, "indent": 0, "parameters": [] }
+  ]
+}

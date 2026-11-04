@@ -1,7 +1,9 @@
-import { mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, realpath, stat, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { resolve } from "node:path";
 
 import { z } from "zod";
+import { assetCheckExceptionsSchema } from "../validation/asset-exceptions.js";
 
 export const defaultSourceRoot = "src";
 export const defaultSourceInclude = ["**/*.events.ts", "**/*.dsl.ts"] as const;
@@ -14,6 +16,7 @@ export const workspaceConfigSchema = z
     sourceRoot: z.string().min(1),
     sourceInclude: z.array(z.string().min(1)),
     sourceExclude: z.array(z.string().min(1)),
+    assetCheckExceptions: assetCheckExceptionsSchema.default([]),
   })
   .strict();
 
@@ -24,6 +27,8 @@ export type LoadedWorkspace = {
   projectRoot: string;
   dataDirectory: string;
   config: WorkspaceConfig;
+  configHash: string;
+  projectRootBinding: string;
 };
 
 export type InitWorkspaceOptions = {
@@ -33,8 +38,20 @@ export type InitWorkspaceOptions = {
 
 export async function loadWorkspace(workspaceRoot: string): Promise<LoadedWorkspace> {
   const configPath = resolve(workspaceRoot, "rpgmaker-event-dsl.config.json");
-  const rawConfig = await readFile(configPath, "utf8");
-  const config = workspaceConfigSchema.parse(JSON.parse(rawConfig));
+  const configBytes = await readFile(configPath);
+  const rawConfig = new TextDecoder("utf-8", { fatal: true, ignoreBOM: true }).decode(configBytes);
+  const parsed = workspaceConfigSchema.safeParse(JSON.parse(rawConfig));
+  if (!parsed.success) {
+    const exceptionIssues = parsed.error.issues.filter(
+      (issue) => issue.path[0] === "assetCheckExceptions",
+    );
+    if (exceptionIssues.length)
+      throw new Error(
+        `MV-ASSET-INVALID-EXCEPTION: ${exceptionIssues.map((issue) => `${issue.path.map((part, index) => (typeof part === "number" ? `[${part}]` : `${index ? "." : ""}${String(part)}`)).join("")}: ${issue.message}`).join("\n")}\nasset check not run: Workspace Config is invalid.`,
+      );
+    throw parsed.error;
+  }
+  const config = parsed.data;
   const projectRoot = resolve(workspaceRoot, config.projectRoot);
   const dataDirectory = resolve(projectRoot, "data");
 
@@ -46,6 +63,8 @@ export async function loadWorkspace(workspaceRoot: string): Promise<LoadedWorksp
     projectRoot,
     dataDirectory,
     config,
+    configHash: createHash("sha256").update(configBytes).digest("hex"),
+    projectRootBinding: await normalizedProjectRoot(projectRoot),
   };
 }
 
@@ -60,6 +79,7 @@ export async function initWorkspace(options: InitWorkspaceOptions): Promise<Load
     sourceRoot: defaultSourceRoot,
     sourceInclude: [...defaultSourceInclude],
     sourceExclude: [...defaultSourceExclude],
+    assetCheckExceptions: [],
   };
 
   await assertProjectRoot(projectRoot);
@@ -73,12 +93,32 @@ export async function initWorkspace(options: InitWorkspaceOptions): Promise<Load
     "utf8",
   );
 
-  return {
-    workspaceRoot,
-    projectRoot,
-    dataDirectory,
-    config,
-  };
+  return loadWorkspace(workspaceRoot);
+}
+
+async function normalizedProjectRoot(projectRoot: string): Promise<string> {
+  const canonical = await realpath(projectRoot);
+  return process.platform === "win32" ? canonical.toLowerCase() : canonical;
+}
+
+export async function assertWorkspaceUnchanged(
+  workspace: LoadedWorkspace,
+  commandName: string,
+): Promise<void> {
+  const current = await loadWorkspace(workspace.workspaceRoot).catch((error: unknown) => {
+    throw new Error(
+      `Workspace configuration or Project Root changed during ${commandName}. Run ${commandName} again.`,
+      { cause: error },
+    );
+  });
+  if (
+    current.configHash !== workspace.configHash ||
+    current.projectRootBinding !== workspace.projectRootBinding
+  ) {
+    throw new Error(
+      `Workspace configuration or Project Root changed during ${commandName}. Run ${commandName} again.`,
+    );
+  }
 }
 
 async function assertConfigDoesNotExist(configPath: string): Promise<void> {

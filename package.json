@@ -6,8 +6,8 @@
   "scripts": {
     "build": "pnpm -r build",
     "check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test",
-    "format": "oxfmt --ignore-path .oxfmtignore --write package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl",
-    "format:check": "oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore docs/adr packages/rpgmaker-event-dsl",
+    "format": "oxfmt --ignore-path .oxfmtignore --write package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore README.md CHANGELOG.md docs/README.md docs/getting-started.md docs/authoring.md docs/workflow.md docs/reference docs/adr example/full-event/README.md example/shared-authoring/README.md packages/rpgmaker-event-dsl",
+    "format:check": "oxfmt --ignore-path .oxfmtignore --check package.json pnpm-workspace.yaml tsconfig.base.json .oxlintrc.json .oxfmtrc.json .oxfmtignore README.md CHANGELOG.md docs/README.md docs/getting-started.md docs/authoring.md docs/workflow.md docs/reference docs/adr example/full-event/README.md example/shared-authoring/README.md packages/rpgmaker-event-dsl",
     "lint": "oxlint .",
     "test": "pnpm -r test",
     "typecheck": "pnpm -r typecheck"

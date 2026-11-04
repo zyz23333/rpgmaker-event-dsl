@@ -11,6 +11,6 @@
     "push": "rpgmaker-event-dsl push"
   },
   "devDependencies": {
-    "rpgmaker-event-dsl": "^0.1.1"
+    "rpgmaker-event-dsl": "workspace:*"
   }
 }

@@ -47,12 +47,14 @@ export function renderBattleProcessingCommand(
     }
 
     const branchEndIndex = findMessageBranchEnd(commands, nextIndex + 2, command.indent);
-    const rendered = renderCommandList(commands.slice(nextIndex + 2, branchEndIndex));
+    const body = commands.slice(nextIndex + 2, branchEndIndex);
+    const marker = body.at(-1)?.code === 0 && body.at(-1)?.indent === command.indent + 1;
+    const rendered = renderCommandList(marker ? body.slice(0, -1) : body);
     for (const helperName of rendered.helperNames) {
       helperNames.add(helperName);
     }
     fields.push(
-      `${battleBranchFieldName(branchCommand.code)}: [${renderInlineCommandListSource(rendered.source)}]`,
+      `${battleBranchFieldName(branchCommand.code)}: { commands: [${renderInlineCommandListSource(rendered.source)}]${marker ? "" : ', endMarker: "absent"'} }`,
     );
     nextIndex = branchEndIndex - 1;
   }
@@ -79,8 +81,8 @@ export function renderShopProcessingCommand(
   }
 
   const firstGoods = renderShopGoods(command.parameters);
-  const allowSelling = command.parameters[4];
-  if (firstGoods === null || typeof allowSelling !== "boolean") {
+  const purchaseOnly = command.parameters[4];
+  if (firstGoods === null || typeof purchaseOnly !== "boolean") {
     return renderSimpleCommand(command, index);
   }
 
@@ -103,9 +105,11 @@ export function renderShopProcessingCommand(
     nextIndex += 1;
   }
 
-  const fields = [`goods: [${goods.join(", ")}]`];
-  if (allowSelling) {
-    fields.push("allowSelling: true");
+  const solePlaceholder =
+    goods.length === 1 && command.parameters.slice(0, 4).every((value) => Object.is(value, 0));
+  const fields = [`goods: [${solePlaceholder ? "" : goods.join(", ")}]`];
+  if (purchaseOnly) {
+    fields.push("purchaseOnly: true");
   }
 
   return {
@@ -123,7 +127,7 @@ export function renderBattleTroop(
     return troopId === null
       ? null
       : {
-          expression: `troopRef({ id: ${troopId} })`,
+          expression: `{ kind: "fixed", troop: troopRef({ id: ${troopId} }) }`,
           helperNames: ["troopRef"],
         };
   }
@@ -133,14 +137,14 @@ export function renderBattleTroop(
     return variableId === null
       ? null
       : {
-          expression: `{ kind: "troop", variable: variableRef({ id: ${variableId} }) }`,
+          expression: `{ kind: "variable", variable: variableRef({ id: ${variableId} }) }`,
           helperNames: ["variableRef"],
         };
   }
 
   if (parameters[0] === 2) {
     return {
-      expression: `{ kind: "troop", useRandomEncounter: true }`,
+      expression: `{ kind: "randomEncounter" }`,
       helperNames: [],
     };
   }
@@ -161,6 +165,12 @@ export function battleBranchFieldName(code: number): "escape" | "lose" | "win" {
 export function renderShopGoods(
   parameters: readonly unknown[],
 ): { expression: string; helperNames: readonly string[] } | null {
+  if (
+    parameters.slice(0, 4).length === 4 &&
+    parameters.slice(0, 4).every((value) => Object.is(value, 0))
+  ) {
+    return { expression: '{ kind: "placeholder" }', helperNames: [] };
+  }
   const kind = shopGoodsKindFromCode(parameters[0]);
   const itemId = readPositiveInteger(parameters[1]);
   const priceMode = parameters[2];
@@ -173,9 +183,9 @@ export function renderShopGoods(
   }
 
   const helperName = kind === "item" ? "itemRef" : kind === "weapon" ? "weaponRef" : "armorRef";
-  const fields = [`kind: ${literal(kind)}`, `item: ${helperName}({ id: ${itemId} })`];
+  const fields = [`kind: ${literal(kind)}`, `${kind}: ${helperName}({ id: ${itemId} })`];
   if (priceMode === 1) {
-    fields.push(`price: ${price}`);
+    fields.push(`price: ${literal(price)}`);
   }
 
   return {

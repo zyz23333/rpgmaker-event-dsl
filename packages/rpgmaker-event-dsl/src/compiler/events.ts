@@ -1,11 +1,62 @@
-import type { CommonEventDefinition, EventPage, MapEventDefinition } from "../domain/types.js";
+import type {
+  BattleEventPage,
+  CommonEventDefinition,
+  EventPage,
+  MapEventDefinition,
+  ReferenceValue,
+} from "../domain/types.js";
+import { blankBattleEventPage } from "../domain/battle-page-defaults.js";
+import { assertMapEventInput, assertMapPageInput } from "../map-event/validation.js";
 import type { ReferenceResolver } from "../validation/types.js";
-import {
-  commonEventTriggerToCode,
-  compileConditions,
-  compileNodes,
-  type RawEventCommand,
-} from "./dispatch.js";
+import { commonEventTriggerToCode, compileNodes, type RawEventCommand } from "./dispatch.js";
+import { compilePageMovement } from "../commands/movement/page.js";
+import { assertCommonEventInput } from "../validation/common-events.js";
+
+import { assertBattlePageInput } from "../validation/battle-pages.js";
+
+export function compileBattlePage(page: BattleEventPage, resolver: ReferenceResolver) {
+  assertBattlePageInput(page, resolver);
+  const defaults = blankBattleEventPage();
+  const conditions = page.conditions ?? {};
+  const savedId = (ref: ReferenceValue<"actor"> | ReferenceValue<"switch">, enabled: boolean) =>
+    !enabled && "id" in ref ? ref.id : resolver.resolveReference(ref);
+  return {
+    conditions: {
+      ...defaults.conditions,
+      ...(conditions.turnEnd === undefined ? {} : { turnEnding: conditions.turnEnd }),
+      ...(conditions.turn === undefined
+        ? {}
+        : {
+            turnValid: conditions.turn.enabled,
+            turnA: conditions.turn.a,
+            turnB: conditions.turn.b,
+          }),
+      ...(conditions.enemy === undefined
+        ? {}
+        : {
+            enemyValid: conditions.enemy.enabled,
+            enemyIndex: conditions.enemy.index,
+            enemyHp: conditions.enemy.hpAtMost,
+          }),
+      ...(conditions.actor === undefined
+        ? {}
+        : {
+            actorValid: conditions.actor.enabled,
+            actorId: savedId(conditions.actor.ref, conditions.actor.enabled),
+            actorHp: conditions.actor.hpAtMost,
+          }),
+      ...(conditions.switch === undefined
+        ? {}
+        : {
+            switchValid: conditions.switch.enabled,
+            switchId: savedId(conditions.switch.ref, conditions.switch.enabled),
+          }),
+    },
+    span: page.span === undefined || page.span === "battle" ? 0 : page.span === "turn" ? 1 : 2,
+    list: compileNodes(page.commands, 0, resolver),
+  };
+}
+import { compilePageSettings } from "../map-event/page.js";
 
 export type ProjectEventData = {
   id: number;
@@ -47,11 +98,13 @@ export function compileMapEvent(
   definition: MapEventDefinition,
   options: { nextId: number; resolver: ReferenceResolver },
 ): ProjectEventData {
+  assertMapEventInput(definition);
   return {
     id: options.nextId,
     name: definition.name,
     x: definition.x,
     y: definition.y,
+    note: definition.note ?? "",
     pages: definition.pages.map((page) => compilePage(page, options.resolver)),
   };
 }
@@ -60,6 +113,7 @@ export function compileCommonEvent(
   definition: CommonEventDefinition,
   options: { nextId: number; resolver: ReferenceResolver },
 ): CompiledCommonEvent {
+  assertCommonEventInput(definition, true);
   return {
     id: options.nextId,
     name: definition.name,
@@ -70,39 +124,10 @@ export function compileCommonEvent(
 }
 
 export function compilePage(page: EventPage, resolver: ReferenceResolver): ProjectEventPage {
+  assertMapPageInput(page, resolver, "page");
   return {
-    conditions: compileConditions(page.conditions, resolver),
-    directionFix: false,
-    image: {
-      characterIndex: 0,
-      characterName: "",
-      direction: 2,
-      pattern: 0,
-      tileId: 0,
-    },
+    ...compilePageSettings(page, resolver),
     list: compileNodes(page.commands, 0, resolver),
-    moveFrequency: 3,
-    moveRoute: {
-      list: [{ code: 0, parameters: [] }],
-      repeat: true,
-      skippable: false,
-      wait: false,
-    },
-    moveSpeed: 3,
-    moveType: 0,
-    priorityType: 1,
-    stepAnime: false,
-    through: false,
-    trigger:
-      page.trigger === "action"
-        ? 0
-        : page.trigger === "playerTouch"
-          ? 1
-          : page.trigger === "eventTouch"
-            ? 2
-            : page.trigger === "autorun"
-              ? 3
-              : 4,
-    walkAnime: true,
+    ...compilePageMovement(page.movement, resolver),
   };
 }

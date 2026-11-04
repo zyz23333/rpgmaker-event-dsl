@@ -1,0 +1,184 @@
+{
+  "formatVersion": 1,
+  "sourceKind": "synthetic-support",
+  "provenance": "Independent self-authored full fifteen-carrier MV project with Map/Common/Troop saved commands; literal source is the accepted E134–138/E351–354 contract. No compiler-generated expected state, native UI or game execution claim.",
+  "projectFiles": {
+    "Actors.json": [null],
+    "Animations.json": [null],
+    "Armors.json": [null],
+    "Classes.json": [null],
+    "CommonEvents.json": [
+      null,
+      {
+        "id": 1,
+        "name": "System common",
+        "trigger": 0,
+        "switchId": 1,
+        "list": [
+          { "code": 134, "indent": 0, "parameters": [0] },
+          { "code": 134, "indent": 0, "parameters": [1] },
+          { "code": 135, "indent": 0, "parameters": [0] },
+          { "code": 135, "indent": 0, "parameters": [1] },
+          { "code": 136, "indent": 0, "parameters": [0] },
+          { "code": 136, "indent": 0, "parameters": [1] },
+          { "code": 137, "indent": 0, "parameters": [0] },
+          { "code": 137, "indent": 0, "parameters": [1] },
+          { "code": 138, "indent": 0, "parameters": [[-255, 255, 0, 255]] },
+          { "code": 138, "indent": 0, "parameters": [[255, -255, 255, 0]] },
+          { "code": 138, "indent": 0, "parameters": [[-0, 0, -0, -0]] },
+          { "code": 351, "indent": 0, "parameters": [] },
+          { "code": 352, "indent": 0, "parameters": [] },
+          { "code": 353, "indent": 0, "parameters": [] },
+          { "code": 354, "indent": 0, "parameters": [] },
+          { "code": 0, "indent": 0, "parameters": [] }
+        ]
+      },
+      null
+    ],
+    "Enemies.json": [null],
+    "Items.json": [null],
+    "MapInfos.json": [null, { "id": 1, "name": "System evidence map" }],
+    "Skills.json": [null],
+    "States.json": [null],
+    "System.json": {
+      "gameTitle": "Synthetic evidence context",
+      "switches": ["", "Saved switch"],
+      "variables": [""],
+      "fixtureOrigin": { "retainedNull": null, "retainedArray": [] },
+      "windowTone": [17, -23, 41, 113]
+    },
+    "Tilesets.json": [
+      null,
+      {
+        "id": 1,
+        "name": "",
+        "tilesetNames": ["", "", "", "", "", "", "", "", ""],
+        "unknown": [null, []]
+      }
+    ],
+    "Troops.json": [
+      null,
+      {
+        "id": 1,
+        "name": "",
+        "members": [],
+        "unknown": { "exact": [null, [], {}, "carrier"] },
+        "pages": [
+          {
+            "conditions": {
+              "actorHp": 50,
+              "actorId": 1,
+              "actorValid": false,
+              "enemyHp": 50,
+              "enemyIndex": 0,
+              "enemyValid": false,
+              "switchId": 1,
+              "switchValid": false,
+              "turnA": 0,
+              "turnB": 0,
+              "turnEnding": false,
+              "turnValid": false
+            },
+            "span": 0,
+            "list": [
+              { "code": 134, "indent": 0, "parameters": [0] },
+              { "code": 134, "indent": 0, "parameters": [1] },
+              { "code": 135, "indent": 0, "parameters": [0] },
+              { "code": 135, "indent": 0, "parameters": [1] },
+              { "code": 136, "indent": 0, "parameters": [0] },
+              { "code": 136, "indent": 0, "parameters": [1] },
+              { "code": 137, "indent": 0, "parameters": [0] },
+              { "code": 137, "indent": 0, "parameters": [1] },
+              { "code": 138, "indent": 0, "parameters": [[-255, 255, 0, 255]] },
+              { "code": 138, "indent": 0, "parameters": [[255, -255, 255, 0]] },
+              { "code": 138, "indent": 0, "parameters": [[-0, 0, -0, -0]] },
+              { "code": 351, "indent": 0, "parameters": [] },
+              { "code": 352, "indent": 0, "parameters": [] },
+              { "code": 353, "indent": 0, "parameters": [] },
+              { "code": 354, "indent": 0, "parameters": [] },
+              { "code": 0, "indent": 0, "parameters": [] }
+            ]
+          }
+        ]
+      },
+      null
+    ],
+    "Weapons.json": [null],
+    "Map001.json": {
+      "width": 2,
+      "height": 2,
+      "tilesetId": 1,
+      "external": { "exact": [null, [], {}, " \r\n "], "negativeZero": -0 },
+      "events": [
+        null,
+        {
+          "id": 1,
+          "name": "System map",
+          "note": " saved\r\n",
+          "x": 0,
+          "y": 0,
+          "pages": [
+            {
+              "conditions": {
+                "actorId": 1,
+                "actorValid": false,
+                "itemId": 1,
+                "itemValid": false,
+                "selfSwitchCh": "A",
+                "selfSwitchValid": false,
+                "switch1Id": 1,
+                "switch1Valid": false,
+                "switch2Id": 1,
+                "switch2Valid": false,
+                "variableId": 1,
+                "variableValid": false,
+                "variableValue": 0
+              },
+              "directionFix": false,
+              "image": {
+                "characterIndex": 0,
+                "characterName": "",
+                "direction": 2,
+                "pattern": 0,
+                "tileId": 0
+              },
+              "list": [
+                { "code": 134, "indent": 0, "parameters": [0] },
+                { "code": 134, "indent": 0, "parameters": [1] },
+                { "code": 135, "indent": 0, "parameters": [0] },
+                { "code": 135, "indent": 0, "parameters": [1] },
+                { "code": 136, "indent": 0, "parameters": [0] },
+                { "code": 136, "indent": 0, "parameters": [1] },
+                { "code": 137, "indent": 0, "parameters": [0] },
+                { "code": 137, "indent": 0, "parameters": [1] },
+                { "code": 138, "indent": 0, "parameters": [[-255, 255, 0, 255]] },
+                { "code": 138, "indent": 0, "parameters": [[255, -255, 255, 0]] },
+                { "code": 138, "indent": 0, "parameters": [[-0, 0, -0, -0]] },
+                { "code": 351, "indent": 0, "parameters": [] },
+                { "code": 352, "indent": 0, "parameters": [] },
+                { "code": 353, "indent": 0, "parameters": [] },
+                { "code": 354, "indent": 0, "parameters": [] },
+                { "code": 0, "indent": 0, "parameters": [] }
+              ],
+              "moveFrequency": 3,
+              "moveRoute": {
+                "list": [{ "code": 0, "parameters": [] }],
+                "repeat": true,
+                "skippable": false,
+                "wait": false
+              },
+              "moveSpeed": 3,
+              "moveType": 0,
+              "priorityType": 0,
+              "stepAnime": false,
+              "through": false,
+              "trigger": 0,
+              "walkAnime": true
+            }
+          ]
+        },
+        null
+      ]
+    }
+  }
+}

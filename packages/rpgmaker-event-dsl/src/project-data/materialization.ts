@@ -8,17 +8,26 @@ import type {
   MapEventDefinition,
   SwitchDefinition,
   VariableDefinition,
+  TroopEventDefinition,
 } from "../domain/types.js";
-import { compileCommonEvent, compileMapEvent } from "../compiler/events.js";
+import { compileBattlePage, compileCommonEvent, compileMapEvent } from "../compiler/events.js";
+import { blankBattleEventPage } from "../domain/battle-page-defaults.js";
 import { parseMapInfos } from "./project.js";
 import type { ReferenceResolver } from "../validation/types.js";
 import {
   hashUtf8Content,
+  readProjectDataSnapshotFile,
   type SyncManifest,
   type WorkspaceStatePaths,
 } from "../workspace/state.js";
 import type { WorkspaceConfig } from "../workspace/config.js";
 import { writeStableJson } from "./writer.js";
+import { assertCompileOutput } from "../validation/compile-output.js";
+import {
+  compileContractVersion,
+  typeInputsUnchanged,
+  type TypeInput,
+} from "../workspace/type-inputs.js";
 
 export type CompileBaseline = NonNullable<SyncManifest["compileBaseline"]>;
 export type FileHashEntry = {
@@ -30,25 +39,73 @@ export type MaterializeCompileOutputOptions = {
   statePaths: WorkspaceStatePaths;
   declarations: readonly DslOwnedDeclaration[];
   resolver: ReferenceResolver;
+  scriptEnabled: boolean;
 };
 
 export type MaterializedCompileOutput = {
   generatedFiles: FileHashEntry[];
 };
 
+export type CompileOutputCandidate = { files: ReadonlyMap<string, string> };
+
 export type CompileBaselineInput = {
+  projectRootBinding: string;
   workspaceRoot: string;
   config: WorkspaceConfig;
   sourceFiles: readonly string[];
   sourceFileHashes?: readonly FileHashEntry[];
+  typeInputs?: readonly TypeInput[];
   snapshotFiles: readonly FileHashEntry[];
 };
 
-export async function materializeCompileOutput(
+export async function expectedCompileOutputFileNames(
+  statePaths: WorkspaceStatePaths,
+): Promise<string[]> {
+  return [
+    "CommonEvents.json",
+    "System.json",
+    "Troops.json",
+    ...parseMapInfos(await readSnapshotFile(statePaths, "MapInfos.json")).map(({ id }) =>
+      formatMapFileName(id),
+    ),
+  ].sort();
+}
+
+export async function buildCompileOutput(
   options: MaterializeCompileOutputOptions,
-): Promise<MaterializedCompileOutput> {
+): Promise<CompileOutputCandidate> {
   const mapInfos = parseMapInfos(await readSnapshotFile(options.statePaths, "MapInfos.json"));
   const files = new Map<string, unknown>();
+  const troopDefinitions = new Map(
+    options.declarations
+      .filter(
+        (declaration): declaration is TroopEventDefinition => declaration.kind === "troopEvent",
+      )
+      .map((declaration) => [declaration.troopId, declaration]),
+  );
+  files.set(
+    "Troops.json",
+    (await readSnapshotArray(options.statePaths, "Troops.json")).map((entry, index) => {
+      if (entry === null) return null;
+      if (
+        !entry ||
+        typeof entry !== "object" ||
+        Array.isArray(entry) ||
+        (entry as { id?: unknown }).id !== index ||
+        index <= 0
+      )
+        throw new Error(
+          `Snapshot Troops.json[${index}]: expected actual Troop with positive matching ID or null.`,
+        );
+      const definition = troopDefinitions.get(index);
+      return {
+        ...entry,
+        pages: definition
+          ? definition.pages.map((page) => compileBattlePage(page, options.resolver))
+          : [blankBattleEventPage()],
+      };
+    }),
+  );
 
   for (const mapInfo of mapInfos) {
     const relativePath = formatMapFileName(mapInfo.id);
@@ -91,7 +148,16 @@ export async function materializeCompileOutput(
     ),
   );
 
-  return writeGeneratedProjectData(options.statePaths, files);
+  assertCompileOutput(files, options.resolver, options.scriptEnabled);
+  return { files: new Map([...files].map(([path, value]) => [path, writeStableJson(value)])) };
+}
+
+export async function publishCompileOutput(
+  statePaths: WorkspaceStatePaths,
+  candidate: CompileOutputCandidate,
+  assertInputsUnchanged: () => Promise<void>,
+): Promise<MaterializedCompileOutput> {
+  return writeGeneratedProjectData(statePaths, candidate.files, assertInputsUnchanged);
 }
 
 export async function buildCompileBaseline(input: CompileBaselineInput): Promise<CompileBaseline> {
@@ -110,12 +176,16 @@ export async function buildCompileBaseline(input: CompileBaselineInput): Promise
     left.relativePath.localeCompare(right.relativePath),
   );
   const config = {
+    assetCheckExceptions: input.config.assetCheckExceptions.map((entry) => ({ ...entry })),
     scriptEnabled: input.config.scriptEnabled,
     sourceExclude: [...input.config.sourceExclude],
     sourceInclude: [...input.config.sourceInclude],
     sourceRoot: input.config.sourceRoot,
   };
   const baselineWithoutHash = {
+    compileContractVersion,
+    typeInputs: [...(input.typeInputs ?? [])],
+    projectRootBinding: input.projectRootBinding,
     config,
     snapshotFiles,
     sourceFiles,
@@ -128,14 +198,28 @@ export async function buildCompileBaseline(input: CompileBaselineInput): Promise
 }
 
 export async function isCompileBaselineFresh(input: {
+  projectRootBinding: string;
   baseline: CompileBaseline;
   workspaceRoot: string;
   config: WorkspaceConfig;
   sourceFiles: readonly string[];
   snapshotFiles: readonly FileHashEntry[];
 }): Promise<boolean> {
-  const currentBaseline = await buildCompileBaseline(input);
-  return currentBaseline.hash === input.baseline.hash;
+  if (
+    input.baseline.compileContractVersion !== compileContractVersion ||
+    input.baseline.typeInputs === undefined ||
+    !typeInputsUnchanged(input.baseline.typeInputs)
+  )
+    return false;
+  try {
+    const currentBaseline = await buildCompileBaseline({
+      ...input,
+      typeInputs: input.baseline.typeInputs,
+    });
+    return currentBaseline.hash === input.baseline.hash;
+  } catch {
+    return false;
+  }
 }
 
 function materializeMapCarrier(
@@ -144,8 +228,8 @@ function materializeMapCarrier(
   resolver: ReferenceResolver,
 ): Record<string, unknown> {
   const snapshotEvents = Array.isArray(snapshotMapData.events) ? snapshotMapData.events : [];
-  const highestDefinitionId = highestId(definitions);
-  const length = Math.max(snapshotEvents.length, highestDefinitionId + 1, 1);
+  const definitionLength = definitions.length === 0 ? 0 : highestId(definitions) + 1;
+  const length = Math.max(snapshotEvents.length, definitionLength);
   const events = createDenseArray<unknown>(length, null);
 
   for (const definition of definitions) {
@@ -208,7 +292,8 @@ function materializeSystemNames(
 
 async function writeGeneratedProjectData(
   statePaths: WorkspaceStatePaths,
-  files: ReadonlyMap<string, unknown>,
+  files: ReadonlyMap<string, string>,
+  assertInputsUnchanged?: () => Promise<void>,
 ): Promise<MaterializedCompileOutput> {
   const tempDirectory = resolve(
     statePaths.workspaceStateDirectory,
@@ -221,10 +306,9 @@ async function writeGeneratedProjectData(
   try {
     const generatedFiles: FileHashEntry[] = [];
 
-    for (const [relativePath, value] of [...files.entries()].sort(([left], [right]) =>
+    for (const [relativePath, content] of [...files.entries()].sort(([left], [right]) =>
       left.localeCompare(right),
     )) {
-      const content = writeStableJson(value);
       const destinationPath = resolve(tempDirectory, relativePath);
 
       await mkdir(dirname(destinationPath), { recursive: true });
@@ -235,6 +319,7 @@ async function writeGeneratedProjectData(
       });
     }
 
+    await assertInputsUnchanged?.();
     await replaceDirectory(tempDirectory, statePaths.generatedProjectDataDirectory);
 
     return { generatedFiles };
@@ -248,7 +333,7 @@ async function readSnapshotFile(
   statePaths: WorkspaceStatePaths,
   relativePath: string,
 ): Promise<string> {
-  return readFile(resolve(statePaths.projectDataSnapshotDirectory, relativePath), "utf8");
+  return readProjectDataSnapshotFile(statePaths, relativePath);
 }
 
 async function readSnapshotArray(

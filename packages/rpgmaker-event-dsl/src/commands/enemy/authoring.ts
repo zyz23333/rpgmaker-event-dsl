@@ -1,130 +1,76 @@
 import type {
-  AbortBattleDslCommand,
-  BattlerCommandTarget,
   ChangeEnemyHpDslCommand,
   ChangeEnemyMpDslCommand,
-  ChangeEnemyStateDslCommand,
   ChangeEnemyTpDslCommand,
-  EnemyAppearDslCommand,
-  EnemyCommandTarget,
+  ChangeEnemyStateDslCommand,
   EnemyRecoverAllDslCommand,
+  EnemyAppearDslCommand,
   EnemyTransformDslCommand,
-  ForceActionDslCommand,
-  OperateValueOperand,
-  ReferenceValue,
   ShowBattleAnimationDslCommand,
+  ForceActionDslCommand,
+  AbortBattleDslCommand,
 } from "../../domain/types.js";
+import { assertEnemyInput } from "./validation.js";
 
-export function changeEnemyHp(input: {
-  target: EnemyCommandTarget;
-  operation: "gain" | "lose";
-  value: OperateValueOperand;
-  allowDeath?: boolean;
-}): ChangeEnemyHpDslCommand {
-  const node: ChangeEnemyHpDslCommand = {
-    kind: "changeEnemyHp",
-    target: input.target,
-    operation: input.operation,
-    value: input.value,
-  };
-
-  if (input.allowDeath !== undefined) {
-    node.allowDeath = input.allowDeath;
-  }
-
-  return node;
+export function changeEnemyHp(
+  input: Omit<ChangeEnemyHpDslCommand, "kind">,
+): ChangeEnemyHpDslCommand {
+  assertEnemyInput("changeEnemyHp", input, "changeEnemyHp");
+  return { kind: "changeEnemyHp", ...input };
 }
 
-export function changeEnemyMp(input: {
-  target: EnemyCommandTarget;
-  operation: "gain" | "lose";
-  value: OperateValueOperand;
-}): ChangeEnemyMpDslCommand {
-  return {
-    kind: "changeEnemyMp",
-    target: input.target,
-    operation: input.operation,
-    value: input.value,
-  };
+export function changeEnemyMp(
+  input: Omit<ChangeEnemyMpDslCommand, "kind">,
+): ChangeEnemyMpDslCommand {
+  assertEnemyInput("changeEnemyMp", input, "changeEnemyMp");
+  return { kind: "changeEnemyMp", ...input };
 }
 
-export function changeEnemyState(input: {
-  target: EnemyCommandTarget;
-  operation: "add" | "remove";
-  state: ReferenceValue<"state">;
-}): ChangeEnemyStateDslCommand {
-  return {
-    kind: "changeEnemyState",
-    target: input.target,
-    operation: input.operation,
-    state: input.state,
-  };
+export function changeEnemyTp(
+  input: Omit<ChangeEnemyTpDslCommand, "kind">,
+): ChangeEnemyTpDslCommand {
+  assertEnemyInput("changeEnemyTp", input, "changeEnemyTp");
+  return { kind: "changeEnemyTp", ...input };
 }
 
-export function enemyRecoverAll(input: { target: EnemyCommandTarget }): EnemyRecoverAllDslCommand {
-  return {
-    kind: "enemyRecoverAll",
-    target: input.target,
-  };
+export function changeEnemyState(
+  input: Omit<ChangeEnemyStateDslCommand, "kind">,
+): ChangeEnemyStateDslCommand {
+  assertEnemyInput("changeEnemyState", input, "changeEnemyState");
+  return { kind: "changeEnemyState", ...input };
 }
 
-export function enemyAppear(input: { target: EnemyCommandTarget }): EnemyAppearDslCommand {
-  return {
-    kind: "enemyAppear",
-    target: input.target,
-  };
+export function enemyRecoverAll(
+  input: Omit<EnemyRecoverAllDslCommand, "kind">,
+): EnemyRecoverAllDslCommand {
+  assertEnemyInput("enemyRecoverAll", input, "enemyRecoverAll");
+  return { kind: "enemyRecoverAll", ...input };
 }
 
-export function enemyTransform(input: {
-  target: EnemyCommandTarget;
-  enemy: ReferenceValue<"enemy">;
-}): EnemyTransformDslCommand {
-  return {
-    kind: "enemyTransform",
-    target: input.target,
-    enemy: input.enemy,
-  };
+export function enemyAppear(input: Omit<EnemyAppearDslCommand, "kind">): EnemyAppearDslCommand {
+  assertEnemyInput("enemyAppear", input, "enemyAppear");
+  return { kind: "enemyAppear", ...input };
 }
 
-export function showBattleAnimation(input: {
-  target: EnemyCommandTarget;
-  animation: ReferenceValue<"animation">;
-}): ShowBattleAnimationDslCommand {
-  return {
-    kind: "showBattleAnimation",
-    target: input.target,
-    animation: input.animation,
-  };
+export function enemyTransform(
+  input: Omit<EnemyTransformDslCommand, "kind">,
+): EnemyTransformDslCommand {
+  assertEnemyInput("enemyTransform", input, "enemyTransform");
+  return { kind: "enemyTransform", ...input };
 }
 
-export function forceAction(input: {
-  subject: BattlerCommandTarget;
-  skill: ReferenceValue<"skill">;
-  targetIndex: number;
-}): ForceActionDslCommand {
-  return {
-    kind: "forceAction",
-    subject: input.subject,
-    skill: input.skill,
-    targetIndex: input.targetIndex,
-  };
+export function showBattleAnimation(
+  input: Omit<ShowBattleAnimationDslCommand, "kind">,
+): ShowBattleAnimationDslCommand {
+  assertEnemyInput("showBattleAnimation", input, "showBattleAnimation");
+  return { kind: "showBattleAnimation", ...input };
 }
 
-export function abortBattle(): AbortBattleDslCommand {
-  return {
-    kind: "abortBattle",
-  };
+export function forceAction(input: Omit<ForceActionDslCommand, "kind">): ForceActionDslCommand {
+  assertEnemyInput("forceAction", input, "forceAction");
+  return { kind: "forceAction", ...input };
 }
-
-export function changeEnemyTp(input: {
-  target: EnemyCommandTarget;
-  operation: "gain" | "lose";
-  value: OperateValueOperand;
-}): ChangeEnemyTpDslCommand {
-  return {
-    kind: "changeEnemyTp",
-    target: input.target,
-    operation: input.operation,
-    value: input.value,
-  };
+export function abortBattle(...args: never[]): AbortBattleDslCommand {
+  if (args.length) throw new Error("MV-E340: Abort Battle accepts exactly zero inputs.");
+  return { kind: "abortBattle" };
 }

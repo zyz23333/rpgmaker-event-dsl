@@ -1,0 +1,26 @@
+{
+  "formatVersion": 1,
+  "sourceKind": "synthetic-support",
+  "provenance": "Self-authored independent MV 1.6.1 saved-slot literals from the accepted E134–138/E351–354 contract; no editor UI or game observation claim.",
+  "access": [
+    { "code": 134, "indent": 0, "parameters": [0] },
+    { "code": 134, "indent": 0, "parameters": [1] },
+    { "code": 135, "indent": 0, "parameters": [0] },
+    { "code": 135, "indent": 0, "parameters": [1] },
+    { "code": 136, "indent": 0, "parameters": [0] },
+    { "code": 136, "indent": 0, "parameters": [1] },
+    { "code": 137, "indent": 0, "parameters": [0] },
+    { "code": 137, "indent": 0, "parameters": [1] }
+  ],
+  "tones": [
+    { "code": 138, "indent": 0, "parameters": [[-255, 255, 0, 255]] },
+    { "code": 138, "indent": 0, "parameters": [[255, -255, 255, 0]] },
+    { "code": 138, "indent": 0, "parameters": [[-0, 0, -0, -0]] }
+  ],
+  "scenes": [
+    { "code": 351, "indent": 0, "parameters": [] },
+    { "code": 352, "indent": 0, "parameters": [] },
+    { "code": 353, "indent": 0, "parameters": [] },
+    { "code": 354, "indent": 0, "parameters": [] }
+  ]
+}

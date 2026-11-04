@@ -1,6 +1,7 @@
 import type {
   CommandPosition,
-  PicturePosition,
+  PictureOrigin,
+  PictureDisplayInput,
   ShowBalloonIconDslCommand,
   ToneInput,
   ColorInput,
@@ -9,10 +10,6 @@ import type {
 import type { ReferenceResolver } from "../../validation/types.js";
 
 export function balloonIconToCode(balloon: ShowBalloonIconDslCommand["balloon"]): number {
-  if (typeof balloon === "number") {
-    return balloon;
-  }
-
   switch (balloon) {
     case "exclamation":
       return 1;
@@ -34,23 +31,33 @@ export function balloonIconToCode(balloon: ShowBalloonIconDslCommand["balloon"])
       return 9;
     case "zzz":
       return 10;
+    case "userDefined1":
+      return 11;
+    case "userDefined2":
+      return 12;
+    case "userDefined3":
+      return 13;
+    case "userDefined4":
+      return 14;
+    case "userDefined5":
+      return 15;
   }
 }
 
 export function compileTone(tone: ToneInput): [number, number, number, number] {
-  return "red" in tone
-    ? [tone.red, tone.green, tone.blue, tone.gray]
-    : [tone[0], tone[1], tone[2], tone[3]];
+  return [tone.red, tone.green, tone.blue, tone.gray];
 }
 
 export function compileColor(color: ColorInput): [number, number, number, number] {
-  return "red" in color
-    ? [color.red, color.green, color.blue, color.alpha]
-    : [color[0], color[1], color[2], color[3]];
+  return [color.red, color.green, color.blue, color.alpha];
 }
 
-export function pictureOriginToCode(origin: PicturePosition["origin"]): number {
+export function pictureOriginToCode(origin: PictureOrigin): number {
   return origin === "center" ? 1 : 0;
+}
+
+export function pictureBlendToCode(blend: PictureDisplayInput["blendMode"]): number {
+  return ["normal", "additive", "multiply", "screen"].indexOf(blend);
 }
 
 export function compilePicturePosition(

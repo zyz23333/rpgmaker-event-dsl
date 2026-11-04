@@ -8,22 +8,25 @@ import type {
   ControlSwitchesDslCommand,
   ControlTimerDslCommand,
   ControlVariablesDslCommand,
-  ControlVariablesGameDataOperand,
-  Direction,
+  LocationDirection,
+  TransferFade,
   MapDestination,
-  OperateValueOperand,
-  RandomOperand,
   ReferenceRange,
   ReferenceValue,
-  ScriptOperand,
   TransferPlayerDslCommand,
 } from "../../domain/types.js";
+import { assertControlTimerInput } from "./validation.js";
+import { assertInventoryInput } from "./inventory-validation.js";
+import { assertControlVariablesInput } from "./control-variables.js";
+import { assertMapLocationInput } from "../map/location-validation.js";
+import { assertSwitchCommandInput } from "./switch-inputs.js";
 
 export function transferPlayer(input: {
   destination: MapDestination;
-  direction?: Direction;
-  fadeType?: 0 | 1 | 2;
+  direction?: LocationDirection;
+  fade?: TransferFade;
 }): TransferPlayerDslCommand {
+  assertMapLocationInput("transferPlayer", input, "transferPlayer", false);
   const node: TransferPlayerDslCommand = {
     kind: "transferPlayer",
     destination: input.destination,
@@ -32,8 +35,8 @@ export function transferPlayer(input: {
   if (input.direction !== undefined) {
     node.direction = input.direction;
   }
-  if (input.fadeType !== undefined) {
-    node.fadeType = input.fadeType;
+  if (input.fade !== undefined) {
+    node.fade = input.fade;
   }
 
   return node;
@@ -43,6 +46,7 @@ export function controlSwitches(input: {
   switch: ReferenceValue<"switch"> | ReferenceRange<"switch">;
   value: boolean;
 }): ControlSwitchesDslCommand {
+  assertSwitchCommandInput("controlSwitches", input, "controlSwitches", false);
   return {
     kind: "controlSwitches",
     switch: input.switch,
@@ -50,16 +54,10 @@ export function controlSwitches(input: {
   };
 }
 
-export function controlVariables(input: {
-  variable: ReferenceValue<"variable"> | ReferenceRange<"variable">;
-  operation: "set" | "add" | "sub" | "mul" | "div" | "mod";
-  value:
-    | number
-    | ReferenceValue<"variable">
-    | RandomOperand
-    | ControlVariablesGameDataOperand
-    | ScriptOperand;
-}): ControlVariablesDslCommand {
+export function controlVariables(
+  input: Omit<ControlVariablesDslCommand, "kind">,
+): ControlVariablesDslCommand {
+  assertControlVariablesInput(input);
   return {
     kind: "controlVariables",
     variable: input.variable,
@@ -72,6 +70,7 @@ export function controlSelfSwitch(input: {
   selfSwitch: "A" | "B" | "C" | "D";
   value: boolean;
 }): ControlSelfSwitchDslCommand {
+  assertSwitchCommandInput("controlSelfSwitch", input, "controlSelfSwitch", false);
   return {
     kind: "controlSelfSwitch",
     selfSwitch: input.selfSwitch,
@@ -80,24 +79,21 @@ export function controlSelfSwitch(input: {
 }
 
 export function controlTimer(
-  input: { action: "start"; seconds: number } | { action: "stop" },
+  input: { action: "start"; seconds: number } | { action: "stop"; seconds?: number },
 ): ControlTimerDslCommand {
-  return input.action === "start"
-    ? {
-        kind: "controlTimer",
-        action: input.action,
-        seconds: input.seconds,
-      }
-    : {
-        kind: "controlTimer",
-        action: input.action,
-      };
+  assertControlTimerInput(input, "controlTimer", false);
+  if (input.action === "start")
+    return { kind: "controlTimer", action: "start", seconds: input.seconds };
+  return input.seconds === undefined
+    ? { kind: "controlTimer", action: "stop" }
+    : { kind: "controlTimer", action: "stop", seconds: input.seconds };
 }
 
 export function changeGold(input: {
   operation: "gain" | "lose";
-  value: OperateValueOperand;
+  value: ChangeGoldDslCommand["value"];
 }): ChangeGoldDslCommand {
+  assertInventoryInput("changeGold", input, "changeGold", false);
   return {
     kind: "changeGold",
     operation: input.operation,
@@ -108,8 +104,9 @@ export function changeGold(input: {
 export function changeItems(input: {
   item: ReferenceValue<"item">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
+  amount: ChangeItemsDslCommand["amount"];
 }): ChangeItemsDslCommand {
+  assertInventoryInput("changeItems", input, "changeItems", false);
   return {
     kind: "changeItems",
     item: input.item,
@@ -121,19 +118,17 @@ export function changeItems(input: {
 export function changeWeapons(input: {
   weapon: ReferenceValue<"weapon">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
-  includeEquipment?: boolean;
+  amount: ChangeWeaponsDslCommand["amount"];
+  includeEquipment: boolean;
 }): ChangeWeaponsDslCommand {
+  assertInventoryInput("changeWeapons", input, "changeWeapons", false);
   const node: ChangeWeaponsDslCommand = {
     kind: "changeWeapons",
     weapon: input.weapon,
     operation: input.operation,
     amount: input.amount,
+    includeEquipment: input.includeEquipment,
   };
-
-  if (input.includeEquipment !== undefined) {
-    node.includeEquipment = input.includeEquipment;
-  }
 
   return node;
 }
@@ -141,19 +136,17 @@ export function changeWeapons(input: {
 export function changeArmors(input: {
   armor: ReferenceValue<"armor">;
   operation: "gain" | "lose";
-  amount: OperateValueOperand;
-  includeEquipment?: boolean;
+  amount: ChangeArmorsDslCommand["amount"];
+  includeEquipment: boolean;
 }): ChangeArmorsDslCommand {
+  assertInventoryInput("changeArmors", input, "changeArmors", false);
   const node: ChangeArmorsDslCommand = {
     kind: "changeArmors",
     armor: input.armor,
     operation: input.operation,
     amount: input.amount,
+    includeEquipment: input.includeEquipment,
   };
-
-  if (input.includeEquipment !== undefined) {
-    node.includeEquipment = input.includeEquipment;
-  }
 
   return node;
 }
@@ -161,17 +154,15 @@ export function changeArmors(input: {
 export function changePartyMember(input: {
   actor: ReferenceValue<"actor">;
   operation: "add" | "remove";
-  initialize?: boolean;
+  initialize: boolean;
 }): ChangePartyMemberDslCommand {
+  assertInventoryInput("changePartyMember", input, "changePartyMember", false);
   const node: ChangePartyMemberDslCommand = {
     kind: "changePartyMember",
     actor: input.actor,
     operation: input.operation,
+    initialize: input.initialize,
   };
-
-  if (input.initialize !== undefined) {
-    node.initialize = input.initialize;
-  }
 
   return node;
 }

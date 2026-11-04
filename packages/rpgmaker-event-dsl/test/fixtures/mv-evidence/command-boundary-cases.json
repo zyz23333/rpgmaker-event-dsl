@@ -1,0 +1,146 @@
+{
+  "formatVersion": 1,
+  "sourceKind": "synthetic-support",
+  "provenance": "Original literal saved records and carrier data, independent of compiler output; no native UI or game execution claim.",
+  "commonEvents": [
+    null,
+    {
+      "id": 1,
+      "name": "Unknown values",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        {
+          "code": 999,
+          "indent": 0,
+          "parameters": [
+            -0,
+            { "__proto__": { "retained": true }, "nested": [null, [], {}, " \r\n ", -0] }
+          ]
+        },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Empty script and continuation",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        { "code": 355, "indent": 0, "parameters": [""] },
+        { "code": 655, "indent": 0, "parameters": [""] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Script condition",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        { "code": 111, "indent": 0, "parameters": [12, " \r\n "] },
+        { "code": 0, "indent": 1, "parameters": [] },
+        { "code": 412, "indent": 0, "parameters": [] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Script operand",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        { "code": 122, "indent": 0, "parameters": [1, 1, 0, 4, ""] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Script route mirrors",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        {
+          "code": 205,
+          "indent": 0,
+          "parameters": [
+            -1,
+            {
+              "list": [{ "code": 45, "parameters": [" \r\n "], "indent": 0 }, { "code": 0 }],
+              "repeat": false,
+              "skippable": true,
+              "wait": true
+            }
+          ]
+        },
+        {
+          "code": 505,
+          "indent": 0,
+          "parameters": [{ "code": 45, "parameters": [" \r\n "], "indent": 0 }]
+        },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    }
+  ],
+  "map": {
+    "width": 2,
+    "height": 2,
+    "tilesetId": 1,
+    "pluginMetadata": { "negativeZero": -0, "nested": [null, {}, [], " \r\n "] },
+    "events": [
+      null,
+      {
+        "id": 1,
+        "name": "Saved inactive route",
+        "x": 0,
+        "y": 0,
+        "pages": [
+          {
+            "conditions": {
+              "actorId": 0,
+              "actorValid": false,
+              "itemId": 0,
+              "itemValid": false,
+              "selfSwitchCh": "A",
+              "selfSwitchValid": false,
+              "switch1Id": 0,
+              "switch1Valid": false,
+              "switch2Id": 0,
+              "switch2Valid": false,
+              "variableId": 0,
+              "variableValid": false,
+              "variableValue": 0
+            },
+            "directionFix": false,
+            "image": {
+              "characterIndex": 0,
+              "characterName": "",
+              "direction": 2,
+              "pattern": 0,
+              "tileId": 0
+            },
+            "list": [{ "code": 0, "indent": 0, "parameters": [] }],
+            "moveType": 0,
+            "moveSpeed": 6,
+            "moveFrequency": 1,
+            "moveRoute": {
+              "list": [
+                { "code": 45, "parameters": [" \r\n "], "indent": null },
+                { "code": 27, "parameters": [1] },
+                { "code": 0 }
+              ],
+              "repeat": false,
+              "skippable": true,
+              "wait": true
+            },
+            "priorityType": 1,
+            "stepAnime": false,
+            "through": false,
+            "trigger": 0,
+            "walkAnime": true
+          }
+        ]
+      }
+    ]
+  }
+}

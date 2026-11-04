@@ -16,11 +16,18 @@ permissions:
 jobs:
   check:
     name: Check
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+    env:
+      MV_WINDOWS_TEST_OUTPUT: ${{ runner.temp }}/rpgmaker-event-dsl-windows
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
       - name: Enable Corepack
         run: corepack enable
@@ -28,7 +35,7 @@ jobs:
       - name: Prepare pnpm
         run: corepack prepare pnpm@10.33.0 --activate
 
-      - name: Setup Node
+      - name: Setup pnpm cache
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -42,3 +49,15 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Verify built CLI with the minimal Windows Workspace
+        run: pnpm --filter rpgmaker-event-dsl test:windows-baseline
+
+      - name: Retain failed Windows sandboxes
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-node-22-failures
+          path: ${{ env.MV_WINDOWS_TEST_OUTPUT }}/
+          if-no-files-found: ignore
+          include-hidden-files: true

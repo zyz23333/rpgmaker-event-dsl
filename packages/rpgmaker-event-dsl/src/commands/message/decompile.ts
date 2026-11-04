@@ -9,7 +9,6 @@ import {
   isMessagePositionType,
   isStringArray,
   literal,
-  readStringParameter,
 } from "../../decompiler/core.js";
 
 export function renderShowTextCommand(
@@ -45,25 +44,19 @@ export function renderShowTextCommand(
   ) {
     const next = commands[nextIndex + 1];
     const line = next?.parameters[0];
-    lines.push(typeof line === "string" ? line : "");
+    lines.push(line as string);
     nextIndex += 1;
   }
 
-  const fields = [`lines: ${literal(lines.length > 0 ? lines : [""])}`];
+  const fields = [`lines: ${literal(lines)}`];
   const helperNames = ["showText"];
 
-  if (faceName.length > 0) {
-    fields.push(
-      `face: { image: imageAsset({ folder: "faces", name: ${literal(faceName)} }), index: ${faceIndex} }`,
-    );
-    helperNames.push("imageAsset");
-  }
-  if (background !== 0) {
-    fields.push(`background: ${background}`);
-  }
-  if (positionType !== 2) {
-    fields.push(`positionType: ${positionType}`);
-  }
+  const image =
+    faceName === "" ? "null" : `imageAsset({ folder: "faces", name: ${literal(faceName)} })`;
+  fields.push(`face: { image: ${image}, index: ${literal(faceIndex)} }`);
+  if (faceName !== "") helperNames.push("imageAsset");
+  fields.push(`background: ${literal(["window", "dim", "transparent"][background])}`);
+  fields.push(`position: ${literal(["top", "middle", "bottom"][positionType])}`);
 
   return {
     expression: `showText({ ${fields.join(", ")} })`,
@@ -136,36 +129,44 @@ export function renderShowChoicesCommand(
     nextIndex += 1;
   }
 
-  const branchExpressions = branches.map((branch) => {
-    const rendered = renderCommandList(branch);
+  const renderBody = (branch: readonly RawEventCommand[]) => {
+    const last = branch.at(-1);
+    const marker = last?.code === 0 && last.indent === command.indent + 1;
+    const rendered = renderCommandList(marker ? branch.slice(0, -1) : branch);
     for (const helperName of rendered.helperNames) {
       helperNames.add(helperName);
     }
-    return `[${renderInlineCommandListSource(rendered.source)}]`;
-  });
+    return `commands: [${renderInlineCommandListSource(rendered.source)}]${marker ? "" : ', endMarker: "absent"'}`;
+  };
+  const branchExpressions = branches.map(
+    (branch, branchIndex) => `{ text: ${literal(choices[branchIndex])}, ${renderBody(branch)} }`,
+  );
+  if (cancelBranch !== null && cancelType !== -2) return renderSimpleCommand(command, index);
 
-  const fields = [`choices: ${literal(choices)}`, `branches: [${branchExpressions.join(", ")}]`];
+  const fields = [`choices: [${branchExpressions.join(", ")}]`];
 
-  if (cancelBranch === null && cancelType !== -1) {
-    fields.push(`cancelType: ${cancelType}`);
+  if (cancelBranch === null && !Object.is(cancelType, 1)) {
+    fields.push(
+      cancelType === -1
+        ? 'cancel: { kind: "disabled" }'
+        : `cancel: { kind: "choice", index: ${literal(cancelType)} }`,
+    );
   }
-  if (defaultType !== 0) {
-    fields.push(`defaultType: ${defaultType}`);
+  if (!Object.is(defaultType, 0)) {
+    fields.push(
+      defaultType === -1
+        ? 'defaultChoice: { kind: "none" }'
+        : `defaultChoice: { kind: "choice", index: ${literal(defaultType)} }`,
+    );
   }
   if (positionType !== 2) {
-    fields.push(`positionType: ${positionType}`);
+    fields.push(`position: ${literal(["left", "center", "right"][positionType])}`);
   }
   if (background !== 0) {
-    fields.push(`background: ${background}`);
+    fields.push(`background: ${literal(["window", "dim", "transparent"][background])}`);
   }
   if (cancelBranch !== null) {
-    const renderedCancelBranch = renderCommandList(cancelBranch);
-    for (const helperName of renderedCancelBranch.helperNames) {
-      helperNames.add(helperName);
-    }
-    fields.push(
-      `cancelType: -2, cancelBranch: [${renderInlineCommandListSource(renderedCancelBranch.source)}]`,
-    );
+    fields.push(`cancel: { kind: "branch", ${renderBody(cancelBranch)} }`);
   }
 
   return {
@@ -207,13 +208,11 @@ export function renderShowScrollingTextCommand(
     nextIndex += 1;
   }
 
-  const fields = [`lines: ${literal(lines.length > 0 ? lines : [""])}`];
-  if (speed !== 2) {
-    fields.push(`speed: ${speed}`);
-  }
-  if (noFastForward) {
-    fields.push("noFastForward: true");
-  }
+  const fields = [
+    `lines: ${literal(lines)}`,
+    `speed: ${speed}`,
+    `noFastForward: ${literal(noFastForward)}`,
+  ];
 
   return {
     expression: `showScrollingText({ ${fields.join(", ")} })`,
@@ -231,7 +230,7 @@ export function renderCommentCommand(
     throw new Error("Cannot render missing Comment command.");
   }
 
-  const lines = [readStringParameter(command.parameters[0])];
+  const lines = [command.parameters[0] as string];
   let nextIndex = index;
 
   while (
@@ -239,12 +238,12 @@ export function renderCommentCommand(
     commands[nextIndex + 1]?.indent === command.indent
   ) {
     const next = commands[nextIndex + 1];
-    lines.push(readStringParameter(next?.parameters[0]));
+    lines.push(next!.parameters[0] as string);
     nextIndex += 1;
   }
 
   return {
-    expression: `comment(${literal(lines)})`,
+    expression: `comment({ lines: ${literal(lines)} })`,
     helperNames: ["comment"],
     nextIndex,
   };

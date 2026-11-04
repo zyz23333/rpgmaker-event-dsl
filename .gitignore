@@ -1,16 +1,19 @@
 # environment
 .env
 tmp/
+/.scratch/
 
 # demo artifacts
 demo_artifacts/
 dist/
 node_modules/
+test-results/
+/test-result/
 .r3d-local.json
-
-# local planning scratch space
-/.scratch/
 
 # sample workspace state
 /example/full-event/rpgmaker-event-dsl.config.json
 /example/full-event/.rpgmaker-event-dsl/
+
+# reference material
+/references

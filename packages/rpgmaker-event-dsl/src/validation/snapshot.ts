@@ -14,18 +14,16 @@ export function toReferenceEntry(
   };
 }
 
-export function readObjectReferenceEntries(
-  values: readonly (Record<string, unknown> | null | undefined)[],
-): ReferenceEntry[] {
+export function readObjectReferenceEntries(values: readonly unknown[]): ReferenceEntry[] {
   return values.flatMap((value) => {
-    if (!value) {
+    if (!value || typeof value !== "object" || Array.isArray(value)) {
       return [];
     }
+    const record = value as Record<string, unknown>;
+    const id = readPositiveInteger(record.id);
+    const name = typeof record.name === "string" ? record.name : "";
 
-    const id = readPositiveInteger(value.id);
-    const name = readNonEmptyString(value.name);
-
-    return id === null || name === null ? [] : [{ id, name }];
+    return id === null ? [] : [{ id, name }];
   });
 }
 

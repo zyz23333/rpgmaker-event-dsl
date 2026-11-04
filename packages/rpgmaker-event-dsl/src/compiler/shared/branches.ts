@@ -1,31 +1,62 @@
 import type { BattleProcessingDslCommand, DslCommand, ShopGoods } from "../../domain/types.js";
 import type { ReferenceResolver } from "../../validation/types.js";
 import type { CompileCommandList, RawEventCommand } from "../types.js";
+import { CommandStructureError } from "../../validation/command-errors.js";
 
 export function compileChoiceBranches(
   node: Extract<DslCommand, { kind: "showChoices" }>,
   indent: number,
   resolver: ReferenceResolver,
   compileCommandList: CompileCommandList,
+  sourcePath = "commands",
 ): RawEventCommand[] {
   const output: RawEventCommand[] = [];
 
-  node.branches.forEach((branch, index) => {
+  node.choices.forEach((branch, index) => {
     output.push({
       code: 402,
       indent,
-      parameters: [index],
+      parameters: [index, branch.text],
     });
-    output.push(...compileCommandList(branch, indent + 1, resolver, false));
+    const body = compileCommandList(
+      branch.commands,
+      indent + 1,
+      resolver,
+      false,
+      `${sourcePath}.choices[${index}].commands`,
+    );
+    if (body.at(-1)?.code === 0 && body.at(-1)?.indent === indent + 1)
+      throw new CommandStructureError(
+        "MV-BODY-MARKER-CONFLICT",
+        "Raw output contradicts the owning body's declared Body End Marker.",
+        { dslPath: `${sourcePath}.choices[${index}].endMarker` },
+      );
+    output.push(...body);
+    if (branch.endMarker !== "absent") output.push({ code: 0, indent: indent + 1, parameters: [] });
   });
 
-  if (node.cancelBranch) {
+  if (node.cancel?.kind === "branch") {
     output.push({
       code: 403,
       indent,
-      parameters: [],
+      parameters: [6, null],
     });
-    output.push(...compileCommandList(node.cancelBranch, indent + 1, resolver, false));
+    const body = compileCommandList(
+      node.cancel.commands,
+      indent + 1,
+      resolver,
+      false,
+      `${sourcePath}.cancel.commands`,
+    );
+    if (body.at(-1)?.code === 0 && body.at(-1)?.indent === indent + 1)
+      throw new CommandStructureError(
+        "MV-BODY-MARKER-CONFLICT",
+        "Raw output contradicts the owning body's declared Body End Marker.",
+        { dslPath: `${sourcePath}.cancel.endMarker` },
+      );
+    output.push(...body);
+    if (node.cancel.endMarker !== "absent")
+      output.push({ code: 0, indent: indent + 1, parameters: [] });
   }
 
   return output;
@@ -35,35 +66,32 @@ export function compileBattleProcessingParameters(
   node: BattleProcessingDslCommand,
   resolver: ReferenceResolver,
 ): unknown[] {
-  if ("useRandomEncounter" in node.troop) {
-    return [2, 0, node.canEscape ?? false, node.canLose ?? false];
-  }
-
-  if ("variable" in node.troop) {
-    return [
-      1,
-      resolver.resolveReference(node.troop.variable),
-      node.canEscape ?? false,
-      node.canLose ?? false,
-    ];
-  }
-
-  return [0, resolver.resolveReference(node.troop), node.canEscape ?? false, node.canLose ?? false];
+  const troop = node.troop;
+  const prefix =
+    troop.kind === "randomEncounter"
+      ? [2, 0]
+      : troop.kind === "variable"
+        ? [1, resolver.resolveReference(troop.variable)]
+        : [0, resolver.resolveReference(troop.troop)];
+  return [...prefix, node.canEscape ?? false, node.canLose ?? false];
 }
 
 export function compileShopGoodsParameters(
   goods: ShopGoods,
   resolver: ReferenceResolver,
 ): unknown[] {
+  if (goods.kind === "placeholder") return [0, 0, 0, 0];
+  const reference =
+    goods.kind === "item" ? goods.item : goods.kind === "weapon" ? goods.weapon : goods.armor;
   return [
     shopGoodsTypeToCode(goods.kind),
-    resolver.resolveReference(goods.item),
+    resolver.resolveReference(reference),
     goods.price === undefined ? 0 : 1,
     goods.price ?? 0,
   ];
 }
 
-export function shopGoodsTypeToCode(kind: ShopGoods["kind"]): number {
+export function shopGoodsTypeToCode(kind: Exclude<ShopGoods["kind"], "placeholder">): number {
   switch (kind) {
     case "item":
       return 0;

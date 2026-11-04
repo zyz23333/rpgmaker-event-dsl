@@ -1,0 +1,19 @@
+{
+  "sourceKind": "synthetic-support",
+  "provenance": "Independent literal Shop records from accepted E302/605 contract; no editor UI or game capture.",
+  "list": [
+    { "code": 302, "indent": 0, "parameters": [0, 0, 0, 0, false] },
+    { "code": 302, "indent": 0, "parameters": [0, 0, 0, 0, true] },
+    { "code": 605, "indent": 0, "parameters": [0, 0, 0, 0] },
+    { "code": 302, "indent": 0, "parameters": [0, 0, 0, 0, true] },
+    { "code": 605, "indent": 0, "parameters": [0, 1, 0, 0] },
+    { "code": 605, "indent": 0, "parameters": [0, 0, 0, 0] },
+    { "code": 605, "indent": 0, "parameters": [1, 2, 1, 0] },
+    { "code": 605, "indent": 0, "parameters": [2, 3, 1, 999999] },
+    { "code": 605, "indent": 0, "parameters": [0, 1, 0, 0] },
+    { "code": 605, "indent": 0, "parameters": [0, 0, 0, 0] },
+    { "code": 605, "indent": 0, "parameters": [0, 0, 0, 0] },
+    { "code": 302, "indent": 0, "parameters": [0, 1, 1, -0, false] },
+    { "code": 0, "indent": 0, "parameters": [] }
+  ]
+}

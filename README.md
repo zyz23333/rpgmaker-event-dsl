@@ -1,441 +1,119 @@
 # RPG Maker Event DSL
 
-RPG Maker Event DSL lets you write RPG Maker MV game logic as TypeScript code.
+**Make RPG Maker game development easier for AI agents.**
 
-Instead of creating every event through repeated clicks in the RPG Maker MV editor, you
-can describe supported switches, variables, common events, and map events in source
-files. The tool turns those files into RPG Maker MV project data after you review what
-will change.
+RPG Maker Event DSL gives agents a code-based way to understand, create and change
+RPG Maker MV event logic. You describe the gameplay you want; the agent works on
+readable source files, and the tool turns those changes into normal RPG Maker events.
 
-This makes RPG Maker MV logic easier to search, copy, review, refactor, and reuse. It
-also gives AI agents a code-based way to inspect and change game behavior, instead of
-trying to operate the editor directly.
+The aim is to make it practical for an agent to take over more of the event work in
+an existing game, or help build a new one: dialogue, quests, choices, treasure chests,
+shops, cutscenes and battle events.
 
-The RPG Maker MV editor still remains part of the workflow. You can keep using it for
-visual map work and database edits, then bring those editor-side changes back into the
-code workflow before continuing.
+[Get started](docs/getting-started.md) · [Documentation](docs/README.md) ·
+[Examples](example/shared-authoring/README.md)
 
-## What This Is
+## Why this project exists
 
-RPG Maker MV saves game data as JSON files under the project's `data/` directory. Those
-files are generated for the editor, so they are difficult to read, review, and maintain by
-hand.
+RPG Maker's visual editor is designed for people. Asking an agent to operate it means
+repeatedly navigating maps, opening event pages, selecting commands and filling in
+dialogs. Even a small gameplay change can involve many UI interactions, and repeating
+that change across a game adds more work.
 
-This tool gives you a readable source format for supported RPG Maker MV logic. You write
-TypeScript source files, the CLI generates RPG Maker MV-compatible output, and nothing is
-written back to the real game project until you explicitly run `push`.
+Agents are much better suited to reading and editing code. This project gives them
+that interface through a DSL: a readable code format for describing RPG Maker events.
+An agent can search the game's event logic, change related events together, reuse
+common behavior and check its work without navigating the editor for every change.
 
-That makes common developer tasks easier:
+For example, you could ask an agent to add a chest that requires a key, gives a reward
+only once and displays different text after it has been opened. The agent can express
+those rules in source, then adapt the same pattern for other chests. You can review
+what changed before applying it to the game.
 
-- Copy, refactor, and review event logic as code.
-- Search game behavior across source files.
-- Use TypeScript types and validation before writing generated data.
-- Let AI agents propose, inspect, and update RPG Maker MV logic through source files.
-- Keep editor-authored changes in the loop by bringing them back with `pull`.
+This makes event development a better fit for the way coding agents work:
 
-## How This Works
+- **Understand existing logic.** Read and search events across the project instead
+  of inspecting each event through editor windows.
+- **Make coordinated changes.** Update dialogue, conditions and rewards across related
+  events in one editing task.
+- **Reuse working behavior.** Share recurring event patterns so later changes stay
+  consistent.
+- **Review the result.** Inspect source changes and generated event changes before
+  writing them back to the project.
 
-RPG Maker MV events are stored as JSON. Inside that JSON, event commands are not stored as
-readable names like "Show Text" or "Call Common Event". They are stored as command
-records with numeric codes, indentation, and parameter arrays.
+## Working with an agent
 
-For example, this is the raw RPG Maker MV shape for a simple text message:
+1. **Bring in your existing events.** The tool can turn supported MV event data into
+   editable source, giving the agent a starting point in your current game.
+2. **Describe the gameplay change.** The agent writes or updates event code based on
+   your intent and the project's existing logic.
+3. **Check and review.** The tool checks the event data, references and selected asset
+   files, then shows what would change in the game.
+4. **Apply and playtest.** Apply the reviewed changes and try them in RPG Maker MV.
 
-```json
-[
-  { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-  { "code": 401, "indent": 0, "parameters": ["Welcome."] },
-  { "code": 0, "indent": 0, "parameters": [] }
-]
-```
+You can keep using the native editor for visual map work, database editing and
+playtesting. The generated events remain normal RPG Maker data. When you edit game
+logic in the editor, bring those changes back into the source workflow before the
+agent continues.
 
-That is valid RPG Maker MV data, but it is hard to write, review, refactor, or ask an AI
-agent to change safely.
+The game project is only written when you explicitly apply changes. Imported source
+also describes the events to retain, so removing declarations can remove or reset
+existing events. The [workflow guide](docs/workflow.md) explains review and recovery.
 
-The DSL gives those raw records readable names and typed structure:
+## What the agent writes
 
-```ts
-commands: [showText({ lines: ["Welcome."] })];
-```
-
-That single DSL command compiles into the raw command list above. `code: 101` starts the
-text message, `code: 401` stores the text line, and `code: 0` terminates the command
-list.
-
-The same mapping applies to larger RPG Maker MV structures:
-
-- `commonEvent(...)` becomes an entry in `CommonEvents.json`.
-- `mapEvent(...)` becomes an event inside a `Map###.json` file.
-- `page(...)` becomes an RPG Maker MV event page.
-- `switchDefinition(...)` and `variableDefinition(...)` describe named project IDs.
-- References such as `switchRef({ id: 1 })` compile back to the numeric IDs that RPG
-  Maker MV expects.
-
-The DSL does not replace RPG Maker MV's event system. It is a readable source format for
-producing normal RPG Maker MV project data, so the RPG Maker MV editor can continue to
-work with the generated result.
-
-## Writing Your First DSL File
-
-A DSL file is a TypeScript file that exports RPG Maker MV declarations. For example,
-`src/system.dsl.ts` can define a switch and a common event:
+Inside an event, a message looks like this:
 
 ```ts
-import { commonEvent, showText, switchDefinition } from "rpgmaker-event-dsl";
-
-export const hasKey = switchDefinition({
-  id: 1,
-  name: "Has Key",
-});
-
-export const introCommonEvent = commonEvent({
-  id: 1,
-  name: "Intro",
-  trigger: "none",
-  commands: [showText({ lines: ["Welcome."] })],
+showText({
+  lines: ["The chest is empty. You already took the reward."],
+  face: { image: null, index: 0 },
+  background: "window",
+  position: "bottom",
 });
 ```
 
-When compiled, `introCommonEvent` becomes a `CommonEvents.json` entry, and its
-`showText(...)` command becomes RPG Maker MV's raw text command records.
+Choices, conditions, movement, items and battle commands follow the same readable
+style. The agent combines them into complete events and can share repeated behavior
+between source files. See the [authoring guide](docs/authoring.md) for complete examples.
 
-DSL source files are discovered from the workspace config. By default, files under `src/`
-are treated as DSL declaration files when they match names like `**/*.events.ts` or
-`**/*.dsl.ts`.
+## Get started
+
+The current version supports **Windows and RPG Maker MV 1.6.1**. Development is still
+active, and the source format and tools may change before 1.0.
+
+Follow the [setup guide](docs/getting-started.md) to install the tool and import an
+existing game or start writing new events. It includes the Node.js 22 requirement
+and the build steps for this checkout. Repository examples may use features that
+have not yet been published to npm.
+
+The [shared authoring sample](example/shared-authoring/README.md) walks through a
+small complete workflow. The [full-event example](example/full-event/README.md)
+shows a broader set of event commands and requires matching game data and assets.
 
 ## Agent Event Authoring Skill
 
-This repository includes a distributable agent skill under
-`skills/rpgmaker-event-authoring`. It helps agents take over RPG Maker MV event
-authoring from Workspace setup through Event DSL source creation, validation, diff
-review, and optional push.
+The included [rpgmaker-event-authoring skill](skills/rpgmaker-event-authoring/SKILL.md)
+teaches an agent how to turn gameplay requests into event code, work with an existing
+project, check changes and prepare them for review.
 
-```bash
+Install it for your agent with:
+
+```powershell
 npx skills add https://github.com/zyz23333/rpgmaker-event-dsl/skills --skill rpgmaker-event-authoring
 ```
 
-## Safety Model In One Minute
-
-The workflow uses three copies of project data:
-
-1. Project Root
-
-   The real RPG Maker MV project.
-
-2. Project Data Snapshot
-
-   A workspace copy of project data captured by `clone` or `pull`.
-
-3. Generated Project Data
-
-   Data produced by `compile` from your DSL source.
-
-Most commands only write inside the workspace. `push` is the only command that writes to
-the RPG Maker MV project.
-
-Before `push`, the CLI checks that Generated Project Data is fresh and that affected
-Project Root files have not changed since the current snapshot.
-
-## Quick Start
-
-Choose the path that matches how you are starting.
-
-### Integrate The Package Into The Workspace
-
-An Event DSL Workspace should also be a Node package so Definition Source files can import
-`rpgmaker-event-dsl` and the CLI can run from the workspace.
-
-Create package metadata if the workspace does not already have it, then install the tool:
-
-```bash
-npm init -y
-npm install --save-dev rpgmaker-event-dsl
-```
-
-After that, run the CLI through your package manager, such as:
-
-```bash
-npx rpgmaker-event-dsl compile --check
-```
-
-The command examples below use `rpgmaker-event-dsl` directly. If the binary is not on
-your `PATH`, use your package manager's exec form instead, such as
-`npx rpgmaker-event-dsl` or `pnpm exec rpgmaker-event-dsl`.
-
-### If You Already Have A Game Project
-
-Use this path when you already have an RPG Maker MV project with maps, events, switches,
-variables, or database entries that should become the starting point for DSL work.
-
-Create a DSL workspace next to the game project:
-
-```bash
-rpgmaker-event-dsl init --project-root ../Game
-```
-
-Copy the current RPG Maker MV project data into the workspace. This is called `clone`
-because it captures a workspace snapshot without changing the project:
-
-```bash
-rpgmaker-event-dsl clone
-```
-
-Generate starter TypeScript DSL files from that snapshot. This is called `decompile`
-because it turns RPG Maker MV JSON data into editable source files:
-
-```bash
-rpgmaker-event-dsl decompile
-```
-
-`decompile` is non-destructive. It does not overwrite existing decompile output. It also
-decompiles on a best-effort basis: supported RPG Maker MV command shapes render as DSL
-helpers, while malformed raw command shapes or data outside the supported MV editor
-surface are preserved as `rawDslCommand(...)` in the DSL output.
-
-### If You Are Starting Fresh
-
-Use this path when the RPG Maker MV project does not yet contain meaningful event logic,
-or when you want the DSL source files to be the first place where supported logic is
-written.
-
-Create a DSL workspace next to the game project:
-
-```bash
-rpgmaker-event-dsl init --project-root ../Game
-```
-
-Capture the current project data as the baseline for future safety checks:
-
-```bash
-rpgmaker-event-dsl clone
-```
-
-Then create DSL source files under `src/`, such as `src/system.dsl.ts` or
-`src/maps/Map001.events.ts`, and write declarations like the examples above.
-
-After either path, use the daily workflow whenever you edit DSL source.
-
-## Daily Workflow
-
-After editing DSL source, use this loop:
-
-1. Check whether the source is valid.
-2. Generate RPG Maker MV data in the workspace.
-3. Review what would change.
-4. Write the reviewed result back to the game project.
-
-Validate the source without writing generated data:
-
-```bash
-rpgmaker-event-dsl compile --check
-```
-
-Generate RPG Maker MV data from the TypeScript source files:
-
-```bash
-rpgmaker-event-dsl compile
-```
-
-Review what would change:
-
-```bash
-rpgmaker-event-dsl diff
-```
-
-Useful diff variants:
-
-```bash
-rpgmaker-event-dsl diff --short
-rpgmaker-event-dsl diff --file Map001.json
-```
-
-Push reviewed changes back to the RPG Maker MV project:
-
-```bash
-rpgmaker-event-dsl push
-```
-
-## When The RPG Maker Editor Changes Data
-
-If you change maps, events, switches, variables, or database entries in the RPG Maker MV
-editor, refresh the workspace snapshot before pushing DSL changes:
-
-```bash
-rpgmaker-event-dsl pull
-rpgmaker-event-dsl compile
-rpgmaker-event-dsl diff
-```
-
-`pull` updates the Project Data Snapshot from the Project Root. If the snapshot changes,
-previous Generated Project Data becomes stale, so run `compile` again before `diff` or
-`push`.
-
-## Workspace Config
-
-The workspace config tells the CLI where the RPG Maker MV project is and which
-TypeScript files should be treated as DSL declaration files.
-
-Workspace config uses source discovery instead of per-file target bindings:
-
-```json
-{
-  "projectRoot": "../Game",
-  "scriptEnabled": false,
-  "sourceRoot": "src",
-  "sourceInclude": ["**/*.events.ts", "**/*.dsl.ts"],
-  "sourceExclude": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]
-}
-```
-
-Files under `sourceRoot` are evaluated as DSL declaration files when they match
-`sourceInclude` and do not match `sourceExclude`. The default patterns include event
-declarations such as `src/maps/Map001.events.ts` and system declarations such as
-`src/system.dsl.ts`. Ordinary helper modules should use names outside those include
-patterns unless they are intended to export DSL-owned declarations.
-
-Keep `scriptEnabled` set to `false` for workspaces that should reject JavaScript-bearing
-event commands. Set it to `true` only when Script Inputs are intentional and reviewed.
-
-## Event Command Coverage
-
-The public command helpers target the RPG Maker MV 1.6.1 editor event command surface.
-Use MV-aligned helper names such as `controlSwitches(...)`, `controlVariables(...)`,
-`showScrollingText(...)`, `setMovementRoute(...)`, `playBgm(...)`, `changeHp(...)`, and
-`forceAction(...)` instead of hand-writing raw command records.
-
-Continuation commands are represented by their parent helper. For example, `showText(...)`
-owns MV text continuation records, `showChoices(...)` owns choice branches,
-`battleProcessing(...)` owns battle result branches, `shopProcessing(...)` owns goods
-continuations, and `setMovementRoute(...)` owns nested move route commands.
-
-Project data references use helpers such as `switchRef(...)`, `variableRef(...)`,
-`actorRef(...)`, `skillRef(...)`, and `tilesetRef(...)`. Asset parameters use no-scan
-Asset References instead: `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)`
-compile to MV filename stems without checking the filesystem or resolving database IDs.
-
-JavaScript-bearing inputs are explicit Script Inputs and are gated by the workspace
-`scriptEnabled` setting. This includes `script(...)`, script conditions,
-`controlVariables(...)` script operands, and move route script commands. `pluginCommand(...)`
-covers MV's native plugin command string only; plugin-specific argument semantics are not
-validated by the DSL. `rawDslCommand(...)` remains an explicit escape hatch for confirmed
-raw MV command shapes and is preserved by decompile for malformed or unsupported raw data.
-
-## Entry Identity
-
-DSL-owned entries use explicit RPG Maker MV IDs. Display names are for humans and
-name-based references; they are not identity. Duplicate display names are allowed, but
-name-based references must resolve to exactly one visible entry.
-
-Map Event identity is `mapId` plus event `id`. Common Events, Switch Definitions, and
-Variable Definitions use their explicit `id` in their data domain.
-
-```ts
-import {
-  callCommonEvent,
-  commonEvent,
-  commonEventRef,
-  mapEvent,
-  page,
-  showText,
-  switchDefinition,
-  switchRef,
-  variableDefinition,
-} from "rpgmaker-event-dsl";
-
-export const hasKey = switchDefinition({
-  id: 1,
-  name: "Has Key",
-});
-
-export const doorState = variableDefinition({
-  id: 2,
-  name: "Door State",
-});
-
-export const introCommonEvent = commonEvent({
-  id: 1,
-  name: "Intro",
-  trigger: "none",
-  commands: [showText({ lines: ["Welcome."] })],
-});
-
-export const doorEvent = mapEvent({
-  mapId: 1,
-  id: 3,
-  name: "Door",
-  x: 10,
-  y: 8,
-  pages: [
-    page({
-      conditions: {
-        switch1: switchRef({ id: 1 }),
-      },
-      commands: [
-        showText({ lines: ["The door is open."] }),
-        callCommonEvent(commonEventRef({ id: 1 })),
-      ],
-    }),
-  ],
-});
-```
-
-## Command Reference
-
-| Command           | Writes to Project Root? | Purpose                                                                                                  |
-| ----------------- | ----------------------- | -------------------------------------------------------------------------------------------------------- |
-| `clone`           | No                      | Captures the initial Standard Project Data Snapshot from the configured RPG Maker MV project.            |
-| `decompile`       | No                      | Generates non-destructive DSL source from the Project Data Snapshot without overwriting existing output. |
-| `compile --check` | No                      | Validates discovered DSL source without writing Generated Project Data or freshness metadata.            |
-| `compile`         | No                      | Validates discovered DSL source and writes Generated Project Data in the workspace.                      |
-| `diff`            | No                      | Compares Generated Project Data with the Project Data Snapshot.                                          |
-| `pull`            | No                      | Refreshes the Project Data Snapshot from the Project Root after editor-side changes.                     |
-| `push`            | Yes                     | Writes reviewed Generated Project Data back to the RPG Maker MV project after safety checks pass.        |
-
-`diff` emits a Structured Diff Report and lists the Affected Project Data Files that a
-later `push` would write if Project Drift checks pass. Use `diff --short` for a summary
-without entry details, or `diff --file <relativePath>` to filter the structured view by
-one Project Data File.
-
-## Detailed Safety Model
-
-### What Gets Snapshotted
-
-The Standard Project Data Snapshot captures standard RPG Maker MV database files plus
-every `Map###.json` referenced by `MapInfos.json`. Non-standard custom `data/*.json`
-files are ignored by snapshot, freshness, drift, and push checks in the first workflow
-version.
-
-### Generated Freshness
-
-Generated Freshness is checked before `diff` and `push`. Generated Project Data becomes
-stale when discovered source files, relevant workspace config fields, or the Project Data
-Snapshot baseline differ from the baseline used by the last `compile`.
-
-### Project Drift
-
-Project Drift is checked before `push` for affected Project Data files. If the RPG Maker
-MV editor changed an affected Project Root file after the current snapshot was captured,
-`push` fails and instructs you to run `pull` first.
-
-### Destructive Changes
-
-Normal `push` rejects Destructive Changes, such as snapshot-only entries in DSL-owned
-domains. After reviewing `diff`, use the explicit destructive option only when those
-removals are intended:
-
-```bash
-rpgmaker-event-dsl push --allow-destructive
-```
-
-Destructive Push does not bypass Generated Freshness, Generated Project Data integrity,
-or Project Drift checks.
-
-## Example Project
-
-See `example/full-event` for a sample workspace using source discovery and explicit Entry
-Identity.
+The skill provides instructions; the DSL tool itself is installed separately using
+the setup guide above.
+
+## Learn more
+
+- [Documentation index](docs/README.md): setup, authoring, workflow and reference guides.
+- [Command reference](docs/reference/commands/README.md): supported event commands and their options.
+- [Changelog](CHANGELOG.md): recent changes and release history.
+- [Project maintenance](docs/README.md#project-maintenance): development checks and design decisions.
 
 ## License
 
-This repository's original source code and the published `rpgmaker-event-dsl` package are
-licensed under the MIT License. See `LICENSE` and `packages/rpgmaker-event-dsl/LICENSE`.
+The repository's original source and the published package use the MIT License.
+See [LICENSE](LICENSE) and the [package license](packages/rpgmaker-event-dsl/LICENSE).

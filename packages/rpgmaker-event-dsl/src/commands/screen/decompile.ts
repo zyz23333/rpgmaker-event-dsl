@@ -1,5 +1,6 @@
 import type { RawEventCommand, RenderedCommand } from "../../decompiler/types.js";
 import { isBlendMode, isNumberTuple, literal, readPositiveInteger } from "../../decompiler/core.js";
+import { renderJsonValue } from "../../project-data/json-values.js";
 
 export function renderTintScreen(
   command: RawEventCommand,
@@ -11,7 +12,7 @@ export function renderTintScreen(
   return tone === null || typeof duration !== "number" || typeof wait !== "boolean"
     ? null
     : {
-        expression: `tintScreen({ tone: ${tone}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        expression: `tintScreen({ tone: ${tone}, duration: ${duration}, wait: ${wait} })`,
         helperNames: ["tintScreen"],
       };
 }
@@ -26,7 +27,7 @@ export function renderFlashScreen(
   return color === null || typeof duration !== "number" || typeof wait !== "boolean"
     ? null
     : {
-        expression: `flashScreen({ color: ${color}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        expression: `flashScreen({ color: ${color}, duration: ${duration}, wait: ${wait} })`,
         helperNames: ["flashScreen"],
       };
 }
@@ -45,7 +46,7 @@ export function renderShakeScreen(
     typeof wait !== "boolean"
     ? null
     : {
-        expression: `shakeScreen({ power: ${power}, speed: ${speed}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        expression: `shakeScreen({ power: ${power}, speed: ${speed}, duration: ${duration}, wait: ${wait} })`,
         helperNames: ["shakeScreen"],
       };
 }
@@ -74,8 +75,12 @@ export function renderShowPicture(
     display === null
     ? null
     : {
-        expression: `showPicture({ pictureId: ${pictureId}, image: imageAsset({ folder: "pictures", name: ${literal(imageName)} }), position: ${position.expression}${display} })`,
-        helperNames: ["imageAsset", "showPicture", ...position.helperNames],
+        expression: `showPicture({ pictureId: ${pictureId}, image: ${imageName === "" ? "null" : `imageAsset({ folder: "pictures", name: ${literal(imageName)} })`}, origin: ${literal(pictureOriginFromCode(command.parameters[2]))}, position: ${position.expression}${display} })`,
+        helperNames: [
+          ...(imageName === "" ? [] : ["imageAsset"]),
+          "showPicture",
+          ...position.helperNames,
+        ],
       };
 }
 
@@ -105,7 +110,7 @@ export function renderMovePicture(
     typeof wait !== "boolean"
     ? null
     : {
-        expression: `movePicture({ pictureId: ${pictureId}, position: ${position.expression}${display}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        expression: `movePicture({ pictureId: ${pictureId}, origin: ${literal(pictureOriginFromCode(command.parameters[2]))}, position: ${position.expression}${display}, duration: ${duration}, wait: ${wait} })`,
         helperNames: ["movePicture", ...position.helperNames],
       };
 }
@@ -119,7 +124,7 @@ export function renderRotatePicture(
   return pictureId === null || typeof speed !== "number"
     ? null
     : {
-        expression: `rotatePicture({ pictureId: ${pictureId}, speed: ${speed} })`,
+        expression: `rotatePicture({ pictureId: ${pictureId}, speed: ${literal(speed)} })`,
         helperNames: ["rotatePicture"],
       };
 }
@@ -138,7 +143,7 @@ export function renderTintPicture(
     typeof wait !== "boolean"
     ? null
     : {
-        expression: `tintPicture({ pictureId: ${pictureId}, tone: ${tone}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        expression: `tintPicture({ pictureId: ${pictureId}, tone: ${tone}, duration: ${duration}, wait: ${wait} })`,
         helperNames: ["tintPicture"],
       };
 }
@@ -169,7 +174,7 @@ export function renderSetWeatherEffect(
     typeof wait !== "boolean"
     ? null
     : {
-        expression: `setWeatherEffect({ weather: ${literal(weather)}, power: ${power}, duration: ${duration}${wait ? ", wait: true" : ""} })`,
+        expression: `setWeatherEffect({ weather: ${literal(weather)}, power: ${power}, duration: ${duration}, wait: ${wait} })`,
         helperNames: ["setWeatherEffect"],
       };
 }
@@ -187,7 +192,7 @@ export function renderPicturePosition(
 
   if (designation === 0 && typeof xParameter === "number" && typeof yParameter === "number") {
     return {
-      expression: `{ kind: "direct", x: ${xParameter}, y: ${yParameter}${origin === "center" ? ', origin: "center"' : ""} }`,
+      expression: `{ kind: "direct", x: ${literal(xParameter)}, y: ${literal(yParameter)} }`,
       helperNames: [],
     };
   }
@@ -198,7 +203,7 @@ export function renderPicturePosition(
     return xVariableId === null || yVariableId === null
       ? null
       : {
-          expression: `{ kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} })${origin === "center" ? ', origin: "center"' : ""} }`,
+          expression: `{ kind: "variables", x: variableRef({ id: ${xVariableId} }), y: variableRef({ id: ${yVariableId} }) }`,
           helperNames: ["variableRef"],
         };
   }
@@ -247,29 +252,21 @@ export function renderPictureDisplay(
     return null;
   }
 
-  const fields: string[] = [];
-  if (scaleX !== 100) {
-    fields.push(`scaleX: ${scaleX}`);
-  }
-  if (scaleY !== 100) {
-    fields.push(`scaleY: ${scaleY}`);
-  }
-  if (opacity !== 255) {
-    fields.push(`opacity: ${opacity}`);
-  }
-  if (blendMode !== 0) {
-    fields.push(`blendMode: ${blendMode}`);
-  }
-
-  return fields.length === 0 ? "" : `, ${fields.join(", ")}`;
+  return `, scaleX: ${literal(scaleX)}, scaleY: ${literal(scaleY)}, opacity: ${literal(opacity)}, blendMode: ${literal(["normal", "additive", "multiply", "screen"][blendMode])}`;
 }
 
 export function renderTone(value: unknown): string | null {
-  return isNumberTuple(value, 4) ? literal(value) : null;
+  return renderScreenComponents(value, "gray");
+}
+
+function renderScreenComponents(value: unknown, last: "gray" | "alpha"): string | null {
+  return isNumberTuple(value, 4)
+    ? `{ ${["red", "green", "blue", last].map((key, index) => `${key}: ${renderJsonValue(value[index])}`).join(", ")} }`
+    : null;
 }
 
 export function renderColor(value: unknown): string | null {
-  return isNumberTuple(value, 4) ? literal(value) : null;
+  return renderScreenComponents(value, "alpha");
 }
 
 export function pictureOriginFromCode(value: unknown): "upperLeft" | "center" | null {

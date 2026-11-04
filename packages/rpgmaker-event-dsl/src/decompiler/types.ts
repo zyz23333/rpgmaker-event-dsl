@@ -1,4 +1,5 @@
 import type { RawEventCommand } from "../compiler/types.js";
+import type { NativePageMovement } from "../commands/movement/page.js";
 export type { RawEventCommand } from "../compiler/types.js";
 
 export type RenderedCommand = {
@@ -23,19 +24,33 @@ export type SnapshotMapEvent = {
   name: string;
   x: number;
   y: number;
+  note: string;
   pages: SnapshotMapEventPage[];
 };
 
 export type SnapshotMapEventPage = {
+  movement?: NativePageMovement;
   conditions?: Record<string, unknown>;
   list?: RawEventCommand[];
   trigger?: number;
+  image: {
+    characterName: string;
+    characterIndex: number;
+    direction: number;
+    pattern: number;
+    tileId: number;
+  };
+  directionFix: boolean;
+  stepAnime: boolean;
+  through: boolean;
+  walkAnime: boolean;
+  priorityType: number;
 };
 
 export type SnapshotCommonEvent = {
   id: number;
-  list?: RawEventCommand[];
+  list: RawEventCommand[];
   name: string;
-  switchId?: number;
-  trigger?: number;
+  switchId: number;
+  trigger: 0 | 1 | 2;
 };

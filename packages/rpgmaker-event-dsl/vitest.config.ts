@@ -6,6 +6,7 @@ export default defineConfig({
       provider: "v8",
     },
     globals: true,
+    maxWorkers: 2,
     include: ["test/**/*.test.ts"],
     testTimeout: 10_000,
   },

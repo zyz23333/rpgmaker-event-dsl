@@ -1,5 +1,10 @@
 import type { DslOwnedDeclaration, MapEventDefinition } from "../domain/types.js";
-import type { SnapshotMapValidationEntry, ValidationIssue } from "./types.js";
+import { describeValue } from "../project-data/json-values.js";
+import type {
+  SnapshotMapValidationEntry,
+  SnapshotTroopValidationEntry,
+  ValidationIssue,
+} from "./types.js";
 
 export type { SnapshotMapValidationEntry } from "./types.js";
 
@@ -7,17 +12,48 @@ export function validateDeclarationIdentities(
   declarations: readonly DslOwnedDeclaration[],
   issues: ValidationIssue[],
   snapshotMaps?: readonly SnapshotMapValidationEntry[],
+  snapshotTroops?: readonly SnapshotTroopValidationEntry[],
 ): void {
   const mapEventIdentities = new Set<string>();
   const commonEventIds = new Set<number>();
   const switchIds = new Set<number>();
   const variableIds = new Set<number>();
+  const troopIds = new Set<number>();
   const snapshotMapsById =
     snapshotMaps === undefined ? undefined : new Map(snapshotMaps.map((map) => [map.id, map]));
   const occupiedCoordinates = new Set<string>();
 
   for (const declaration of declarations) {
     switch (declaration.kind) {
+      case "troopEvent":
+        if (
+          !Number.isSafeInteger(declaration.troopId) ||
+          declaration.troopId <= 0 ||
+          !snapshotTroops?.some(({ id }) => id === declaration.troopId)
+        )
+          issues.push({
+            level: "error",
+            code: "MV-TROOP-IDENTITY",
+            stage: "compile",
+            identity: `troop:${declaration.troopId}`,
+            dslPath: "troopId",
+            expected: "positive existing Snapshot Troop identity",
+            actual: describeValue(declaration.troopId),
+            message: `compile error troop:${declaration.troopId}: MV-TROOP-IDENTITY at troopId; expected positive existing Snapshot Troop identity; actual ${describeValue(declaration.troopId)}.`,
+          });
+        if (troopIds.has(declaration.troopId))
+          issues.push({
+            level: "error",
+            code: "MV-TROOP-IDENTITY-DUPLICATE",
+            stage: "compile",
+            identity: `troop:${declaration.troopId}`,
+            dslPath: "troopId",
+            expected: "unique Troop Event identity",
+            actual: describeValue(declaration.troopId),
+            message: `compile error troop:${declaration.troopId}: MV-TROOP-IDENTITY-DUPLICATE at troopId; expected unique Troop Event identity; actual ${describeValue(declaration.troopId)}.`,
+          });
+        troopIds.add(declaration.troopId);
+        break;
       case "mapEvent":
         validatePositiveInteger(declaration.mapId, "Map event mapId", declaration.name, issues);
         validatePositiveInteger(declaration.id, "Map event id", declaration.name, issues);
@@ -33,6 +69,18 @@ export function validateDeclarationIdentities(
             message: `Map event "${declaration.name}" must contain at least one page.`,
           });
         }
+        if (declaration.pages.length > 20)
+          issues.push({
+            level: "warning",
+            code: "MV-MAP-PAGE-COUNT",
+            stage: "compile",
+            identity: `map:${declaration.mapId}/event:${declaration.id}`,
+            nativePath: "pages",
+            dslPath: "pages",
+            expected: "at most 20 editor-created pages; saved pages are preserved",
+            actual: String(declaration.pages.length),
+            message: `compile warning map:${declaration.mapId}/event:${declaration.id}: MV-MAP-PAGE-COUNT at pages; expected at most 20 editor-created pages; actual ${declaration.pages.length}. Map event "${declaration.name}": page order and count are preserved.`,
+          });
         validateMapEventPlacement(declaration, snapshotMapsById, occupiedCoordinates, issues);
         break;
       case "commonEvent":

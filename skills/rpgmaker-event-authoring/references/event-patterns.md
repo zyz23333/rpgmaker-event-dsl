@@ -1,5 +1,23 @@
 # Event Patterns
 
+Use `troopEvent({ troopId, pages })` with `battlePage({ conditions?, span?, commands })`
+for an existing Snapshot troop's complete ordered battle event. Preserve all desired
+pages in the declaration. `commands` is required; pages are nonempty and have no IDs.
+Span is battle/turn/moment, default battle. Optional condition slots are `turnEnd`,
+`turn: { enabled, a, b }`, `enemy: { enabled, index, hpAtMost }`,
+`actor: { enabled, ref, hpAtMost }` and `switch: { enabled, ref }`. Each provided slot
+is complete; optional `undefined` means omission. Keep inactive saved values,
+including negative zero in numeric conditions. Native span is exactly 0/1/2 and
+rejects negative zero. Validate A/B 0..9999 and HP 0..100, and use
+raw enemy member positions including hidden members. Enabled enemy conditions check
+every member's Enemy reference. Disabled explicit actor/switch IDs may retain zero
+or a missing target; names and command references retain ordinary resolution.
+
+Omitting a Troop Event declaration produces exactly one default battle page. An
+explicit `battlePage({ commands: [] })` has the same result. Treat nonblank-to-Blank
+as a destructive Troop Event Reset; keep troop name, members and all other carrier
+data unchanged. Two default pages and inactive nondefault values are nonblank.
+
 Read this when choosing how to structure RPG Maker MV event behavior.
 
 ## Authoring Surface
@@ -25,6 +43,25 @@ Use event pages for persistent top-level state changes. Use `conditional(...)` i
 
 NPC dialogue usually uses a Map Event with an action trigger. Use pages when dialogue changes by quest or story state. Use `showChoices(...)` when the player decides.
 
+For dialogue use `showText({ lines, face: { image, index }, background, position })`.
+Every field is required. Background is window/dim/transparent; position is
+top/middle/bottom. Use a `faces` `imageAsset(...)` or `null` for None, and preserve
+the independent index even for None. Index accepts 0–2,147,483,647 and rejects
+negative zero. A non-None index at least 8 warns about the official two-row layout.
+The helper preserves the saved name, index and message settings. Workspace asset
+checks validate the selected file under the shared asset-file rules; image
+dimensions, layout and decoding remain unchecked. Each line is one physical record:
+keep CR, whitespace and trailing empty strings, and never embed LF. Show Text
+requires 1–4 lines; author multiple calls when more are needed. Use
+`showScrollingText({ lines, speed, noFastForward })` with at least one line,
+integer speed 1–8 and an explicit Boolean. Use `comment({ lines })` for 1–6 lines.
+Text records work with the Script Command Gate disabled.
+
+Use `inputNumber({ variable, digits })` with required integer digits 1–8, or
+`selectItem({ variable, itemType })` with required regular/key/hiddenA/hiddenB.
+Both variables are result destinations and resolve as ordinary System Variable
+Slots. Item cancellation writes runtime value zero; it does not authorize slot zero.
+
 A one-time chest usually uses two pages: unopened page gives the reward and turns self switch A on; opened page is conditioned by self switch A and shows short "empty" feedback or no commands.
 
 A locked door usually uses an action-triggered Map Event. Use `conditional(...)` when the door looks the same; use pages when it has a persistent opened or unlocked state. Use `transferPlayer(...)` for doors that move the player.
@@ -35,20 +72,293 @@ An autorun cutscene must turn off its autorun page with a switch or self switch 
 
 A transfer point uses `playerTouch` for automatic floor movement and `action` for doors, stairs, and interactable entrances.
 
-Shopkeepers use `shopProcessing(...)`. Event-driven battles use `battleProcessing(...)` and record outcomes only when later events depend on them.
+Define reusable command lists with `commonEvent({ id, name, trigger, commands,
+switch? })`. Keep the explicit ID and exact name, including empty or duplicate
+names. Use `callCommonEvent({ commonEvent: commonEventRef({ id }) })`; a name
+reference resolves only when exactly one current Common Event has that name.
+Autorun and parallel require a valid Switch reference. For none, an explicit switch
+preserves its independent saved value; omission or explicit `undefined` writes saved
+default 1. An explicit
+reference still needs an existing System Switch slot or unique staged Switch name.
+Common Events inherit the caller's runtime context. Choose self switches and
+current-event selectors with that caller in mind; no context annotation or static
+call graph is required.
+
+Shopkeepers use `shopProcessing(...)`. Event-driven battles use `battleProcessing(...)`.
+Read [Enemies and Battle Control](enemies-and-battle.md) for its named troop modes,
+flag-dependent result bodies, enemy selector subsets and forced action targets.
+
+Shop requires `goods`, which may be empty, and defaults `purchaseOnly` to false.
+Real goods use matching fields and references: `{ kind: "item", item: itemRef(...) }`,
+`{ kind: "weapon", weapon: weaponRef(...) }`, and
+`{ kind: "armor", armor: armorRef(...) }`. Omit `price` for standard pricing;
+custom prices are integers 0..999999. Preserve ordered duplicates and any saved
+`{ kind: "placeholder" }` entries without adding reference or price fields.
+Empty goods compiles to one exact native placeholder; the sole placeholder
+decompiles as empty goods. Mixed or repeated placeholders retain every position.
 
 ## DSL Command Selection
+
+Use `conditional({ condition, then: { commands: [...] }, else? })` for a
+momentary check. Each `then`/`else` body independently defaults its `endMarker`
+to `"present"`; use `"absent"` only to preserve a nonempty saved body without
+the marker. Preserve omitted else separately from `else: { commands: [] }`.
+Check combined formal/raw output against the declared marker and keep nested
+markers with their owners.
+
+Variable conditions require a mode object: `{ kind: "constant", value }` or
+`{ kind: "variable", variable: variableRef(...) }`. Choose `eq/ge/le/gt/lt/ne`.
+Enemy conditions take `enemy: { kind: "runtimeSelector", scope: "enemy",
+target: "enemy", index }`, index 0..7. Character conditions take `target` in
+the character scope with player/currentEvent/event targets and direction 2/4/6/8.
+Weapon and Armor conditions require an explicit `includeEquipment` Boolean.
+Resolve every fixed reference in its actual category. Review context warnings:
+Common Event callers remain unknown, battle interpreters have no characters,
+and missing enemy positions evaluate false. Enemy appeared checks `isAlive()`;
+hidden and dead members are false.
+
+Keep Conditional Script as one complete `scriptInput({ code })` string. Review
+the CR/LF reconfirmation warning independently of the Script Command Gate;
+empty, whitespace-only and long strings alone receive no such warning. Actor
+name comparison strings remain ordinary exact literals. Preserve accepted
+negative zero in numeric constants, timer seconds, gold amounts and enemy indices.
+Use `showChoices({ choices: [{ text, commands, endMarker? }], defaultChoice?, cancel?, position?, background? })`
+for 1–6 choices. Keep each choice's text and required `commands` together; empty
+commands and empty or whitespace text are valid. `defaultChoice` accepts
+`{ kind: "none" }` or `{ kind: "choice", index }` (default index 0). `cancel`
+accepts `{ kind: "disabled" }`, `{ kind: "choice", index }` (default index 1),
+or `{ kind: "branch", commands, endMarker? }`. Indices are zero-based integers
+0–5, including the saved sign of numeric `-0`. Preserve out-of-count saved indices
+and inspect their warnings; the default
+cancel index remains 1 for a one-item list. Position is left/center/right
+(default right); background is window/dim/transparent (default window).
+Each choice and separate cancel body owns its `endMarker`, defaulting to
+`"present"`. Preserve `"absent"` only for a nonempty body. Keep nested raw markers
+with their own bodies. All choice and cancel commands retain ordinary reference
+validation and the Workspace Script Command Gate.
+
+Use `controlTimer({ action: "start", seconds })` with explicit integer seconds
+0..5999. For Stop, choose the saved shape intentionally:
+`controlTimer({ action: "stop" })` (or `seconds: undefined`) omits the seconds
+slot; explicit `seconds: 0` and nonzero seconds retain it. Keep a decompiled Stop
+seconds field even when it is zero. Numeric seconds preserve negative zero;
+native categorical action codes reject it. Recognized raw Timer records receive
+the same slot and range checks.
+
+Use `changeSaveAccess({ enabled })`, `changeMenuAccess({ enabled })`,
+`changeEncounter({ enabled })` and `changeFormationAccess({ enabled })` with an
+explicit Boolean. All four encode false as native 0 and true as native 1;
+encounter changes also reset the encounter count. Give `changeWindowColor` a
+required named Tone object `{ red, green, blue, gray }`: RGB integers −255..255,
+gray integer 0..255. Preserve hidden gray and numeric negative zero. Choose the
+color explicitly instead of relying on the project's current window tone.
+
+Use `openMenuScreen()`, `openSaveScreen()`, `gameOver()` and
+`returnToTitleScreen()` without inputs. Menu and Save open on a map even when
+their ordinary access is disabled; they skip in battle. Game Over and Title
+transition from map and battle. Game Over needs no dead-actor condition. Check
+the event's intended continuation around these scene transitions, and perform
+actual save experiments only in an isolated temporary game project.
+
+Use `loop({ body: { commands: [...] } })` for repeated work and `breakLoop()`
+inside its body to finish it. `body.commands` is required. The optional
+`body.endMarker` defaults to `"present"`; use `"absent"` only when preserving
+that saved state for a nonempty body. Empty bodies always have a marker. Keep
+each nested body's marker with its owner. Check combined formal and raw output
+so raw records neither duplicate the owning marker nor contradict its declared
+absence.
+
+Use `exitEventProcessing()` to end the current event interpreter. A called
+Common Event can exit while its caller continues after
+`callCommonEvent({ commonEvent: commonEventRef({ id }) })`.
+Treat a Break Loop warning outside a Loop as actionable: MV can skip all
+remaining commands while seeking Repeat Above. Loop child commands retain
+ordinary reference validation and the Workspace Script Command Gate.
+
+For `changeHp`, `changeMp`, `changeTp`, `changeState` and `recoverAll`, use an Actor
+Runtime Selector with `kind: "runtimeSelector"`, `scope: "actor"`, and one complete
+target variant: `target: "entireParty"`; `target: "actor", actor: actorRef(...)`;
+or `target: "actorFromVariable", variable: variableRef(...)`. Resolve fixed Actor
+and State references against the Snapshot, including unnamed records by ID. A
+target variable's runtime value 0 selects the entire party; party membership
+follows MV's current execution context.
+
+Give HP/MP/TP `operation: "gain" | "lose"` and either
+`value: { kind: "constant", value: n }` or
+`value: { kind: "variable", variable: variableRef(...) }`. Constant HP/MP quantities
+are integers 1..9999 and TP quantities 1..100. Give HP an explicit Boolean
+`allowDeath` even with gain, and retain that saved choice. Quantity variables
+remain dynamic and may evaluate to 0 or negative values. Use
+`changeState({ target, operation: "add" | "remove", state: stateRef(...) })`
+and `recoverAll({ target })` for state changes and full recovery. Keep each
+variant's fields complete; known raw actor commands retain the same parameter
+and reference validation.
+
+Use the same Actor targets for `changeExp`, `changeLevel`, `changeParameter` and
+`changeSkill`. EXP/level/parameter changes require gain/lose and a constant or
+variable operand. Literal ranges are EXP 1..9,999,999, level 1..98, and parameter
+quantity 1..9999; variables stay dynamic. Give EXP and level an explicit Boolean
+`showLevelUp` even for loss. Parameter names are mhp/mmp/atk/def/mat/mdf/agi/luk.
+Give Skill learn/forget and an existing `skillRef(...)`. Use
+`changeClass({ actor: actorRef(...), class: classRef(...), keepExp: false })` with
+an explicit saved Boolean; keeping cumulative EXP can change the resulting
+level on the new Class curve.
+
+Use `changeEquipment({ actor: actorRef(...), slotIndex, equipment })` with a zero
+based slot inside final `System.equipTypes.length - 1`. Use `equipment: null` to
+unload, or `{ kind: "runtimeSelector", scope: "equipment", target: "idForSlot",
+id: positiveInteger }`. Keep the ID as a runtime candidate: MV chooses its table
+from the current slot type, including dynamic dual wield. Review missing-candidate
+and inventory/equipability warnings in the game; preserve the candidate rather
+than freezing initial Actor/Class traits or substituting another table.
 
 Use supported helpers for RPG Maker MV editor command families. Representative groups include message commands, flow control, game progression, party changes, system settings, movement, character commands, screen commands, audio and video, map commands, scene control, actor commands, enemy commands, advanced commands, and nested Set Movement Route commands.
 
 Continuation commands are not standalone authoring units. Keep text continuations inside `showText(...)` or `showScrollingText(...)`, choice branches inside `showChoices(...)`, battle result branches inside `battleProcessing(...)`, shop goods inside `shopProcessing(...)`, script continuations inside `script(...)`, and move route command objects inside `setMovementRoute(...)`.
 
+Use `setMovementRoute({ target, route: { commands: [...], repeat?, skippable?, wait?, terminator? } })`.
+Read `movement-routes.md` for the complete instruction fields and parameter domains.
+The shared Movement Route requires `commands`, even when empty, and defaults its
+flags to true/false/false. Preserve a native nonterminal indent with
+`savedShape: { indent: "null" }` or `{ indent: "zero" }`; absent is the default.
+Use `terminator: { parameters: "absent" }` to preserve an M0 without the parameter
+key; the default is an empty array. Let the parent produce the sole M0 and exact
+505 mirrors. Keep route Script Inputs intentional under the Workspace's Script
+Command Gate, including recognized raw routes.
+
+For Page Autonomous Movement, use `movement: { type?, speed?, frequency?, route? }`
+inside `page(...)`. Type is fixed/random/approach/custom and defaults to fixed; speed
+is integer 1..6 and frequency is integer 1..5, both defaulting to 3. The saved route
+uses the shared model and defaults to empty. Preserve it even when movement is not
+custom; inactive saved scripts and switch references still receive validation.
+
 Use reference helpers instead of bare numeric IDs when referring to project data. Prefer `{ id: number }` when identity is known; use `{ name: string }` only when the Display Name resolves unambiguously.
 
-Use Asset Reference helpers for files, not Project Data Reference helpers. `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)` are no-scan filename-stem references; they do not validate that a file exists on disk.
+Switch and variable names resolve only from unique DSL declarations. Use explicit IDs
+for unnamed System slots within the larger of Snapshot capacity and the highest DSL
+declaration ID. A reference cannot expand capacity; removing a declaration clears its
+name while retaining Snapshot capacity. Existing database IDs remain valid with empty
+names. Author switch ranges in ascending order, including both endpoints, and give
+`controlSwitches` and `controlSelfSwitch` an explicit Boolean `value`. Self-switch
+letters are A–D; a Common Event called from a Map Event inherits the caller's identity.
 
-Use `script(...)` and `scriptInput(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough. The gate also applies to Conditional Branch script conditions, Control Variables script operands, and Set Movement Route script subcommands.
+Resolve fixed Animation, Tileset and Enemy targets against the captured Snapshot.
+Use `pull` after database changes, then validate again; use explicit IDs for existing
+empty-name targets. Enemy positions and dynamic equipment candidates keep their
+Runtime Selector meaning even when a fixed project target cannot be inferred.
 
-Use `pluginCommand(...)` only when the plugin command is grounded in user intent, existing project usage, or plugin documentation. The DSL models MV's native plugin command string; plugin-specific argument schemas are outside this helper's validation boundary.
+Use Asset Reference helpers for files, not Project Data Reference helpers. `audioAsset(...)`, `imageAsset(...)`, and `movieAsset(...)` are no-scan filename-stem references; they do not validate that a file exists on disk. Workspace Compile, Check and Push check selected files; image and movie names containing `%` or `#` are outside first-release file-check support, while audio names keep those characters literally.
 
-Use `rawDslCommand(...)` only for confirmed raw RPG Maker MV behavior that intentionally remains an escape hatch, such as malformed decompile fallback or non-editor/custom data. Confirm the command code, parameters, and indentation from project data, decompiled source,nearby examples, or reliable MV command mapping. Do not invent raw command shapes.
+For screen effects, use parameterless `fadeoutScreen()`/`fadeinScreen()` and
+`wait({ frames })` with required integer frames 1..999. Give `tintScreen` a
+complete named `tone: { red, green, blue, gray }`: integer RGB −255..255 and gray
+0..255. Give `flashScreen` complete named `color: { red, green, blue, alpha }`
+with integer components 0..255; alpha zero remains an explicit saved value.
+Give `shakeScreen` integer power and speed 1..9. Tint, Flash, Shake and Weather
+all require duration 1..999 and explicit Boolean wait. Preserve numeric negative
+zero in accepted tone/color components.
+
+Give `setWeatherEffect` weather none/rain/storm/snow and power 1..9 even for
+None; retain power, duration and wait when inactive. Battle execution skips the
+weather effect and its wait and produces a contextual warning. Common Events
+inherit their eventual caller's context. Give `playMovie` an explicit movies
+Asset Reference or `null` for None. Movie None continues without a video wait.
+Use `movieAsset({ name: "Ending" })` for a nonempty filename stem. Compile and
+Check require the exact ordinary `movies/Ending.webm` file under Project Root;
+MP4 cannot substitute. Movie `%` and `#` names are unsupported. Check the actual
+movie in the game because file metadata does not validate playback or codecs.
+
+For audio playback and system settings, supply all four `audio` fields: `asset`
+is an Audio Asset Reference or explicit `null`, `volume` is integer 0..100,
+`pitch` is integer 50..150, and `pan` is integer -100..100. Preserve all numeric
+fields with None, including negative zero in volume/pan and values between the
+editor's arrow steps. Use the exact nonempty filename stem and matching folder:
+`bgm` for BGM/battle/vehicle, `bgs` for BGS, `me` for ME/victory/defeat, and `se`
+for SE. Compile and Check require exact ordinary `audio/<folder>/<name>.ogg`
+files; literal `%` and `#` remain in audio names. None needs no file. Give
+`changeVehicleBgm` boat, ship or airship explicitly. BGM/BGS None
+stops its stream; ME None stops ME and may restore BGM; SE None leaves active SE
+playing. Use `stopSe()` to stop SE, and `saveBgm()` / `replayBgm()` to retain and
+restore BGM playback position. These three helpers accept no arguments. Give
+`fadeoutBgm` / `fadeoutBgs` integer `duration` in 1..999 seconds; author a separate
+`wait({ frames })` only when the intended flow should pause during the fade.
+
+For map appearance, give `changeMapNameDisplay` an explicit Boolean `enabled`, and
+give `changeTileset` an existing `tilesetRef` without None. Give `changeBattleBack`
+both independent fields: `battleback1` uses `battlebacks1`, `battleback2` uses
+`battlebacks2`, and either may be explicit `null`. Give `changeParallax` all five
+fields: an image in `parallaxes` or `null`, Boolean `loopX` and `loopY`, and integer
+`sx` and `sy` in −32..32. Preserve negative zero in both speed slots. Keep saved
+speeds when a loop is disabled or the image is None. Preserve filenames exactly;
+use `null` for None and nonempty Asset Reference names for actual files. The helpers
+preserve references and saved settings. Workspace asset checks follow the selected
+Animation and Tileset relationships in captured standard data under the shared
+asset-file rules: both Animation image sheets, every timing SE and all named
+Tileset slots. File existence and a valid Tileset reference do not guarantee
+layout, decoding, loading or runtime use.
+
+Use `script(...)` and `scriptInput(...)` for short RPG Maker MV JavaScript only when the Workspace Script Command Gate allows it and ordinary event commands are not enough. The Gate also checks Conditional Branch script conditions, Control Variables script operands, Set Movement Route script subcommands and mirrors, and saved Page routes in every movement mode. Empty and unreachable scripts still count. With the Gate closed, Decompile warns while generating source; Check and Compile reject current declarations containing scripts. Remove the actual scripts or enable the Gate deliberately before compiling.
+
+Use `label({ name })` and `jumpToLabel({ name })` with explicit complete strings,
+including an empty string when intended. Preserve whitespace, CR, LF and trailing
+characters. Jumps search the complete current native list from its start, even across
+branch indentation, and choose the first exact Label. Separate pages and Common Events
+have separate scopes. Review duplicate/missing-label warnings and CR/LF reconfirmation
+warnings without automatically renaming labels or changing text.
+
+Use `script({ code })` or `script(scriptInput({ code }))` for 1–12 Script physical
+records. Split only on LF, retain CR and trailing empty records, and count empty code
+as one record. The record-count limit does not apply to single-slot Script Inputs in
+conditions, variable operands or Movement Routes. Continuations belong to the parent.
+
+Use `pluginCommand({ line })` when the Plugin Command Line is grounded in user intent,
+existing project usage or plugin documentation. Carry the complete required string,
+including empty text, leading/trailing/repeated spaces, Tab, CR and LF. MV splits the
+line on literal ASCII spaces at execution; preserving the line preserves its empty
+command/argument values. Plugin Commands are permitted with the Script Command Gate
+closed. A Plugin Command Registry is optional lint; private plugin semantics remain
+outside validation.
+
+Use `rawDslCommand(...)` for a genuinely unknown command with a valid record envelope
+and surrounding structure. Recognized native parameters and references retain their
+normal validation; report malformed known commands instead of using raw as a fallback.
+Keep raw parameters as strict JSON data. Preserve CR/CRLF, negative zero, null,
+empty containers and own keys exactly. Do not use undefined, array holes, non-finite
+numbers, accessors, custom prototypes or extra raw envelope fields. An explicit raw
+indent of zero is absolute. Let formal owners generate their continuations and mirrors;
+handwritten raw records must still form a valid complete structure.
+Confirm code, parameters, and indentation from project data, Decompiled Source, nearby
+examples, or reliable MV command mapping.
+
+## Actor Text and Images
+
+```ts
+nameInputProcessing({ actor: actorRef({ id: 1 }), maxCharacters: 16 });
+changeName({ actor: actorRef({ id: 1 }), name: "" });
+changeNickname({ actor: actorRef({ id: 1 }), nickname: "  Mira  " });
+changeProfile({ actor: actorRef({ id: 1 }), profile: "First line\nSecond line\n" });
+changeActorImages({
+  actor: actorRef({ id: 1 }),
+  character: { image: null, index: 7 },
+  face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 11 },
+  battler: null,
+});
+changeVehicleImage({ vehicle: "airship", image: null, index: 7 });
+```
+
+All shown fields are required. Name Input uses a fixed existing Actor and an integer
+`maxCharacters` from 1 through 16. Battle execution skips its Name scene and produces
+a context warning. Name, nickname and profile are complete strings, including empty
+text, whitespace, CR, LF, CRLF and trailing characters, without a product length cap.
+Name and nickname warn on LF; profile warns on two or more LF characters, including
+trailing LF. CR independently warns about parameter reconfirmation. These strings
+remain one saved slot and do not require the Script Command Gate.
+
+Character and vehicle images use the `characters` folder, faces use `faces`, and
+battlers use `sv_actors`. Explicit `null` selects None. Character and vehicle indices
+are independent integers 0 through 7, including with None or a large character image.
+Face indices use 0 through 2,147,483,647 excluding negative zero. A non-None face
+index of at least 8 warns that it exceeds the official two-row layout and its asset
+dimensions are unchecked; None preserves the index without that warning. Vehicles
+are `boat`, `ship` or `airship`. In battle, Change Vehicle Image changes the held map
+vehicle object, with a warning that immediate visibility is uncertain.

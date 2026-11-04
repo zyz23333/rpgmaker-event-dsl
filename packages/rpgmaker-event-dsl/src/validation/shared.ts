@@ -2,10 +2,12 @@ import type { ReferenceEntry, ValidationIssue, DuplicateAwareNameIndex } from ".
 
 export function buildDuplicateAwareNameIndex(
   entries: readonly ReferenceEntry[],
+  includeEmptyNames = false,
 ): DuplicateAwareNameIndex {
   const index: DuplicateAwareNameIndex = new Map();
 
   for (const entry of entries) {
+    if (!includeEmptyNames && entry.name.length === 0) continue;
     const existing = index.get(entry.name);
     if (existing) {
       existing.push(entry.id);

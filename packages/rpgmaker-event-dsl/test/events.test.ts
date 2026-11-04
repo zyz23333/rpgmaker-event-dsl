@@ -12,7 +12,7 @@ import {
   changeBattleBgm,
   changeClass,
   changeDefeatMe,
-  changeEncounterDisable,
+  changeEncounter,
   changeEnemyHp,
   changeEnemyMp,
   changeEnemyState,
@@ -79,7 +79,7 @@ import {
   pluginCommand,
   recoverAll,
   rotatePicture,
-  resumeBgm,
+  replayBgm,
   returnToTitleScreen,
   saveBgm,
   script,
@@ -158,7 +158,7 @@ describe("compileMapEvent", () => {
         name: "Plugin",
         x: 0,
         y: 0,
-        pages: [page({ commands: [pluginCommand({ command: "MyPlugin", args: [] })] })],
+        pages: [page({ commands: [pluginCommand({ line: "MyPlugin" })] })],
       },
       { nextId: 1, resolver },
     );
@@ -182,29 +182,41 @@ describe("compileMapEvent", () => {
         pages: [
           page({
             commands: [
-              comment(["note"]),
+              comment({ lines: ["note"] }),
               showText({
                 lines: ["Hello"],
                 face: { image: imageAsset({ folder: "faces", name: "Actor1" }), index: 2 },
-                background: 1,
-                positionType: 0,
+                background: "dim",
+                position: "top",
               }),
               showChoices({
-                choices: ["Yes", "No"],
-                branches: [[wait(10)], [eraseEvent()]],
-                cancelType: 1,
-                cancelBranch: [showText({ lines: ["Canceled"] })],
+                choices: [
+                  { text: "Yes", commands: [wait({ frames: 10 })], endMarker: "absent" },
+                  { text: "No", commands: [eraseEvent()], endMarker: "absent" },
+                ],
+                cancel: {
+                  kind: "branch",
+                  commands: [
+                    showText({
+                      lines: ["Canceled"],
+                      face: { image: null, index: 0 },
+                      background: "window",
+                      position: "bottom",
+                    }),
+                  ],
+                  endMarker: "absent",
+                },
               }),
               inputNumber({ variable: variableRef({ name: "Count" }), digits: 3 }),
-              selectItem({ variable: variableRef({ name: "Count" }), itemType: 1 }),
+              selectItem({ variable: variableRef({ name: "Count" }), itemType: "regular" }),
               showScrollingText({ lines: ["Scroll", "More"], speed: 5, noFastForward: true }),
               controlVariables({
                 variable: variableRef({ name: "Count" }),
                 operation: "add",
-                value: 3,
+                value: { kind: "constant", value: 3 },
               }),
               controlSwitches({ switch: switchRef({ name: "Gate" }), value: true }),
-              changeGold({ operation: "gain", value: 5 }),
+              changeGold({ operation: "gain", value: { kind: "constant", value: 5 } }),
               controlSwitches({
                 switch: {
                   kind: "referenceRange",
@@ -236,18 +248,25 @@ describe("compileMapEvent", () => {
               }),
               controlTimer({ action: "start", seconds: 45 }),
               controlTimer({ action: "stop" }),
-              changeGold({ operation: "lose", value: variableRef({ name: "Count" }) }),
-              changeItems({ item: itemRef({ name: "Potion" }), operation: "lose", amount: 1 }),
+              changeGold({
+                operation: "lose",
+                value: { kind: "variable", variable: variableRef({ name: "Count" }) },
+              }),
+              changeItems({
+                item: itemRef({ name: "Potion" }),
+                operation: "lose",
+                amount: { kind: "constant", value: 1 },
+              }),
               changeWeapons({
                 weapon: { kind: "weapon", id: 1 },
                 operation: "gain",
-                amount: variableRef({ name: "Count" }),
+                amount: { kind: "variable", variable: variableRef({ name: "Count" }) },
                 includeEquipment: true,
               }),
               changeArmors({
                 armor: { kind: "armor", id: 1 },
                 operation: "lose",
-                amount: 2,
+                amount: { kind: "constant", value: 2 },
                 includeEquipment: false,
               }),
               changePartyMember({
@@ -262,8 +281,8 @@ describe("compileMapEvent", () => {
                   x: variableRef({ name: "X Var" }),
                   y: variableRef({ name: "Y Var" }),
                 },
-                direction: 4,
-                fadeType: 1,
+                direction: "left",
+                fade: "white",
               }),
               setVehicleLocation({
                 vehicle: "airship",
@@ -279,12 +298,12 @@ describe("compileMapEvent", () => {
                 },
               }),
               setEventLocation({
-                character: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
+                target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
                 destination: { kind: "direct", x: 6, y: 7 },
-                direction: 8,
+                direction: "up",
               }),
               setEventLocation({
-                character: { kind: "runtimeSelector", scope: "character", target: "event", id: 3 },
+                target: { kind: "runtimeSelector", scope: "character", target: "event", id: 3 },
                 destination: {
                   kind: "variables",
                   x: variableRef({ name: "X Var" }),
@@ -292,79 +311,91 @@ describe("compileMapEvent", () => {
                 },
               }),
               setEventLocation({
-                character: { kind: "runtimeSelector", scope: "character", target: "player" },
+                target: { kind: "runtimeSelector", scope: "character", target: "currentEvent" },
                 destination: {
                   kind: "exchange",
-                  character: {
+                  target: {
                     kind: "runtimeSelector",
                     scope: "character",
                     target: "currentEvent",
                   },
                 },
               }),
-              scrollMap({ direction: 6, distance: 9, speed: 5 }),
+              scrollMap({ direction: "right", distance: 9, speed: 5 }),
               setMovementRoute({
                 target: { kind: "runtimeSelector", scope: "character", target: "event", id: 4 },
-                route: [
-                  { kind: "moveDown" },
-                  { kind: "moveLeft" },
-                  { kind: "moveRight" },
-                  { kind: "moveUp" },
-                  { kind: "moveLowerLeft" },
-                  { kind: "moveLowerRight" },
-                  { kind: "moveUpperLeft" },
-                  { kind: "moveUpperRight" },
-                  { kind: "moveRandom" },
-                  { kind: "moveTowardPlayer" },
-                  { kind: "moveAwayFromPlayer" },
-                  { kind: "moveForward" },
-                  { kind: "moveBackward" },
-                  { kind: "jump", x: 2, y: -1 },
-                  { kind: "routeWait", frames: 15 },
-                  { kind: "turnDown" },
-                  { kind: "turnLeft" },
-                  { kind: "turnRight" },
-                  { kind: "turnUp" },
-                  { kind: "turn90Right" },
-                  { kind: "turn90Left" },
-                  { kind: "turn180" },
-                  { kind: "turn90RightOrLeft" },
-                  { kind: "turnRandom" },
-                  { kind: "turnTowardPlayer" },
-                  { kind: "turnAwayFromPlayer" },
-                  { kind: "switchOn", switch: switchRef({ name: "Gate" }) },
-                  { kind: "switchOff", switch: switchRef({ name: "Gate B" }) },
-                  { kind: "changeSpeed", speed: 5 },
-                  { kind: "changeFrequency", frequency: 4 },
-                  { kind: "walkAnimation", enabled: true },
-                  { kind: "walkAnimation", enabled: false },
-                  { kind: "stepAnimation", enabled: true },
-                  { kind: "stepAnimation", enabled: false },
-                  { kind: "directionFix", enabled: true },
-                  { kind: "directionFix", enabled: false },
-                  { kind: "through", enabled: true },
-                  { kind: "through", enabled: false },
-                  { kind: "transparent", enabled: true },
-                  { kind: "transparent", enabled: false },
-                  {
-                    kind: "changeImage",
-                    image: imageAsset({ folder: "characters", name: "Actor1" }),
-                    index: 3,
-                  },
-                  { kind: "changeOpacity", opacity: 128 },
-                  { kind: "changeBlendMode", blendMode: 1 },
-                  {
-                    kind: "playSe",
-                    audio: { asset: audioAsset({ folder: "se", name: "Cursor1" }), volume: 80 },
-                  },
-                  { kind: "script", script: scriptInput({ code: "this.moveForward();" }) },
-                ],
-                repeat: false,
-                skippable: true,
-                wait: true,
+                route: {
+                  commands: [
+                    { kind: "moveDown" },
+                    { kind: "moveLeft" },
+                    { kind: "moveRight" },
+                    { kind: "moveUp" },
+                    { kind: "moveLowerLeft" },
+                    { kind: "moveLowerRight" },
+                    { kind: "moveUpperLeft" },
+                    { kind: "moveUpperRight" },
+                    { kind: "moveRandom" },
+                    { kind: "moveTowardPlayer" },
+                    { kind: "moveAwayFromPlayer" },
+                    { kind: "moveForward" },
+                    { kind: "moveBackward" },
+                    { kind: "jump", x: 2, y: -1 },
+                    { kind: "wait", frames: 15 },
+                    { kind: "turnDown" },
+                    { kind: "turnLeft" },
+                    { kind: "turnRight" },
+                    { kind: "turnUp" },
+                    { kind: "turn90Right" },
+                    { kind: "turn90Left" },
+                    { kind: "turn180" },
+                    { kind: "turn90RightOrLeft" },
+                    { kind: "turnRandom" },
+                    { kind: "turnTowardPlayer" },
+                    { kind: "turnAwayFromPlayer" },
+                    { kind: "switchOn", switch: switchRef({ name: "Gate" }) },
+                    { kind: "switchOff", switch: switchRef({ name: "Gate B" }) },
+                    { kind: "changeSpeed", speed: 5 },
+                    { kind: "changeFrequency", frequency: 4 },
+                    { kind: "walkAnimation", enabled: true },
+                    { kind: "walkAnimation", enabled: false },
+                    { kind: "stepAnimation", enabled: true },
+                    { kind: "stepAnimation", enabled: false },
+                    { kind: "directionFix", enabled: true },
+                    { kind: "directionFix", enabled: false },
+                    { kind: "through", enabled: true },
+                    { kind: "through", enabled: false },
+                    { kind: "transparent", enabled: true },
+                    { kind: "transparent", enabled: false },
+                    {
+                      kind: "changeImage",
+                      character: imageAsset({ folder: "characters", name: "Actor1" }),
+                      characterIndex: 3,
+                    },
+                    { kind: "changeOpacity", opacity: 128 },
+                    { kind: "changeBlendMode", blendMode: "additive" },
+                    {
+                      kind: "playSe",
+                      audio: {
+                        asset: audioAsset({ folder: "se", name: "Cursor1" }),
+                        volume: 80,
+                        pitch: 100,
+                        pan: 0,
+                      },
+                    },
+                    { kind: "script", script: scriptInput({ code: "this.moveForward();" }) },
+                  ],
+                  repeat: false,
+                  skippable: true,
+                  wait: true,
+                },
               }),
               getOnOffVehicle(),
-              battleProcessing({ troop: troopRef({ name: "Slime" }), canEscape: true }),
+              battleProcessing({
+                troop: { kind: "fixed", troop: troopRef({ name: "Slime" }) },
+                canEscape: true,
+                win: { commands: [] },
+                escape: { commands: [] },
+              }),
             ],
           }),
         ],
@@ -383,11 +414,11 @@ describe("compileMapEvent", () => {
     expect(commands[1]).toEqual({ code: 101, indent: 0, parameters: ["Actor1", 2, 1, 0] });
     expect(commands[2]).toEqual({ code: 401, indent: 0, parameters: ["Hello"] });
     expect(commands[3]).toEqual({ code: 102, indent: 0, parameters: [["Yes", "No"], -2, 0, 2, 0] });
-    expect(commands[4]).toEqual({ code: 402, indent: 0, parameters: [0] });
+    expect(commands[4]).toEqual({ code: 402, indent: 0, parameters: [0, "Yes"] });
     expect(commands[5]).toEqual({ code: 230, indent: 1, parameters: [10] });
-    expect(commands[6]).toEqual({ code: 402, indent: 0, parameters: [1] });
+    expect(commands[6]).toEqual({ code: 402, indent: 0, parameters: [1, "No"] });
     expect(commands[7]).toEqual({ code: 214, indent: 1, parameters: [] });
-    expect(commands[8]).toEqual({ code: 403, indent: 0, parameters: [] });
+    expect(commands[8]).toEqual({ code: 403, indent: 0, parameters: [6, null] });
     expect(commands[9]).toEqual({ code: 101, indent: 1, parameters: ["", 0, 0, 2] });
     expect(commands[10]).toEqual({ code: 401, indent: 1, parameters: ["Canceled"] });
     expect(commands[11]).toEqual({ code: 103, indent: 0, parameters: [1, 3] });
@@ -406,7 +437,7 @@ describe("compileMapEvent", () => {
       parameters: [1, 1, 0, 4, "$gameParty.gold()"],
     });
     expect(commands[22]).toEqual({ code: 124, indent: 0, parameters: [0, 45] });
-    expect(commands[23]).toEqual({ code: 124, indent: 0, parameters: [1, 0] });
+    expect(commands[23]).toEqual({ code: 124, indent: 0, parameters: [1] });
     expect(commands[24]).toEqual({ code: 125, indent: 0, parameters: [1, 1, 1] });
     expect(commands[25]).toEqual({ code: 126, indent: 0, parameters: [1, 1, 0, 1] });
     expect(commands[26]).toEqual({ code: 127, indent: 0, parameters: [1, 0, 1, 1, true] });
@@ -417,7 +448,7 @@ describe("compileMapEvent", () => {
     expect(commands[31]).toEqual({ code: 202, indent: 0, parameters: [0, 1, 3, 4, 5] });
     expect(commands[32]).toEqual({ code: 203, indent: 0, parameters: [0, 0, 6, 7, 8] });
     expect(commands[33]).toEqual({ code: 203, indent: 0, parameters: [3, 1, 4, 5, 0] });
-    expect(commands[34]).toEqual({ code: 203, indent: 0, parameters: [-1, 2, 0, 0, 0] });
+    expect(commands[34]).toEqual({ code: 203, indent: 0, parameters: [0, 2, 0, 0, 0] });
     expect(commands[35]).toEqual({ code: 204, indent: 0, parameters: [6, 9, 5] });
     expect(commands[36]).toEqual({
       code: 205,
@@ -426,46 +457,46 @@ describe("compileMapEvent", () => {
         4,
         {
           list: [
-            { code: 1, parameters: [] },
-            { code: 2, parameters: [] },
-            { code: 3, parameters: [] },
-            { code: 4, parameters: [] },
-            { code: 5, parameters: [] },
-            { code: 6, parameters: [] },
-            { code: 7, parameters: [] },
-            { code: 8, parameters: [] },
-            { code: 9, parameters: [] },
-            { code: 10, parameters: [] },
-            { code: 11, parameters: [] },
-            { code: 12, parameters: [] },
-            { code: 13, parameters: [] },
+            { code: 1 },
+            { code: 2 },
+            { code: 3 },
+            { code: 4 },
+            { code: 5 },
+            { code: 6 },
+            { code: 7 },
+            { code: 8 },
+            { code: 9 },
+            { code: 10 },
+            { code: 11 },
+            { code: 12 },
+            { code: 13 },
             { code: 14, parameters: [2, -1] },
             { code: 15, parameters: [15] },
-            { code: 16, parameters: [] },
-            { code: 17, parameters: [] },
-            { code: 18, parameters: [] },
-            { code: 19, parameters: [] },
-            { code: 20, parameters: [] },
-            { code: 21, parameters: [] },
-            { code: 22, parameters: [] },
-            { code: 23, parameters: [] },
-            { code: 24, parameters: [] },
-            { code: 25, parameters: [] },
-            { code: 26, parameters: [] },
+            { code: 16 },
+            { code: 17 },
+            { code: 18 },
+            { code: 19 },
+            { code: 20 },
+            { code: 21 },
+            { code: 22 },
+            { code: 23 },
+            { code: 24 },
+            { code: 25 },
+            { code: 26 },
             { code: 27, parameters: [1] },
             { code: 28, parameters: [2] },
             { code: 29, parameters: [5] },
             { code: 30, parameters: [4] },
-            { code: 31, parameters: [] },
-            { code: 32, parameters: [] },
-            { code: 33, parameters: [] },
-            { code: 34, parameters: [] },
-            { code: 35, parameters: [] },
-            { code: 36, parameters: [] },
-            { code: 37, parameters: [] },
-            { code: 38, parameters: [] },
-            { code: 39, parameters: [] },
-            { code: 40, parameters: [] },
+            { code: 31 },
+            { code: 32 },
+            { code: 33 },
+            { code: 34 },
+            { code: 35 },
+            { code: 36 },
+            { code: 37 },
+            { code: 38 },
+            { code: 39 },
+            { code: 40 },
             { code: 41, parameters: ["Actor1", 3] },
             { code: 42, parameters: [128] },
             { code: 43, parameters: [1] },
@@ -479,10 +510,16 @@ describe("compileMapEvent", () => {
         },
       ],
     });
-    expect(commands[37]).toEqual({ code: 206, indent: 0, parameters: [] });
-    expect(commands[38]).toEqual({ code: 301, indent: 0, parameters: [0, 1, true, false] });
-    expect(commands[39]).toEqual({ code: 604, indent: 0, parameters: [] });
-    expect(commands[40]).toEqual({ code: 0, indent: 0, parameters: [] });
+    expect(commands[82]).toEqual({ code: 206, indent: 0, parameters: [] });
+    expect(commands[83]).toEqual({ code: 301, indent: 0, parameters: [0, 1, true, false] });
+    expect(commands.slice(84)).toEqual([
+      { code: 601, indent: 0, parameters: [] },
+      { code: 0, indent: 1, parameters: [] },
+      { code: 602, indent: 0, parameters: [] },
+      { code: 0, indent: 1, parameters: [] },
+      { code: 604, indent: 0, parameters: [] },
+      { code: 0, indent: 0, parameters: [] },
+    ]);
   });
 
   it("compiles direct Transfer Player destinations with resolved map references", () => {
@@ -510,7 +547,7 @@ describe("compileMapEvent", () => {
     expect(event.pages?.[0]?.list?.[0]).toEqual({
       code: 201,
       indent: 0,
-      parameters: [0, 1, 4, 5, 2, 0],
+      parameters: [0, 1, 4, 5, 0, 0],
     });
   });
 
@@ -535,30 +572,38 @@ describe("compileMapEvent", () => {
               showBalloonIcon({
                 target: { kind: "runtimeSelector", scope: "character", target: "player" },
                 balloon: "question",
+                wait: false,
               }),
               eraseEvent(),
               changePlayerFollowers({ visible: false }),
               gatherFollowers(),
               fadeoutScreen(),
               fadeinScreen(),
-              tintScreen({ tone: [68, -34, -34, 0], duration: 60, wait: true }),
+              tintScreen({
+                tone: { red: 68, green: -34, blue: -34, gray: 0 },
+                duration: 60,
+                wait: true,
+              }),
               flashScreen({
                 color: { red: 255, green: 255, blue: 255, alpha: 160 },
                 duration: 30,
+                wait: false,
               }),
               shakeScreen({ power: 5, speed: 7, duration: 40, wait: true }),
-              wait(12),
+              wait({ frames: 12 }),
               showPicture({
                 pictureId: 1,
                 image: imageAsset({ folder: "pictures", name: "Poster" }),
-                position: { kind: "direct", x: 10, y: 20, origin: "center" },
+                origin: "center",
+                position: { kind: "direct", x: 10, y: 20 },
                 scaleX: 120,
                 scaleY: 80,
                 opacity: 200,
-                blendMode: 1,
+                blendMode: "additive",
               }),
               movePicture({
                 pictureId: 1,
+                origin: "upperLeft",
                 position: {
                   kind: "variables",
                   x: variableRef({ name: "X Var" }),
@@ -567,12 +612,17 @@ describe("compileMapEvent", () => {
                 scaleX: 100,
                 scaleY: 100,
                 opacity: 255,
-                blendMode: 0,
+                blendMode: "normal",
                 duration: 45,
                 wait: true,
               }),
               rotatePicture({ pictureId: 1, speed: -5 }),
-              tintPicture({ pictureId: 1, tone: [0, 0, 0, 255], duration: 30 }),
+              tintPicture({
+                pictureId: 1,
+                tone: { red: 0, green: 0, blue: 0, gray: 255 },
+                duration: 30,
+                wait: false,
+              }),
               erasePicture({ pictureId: 1 }),
               setWeatherEffect({ weather: "rain", power: 6, duration: 50, wait: true }),
             ],
@@ -618,35 +668,79 @@ describe("compileMapEvent", () => {
           page({
             commands: [
               changeBattleBgm({
-                audio: { asset: audioAsset({ folder: "bgm", name: "Battle1" }), volume: 80 },
+                audio: {
+                  asset: audioAsset({ folder: "bgm", name: "Battle1" }),
+                  volume: 80,
+                  pitch: 100,
+                  pan: 0,
+                },
               }),
               changeVictoryMe({
-                audio: { asset: audioAsset({ folder: "me", name: "Victory1" }), pitch: 105 },
+                audio: {
+                  asset: audioAsset({ folder: "me", name: "Victory1" }),
+                  pitch: 105,
+                  volume: 90,
+                  pan: 0,
+                },
               }),
               changeSaveAccess({ enabled: false }),
               changeMenuAccess({ enabled: true }),
-              changeEncounterDisable({ disabled: true }),
+              changeEncounter({ enabled: false }),
               changeFormationAccess({ enabled: false }),
-              changeWindowColor({ tone: [12, -24, 36, 0] }),
+              changeWindowColor({ tone: { red: 12, green: -24, blue: 36, gray: 0 } }),
               changeDefeatMe({
-                audio: { asset: audioAsset({ folder: "me", name: "Defeat1" }), pan: -10 },
+                audio: {
+                  asset: audioAsset({ folder: "me", name: "Defeat1" }),
+                  pan: -10,
+                  volume: 90,
+                  pitch: 100,
+                },
               }),
               changeVehicleBgm({
                 vehicle: "ship",
-                audio: { asset: audioAsset({ folder: "bgm", name: "Ship1" }) },
+                audio: {
+                  asset: audioAsset({ folder: "bgm", name: "Ship1" }),
+                  volume: 90,
+                  pitch: 100,
+                  pan: 0,
+                },
               }),
               playBgm({
-                audio: { asset: audioAsset({ folder: "bgm", name: "Theme1" }), volume: 70 },
+                audio: {
+                  asset: audioAsset({ folder: "bgm", name: "Theme1" }),
+                  volume: 70,
+                  pitch: 100,
+                  pan: 0,
+                },
               }),
               fadeoutBgm({ duration: 45 }),
               saveBgm(),
-              resumeBgm(),
+              replayBgm(),
               playBgs({
-                audio: { asset: audioAsset({ folder: "bgs", name: "Rain" }), pitch: 90 },
+                audio: {
+                  asset: audioAsset({ folder: "bgs", name: "Rain" }),
+                  pitch: 90,
+                  volume: 90,
+                  pan: 0,
+                },
               }),
               fadeoutBgs({ duration: 30 }),
-              playMe({ audio: { asset: audioAsset({ folder: "me", name: "Fanfare" }) } }),
-              playSe({ audio: { asset: audioAsset({ folder: "se", name: "Cursor" }) } }),
+              playMe({
+                audio: {
+                  asset: audioAsset({ folder: "me", name: "Fanfare" }),
+                  volume: 90,
+                  pitch: 100,
+                  pan: 0,
+                },
+              }),
+              playSe({
+                audio: {
+                  asset: audioAsset({ folder: "se", name: "Cursor" }),
+                  volume: 90,
+                  pitch: 100,
+                  pan: 0,
+                },
+              }),
               stopSe(),
               playMovie({ movie: movieAsset({ name: "Intro" }) }),
               changeMapNameDisplay({ enabled: false }),
@@ -669,7 +763,7 @@ describe("compileMapEvent", () => {
               }),
               getLocationInfo({
                 variable: variableRef({ name: "Count B" }),
-                info: "tileIdLayer2",
+                info: "tileLayer2",
                 location: {
                   kind: "variables",
                   x: variableRef({ name: "X Var" }),
@@ -731,25 +825,25 @@ describe("compileMapEvent", () => {
             commands: [
               conditional({
                 condition: { kind: "switch", switch: switchRef({ name: "Gate" }), value: true },
-                then: [wait(1)],
-                else: [wait(2)],
+                then: { commands: [wait({ frames: 1 })] },
+                else: { commands: [wait({ frames: 2 })] },
               }),
               conditional({
                 condition: {
                   kind: "variable",
                   variable: variableRef({ name: "Count" }),
                   operator: "ne",
-                  value: variableRef({ name: "Count" }),
+                  value: { kind: "variable", variable: variableRef({ name: "Count" }) },
                 },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: { kind: "selfSwitch", selfSwitch: "B", value: false },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: { kind: "timer", seconds: 30, operator: "le" },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: {
@@ -757,27 +851,31 @@ describe("compileMapEvent", () => {
                   actor: { kind: "actor", id: 1 },
                   check: { kind: "class", class: classRef({ name: "Warrior" }) },
                 },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: {
                   kind: "enemy",
-                  enemyIndex: 0,
+                  enemy: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
                   check: { kind: "state", state: stateRef({ name: "Poison" }) },
                 },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
-                condition: { kind: "character", characterId: -1, direction: 2 },
-                then: [],
+                condition: {
+                  kind: "character",
+                  target: { kind: "runtimeSelector", scope: "character", target: "player" },
+                  direction: 2,
+                },
+                then: { commands: [] },
               }),
               conditional({
                 condition: { kind: "gold", amount: 100, operator: "lt" },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: { kind: "item", item: itemRef({ name: "Potion" }) },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: {
@@ -785,7 +883,7 @@ describe("compileMapEvent", () => {
                   weapon: { kind: "weapon", id: 1 },
                   includeEquipment: true,
                 },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: {
@@ -793,22 +891,22 @@ describe("compileMapEvent", () => {
                   armor: { kind: "armor", id: 1 },
                   includeEquipment: false,
                 },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: { kind: "button", button: "ok" },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: {
                   kind: "script",
                   script: scriptInput({ code: "$gameParty.size() > 1" }),
                 },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: { kind: "vehicle", vehicle: "airship" },
-                then: [],
+                then: { commands: [] },
               }),
               conditional({
                 condition: {
@@ -816,7 +914,7 @@ describe("compileMapEvent", () => {
                   actor: { kind: "actor", id: 1 },
                   check: { kind: "skill", skill: skillRef({ name: "Heal" }) },
                 },
-                then: [],
+                then: { commands: [] },
               }),
             ],
           }),
@@ -864,7 +962,13 @@ describe("compileMapEvent", () => {
       kind: "runtimeSelector",
       scope: "actor",
       target: "actor",
-      actorId: 1,
+      actor: { kind: "actor", id: 1 },
+    } as const;
+    const actorResourceTarget = {
+      kind: "runtimeSelector",
+      scope: "actor",
+      target: "actor",
+      actor: { kind: "actor", id: 1 },
     } as const;
     const actorVariableTarget = {
       kind: "runtimeSelector",
@@ -896,32 +1000,32 @@ describe("compileMapEvent", () => {
           page({
             commands: [
               battleProcessing({
-                troop: { kind: "troop", variable: variableRef({ name: "Count" }) },
+                troop: { kind: "variable", variable: variableRef({ name: "Count" }) },
                 canEscape: true,
                 canLose: true,
-                win: [wait(1)],
-                escape: [wait(2)],
-                lose: [wait(3)],
+                win: { commands: [wait({ frames: 1 })], endMarker: "absent" },
+                escape: { commands: [wait({ frames: 2 })], endMarker: "absent" },
+                lose: { commands: [wait({ frames: 3 })], endMarker: "absent" },
               }),
               shopProcessing({
                 goods: [
                   { kind: "item", item: itemRef({ name: "Potion" }) },
-                  { kind: "weapon", item: { kind: "weapon", id: 1 }, price: 250 },
-                  { kind: "armor", item: { kind: "armor", id: 1 } },
+                  { kind: "weapon", weapon: { kind: "weapon", id: 1 }, price: 250 },
+                  { kind: "armor", armor: { kind: "armor", id: 1 } },
                 ],
-                allowSelling: true,
+                purchaseOnly: true,
               }),
               nameInputProcessing({ actor: { kind: "actor", id: 1 }, maxCharacters: 8 }),
               changeHp({
                 target: partyTarget,
                 operation: "lose",
-                value: 10,
+                value: { kind: "constant", value: 10 },
                 allowDeath: true,
               }),
               changeMp({
-                target: actorTarget,
+                target: actorResourceTarget,
                 operation: "gain",
-                value: variableRef({ name: "Count" }),
+                value: { kind: "variable", variable: variableRef({ name: "Count" }) },
               }),
               changeState({
                 target: actorVariableTarget,
@@ -929,13 +1033,23 @@ describe("compileMapEvent", () => {
                 state: stateRef({ name: "Poison" }),
               }),
               recoverAll({ target: partyTarget }),
-              changeExp({ target: actorTarget, operation: "gain", value: 50, showLevelUp: true }),
-              changeLevel({ target: actorTarget, operation: "lose", value: 1 }),
+              changeExp({
+                target: actorTarget,
+                operation: "gain",
+                value: { kind: "constant", value: 50 },
+                showLevelUp: true,
+              }),
+              changeLevel({
+                target: actorTarget,
+                operation: "lose",
+                value: { kind: "constant", value: 1 },
+                showLevelUp: false,
+              }),
               changeParameter({
                 target: actorTarget,
                 parameter: "atk",
                 operation: "gain",
-                value: 2,
+                value: { kind: "constant", value: 2 },
               }),
               changeSkill({
                 target: actorTarget,
@@ -944,8 +1058,13 @@ describe("compileMapEvent", () => {
               }),
               changeEquipment({
                 actor: { kind: "actor", id: 1 },
-                equipmentTypeId: 1,
-                itemId: 1,
+                slotIndex: 0,
+                equipment: {
+                  kind: "runtimeSelector",
+                  scope: "equipment",
+                  target: "idForSlot",
+                  id: 1,
+                },
               }),
               changeName({ actor: { kind: "actor", id: 1 }, name: "Alex" }),
               changeClass({
@@ -969,17 +1088,21 @@ describe("compileMapEvent", () => {
               }),
               changeNickname({ actor: { kind: "actor", id: 1 }, nickname: "Ace" }),
               changeProfile({ actor: { kind: "actor", id: 1 }, profile: "Profile" }),
-              changeTp({ target: actorTarget, operation: "gain", value: 5 }),
+              changeTp({
+                target: actorResourceTarget,
+                operation: "gain",
+                value: { kind: "constant", value: 5 },
+              }),
               changeEnemyHp({
                 target: allEnemiesTarget,
                 operation: "lose",
-                value: 10,
+                value: { kind: "constant", value: 10 },
                 allowDeath: true,
               }),
               changeEnemyMp({
                 target: enemyTarget,
                 operation: "gain",
-                value: variableRef({ name: "Count" }),
+                value: { kind: "variable", variable: variableRef({ name: "Count" }) },
               }),
               changeEnemyState({
                 target: enemyTarget,
@@ -990,22 +1113,32 @@ describe("compileMapEvent", () => {
               enemyAppear({ target: enemyTarget }),
               enemyTransform({ target: enemyTarget, enemy: enemyRef({ name: "Bat" }) }),
               showBattleAnimation({
-                target: allEnemiesTarget,
+                target: { kind: "runtimeSelector", scope: "enemy", target: "enemy", index: 0 },
                 animation: animationRef({ name: "Sparkle" }),
+                allEnemies: true,
               }),
               forceAction({
-                subject: { kind: "runtimeSelector", scope: "battler", target: "actor", actorId: 1 },
+                subject: {
+                  kind: "runtimeSelector",
+                  scope: "battler",
+                  target: "actor",
+                  actor: { kind: "actor", id: 1 },
+                },
                 skill: skillRef({ name: "Heal" }),
-                targetIndex: -2,
+                target: { kind: "lastTarget" },
               }),
               abortBattle(),
-              changeEnemyTp({ target: enemyTarget, operation: "gain", value: 4 }),
+              changeEnemyTp({
+                target: enemyTarget,
+                operation: "gain",
+                value: { kind: "constant", value: 4 },
+              }),
               openMenuScreen(),
               openSaveScreen(),
               gameOver(),
               returnToTitleScreen(),
               script({ code: "const x = 1;\nconsole.log(x);" }),
-              pluginCommand({ command: "MyPlugin", args: ["arg1", "arg2"] }),
+              pluginCommand({ line: "MyPlugin arg1 arg2" }),
             ],
           }),
         ],

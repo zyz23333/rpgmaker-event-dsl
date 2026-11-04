@@ -1,6 +1,5 @@
 import type { RawEventCommand, RenderedCommand } from "../../decompiler/types.js";
-import { literal } from "../../decompiler/core.js";
-import { renderTone } from "../screen/decompile.js";
+import { isNumberTuple, literal } from "../../decompiler/core.js";
 
 export function renderBooleanSystemCommand(
   command: RawEventCommand,
@@ -23,33 +22,26 @@ export function renderBooleanSystemCommand(
 export function renderChangeWindowColor(
   command: RawEventCommand,
 ): Omit<RenderedCommand, "nextIndex"> | null {
-  const tone = renderTone(command.parameters[0]);
-  return tone === null
-    ? null
-    : {
-        expression: `changeWindowColor({ tone: ${tone} })`,
-        helperNames: ["changeWindowColor"],
-      };
+  const tone = command.parameters[0];
+  if (!isNumberTuple(tone, 4)) return null;
+  const fields = ["red", "green", "blue", "gray"].map(
+    (field, index) => `${field}: ${literal(tone[index])}`,
+  );
+  return {
+    expression: `changeWindowColor({ tone: { ${fields.join(", ")} } })`,
+    helperNames: ["changeWindowColor"],
+  };
 }
 
 export function renderPluginCommand(
   command: RawEventCommand,
 ): Omit<RenderedCommand, "nextIndex"> | null {
   const line = command.parameters[0];
-  if (typeof line !== "string" || line.length === 0) {
+  if (typeof line !== "string") {
     return null;
-  }
-  if (line.trim() !== line || line.includes("  ")) {
-    return null;
-  }
-
-  const [name = "", ...args] = line.split(" ");
-  const fields = [`command: ${literal(name)}`];
-  if (args.length > 0) {
-    fields.push(`args: ${literal(args)}`);
   }
   return {
-    expression: `pluginCommand({ ${fields.join(", ")} })`,
+    expression: `pluginCommand({ line: ${literal(line)} })`,
     helperNames: ["pluginCommand"],
   };
 }
@@ -59,7 +51,7 @@ export function renderNoParameterCommand(
   helperName:
     | "abortBattle"
     | "breakLoop"
-    | "exitEvent"
+    | "exitEventProcessing"
     | "gameOver"
     | "openMenuScreen"
     | "openSaveScreen"
@@ -74,7 +66,7 @@ export function renderNoParameterCommand(
 }
 
 export function renderRawCommand(command: RawEventCommand): string {
-  const indentLine = command.indent === 0 ? "" : `\n  indent: ${command.indent},`;
+  const indentLine = `\n  indent: ${command.indent},`;
 
   return `rawDslCommand({
   code: ${command.code},${indentLine}

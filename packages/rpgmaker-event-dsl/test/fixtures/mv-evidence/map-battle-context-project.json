@@ -1,0 +1,75 @@
+{
+  "formatVersion": 1,
+  "sourceKind": "synthetic-support",
+  "provenance": "Self-authored Snapshot adapter input; not editor capture or game observation. Enemy 99 is intentionally absent and its member remains in its original position.",
+  "projectFiles": {
+    "Actors.json": [null, { "id": 1, "name": "", "fixtureActor": { "kept": null } }],
+    "Animations.json": [
+      null,
+      null,
+      null,
+      { "id": 3, "name": "", "frames": [], "fixtureAnimation": [null, {}] }
+    ],
+    "CommonEvents.json": [
+      null,
+      {
+        "id": 1,
+        "name": "Snapshot contexts",
+        "trigger": 0,
+        "switchId": 1,
+        "list": [
+          { "code": 212, "indent": 0, "parameters": [0, 3, false] },
+          { "code": 282, "indent": 0, "parameters": [2] },
+          { "code": 336, "indent": 0, "parameters": [0, 1] },
+          { "code": 335, "indent": 0, "parameters": [2] },
+          { "code": 319, "indent": 0, "parameters": [1, 1, 77] },
+          { "code": 0, "indent": 0, "parameters": [] }
+        ]
+      }
+    ],
+    "Enemies.json": [null, { "id": 1, "name": "", "fixtureEnemy": { "values": [0, null] } }],
+    "MapInfos.json": [null, { "id": 1, "name": "", "order": 1, "parentId": 0 }],
+    "Map001.json": {
+      "width": 5,
+      "height": 4,
+      "tilesetId": 2,
+      "events": [null],
+      "fixtureMap": { "keep": [null, [], {}] }
+    },
+    "System.json": {
+      "gameTitle": "Snapshot context fixture",
+      "switches": [""],
+      "variables": [""],
+      "equipTypes": ["", "Weapon", "", "Accessory", "Extra slot", "Sixth slot", "Seventh slot"],
+      "fixtureSystem": { "kept": true }
+    },
+    "Tilesets.json": [
+      null,
+      null,
+      {
+        "id": 2,
+        "name": "",
+        "tilesetNames": ["A1", "A2", "", "", "", "B", "", "D", ""],
+        "flags": [0, 1],
+        "fixtureTileset": { "kept": [] }
+      }
+    ],
+    "Troops.json": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "id": 4,
+        "name": "",
+        "members": [
+          { "enemyId": 1, "x": 80, "y": 100, "hidden": true, "fixtureMember": null },
+          { "enemyId": 99, "x": 160, "y": 100, "hidden": false },
+          { "enemyId": 1, "x": 240, "y": 100, "hidden": false }
+        ],
+        "pages": [],
+        "fixtureTroop": { "kept": [null, {}] }
+      }
+    ]
+  }
+}

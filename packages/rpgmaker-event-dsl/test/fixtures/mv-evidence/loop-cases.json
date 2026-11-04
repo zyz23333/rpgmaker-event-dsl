@@ -1,0 +1,87 @@
+{
+  "formatVersion": 1,
+  "sourceKind": "synthetic-support",
+  "provenance": "Independent literal saved command lists and runtime expectations from the accepted E112/E113/E115 contract; not compiler output or an editor capture.",
+  "events": [
+    null,
+    {
+      "id": 1,
+      "name": "Loop present",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        { "code": 112, "indent": 0, "parameters": [] },
+        { "code": 121, "indent": 1, "parameters": [1, 1, 0] },
+        { "code": 113, "indent": 1, "parameters": [] },
+        { "code": 0, "indent": 1, "parameters": [] },
+        { "code": 413, "indent": 0, "parameters": [] },
+        { "code": 115, "indent": 0, "parameters": [] },
+        { "code": 121, "indent": 0, "parameters": [2, 2, 0] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Nested mixed markers",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        { "code": 112, "indent": 0, "parameters": [] },
+        { "code": 112, "indent": 1, "parameters": [] },
+        { "code": 121, "indent": 2, "parameters": [3, 3, 0] },
+        { "code": 113, "indent": 2, "parameters": [] },
+        { "code": 0, "indent": 2, "parameters": [] },
+        { "code": 413, "indent": 1, "parameters": [] },
+        { "code": 113, "indent": 1, "parameters": [] },
+        { "code": 413, "indent": 0, "parameters": [] },
+        { "code": 115, "indent": 0, "parameters": [] },
+        { "code": 121, "indent": 0, "parameters": [4, 4, 0] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Break outside Loop",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        { "code": 113, "indent": 0, "parameters": [] },
+        { "code": 121, "indent": 0, "parameters": [5, 5, 0] },
+        { "code": 115, "indent": 0, "parameters": [] },
+        { "code": 121, "indent": 0, "parameters": [6, 6, 0] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Child Exit",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        { "code": 121, "indent": 0, "parameters": [7, 7, 0] },
+        { "code": 115, "indent": 0, "parameters": [] },
+        { "code": 121, "indent": 0, "parameters": [8, 8, 0] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Caller continues",
+      "trigger": 0,
+      "switchId": 1,
+      "list": [
+        { "code": 117, "indent": 0, "parameters": [4] },
+        { "code": 121, "indent": 0, "parameters": [9, 9, 0] },
+        { "code": 115, "indent": 0, "parameters": [] },
+        { "code": 121, "indent": 0, "parameters": [10, 10, 0] },
+        { "code": 0, "indent": 0, "parameters": [] }
+      ]
+    }
+  ],
+  "runtimeCases": [
+    { "eventId": 1, "switches": [1, 2], "expected": [true, false] },
+    { "eventId": 2, "switches": [3, 4], "expected": [true, false] },
+    { "eventId": 3, "switches": [5, 6], "expected": [false, false] },
+    { "eventId": 5, "switches": [7, 8, 9, 10], "expected": [true, false, true, false] }
+  ]
+}

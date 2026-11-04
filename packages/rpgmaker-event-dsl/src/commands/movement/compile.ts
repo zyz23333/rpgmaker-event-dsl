@@ -2,11 +2,15 @@ import type {
   CharacterRuntimeSelector,
   DslCommand,
   MoveRouteCommand,
+  MovementRoute,
   VehicleTarget,
 } from "../../domain/types.js";
 import type { ReferenceResolver } from "../../validation/types.js";
 import { vehicleToCode } from "../../compiler/shared/conditions.js";
-import { compileAudioPayload } from "../../compiler/shared/media.js";
+import { assertMovementRoute, assertNativeMovementRecord } from "./validation.js";
+import type { NativeMovementRecord } from "./types.js";
+import { locationDirectionToCode, resolveLocationReference } from "../map/compile.js";
+export type { NativeMovementRecord } from "./types.js";
 
 export function characterSelectorToCode(selector: CharacterRuntimeSelector): number {
   switch (selector.target) {
@@ -23,13 +27,14 @@ export function compileSetVehicleLocationParameters(
   vehicle: VehicleTarget,
   destination: Extract<DslCommand, { kind: "setVehicleLocation" }>["destination"],
   resolver: ReferenceResolver,
+  path = "setVehicleLocation",
 ): unknown[] {
   const vehicleCode = vehicleToCode(vehicle);
   if (destination.kind === "direct") {
     return [
       vehicleCode,
       0,
-      resolver.resolveReference(destination.map),
+      resolveLocationReference(destination.map, resolver, `${path}.destination.map`, 202),
       destination.x,
       destination.y,
     ];
@@ -38,51 +43,88 @@ export function compileSetVehicleLocationParameters(
   return [
     vehicleCode,
     1,
-    resolver.resolveReference(destination.map),
-    resolver.resolveReference(destination.x),
-    resolver.resolveReference(destination.y),
+    resolveLocationReference(destination.map, resolver, `${path}.destination.map`, 202),
+    resolveLocationReference(destination.x, resolver, `${path}.destination.x`, 202),
+    resolveLocationReference(destination.y, resolver, `${path}.destination.y`, 202),
   ];
 }
 
 export function compileSetEventLocationParameters(
   node: Extract<DslCommand, { kind: "setEventLocation" }>,
   resolver: ReferenceResolver,
+  path = "setEventLocation",
 ): unknown[] {
-  const characterId = characterSelectorToCode(node.character);
+  const characterId = characterSelectorToCode(node.target);
 
   switch (node.destination.kind) {
     case "direct":
-      return [characterId, 0, node.destination.x, node.destination.y, node.direction ?? 0];
+      return [
+        characterId,
+        0,
+        node.destination.x,
+        node.destination.y,
+        locationDirectionToCode(node.direction),
+      ];
     case "variables":
       return [
         characterId,
         1,
-        resolver.resolveReference(node.destination.x),
-        resolver.resolveReference(node.destination.y),
-        node.direction ?? 0,
+        resolveLocationReference(node.destination.x, resolver, `${path}.destination.x`, 203),
+        resolveLocationReference(node.destination.y, resolver, `${path}.destination.y`, 203),
+        locationDirectionToCode(node.direction),
       ];
     case "exchange":
       return [
         characterId,
         2,
-        characterSelectorToCode(node.destination.character),
+        characterSelectorToCode(node.destination.target),
         0,
-        node.direction ?? 0,
+        locationDirectionToCode(node.direction),
       ];
   }
 }
 
-export function compileMoveRouteCommands(
-  route: readonly MoveRouteCommand[],
+export function compileMovementRoute(
+  route: MovementRoute,
   resolver: ReferenceResolver,
-): Array<{ code: number; parameters: unknown[] }> {
+  path = "route",
+) {
+  assertMovementRoute(route, path);
+  return {
+    list: compileMoveRouteCommands(route, resolver, path),
+    repeat: route.repeat ?? true,
+    skippable: route.skippable ?? false,
+    wait: route.wait ?? false,
+  };
+}
+
+export function compileMoveRouteCommands(
+  route: MovementRoute,
+  resolver: ReferenceResolver,
+  path = "route",
+): NativeMovementRecord[] {
   return [
-    ...route.map((command) => compileMoveRouteCommand(command, resolver)),
-    { code: 0, parameters: [] },
+    ...route.commands.map((command, index) =>
+      compileMoveRouteCommand(command, resolver, `${path}.commands[${index}]`),
+    ),
+    route.terminator?.parameters === "absent" ? { code: 0 } : { code: 0, parameters: [] },
   ];
 }
 
 export function compileMoveRouteCommand(
+  command: MoveRouteCommand,
+  resolver: ReferenceResolver,
+  path = "route.commands",
+): NativeMovementRecord {
+  const record: NativeMovementRecord = compileMoveRouteInstruction(command, resolver);
+  if (record.parameters?.length === 0) delete record.parameters;
+  if (command.savedShape?.indent === "null") record.indent = null;
+  if (command.savedShape?.indent === "zero") record.indent = 0;
+  assertNativeMovementRecord(record, { dslPath: path });
+  return record;
+}
+
+function compileMoveRouteInstruction(
   command: MoveRouteCommand,
   resolver: ReferenceResolver,
 ): { code: number; parameters: unknown[] } {
@@ -115,7 +157,7 @@ export function compileMoveRouteCommand(
       return { code: 13, parameters: [] };
     case "jump":
       return { code: 14, parameters: [command.x, command.y] };
-    case "routeWait":
+    case "wait":
       return { code: 15, parameters: [command.frames] };
     case "turnDown":
       return { code: 16, parameters: [] };
@@ -158,15 +200,25 @@ export function compileMoveRouteCommand(
     case "transparent":
       return { code: command.enabled ? 39 : 40, parameters: [] };
     case "changeImage":
-      return { code: 41, parameters: [command.image.name, command.index] };
+      return { code: 41, parameters: [command.character?.name ?? "", command.characterIndex] };
     case "changeOpacity":
       return { code: 42, parameters: [command.opacity] };
     case "changeBlendMode":
-      return { code: 43, parameters: [command.blendMode] };
+      return {
+        code: 43,
+        parameters: [["normal", "additive", "multiply", "screen"].indexOf(command.blendMode)],
+      };
     case "playSe":
       return {
         code: 44,
-        parameters: [compileAudioPayload(command.audio)],
+        parameters: [
+          {
+            name: command.audio.asset?.name ?? "",
+            volume: command.audio.volume,
+            pitch: command.audio.pitch,
+            pan: command.audio.pan,
+          },
+        ],
       };
     case "script":
       return { code: 45, parameters: [command.script.code] };

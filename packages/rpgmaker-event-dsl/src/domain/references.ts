@@ -66,10 +66,10 @@ export type AudioAssetFolder = (typeof audioAssetFolders)[number];
 
 export type ImageAssetFolder = (typeof imageAssetFolders)[number];
 
-export type AudioAssetReference = {
+export type AudioAssetReference<Folder extends AudioAssetFolder = AudioAssetFolder> = {
   kind: "asset";
   category: "audio";
-  folder: AudioAssetFolder;
+  folder: Folder;
   name: string;
 };
 
@@ -170,19 +170,19 @@ export type ControlVariablesGameDataOperand =
   | {
       kind: "gameData";
       source: "enemy";
-      enemyIndex: number;
+      enemy: RuntimeSelector<"enemy", "enemy"> & { index: number };
       value: "hp" | "mp" | "mhp" | "mmp" | "atk" | "def" | "mat" | "mdf" | "agi" | "luk";
     }
   | {
       kind: "gameData";
       source: "character";
-      characterId: number;
+      target: CharacterRuntimeSelector;
       value: "mapX" | "mapY" | "direction" | "screenX" | "screenY";
     }
   | {
       kind: "gameData";
       source: "party";
-      memberIndex: number;
+      member: RuntimeSelector<"party", "member"> & { index: number };
     }
   | {
       kind: "gameData";
@@ -214,19 +214,14 @@ export type OperateValueInput = {
   operand: OperateValueOperand;
 };
 
-export type ActorCommandTarget =
-  | (RuntimeSelector<"actor", "entireParty"> & {
-      actorId?: never;
-      variable?: never;
-    })
-  | (RuntimeSelector<"actor", "actor"> & {
-      actorId: number;
-      variable?: never;
-    })
-  | (RuntimeSelector<"actor", "actorFromVariable"> & {
-      actorId?: never;
-      variable: ReferenceValue<"variable">;
-    });
+export type ActorResourceTarget =
+  | RuntimeSelector<"actor", "entireParty">
+  | (RuntimeSelector<"actor", "actor"> & { actor: ReferenceValue<"actor"> })
+  | (RuntimeSelector<"actor", "actorFromVariable"> & { variable: ReferenceValue<"variable"> });
+
+export type ActorResourceOperand = ConstantOperand | VariableOperand;
+
+export type EquipmentRuntimeSelector = RuntimeSelector<"equipment", "idForSlot"> & { id: number };
 
 export type EnemyCommandTarget =
   | (RuntimeSelector<"enemy", "all"> & {
@@ -242,7 +237,7 @@ export type BattlerCommandTarget =
       actorId?: never;
     })
   | (RuntimeSelector<"battler", "actor"> & {
-      actorId: number;
+      actor: ReferenceValue<"actor">;
       index?: never;
     });
 
@@ -265,6 +260,8 @@ export type CommandPosition = DirectPosition | VariablePosition;
 export type VehicleTarget = "boat" | "ship" | "airship";
 
 export type Direction = 2 | 4 | 6 | 8;
+export type LocationDirection = "retain" | "down" | "left" | "right" | "up";
+export type TransferFade = "black" | "white" | "none";
 
 export type CharacterRuntimeSelector =
   | (RuntimeSelector<"character", "player"> & {
@@ -276,6 +273,7 @@ export type CharacterRuntimeSelector =
   | (RuntimeSelector<"character", "event"> & {
       id: number;
     });
+export type EventRuntimeSelector = Exclude<CharacterRuntimeSelector, { target: "player" }>;
 
 export type DirectMapDestination = {
   kind: "direct";
@@ -307,7 +305,7 @@ export type VariableEventLocationDestination = {
 
 export type ExchangeEventLocationDestination = {
   kind: "exchange";
-  character: CharacterRuntimeSelector;
+  target: EventRuntimeSelector;
 };
 
 export type EventLocationDestination =
@@ -315,38 +313,34 @@ export type EventLocationDestination =
   | VariableEventLocationDestination
   | ExchangeEventLocationDestination;
 
-export type ToneInput =
-  | readonly [red: number, green: number, blue: number, gray: number]
-  | {
-      red: number;
-      green: number;
-      blue: number;
-      gray: number;
-    };
+export type ToneInput = {
+  red: number;
+  green: number;
+  blue: number;
+  gray: number;
+};
 
-export type ColorInput =
-  | readonly [red: number, green: number, blue: number, alpha: number]
-  | {
-      red: number;
-      green: number;
-      blue: number;
-      alpha: number;
-    };
+export type ColorInput = {
+  red: number;
+  green: number;
+  blue: number;
+  alpha: number;
+};
 
-export type AudioPayload = {
-  asset: AudioAssetReference;
-  volume?: number;
-  pitch?: number;
-  pan?: number;
+export type AudioPayload<Folder extends AudioAssetFolder = AudioAssetFolder> = {
+  asset: AudioAssetReference<Folder> | null;
+  volume: number;
+  pitch: number;
+  pan: number;
 };
 
 export type LocationInfoType =
   | "terrainTag"
   | "eventId"
-  | "tileIdLayer1"
-  | "tileIdLayer2"
-  | "tileIdLayer3"
-  | "tileIdLayer4"
+  | "tileLayer1"
+  | "tileLayer2"
+  | "tileLayer3"
+  | "tileLayer4"
   | "regionId";
 
 export type ConditionalVariableOperator = "eq" | "ge" | "le" | "gt" | "lt" | "ne";
@@ -361,7 +355,7 @@ export type ConditionalBranchCondition =
       kind: "variable";
       variable: ReferenceValue<"variable">;
       operator: ConditionalVariableOperator;
-      value: number | ReferenceValue<"variable">;
+      value: ConstantOperand | VariableOperand;
     }
   | {
       kind: "selfSwitch";
@@ -387,12 +381,12 @@ export type ConditionalBranchCondition =
     }
   | {
       kind: "enemy";
-      enemyIndex: number;
+      enemy: Extract<EnemyCommandTarget, { target: "enemy" }>;
       check: { kind: "appeared" } | { kind: "state"; state: ReferenceValue<"state"> };
     }
   | {
       kind: "character";
-      characterId: number;
+      target: CharacterRuntimeSelector;
       direction: 2 | 4 | 6 | 8;
     }
   | {
@@ -407,12 +401,12 @@ export type ConditionalBranchCondition =
   | {
       kind: "weapon";
       weapon: ReferenceValue<"weapon">;
-      includeEquipment?: boolean;
+      includeEquipment: boolean;
     }
   | {
       kind: "armor";
       armor: ReferenceValue<"armor">;
-      includeEquipment?: boolean;
+      includeEquipment: boolean;
     }
   | {
       kind: "button";
@@ -491,11 +485,7 @@ export function isScriptInput(value: unknown): value is ScriptInput {
   }
 
   const candidate = value as { kind?: unknown; code?: unknown };
-  return (
-    candidate.kind === "scriptInput" &&
-    typeof candidate.code === "string" &&
-    candidate.code.length > 0
-  );
+  return candidate.kind === "scriptInput" && typeof candidate.code === "string";
 }
 
 export function createReference<TKind extends ReferenceKind>(
