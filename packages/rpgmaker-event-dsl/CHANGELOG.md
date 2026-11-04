@@ -8,6 +8,8 @@ minor releases.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-04
+
 ### Added
 
 - Added Troop Event declarations with complete Battle Event Pages and explicit,

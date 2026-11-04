@@ -8,6 +8,8 @@ minor releases.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-04
+
 ### Added
 
 - Added Troop Event declarations with complete Battle Event Pages and explicit,
@@ -41,6 +43,8 @@ minor releases.
   module facades and their internal compatibility imports.
 - Restricted the package root to Event DSL authoring exports and added the
   `rpgmaker-event-dsl/workspace` programmatic Workspace entry point.
+- Replaced acceptance-manifest and evidence-receipt test wrappers with ordinary
+  regression tests, and kept local scratch and test-output directories out of `main`.
 
 ## [0.1.2] - 2026-07-02
 
